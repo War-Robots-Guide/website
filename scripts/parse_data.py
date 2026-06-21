@@ -254,9 +254,11 @@ def parse_weapons_dps():
 # ----------------------------------------------------
 def parse_tiers():
     docx_path = find_file_case_insensitive("Tiers.docx")
+    if not os.path.exists(docx_path):
+        docx_path = find_file_case_insensitive("Tier List Rationales.docx")
     xlsx_path = find_file_case_insensitive("WR tier lists.xlsx")
     
-    # Parse standard tiers and descriptions from Tiers.docx
+    # Parse standard tiers and descriptions from Tiers.docx / Tier List Rationales.docx
     doc = Document(docx_path)
     
     categories = ["Robots", "Titans", "Drones", "Motherships", "Mothership Turrets", "Robot Weapons", "Titan Weapons"]
