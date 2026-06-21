@@ -539,8 +539,8 @@ function App() {
     let maxCycle = 1;
     
     compareList.forEach(w => {
-      const bDps = parseFloat(w.burst_dps) || 0;
-      const cDps = parseFloat(w.cycle_dps) || 0;
+      const bDps = Math.round(parseFloat(w.burst_dps)) || 0;
+      const cDps = Math.round(parseFloat(w.cycle_dps)) || 0;
       if (bDps > maxBurst) maxBurst = bDps;
       if (cDps > maxCycle) maxCycle = cDps;
     });
@@ -1481,10 +1481,10 @@ function App() {
                             </td>
                             <td style={{ fontWeight: 600, color: '#fff' }}>{weapon.name}</td>
                             <td style={{ textAlign: 'right', fontWeight: 600, color: 'var(--cyan)' }}>
-                              {parseFloat(weapon.burst_dps) ? parseFloat(weapon.burst_dps).toLocaleString() : weapon.burst_dps}
+                              {parseFloat(weapon.burst_dps) ? Math.round(parseFloat(weapon.burst_dps)).toLocaleString() : weapon.burst_dps}
                             </td>
                             <td style={{ textAlign: 'right', fontWeight: 600, color: 'var(--purple)' }}>
-                              {parseFloat(weapon.cycle_dps) ? parseFloat(weapon.cycle_dps).toLocaleString() : weapon.cycle_dps}
+                              {parseFloat(weapon.cycle_dps) ? Math.round(parseFloat(weapon.cycle_dps)).toLocaleString() : weapon.cycle_dps}
                             </td>
                             <td>
                               <span className="role-badge primary" style={{ display: 'inline-flex', padding: '2px 6px', background: 'rgba(255,255,255,0.03)', color: '#fff', border: '1px solid var(--border-light)' }}>
@@ -1522,8 +1522,8 @@ function App() {
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '12px' }}>
                     {compareList.map(weapon => {
-                      const bDps = parseFloat(weapon.burst_dps) || 0;
-                      const cDps = parseFloat(weapon.cycle_dps) || 0;
+                      const bDps = Math.round(parseFloat(weapon.burst_dps)) || 0;
+                      const cDps = Math.round(parseFloat(weapon.cycle_dps)) || 0;
                       
                       const burstPercent = Math.max(5, (bDps / maxDpsValues.burst) * 100);
                       const cyclePercent = Math.max(5, (cDps / maxDpsValues.cycle) * 100);
@@ -1540,7 +1540,7 @@ function App() {
                             <div className="chart-track">
                               <div className="chart-track-fill" style={{ width: `${burstPercent}%` }}>
                                 <span className="chart-value-label">
-                                  Burst: {bDps > 0 ? bDps.toLocaleString() : weapon.burst_dps}
+                                  Burst: {bDps > 0 ? bDps.toLocaleString() : (parseFloat(weapon.burst_dps) ? Math.round(parseFloat(weapon.burst_dps)).toLocaleString() : weapon.burst_dps)}
                                 </span>
                               </div>
                             </div>
@@ -1549,7 +1549,7 @@ function App() {
                             <div className="chart-track">
                               <div className="chart-track-fill cycle" style={{ width: `${cyclePercent}%` }}>
                                 <span className="chart-value-label">
-                                  Cycle: {cDps > 0 ? cDps.toLocaleString() : weapon.cycle_dps}
+                                  Cycle: {cDps > 0 ? cDps.toLocaleString() : (parseFloat(weapon.cycle_dps) ? Math.round(parseFloat(weapon.cycle_dps)).toLocaleString() : weapon.cycle_dps)}
                                 </span>
                               </div>
                             </div>
@@ -1962,11 +1962,15 @@ function App() {
                         <>
                           <div>
                             <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>BURST DPS</span>
-                            <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--cyan)' }}>{dpsInfo.burst_dps.toLocaleString()}</span>
+                            <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--cyan)' }}>
+                              {parseFloat(dpsInfo.burst_dps) ? Math.round(parseFloat(dpsInfo.burst_dps)).toLocaleString() : dpsInfo.burst_dps}
+                            </span>
                           </div>
                           <div>
                             <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>CYCLE DPS</span>
-                            <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--purple)' }}>{dpsInfo.cycle_dps.toLocaleString()}</span>
+                            <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--purple)' }}>
+                              {parseFloat(dpsInfo.cycle_dps) ? Math.round(parseFloat(dpsInfo.cycle_dps)).toLocaleString() : dpsInfo.cycle_dps}
+                            </span>
                           </div>
                           <div>
                             <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>RANGE</span>
