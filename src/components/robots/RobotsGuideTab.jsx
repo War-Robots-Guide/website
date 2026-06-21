@@ -62,7 +62,7 @@ export function RobotsGuideTab() {
       </div>
 
       {/* Sub Tabs: Robots vs Titans */}
-      <div className="tab-pills" style={{ maxWidth: '300px' }}>
+      <div className="tab-pills" style={{ width: 'fit-content' }}>
         <button 
           className={`tab-pill ${guideSubTab === 'robots' ? 'active' : ''}`} 
           onClick={() => { setGuideSubTab('robots'); setRobotRoleFilter('All'); setRobotValueFilter('All'); setSearchInput(''); setSearchQuery(''); }}

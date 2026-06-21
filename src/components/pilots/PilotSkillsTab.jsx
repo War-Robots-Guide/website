@@ -20,7 +20,7 @@ export function PilotSkillsTab() {
       </div>
 
       {/* Sub Tabs: Robots vs Titans */}
-      <div className="tab-pills" style={{ maxWidth: '300px' }}>
+      <div className="tab-pills" style={{ width: 'fit-content' }}>
         <button 
           className={`tab-pill ${pilotSubTab === 'robots' ? 'active' : ''}`} 
           onClick={() => setPilotSubTab('robots')}
