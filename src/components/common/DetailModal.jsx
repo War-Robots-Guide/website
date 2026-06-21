@@ -1,0 +1,155 @@
+import { X } from 'lucide-react';
+import weaponsDpsData from '../../data/weapons_dps.json';
+import robotGuideData from '../../data/robot_guide.json';
+import { RatingBar } from './RatingBar';
+import { ScoreMeter } from './ScoreMeter';
+
+export function DetailModal({ selectedItem, onClose }) {
+  if (!selectedItem) return null;
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content text-left" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header">
+          <div>
+            <span className="spec-class-tag" style={{ background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)', marginBottom: '4px', display: 'inline-block' }}>
+              {selectedItem.type}
+            </span>
+            <h3 style={{ fontSize: '22px' }}>{selectedItem.name}</h3>
+          </div>
+          <button className="modal-close-btn" onClick={onClose}>
+            <X size={20} />
+          </button>
+        </div>
+        
+        <div className="modal-body">
+          {/* Detailed Reasoning */}
+          <div style={{ marginBottom: '20px' }}>
+            <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>
+              Community Critique & Reasoning:
+            </span>
+            <p style={{ color: 'var(--text-primary)', fontSize: '14.5px', lineHeight: 1.6 }}>
+              {selectedItem.data.description}
+            </p>
+          </div>
+
+          {/* Extra context if available */}
+          {/* For weapons */}
+          {selectedItem.type.includes('Weapons') && (
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
+              {(() => {
+                // Try to search weapon in weapons_dps.json
+                let dpsInfo = null;
+                if (weaponsDpsData) {
+                  Object.keys(weaponsDpsData).forEach(k => {
+                    const found = weaponsDpsData[k].find(w => w.name.toLowerCase() === selectedItem.name.toLowerCase() || selectedItem.name.toLowerCase().includes(w.name.toLowerCase()));
+                    if (found) dpsInfo = found;
+                  });
+                }
+                if (dpsInfo) {
+                  return (
+                    <>
+                      <div>
+                        <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>BURST DPS</span>
+                        <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--cyan)' }}>
+                          {parseFloat(dpsInfo.burst_dps) ? Math.round(parseFloat(dpsInfo.burst_dps)).toLocaleString() : dpsInfo.burst_dps}
+                        </span>
+                      </div>
+                      <div>
+                        <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>CYCLE DPS</span>
+                        <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--purple)' }}>
+                          {parseFloat(dpsInfo.cycle_dps) ? Math.round(parseFloat(dpsInfo.cycle_dps)).toLocaleString() : dpsInfo.cycle_dps}
+                        </span>
+                      </div>
+                      <div>
+                        <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>RANGE</span>
+                        <span style={{ fontSize: '14px', fontWeight: 600 }}>{dpsInfo.range}</span>
+                      </div>
+                      {dpsInfo.notes && (
+                        <div style={{ gridColumn: 'span 2', marginTop: '8px' }}>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>DPS CALC NOTES</span>
+                          <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.4 }}>{dpsInfo.notes}</p>
+                        </div>
+                      )}
+                    </>
+                  );
+                }
+                return null;
+              })()}
+            </div>
+          )}
+
+          {/* For robots */}
+          {selectedItem.type === 'Robots' && (
+            <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
+              {(() => {
+                const rob = robotGuideData?.robots?.find(r => r.name.toLowerCase().trim() === selectedItem.name.toLowerCase().trim() || selectedItem.name.toLowerCase().includes(r.name.toLowerCase()));
+                if (rob) {
+                  return (
+                    <>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                        <div>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>VALUE RATING (F2P Return)</span>
+                          <RatingBar rating={rob.value_rating} unitType="robot" />
+                        </div>
+                        <div>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>RATED TIER SHEET</span>
+                          <span className="role-badge primary" style={{ display: 'inline-flex', padding: '2px 8px' }}>{rob.sheet}</span>
+                        </div>
+                      </div>
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>DETAILED ATTRIBUTE RATINGS (-2 to +3)</span>
+                      <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
+                        <ScoreMeter label="Longevity" score={rob.scores.longevity} />
+                        <ScoreMeter label="Lethality" score={rob.scores.lethality} />
+                        <ScoreMeter label="Mobility" score={rob.scores.mobility} />
+                        <ScoreMeter label="Utility" score={rob.scores.utility} />
+                        <ScoreMeter label="Accessibility" score={rob.scores.accessibility} />
+                        <ScoreMeter label="Overall Score" score={rob.scores.overall} />
+                      </div>
+                    </>
+                  );
+                }
+                return null;
+              })()}
+            </div>
+          )}
+
+          {/* For titans */}
+          {selectedItem.type === 'Titans' && (
+            <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
+              {(() => {
+                const titan = robotGuideData?.titans?.find(t => t.name.toLowerCase().trim() === selectedItem.name.toLowerCase().trim() || selectedItem.name.toLowerCase().includes(t.name.toLowerCase()));
+                if (titan) {
+                  return (
+                    <>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                        <div>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>VALUE RATING (F2P Return)</span>
+                          <RatingBar rating={titan.value_rating} unitType="titan" />
+                        </div>
+                        <div>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>RATED TIER</span>
+                          <span className="role-badge secondary" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(168, 85, 247, 0.1)', color: 'var(--purple)', borderColor: 'rgba(168, 85, 247, 0.2)' }}>Titan Class</span>
+                        </div>
+                      </div>
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>DETAILED ATTRIBUTE RATINGS (-2 to +3)</span>
+                      <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
+                        <ScoreMeter label="Longevity" score={titan.scores.longevity} />
+                        <ScoreMeter label="Lethality" score={titan.scores.lethality} />
+                        <ScoreMeter label="Mobility" score={titan.scores.mobility} />
+                        <ScoreMeter label="Utility" score={titan.scores.utility} />
+                        <ScoreMeter label="Accessibility" score={titan.scores.accessibility} />
+                        <ScoreMeter label="Overall Score" score={titan.scores.overall} />
+                      </div>
+                    </>
+                  );
+                }
+                return null;
+              })()}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
