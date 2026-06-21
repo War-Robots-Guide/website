@@ -183,6 +183,7 @@ def parse_specializations():
                 mode = "conclusion"
             elif text == "Intro":
                 mode = "intro"
+                intro_paragraphs.append(f"### {text}")
             elif text in ["What specialization class does my robot use?", "Passive upgrades"]:
                 # These are subheadings in intro
                 mode = "intro"
