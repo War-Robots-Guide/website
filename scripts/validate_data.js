@@ -64,12 +64,6 @@ function expectNonEmptyString(value, path) {
   }
 }
 
-function expectStringOrNumber(value, path) {
-  if (typeof value !== 'string' && typeof value !== 'number') {
-    addError(path, 'expected a string or number');
-  }
-}
-
 // Accept strings that are explicitly "N/A" or hyphen, or actual numbers
 function expectDpsValue(value, path) {
   if (typeof value === 'string') {
@@ -77,12 +71,6 @@ function expectDpsValue(value, path) {
       addError(path, `expected numeric value or 'N/A'/'-', got '${value}'`);
     }
   } else if (typeof value !== 'number' || Number.isNaN(value)) {
-    addError(path, 'expected a number');
-  }
-}
-
-function expectNumber(value, path) {
-  if (typeof value !== 'number' || Number.isNaN(value)) {
     addError(path, 'expected a number');
   }
 }

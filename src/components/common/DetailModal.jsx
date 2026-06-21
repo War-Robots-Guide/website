@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { X } from 'lucide-react';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import robotGuideData from '../../data/robot_guide.json';
@@ -5,19 +6,34 @@ import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
 
 export function DetailModal({ selectedItem, onClose }) {
+  useEffect(() => {
+    if (!selectedItem) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedItem, onClose]);
+
   if (!selectedItem) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div 
+      className="modal-overlay" 
+      onClick={onClose} 
+      role="dialog" 
+      aria-modal="true" 
+      aria-labelledby="modal-title"
+    >
       <div className="modal-content text-left" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div>
             <span className="spec-class-tag" style={{ background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)', marginBottom: '4px', display: 'inline-block' }}>
               {selectedItem.type}
             </span>
-            <h3 style={{ fontSize: '22px' }}>{selectedItem.name}</h3>
+            <h3 id="modal-title" style={{ fontSize: '22px' }}>{selectedItem.name}</h3>
           </div>
-          <button className="modal-close-btn" onClick={onClose}>
+          <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
             <X size={20} />
           </button>
         </div>

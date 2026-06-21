@@ -1,10 +1,6 @@
 {
   "changelog": [
     {
-      "date": "2024-09-24",
-      "text": "Updates for 10.4 megapatch: Curie +1 Accessibility, -1 Lethality, -1 Longevity. Raptor Lethality -1. Shenlou Longevity -1. - Mistermath"
-    },
-    {
       "date": "2024-11-06",
       "text": "Updates for data pad update, Dux, Condor, and bot re-evaluations: Dagon -1 Longevity, Ophion +1 Lethality, Shenlou +1 Accessibility, Dux added at total +1, Condor added at total +1. - Mistermath"
     },

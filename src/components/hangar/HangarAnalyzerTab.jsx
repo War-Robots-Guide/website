@@ -208,6 +208,15 @@ export function HangarAnalyzerTab() {
                 transition: 'all 0.3s ease'
               }}
               onClick={() => handleOpenSelector(idx)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleOpenSelector(idx);
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Select robot for slot ${idx + 1}`}
             >
               <div style={{ fontSize: '32px', color: 'var(--text-muted)', marginBottom: '8px' }}>+</div>
               <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: 600 }}>ROBOT SLOT {idx + 1}</span>
@@ -282,6 +291,15 @@ export function HangarAnalyzerTab() {
               background: 'rgba(168, 85, 247, 0.02)'
             }}
             onClick={() => handleOpenSelector(5)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleOpenSelector(5);
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="Select Titan"
           >
             <div style={{ fontSize: '32px', color: 'var(--purple)', marginBottom: '8px' }}>+</div>
             <span style={{ fontSize: '13px', color: 'var(--purple)', fontWeight: 700 }}>TITAN SLOT</span>
