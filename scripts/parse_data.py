@@ -387,21 +387,12 @@ def parse_tiers():
 def parse_robot_guide():
     filepath = find_file_case_insensitive("Copy of A Simplified Robot Guide for New Players.xlsx")
     
-    # Parse changelog
-    df_changes = pd.read_excel(filepath, sheet_name="Changes Log")
-    changelog = []
-    # Columns are Date, Update
-    # Let's read row by row
-    for col in df_changes.columns:
-        # First column is date, second is text
-        pass
-    
-    # The columns might be parsed as date objects. Let's iterate using openpyxl for safety and exact text
     wb = openpyxl.load_workbook(filepath, data_only=True)
     
-    # 5.1 Parse Changelog
+    # 5.1 Parse Changelog (start at row 2 to skip headers)
+    changelog = []
     changes_sheet = wb["Changes Log"]
-    for r in range(1, changes_sheet.max_row + 1):
+    for r in range(2, changes_sheet.max_row + 1):
         d_val = changes_sheet.cell(row=r, column=1).value
         txt_val = changes_sheet.cell(row=r, column=2).value
         if d_val and txt_val:
@@ -503,7 +494,10 @@ def parse_robot_guide():
             left_bot = sheet.cell(row=r, column=1).value
             left_rating = sheet.cell(row=r, column=2).value
             if left_bot is not None and left_rating is not None:
-                left_ratings[str(left_bot).strip()] = int(left_rating)
+                try:
+                    left_ratings[str(left_bot).strip()] = int(float(left_rating))
+                except (ValueError, TypeError):
+                    left_ratings[str(left_bot).strip()] = 0
                 
             right_bot = sheet.cell(row=r, column=4).value
             if right_bot is not None:
@@ -563,7 +557,10 @@ def parse_robot_guide():
         left_t = titans_sheet.cell(row=r, column=1).value
         left_rating = titans_sheet.cell(row=r, column=2).value
         if left_t is not None and left_rating is not None:
-            left_titan_ratings[str(left_t).strip()] = int(left_rating)
+            try:
+                left_titan_ratings[str(left_t).strip()] = int(float(left_rating))
+            except (ValueError, TypeError):
+                left_titan_ratings[str(left_t).strip()] = 0
             
         right_t = titans_sheet.cell(row=r, column=4).value
         if right_t is not None:
