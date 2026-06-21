@@ -1929,7 +1929,7 @@ function App() {
                   {/* Core Hangar Roles Profile */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
-                      Core Hangar Roles (Suggested for 5 Bots)
+                      Core Hangar Roles
                     </div>
 
                     {CORE_ROLES_CONFIG.map(role => {
@@ -1965,10 +1965,10 @@ function App() {
                     })}
                   </div>
 
-                  {/* Silver Bullets & Tech Options */}
+                  {/* Additional Hangar Roles */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
                     <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
-                      Silver Bullets & Tech Options (Late Game / MK2.1+)
+                      Additional Hangar Roles
                     </div>
                     
                     <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
