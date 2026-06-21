@@ -339,15 +339,6 @@ function App() {
                   <div className="stat-label">Mini hangar builds</div>
                 </div>
               </div>
-              <div className="glass-panel stat-card">
-                <div className="stat-icon"><UserCheck size={24} /></div>
-                <div>
-                  <div className="stat-number" style={{ fontSize: '13px', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: '170px' }}>
-                    {stats.latestChange.date}
-                  </div>
-                  <div className="stat-label">Last Database Sync</div>
-                </div>
-              </div>
             </div>
 
             {/* Top Grid layout */}
