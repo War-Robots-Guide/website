@@ -1233,15 +1233,6 @@ function App() {
                       ))}
                     </div>
 
-                    {currentSpecNode.result.note && (
-                      <div className="spec-result-note-box">
-                        <Sparkles size={16} className="spec-result-note-icon" />
-                        <div>
-                          <strong>Build Recommendation Tip:</strong> {currentSpecNode.result.note}
-                        </div>
-                      </div>
-                    )}
-
                     <button className="spec-reset-btn" onClick={() => setSpecPath([])}>
                       <RefreshCw size={14} />
                       Reset & Start Over
