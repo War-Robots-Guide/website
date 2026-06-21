@@ -742,61 +742,6 @@
       "pilot": "Baek Taejun",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift or SB",
       "explanation": "A more accessable support due to the lack of good f2p snipers in the meta."
-    },
-    {
-      "build_name": "*F2P Weapons are weapons that are obtainable through workshop or black market",
-      "robot": "Some guides simply suggest using \"UE Setups\". This is what is meant by that.",
-      "f2p_weapons": "",
-      "f2p_drones": "",
-      "best_weapons": "",
-      "best_drones": "",
-      "pilot": "",
-      "specialization": "",
-      "explanation": ""
-    },
-    {
-      "build_name": "\"Midrange\"",
-      "robot": "Pulsar, Ion, Arms, Molot/Tempest, Shocktrain, Wasp",
-      "f2p_weapons": "",
-      "f2p_drones": "",
-      "best_weapons": "",
-      "best_drones": "",
-      "pilot": "",
-      "specialization": "",
-      "explanation": ""
-    },
-    {
-      "build_name": "\"Burst\"",
-      "robot": "Storm, Devastator, Havoc, Scatter, Glory, Corona, Halo, Cryo",
-      "f2p_weapons": "",
-      "f2p_drones": "",
-      "best_weapons": "",
-      "best_drones": "",
-      "pilot": "",
-      "specialization": "",
-      "explanation": ""
-    },
-    {
-      "build_name": "\"Close Range\"",
-      "robot": "\"Burst\", Calmity/Scourge, Orkan, Punisher/Avenger, Blaze/Igniter, Shredder, Redeemer/Taran",
-      "f2p_weapons": "",
-      "f2p_drones": "",
-      "best_weapons": "",
-      "best_drones": "",
-      "pilot": "",
-      "specialization": "",
-      "explanation": ""
-    },
-    {
-      "build_name": "\"Any\"",
-      "robot": "Anything goes. Exceptions: Hussar + Dragoon are worse than f2p weapons, Vortex is niche and only reccomended on pathfinder",
-      "f2p_weapons": "",
-      "f2p_drones": "",
-      "best_weapons": "",
-      "best_drones": "",
-      "pilot": "",
-      "specialization": "",
-      "explanation": ""
     }
   ],
   "robots": [

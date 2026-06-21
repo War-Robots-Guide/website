@@ -420,6 +420,11 @@ def parse_robot_guide():
     for r in range(2, builds_sheet.max_row + 1):
         bname = builds_sheet.cell(row=r, column=1).value
         bot = builds_sheet.cell(row=r, column=2).value
+        
+        bname_str = str(bname).strip() if bname else ""
+        if bname_str.startswith("*") or bname_str.startswith("UE Index") or "f2p weapons" in bname_str.lower():
+            break
+            
         if bname and bot:
             builds.append({
                 "build_name": str(bname).strip(),
