@@ -34,8 +34,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier", content: "Charges damage and defense mitigation over time by dealing damage." },
                       { name: "Slot 2: Rangefinder", content: "Provides raw damage scaling that increases with target distance, perfect for sniper builds." }
-                    ],
-                    note: "Perfect for long-range support and sniper builds operating at safe distances."
+                    ]
                   }
                 },
                 {
@@ -45,8 +44,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier", content: "Charges damage and defense mitigation over time by dealing damage." },
                       { name: "Slot 2: Overdrive Unit", content: "Provides massive static damage bonuses that trigger when your robot's health drops below a threshold." }
-                    ],
-                    note: "Best for frontline damage dealers and burst-oriented builds."
+                    ]
                   }
                 },
                 {
@@ -56,8 +54,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier", content: "Charges damage and defense mitigation over time by dealing damage." },
                       { name: "Slot 2: Power Unit / Titan Slayer", content: "Enhances active ability runtimes or gives crucial damage multiplier spikes when fighting enemy Titans." }
-                    ],
-                    note: "Designed for fast beacon runners who double as high-threat titan hunters."
+                    ]
                   }
                 }
               ]
@@ -82,8 +79,7 @@ const specTree = {
                           slots: [
                             { name: "Slot 1: Repair Amplifier", content: "Restores durability, heals grey damage, and increases defense points as you receive damage." },
                             { name: "Slot 2: Immune Amplifier", content: "Protects against status effects (lock-down, suppression, freeze) and grants permanent max health boosts." }
-                          ],
-                          note: "Best generic brawler loadout to survive in high-status combat environments."
+                          ]
                         }
                       },
                       {
@@ -93,8 +89,7 @@ const specTree = {
                           slots: [
                             { name: "Slot 1: Repair Amplifier", content: "Restores durability, heals grey damage, and increases defense points as you receive damage." },
                             { name: "Slot 2: Last Stand", content: "Grants brief invulnerability when health drops to critical levels, letting you stall on beacons." }
-                          ],
-                          note: "Clutch option for beacon defenders to buy time for incoming teammate rotations."
+                          ]
                         }
                       }
                     ]
@@ -107,8 +102,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Heavy Armor Kit", content: "Provides flat, passive durability increases from the start of the match." },
                       { name: "Slot 2: Repair Amplifier", content: "Charges healing and defense boosts as you absorb damage, helping you sponge hits." }
-                    ],
-                    note: "Recommended for high-base health tanks (like Fenrir or Invader) that rely on pure durability stats."
+                    ]
                   }
                 }
               ]
@@ -121,8 +115,7 @@ const specTree = {
               slots: [
                 { name: "Slot 1: Accelerator", content: "Provides raw speed increases to reach allies and position supportive abilities quickly." },
                 { name: "Slot 2: Last Stand", content: "Guarantees crucial survival frames under heavy focus, allowing you to deploy healing pulses." }
-              ],
-              note: "Keeps support robots active and moving between squad members."
+              ]
             }
           },
           {
@@ -132,8 +125,7 @@ const specTree = {
               slots: [
                 { name: "Slot 1: Beacon Operator", content: "Accelerates beacon capture rates and scales up defenses while active on objective circles." },
                 { name: "Slot 2: Accelerator", content: "Gives significant speed boosts to bypass fights and capture open territory." }
-              ],
-              note: "Focuses purely on capture mechanics and movement velocity for Domination/Beacon Rush modes."
+              ]
             }
           },
           {
@@ -149,8 +141,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Thermonuke / Piercer", content: "Increases passive damage or defense mitigation to assassinate targets in stealth intervals." },
                       { name: "Slot 2: Thermonuke / Piercer", content: "Stacks offensive buffs to guarantee quick eliminations on squishy targets." }
-                    ],
-                    note: "Perfect for hit-and-run glass-cannon assassin setups."
+                    ]
                   }
                 },
                 {
@@ -160,8 +151,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Anticontrol", content: "Instantly cleanses and blocks freeze, lock-down, and suppression effects." },
                       { name: "Slot 2: Heavy Armor Kit", content: "Increases raw health pool to survive retaliatory strikes after executing an ambush." }
-                    ],
-                    note: "Ensures you retain complete mobility and can escape successfully after your attack window closes."
+                    ]
                   }
                 }
               ]
@@ -189,8 +179,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier", content: "Charges up Titan damage output and grants defense mitigation upon striking enemies." },
                       { name: "Slot 2: Overdrive", content: "Multiplies offensive capabilities when health falls below specific operational thresholds." }
-                    ],
-                    note: "Maximizes sustained fire damage potential for aggressive Titan builds."
+                    ]
                   }
                 },
                 {
@@ -200,8 +189,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier", content: "Charges up Titan damage output and grants defense mitigation upon striking enemies." },
                       { name: "Slot 2: Cannibal Reactor", content: "Deals massive bonus damage specifically when targetting other Titan units." }
-                    ],
-                    note: "Excellent choice for snipers and tank hunters looking to shred enemy Titans."
+                    ]
                   }
                 }
               ]
@@ -220,8 +208,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Repair Amplifier", content: "Restores durability, heals grey damage, and increases defense points as you absorb damage." },
                       { name: "Slot 2: Anticontrol", content: "Immunes your Titan to freeze, blindness, lock-down, and suppression effects in close range." }
-                    ],
-                    note: "Crucial for frontline brawler Titans to prevent getting neutralized by status effects."
+                    ]
                   }
                 },
                 {
@@ -231,8 +218,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Repair Amplifier", content: "Restores durability, heals grey damage, and increases defense points as you absorb damage." },
                       { name: "Slot 2: Last Stand", content: "Grants brief invulnerability frames when durability reaches critical levels." }
-                    ],
-                    note: "Maximizes stall time on beacons and force-absorbs enemy fire."
+                    ]
                   }
                 }
               ]
@@ -245,8 +231,7 @@ const specTree = {
               slots: [
                 { name: "Slot 1: Onslaught Reactor", content: "Grants high bonus damage scaling against both standard robots and enemy Titans." },
                 { name: "Slot 2: Quantum Sensor", content: "Enables direct targeting of stealth-active units within a designated sensor range." }
-              ],
-              note: "Strong counter-meta build choice to shut down elusive stealth opponents."
+              ]
             }
           },
           {
@@ -255,8 +240,7 @@ const specTree = {
             result: {
               slots: [
                 { name: "AVOID SPECIALIZATION", content: "We strongly advise avoiding defensive-slot specializations on Defense Titans. Focus on active abilities and passive stats." }
-              ],
-              note: "Defense-class slot specializations on Titans generally offer lower return-on-investment compared to other modules."
+              ]
             }
           },
           {
@@ -271,8 +255,7 @@ const specTree = {
                   result: {
                     slots: [
                       { name: "Slot 1: Highly Modular", content: "Ultimate Titans feature flexible, modular slot options. Build custom slots according to current combat meta needs." }
-                    ],
-                    note: "Customize modules dynamically to complement current hangar compositions."
+                    ]
                   }
                 },
                 {
@@ -282,8 +265,7 @@ const specTree = {
                     slots: [
                       { name: "Slot 1: Flexible Module", content: "Setup according to main weapon requirements." },
                       { name: "Slot 2: AVOID Grand Balanced Reactor", content: "Avoid utilizing Grand Balanced Reactor in Slot 2 due to suboptimal stat scaling on this build path." }
-                    ],
-                    note: "Grand Balanced Reactor underperforms in Slot 2 for this specialization path."
+                    ]
                   }
                 }
               ]
@@ -1329,9 +1311,6 @@ function App() {
                             <Zap size={14} />
                             {slot.name}
                           </div>
-                          <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.5 }}>
-                            {slot.content}
-                          </p>
                         </div>
                       ))}
                     </div>
