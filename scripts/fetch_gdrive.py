@@ -56,14 +56,16 @@ def download_folder_files():
         
         for file in files:
             file_id = file["id"]
-            file_name = file["name"]
+            raw_file_name = file["name"]
             mime_type = file["mimeType"]
             
             # Skip subfolders
             if mime_type == "application/vnd.google-apps.folder":
-                print(f"Skipping subfolder: {file_name}")
+                print(f"Skipping subfolder: {raw_file_name}")
                 continue
                 
+            # Sanitize filename to avoid folder structure errors due to slashes in GDrive names
+            file_name = raw_file_name.replace("/", "_").replace("\\", "_")
             dest_path = os.path.join(TARGET_DIR, file_name)
             
             # Download file

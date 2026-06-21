@@ -3,7 +3,7 @@ name: Deploy War Robots Guide Website
 on:
   push:
     branches:
-      - main
+      - master
   schedule:
     # Run daily at midnight UTC to check for Google Drive updates
     - cron: '0 0 * * *'
