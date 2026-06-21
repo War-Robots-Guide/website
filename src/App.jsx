@@ -2028,19 +2028,28 @@ function App() {
                     </div>
 
                     {/* Additional Roles Recommendation Note */}
-                    <div style={{ 
-                      fontSize: '12.5px', 
-                      color: 'var(--text-secondary)', 
-                      background: 'rgba(255,255,255,0.02)', 
-                      padding: '12px', 
-                      borderRadius: '8px', 
-                      border: '1px solid var(--border-light)',
-                      lineHeight: 1.6 
-                    }}>
-                      <div style={{ fontWeight: 600, color: 'var(--cyan)', marginBottom: '6px' }}>Target Extension Options:</div>
-                      - Additional <strong>1x Support</strong> (Current: {hangarAnalysis.scores['Support'] || 0} / 3)<br />
-                      - Additional <strong>1x Tank-buster</strong> (Current: {hangarAnalysis.scores['Tank-buster'] || 0} / 2)
-                    </div>
+                    {(() => {
+                      const supportTarget = CORE_ROLES_CONFIG.find(r => r.key === 'Support')?.target || 2;
+                      const tankBusterTarget = CORE_ROLES_CONFIG.find(r => r.key === 'Tank-buster')?.target || 1;
+                      const supportScore = hangarAnalysis.scores['Support'] || 0;
+                      const tankBusterScore = hangarAnalysis.scores['Tank-buster'] || 0;
+
+                      return (
+                        <div style={{ 
+                          fontSize: '12.5px', 
+                          color: 'var(--text-secondary)', 
+                          background: 'rgba(255,255,255,0.02)', 
+                          padding: '12px', 
+                          borderRadius: '8px', 
+                          border: '1px solid var(--border-light)',
+                          lineHeight: 1.6 
+                        }}>
+                          <div style={{ fontWeight: 600, color: 'var(--cyan)', marginBottom: '6px' }}>Target Extension Options:</div>
+                          - Additional <strong>1x Support</strong> (Current: {supportScore.toFixed(1)} / {supportTarget + 1})<br />
+                          - Additional <strong>1x Tank-buster</strong> (Current: {tankBusterScore.toFixed(1)} / {tankBusterTarget + 1})
+                        </div>
+                      );
+                    })()}
                   </div>
                 </div>
               </div>
