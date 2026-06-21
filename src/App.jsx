@@ -400,47 +400,6 @@ function App() {
       }
     });
 
-    let grade = 'N/A';
-    let gradeColor = 'var(--text-muted)';
-    let gradeDesc = 'Awaiting selection...';
-
-    if (selectedCount > 0) {
-      const hasBrawler = scores['Brawler'] >= 0.5;
-      const hasBeaconRunner = (scores['Beacon Runner'] + scores['Assassin']) >= 0.5;
-      const hasSupport = scores['Support'] >= 0.5;
-      const rangeCount = scores['Sniper'] + scores['Midrange'];
-      const tooManySnipers = rangeCount > 2;
-
-      let scorePoints = 0;
-      if (hasBrawler) scorePoints += 2;
-      if (hasBeaconRunner) scorePoints += 2;
-      if (hasSupport) scorePoints += 1;
-      if (!tooManySnipers) scorePoints += 1;
-      scorePoints += Math.min(2, selectedCount * 0.4);
-
-      if (scorePoints >= 5.5 && hasBrawler && hasBeaconRunner) {
-        grade = 'S';
-        gradeColor = '#fbbf24';
-        gradeDesc = 'META SYNERGY - Extremely balanced hangar matching top competitive guidelines.';
-      } else if (scorePoints >= 4.5 && (hasBrawler || hasBeaconRunner)) {
-        grade = 'A';
-        gradeColor = '#a855f7';
-        gradeDesc = 'HIGH SYNERGY - Solid lineup covering major tactical roles. Great for general play.';
-      } else if (scorePoints >= 3.0) {
-        grade = 'B';
-        gradeColor = '#3b82f6';
-        gradeDesc = 'MODERATE SYNERGY - Decent setup but missing key frontline or runner elements.';
-      } else if (scorePoints >= 1.5) {
-        grade = 'C';
-        gradeColor = '#0d9488';
-        gradeDesc = 'LOW SYNERGY - Unbalanced layout. High risk of getting beacon-locked or overpowered.';
-      } else {
-        grade = 'D';
-        gradeColor = '#f97316';
-        gradeDesc = 'UNBALANCED - Heavy role deficits. Consider swapping for a broader mix of tactical roles.';
-      }
-    }
-
     const coreMetCount = CORE_ROLES_CONFIG.reduce((sum, role) => {
       const score = scores[role.key] || 0;
       return sum + Math.min(role.target, score);
@@ -453,9 +412,6 @@ function App() {
 
     return {
       scores,
-      grade,
-      gradeColor,
-      gradeDesc,
       selectedCount,
       coreMetCount,
       corePercent,
