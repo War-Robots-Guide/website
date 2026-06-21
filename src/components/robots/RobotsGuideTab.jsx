@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from '../common/RatingBar';
@@ -6,9 +6,19 @@ import { ScoreMeter } from '../common/ScoreMeter';
 
 export function RobotsGuideTab() {
   const [guideSubTab, setGuideSubTab] = useState('robots');
+  const [searchInput, setSearchInput] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [robotValueFilter, setRobotValueFilter] = useState('All');
   const [robotRoleFilter, setRobotRoleFilter] = useState('All');
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setSearchQuery(searchInput);
+    }, 250);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchInput]);
 
   const filteredRobots = useMemo(() => {
     if (!robotGuideData?.robots) return [];
@@ -53,10 +63,10 @@ export function RobotsGuideTab() {
 
       {/* Sub Tabs: Robots vs Titans */}
       <div className="tab-pills" style={{ maxWidth: '300px' }}>
-        <button className={`tab-pill ${guideSubTab === 'robots' ? 'active' : ''}`} onClick={() => { setGuideSubTab('robots'); setRobotRoleFilter('All'); setSearchQuery(''); }}>
+        <button className={`tab-pill ${guideSubTab === 'robots' ? 'active' : ''}`} onClick={() => { setGuideSubTab('robots'); setRobotRoleFilter('All'); setSearchInput(''); setSearchQuery(''); }}>
           Robots Guide
         </button>
-        <button className={`tab-pill ${guideSubTab === 'titans' ? 'active' : ''}`} onClick={() => { setGuideSubTab('titans'); setRobotRoleFilter('All'); setSearchQuery(''); }}>
+        <button className={`tab-pill ${guideSubTab === 'titans' ? 'active' : ''}`} onClick={() => { setGuideSubTab('titans'); setRobotRoleFilter('All'); setSearchInput(''); setSearchQuery(''); }}>
           Titans Guide
         </button>
       </div>
@@ -69,8 +79,8 @@ export function RobotsGuideTab() {
             type="text" 
             className="search-input" 
             placeholder={`Search ${guideSubTab}...`}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
           />
         </div>
 

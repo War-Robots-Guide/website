@@ -828,6 +828,11 @@
     border-right: none;
     border-bottom: 1px solid var(--border-light);
   }
+
+  .responsive-split {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
 }
 
 /* Interactive Spec Finder */

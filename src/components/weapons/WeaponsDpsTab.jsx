@@ -1,11 +1,21 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Search, BarChart2, X } from 'lucide-react';
 import weaponsDpsData from '../../data/weapons_dps.json';
 
 export function WeaponsDpsTab() {
   const [selectedWeaponClass, setSelectedWeaponClass] = useState('Heavy Weapons');
+  const [searchInput, setSearchInput] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [compareList, setCompareList] = useState([]); // Array of weapon objects
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setSearchQuery(searchInput);
+    }, 250);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchInput]);
 
   // Filtered weapons for table
   const filteredWeapons = useMemo(() => {
@@ -99,7 +109,7 @@ export function WeaponsDpsTab() {
             <button 
               key={wclass} 
               className={`tab-pill ${selectedWeaponClass === wclass ? 'active' : ''}`}
-              onClick={() => { setSelectedWeaponClass(wclass); setSearchQuery(''); }}
+              onClick={() => { setSelectedWeaponClass(wclass); setSearchInput(''); setSearchQuery(''); }}
             >
               {wclass.replace(' Weapons', '')}
             </button>
@@ -114,8 +124,8 @@ export function WeaponsDpsTab() {
               type="text" 
               className="search-input" 
               placeholder={`Search ${selectedWeaponClass.toLowerCase()}...`}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
             />
           </div>
         </div>
