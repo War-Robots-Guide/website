@@ -277,6 +277,33 @@ const specTree = {
   ]
 };
 
+const STATUS_COLORS = {
+  MET: {
+    color: '#10b981',
+    bg: 'rgba(16, 185, 129, 0.1)',
+    text: 'Met'
+  },
+  UNDERFILLED: {
+    color: '#fbbf24',
+    bg: 'rgba(251, 191, 36, 0.1)',
+    text: 'Underfilled'
+  },
+  MISSING: {
+    color: '#ef4444',
+    bg: 'rgba(239, 68, 68, 0.1)',
+    text: 'Missing'
+  }
+};
+
+const CORE_ROLES_CONFIG = [
+  { name: 'Support', target: 2, key: 'Support' },
+  { name: 'Beacon Runner', target: 1, key: 'Beacon Runner' },
+  { name: 'Midrange', target: 2, key: 'Midrange' },
+  { name: 'Tank-buster', target: 1, key: 'Tank-buster' }
+];
+
+const TOTAL_CORE_TARGETS = CORE_ROLES_CONFIG.reduce((sum, role) => sum + role.target, 0);
+
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [specPath, setSpecPath] = useState([]);
@@ -414,12 +441,25 @@ function App() {
       }
     }
 
+    const coreMetCount = CORE_ROLES_CONFIG.reduce((sum, role) => {
+      const score = scores[role.key] || 0;
+      return sum + Math.min(role.target, score);
+    }, 0);
+    const corePercent = Math.round((coreMetCount / TOTAL_CORE_TARGETS) * 100);
+    
+    let alignmentColor = STATUS_COLORS.MISSING.color;
+    if (corePercent >= 100) alignmentColor = STATUS_COLORS.MET.color;
+    else if (corePercent >= 50) alignmentColor = STATUS_COLORS.UNDERFILLED.color;
+
     return {
       scores,
       grade,
       gradeColor,
       gradeDesc,
-      selectedCount
+      selectedCount,
+      coreMetCount,
+      corePercent,
+      alignmentColor
     };
   }, [hangarRobots]);
 
@@ -632,26 +672,51 @@ function App() {
   // --------------------------------------------------
   // SCORE METER RENDERER (-2 to 3 scale)
   // --------------------------------------------------
-  const renderScoreMeter = (label, score) => {
-    // Math to scale -2 to 3 onto 0% to 100%
-    // Formula: (score - min) / (max - min) * 100
-    // min = -2, max = 3. Range = 5.
+  const renderScoreMeter = (label, score, options = {}) => {
+    const {
+      min = -2,
+      max = 3,
+      customValueLabel = null,
+      customPercentage = null,
+      customFillColor = null,
+      customBadge = null,
+      useScaleLabel = true
+    } = options;
+
     const scoreVal = parseInt(score) || 0;
-    const percentage = Math.max(0, Math.min(100, ((scoreVal - (-2)) / 5) * 100));
+    const percentage = customPercentage !== null 
+      ? customPercentage 
+      : Math.max(0, Math.min(100, ((scoreVal - min) / (max - min)) * 100));
     const isNegative = scoreVal < 0;
     
     return (
       <div className="score-bar-wrapper" key={label}>
         <div className="score-label">
           <span>{label}</span>
-          <span style={{ fontWeight: 700, color: isNegative ? '#ef4444' : '#10b981' }}>
-            {scoreVal > 0 ? `+${scoreVal}` : scoreVal}
-          </span>
+          {customValueLabel !== null ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+                {customValueLabel}
+              </span>
+              {customBadge}
+            </div>
+          ) : (
+            <span style={{ fontWeight: 700, color: isNegative && !customFillColor ? '#ef4444' : (customFillColor || '#10b981') }}>
+              {useScaleLabel ? (scoreVal > 0 ? `+${scoreVal}` : scoreVal) : scoreVal}
+            </span>
+          )}
         </div>
         <div className="score-track">
           <div 
-            className={`score-fill ${isNegative ? 'negative' : ''}`} 
-            style={{ width: `${percentage}%` }}
+            className={`score-fill ${isNegative && !customFillColor ? 'negative' : ''}`} 
+            style={{ 
+              width: `${percentage}%`,
+              ...(customFillColor ? { 
+                background: customFillColor,
+                boxShadow: scoreVal > 0 || percentage > 0 ? `0 0 6px ${customFillColor}` : 'none',
+                transition: 'width 0.5s ease'
+              } : {})
+            }}
           ></div>
         </div>
       </div>
@@ -1870,207 +1935,157 @@ function App() {
                   </h3>
 
                   {/* Tactical Synergy Rating Comparison */}
-                  {(() => {
-                    const supportScore = hangarAnalysis.scores['Support'] || 0;
-                    const runnerScore = hangarAnalysis.scores['Beacon Runner'] || 0;
-                    const midrangeScore = hangarAnalysis.scores['Midrange'] || 0;
-                    const tankBusterScore = hangarAnalysis.scores['Tank-buster'] || 0;
-                    
-                    const coreMetCount = Math.min(2, supportScore) + 
-                                         Math.min(1, runnerScore) + 
-                                         Math.min(2, midrangeScore) + 
-                                         Math.min(1, tankBusterScore);
-                    const corePercent = Math.round((coreMetCount / 6) * 100);
-                    
-                    let alignmentColor = '#ef4444';
-                    if (corePercent >= 100) alignmentColor = '#10b981';
-                    else if (corePercent >= 50) alignmentColor = '#fbbf24';
+                  {/* Alignment Score Badge */}
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '16px', 
+                    background: 'rgba(0,0,0,0.2)', 
+                    padding: '16px', 
+                    borderRadius: '12px',
+                    border: `1px solid ${hangarAnalysis.alignmentColor}40`
+                  }}>
+                    <div style={{ 
+                      fontSize: '18px', 
+                      fontWeight: 900, 
+                      color: hangarAnalysis.alignmentColor,
+                      textShadow: `0 0 12px ${hangarAnalysis.alignmentColor}`,
+                      width: '68px',
+                      height: '68px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: `${hangarAnalysis.alignmentColor}10`,
+                      borderRadius: '50%',
+                      border: `3px solid ${hangarAnalysis.alignmentColor}`,
+                      flexShrink: 0
+                    }}>
+                      {hangarAnalysis.corePercent}%
+                    </div>
+                    <div>
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', display: 'block' }}>Role Alignment</span>
+                      <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#fff', lineHeight: 1.4 }}>
+                        Core Hangar Role coverage compared to recommended target values.
+                      </p>
+                    </div>
+                  </div>
 
-                    return (
-                      <>
-                        {/* Alignment Score Badge */}
-                        <div style={{ 
-                          display: 'flex', 
-                          alignItems: 'center', 
-                          gap: '16px', 
-                          background: 'rgba(0,0,0,0.2)', 
-                          padding: '16px', 
-                          borderRadius: '12px',
-                          border: `1px solid ${alignmentColor}40`
-                        }}>
-                          <div style={{ 
-                            fontSize: '18px', 
-                            fontWeight: 900, 
-                            color: alignmentColor,
-                            textShadow: `0 0 12px ${alignmentColor}`,
-                            width: '68px',
-                            height: '68px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            background: `${alignmentColor}10`,
-                            borderRadius: '50%',
-                            border: `3px solid ${alignmentColor}`,
-                            flexShrink: 0
+                  {/* Core Hangar Roles Profile */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
+                      Core Hangar Roles (Suggested for 5 Bots)
+                    </div>
+
+                    {CORE_ROLES_CONFIG.map(role => {
+                      const current = hangarAnalysis.scores[role.key] || 0;
+                      const percentage = Math.min(100, (current / role.target) * 100);
+                      
+                      let status = STATUS_COLORS.MISSING;
+                      if (current >= role.target) {
+                        status = STATUS_COLORS.MET;
+                      } else if (current > 0) {
+                        status = STATUS_COLORS.UNDERFILLED;
+                      }
+
+                      return renderScoreMeter(role.name, current, {
+                        customValueLabel: `${current} / ${role.target}`,
+                        customPercentage: percentage,
+                        customFillColor: status.color,
+                        customBadge: (
+                          <span style={{ 
+                            fontSize: '10px', 
+                            fontWeight: 700, 
+                            textTransform: 'uppercase', 
+                            padding: '2px 6px', 
+                            borderRadius: '4px',
+                            color: status.color,
+                            background: status.bg,
+                            border: `1px solid ${status.color}30`
                           }}>
-                            {corePercent}%
+                            {status.text}
+                          </span>
+                        )
+                      });
+                    })}
+                  </div>
+
+                  {/* Silver Bullets & Tech Options */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
+                      Silver Bullets & Tech Options (Late Game / MK2.1+)
+                    </div>
+                    
+                    <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                      Once you have upgraded ALL main hangar bots/weapons to MK2.1, build these dedicated option bots:
+                    </p>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
+                      {[
+                        { name: 'Assassin', key: 'Assassin' },
+                        { name: 'Brawler', key: 'Brawler' },
+                        { name: 'Sniper', key: 'Sniper' }
+                      ].map(role => {
+                        const current = hangarAnalysis.scores[role.key] || 0;
+                        const hasOne = current >= 1.0;
+                        const hasPartial = current > 0 && current < 1.0;
+                        
+                        let badgeColor = 'var(--text-muted)';
+                        let badgeBg = 'rgba(255,255,255,0.02)';
+                        let badgeText = `${current}`;
+                        if (hasOne) {
+                          badgeColor = '#a855f7';
+                          badgeBg = 'rgba(168, 85, 247, 0.1)';
+                        } else if (hasPartial) {
+                          badgeColor = '#3b82f6';
+                          badgeBg = 'rgba(59, 130, 246, 0.1)';
+                        }
+
+                        return (
+                          <div 
+                            key={role.name} 
+                            style={{ 
+                              background: badgeBg, 
+                              border: `1px solid ${hasOne || hasPartial ? badgeColor + '30' : 'var(--border-light)'}`,
+                              padding: '10px', 
+                              borderRadius: '8px', 
+                              display: 'flex', 
+                              flexDirection: 'column',
+                              gap: '6px',
+                              alignItems: 'center',
+                              justifyContent: 'center'
+                            }}
+                          >
+                            <span style={{ fontSize: '12px', color: hasOne || hasPartial ? 'var(--text-primary)' : 'var(--text-secondary)', textAlign: 'center' }}>{role.name}</span>
+                            <span style={{ 
+                              fontSize: '11px', 
+                              fontWeight: 700, 
+                              color: badgeColor, 
+                              background: hasOne || hasPartial ? 'transparent' : 'rgba(255,255,255,0.05)',
+                              padding: '2px 6px',
+                              borderRadius: '4px'
+                            }}>
+                              {badgeText} / 1
+                            </span>
                           </div>
-                          <div>
-                            <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', display: 'block' }}>Role I Alignment</span>
-                            <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#fff', lineHeight: 1.4 }}>
-                              Core Hangar Role coverage compared to recommended target values.
-                            </p>
-                          </div>
-                        </div>
+                        );
+                      })}
+                    </div>
 
-                        {/* Core Hangar Roles Profile */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                          <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
-                            Core Hangar Roles (Suggested for 5 Bots)
-                          </div>
-
-                          {[
-                            { name: 'Support', target: 2, key: 'Support' },
-                            { name: 'Beacon Runner', target: 1, key: 'Beacon Runner' },
-                            { name: 'Midrange', target: 2, key: 'Midrange' },
-                            { name: 'Tank-buster', target: 1, key: 'Tank-buster' }
-                          ].map(role => {
-                            const current = hangarAnalysis.scores[role.key] || 0;
-                            const percentage = Math.min(100, (current / role.target) * 100);
-                            
-                            let statusText = 'Missing';
-                            let statusColor = '#ef4444';
-                            let statusBg = 'rgba(239, 68, 68, 0.1)';
-                            
-                            if (current >= role.target) {
-                              statusText = 'Met';
-                              statusColor = '#10b981';
-                              statusBg = 'rgba(16, 185, 129, 0.1)';
-                            } else if (current > 0) {
-                              statusText = 'Underfilled';
-                              statusColor = '#fbbf24';
-                              statusBg = 'rgba(251, 191, 36, 0.1)';
-                            }
-
-                            return (
-                              <div key={role.name} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                  <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)' }}>{role.name}</span>
-                                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                    <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
-                                      {current} / {role.target}
-                                    </span>
-                                    <span style={{ 
-                                      fontSize: '10px', 
-                                      fontWeight: 700, 
-                                      textTransform: 'uppercase', 
-                                      padding: '2px 6px', 
-                                      borderRadius: '4px',
-                                      color: statusColor,
-                                      background: statusBg,
-                                      border: `1px solid ${statusColor}30`
-                                    }}>
-                                      {statusText}
-                                    </span>
-                                  </div>
-                                </div>
-                                <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.05)', borderRadius: '3px', overflow: 'hidden' }}>
-                                  <div style={{ 
-                                    width: `${percentage}%`, 
-                                    height: '100%', 
-                                    background: statusColor, 
-                                    borderRadius: '3px',
-                                    boxShadow: current > 0 ? `0 0 6px ${statusColor}` : 'none',
-                                    transition: 'width 0.5s ease'
-                                  }} />
-                                </div>
-                              </div>
-                            );
-                          })}
-                        </div>
-
-                        {/* Silver Bullets & Tech Options */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
-                          <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
-                            Silver Bullets & Tech Options (Late Game / MK2.1+)
-                          </div>
-                          
-                          <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
-                            Once you have upgraded ALL main hangar bots/weapons to MK2.1, build these dedicated option bots:
-                          </p>
-
-                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
-                            {[
-                              { name: 'Assassin', key: 'Assassin' },
-                              { name: 'Brawler', key: 'Brawler' },
-                              { name: 'Sniper', key: 'Sniper' }
-                            ].map(role => {
-                              const current = hangarAnalysis.scores[role.key] || 0;
-                              const hasOne = current >= 1.0;
-                              const hasPartial = current > 0 && current < 1.0;
-                              
-                              let badgeColor = 'var(--text-muted)';
-                              let badgeBg = 'rgba(255,255,255,0.02)';
-                              let badgeText = `${current}`;
-                              if (hasOne) {
-                                badgeColor = '#a855f7';
-                                badgeBg = 'rgba(168, 85, 247, 0.1)';
-                              } else if (hasPartial) {
-                                badgeColor = '#3b82f6';
-                                badgeBg = 'rgba(59, 130, 246, 0.1)';
-                              }
-
-                              return (
-                                <div 
-                                  key={role.name} 
-                                  style={{ 
-                                    background: badgeBg, 
-                                    border: `1px solid ${hasOne || hasPartial ? badgeColor + '30' : 'var(--border-light)'}`,
-                                    padding: '10px', 
-                                    borderRadius: '8px', 
-                                    display: 'flex', 
-                                    flexDirection: 'column',
-                                    gap: '6px',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                  }}
-                                >
-                                  <span style={{ fontSize: '12px', color: hasOne || hasPartial ? 'var(--text-primary)' : 'var(--text-secondary)', textAlign: 'center' }}>{role.name}</span>
-                                  <span style={{ 
-                                    fontSize: '11px', 
-                                    fontWeight: 700, 
-                                    color: badgeColor, 
-                                    background: hasOne || hasPartial ? 'transparent' : 'rgba(255,255,255,0.05)',
-                                    padding: '2px 6px',
-                                    borderRadius: '4px'
-                                  }}>
-                                    {badgeText} / 1
-                                  </span>
-                                </div>
-                              );
-                            })}
-                          </div>
-
-                          {/* Additional Roles Recommendation Note */}
-                          <div style={{ 
-                            fontSize: '12.5px', 
-                            color: 'var(--text-secondary)', 
-                            background: 'rgba(255,255,255,0.02)', 
-                            padding: '12px', 
-                            borderRadius: '8px', 
-                            border: '1px solid var(--border-light)',
-                            lineHeight: 1.6 
-                          }}>
-                            <div style={{ fontWeight: 600, color: 'var(--cyan)', marginBottom: '6px' }}>Target Extension Options:</div>
-                            - Additional <strong>1x Support</strong> (Current: {supportScore} / 3)<br />
-                            - Additional <strong>1x Tank-buster</strong> (Current: {tankBusterScore} / 2)
-                          </div>
-                        </div>
-
-
-                      </>
-                    );
-                  })()}
+                    {/* Additional Roles Recommendation Note */}
+                    <div style={{ 
+                      fontSize: '12.5px', 
+                      color: 'var(--text-secondary)', 
+                      background: 'rgba(255,255,255,0.02)', 
+                      padding: '12px', 
+                      borderRadius: '8px', 
+                      border: '1px solid var(--border-light)',
+                      lineHeight: 1.6 
+                    }}>
+                      <div style={{ fontWeight: 600, color: 'var(--cyan)', marginBottom: '6px' }}>Target Extension Options:</div>
+                      - Additional <strong>1x Support</strong> (Current: {hangarAnalysis.scores['Support'] || 0} / 3)<br />
+                      - Additional <strong>1x Tank-buster</strong> (Current: {hangarAnalysis.scores['Tank-buster'] || 0} / 2)
+                    </div>
+                  </div>
                 </div>
               </div>
             ) : (
