@@ -16,7 +16,11 @@ jobs:
         with:
           fetch-depth: 0 
       
+      - name: Install Gitleaks
+        run: |
+          GITLEAKS_VERSION="8.18.2"
+          curl -sSL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" | tar -xz
+
       - name: Run Gitleaks
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gitleaks detect --verbose --redact
+
