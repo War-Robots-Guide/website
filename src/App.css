@@ -1034,3 +1034,89 @@
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
 }
+
+/* Social Link Buttons */
+.social-buttons-container {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.social-btn.reddit {
+  background: linear-gradient(135deg, #ff4500 0%, #ff5722 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+}
+
+.social-btn.reddit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 69, 0, 0.5);
+  filter: brightness(1.1);
+}
+
+.social-btn.discord {
+  background: linear-gradient(135deg, #5865F2 0%, #7289da 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+}
+
+.social-btn.discord:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(88, 101, 242, 0.5);
+  filter: brightness(1.1);
+}
+
+.community-card-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.community-card-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+.community-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.community-card-icon.reddit {
+  background: #ff4500;
+}
+
+.community-card-icon.discord {
+  background: #5865F2;
+}
