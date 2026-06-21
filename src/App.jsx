@@ -716,14 +716,14 @@ function App() {
                 <div className="stat-icon"><BarChart2 size={24} /></div>
                 <div>
                   <div className="stat-number">{stats.totalWeapons}</div>
-                  <div className="stat-label">Weapons DPS parsed</div>
+                  <div className="stat-label">Weapons tested</div>
                 </div>
               </div>
               <div className="glass-panel stat-card">
                 <div className="stat-icon"><Sparkles size={24} /></div>
                 <div>
                   <div className="stat-number">{stats.totalBuilds}</div>
-                  <div className="stat-label">Mini hangar builds</div>
+                  <div className="stat-label">Mini build guides</div>
                 </div>
               </div>
             </div>
@@ -874,20 +874,11 @@ function App() {
                     >
                       {tierLetter}
                       <span style={{ fontSize: '10px', fontWeight: 600, color: 'var(--text-muted)', marginTop: '4px', textTransform: 'uppercase' }}>
-                        {tierLetter === 'X' ? 'God' : tierLetter === 'S' ? 'Meta' : tierLetter === 'Z' ? 'Trash' : 'Tier'}
+                        Tier
                       </span>
                     </div>
                     
                     <div className="tier-content">
-                      <div style={{ gridColumn: '1 / -1', marginBottom: '4px' }}>
-                        <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                          Community label:
-                        </span>{' '}
-                        <span style={{ fontSize: '13px', color: tierColor, fontWeight: 700 }}>
-                          "{tierInfo.casual_name}"
-                        </span>
-                      </div>
-                      
                       {tierInfo.items.map(item => (
                         <div 
                           className="tier-item-card" 
@@ -1071,6 +1062,9 @@ function App() {
               <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Optimized Robot Builds</h2>
               <p style={{ margin: '0 auto' }}>
                 Hangar configurations recommendation including optimal f2p equipment, best modules specializations, pilots, and drones.
+                <span style={{ display: 'block', marginTop: '8px', fontSize: '13px', color: 'var(--text-secondary)', opacity: 0.85 }}>
+                  <em>Note: Build guides are only provided for recommended robots.</em>
+                </span>
               </p>
             </div>
 
