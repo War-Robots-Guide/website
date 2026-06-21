@@ -62,11 +62,21 @@ export function RobotsGuideTab() {
       </div>
 
       {/* Sub Tabs: Robots vs Titans */}
-      <div className="tab-pills" style={{ maxWidth: '300px' }}>
-        <button className={`tab-pill ${guideSubTab === 'robots' ? 'active' : ''}`} onClick={() => { setGuideSubTab('robots'); setRobotRoleFilter('All'); setSearchInput(''); setSearchQuery(''); }}>
+      <div className="segmented-control" style={{ maxWidth: '300px' }}>
+        <div 
+          className="segmented-control-slider" 
+          style={{ transform: `translateX(${guideSubTab === 'titans' ? '100%' : '0%'})` }}
+        />
+        <button 
+          className={`segmented-control-btn ${guideSubTab === 'robots' ? 'active' : ''}`} 
+          onClick={() => { setGuideSubTab('robots'); setRobotRoleFilter('All'); setRobotValueFilter('All'); setSearchInput(''); setSearchQuery(''); }}
+        >
           Robots Guide
         </button>
-        <button className={`tab-pill ${guideSubTab === 'titans' ? 'active' : ''}`} onClick={() => { setGuideSubTab('titans'); setRobotRoleFilter('All'); setSearchInput(''); setSearchQuery(''); }}>
+        <button 
+          className={`segmented-control-btn ${guideSubTab === 'titans' ? 'active' : ''}`} 
+          onClick={() => { setGuideSubTab('titans'); setRobotRoleFilter('All'); setRobotValueFilter('All'); setSearchInput(''); setSearchQuery(''); }}
+        >
           Titans Guide
         </button>
       </div>
@@ -91,8 +101,12 @@ export function RobotsGuideTab() {
           onChange={(e) => setRobotValueFilter(e.target.value)}
         >
           <option value="All">All Value Ratings</option>
-          <option value="5">Value Rating 5</option>
-          <option value="4">Value Rating 4</option>
+          {guideSubTab === 'robots' && (
+            <>
+              <option value="5">Value Rating 5</option>
+              <option value="4">Value Rating 4</option>
+            </>
+          )}
           <option value="3">Value Rating 3</option>
           <option value="2">Value Rating 2</option>
           <option value="1">Value Rating 1</option>
