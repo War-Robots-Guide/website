@@ -116,8 +116,9 @@ def download_folder_files():
         
     except Exception as e:
         print(f"Error fetching Google Drive content: {e}", file=sys.stderr)
-        print("Proceeding with existing sample data...")
         return False
 
 if __name__ == "__main__":
-    download_folder_files()
+    success = download_folder_files()
+    if not success:
+        sys.exit(1)

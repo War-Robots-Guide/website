@@ -12,6 +12,16 @@ sample_dir = os.path.join(workspace_dir, "sample data")
 data_out_dir = os.path.join(workspace_dir, "src/data")
 os.makedirs(data_out_dir, exist_ok=True)
 
+def find_file_case_insensitive(filename):
+    if not os.path.exists(sample_dir):
+        return os.path.join(sample_dir, filename)
+    target_lower = filename.lower()
+    for f in os.listdir(sample_dir):
+        if f.lower() == target_lower:
+            return os.path.join(sample_dir, f)
+    return os.path.join(sample_dir, filename)
+
+
 # Graceful check for GitHub runner where secrets are not yet configured
 if not os.path.exists(sample_dir) or not os.listdir(sample_dir):
     print("Warning: No raw spreadsheets or Word documents found in 'sample data/' directory.")
@@ -28,7 +38,7 @@ if not os.path.exists(sample_dir) or not os.listdir(sample_dir):
 # 1. PARSE pilot skill guide.docx
 # ----------------------------------------------------
 def parse_pilots():
-    filepath = os.path.join(sample_dir, "pilot skill guide.docx")
+    filepath = find_file_case_insensitive("pilot skill guide.docx")
     doc = Document(filepath)
     
     pilots_data = {
@@ -120,7 +130,7 @@ def parse_pilots():
 # 2. PARSE Specializations guide.docx
 # ----------------------------------------------------
 def parse_specializations():
-    filepath = os.path.join(sample_dir, "Specializations guide.docx")
+    filepath = find_file_case_insensitive("Specializations guide.docx")
     doc = Document(filepath)
     
     specs_data = {
@@ -208,7 +218,7 @@ def parse_specializations():
 # 3. PARSE Adazahi r_WarRobotsGuide weapon DPS spreadsheet.xlsx
 # ----------------------------------------------------
 def parse_weapons_dps():
-    filepath = os.path.join(sample_dir, "Adazahi r_WarRobotsGuide weapon DPS spreadsheet.xlsx")
+    filepath = find_file_case_insensitive("Adazahi r_WarRobotsGuide weapon DPS spreadsheet.xlsx")
     xl = pd.ExcelFile(filepath)
     
     weapons_data = {}
@@ -243,8 +253,8 @@ def parse_weapons_dps():
 # 4. PARSE Tiers.docx and WR tier lists.xlsx
 # ----------------------------------------------------
 def parse_tiers():
-    docx_path = os.path.join(sample_dir, "Tiers.docx")
-    xlsx_path = os.path.join(sample_dir, "WR tier lists.xlsx")
+    docx_path = find_file_case_insensitive("Tiers.docx")
+    xlsx_path = find_file_case_insensitive("WR tier lists.xlsx")
     
     # Parse standard tiers and descriptions from Tiers.docx
     doc = Document(docx_path)
@@ -372,7 +382,7 @@ def parse_tiers():
 # 5. PARSE Copy of A Simplified Robot Guide for New Players.xlsx
 # ----------------------------------------------------
 def parse_robot_guide():
-    filepath = os.path.join(sample_dir, "Copy of A Simplified Robot Guide for New Players.xlsx")
+    filepath = find_file_case_insensitive("Copy of A Simplified Robot Guide for New Players.xlsx")
     
     # Parse changelog
     df_changes = pd.read_excel(filepath, sheet_name="Changes Log")
