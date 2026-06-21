@@ -486,6 +486,7 @@ def parse_robot_guide():
     # 5.4 Parse Tiers/Value ratings and detailed scores
     # We combine 'Tier 4' and 'Tier 3' robots
     robots_data = []
+    unmatched_rating_rows = []
     
     for sheet_name in ["Tier 4", "Tier 3"]:
         sheet = wb[sheet_name]
@@ -531,7 +532,7 @@ def parse_robot_guide():
             if rname_clean in left_keys_mapped:
                 original_name, val_rating = left_keys_mapped[rname_clean]
             else:
-                print(f"Warning: robot '{rname}' in right table not found in left rating table of {sheet_name}")
+                unmatched_rating_rows.append(f"robot '{rname}' in {sheet_name}")
                 
             # Lookup roles
             bot_roles = roles_data.get(original_name.lower().strip(), [])
@@ -587,7 +588,7 @@ def parse_robot_guide():
         if tname_clean in left_t_keys_mapped:
             original_name, val_rating = left_t_keys_mapped[tname_clean]
         else:
-            print(f"Warning: titan '{tname}' not found in left ratings table")
+            unmatched_rating_rows.append(f"titan '{tname}' in Titans")
             
         titans_data.append({
             "name": original_name,
@@ -602,6 +603,13 @@ def parse_robot_guide():
             },
             "comments": details["comments"]
         })
+
+    if unmatched_rating_rows:
+        joined = "\n  - ".join(unmatched_rating_rows)
+        raise ValueError(
+            "The robot guide detail table contains names that are missing from "
+            f"the value-rating table:\n  - {joined}"
+        )
         
     # 5.6 Parse SAGE Retro Camelot
     camelot_data = []

@@ -502,10 +502,15 @@ function App() {
   const filteredWeapons = useMemo(() => {
     if (!weaponsDpsData || !weaponsDpsData[selectedWeaponClass]) return [];
     
-    return weaponsDpsData[selectedWeaponClass].filter(weapon => 
-      weapon.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      weapon.notes.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    return weaponsDpsData[selectedWeaponClass]
+      .map((weapon, index) => ({
+        ...weapon,
+        compareId: `${selectedWeaponClass}:${index}`
+      }))
+      .filter(weapon => 
+        weapon.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        weapon.notes.toLowerCase().includes(searchQuery.toLowerCase())
+      );
   }, [selectedWeaponClass, searchQuery]);
 
   // --------------------------------------------------
@@ -531,10 +536,10 @@ function App() {
   // WEAPON COMPARISON HANDLERS
   // --------------------------------------------------
   const toggleWeaponCompare = (weapon, className) => {
-    const isSelected = compareList.some(w => w.name === weapon.name);
+    const isSelected = compareList.some(w => w.compareId === weapon.compareId);
     
     if (isSelected) {
-      setCompareList(compareList.filter(w => w.name !== weapon.name));
+      setCompareList(compareList.filter(w => w.compareId !== weapon.compareId));
     } else {
       if (compareList.length >= 4) {
         alert("You can compare up to 4 weapons at a time.");
@@ -545,8 +550,8 @@ function App() {
   };
 
   // Helper to check if weapon is selected
-  const isWeaponCompareSelected = (weaponName) => {
-    return compareList.some(w => w.name === weaponName);
+  const isWeaponCompareSelected = (compareId) => {
+    return compareList.some(w => w.compareId === compareId);
   };
 
   // --------------------------------------------------
@@ -1496,7 +1501,7 @@ function App() {
                     <span style={{ fontSize: '11px', color: 'var(--cyan)', fontWeight: 600 }}>WEAPON COMPARISON ({compareList.length}/4)</span>
                     <div className="selected-weapons-list">
                       {compareList.map(w => (
-                        <div className="selected-weapon-tag" key={w.name}>
+                        <div className="selected-weapon-tag" key={w.compareId}>
                           <span>{w.name}</span>
                           <button className="remove-weapon-btn" onClick={() => toggleWeaponCompare(w, w.weaponClass)}>
                             <X size={12} />
@@ -1558,9 +1563,9 @@ function App() {
                     </thead>
                     <tbody>
                       {filteredWeapons.map(weapon => {
-                        const isSelected = isWeaponCompareSelected(weapon.name);
+                        const isSelected = isWeaponCompareSelected(weapon.compareId);
                         return (
-                          <tr key={weapon.name} className={isSelected ? 'compare-selected' : ''}>
+                          <tr key={weapon.compareId} className={isSelected ? 'compare-selected' : ''}>
                             <td style={{ textAlign: 'center' }}>
                               <input 
                                 type="checkbox" 
@@ -1619,7 +1624,7 @@ function App() {
                       const cyclePercent = Math.max(5, (cDps / maxDpsValues.cycle) * 100);
                       
                       return (
-                        <div className="chart-bar-row" key={weapon.name}>
+                        <div className="chart-bar-row" key={weapon.compareId}>
                           <div className="chart-bar-info">
                             <span style={{ fontWeight: 700 }}>{weapon.name}</span>
                             <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Class: {weapon.weaponClass.replace(' Weapons', '')} | Range: {weapon.range}</span>

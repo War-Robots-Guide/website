@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run validate:data && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate:data": "node scripts/validate_data.js"
   },
   "dependencies": {
     "lucide-react": "^1.21.0",

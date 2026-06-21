@@ -101,4 +101,4 @@ Go to your GitHub Repository -> Settings -> Secrets and Variables -> Actions, an
 - **`GDRIVE_FOLDER_ID`**: The Folder ID copied from the Google Drive URL.
 - **`GDRIVE_CREDENTIALS_JSON`**: The entire content of the downloaded Service Account JSON key file.
 
-Once added, the GitHub Actions runner will connect to Google Drive, pull the latest guides, parse them, compile, and deploy the new build to GitHub Pages automatically every day at midnight, on push to `main`, or when manually triggered via the **Run workflow** button.
+Once added, the GitHub Actions runner will connect to Google Drive, pull the latest guides, parse them, compile, and deploy the new build to GitHub Pages automatically every day at midnight, on push to `master`, or when manually triggered via the **Run workflow** button.

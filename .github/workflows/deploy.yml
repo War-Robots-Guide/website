@@ -58,11 +58,15 @@ jobs:
       - name: Install Node.js Dependencies
         run: npm ci
 
-      # 8. Build the static React application
+      # 8. Validate generated JSON contracts before the frontend imports them
+      - name: Validate Data Files
+        run: npm run validate:data
+
+      # 9. Build the static React application
       - name: Build Production Assets
         run: npm run build
 
-      # 9. Deploy to GitHub Pages
+      # 10. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
