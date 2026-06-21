@@ -1,0 +1,1608 @@
+{
+  "Alpha Weapons": [
+    {
+      "name": "Tonans (vs Titan)",
+      "burst_dps": 174000.0,
+      "cycle_dps": 13384.0,
+      "range": "800m",
+      "notes": "VERY IMPORTANT: While Tonans beats Vendicatoire in terms of burst vs Titans at base, the Titan damage boost is additive with boosts from nuclear amplifier, etc\nTLDR: Vendicatoire does ~15% more damage than Tonans when both have a fully stacked NA on a damage dealer titan."
+    },
+    {
+      "name": "Veyron (25m)",
+      "burst_dps": 97519.0,
+      "cycle_dps": 41748.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Vendicatoire",
+      "burst_dps": 91008.0,
+      "cycle_dps": 5688.0,
+      "range": "1,100m",
+      "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion."
+    },
+    {
+      "name": "Anguisher (25m)",
+      "burst_dps": 88782.0,
+      "cycle_dps": 40730.0,
+      "range": "25m",
+      "notes": "Includes DoT, much of which is done while reloading"
+    },
+    {
+      "name": "Void (25m)",
+      "burst_dps": 77614.0,
+      "cycle_dps": 39191.0,
+      "range": "25m",
+      "notes": "The suppression after reloading does like 1k damage per tick lmao, not accounted for"
+    },
+    {
+      "name": "MahaVajra (25m)",
+      "burst_dps": 55538.0,
+      "cycle_dps": 40111.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Furnace (Heat x1)",
+      "burst_dps": 55375.0,
+      "cycle_dps": 26058.0,
+      "range": "800m",
+      "notes": "This is the damage dealt by a single furnace shooting at a target that can accumulate heat. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "Furnace (Heat x2)",
+      "burst_dps": 51250.0,
+      "cycle_dps": 24117.0,
+      "range": "800m",
+      "notes": "This is the damage dealt by each furnace when you have two furnaces, torches, or a combination of the two. Yes, they do less damage the more you have. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "Veniere",
+      "burst_dps": 47066.0,
+      "cycle_dps": 34405.0,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Furnace (Heat x3)",
+      "burst_dps": 43000.0,
+      "cycle_dps": 20235.0,
+      "range": "800m",
+      "notes": "This is the damage dealt by each furnace when you have three furnaces, torches, or a combination of the three. Yes, they do less damage the more you have. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "UE Grom (25m)",
+      "burst_dps": 42933.0,
+      "cycle_dps": 42933.0,
+      "range": "25m",
+      "notes": "I didnt bother calculating the cycle DPS because it will never be relevant. It takes almost 3 straight minutes of shooting without stopping to run out of ammo."
+    },
+    {
+      "name": "Huginn",
+      "burst_dps": 40131.0,
+      "cycle_dps": 11050.0,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "Anguisher (150m)",
+      "burst_dps": 39774.336,
+      "cycle_dps": 18247.04,
+      "range": "150m",
+      "notes": ""
+    },
+    {
+      "name": "Argon",
+      "burst_dps": 35246.0,
+      "cycle_dps": 12359.0,
+      "range": "300m",
+      "notes": "~50% freeze uptime"
+    },
+    {
+      "name": "Striker",
+      "burst_dps": 34800.0,
+      "cycle_dps": 3480.0,
+      "range": "800m",
+      "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion."
+    },
+    {
+      "name": "Basilisk",
+      "burst_dps": 32189.0,
+      "cycle_dps": 18832.0,
+      "range": "500m",
+      "notes": "Includes DoT damage, much of which is done while reloading."
+    },
+    {
+      "name": "Tonans (vs Bot)",
+      "burst_dps": 30460.0,
+      "cycle_dps": 2348.0,
+      "range": "800m",
+      "notes": ""
+    },
+    {
+      "name": "Arbiter (boosted)",
+      "burst_dps": 29505.955,
+      "cycle_dps": 24461.883,
+      "range": ">300m",
+      "notes": "Assumes you fire it properly (starts spun up, doesnt overheat)"
+    },
+    {
+      "name": "Inferno",
+      "burst_dps": 28461.0,
+      "cycle_dps": 19561.0,
+      "range": "350m",
+      "notes": "Assumes you dont overheat"
+    },
+    {
+      "name": "MahaVajra (150m)",
+      "burst_dps": 27769.0,
+      "cycle_dps": 20055.5,
+      "range": "150m",
+      "notes": ""
+    },
+    {
+      "name": "Furnace (No Heat)",
+      "burst_dps": 24000.0,
+      "cycle_dps": 11294.0,
+      "range": "800m",
+      "notes": "Assumes you're shooting a shield, which cannot accumulate heat. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "UE Gendarme",
+      "burst_dps": 22421.0,
+      "cycle_dps": 9906.0,
+      "range": "800m",
+      "notes": ""
+    },
+    {
+      "name": "Glaive",
+      "burst_dps": 19683.3,
+      "cycle_dps": 19683.3,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "Arbiter (no boost)",
+      "burst_dps": 18440.722,
+      "cycle_dps": 15288.177,
+      "range": "<299m",
+      "notes": "Assumes you fire it properly (starts spun up, doesnt overheat)"
+    },
+    {
+      "name": "Discordia",
+      "burst_dps": 16125.0,
+      "cycle_dps": 8191.0,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Gargantua",
+      "burst_dps": 15000.0,
+      "cycle_dps": 7500.0,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "Dazzler",
+      "burst_dps": 14922.472,
+      "cycle_dps": 9694.0,
+      "range": "600m",
+      "notes": ""
+    }
+  ],
+  "Beta Weapons": [
+    {
+      "name": "Fulger (vs Titan)",
+      "burst_dps": 134032.2,
+      "cycle_dps": 10309.6952,
+      "range": "800m",
+      "notes": "VERY IMPORTANT: While titan Zeus weapons show good performance vs Titans at base, the Titan damage boost is additive with boosts from nuclear amplifier, etc. \nTLDR: Vendicatoire does ~15% more damage than Tonans when both have a fully stacked NA on a damage dealer titan."
+    },
+    {
+      "name": "Evora (25m)",
+      "burst_dps": 73362.94,
+      "cycle_dps": 31406.82,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Ruiner (25m)",
+      "burst_dps": 59188.0,
+      "cycle_dps": 27153.33333,
+      "range": "25m",
+      "notes": "Includes DoT, much of which is done while reloading"
+    },
+    {
+      "name": "Chasm (25m)",
+      "burst_dps": 51742.66667,
+      "cycle_dps": 26127.33333,
+      "range": "25m",
+      "notes": "The suppression after reloading does like 1k damage per tick lmao, not accounted for"
+    },
+    {
+      "name": "Torch (Heat x1)",
+      "burst_dps": 44300.0,
+      "cycle_dps": 20846.4,
+      "range": "800m",
+      "notes": "This is the damage dealt by a single torch shooting at a target that can accumulate heat. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "Torch (Heat x2)",
+      "burst_dps": 41000.0,
+      "cycle_dps": 19293.6,
+      "range": "800m",
+      "notes": "This is the damage dealt by each torch when you have two furnaces, torches, or a combination of the two. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "Vencere",
+      "burst_dps": 40241.43,
+      "cycle_dps": 29416.275,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Vajra (25m)",
+      "burst_dps": 37025.33333,
+      "cycle_dps": 26740.66667,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Torch (Heat x3)",
+      "burst_dps": 34400.0,
+      "cycle_dps": 16188.0,
+      "range": "800m",
+      "notes": "This is the damage dealt by each torch when you have three furnaces, torches, or a combination of the three. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "Muninn",
+      "burst_dps": 30402.27273,
+      "cycle_dps": 8371.212121,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "Oxy",
+      "burst_dps": 26843.869,
+      "cycle_dps": 9412.795126,
+      "range": "300m",
+      "notes": "~50% freeze uptime"
+    },
+    {
+      "name": "Ruiner (150m)",
+      "burst_dps": 26516.224,
+      "cycle_dps": 12164.69333,
+      "range": "150m",
+      "notes": ""
+    },
+    {
+      "name": "Fulger (vs Bot)",
+      "burst_dps": 23463.338,
+      "cycle_dps": 1808.6644,
+      "range": "800m",
+      "notes": ""
+    },
+    {
+      "name": "Krait",
+      "burst_dps": 22662.0,
+      "cycle_dps": 13060.0,
+      "range": "500m",
+      "notes": "Includes DoT damage, much of which is done while reloading."
+    },
+    {
+      "name": "Equalizer (boosted)",
+      "burst_dps": 22135.0,
+      "cycle_dps": 18351.0,
+      "range": ">300m",
+      "notes": "Assumes you fire it properly (starts spun up, doesnt overheat)"
+    },
+    {
+      "name": "Torch (No Heat)",
+      "burst_dps": 19200.0,
+      "cycle_dps": 9035.2,
+      "range": "800m",
+      "notes": "Assumes you're shooting a shield, which cannot accumulate heat. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "Pyro",
+      "burst_dps": 18974.0,
+      "cycle_dps": 13040.66667,
+      "range": "350m",
+      "notes": "Assumes you dont overheat"
+    },
+    {
+      "name": "Vajra (150m)",
+      "burst_dps": 18512.66667,
+      "cycle_dps": 13370.33333,
+      "range": "150m",
+      "notes": ""
+    },
+    {
+      "name": "Lance",
+      "burst_dps": 14580.3,
+      "cycle_dps": 14580.3,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "Equalizer (no boost)",
+      "burst_dps": 13834.0,
+      "cycle_dps": 11469.0,
+      "range": "<299m",
+      "notes": "Assumes you fire it properly (starts spun up, doesnt overheat)"
+    },
+    {
+      "name": "Lantern",
+      "burst_dps": 12540.368,
+      "cycle_dps": 8146.104,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Tumultus",
+      "burst_dps": 12309.16031,
+      "cycle_dps": 6252.671756,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Pantagreul",
+      "burst_dps": 10067.11409,
+      "cycle_dps": 5033.557047,
+      "range": "500m",
+      "notes": ""
+    }
+  ],
+  "Heavy Weapons": [
+    {
+      "name": "Liodari (Charged)",
+      "burst_dps": 204349.0,
+      "cycle_dps": 40869.0,
+      "range": "350m",
+      "notes": "A full charge requires enemies to deal about 350k damage to you. Shields count.\nBurst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "Liodari (Uncharged)",
+      "burst_dps": 103190.0,
+      "cycle_dps": 20638.0,
+      "range": "350m",
+      "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "UE Devastator (25m)",
+      "burst_dps": 92144.49,
+      "cycle_dps": 65001.96,
+      "range": "25m",
+      "notes": "100% grey damage is pretty badass"
+    },
+    {
+      "name": "UE Glory (25m)",
+      "burst_dps": 76000.0,
+      "cycle_dps": 31666.0,
+      "range": "25m",
+      "notes": "Damage varies with range."
+    },
+    {
+      "name": "Basileus",
+      "burst_dps": 72000.0,
+      "cycle_dps": 29647.0,
+      "range": "500m",
+      "notes": "Fragility effect can increase damage against enemies with defense points"
+    },
+    {
+      "name": "UE Incinerator",
+      "burst_dps": 62166.0,
+      "cycle_dps": 24866.0,
+      "range": "500m",
+      "notes": "CURRENTLY INFLATED BY INTEL. UE Incinerator gets about 90% of a blast per mag, so 90% of a blast is accounted for in the DPS."
+    },
+    {
+      "name": "Kelvin",
+      "burst_dps": 60400.0,
+      "cycle_dps": 43208.0,
+      "range": "300m",
+      "notes": "Assumes you stop shooting before they overheat, so the cooldown is only 5 seconds rather than 6 seconds. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "UE Redeemer (Otto)",
+      "burst_dps": 52702.0,
+      "cycle_dps": 34210.0,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "Hammer (25m)",
+      "burst_dps": 50337.0,
+      "cycle_dps": 17713.0,
+      "range": "25m",
+      "notes": "One Hammer can get about half a blast per mag, so half a blast is accounted for in the DPS (assuming you're using 2+ Hammer)"
+    },
+    {
+      "name": "Devastator",
+      "burst_dps": 49829.07,
+      "cycle_dps": 12702.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "UE Glory (100m)",
+      "burst_dps": 49380.0,
+      "cycle_dps": 20582.0,
+      "range": "100m",
+      "notes": "Damage varies with range."
+    },
+    {
+      "name": "UE Redeemer",
+      "burst_dps": 48750.0,
+      "cycle_dps": 32500.0,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "Shantak (970m)",
+      "burst_dps": 45964.0,
+      "cycle_dps": 21450.0,
+      "range": "970m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Pshent",
+      "burst_dps": 45032.0,
+      "cycle_dps": 10392.0,
+      "range": "150m",
+      "notes": "If you start the fight with 2 orbitals prepared, your burst DPS will be double, but only for that initial burst."
+    },
+    {
+      "name": "UE Calamity (25m)",
+      "burst_dps": 44344.0,
+      "cycle_dps": 27715.0,
+      "range": "25m",
+      "notes": "Damage varies with range"
+    },
+    {
+      "name": "Shantak (800m)",
+      "burst_dps": 41438.0,
+      "cycle_dps": 19338.0,
+      "range": "800m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Puncher",
+      "burst_dps": 40752.0,
+      "cycle_dps": 13584.0,
+      "range": "25m",
+      "notes": "Intel already accounted for"
+    },
+    {
+      "name": "Exodus",
+      "burst_dps": 37751.0,
+      "cycle_dps": 7523.0,
+      "range": "350m",
+      "notes": "Intel already accounted for"
+    },
+    {
+      "name": "Kirin (25m)",
+      "burst_dps": 37648.0,
+      "cycle_dps": 14804.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Boom",
+      "burst_dps": 35698.3,
+      "cycle_dps": 5099.714286,
+      "range": "600m",
+      "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion. NO DEATHMARK BONUS"
+    },
+    {
+      "name": "UE Calamity (150m)",
+      "burst_dps": 35696.0,
+      "cycle_dps": 22310.0,
+      "range": "150m",
+      "notes": "Damage varies with range"
+    },
+    {
+      "name": "Brisant",
+      "burst_dps": 34001.82,
+      "cycle_dps": 17810.28,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "UE Avenger",
+      "burst_dps": 33333.0,
+      "cycle_dps": 21100.0,
+      "range": "500m",
+      "notes": "Ignores defense points"
+    },
+    {
+      "name": "Shantak (600m)",
+      "burst_dps": 31962.0,
+      "cycle_dps": 14916.0,
+      "range": "600m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Avenger (25m)",
+      "burst_dps": 30598.0,
+      "cycle_dps": 17954.0,
+      "range": "25m",
+      "notes": "Ol' Reliable"
+    },
+    {
+      "name": "Pilum",
+      "burst_dps": 29515.0,
+      "cycle_dps": 19994.0,
+      "range": "600m",
+      "notes": "Pilum gets one third of a blast per mag, so one third of a blast is accounted for in the DPS."
+    },
+    {
+      "name": "Piercer (Max Fatigue)",
+      "burst_dps": 29142.0,
+      "cycle_dps": 10523.0,
+      "range": "1100m",
+      "notes": "Assumes you're already at max fatigue stacks (5 stacks)"
+    },
+    {
+      "name": "Avalanche",
+      "burst_dps": 27417.0,
+      "cycle_dps": 6932.0,
+      "range": "500m",
+      "notes": "Intel already accounted for"
+    },
+    {
+      "name": "Leinani (Machine Gun)",
+      "burst_dps": 26719.0,
+      "cycle_dps": 15447.0,
+      "range": "600m",
+      "notes": "Includes the DoT damage, much of which is dealt while reloading."
+    },
+    {
+      "name": "Screamer",
+      "burst_dps": 25782.0,
+      "cycle_dps": 15282.0,
+      "range": "25m",
+      "notes": "Each sonicblast does 25k damage. A full mag of 1 screamer results in 1 blast. The blast is accounted for in the DPS. Spread at range not accounted for."
+    },
+    {
+      "name": "Decay",
+      "burst_dps": 23865.0,
+      "cycle_dps": 13388.0,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Hornet",
+      "burst_dps": 23596.22,
+      "cycle_dps": 8479.74,
+      "range": "600m",
+      "notes": "Includes DoT damage, much of which is done while reloading"
+    },
+    {
+      "name": "Shantak (350m)",
+      "burst_dps": 23335.0,
+      "cycle_dps": 10890.0,
+      "range": "350m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Athos",
+      "burst_dps": 23277.73,
+      "cycle_dps": 9464.72,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "Subduer",
+      "burst_dps": 23126.0,
+      "cycle_dps": 12515.0,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "Shantak (0m)",
+      "burst_dps": 23052.0,
+      "cycle_dps": 10758.0,
+      "range": "0m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Nucleon (25m)",
+      "burst_dps": 22990.0,
+      "cycle_dps": 22990.0,
+      "range": "25m",
+      "notes": "At close range, you dont need to let them cool off, so they can continually do their burst dps forever"
+    },
+    {
+      "name": "Nucleon (500m)",
+      "burst_dps": 22990.0,
+      "cycle_dps": 16693.0,
+      "range": "500m",
+      "notes": "At longer range, nucleon needs to cool off about 75% of the way to max heat in order to hit every shot"
+    },
+    {
+      "name": "UE Calamity (350m)",
+      "burst_dps": 21712.0,
+      "cycle_dps": 13570.0,
+      "range": "350m",
+      "notes": "Damage varies with range"
+    },
+    {
+      "name": "Leinani (Averaged)",
+      "burst_dps": 21473.0,
+      "cycle_dps": 12284.0,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Smuta",
+      "burst_dps": 20326.0,
+      "cycle_dps": 7323.0,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "Redeemer",
+      "burst_dps": 19777.0,
+      "cycle_dps": 13481.0,
+      "range": "350m",
+      "notes": "Intel already accounted for"
+    },
+    {
+      "name": "Hel (Frozen)",
+      "burst_dps": 19700.1,
+      "cycle_dps": 5669.675,
+      "range": "600m",
+      "notes": "Enemy frozen"
+    },
+    {
+      "name": "Cestus",
+      "burst_dps": 19523.0,
+      "cycle_dps": 10884.0,
+      "range": "500m",
+      "notes": "One Cestus can get about half a blast per mag, so half a blast is accounted for in the DPS (assuming you're using 2+ Cestus)"
+    },
+    {
+      "name": "UE Dragoon",
+      "burst_dps": 17866.0,
+      "cycle_dps": 12356.0,
+      "range": "600m",
+      "notes": "31 second unload time lmao, you probably won't need to worry about the cycle dps"
+    },
+    {
+      "name": "Jotunn",
+      "burst_dps": 17142.0,
+      "cycle_dps": 10549.0,
+      "range": "600m",
+      "notes": "Frozen enemy"
+    },
+    {
+      "name": "Talon",
+      "burst_dps": 17112.5,
+      "cycle_dps": 13076.13636,
+      "range": "350m",
+      "notes": "Fragility effect can increase damage against enemies with defense points"
+    },
+    {
+      "name": "Hel (No Freeze)",
+      "burst_dps": 16416.75,
+      "cycle_dps": 4724.95,
+      "range": "600m",
+      "notes": "Enemy not frozen"
+    },
+    {
+      "name": "Leinani (Energy Blaster)",
+      "burst_dps": 16228.0,
+      "cycle_dps": 9691.0,
+      "range": "500m",
+      "notes": "Charges ships slowly, but concentrates damage in bursty energy balls that have small splash."
+    },
+    {
+      "name": "Fengbao",
+      "burst_dps": 16056.0,
+      "cycle_dps": 10340.0,
+      "range": "150m",
+      "notes": "Let's be honest, nobody using this weapon is using it because it does a ton of damage."
+    },
+    {
+      "name": "Prisma (800m)",
+      "burst_dps": 14604.35,
+      "cycle_dps": 1787.9,
+      "range": "800m",
+      "notes": "LOOOL 48 SECOND RELOAD"
+    },
+    {
+      "name": "Jotunn",
+      "burst_dps": 14285.0,
+      "cycle_dps": 8791.0,
+      "range": "600m",
+      "notes": "Enemy not frozen"
+    },
+    {
+      "name": "Prisma (600m)",
+      "burst_dps": 13436.002,
+      "cycle_dps": 1644.868,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "UE Calamity (500m)",
+      "burst_dps": 11334.0,
+      "cycle_dps": 7084.0,
+      "range": "500m",
+      "notes": "Damage varies with range"
+    },
+    {
+      "name": "UE Calamity (600m)",
+      "burst_dps": 5023.0,
+      "cycle_dps": 3139.0,
+      "range": "600m",
+      "notes": "Damage varies with range"
+    }
+  ],
+  "Medium Weapons": [
+    {
+      "name": "Kroko (Charged)",
+      "burst_dps": 153261.75,
+      "cycle_dps": 30651.75,
+      "range": "350m",
+      "notes": "A full charge requires enemies to deal about 350k damage to you. Shields count. \nBurst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "Murix (25m)",
+      "burst_dps": 94153.0,
+      "cycle_dps": 33657.0,
+      "range": "25m",
+      "notes": "Includes DoT damage, much of which is dealt while reloading. You'll only get this much damage at point blank."
+    },
+    {
+      "name": "UE Arm M (Otto, High % DMG)",
+      "burst_dps": 78713.0,
+      "cycle_dps": 29952.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 1M HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "Kroko (Uncharged)",
+      "burst_dps": 77392.5,
+      "cycle_dps": 15478.5,
+      "range": "350m",
+      "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "UE Cryo",
+      "burst_dps": 68666.0,
+      "cycle_dps": 15373.0,
+      "range": "25m",
+      "notes": "Range is 350m but projectile travel time signficiantly lowers damage output so point blank is assumed. Cryo weapons rarely actually hit their full DPS potential. Freeze damage boost accounted for."
+    },
+    {
+      "name": "UE Havoc (25m)",
+      "burst_dps": 66291.0,
+      "cycle_dps": 46764.0,
+      "range": "25m",
+      "notes": "100% grey damage is pretty badass"
+    },
+    {
+      "name": "UE Storm (25m)",
+      "burst_dps": 62503.0,
+      "cycle_dps": 20589.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "UE Arm M (High % DMG)",
+      "burst_dps": 59380.0,
+      "cycle_dps": 26650.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 1M HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "UE Corona (25m)",
+      "burst_dps": 55434.0,
+      "cycle_dps": 26288.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Machiara",
+      "burst_dps": 54000.0,
+      "cycle_dps": 22235.25,
+      "range": "500m",
+      "notes": "Fragility effect can increase damage against enemies with defense points"
+    },
+    {
+      "name": "UE Arm M (Otto, Med % DMG)",
+      "burst_dps": 53131.0,
+      "cycle_dps": 20218.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 450k HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "Fahrenheit",
+      "burst_dps": 45277.0,
+      "cycle_dps": 32390.0,
+      "range": "300m",
+      "notes": "Assumes you stop shooting before they overheat, so the cooldown is only 5 seconds rather than 6 seconds. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "UE Igniter (25m)",
+      "burst_dps": 40700.0,
+      "cycle_dps": 27133.0,
+      "range": "25m",
+      "notes": "Range is 350m but projectile travel time signficiantly lowers damage output so point blank is assumed. Flame weapons very rarely actually hit their full DPS potential."
+    },
+    {
+      "name": "UE Arm M (Med % DMG)",
+      "burst_dps": 40081.0,
+      "cycle_dps": 17989.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 450k HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "UE Arm M (Otto, Low % DMG)",
+      "burst_dps": 39178.0,
+      "cycle_dps": 14908.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 150k HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "UE Ion",
+      "burst_dps": 37937.0,
+      "cycle_dps": 9196.0,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Murix (150m)",
+      "burst_dps": 36240.0,
+      "cycle_dps": 12657.0,
+      "range": "150m",
+      "notes": "Deal 1/4 their max damage at 150m. DoT still included. Still somehow top tier damage numbers."
+    },
+    {
+      "name": "Mace (25m)",
+      "burst_dps": 35201.0,
+      "cycle_dps": 13472.0,
+      "range": "25m",
+      "notes": "One Mace can get about half a blast per mag, so half a blast is accounted for in the DPS (assuming you're using 2+ Mace)"
+    },
+    {
+      "name": "Urhag (970m)",
+      "burst_dps": 34473.0,
+      "cycle_dps": 16087.5,
+      "range": "970m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Havoc (25m)",
+      "burst_dps": 34129.5,
+      "cycle_dps": 8700.0,
+      "range": "40m",
+      "notes": ""
+    },
+    {
+      "name": "Deshret",
+      "burst_dps": 33858.64662,
+      "cycle_dps": 7813.533835,
+      "range": "150m",
+      "notes": "If you start the fight with 2 orbitals prepared, your burst DPS will be double, but only for that initial burst."
+    },
+    {
+      "name": "UE Orkan (25m)",
+      "burst_dps": 33846.0,
+      "cycle_dps": 15714.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "UE Arm M (Otto, No % DMG)",
+      "burst_dps": 32210.0,
+      "cycle_dps": 12253.0,
+      "range": "500m",
+      "notes": "Assumes no % damage (ie shooting at shields)"
+    },
+    {
+      "name": "Urhag (800m)",
+      "burst_dps": 31078.5,
+      "cycle_dps": 14503.5,
+      "range": "800m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "UE Scourge (25m)",
+      "burst_dps": 30727.0,
+      "cycle_dps": 14695.0,
+      "range": "25m",
+      "notes": "Damage varies with range"
+    },
+    {
+      "name": "Bash",
+      "burst_dps": 30700.28,
+      "cycle_dps": 4385.714286,
+      "range": "600m",
+      "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion."
+    },
+    {
+      "name": "UE Havoc (200m)",
+      "burst_dps": 30672.0,
+      "cycle_dps": 22334.0,
+      "range": "200m",
+      "notes": "Tested against a UE scorpion (medium sized bot). Damage may vary if you're shooting a larger or smaller bot."
+    },
+    {
+      "name": "UE Arm M (Low % DMG)",
+      "burst_dps": 29555.0,
+      "cycle_dps": 13265.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 150k HP on average (% damage is based on current HP, not max HP). Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "Mogwan (25m)",
+      "burst_dps": 28236.0,
+      "cycle_dps": 11103.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "UE Punisher T (25m)",
+      "burst_dps": 28043.0,
+      "cycle_dps": 17752.0,
+      "range": "25m",
+      "notes": "Ignores defense points"
+    },
+    {
+      "name": "UE Scourge (150m)",
+      "burst_dps": 24727.0,
+      "cycle_dps": 11826.0,
+      "range": "150m",
+      "notes": "Damage varies with range"
+    },
+    {
+      "name": "UE Arm M (No % DMG)",
+      "burst_dps": 24292.0,
+      "cycle_dps": 10902.0,
+      "range": "500m",
+      "notes": "Assumes no % damage (ie shooting at shields)"
+    },
+    {
+      "name": "Urhag (600m)",
+      "burst_dps": 23971.5,
+      "cycle_dps": 11187.0,
+      "range": "600m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Shatter (25m)",
+      "burst_dps": 22667.88,
+      "cycle_dps": 11873.52,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "UE Molot T (25m)",
+      "burst_dps": 21066.0,
+      "cycle_dps": 11371.0,
+      "range": "25m",
+      "notes": "CURRENTLY INFLATED BY INTEL. Spread at range not accounted for. Includes the DoT damage, much of which is dealt while reloading."
+    },
+    {
+      "name": "UE Taran (Otto)",
+      "burst_dps": 20694.0,
+      "cycle_dps": 13303.0,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "UE Pulsar",
+      "burst_dps": 20420.0,
+      "cycle_dps": 11542.0,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Nanea (Machine Gun)",
+      "burst_dps": 20089.47368,
+      "cycle_dps": 11614.28571,
+      "range": "600m",
+      "notes": "Includes the DoT damage, much of which is dealt while reloading."
+    },
+    {
+      "name": "UE Wasp",
+      "burst_dps": 19167.0,
+      "cycle_dps": 12835.0,
+      "range": "600m",
+      "notes": "DoT damage accounted for."
+    },
+    {
+      "name": "Growler (25m)",
+      "burst_dps": 19010.0,
+      "cycle_dps": 13232.0,
+      "range": "25m",
+      "notes": "Each sonicblast does 25k damage. A full mag of 1 growler results in 1 blast. The blast is accounted for in the DPS. Spread at range not accounted for."
+    },
+    {
+      "name": "UE Tulumbas",
+      "burst_dps": 18802.0,
+      "cycle_dps": 10652.0,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "UE Taran",
+      "burst_dps": 18395.0,
+      "cycle_dps": 12314.0,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "Hazard",
+      "burst_dps": 17898.75,
+      "cycle_dps": 10041.0,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Porthos",
+      "burst_dps": 17729.67,
+      "cycle_dps": 7208.88,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "Punisher T (25m)",
+      "burst_dps": 17690.0,
+      "cycle_dps": 10380.0,
+      "range": "25m",
+      "notes": "Ol' reliable"
+    },
+    {
+      "name": "Urhag (350m)",
+      "burst_dps": 17501.25,
+      "cycle_dps": 8167.5,
+      "range": "350m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Urhag (0m)",
+      "burst_dps": 17289.0,
+      "cycle_dps": 8068.5,
+      "range": "0m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Wasp",
+      "burst_dps": 16890.61,
+      "cycle_dps": 6652.26,
+      "range": "600m",
+      "notes": "Includes DoT damage, much of which is done while reloading"
+    },
+    {
+      "name": "Nanea (Averaged)",
+      "burst_dps": 16145.11278,
+      "cycle_dps": 9138.0,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Mogwan (150m)",
+      "burst_dps": 15812.0,
+      "cycle_dps": 6217.0,
+      "range": "150m",
+      "notes": ""
+    },
+    {
+      "name": "Atomizer (25m)",
+      "burst_dps": 15705.0,
+      "cycle_dps": 15705.0,
+      "range": "25m",
+      "notes": "At close range, you dont need to let them cool off, so they can continually do their burst dps forever"
+    },
+    {
+      "name": "Atomizer (500m)",
+      "burst_dps": 15705.0,
+      "cycle_dps": 11403.0,
+      "range": "500m",
+      "notes": "At longer range, atomizer needs to cool off about 75% of the way to max heat in order to hit every shot"
+    },
+    {
+      "name": "Damper",
+      "burst_dps": 15387.84,
+      "cycle_dps": 8327.88,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "UE Scourge (350m)",
+      "burst_dps": 15054.0,
+      "cycle_dps": 7200.0,
+      "range": "350m",
+      "notes": "Damage varies with range"
+    },
+    {
+      "name": "Mace (150m)",
+      "burst_dps": 14961.0,
+      "cycle_dps": 5725.0,
+      "range": "150m",
+      "notes": "Mace no longer reliably blasts at 150m, so no blast damage is accounted for in the DPS"
+    },
+    {
+      "name": "Skadi (Frozen)",
+      "burst_dps": 14868.0,
+      "cycle_dps": 4279.0,
+      "range": "600m",
+      "notes": "Enemy frozen"
+    },
+    {
+      "name": "UE Corona (150m)",
+      "burst_dps": 14412.0,
+      "cycle_dps": 6834.0,
+      "range": "150m",
+      "notes": "This weapon has some of the most dramatic damage falloff at range in the game. Don't even bother shooting if you're not practically touching them, its a waste of ammo."
+    },
+    {
+      "name": "Discipline",
+      "burst_dps": 13723.0,
+      "cycle_dps": 8491.0,
+      "range": "500m",
+      "notes": "Assumes all shots hit (good luck with that lmao). It takes a full mag of three Smites/Disciplines to get a blast, so 1/3 of a blast is accounted for in the damage numbers."
+    },
+    {
+      "name": "Regulator (350m)",
+      "burst_dps": 13623.0,
+      "cycle_dps": 5763.0,
+      "range": "350m",
+      "notes": "Regulator spread doesn't have a noticable effect until you get out into very long ranges"
+    },
+    {
+      "name": "Razdor",
+      "burst_dps": 13550.66667,
+      "cycle_dps": 4882.0,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "UE Hussar",
+      "burst_dps": 13402.85071,
+      "cycle_dps": 9269.317329,
+      "range": "600m",
+      "notes": "31 second unload time lmao, you probably won't need to worry about the cycle dps"
+    },
+    {
+      "name": "Chione",
+      "burst_dps": 12888.7218,
+      "cycle_dps": 7931.578947,
+      "range": "600m",
+      "notes": "Frozen enemy"
+    },
+    {
+      "name": "Jaw",
+      "burst_dps": 12834.0,
+      "cycle_dps": 9807.0,
+      "range": "350m",
+      "notes": "Fragility effect can increase damage against enemies with defense points"
+    },
+    {
+      "name": "Leiming",
+      "burst_dps": 12662.0,
+      "cycle_dps": 8154.0,
+      "range": "150m",
+      "notes": "Let's be honest, nobody using this weapon is using it because it does a ton of damage."
+    },
+    {
+      "name": "Labrys",
+      "burst_dps": 12507.0,
+      "cycle_dps": 6973.0,
+      "range": "500m",
+      "notes": "One Labrys can get about half a blast per mag, so half a blast is accounted for in the DPS (assuming you're using 2+ Labrys)"
+    },
+    {
+      "name": "Skadi (No Freeze)",
+      "burst_dps": 12390.0,
+      "cycle_dps": 3566.0,
+      "range": "600m",
+      "notes": "Enemy not frozen"
+    },
+    {
+      "name": "Nanea (Energy Blaster)",
+      "burst_dps": 12201.50376,
+      "cycle_dps": 7286.466165,
+      "range": "600m",
+      "notes": "Charges ships slowly, but concentrates damage in bursty energy balls that have small splash."
+    },
+    {
+      "name": "Chione",
+      "burst_dps": 10740.6015,
+      "cycle_dps": 6609.774436,
+      "range": "600m",
+      "notes": "Enemy not frozen"
+    },
+    {
+      "name": "UE Scourge (500m)",
+      "burst_dps": 7854.0,
+      "cycle_dps": 3756.0,
+      "range": "500m",
+      "notes": "Damage varies with range"
+    },
+    {
+      "name": "Regulator (800m)",
+      "burst_dps": 5453.0,
+      "cycle_dps": 2307.0,
+      "range": "800m",
+      "notes": ""
+    },
+    {
+      "name": "UE Scourge (600m)",
+      "burst_dps": 3236.0,
+      "cycle_dps": 1547.0,
+      "range": "600m",
+      "notes": "Damage varies with range"
+    }
+  ],
+  "Light Weapons": [
+    {
+      "name": "Hippo (Charged)",
+      "burst_dps": 102174.5,
+      "cycle_dps": 20434.5,
+      "range": "350m",
+      "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion. \nCURRENTLY INFLATED BY INTEL. A full charge requires enemies to deal about 350k damage to you. Shields count."
+    },
+    {
+      "name": "Elox (25m)",
+      "burst_dps": 69230.0,
+      "cycle_dps": 25131.0,
+      "range": "25m",
+      "notes": "Includes DoT damage, much of which is dealt while reloading"
+    },
+    {
+      "name": "Hippo (Uncharged)",
+      "burst_dps": 51595.0,
+      "cycle_dps": 10319.0,
+      "range": "350m",
+      "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "UE Arm L (High % Damage)",
+      "burst_dps": 50877.0,
+      "cycle_dps": 22834.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 1M HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "UE Scatter (25m)",
+      "burst_dps": 46993.44,
+      "cycle_dps": 33150.0,
+      "range": "25m",
+      "notes": "100% grey damage is pretty badass"
+    },
+    {
+      "name": "UE Halo (25m)",
+      "burst_dps": 46242.0,
+      "cycle_dps": 19607.0,
+      "range": "25m",
+      "notes": "Halo has a weird firing mechanism that's difficult to properly calculate with in-game testing. The numbers I got were off, so these are the wiki numbers (adjusted to account for intel)"
+    },
+    {
+      "name": "UE Shredder (25m)",
+      "burst_dps": 43934.0,
+      "cycle_dps": 24144.0,
+      "range": "25m",
+      "notes": "\"Light Weapon\""
+    },
+    {
+      "name": "Velios",
+      "burst_dps": 36000.0,
+      "cycle_dps": 14823.5,
+      "range": "500m",
+      "notes": "Fragility effect can increase damage against enemies with defense points"
+    },
+    {
+      "name": "Arm L (High % Damage)",
+      "burst_dps": 33982.0,
+      "cycle_dps": 15103.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 1M HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "UE Scald",
+      "burst_dps": 33716.0,
+      "cycle_dps": 13486.0,
+      "range": "500m",
+      "notes": "CURRENTLY INFLATED BY INTEL. UE Scald gets about 75% of a blast per mag, so 75% of a blast is accounted for in the DPS."
+    },
+    {
+      "name": "UE Arm L (Med % Damage)",
+      "burst_dps": 31578.0,
+      "cycle_dps": 14173.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 450k HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "UE Blaze",
+      "burst_dps": 30880.1214,
+      "cycle_dps": 20586.49469,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "Celsius",
+      "burst_dps": 30199.759,
+      "cycle_dps": 21604.13,
+      "range": "300m",
+      "notes": "Assumes you stop shooting before they overheat, so the cooldown is only 5 seconds rather than 6 seconds. CURRENTLY INFLATED BY INTEL."
+    },
+    {
+      "name": "Cudgel (25m)",
+      "burst_dps": 25158.0,
+      "cycle_dps": 9628.0,
+      "range": "25m",
+      "notes": "One Cudgel can get about half a blast per mag, so half a blast is accounted for in the DPS (assuming you're using 2+ Cudgel)"
+    },
+    {
+      "name": "Voonith (970m)",
+      "burst_dps": 22982.0,
+      "cycle_dps": 10725.0,
+      "range": "970m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Scatter (25m)",
+      "burst_dps": 22753.0,
+      "cycle_dps": 5800.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Hedjet",
+      "burst_dps": 22516.0,
+      "cycle_dps": 5196.0,
+      "range": "150m",
+      "notes": "If you start the fight with 2 orbitals prepared, your burst DPS will be double, but only for that initial burst."
+    },
+    {
+      "name": "Shredder (25m)",
+      "burst_dps": 21925.0,
+      "cycle_dps": 8391.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "UE Arm L (Low % Damage)",
+      "burst_dps": 21052.0,
+      "cycle_dps": 9448.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 150k HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "Voonith (800m)",
+      "burst_dps": 20719.0,
+      "cycle_dps": 9669.0,
+      "range": "800m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Arm L (Med % Damage)",
+      "burst_dps": 19250.0,
+      "cycle_dps": 8556.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 450k HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "Gangil (25m)",
+      "burst_dps": 18824.0,
+      "cycle_dps": 7402.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Pow",
+      "burst_dps": 17849.0,
+      "cycle_dps": 2549.857143,
+      "range": "600m",
+      "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion."
+    },
+    {
+      "name": "Gladius",
+      "burst_dps": 16430.0,
+      "cycle_dps": 11130.0,
+      "range": "600m",
+      "notes": "Gladius gets one third of a blast per mag, so one third of a blast is accounted for in the DPS."
+    },
+    {
+      "name": "Splinter (25m)",
+      "burst_dps": 16426.0,
+      "cycle_dps": 8604.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Splinter (150m)",
+      "burst_dps": 16426.0,
+      "cycle_dps": 8604.0,
+      "range": "150m",
+      "notes": "At 150m, it's still a slug shot, so the spread doesnt take any effect"
+    },
+    {
+      "name": "Voonith (600m)",
+      "burst_dps": 15981.0,
+      "cycle_dps": 7458.0,
+      "range": "600m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "UE Arm L (No % Damage)",
+      "burst_dps": 15783.0,
+      "cycle_dps": 7083.0,
+      "range": "500m",
+      "notes": "Assumes no % damage (ie shooting at shields)"
+    },
+    {
+      "name": "Howler (25m)",
+      "burst_dps": 15326.13636,
+      "cycle_dps": 9679.545455,
+      "range": "25m",
+      "notes": "Each sonicblast does 25k damage. A full mag of 1 howler results in 1 blast. The blast is accounted for in the DPS. Spread at range not accounted for."
+    },
+    {
+      "name": "Blight",
+      "burst_dps": 13149.615,
+      "cycle_dps": 7376.788,
+      "range": "600m",
+      "notes": ""
+    },
+    {
+      "name": "Quarker (25m)",
+      "burst_dps": 12851.0,
+      "cycle_dps": 12851.0,
+      "range": "25m",
+      "notes": "At close range, you dont need to let them cool off, so they can continually do their burst dps forever"
+    },
+    {
+      "name": "Quarker (500m)",
+      "burst_dps": 12851.0,
+      "cycle_dps": 9331.0,
+      "range": "500m",
+      "notes": "At longer range, quarker needs to cool off about 75% of the way to max heat in order to hit every shot"
+    },
+    {
+      "name": "Scatter (25m)",
+      "burst_dps": 12514.0,
+      "cycle_dps": 3190.0,
+      "range": "200m",
+      "notes": ""
+    },
+    {
+      "name": "Aramis",
+      "burst_dps": 12061.0,
+      "cycle_dps": 4904.0,
+      "range": "350m",
+      "notes": ""
+    },
+    {
+      "name": "Voonith (350m)",
+      "burst_dps": 11667.5,
+      "cycle_dps": 5445.0,
+      "range": "350m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Voonith (0m)",
+      "burst_dps": 11526.0,
+      "cycle_dps": 5379.0,
+      "range": "0m",
+      "notes": "CURRENTLY INFLATED BY INTEL"
+    },
+    {
+      "name": "Arm L (Low % Damage)",
+      "burst_dps": 11214.0,
+      "cycle_dps": 4984.0,
+      "range": "500m",
+      "notes": "Assumes you're shooting a bot with 150k HP on average (% damage is based on current HP, not max HP) Keep in mind % damage cannot be mitigated by defense points."
+    },
+    {
+      "name": "Punisher (25m)",
+      "burst_dps": 10895.0,
+      "cycle_dps": 6393.0,
+      "range": "25m",
+      "notes": "Ol' Reliable"
+    },
+    {
+      "name": "Kramola",
+      "burst_dps": 10548.00208,
+      "cycle_dps": 3800.207577,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "Tamer",
+      "burst_dps": 10432.8,
+      "cycle_dps": 5646.24,
+      "range": "500m",
+      "notes": ""
+    },
+    {
+      "name": "UE Shredder (150m)",
+      "burst_dps": 9885.0,
+      "cycle_dps": 5432.0,
+      "range": "150m",
+      "notes": ""
+    },
+    {
+      "name": "Snaer (Frozen)",
+      "burst_dps": 9872.352,
+      "cycle_dps": 2841.256,
+      "range": "600m",
+      "notes": "Enemy frozen"
+    },
+    {
+      "name": "Ksiphos",
+      "burst_dps": 9740.654206,
+      "cycle_dps": 5430.685358,
+      "range": "500m",
+      "notes": "One Ksiphos can get about half a blast per mag, so half a blast is accounted for in the DPS (assuming you're using 2+ Ksiphos)"
+    },
+    {
+      "name": "Smite",
+      "burst_dps": 9392.0,
+      "cycle_dps": 5811.0,
+      "range": "500m",
+      "notes": "Assumes all shots hit (good luck with that lmao). It takes a full mag of three Smites/Disciplines to get a blast, so 1/3 of a blast is accounted for in the damage numbers."
+    },
+    {
+      "name": "Morana",
+      "burst_dps": 8571.0,
+      "cycle_dps": 5274.5,
+      "range": "600m",
+      "notes": "Enemy frozen"
+    },
+    {
+      "name": "Claw",
+      "burst_dps": 8556.0,
+      "cycle_dps": 6538.0,
+      "range": "350m",
+      "notes": "Fragility effect can increase damage against enemies with defense points"
+    },
+    {
+      "name": "Snaer (No Freeze)",
+      "burst_dps": 8226.96,
+      "cycle_dps": 2367.824,
+      "range": "600m",
+      "notes": "Enemy not frozen"
+    },
+    {
+      "name": "Shifang",
+      "burst_dps": 8028.0,
+      "cycle_dps": 5170.0,
+      "range": "150m",
+      "notes": "Let's be honest, nobody using this weapon is using it because it does a ton of damage."
+    },
+    {
+      "name": "Arm L (No % Damage)",
+      "burst_dps": 7195.0,
+      "cycle_dps": 3198.0,
+      "range": "500m",
+      "notes": "Assumes no % damage (ie shooting at shields)"
+    },
+    {
+      "name": "Morana",
+      "burst_dps": 7142.5,
+      "cycle_dps": 4395.5,
+      "range": "600m",
+      "notes": "Enemy not frozen"
+    },
+    {
+      "name": "Splinter (250m)",
+      "burst_dps": 6570.0,
+      "cycle_dps": 3441.0,
+      "range": "250m",
+      "notes": ""
+    },
+    {
+      "name": "Splinter (350m)",
+      "burst_dps": 2184.0,
+      "cycle_dps": 1144.0,
+      "range": "350m",
+      "notes": ""
+    }
+  ]
+}

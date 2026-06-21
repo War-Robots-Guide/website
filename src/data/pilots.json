@@ -1,0 +1,303 @@
+{
+  "intro": "Pilot skills are probably the second most common thing that I often see newer/returning players mess up (the first being specializations) so with this post, I hope to present a concise guide that makes picking the best pilot skills for your robots and titans a breeze.\nBroadly, we can group pilot skills into four categories:\nMust use\nUsually use\nSometimes use\nDon't use (unless you know what you're doing)\nPilot skill priority is different for robots and titans, since even some of their skills that share the same name and general function don't all quite work the same, so lets go over each individually.",
+  "robots": {
+    "Must Use": [
+      {
+        "name": "Mechanic",
+        "description": "Playing the game without this skill feels awful. Some bots with extremely strong healing can get away without using it, but for the majority of bots, this should be an easy pick"
+      },
+      {
+        "name": "Armor Expert",
+        "description": "An easy pick for some free durability"
+      },
+      {
+        "name": "Road Hog",
+        "description": "An easy pick for some free speed"
+      },
+      {
+        "name": "Deft/Clever Survivor",
+        "description": "Almost every robot that has this skill wants it. There are a couple exceptions, so you need to use common sense: Will the ability save your ass if someone tries to kill you while it's on cooldown? If so, pick deft."
+      },
+      {
+        "name": "True Ace",
+        "description": "Every bot that can use this should use this."
+      },
+      {
+        "name": "Suppressor",
+        "description": "The value of this skill depends on your suppression power. Most bots that suppress do 50% or 75%, so they should definitely take this skill, but if a bot with 90% suppression comes out, it's overkill."
+      },
+      {
+        "name": "Dodger",
+        "description": "Increased uptime on overpowered modules like UC and phase shift makes for a great skill. Can potentially justify skipping this, but only if you are extremely powercell broke."
+      },
+      {
+        "name": "Engine Expert, Defense Expert, Ferocious Guardian",
+        "description": "You can only take one of these skills, and you absolutely should on most bots. On some bots, you'll need to use common sense to decide if it makes any sense (for example, do you really want an extra 20 defense points when Leech uses its ability to give itself 900?), but often, there is no single best choice and you can use whatever you want. Leech and Revenant currently have a multiplicative stacking interaction with their pilots (Thomas and Ricardo) which makes them EXTREMELY fast with Engine expert, way more than 10%. I believe EE is a must pick for those bots."
+      }
+    ],
+    "Usually Use": [
+      {
+        "name": "Stubborn Warrior",
+        "description": "Unlike stubborn speedster, this is pretty much just guaranteed free durability since you will almost certainly get to 30% health before dying (unless you get oneshot) so you can treat it as some more free durability."
+      },
+      {
+        "name": "Energy Shield Expert/Crazy Electrician",
+        "description": "For bots relying on Aegis shields, these skills can be great, but since robot pilots only have 7 slots, it can sometimes be hard to fit them both (or even one of them) in, especially if using weapons that want a weapon skill."
+      },
+      {
+        "name": "Modules Expert",
+        "description": "This skill doesn\u2019t only extend the duration of phase shift, shieldbreaker, quantum radar, or any other active module with a duration, but it also give more healing with healing modules. I usually prefer dodger though."
+      },
+      {
+        "name": "Sharpshooter",
+        "description": "Most weapons with this skill available will want to take it if possible. Some weapons gain more from it than others. Ask yourself the question: Do my weapons feel like they miss a lot at the range I usually play this bot at? If yes, take sharpshooter."
+      },
+      {
+        "name": "Powerman",
+        "description": "Always use this if it's available, less time spent reloading is more time spent killing!"
+      },
+      {
+        "name": "Wonderworker",
+        "description": "Usually best used on bots that spam their ability a lot or use their ability to try and save their own ass."
+      },
+      {
+        "name": "Tough Guy and Customization Adept",
+        "description": "Easy picks on tanks, but not as useful for non tanks."
+      },
+      {
+        "name": "Cautious Pilot",
+        "description": "I personally avoid this skill because I don't like being slow, but it is still justifiable on tanks."
+      },
+      {
+        "name": "Spy and Scout",
+        "description": "Easy picks on Beacon cappers and Saboteurs, and can even be used on Damage Dealers and Raiders."
+      },
+      {
+        "name": "Destroyer",
+        "description": "If your robot has a built in weapon that deals a significant amount of damage, you want this skill."
+      },
+      {
+        "name": "Physical Shield Expert",
+        "description": "If your robot strongly relies on a physical shield that isn't unbreakable already then you want this skill."
+      },
+      {
+        "name": "Foolhardy Quartermaster",
+        "description": "Similar to deft survivor, can save you in a pinch, giving you back your module at half health."
+      }
+    ],
+    "Sometimes Use": [
+      {
+        "name": "Adamant Road Hog",
+        "description": "This is the only \u201cAdamant\u201d skill that is worth using if you have space available. It gives a relevant boost (speed while you don\u2019t have beacons) and the multiplier is higher than any other adamant skill."
+      },
+      {
+        "name": "Invulnerable Raider",
+        "description": "This is the only \u201cRaider\u201d skill that is worth using if you have space available. It can be used on opener bots to have some defense points at the start of the match."
+      },
+      {
+        "name": "Master Gunsmith",
+        "description": "5% damage for free isn\u2019t useless or anything, but you usually don\u2019t have enough space to take an unimpactful skill like this except on some saboteurs who are lacking in damage since they dont have NA."
+      },
+      {
+        "name": "Survivor and Thrill Seeker",
+        "description": "Most bots that want damage don't have room to take these skills, just like with master gunsmith."
+      },
+      {
+        "name": "Guidance Operator",
+        "description": "The problem with this skill is that all the weapons it applies to suck, except boom family, which are mid but you should use this for them."
+      }
+    ],
+    "Don't Use": [
+      {
+        "name": "Adamant Mechanic, Adamant Gunsmith",
+        "description": "Unless you have a second hangar identical to your first that you only spawn in while you're losing, these skills are pretty hard to justify using."
+      },
+      {
+        "name": "Raider Mechanic, Ninja",
+        "description": "These skills are hard to justify slotting in."
+      },
+      {
+        "name": "\"Opportunist\" skills, Bounty hunter",
+        "description": "These skills are OP in PvE but useless in normal modes."
+      },
+      {
+        "name": "Gunsmith (Weapon Specific)",
+        "description": "Hard to justify taking a 4.5% damage boost that doesn\u2019t apply to all weapons (unless you\u2019re using 4 of the same exact weapon, but even then, you\u2019ll run out of slots before you get to this point)."
+      },
+      {
+        "name": "Speed Shooter",
+        "description": "Usually not worth the slot"
+      },
+      {
+        "name": "Stubborn Speedster",
+        "description": "Not entirely useless but generally worse than stubborn warrior"
+      },
+      {
+        "name": "Quartermaster",
+        "description": "This skill doesn't give buffs, but if you're super powercell broke I guess you can use it?"
+      },
+      {
+        "name": "Traditionalist, Daredevil, Ghost",
+        "description": "Technically these skills are not completely unusable, with Falcon and Fafnir making for acceptable tanks via Traditionalist, and Ghost being okay on some older/legacy bots that can use it, but 95% of the time you're throwing if you pick this or use a bot where its optimal to pick this."
+      },
+      {
+        "name": "Explosives Expert",
+        "description": "You will not notice the increase in splash size from this skill"
+      },
+      {
+        "name": "True Cowboy",
+        "description": "The problem with this skill is that all the robots it applies to suck"
+      },
+      {
+        "name": "Knight Errant",
+        "description": "Ecu sucks"
+      }
+    ]
+  },
+  "titans": {
+    "Must Use": [
+      {
+        "name": "Mechanic",
+        "description": "Playing the game without this skill feels awful. Titans like this skill especially."
+      },
+      {
+        "name": "Road Hog",
+        "description": "An easy pick for some free speed"
+      },
+      {
+        "name": "Deft/Clever Survivor",
+        "description": "Almost every titan that has this skill wants it. There are a couple exceptions, so you need to use common sense: Will the ability save your ass if someone tries to kill you while it's on cooldown? If so, pick deft."
+      },
+      {
+        "name": "True Ace",
+        "description": "Every titan that can use this should use this."
+      },
+      {
+        "name": "Defense Expert, Ferocious Guardian",
+        "description": "Titans should usually take both of these, depending on the ability it affects. Obviously don't take ferocious guardian on an ability that disables your weapons, lol."
+      },
+      {
+        "name": "Titan Master",
+        "description": "Easy pick to get your titan out quicker."
+      },
+      {
+        "name": "Titan Slayer",
+        "description": "Easy pick for free damage against titans."
+      },
+      {
+        "name": "Armor Expert",
+        "description": "Only gives 6% durability, worth using but less of a priority than it is on robots."
+      },
+      {
+        "name": "Stubborn Warrior",
+        "description": "Unlike stubborn speedster, this is pretty much just guaranteed free durability since you will almost certainly get to 30% health before dying (unless you get oneshot) so you can treat it as some more free durability. Especially powerful while TRA is active."
+      }
+    ],
+    "Usually Use": [
+      {
+        "name": "Jaeger",
+        "description": "For titans with 1 Alpha and 2 Beta slots, Jaeger is comparable to taking another copy of titan slayer, which is obviously good."
+      },
+      {
+        "name": "Sharpshooter",
+        "description": "Most weapons with this skill available will want to take it if possible. Some weapons gain more from it than others. Ask yourself the question: Do my weapons feel like they miss a lot at the range I usually play this bot at? If yes, take sharpshooter."
+      },
+      {
+        "name": "Suppressor",
+        "description": "The value of this skill depends on your suppression power. Most titans that suppress do 50% or 75%, so they should definitely take this skill, but for UE Nodens who has a 90% suppression, this skill is overkill."
+      },
+      {
+        "name": "Wonderworker",
+        "description": "Usually best used on titans that spam their ability a lot or use their ability to try and save their own ass."
+      },
+      {
+        "name": "Cautious Pilot and Customization Adept",
+        "description": "Easy picks on tanks."
+      },
+      {
+        "name": "Survivor and Thrill Seeker",
+        "description": "Somewhat justifiable on damage dealers that don't really need speed or durability to do their job (ie Murometz)."
+      },
+      {
+        "name": "Destroyer",
+        "description": "If your titan has a built in weapon that deals a significant amount of damage, you want this skill."
+      },
+      {
+        "name": "Physical Shield Expert",
+        "description": "If your titan strongly relies on a physical shield then you want this skill."
+      },
+      {
+        "name": "Master Gunsmith",
+        "description": "If you don't want to deal with the condition of reduced durability or speed, this is like Survivor or Thrill Seeker with half effectiveness and no downside."
+      }
+    ],
+    "Sometimes Use": [
+      {
+        "name": "Tough Guy",
+        "description": "Only take this skill on Mauler"
+      },
+      {
+        "name": "Bounty Hunter",
+        "description": "Gives a decent damage boost but the uptime is short. Viable on some Quantum Sensor titans since they are missing the damage from TNA. Broken in PvE."
+      },
+      {
+        "name": "Wise Opportunist",
+        "description": "Gives a big defense boost that can be useful for TRA titans that are under fire by many enemies at once, such as Ultimate Ming."
+      }
+    ],
+    "Don't Use": [
+      {
+        "name": "Engine Expert",
+        "description": "Can't be taken alongside road hog, and it's strictly worse than road hog"
+      },
+      {
+        "name": "Cunning Opportunist",
+        "description": "Some speed on kills isn\u2019t really justifiable."
+      },
+      {
+        "name": "Spy and Scout",
+        "description": "These kind of suck for titans, since they don't want to trade off their durability or damage for speed"
+      },
+      {
+        "name": "\"Adamant\" skills",
+        "description": "On titans, these skills don't even give enough stats to be worth picking at all."
+      },
+      {
+        "name": "\"Raider\" skills, Ninja",
+        "description": "On titans, these skills don't even give enough stats to be worth picking at all."
+      },
+      {
+        "name": "Speed Shooter",
+        "description": "Usually not worth the slot"
+      },
+      {
+        "name": "Stubborn Speedster",
+        "description": "Not entirely useless but generally worse than stubborn warrior"
+      },
+      {
+        "name": "Traditionalist, Daredevil, Ghost",
+        "description": "Just... don't."
+      },
+      {
+        "name": "Explosives Expert",
+        "description": "You will not notice the increase in splash size from this skill"
+      },
+      {
+        "name": "Guidance Operator",
+        "description": "The problem with this skill is that all the weapons it applies to suck."
+      },
+      {
+        "name": "Generalist, Heavyweight Battler, Rationalist, Hothead",
+        "description": "Their boosts are not enough to justify taking most of the time."
+      },
+      {
+        "name": "Berserker",
+        "description": "Multiply your titan's HP by 0.05 to understand how rare it will be to actually have this skill activate for any meaningful amount of time."
+      },
+      {
+        "name": "Hoplite",
+        "description": "You have probably never heard of this skill before. That is for a good reason. Very good for players who like when their titan instantly wilts after someone with venires looks at them. That should be all... let me know if I missed anything or you have any further pilot related questions!"
+      }
+    ]
+  }
+}
