@@ -30,6 +30,14 @@ function App() {
   // Detailed Modal State
   const [selectedItem, setSelectedItem] = useState(null); // { name, type, data }
 
+  // Hangar Analyzer States
+  const [hangarRobots, setHangarRobots] = useState([null, null, null, null, null]);
+  const [hangarTitan, setHangarTitan] = useState(null);
+  const [activeSlot, setActiveSlot] = useState(null); // null, or 0-4 for robots, 5 for titan
+  const [showSelectorModal, setShowSelectorModal] = useState(false);
+  const [selectorSearchQuery, setSelectorSearchQuery] = useState('');
+
+
   // --------------------------------------------------
   // METADATA & STATS CALCULATIONS
   // --------------------------------------------------
@@ -55,6 +63,86 @@ function App() {
       latestChange
     };
   }, []);
+
+  // --------------------------------------------------
+  // HANGAR ANALYZER CALCULATION
+  // --------------------------------------------------
+  const hangarAnalysis = useMemo(() => {
+    const rolesList = ['Support', 'Tank-buster', 'Sniper', 'Midrange', 'Brawler', 'Beacon Runner', 'Assassin'];
+    const scores = {};
+    rolesList.forEach(r => {
+      scores[r] = 0;
+    });
+
+    let selectedCount = 0;
+    hangarRobots.forEach(robot => {
+      if (robot) {
+        selectedCount++;
+        if (robot.roles) {
+          robot.roles.forEach(roleObj => {
+            const rName = roleObj.role;
+            if (scores[rName] !== undefined) {
+              if (roleObj.type === 'primary') {
+                scores[rName] += 1.0;
+              } else if (roleObj.type === 'secondary') {
+                scores[rName] += 0.5;
+              }
+            }
+          });
+        }
+      }
+    });
+
+    let grade = 'N/A';
+    let gradeColor = 'var(--text-muted)';
+    let gradeDesc = 'Awaiting selection...';
+
+    if (selectedCount > 0) {
+      const hasBrawler = scores['Brawler'] >= 0.5;
+      const hasBeaconRunner = (scores['Beacon Runner'] + scores['Assassin']) >= 0.5;
+      const hasSupport = scores['Support'] >= 0.5;
+      const rangeCount = scores['Sniper'] + scores['Midrange'];
+      const tooManySnipers = rangeCount > 2;
+
+      let scorePoints = 0;
+      if (hasBrawler) scorePoints += 2;
+      if (hasBeaconRunner) scorePoints += 2;
+      if (hasSupport) scorePoints += 1;
+      if (!tooManySnipers) scorePoints += 1;
+      scorePoints += Math.min(2, selectedCount * 0.4);
+
+      if (scorePoints >= 5.5 && hasBrawler && hasBeaconRunner) {
+        grade = 'S';
+        gradeColor = '#fbbf24';
+        gradeDesc = 'META SYNERGY - Extremely balanced hangar matching top competitive guidelines.';
+      } else if (scorePoints >= 4.5 && (hasBrawler || hasBeaconRunner)) {
+        grade = 'A';
+        gradeColor = '#a855f7';
+        gradeDesc = 'HIGH SYNERGY - Solid lineup covering major tactical roles. Great for general play.';
+      } else if (scorePoints >= 3.0) {
+        grade = 'B';
+        gradeColor = '#3b82f6';
+        gradeDesc = 'MODERATE SYNERGY - Decent setup but missing key frontline or runner elements.';
+      } else if (scorePoints >= 1.5) {
+        grade = 'C';
+        gradeColor = '#0d9488';
+        gradeDesc = 'LOW SYNERGY - Unbalanced layout. High risk of getting beacon-locked or overpowered.';
+      } else {
+        grade = 'D';
+        gradeColor = '#f97316';
+        gradeDesc = 'UNBALANCED - Heavy role deficits. Consider swapping for a broader mix of tactical roles.';
+      }
+    }
+
+    return {
+      scores,
+      grade,
+      gradeColor,
+      gradeDesc,
+      selectedCount
+    };
+  }, [hangarRobots]);
+
 
   // --------------------------------------------------
   // TIER LIST SEARCH & GROUPING
@@ -276,7 +364,9 @@ function App() {
             <button className={`nav-item ${activeTab === 'weapons' ? 'active' : ''}`} onClick={() => { setActiveTab('weapons'); setSearchQuery(''); }}>
               <BarChart2 size={16} /> Weapon DPS
             </button>
-
+            <button className={`nav-item ${activeTab === 'hangar' ? 'active' : ''}`} onClick={() => { setActiveTab('hangar'); setSearchQuery(''); }}>
+              <Zap size={16} /> Hangar Analyzer
+            </button>
           </nav>
         </div>
       </header>
@@ -1066,6 +1156,348 @@ function App() {
           </div>
         )}
 
+        {/* ========================================================================= */}
+        {/* HANGAR ANALYZER TAB */}
+        {/* ========================================================================= */}
+        {activeTab === 'hangar' && (
+          <div className="animate-fade-in text-left">
+            <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
+              <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Hangar Power Analyzer</h2>
+              <p style={{ margin: 0 }}>
+                Evaluate your hangar composition, role coverage, and tactical synergy. A standard hangar consists of 5 robots and 1 titan.
+              </p>
+            </div>
+
+            {/* Slots grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+              {[0, 1, 2, 3, 4].map(idx => {
+                const item = hangarRobots[idx];
+                return item ? (
+                  <div 
+                    className="glass-panel glass-panel-hover" 
+                    key={idx}
+                    style={{ 
+                      display: 'flex', 
+                      flexDirection: 'column', 
+                      padding: '16px', 
+                      minHeight: '180px', 
+                      borderRadius: '12px',
+                      position: 'relative',
+                      border: '1px solid var(--border-light)',
+                      background: 'rgba(15, 18, 30, 0.45)'
+                    }}
+                  >
+                    <button 
+                      style={{
+                        position: 'absolute',
+                        top: '8px',
+                        right: '8px',
+                        background: 'none',
+                        border: 'none',
+                        color: 'var(--text-muted)',
+                        cursor: 'pointer',
+                        padding: '4px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const newHangar = [...hangarRobots];
+                        newHangar[idx] = null;
+                        setHangarRobots(newHangar);
+                      }}
+                      title="Clear slot"
+                    >
+                      <X size={14} />
+                    </button>
+
+                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
+                      Robot Slot {idx + 1}
+                    </span>
+
+                    <h4 style={{ fontSize: '16px', color: 'var(--cyan)', margin: '0 0 6px 0', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: '140px' }} title={item.name}>
+                      {item.name}
+                    </h4>
+
+                    <div style={{ display: 'flex', gap: '2px', marginBottom: '10px' }}>
+                      {renderRatingStars(item.value_rating)}
+                    </div>
+
+                    {item.roles && item.roles.length > 0 ? (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: 'auto' }}>
+                        {item.roles.map(r => (
+                          <span 
+                            key={r.role} 
+                            className={`role-badge ${r.type}`} 
+                            style={{ fontSize: '10px', padding: '1px 6px', display: 'inline-block', width: 'fit-content' }}
+                          >
+                            {r.role} {r.type === 'primary' ? '★' : '☆'}
+                          </span>
+                        ))}
+                      </div>
+                    ) : (
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: 'auto' }}>No specific roles</span>
+                    )}
+                  </div>
+                ) : (
+                  <div 
+                    className="glass-panel glass-panel-hover" 
+                    key={idx}
+                    style={{ 
+                      border: '2px dashed var(--border-light)', 
+                      display: 'flex', 
+                      flexDirection: 'column', 
+                      alignItems: 'center', 
+                      justifyContent: 'center', 
+                      padding: '24px', 
+                      minHeight: '180px', 
+                      cursor: 'pointer',
+                      borderRadius: '12px',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onClick={() => { setActiveSlot(idx); setShowSelectorModal(true); }}
+                  >
+                    <div style={{ fontSize: '32px', color: 'var(--text-muted)', marginBottom: '8px' }}>+</div>
+                    <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: 600 }}>ROBOT SLOT {idx + 1}</span>
+                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '4px' }}>Click to select</span>
+                  </div>
+                );
+              })}
+
+              {/* Titan slot */}
+              {hangarTitan ? (
+                <div 
+                  className="glass-panel glass-panel-hover" 
+                  style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    padding: '16px', 
+                    minHeight: '180px', 
+                    borderRadius: '12px',
+                    position: 'relative',
+                    border: '1px solid rgba(168, 85, 247, 0.4)',
+                    background: 'rgba(168, 85, 247, 0.05)'
+                  }}
+                >
+                  <button 
+                    style={{
+                      position: 'absolute',
+                      top: '8px',
+                      right: '8px',
+                      background: 'none',
+                      border: 'none',
+                      color: 'var(--text-muted)',
+                      cursor: 'pointer',
+                      padding: '4px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setHangarTitan(null);
+                    }}
+                    title="Clear slot"
+                  >
+                    <X size={14} />
+                  </button>
+
+                  <span style={{ fontSize: '11px', color: 'var(--purple)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '8px' }}>
+                    Titan Slot
+                  </span>
+
+                  <h4 style={{ fontSize: '16px', color: 'var(--purple)', margin: '0 0 6px 0', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: '140px' }} title={hangarTitan.name}>
+                    {hangarTitan.name}
+                  </h4>
+
+                  <div style={{ display: 'flex', gap: '2px', marginBottom: '10px' }}>
+                    {renderRatingStars(hangarTitan.value_rating)}
+                  </div>
+
+                  <span style={{ fontSize: '11px', color: 'var(--purple)', marginTop: 'auto', fontWeight: 600 }}>Heavy Deployment option</span>
+                </div>
+              ) : (
+                <div 
+                  className="glass-panel glass-panel-hover" 
+                  style={{ 
+                    border: '2px dashed rgba(168, 85, 247, 0.4)', 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    padding: '24px', 
+                    minHeight: '180px', 
+                    cursor: 'pointer',
+                    borderRadius: '12px',
+                    transition: 'all 0.3s ease',
+                    background: 'rgba(168, 85, 247, 0.02)'
+                  }}
+                  onClick={() => { setActiveSlot(5); setShowSelectorModal(true); }}
+                >
+                  <div style={{ fontSize: '32px', color: 'var(--purple)', marginBottom: '8px' }}>+</div>
+                  <span style={{ fontSize: '13px', color: 'var(--purple)', fontWeight: 700 }}>TITAN SLOT</span>
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '4px' }}>Click to select</span>
+                </div>
+              )}
+            </div>
+
+            {/* Analysis Dashboard */}
+            {(hangarAnalysis.selectedCount > 0 || hangarTitan !== null) ? (
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginTop: '32px', textAlign: 'left' }} className="responsive-split">
+                
+                {/* Left Panel: Role Strength Profiles */}
+                <div className="glass-panel">
+                  <h3 style={{ fontSize: '20px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)' }}>
+                    <BarChart2 size={20} /> Hangar Roles Profile
+                  </h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    {Object.keys(hangarAnalysis.scores).map(role => {
+                      const score = hangarAnalysis.scores[role];
+                      const percentage = Math.min(100, (score / 3.0) * 100);
+                      const barColor = score >= 1.5 ? 'var(--cyan)' : score >= 0.5 ? '#3b82f6' : 'rgba(255,255,255,0.1)';
+                      return (
+                        <div key={role} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px' }}>
+                            <span style={{ fontWeight: 600, color: score > 0 ? '#fff' : 'var(--text-muted)' }}>{role}</span>
+                            <span style={{ 
+                              fontWeight: 700, 
+                              color: score >= 1.5 ? 'var(--cyan)' : score >= 0.5 ? '#3b82f6' : 'var(--text-muted)',
+                              background: score > 0 ? 'rgba(255,255,255,0.05)' : 'none',
+                              padding: '2px 8px',
+                              borderRadius: '4px'
+                            }}>
+                              {score.toFixed(1)}
+                            </span>
+                          </div>
+                          <div style={{ height: '8px', background: 'rgba(0,0,0,0.2)', borderRadius: '4px', overflow: 'hidden' }}>
+                            <div style={{ 
+                              width: `${percentage}%`, 
+                              height: '100%', 
+                              background: barColor, 
+                              borderRadius: '4px',
+                              boxShadow: score > 0 ? `0 0 8px ${barColor}` : 'none',
+                              transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                            }} />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Right Panel: Synergy Evaluation & Advice */}
+                <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                  <h3 style={{ fontSize: '20px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--purple)' }}>
+                    <Zap size={20} /> Tactical Synergy Rating
+                  </h3>
+
+                  {/* Grade Badge */}
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '16px', 
+                    background: 'rgba(0,0,0,0.2)', 
+                    padding: '16px', 
+                    borderRadius: '12px',
+                    border: `1px solid ${hangarAnalysis.gradeColor}40`
+                  }}>
+                    <div style={{ 
+                      fontSize: '48px', 
+                      fontWeight: 900, 
+                      color: hangarAnalysis.gradeColor,
+                      textShadow: `0 0 16px ${hangarAnalysis.gradeColor}`,
+                      width: '72px',
+                      height: '72px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: `${hangarAnalysis.gradeColor}10`,
+                      borderRadius: '50%',
+                      border: `3px solid ${hangarAnalysis.gradeColor}`,
+                      flexShrink: 0
+                    }}>
+                      {hangarAnalysis.grade}
+                    </div>
+                    <div>
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', display: 'block' }}>HANGAR RATING</span>
+                      <p style={{ margin: '4px 0 0 0', fontSize: '13.5px', color: '#fff', fontWeight: 600, lineHeight: 1.4 }}>
+                        {hangarAnalysis.gradeDesc}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Advice List */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase' }}>Tactical Feedback:</span>
+                    
+                    {/* Durability Advice */}
+                    <div style={{ fontSize: '13.5px', lineHeight: 1.5 }}>
+                      {hangarAnalysis.scores['Brawler'] >= 1.5 ? (
+                        <span style={{ color: '#10b981' }}>✓ Strong Frontline: Multiple brawlers to push and hold beacon choke points.</span>
+                      ) : hangarAnalysis.scores['Brawler'] >= 0.5 ? (
+                        <span style={{ color: '#3b82f6' }}>✓ Frontline covered: Ready to contest center beacons.</span>
+                      ) : (
+                        <span style={{ color: '#f59e0b' }}>⚠️ Frontline vulnerability: Your hangar lacks dedicated Brawlers. Defending captured beacons will be tough.</span>
+                      )}
+                    </div>
+
+                    {/* Mobility/Beacon Runner Advice */}
+                    <div style={{ fontSize: '13.5px', lineHeight: 1.5 }}>
+                      {(hangarAnalysis.scores['Beacon Runner'] + hangarAnalysis.scores['Assassin']) >= 1.5 ? (
+                        <span style={{ color: '#10b981' }}>✓ High Mobility: Strong speed profile to secure early map control.</span>
+                      ) : (hangarAnalysis.scores['Beacon Runner'] + hangarAnalysis.scores['Assassin']) >= 0.5 ? (
+                        <span style={{ color: '#3b82f6' }}>✓ Beacon Runner covered: Essential for beacon matches.</span>
+                      ) : (
+                        <span style={{ color: '#f59e0b' }}>⚠️ Mobility deficit: No dedicated Beacon Runners. Capturing open beacons will be slow.</span>
+                      )}
+                    </div>
+
+                    {/* Range Over-investment Advice */}
+                    <div style={{ fontSize: '13.5px', lineHeight: 1.5 }}>
+                      {(hangarAnalysis.scores['Sniper'] + hangarAnalysis.scores['Midrange']) > 2 ? (
+                        <span style={{ color: '#ef4444' }}>⚠️ High Range Over-investment: More than 2 midrange/snipers leaves your frontline weak. Swap one for a brawler.</span>
+                      ) : (hangarAnalysis.scores['Sniper'] + hangarAnalysis.scores['Midrange']) >= 0.5 ? (
+                        <span style={{ color: '#3b82f6' }}>✓ Firepower suppression: Good capability to control lanes from distance.</span>
+                      ) : (
+                        <span style={{ color: 'var(--text-secondary)' }}>✓ Focused layout: No range weapons, optimized for active beacon brawling.</span>
+                      )}
+                    </div>
+
+                    {/* Support Utility Advice */}
+                    <div style={{ fontSize: '13.5px', lineHeight: 1.5 }}>
+                      {hangarAnalysis.scores['Support'] >= 1.5 ? (
+                        <span style={{ color: '#10b981' }}>✓ Tactical Utility: Strong teammate buffs, heals, and shield support.</span>
+                      ) : hangarAnalysis.scores['Support'] >= 0.5 ? (
+                        <span style={{ color: '#3b82f6' }}>✓ Support helper: Good utility to extend team lifespans.</span>
+                      ) : (
+                        <span style={{ color: 'var(--text-muted)' }}>ℹ Solo focus: No support robots. You might miss out on extra honor points from healing teammates.</span>
+                      )}
+                    </div>
+
+                    {/* Titan Advice */}
+                    <div style={{ fontSize: '13.5px', lineHeight: 1.5, borderTop: '1px solid var(--border-light)', paddingTop: '12px', marginTop: '6px' }}>
+                      {hangarTitan ? (
+                        <span style={{ color: 'var(--purple)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <Zap size={14} /> Titan {hangarTitan.name} ready: Provides a powerful late-game {hangarTitan.value_rating >= 4 ? 'top-tier option' : 'viable option'}.
+                        </span>
+                      ) : (
+                        <span style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <XCircle size={14} /> Titan slot empty. Select a Titan to evaluate your late-game deployment.
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="glass-panel" style={{ padding: '40px', marginTop: '32px', color: 'var(--text-muted)', textAlign: 'center' }}>
+                Select robots or a titan above to see your hangar's tactical roles profile and synergy rating.
+              </div>
+            )}
+          </div>
+        )}
+
 
 
       </main>
@@ -1180,6 +1612,109 @@ function App() {
                   })()}
                 </div>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* HANGAR SELECTOR OVERLAY MODAL */}
+      {/* ========================================================================= */}
+      {showSelectorModal && (
+        <div className="modal-overlay" onClick={() => { setShowSelectorModal(false); setSelectorSearchQuery(''); }}>
+          <div className="modal-content text-left" style={{ maxWidth: '600px' }} onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <div>
+                <h3 style={{ fontSize: '22px' }}>
+                  {activeSlot === 5 ? 'Select Titan' : `Select Robot for Slot ${activeSlot + 1}`}
+                </h3>
+              </div>
+              <button className="modal-close-btn" onClick={() => { setShowSelectorModal(false); setSelectorSearchQuery(''); }}>
+                <X size={20} />
+              </button>
+            </div>
+            
+            <div className="modal-body" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div className="search-input-wrapper">
+                <Search size={18} className="search-input-icon" />
+                <input 
+                  type="text" 
+                  className="search-input" 
+                  placeholder={activeSlot === 5 ? "Search Titans..." : "Search Robots..."}
+                  value={selectorSearchQuery}
+                  onChange={(e) => setSelectorSearchQuery(e.target.value)}
+                  autoFocus
+                />
+              </div>
+
+              <div style={{ maxHeight: '350px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', paddingRight: '4px' }}>
+                {activeSlot === 5 ? (
+                  // Titan selections
+                  robotGuideData?.titans?.filter(t => t.name.toLowerCase().includes(selectorSearchQuery.toLowerCase())).map(titan => (
+                    <div 
+                      key={titan.name} 
+                      className="glass-panel glass-panel-hover" 
+                      style={{ padding: '12px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', border: '1px solid var(--border-light)' }}
+                      onClick={() => {
+                        setHangarTitan(titan);
+                        setShowSelectorModal(false);
+                        setSelectorSearchQuery('');
+                      }}
+                    >
+                      <div>
+                        <span style={{ fontWeight: 700, color: '#fff' }}>{titan.name}</span>
+                        <span style={{ fontSize: '11px', color: 'var(--purple)', marginLeft: '10px' }}>Titan</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '2px' }}>
+                        {renderRatingStars(titan.value_rating)}
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  // Robot selections
+                  robotGuideData?.robots?.filter(r => r.name.toLowerCase().includes(selectorSearchQuery.toLowerCase())).map(robot => (
+                    <div 
+                      key={robot.name} 
+                      className="glass-panel glass-panel-hover" 
+                      style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '8px', cursor: 'pointer', border: '1px solid var(--border-light)' }}
+                      onClick={() => {
+                        const newHangar = [...hangarRobots];
+                        newHangar[activeSlot] = robot;
+                        setHangarRobots(newHangar);
+                        setShowSelectorModal(false);
+                        setSelectorSearchQuery('');
+                      }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span style={{ fontWeight: 700, color: '#fff' }}>{robot.name}</span>
+                        <div style={{ display: 'flex', gap: '2px' }}>
+                          {renderRatingStars(robot.value_rating)}
+                        </div>
+                      </div>
+                      {robot.roles && robot.roles.length > 0 && (
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+                          {robot.roles.map(role => (
+                            <span 
+                              key={role.role} 
+                              className={`role-badge ${role.type}`} 
+                              style={{ fontSize: '10px', padding: '1px 6px' }}
+                            >
+                              {role.role}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))
+                )}
+                
+                {((activeSlot === 5 && !robotGuideData?.titans?.some(t => t.name.toLowerCase().includes(selectorSearchQuery.toLowerCase()))) ||
+                  (activeSlot !== 5 && !robotGuideData?.robots?.some(r => r.name.toLowerCase().includes(selectorSearchQuery.toLowerCase())))) && (
+                  <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-muted)' }}>
+                    No results found matching "{selectorSearchQuery}"
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
