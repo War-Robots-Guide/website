@@ -12,8 +12,292 @@ import weaponsDpsData from './data/weapons_dps.json';
 import specializationsData from './data/specializations.json';
 import pilotsData from './data/pilots.json';
 
+const specTree = {
+  question: "What unit type are you picking a specialization for?",
+  options: [
+    {
+      label: "Robot",
+      value: "robot",
+      next: {
+        question: "Select your Robot Class/Role:",
+        options: [
+          {
+            label: "Damage Dealer / Raider",
+            value: "damage_dealer",
+            next: {
+              question: "Select your Build Type / Range Focus:",
+              options: [
+                {
+                  label: "Long Range (>800m)",
+                  value: "long_range",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Nuclear Amplifier", content: "Charges damage and defense mitigation over time by dealing damage." },
+                      { name: "Slot 2: Rangefinder", content: "Provides raw damage scaling that increases with target distance, perfect for sniper builds." }
+                    ],
+                    note: "Perfect for long-range support and sniper builds operating at safe distances."
+                  }
+                },
+                {
+                  label: "Short / Standard Range",
+                  value: "standard_range",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Nuclear Amplifier", content: "Charges damage and defense mitigation over time by dealing damage." },
+                      { name: "Slot 2: Overdrive Unit", content: "Provides massive static damage bonuses that trigger when your robot's health drops below a threshold." }
+                    ],
+                    note: "Best for frontline damage dealers and burst-oriented builds."
+                  }
+                },
+                {
+                  label: "Raider Specific",
+                  value: "raider",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Nuclear Amplifier", content: "Charges damage and defense mitigation over time by dealing damage." },
+                      { name: "Slot 2: Power Unit / Titan Slayer", content: "Enhances active ability runtimes or gives crucial damage multiplier spikes when fighting enemy Titans." }
+                    ],
+                    note: "Designed for fast beacon runners who double as high-threat titan hunters."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            label: "Brawler / Tank",
+            value: "brawler_tank",
+            next: {
+              question: "Choose your Robot Archetype:",
+              options: [
+                {
+                  label: "Brawler (Active close-quarters combat)",
+                  value: "brawler",
+                  next: {
+                    question: "Choose your primary playstyle focus:",
+                    options: [
+                      {
+                        label: "Survivalist (Prolonged duels)",
+                        value: "survivalist",
+                        result: {
+                          slots: [
+                            { name: "Slot 1: Repair Amplifier", content: "Restores durability, heals grey damage, and increases defense points as you receive damage." },
+                            { name: "Slot 2: Immune Amplifier", content: "Protects against status effects (lock-down, suppression, freeze) and grants permanent max health boosts." }
+                          ],
+                          note: "Best generic brawler loadout to survive in high-status combat environments."
+                        }
+                      },
+                      {
+                        label: "Objective Stall (Hold beacons under focus fire)",
+                        value: "stall",
+                        result: {
+                          slots: [
+                            { name: "Slot 1: Repair Amplifier", content: "Restores durability, heals grey damage, and increases defense points as you receive damage." },
+                            { name: "Slot 2: Last Stand", content: "Grants brief invulnerability when health drops to critical levels, letting you stall on beacons." }
+                          ],
+                          note: "Clutch option for beacon defenders to buy time for incoming teammate rotations."
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  label: "Tank (High raw durability & damage absorption)",
+                  value: "tank",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Heavy Armor Kit", content: "Provides flat, passive durability increases from the start of the match." },
+                      { name: "Slot 2: Repair Amplifier", content: "Charges healing and defense boosts as you absorb damage, helping you sponge hits." }
+                    ],
+                    note: "Recommended for high-base health tanks (like Fenrir or Invader) that rely on pure durability stats."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            label: "Support (Healer / Buffer)",
+            value: "support",
+            result: {
+              slots: [
+                { name: "Slot 1: Accelerator", content: "Provides raw speed increases to reach allies and position supportive abilities quickly." },
+                { name: "Slot 2: Last Stand", content: "Guarantees crucial survival frames under heavy focus, allowing you to deploy healing pulses." }
+              ],
+              note: "Keeps support robots active and moving between squad members."
+            }
+          },
+          {
+            label: "Saboteur / Beacon Capper",
+            value: "saboteur_capper",
+            result: {
+              slots: [
+                { name: "Slot 1: Beacon Operator", content: "Accelerates beacon capture rates and scales up defenses while active on objective circles." },
+                { name: "Slot 2: Accelerator", content: "Gives significant speed boosts to bypass fights and capture open territory." }
+              ],
+              note: "Focuses purely on capture mechanics and movement velocity for Domination/Beacon Rush modes."
+            }
+          },
+          {
+            label: "Other / Non-Capping Saboteur",
+            value: "saboteur_other",
+            next: {
+              question: "What is your tactical focus?",
+              options: [
+                {
+                  label: "Attack-focused (Raw burst damage)",
+                  value: "attack",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Thermonuke / Piercer", content: "Increases passive damage or defense mitigation to assassinate targets in stealth intervals." },
+                      { name: "Slot 2: Thermonuke / Piercer", content: "Stacks offensive buffs to guarantee quick eliminations on squishy targets." }
+                    ],
+                    note: "Perfect for hit-and-run glass-cannon assassin setups."
+                  }
+                },
+                {
+                  label: "Defense-focused (Cleanse & Survival)",
+                  value: "defense",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Anticontrol", content: "Instantly cleanses and blocks freeze, lock-down, and suppression effects." },
+                      { name: "Slot 2: Heavy Armor Kit", content: "Increases raw health pool to survive retaliatory strikes after executing an ambush." }
+                    ],
+                    note: "Ensures you retain complete mobility and can escape successfully after your attack window closes."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      label: "Titan",
+      value: "titan",
+      next: {
+        question: "Select your Titan Class/Role:",
+        options: [
+          {
+            label: "Damage Dealer (Offense & Firepower)",
+            value: "titan_damage",
+            next: {
+              question: "Select your Build Focus:",
+              options: [
+                {
+                  label: "Standard/Mixed Combat",
+                  value: "standard",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Nuclear Amplifier", content: "Charges up Titan damage output and grants defense mitigation upon striking enemies." },
+                      { name: "Slot 2: Overdrive", content: "Multiplies offensive capabilities when health falls below specific operational thresholds." }
+                    ],
+                    note: "Maximizes sustained fire damage potential for aggressive Titan builds."
+                  }
+                },
+                {
+                  label: "Sniper / Chip / Titan-Focus",
+                  value: "sniper",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Nuclear Amplifier", content: "Charges up Titan damage output and grants defense mitigation upon striking enemies." },
+                      { name: "Slot 2: Cannibal Reactor", content: "Deals massive bonus damage specifically when targetting other Titan units." }
+                    ],
+                    note: "Excellent choice for snipers and tank hunters looking to shred enemy Titans."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            label: "Brawler / Tank (Frontline & Durability)",
+            value: "titan_brawler_tank",
+            next: {
+              question: "Select your Titan Playstyle Archetype:",
+              options: [
+                {
+                  label: "Brawler (Active frontline combat)",
+                  value: "brawler",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Repair Amplifier", content: "Restores durability, heals grey damage, and increases defense points as you absorb damage." },
+                      { name: "Slot 2: Anticontrol", content: "Immunes your Titan to freeze, blindness, lock-down, and suppression effects in close range." }
+                    ],
+                    note: "Crucial for frontline brawler Titans to prevent getting neutralized by status effects."
+                  }
+                },
+                {
+                  label: "Tank (Objective hold & damage absorption)",
+                  value: "tank",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Repair Amplifier", content: "Restores durability, heals grey damage, and increases defense points as you absorb damage." },
+                      { name: "Slot 2: Last Stand", content: "Grants brief invulnerability frames when durability reaches critical levels." }
+                    ],
+                    note: "Maximizes stall time on beacons and force-absorbs enemy fire."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            label: "Attack (High Burst / Utility)",
+            value: "titan_attack",
+            result: {
+              slots: [
+                { name: "Slot 1: Onslaught Reactor", content: "Grants high bonus damage scaling against both standard robots and enemy Titans." },
+                { name: "Slot 2: Quantum Sensor", content: "Enables direct targeting of stealth-active units within a designated sensor range." }
+              ],
+              note: "Strong counter-meta build choice to shut down elusive stealth opponents."
+            }
+          },
+          {
+            label: "Defense (AVOID - Focus on Passives Only)",
+            value: "titan_defense",
+            result: {
+              slots: [
+                { name: "AVOID SPECIALIZATION", content: "We strongly advise avoiding defensive-slot specializations on Defense Titans. Focus on active abilities and passive stats." }
+              ],
+              note: "Defense-class slot specializations on Titans generally offer lower return-on-investment compared to other modules."
+            }
+          },
+          {
+            label: "Ultimate (Highly Modular)",
+            value: "titan_ultimate",
+            next: {
+              question: "Choose a build constraint rule:",
+              options: [
+                {
+                  label: "General Build (Flexible configuration)",
+                  value: "general",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Highly Modular", content: "Ultimate Titans feature flexible, modular slot options. Build custom slots according to current combat meta needs." }
+                    ],
+                    note: "Customize modules dynamically to complement current hangar compositions."
+                  }
+                },
+                {
+                  label: "Grand Balanced Reactor Constraint",
+                  value: "gbr_constraint",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Flexible Module", content: "Setup according to main weapon requirements." },
+                      { name: "Slot 2: AVOID Grand Balanced Reactor", content: "Avoid utilizing Grand Balanced Reactor in Slot 2 due to suboptimal stat scaling on this build path." }
+                    ],
+                    note: "Grand Balanced Reactor underperforms in Slot 2 for this specialization path."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+};
+
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [specPath, setSpecPath] = useState([]);
   
   // Search & Filter States
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,8 +319,21 @@ function App() {
   const [hangarTitan, setHangarTitan] = useState(null);
   const [activeSlot, setActiveSlot] = useState(null); // null, or 0-4 for robots, 5 for titan
   const [showSelectorModal, setShowSelectorModal] = useState(false);
-  const [selectorSearchQuery, setSelectorSearchQuery] = useState('');
-
+  // Derive current step state in specTree
+  const currentSpecNode = useMemo(() => {
+    let node = specTree;
+    for (const step of specPath) {
+      const option = node.options?.find(opt => opt.value === step.value);
+      if (option) {
+        if (option.next) {
+          node = option.next;
+        } else if (option.result) {
+          node = option; // Leaf result node
+        }
+      }
+    }
+    return node;
+  }, [specPath]);
 
   // --------------------------------------------------
   // METADATA & STATS CALCULATIONS
@@ -874,6 +1171,117 @@ function App() {
                   {para.startsWith('###') ? para.replace('### ', '') : para}
                 </p>
               ))}
+            </div>
+
+            {/* Interactive Specialization Path Finder */}
+            <div className="spec-finder-container" style={{ marginBottom: '24px' }}>
+              <div className="spec-finder-content">
+                <div className="spec-finder-header">
+                  <Compass size={22} className="cyan-glow-text" style={{ color: specPath[0]?.value === 'titan' ? 'var(--purple)' : 'var(--cyan)', textShadow: specPath[0]?.value === 'titan' ? '0 0 10px rgba(168, 85, 247, 0.5)' : '0 0 10px rgba(6, 182, 212, 0.5)' }} />
+                  <div>
+                    <h3 style={{ fontSize: '18px', fontWeight: 700, margin: 0, fontFamily: 'var(--heading)' }}>
+                      Interactive Specialization Assistant
+                    </h3>
+                    <p style={{ margin: 0, fontSize: '12.5px', color: 'var(--text-secondary)' }}>
+                      Find the optimal module specializations for your builds step-by-step
+                    </p>
+                  </div>
+                </div>
+
+                {/* Breadcrumbs */}
+                <div className="spec-finder-breadcrumbs" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '20px' }}>
+                  <span 
+                    style={{ cursor: 'pointer', textDecoration: specPath.length > 0 ? 'underline' : 'none' }} 
+                    onClick={() => setSpecPath([])}
+                  >
+                    Start
+                  </span>
+                  {specPath.map((step, idx) => (
+                    <span key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ color: 'var(--text-muted)' }}>&gt;</span>
+                      <span 
+                        style={{ 
+                          cursor: 'pointer', 
+                          textDecoration: idx < specPath.length - 1 ? 'underline' : 'none',
+                          color: idx === specPath.length - 1 ? (specPath[0]?.value === 'titan' ? 'var(--purple)' : 'var(--cyan)') : 'inherit',
+                          fontWeight: idx === specPath.length - 1 ? '600' : 'normal'
+                        }} 
+                        onClick={() => setSpecPath(specPath.slice(0, idx + 1))}
+                      >
+                        {step.label}
+                      </span>
+                    </span>
+                  ))}
+                </div>
+
+                {currentSpecNode.result ? (
+                  /* Render Result */
+                  <div className={`spec-finder-result ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
+                    <div className={`spec-result-title ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
+                      <Sparkles size={20} />
+                      Recommended Specialization
+                    </div>
+                    <div className="spec-result-path">
+                      Path: {specPath.map(s => s.label).join(' ➔ ')}
+                    </div>
+                    
+                    <div className="spec-result-slots">
+                      {currentSpecNode.result.slots.map((slot, sIdx) => (
+                        <div className="spec-result-slot-box" key={sIdx}>
+                          <div className={`spec-result-slot-title ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
+                            <Zap size={14} />
+                            {slot.name}
+                          </div>
+                          <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.5 }}>
+                            {slot.content}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {currentSpecNode.result.note && (
+                      <div className="spec-result-note-box">
+                        <Sparkles size={16} className="spec-result-note-icon" />
+                        <div>
+                          <strong>Build Recommendation Tip:</strong> {currentSpecNode.result.note}
+                        </div>
+                      </div>
+                    )}
+
+                    <button className="spec-reset-btn" onClick={() => setSpecPath([])}>
+                      <RefreshCw size={14} />
+                      Reset & Start Over
+                    </button>
+                  </div>
+                ) : (
+                  /* Render Question and Options */
+                  <div>
+                    <div className="spec-finder-question">
+                      {currentSpecNode.question}
+                    </div>
+                    <div className="spec-finder-options">
+                      {currentSpecNode.options?.map((option) => {
+                        const isTitan = specPath[0]?.value === 'titan' || option.value === 'titan';
+                        return (
+                          <button
+                            key={option.value}
+                            className={`spec-finder-option-btn ${isTitan ? 'titan-choice' : ''}`}
+                            onClick={() => setSpecPath([...specPath, { label: option.label.split(' (')[0], value: option.value }])}
+                          >
+                            <span>{option.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                    
+                    {specPath.length > 0 && (
+                      <button className="spec-reset-btn" onClick={() => setSpecPath(specPath.slice(0, -1))}>
+                        Go Back
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Specialization cards */}
