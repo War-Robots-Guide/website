@@ -521,7 +521,7 @@ function App() {
           <div className="animate-fade-in text-left">
             <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
               <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Community Tier List</h2>
-              <p style={{ margin: 0 }}>
+              <p style={{ margin: '0 auto' }}>
                 Explore community-compiled tier rankings for robots, titans, weapons, modules, and turrets. 
                 Click any item to view the detailed explanation of its rank.
               </p>
@@ -616,7 +616,7 @@ function App() {
           <div className="animate-fade-in text-left">
             <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
               <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Detailed Value Ratings & Scores</h2>
-              <p style={{ margin: 0 }}>
+              <p style={{ margin: '0 auto' }}>
                 Deep dive evaluations of Robots and Titans. Value rating represents F2P friendliness and return on investment. 
                 Detailed scores range from <span style={{ color: '#ef4444' }}>-2 (Horrible)</span> to <span style={{ color: '#10b981' }}>+3 (Excellent)</span>.
               </p>
@@ -772,7 +772,7 @@ function App() {
           <div className="animate-fade-in text-left">
             <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
               <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Optimized Robot Builds</h2>
-              <p style={{ margin: 0 }}>
+              <p style={{ margin: '0 auto' }}>
                 Hangar configurations recommendation including optimal f2p equipment, best modules specializations, pilots, and drones.
               </p>
             </div>
@@ -862,7 +862,7 @@ function App() {
           <div className="animate-fade-in text-left">
             <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
               <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Module Specialization Guide</h2>
-              <p style={{ margin: 0 }}>
+              <p style={{ margin: '0 auto' }}>
                 Pick the right class specializations for your hangar. Upgrading modules is expensive; this guide helps you avoid account-bricking selections.
               </p>
             </div>
@@ -923,7 +923,7 @@ function App() {
           <div className="animate-fade-in text-left">
             <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
               <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Pilot Skills Directory</h2>
-              <p style={{ margin: 0 }}>
+              <p style={{ margin: '0 auto' }}>
                 Learn which pilot skills are essential (Must Use) vs trash (Don't Use) for Robot and Titan pilots.
               </p>
             </div>
@@ -985,7 +985,7 @@ function App() {
           <div className="animate-fade-in text-left">
             <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
               <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Weapon DPS Calculator & Comparison</h2>
-              <p style={{ margin: 0 }}>
+              <p style={{ margin: '0 auto' }}>
                 Compare burst and cycle DPS metrics for all weapons. Select up to 4 weapons to generate an instant comparative bar chart.
               </p>
             </div>
@@ -1163,7 +1163,7 @@ function App() {
           <div className="animate-fade-in text-left">
             <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
               <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Hangar Power Analyzer</h2>
-              <p style={{ margin: 0 }}>
+              <p style={{ margin: '0 auto' }}>
                 Evaluate your hangar composition, role coverage, and tactical synergy. A standard hangar consists of 5 robots and 1 titan.
               </p>
             </div>
