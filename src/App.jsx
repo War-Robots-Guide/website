@@ -294,7 +294,7 @@ function App() {
             {/* Banner image and tagline */}
             <div className="hero-banner" style={{ padding: 0, overflow: 'hidden', position: 'relative' }}>
               <img 
-                src="/banner.jpg" 
+                src="banner.jpg" 
                 alt="War Robots Hangar Banner" 
                 style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', display: 'block', opacity: 0.85 }} 
               />
