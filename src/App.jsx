@@ -28,7 +28,7 @@ const specTree = {
               question: "Select your Build Type / Range Focus:",
               options: [
                 {
-                  label: "Long Range (>800m)",
+                  label: ">800m damage dealer",
                   value: "long_range",
                   result: {
                     slots: [
@@ -39,7 +39,7 @@ const specTree = {
                   }
                 },
                 {
-                  label: "Short / Standard Range",
+                  label: "<800m damage dealer",
                   value: "standard_range",
                   result: {
                     slots: [
@@ -50,7 +50,7 @@ const specTree = {
                   }
                 },
                 {
-                  label: "Raider Specific",
+                  label: "raider",
                   value: "raider",
                   result: {
                     slots: [
