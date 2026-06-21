@@ -1888,102 +1888,208 @@ function App() {
                     <Zap size={20} /> Tactical Synergy Rating
                   </h3>
 
-                  {/* Grade Badge */}
-                  <div style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '16px', 
-                    background: 'rgba(0,0,0,0.2)', 
-                    padding: '16px', 
-                    borderRadius: '12px',
-                    border: `1px solid ${hangarAnalysis.gradeColor}40`
-                  }}>
-                    <div style={{ 
-                      fontSize: '48px', 
-                      fontWeight: 900, 
-                      color: hangarAnalysis.gradeColor,
-                      textShadow: `0 0 16px ${hangarAnalysis.gradeColor}`,
-                      width: '72px',
-                      height: '72px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: `${hangarAnalysis.gradeColor}10`,
-                      borderRadius: '50%',
-                      border: `3px solid ${hangarAnalysis.gradeColor}`,
-                      flexShrink: 0
-                    }}>
-                      {hangarAnalysis.grade}
-                    </div>
-                    <div>
-                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', display: 'block' }}>HANGAR RATING</span>
-                      <p style={{ margin: '4px 0 0 0', fontSize: '13.5px', color: '#fff', fontWeight: 600, lineHeight: 1.4 }}>
-                        {hangarAnalysis.gradeDesc}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Advice List */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase' }}>Tactical Feedback:</span>
+                  {/* Tactical Synergy Rating Comparison */}
+                  {(() => {
+                    const supportScore = hangarAnalysis.scores['Support'] || 0;
+                    const runnerScore = hangarAnalysis.scores['Beacon Runner'] || 0;
+                    const midrangeScore = hangarAnalysis.scores['Midrange'] || 0;
+                    const tankBusterScore = hangarAnalysis.scores['Tank-buster'] || 0;
                     
-                    {/* Durability Advice */}
-                    <div style={{ fontSize: '13.5px', lineHeight: 1.5 }}>
-                      {hangarAnalysis.scores['Brawler'] >= 1.5 ? (
-                        <span style={{ color: '#10b981' }}>✓ Strong Frontline: Multiple brawlers to push and hold beacon choke points.</span>
-                      ) : hangarAnalysis.scores['Brawler'] >= 0.5 ? (
-                        <span style={{ color: '#3b82f6' }}>✓ Frontline covered: Ready to contest center beacons.</span>
-                      ) : (
-                        <span style={{ color: '#f59e0b' }}>⚠️ Frontline vulnerability: Your hangar lacks dedicated Brawlers. Defending captured beacons will be tough.</span>
-                      )}
-                    </div>
+                    const coreMetCount = Math.min(2, supportScore) + 
+                                         Math.min(1, runnerScore) + 
+                                         Math.min(2, midrangeScore) + 
+                                         Math.min(1, tankBusterScore);
+                    const corePercent = Math.round((coreMetCount / 6) * 100);
+                    
+                    let alignmentColor = '#ef4444';
+                    if (corePercent >= 100) alignmentColor = '#10b981';
+                    else if (corePercent >= 50) alignmentColor = '#fbbf24';
 
-                    {/* Mobility/Beacon Runner Advice */}
-                    <div style={{ fontSize: '13.5px', lineHeight: 1.5 }}>
-                      {(hangarAnalysis.scores['Beacon Runner'] + hangarAnalysis.scores['Assassin']) >= 1.5 ? (
-                        <span style={{ color: '#10b981' }}>✓ High Mobility: Strong speed profile to secure early map control.</span>
-                      ) : (hangarAnalysis.scores['Beacon Runner'] + hangarAnalysis.scores['Assassin']) >= 0.5 ? (
-                        <span style={{ color: '#3b82f6' }}>✓ Beacon Runner covered: Essential for beacon matches.</span>
-                      ) : (
-                        <span style={{ color: '#f59e0b' }}>⚠️ Mobility deficit: No dedicated Beacon Runners. Capturing open beacons will be slow.</span>
-                      )}
-                    </div>
+                    return (
+                      <>
+                        {/* Alignment Score Badge */}
+                        <div style={{ 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          gap: '16px', 
+                          background: 'rgba(0,0,0,0.2)', 
+                          padding: '16px', 
+                          borderRadius: '12px',
+                          border: `1px solid ${alignmentColor}40`
+                        }}>
+                          <div style={{ 
+                            fontSize: '24px', 
+                            fontWeight: 900, 
+                            color: alignmentColor,
+                            textShadow: `0 0 12px ${alignmentColor}`,
+                            width: '56px',
+                            height: '56px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: `${alignmentColor}10`,
+                            borderRadius: '50%',
+                            border: `3px solid ${alignmentColor}`,
+                            flexShrink: 0
+                          }}>
+                            {corePercent}%
+                          </div>
+                          <div>
+                            <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', display: 'block' }}>Role I Alignment</span>
+                            <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#fff', lineHeight: 1.4 }}>
+                              Core Hangar Role coverage compared to recommended target values.
+                            </p>
+                          </div>
+                        </div>
 
-                    {/* Range Over-investment Advice */}
-                    <div style={{ fontSize: '13.5px', lineHeight: 1.5 }}>
-                      {(hangarAnalysis.scores['Sniper'] + hangarAnalysis.scores['Midrange']) > 2 ? (
-                        <span style={{ color: '#ef4444' }}>⚠️ High Range Over-investment: More than 2 midrange/snipers leaves your frontline weak. Swap one for a brawler.</span>
-                      ) : (hangarAnalysis.scores['Sniper'] + hangarAnalysis.scores['Midrange']) >= 0.5 ? (
-                        <span style={{ color: '#3b82f6' }}>✓ Firepower suppression: Good capability to control lanes from distance.</span>
-                      ) : (
-                        <span style={{ color: 'var(--text-secondary)' }}>✓ Focused layout: No range weapons, optimized for active beacon brawling.</span>
-                      )}
-                    </div>
+                        {/* Core Hangar Roles Profile */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                          <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
+                            Core Hangar Roles (Suggested for 5 Bots)
+                          </div>
 
-                    {/* Support Utility Advice */}
-                    <div style={{ fontSize: '13.5px', lineHeight: 1.5 }}>
-                      {hangarAnalysis.scores['Support'] >= 1.5 ? (
-                        <span style={{ color: '#10b981' }}>✓ Tactical Utility: Strong teammate buffs, heals, and shield support.</span>
-                      ) : hangarAnalysis.scores['Support'] >= 0.5 ? (
-                        <span style={{ color: '#3b82f6' }}>✓ Support helper: Good utility to extend team lifespans.</span>
-                      ) : (
-                        <span style={{ color: 'var(--text-muted)' }}>ℹ Solo focus: No support robots. You might miss out on extra honor points from healing teammates.</span>
-                      )}
-                    </div>
+                          {[
+                            { name: 'Support', target: 2, key: 'Support' },
+                            { name: 'Beacon Runner', target: 1, key: 'Beacon Runner' },
+                            { name: 'Midrange', target: 2, key: 'Midrange' },
+                            { name: 'Tank-buster', target: 1, key: 'Tank-buster' }
+                          ].map(role => {
+                            const current = hangarAnalysis.scores[role.key] || 0;
+                            const percentage = Math.min(100, (current / role.target) * 100);
+                            
+                            let statusText = 'Missing';
+                            let statusColor = '#ef4444';
+                            let statusBg = 'rgba(239, 68, 68, 0.1)';
+                            
+                            if (current >= role.target) {
+                              statusText = 'Met';
+                              statusColor = '#10b981';
+                              statusBg = 'rgba(16, 185, 129, 0.1)';
+                            } else if (current > 0) {
+                              statusText = 'Underfilled';
+                              statusColor = '#fbbf24';
+                              statusBg = 'rgba(251, 191, 36, 0.1)';
+                            }
 
-                    {/* Titan Advice */}
-                    <div style={{ fontSize: '13.5px', lineHeight: 1.5, borderTop: '1px solid var(--border-light)', paddingTop: '12px', marginTop: '6px' }}>
-                      {hangarTitan ? (
-                        <span style={{ color: 'var(--purple)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                          <Zap size={14} /> Titan {hangarTitan.name} ready: Provides a powerful late-game {hangarTitan.value_rating >= 4 ? 'top-tier option' : 'viable option'}.
-                        </span>
-                      ) : (
-                        <span style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                          <XCircle size={14} /> Titan slot empty. Select a Titan to evaluate your late-game deployment.
-                        </span>
-                      )}
-                    </div>
-                  </div>
+                            return (
+                              <div key={role.name} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                  <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)' }}>{role.name}</span>
+                                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+                                      {current} / {role.target}
+                                    </span>
+                                    <span style={{ 
+                                      fontSize: '10px', 
+                                      fontWeight: 700, 
+                                      textTransform: 'uppercase', 
+                                      padding: '2px 6px', 
+                                      borderRadius: '4px',
+                                      color: statusColor,
+                                      background: statusBg,
+                                      border: `1px solid ${statusColor}30`
+                                    }}>
+                                      {statusText}
+                                    </span>
+                                  </div>
+                                </div>
+                                <div style={{ width: '100%', height: '6px', background: 'rgba(255,255,255,0.05)', borderRadius: '3px', overflow: 'hidden' }}>
+                                  <div style={{ 
+                                    width: `${percentage}%`, 
+                                    height: '100%', 
+                                    background: statusColor, 
+                                    borderRadius: '3px',
+                                    boxShadow: current > 0 ? `0 0 6px ${statusColor}` : 'none',
+                                    transition: 'width 0.5s ease'
+                                  }} />
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+
+                        {/* Silver Bullets & Tech Options */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
+                          <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
+                            Silver Bullets & Tech Options (Late Game / MK2.1+)
+                          </div>
+                          
+                          <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                            Once you have upgraded ALL main hangar bots/weapons to MK2.1, build these dedicated option bots:
+                          </p>
+
+                          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
+                            {[
+                              { name: 'Assassin', key: 'Assassin' },
+                              { name: 'Brawler', key: 'Brawler' },
+                              { name: 'Sniper', key: 'Sniper' }
+                            ].map(role => {
+                              const current = hangarAnalysis.scores[role.key] || 0;
+                              const hasOne = current >= 1.0;
+                              const hasPartial = current > 0 && current < 1.0;
+                              
+                              let badgeColor = 'var(--text-muted)';
+                              let badgeBg = 'rgba(255,255,255,0.02)';
+                              let badgeText = `${current}`;
+                              if (hasOne) {
+                                badgeColor = '#a855f7';
+                                badgeBg = 'rgba(168, 85, 247, 0.1)';
+                              } else if (hasPartial) {
+                                badgeColor = '#3b82f6';
+                                badgeBg = 'rgba(59, 130, 246, 0.1)';
+                              }
+
+                              return (
+                                <div 
+                                  key={role.name} 
+                                  style={{ 
+                                    background: badgeBg, 
+                                    border: `1px solid ${hasOne || hasPartial ? badgeColor + '30' : 'var(--border-light)'}`,
+                                    padding: '10px', 
+                                    borderRadius: '8px', 
+                                    display: 'flex', 
+                                    flexDirection: 'column',
+                                    gap: '6px',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                  }}
+                                >
+                                  <span style={{ fontSize: '12px', color: hasOne || hasPartial ? 'var(--text-primary)' : 'var(--text-secondary)', textAlign: 'center' }}>{role.name}</span>
+                                  <span style={{ 
+                                    fontSize: '11px', 
+                                    fontWeight: 700, 
+                                    color: badgeColor, 
+                                    background: hasOne || hasPartial ? 'transparent' : 'rgba(255,255,255,0.05)',
+                                    padding: '2px 6px',
+                                    borderRadius: '4px'
+                                  }}>
+                                    {badgeText} / 1
+                                  </span>
+                                </div>
+                              );
+                            })}
+                          </div>
+
+                          {/* Additional Roles Recommendation Note */}
+                          <div style={{ 
+                            fontSize: '12.5px', 
+                            color: 'var(--text-secondary)', 
+                            background: 'rgba(255,255,255,0.02)', 
+                            padding: '12px', 
+                            borderRadius: '8px', 
+                            border: '1px solid var(--border-light)',
+                            lineHeight: 1.6 
+                          }}>
+                            <div style={{ fontWeight: 600, color: 'var(--cyan)', marginBottom: '6px' }}>Target Extension Options:</div>
+                            - Additional <strong>1x Support</strong> (Current: {supportScore} / 3)<br />
+                            - Additional <strong>1x Tank-buster</strong> (Current: {tankBusterScore} / 2)
+                          </div>
+                        </div>
+
+
+                      </>
+                    );
+                  })()}
                 </div>
               </div>
             ) : (
