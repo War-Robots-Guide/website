@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { 
   Search, Award, Shield, Zap, UserCheck, BarChart2, BookOpen, 
-  Layers, RefreshCw, X, Star, Sparkles, Compass, CheckCircle2
+  Layers, RefreshCw, X, Star, Sparkles, Compass, CheckCircle2, XCircle
 } from 'lucide-react';
 import './App.css';
 
@@ -276,9 +276,7 @@ function App() {
             <button className={`nav-item ${activeTab === 'weapons' ? 'active' : ''}`} onClick={() => { setActiveTab('weapons'); setSearchQuery(''); }}>
               <BarChart2 size={16} /> Weapon DPS
             </button>
-            <button className={`nav-item ${activeTab === 'camelot' ? 'active' : ''}`} onClick={() => { setActiveTab('camelot'); setSearchQuery(''); }}>
-              <Zap size={16} /> SAGE Camelot
-            </button>
+
           </nav>
         </div>
       </header>
@@ -833,15 +831,7 @@ function App() {
               ))}
             </div>
 
-            {/* Conclusion text */}
-            <div className="glass-panel" style={{ marginTop: '24px', background: 'rgba(168, 85, 247, 0.05)', borderColor: 'rgba(168, 85, 247, 0.15)' }}>
-              <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--purple)', marginBottom: '12px' }}>
-                <Sparkles size={20} /> Pro Tip
-              </h3>
-              <p style={{ fontSize: '14px', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
-                {specializationsData.conclusion}
-              </p>
-            </div>
+
           </div>
         )}
 
@@ -886,7 +876,7 @@ function App() {
                 return (
                   <div className="glass-panel" key={cat} style={{ backgroundColor: catBg, borderColor: catBorder }}>
                     <h3 style={{ color: catColor, fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <CheckCircle2 size={20} /> {cat}
+                      {cat === "Don't Use" ? <XCircle size={20} /> : <CheckCircle2 size={20} />} {cat}
                     </h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                       {skills.map((skill, sidx) => (
@@ -1085,68 +1075,13 @@ function App() {
           </div>
         )}
 
-        {/* ========================================================================= */}
-        {/* SAGE RETRO CAMELOT TAB */}
-        {/* ========================================================================= */}
-        {activeTab === 'camelot' && (
-          <div className="animate-fade-in text-left">
-            <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px', border: '1px solid rgba(251, 191, 36, 0.15)' }}>
-              <h2 className="retro-title" style={{ fontSize: '28px', marginBottom: '8px' }}>SAGE Retro Tournament Guide (Camelot)</h2>
-              <p style={{ margin: 0, color: 'var(--text-secondary)' }}>
-                Ratings and builds for Camelot custom games. Camelot is a low-tier legacy equipment event hosted by SAGE Retro. 
-                These custom settings emphasize tactical setups and physical shields rather than modern powercreep.
-              </p>
-            </div>
 
-            {/* Grid of Camelot Robots */}
-            <div className="dashboard-grid">
-              {robotGuideData?.camelot?.map((bot, idx) => (
-                <div className="glass-panel glass-panel-hover retro-bot-card" key={idx}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px', borderBottom: '1px solid rgba(251, 191, 36, 0.1)', paddingBottom: '10px' }}>
-                    <h3 style={{ color: '#fbbf24' }}>{bot.name}</h3>
-                    <span style={{ 
-                      background: 'rgba(251, 191, 36, 0.1)', 
-                      color: '#fbbf24', 
-                      border: '1px solid rgba(251, 191, 36, 0.2)',
-                      padding: '2px 8px',
-                      borderRadius: '4px',
-                      fontSize: '11px',
-                      fontWeight: 700
-                    }}>
-                      CAMELOT TIER: {bot.tier}
-                    </span>
-                  </div>
-
-                  <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '16px' }}>
-                    {bot.description}
-                  </p>
-
-                  {bot.builds && bot.builds.length > 0 && (
-                    <div style={{ marginTop: 'auto' }}>
-                      <span style={{ fontSize: '11px', color: '#fbbf24', fontWeight: 600, textTransform: 'uppercase', display: 'block', marginBottom: '8px' }}>
-                        Viable Builds
-                      </span>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                        {bot.builds.map((build, bidx) => (
-                          <span className="retro-build-tag" key={bidx}>
-                            {build}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
       </main>
 
       {/* Footer */}
       <footer style={{ borderTop: '1px solid var(--border-light)', padding: '24px', textAlign: 'center', marginTop: '48px', fontSize: '12px', color: 'var(--text-muted)' }}>
-        <p>r/WarRobotsGuide Website. Compiled by Adazahi, Spiritings, Tropical, and Running Riot.</p>
-        <p style={{ marginTop: '6px' }}>Automated Google Drive content sync pipeline active. Deployable to GitHub Pages.</p>
+        <p>r/WarRobotsGuide Website. Compiled by Adazahi, Spiritings, Tropical, and Running Riot. Developed by CrimsonHawk.</p>
       </footer>
 
       {/* ========================================================================= */}
