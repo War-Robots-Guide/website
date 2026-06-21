@@ -62,19 +62,15 @@ export function RobotsGuideTab() {
       </div>
 
       {/* Sub Tabs: Robots vs Titans */}
-      <div className="segmented-control" style={{ maxWidth: '300px' }}>
-        <div 
-          className="segmented-control-slider" 
-          style={{ transform: `translateX(${guideSubTab === 'titans' ? '100%' : '0%'})` }}
-        />
+      <div className="tab-pills" style={{ maxWidth: '300px' }}>
         <button 
-          className={`segmented-control-btn ${guideSubTab === 'robots' ? 'active' : ''}`} 
+          className={`tab-pill ${guideSubTab === 'robots' ? 'active' : ''}`} 
           onClick={() => { setGuideSubTab('robots'); setRobotRoleFilter('All'); setRobotValueFilter('All'); setSearchInput(''); setSearchQuery(''); }}
         >
           Robots Guide
         </button>
         <button 
-          className={`segmented-control-btn ${guideSubTab === 'titans' ? 'active' : ''}`} 
+          className={`tab-pill ${guideSubTab === 'titans' ? 'active' : ''}`} 
           onClick={() => { setGuideSubTab('titans'); setRobotRoleFilter('All'); setRobotValueFilter('All'); setSearchInput(''); setSearchQuery(''); }}
         >
           Titans Guide

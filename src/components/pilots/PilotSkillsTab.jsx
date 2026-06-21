@@ -20,19 +20,15 @@ export function PilotSkillsTab() {
       </div>
 
       {/* Sub Tabs: Robots vs Titans */}
-      <div className="segmented-control" style={{ maxWidth: '300px' }}>
-        <div 
-          className="segmented-control-slider" 
-          style={{ transform: `translateX(${pilotSubTab === 'titans' ? '100%' : '0%'})` }}
-        />
+      <div className="tab-pills" style={{ maxWidth: '300px' }}>
         <button 
-          className={`segmented-control-btn ${pilotSubTab === 'robots' ? 'active' : ''}`} 
+          className={`tab-pill ${pilotSubTab === 'robots' ? 'active' : ''}`} 
           onClick={() => setPilotSubTab('robots')}
         >
           Robot Pilots
         </button>
         <button 
-          className={`segmented-control-btn ${pilotSubTab === 'titans' ? 'active' : ''}`} 
+          className={`tab-pill ${pilotSubTab === 'titans' ? 'active' : ''}`} 
           onClick={() => setPilotSubTab('titans')}
         >
           Titan Pilots
