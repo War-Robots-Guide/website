@@ -10,20 +10,26 @@ on:
   workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required for peaceiris/actions-gh-pages to deploy
 
     steps:
       # 1. Checkout the repository
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       # 2. Setup Python environment
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@f67e24a43019c39744153b8117c4990045935183 # v5.3.0
         with:
           python-version: '3.10'
           cache: 'pip'
@@ -49,7 +55,7 @@ jobs:
 
       # 6. Setup Node.js environment
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
         with:
           node-version: '22'
           cache: 'npm'
@@ -58,17 +64,21 @@ jobs:
       - name: Install Node.js Dependencies
         run: npm ci
 
-      # 8. Validate generated JSON contracts before the frontend imports them
+      # 8. Lint the code to verify quality
+      - name: Lint Codebase
+        run: npm run lint
+
+      # 9. Validate generated JSON contracts before the frontend imports them
       - name: Validate Data Files
         run: npm run validate:data
 
-      # 9. Build the static React application
+      # 10. Build the static React application
       - name: Build Production Assets
         run: npm run build
 
-      # 10. Deploy to GitHub Pages
+      # 11. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@373f7f263a76c24ff010db99768a25c92ea64012 # v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
