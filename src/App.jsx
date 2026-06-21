@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { 
-  Search, Award, Shield, Zap, UserCheck, BarChart2, BookOpen, 
+  Search, Award, Shield, Zap, UserCheck, BarChart2, 
   Layers, RefreshCw, X, Sparkles, Compass, CheckCircle2, XCircle
 } from 'lucide-react';
 import './App.css';
@@ -837,32 +837,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="glass-panel">
-                  <h3 style={{ fontSize: '20px', marginBottom: '16px', display: 'flex', alignPage: 'center', gap: '8px' }}>
-                    <BookOpen className="purple-glow-text" size={20} /> Quick Start Hangar Building Guide
-                  </h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: '14px', lineHeight: 1.6, marginBottom: '16px' }}>
-                    A balanced War Robots hangar typically consists of 5 robots and 1 titan. The subreddit guide recommends filling the following primary roles to ensure you can counter any opponent configuration:
-                  </p>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-                      <span className="role-badge primary" style={{ display: 'inline-flex', marginBottom: '6px' }}>Support (x2)</span>
-                      <p style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>Augment teammates and lock down objectives.</p>
-                    </div>
-                    <div style={{ background: 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-                      <span className="role-badge primary" style={{ display: 'inline-flex', marginBottom: '6px', background: 'rgba(59,130,246,0.1)', color: '#3b82f6', border: '1px solid rgba(59,130,246,0.2)' }}>Brawler / Tank</span>
-                      <p style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>Draw fire and absorb massive front-line damage.</p>
-                    </div>
-                    <div style={{ background: 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-                      <span className="role-badge primary" style={{ display: 'inline-flex', marginBottom: '6px', background: 'rgba(245,158,11,0.1)', color: '#f59e0b', border: '1px solid rgba(245,158,11,0.2)' }}>Beacon Runner</span>
-                      <p style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>Utilize stealth and dash speed to secure map nodes.</p>
-                    </div>
-                    <div style={{ background: 'rgba(255,255,255,0.02)', padding: '12px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-                      <span className="role-badge primary" style={{ display: 'inline-flex', marginBottom: '6px', background: 'rgba(168,85,247,0.1)', color: '#a855f7', border: '1px solid rgba(168,85,247,0.2)' }}>Sniper / Midrange</span>
-                      <p style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>Provide cover fire and suppress high-threat targets.</p>
-                    </div>
-                  </div>
-                </div>
+
               </div>
 
               {/* Right Column: Community & Recent Changes Log */}
