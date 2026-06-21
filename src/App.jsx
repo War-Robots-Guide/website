@@ -573,27 +573,78 @@ function App() {
   // --------------------------------------------------
   // RATING STAR BUILDER
   // --------------------------------------------------
-  const renderRatingStars = (rating) => {
-    const stars = [];
-    // rating is usually between -2 and 5. Let's draw it cleanly.
-    // If rating is <= 0, we can display some custom symbol or tag, like a red shield.
-    if (rating <= 0) {
-      return <span className="role-badge secondary" style={{background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.2)'}}>Not Recommended ({rating})</span>;
-    }
+  const renderRatingBar = (rating, unitType = 'robot', align = 'left') => {
+    const isTitan = unitType === 'titan';
+    const minVal = -2;
+    const maxVal = isTitan ? 3 : 5;
     
-    for (let i = 0; i < 5; i++) {
-      stars.push(
-        <Star 
-          key={i} 
-          size={14} 
-          fill={i < rating ? "currentColor" : "none"} 
-          className={i < rating ? "text-amber-400" : "text-slate-600"} 
-          style={{ color: i < rating ? "#fbbf24" : "#475569" }}
-        />
-      );
-    }
-    return <div className="value-rating-stars">{stars}</div>;
+    // Clamp rating
+    const clampedRating = Math.min(maxVal, Math.max(minVal, rating));
+    // Calculate percentage
+    const percentage = ((clampedRating - minVal) / (maxVal - minVal)) * 100;
+    
+    const getRatingLabel = (val) => {
+      if (val <= -2) return 'Horrible (-2)';
+      if (val === -1) return 'Poor (-1)';
+      if (val === 0) return 'Average (0)';
+      if (val === 1) return 'Good (+1)';
+      if (val === 2) return 'Very Good (+2)';
+      if (val === 3) return 'Excellent (+3)';
+      if (val === 4) return 'Meta (+4)';
+      return 'God (+5)';
+    };
+
+    const getRatingColor = (val) => {
+      if (val <= -2) return '#ef4444'; // Red
+      if (val === -1) return '#f97316'; // Orange
+      if (val === 0) return '#eab308'; // Yellow
+      if (val === 1) return '#84cc16'; // Lime
+      if (val === 2) return '#22c55e'; // Green
+      if (val === 3) return '#10b981'; // Emerald
+      if (val === 4) return '#06b6d4'; // Cyan
+      return '#fbbf24'; // Gold
+    };
+
+    return (
+      <div style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        gap: '4px', 
+        width: '100%', 
+        maxWidth: '160px',
+        marginLeft: align === 'right' ? 'auto' : '0'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span style={{ fontSize: '11px', fontWeight: 700, color: getRatingColor(clampedRating) }}>
+            {getRatingLabel(clampedRating)}
+          </span>
+        </div>
+        <div style={{ 
+          width: '100%', 
+          height: '6px', 
+          borderRadius: '3px', 
+          background: 'linear-gradient(to right, #ef4444 0%, #eab308 50%, #22c55e 100%)', 
+          position: 'relative',
+          marginTop: '6px',
+          marginBottom: '4px'
+        }}>
+          <div style={{
+            position: 'absolute',
+            left: `${percentage}%`,
+            top: '-6px',
+            transform: 'translateX(-50%)',
+            width: 0,
+            height: 0,
+            borderLeft: '4px solid transparent',
+            borderRight: '4px solid transparent',
+            borderTop: '6px solid #fff',
+            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))'
+          }}></div>
+        </div>
+      </div>
+    );
   };
+
 
   // --------------------------------------------------
   // SCORE METER RENDERER (-2 to 3 scale)
@@ -940,12 +991,14 @@ function App() {
                 onChange={(e) => setRobotValueFilter(e.target.value)}
               >
                 <option value="All">All Value Ratings</option>
-                <option value="5">Value 5/5 (Must Have)</option>
-                <option value="4">Value 4/5 (Great)</option>
-                <option value="3">Value 3/5 (Good)</option>
-                <option value="2">Value 2/5 (Okay)</option>
-                <option value="1">Value 1/5 (Bad)</option>
-                <option value="0">Value 0/5 (Avoid)</option>
+                <option value="5">Value Rating 5</option>
+                <option value="4">Value Rating 4</option>
+                <option value="3">Value Rating 3</option>
+                <option value="2">Value Rating 2</option>
+                <option value="1">Value Rating 1</option>
+                <option value="0">Value Rating 0</option>
+                <option value="-1">Value Rating -1</option>
+                <option value="-2">Value Rating -2</option>
               </select>
 
               {/* Roles filter (only for Robots) */}
@@ -977,9 +1030,9 @@ function App() {
                         <h3 style={{ fontSize: '20px', color: 'var(--cyan)' }}>{robot.name}</h3>
                         <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{robot.sheet}</span>
                       </div>
-                      <div style={{ textAlign: 'right' }}>
+                      <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                         <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block', marginBottom: '2px', fontWeight: 600 }}>VALUE RATING</span>
-                        {renderRatingStars(robot.value_rating)}
+                        {renderRatingBar(robot.value_rating, 'robot', 'right')}
                       </div>
                     </div>
 
@@ -1027,9 +1080,9 @@ function App() {
                         <h3 style={{ fontSize: '20px', color: 'var(--purple)' }}>{titan.name}</h3>
                         <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Titan Class</span>
                       </div>
-                      <div style={{ textAlign: 'right' }}>
+                      <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                         <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block', marginBottom: '2px', fontWeight: 600 }}>VALUE RATING</span>
-                        {renderRatingStars(titan.value_rating)}
+                        {renderRatingBar(titan.value_rating, 'titan', 'right')}
                       </div>
                     </div>
 
@@ -1613,8 +1666,8 @@ function App() {
                       {item.name}
                     </h4>
 
-                    <div style={{ display: 'flex', gap: '2px', marginBottom: '10px' }}>
-                      {renderRatingStars(item.value_rating)}
+                    <div style={{ display: 'flex', width: '100%', marginBottom: '10px' }}>
+                      {renderRatingBar(item.value_rating, 'robot')}
                     </div>
 
                     {item.roles && item.roles.length > 0 ? (
@@ -1704,8 +1757,8 @@ function App() {
                     {hangarTitan.name}
                   </h4>
 
-                  <div style={{ display: 'flex', gap: '2px', marginBottom: '10px' }}>
-                    {renderRatingStars(hangarTitan.value_rating)}
+                  <div style={{ display: 'flex', width: '100%', marginBottom: '10px' }}>
+                    {renderRatingBar(hangarTitan.value_rating, 'titan')}
                   </div>
 
                   <span style={{ fontSize: '11px', color: 'var(--purple)', marginTop: 'auto', fontWeight: 600 }}>Heavy Deployment option</span>
@@ -1985,8 +2038,8 @@ function App() {
                         <>
                           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                             <div>
-                              <span style={{ fontSize: '10px', color: 'var(--text-muted)' }}>VALUE RATING (F2P Return)</span>
-                              {renderRatingStars(rob.value_rating)}
+                              <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>VALUE RATING (F2P Return)</span>
+                              {renderRatingBar(rob.value_rating, 'robot')}
                             </div>
                             <div>
                               <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>RATED TIER SHEET</span>
@@ -2001,6 +2054,41 @@ function App() {
                             {renderScoreMeter('Utility', rob.scores.utility)}
                             {renderScoreMeter('Accessibility', rob.scores.accessibility)}
                             {renderScoreMeter('Overall Score', rob.scores.overall)}
+                          </div>
+                        </>
+                      );
+                    }
+                    return null;
+                  })()}
+                </div>
+              )}
+
+              {/* For titans */}
+              {selectedItem.type === 'Titans' && (
+                <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
+                  {(() => {
+                    const titan = robotGuideData?.titans?.find(t => t.name.toLowerCase().trim() === selectedItem.name.toLowerCase().trim() || selectedItem.name.toLowerCase().includes(t.name.toLowerCase()));
+                    if (titan) {
+                      return (
+                        <>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                            <div>
+                              <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>VALUE RATING (F2P Return)</span>
+                              {renderRatingBar(titan.value_rating, 'titan')}
+                            </div>
+                            <div>
+                              <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>RATED TIER</span>
+                              <span className="role-badge secondary" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(168, 85, 247, 0.1)', color: 'var(--purple)', borderColor: 'rgba(168, 85, 247, 0.2)' }}>Titan Class</span>
+                            </div>
+                          </div>
+                          <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>DETAILED ATTRIBUTE RATINGS (-2 to +3)</span>
+                          <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
+                            {renderScoreMeter('Longevity', titan.scores.longevity)}
+                            {renderScoreMeter('Lethality', titan.scores.lethality)}
+                            {renderScoreMeter('Mobility', titan.scores.mobility)}
+                            {renderScoreMeter('Utility', titan.scores.utility)}
+                            {renderScoreMeter('Accessibility', titan.scores.accessibility)}
+                            {renderScoreMeter('Overall Score', titan.scores.overall)}
                           </div>
                         </>
                       );
@@ -2062,8 +2150,8 @@ function App() {
                         <span style={{ fontWeight: 700, color: '#fff' }}>{titan.name}</span>
                         <span style={{ fontSize: '11px', color: 'var(--purple)', marginLeft: '10px' }}>Titan</span>
                       </div>
-                      <div style={{ display: 'flex', gap: '2px' }}>
-                        {renderRatingStars(titan.value_rating)}
+                      <div style={{ display: 'flex', minWidth: '160px', justifyContent: 'flex-end' }}>
+                        {renderRatingBar(titan.value_rating, 'titan', 'right')}
                       </div>
                     </div>
                   ))
@@ -2084,8 +2172,8 @@ function App() {
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <span style={{ fontWeight: 700, color: '#fff' }}>{robot.name}</span>
-                        <div style={{ display: 'flex', gap: '2px' }}>
-                          {renderRatingStars(robot.value_rating)}
+                        <div style={{ display: 'flex', minWidth: '160px', justifyContent: 'flex-end' }}>
+                          {renderRatingBar(robot.value_rating, 'robot', 'right')}
                         </div>
                       </div>
                       {robot.roles && robot.roles.length > 0 && (
