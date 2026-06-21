@@ -1987,7 +1987,7 @@ function App() {
                         
                         let badgeColor = 'var(--text-muted)';
                         let badgeBg = 'rgba(255,255,255,0.02)';
-                        let badgeText = `${current}`;
+                        let badgeText = current.toFixed(1);
                         if (hasOne) {
                           badgeColor = '#a855f7';
                           badgeBg = 'rgba(168, 85, 247, 0.1)';
