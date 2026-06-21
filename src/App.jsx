@@ -715,22 +715,24 @@ function App() {
               <img 
                 src="banner.jpg" 
                 alt="War Robots Hangar Banner" 
-                style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', display: 'block', opacity: 0.85 }} 
+                style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', display: 'block', opacity: 0.55 }} 
               />
               <div style={{
                 position: 'absolute',
                 inset: 0,
-                background: 'linear-gradient(to top, #07080d 5%, rgba(7, 8, 13, 0.4) 50%, rgba(7, 8, 13, 0.1) 100%)',
+                background: 'linear-gradient(to top, #07080d 20%, rgba(7, 8, 13, 0.6) 65%, rgba(7, 8, 13, 0.2) 100%)',
+                backdropFilter: 'blur(1.5px)',
+                WebkitBackdropFilter: 'blur(1.5px)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-end',
                 padding: '40px',
                 textAlign: 'left'
               }}>
-                <h1 style={{ fontSize: '42px', fontWeight: 800, margin: 0, textShadow: '0 4px 12px rgba(0,0,0,0.8)' }}>
+                <h1 style={{ fontSize: '42px', fontWeight: 800, margin: 0, color: '#ffffff', WebkitTextFillColor: '#ffffff', background: 'none', WebkitBackgroundClip: 'unset', textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
                   Ultimate War Robots Database & Guides
                 </h1>
-                <p style={{ margin: '8px 0 0', maxWidth: '650px', fontSize: '15px', color: '#cbd5e1', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                <p style={{ margin: '8px 0 0', maxWidth: '650px', fontSize: '15px', color: '#e2e8f0', textShadow: '0 1px 6px rgba(0,0,0,0.6)' }}>
                   Welcome to the database compiled by the expert community at <span style={{ color: 'var(--cyan)', fontWeight: 600 }}>r/WarRobotsGuide</span>. 
                   Get automated recommendations on weapon DPS, robot ratings, modules, pilots, and meta strategies.
                 </p>
