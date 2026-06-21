@@ -1,17 +1,17 @@
 export const specTree = {
-  question: "What unit type are you picking a specialization for?",
+  question: "What are you picking a specialization for?",
   options: [
     {
       label: "Robot",
       value: "robot",
       next: {
-        question: "Select your Robot Class/Role:",
+        question: "What specialization is available on the robot?",
         options: [
           {
             label: "Damage Dealer / Raider",
             value: "damage_dealer",
             next: {
-              question: "Select your Build Type / Range Focus:",
+              question: "Select your specialization:",
               options: [
                 {
                   label: ">800m damage dealer",
@@ -34,8 +34,8 @@ export const specTree = {
                   }
                 },
                 {
-                  label: "raider",
-                  value: "raider",
+                  label: "Raider",
+                  value: "Raider",
                   result: {
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier" },
@@ -50,16 +50,16 @@ export const specTree = {
             label: "Brawler / Tank",
             value: "brawler_tank",
             next: {
-              question: "Choose your Robot Archetype:",
+              question: "Select your specialization:",
               options: [
                 {
-                  label: "Brawler (Active close-quarters combat)",
+                  label: "Brawler",
                   value: "brawler",
                   next: {
-                    question: "Choose your primary playstyle focus:",
+                    question: "Choose your primary focus:",
                     options: [
                       {
-                        label: "Survivalist (Prolonged duels)",
+                        label: "Survivalist (General brawler)",
                         value: "survivalist",
                         result: {
                           slots: [
@@ -69,7 +69,7 @@ export const specTree = {
                         }
                       },
                       {
-                        label: "Objective Stall (Hold beacons under focus fire)",
+                        label: "Objective Stall (Titan charging)",
                         value: "stall",
                         result: {
                           slots: [
@@ -82,7 +82,7 @@ export const specTree = {
                   }
                 },
                 {
-                  label: "Tank (High raw durability & damage absorption)",
+                  label: "Tank",
                   value: "tank",
                   result: {
                     slots: [
@@ -95,7 +95,7 @@ export const specTree = {
             }
           },
           {
-            label: "Support (Healer / Buffer)",
+            label: "Support",
             value: "support",
             result: {
               slots: [
@@ -105,7 +105,7 @@ export const specTree = {
             }
           },
           {
-            label: "Saboteur / Beacon Capper",
+            label: "Beacon Capping Saboteur",
             value: "saboteur_capper",
             result: {
               slots: [
@@ -115,13 +115,13 @@ export const specTree = {
             }
           },
           {
-            label: "Other / Non-Capping Saboteur",
+            label: "Non-Beacon Capping Saboteur",
             value: "saboteur_other",
             next: {
               question: "What is your tactical focus?",
               options: [
                 {
-                  label: "Attack-focused (Raw burst damage)",
+                  label: "Attack-focused",
                   value: "attack",
                   result: {
                     slots: [
@@ -131,7 +131,7 @@ export const specTree = {
                   }
                 },
                 {
-                  label: "Defense-focused (Cleanse & Survival)",
+                  label: "Defense-focused",
                   value: "defense",
                   result: {
                     slots: [
@@ -150,107 +150,98 @@ export const specTree = {
       label: "Titan",
       value: "titan",
       next: {
-        question: "Select your Titan Class/Role:",
+        question: "Is it an Ultimate Titan?",
         options: [
           {
-            label: "Damage Dealer (Offense & Firepower)",
-            value: "titan_damage",
-            next: {
-              question: "Select your Build Focus:",
-              options: [
-                {
-                  label: "Standard/Mixed Combat",
-                  value: "standard",
-                  result: {
-                    slots: [
-                      { name: "Slot 1: Nuclear Amplifier" },
-                      { name: "Slot 2: Overdrive" }
-                    ]
-                  }
-                },
-                {
-                  label: "Sniper / Chip / Titan-Focus",
-                  value: "sniper",
-                  result: {
-                    slots: [
-                      { name: "Slot 1: Nuclear Amplifier" },
-                      { name: "Slot 2: Cannibal Reactor" }
-                    ]
-                  }
-                }
-              ]
-            }
-          },
-          {
-            label: "Brawler / Tank (Frontline & Durability)",
-            value: "titan_brawler_tank",
-            next: {
-              question: "Select your Titan Playstyle Archetype:",
-              options: [
-                {
-                  label: "Brawler (Active frontline combat)",
-                  value: "brawler",
-                  result: {
-                    slots: [
-                      { name: "Slot 1: Repair Amplifier" },
-                      { name: "Slot 2: Anticontrol" }
-                    ]
-                  }
-                },
-                {
-                  label: "Tank (Objective hold & damage absorption)",
-                  value: "tank",
-                  result: {
-                    slots: [
-                      { name: "Slot 1: Repair Amplifier" },
-                      { name: "Slot 2: Last Stand" }
-                    ]
-                  }
-                }
-              ]
-            }
-          },
-          {
-            label: "Attack (High Burst / Utility)",
-            value: "titan_attack",
+            label: "Yes",
+            value: "titan_ue_yes",
             result: {
               slots: [
-                { name: "Slot 1: Onslaught Reactor" },
-                { name: "Slot 2: Quantum Sensor" }
+                { name: "Slot 1: anything works" },
+                { name: "Slot 2: anything but Grand Balanced Reactor" }
               ]
             }
           },
           {
-            label: "Defense (AVOID - Focus on Passives Only)",
-            value: "titan_defense",
-            result: {
-              slots: [
-                { name: "AVOID SPECIALIZATION" }
-              ]
-            }
-          },
-          {
-            label: "Ultimate (Highly Modular)",
-            value: "titan_ultimate",
+            label: "No",
+            value: "titan_ue_no",
             next: {
-              question: "Choose a build constraint rule:",
+              question: "What specialization is available on the Titan?",
               options: [
                 {
-                  label: "General Build (Flexible configuration)",
-                  value: "general",
-                  result: {
-                    slots: [
-                      { name: "Slot 1: Highly Modular" }
+                  label: "Damage Dealer",
+                  value: "titan_damage",
+                  next: {
+                    question: "Select your Build Focus:",
+                    options: [
+                      {
+                        label: "Standard",
+                        value: "standard",
+                        result: {
+                          slots: [
+                            { name: "Slot 1: Nuclear Amplifier" },
+                            { name: "Slot 2: Overdrive" }
+                          ]
+                        }
+                      },
+                      {
+                        label: "Sniper",
+                        value: "sniper",
+                        result: {
+                          slots: [
+                            { name: "Slot 1: Nuclear Amplifier" },
+                            { name: "Slot 2: Cannibal Reactor" }
+                          ]
+                        }
+                      }
                     ]
                   }
                 },
                 {
-                  label: "Grand Balanced Reactor Constraint",
-                  value: "gbr_constraint",
+                  label: "Brawler / Tank",
+                  value: "titan_brawler_tank",
+                  next: {
+                    question: "Select your specialization:",
+                    options: [
+                      {
+                        label: "Brawler",
+                        value: "brawler",
+                        result: {
+                          slots: [
+                            { name: "Slot 1: Repair Amplifier" },
+                            { name: "Slot 2: Anticontrol" }
+                          ]
+                        }
+                      },
+                      {
+                        label: "Tank",
+                        value: "tank",
+                        result: {
+                          slots: [
+                            { name: "Slot 1: Repair Amplifier" },
+                            { name: "Slot 2: Last Stand" }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  label: "Attack",
+                  value: "titan_attack",
                   result: {
                     slots: [
-                      { name: "Slot 1: Flexible Module" },
-                      { name: "Slot 2: AVOID Grand Balanced Reactor" }
+                      { name: "Slot 1: Onslaught Reactor" },
+                      { name: "Slot 2: Quantum Sensor" }
+                    ]
+                  }
+                },
+                {
+                  label: "Defense (AVOID - Focus on Passives Only)",
+                  value: "titan_defense",
+                  result: {
+                    slots: [
+                      { name: "AVOID SPECIALIZATION" }
                     ]
                   }
                 }

@@ -42,7 +42,7 @@ export function DashboardTab({ onTabChange }) {
           </h1>
           <p className="dashboard-hero-desc">
             Welcome to the database compiled by the expert community at <span style={{ color: 'var(--cyan)', fontWeight: 600 }}>r/WarRobotsGuide</span>. 
-            Get automated recommendations on weapon DPS, robot ratings, modules, pilots, and meta strategies.
+            Get recommendations on weapon DPS, robot ratings, modules, pilots, and meta strategies.
           </p>
         </div>
       </div>
