@@ -199,8 +199,9 @@
   border-color: var(--border-light);
 }
 
-/* Segmented Control for Smooth 2-Option Tabs */
+/* Segmented Control with Smooth Sliding Indicator */
 .segmented-control {
+  --tab-count: 2;
   display: flex;
   position: relative;
   background: rgba(15, 18, 30, 0.35);
@@ -216,7 +217,7 @@
   top: 4px;
   left: 4px;
   bottom: 4px;
-  width: calc(50% - 4px);
+  width: calc((100% - 8px) / var(--tab-count));
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border-light);
   box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.55);

@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react';
 import { Search } from 'lucide-react';
 import tiersData from '../../data/tiers.json';
 
+const TIER_CATEGORIES = ['Robots', 'Titans', 'Drones', 'Motherships', 'Mothership Turrets', 'Robot Weapons', 'Titan Weapons'];
+
 export function TierListTab({ onItemClick }) {
   const [selectedCategory, setSelectedCategory] = useState('Robots');
   const [searchQuery, setSearchQuery] = useState('');
@@ -41,12 +43,13 @@ export function TierListTab({ onItemClick }) {
         </p>
       </div>
 
-      {/* Category Select Tab Pills */}
-      <div className="tab-pills">
-        {['Robots', 'Titans', 'Drones', 'Motherships', 'Mothership Turrets', 'Robot Weapons', 'Titan Weapons'].map(cat => (
-          <button 
-            key={cat} 
-            className={`tab-pill ${selectedCategory === cat ? 'active' : ''}`}
+      {/* Category Segmented Control */}
+      <div className="segmented-control" style={{ '--tab-count': TIER_CATEGORIES.length }}>
+        <div className="segmented-control-slider" style={{ transform: `translateX(calc(${TIER_CATEGORIES.indexOf(selectedCategory)} * 100%))` }} />
+        {TIER_CATEGORIES.map(cat => (
+          <button
+            key={cat}
+            className={`segmented-control-btn ${selectedCategory === cat ? 'active' : ''}`}
             onClick={() => { setSelectedCategory(cat); setSearchQuery(''); }}
           >
             {cat}

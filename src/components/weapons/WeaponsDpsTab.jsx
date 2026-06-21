@@ -2,6 +2,8 @@ import { useState, useMemo, useEffect } from 'react';
 import { Search, BarChart2, X } from 'lucide-react';
 import weaponsDpsData from '../../data/weapons_dps.json';
 
+const WEAPON_CLASSES = ['Heavy Weapons', 'Medium Weapons', 'Light Weapons', 'Alpha Weapons', 'Beta Weapons'];
+
 export function WeaponsDpsTab() {
   const [selectedWeaponClass, setSelectedWeaponClass] = useState('Heavy Weapons');
   const [searchInput, setSearchInput] = useState('');
@@ -103,12 +105,13 @@ export function WeaponsDpsTab() {
           </div>
         )}
 
-        {/* Weapon Class Pills */}
-        <div className="tab-pills">
-          {['Heavy Weapons', 'Medium Weapons', 'Light Weapons', 'Alpha Weapons', 'Beta Weapons'].map(wclass => (
-            <button 
-              key={wclass} 
-              className={`tab-pill ${selectedWeaponClass === wclass ? 'active' : ''}`}
+        {/* Weapon Class Segmented Control */}
+        <div className="segmented-control" style={{ '--tab-count': WEAPON_CLASSES.length }}>
+          <div className="segmented-control-slider" style={{ transform: `translateX(calc(${WEAPON_CLASSES.indexOf(selectedWeaponClass)} * 100%))` }} />
+          {WEAPON_CLASSES.map(wclass => (
+            <button
+              key={wclass}
+              className={`segmented-control-btn ${selectedWeaponClass === wclass ? 'active' : ''}`}
               onClick={() => { setSelectedWeaponClass(wclass); setSearchInput(''); setSearchQuery(''); }}
             >
               {wclass.replace(' Weapons', '')}
