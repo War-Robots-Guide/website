@@ -1897,12 +1897,12 @@ function App() {
                           border: `1px solid ${alignmentColor}40`
                         }}>
                           <div style={{ 
-                            fontSize: '24px', 
+                            fontSize: '18px', 
                             fontWeight: 900, 
                             color: alignmentColor,
                             textShadow: `0 0 12px ${alignmentColor}`,
-                            width: '56px',
-                            height: '56px',
+                            width: '68px',
+                            height: '68px',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
