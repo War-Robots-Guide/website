@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { 
   Search, Award, Shield, Zap, UserCheck, BarChart2, BookOpen, 
-  Layers, RefreshCw, X, Star, Sparkles, Compass, CheckCircle2, XCircle
+  Layers, RefreshCw, X, Sparkles, Compass, CheckCircle2, XCircle
 } from 'lucide-react';
 import './App.css';
 
@@ -319,6 +319,7 @@ function App() {
   const [hangarTitan, setHangarTitan] = useState(null);
   const [activeSlot, setActiveSlot] = useState(null); // null, or 0-4 for robots, 5 for titan
   const [showSelectorModal, setShowSelectorModal] = useState(false);
+  const [selectorSearchQuery, setSelectorSearchQuery] = useState('');
   // Derive current step state in specTree
   const currentSpecNode = useMemo(() => {
     let node = specTree;
