@@ -193,6 +193,16 @@ export const specTree = {
                             { name: "Slot 2: Cannibal Reactor" }
                           ]
                         }
+                      },
+                      {
+                        label: "Anti Stealth",
+                        value: "titan_anti_stealth",
+                        result: {
+                          slots: [
+                            { name: "Slot 1: Onslaught Reactor" },
+                            { name: "Slot 2: Quantum Sensor" }
+                          ]
+                        }
                       }
                     ]
                   }
@@ -223,25 +233,6 @@ export const specTree = {
                           ]
                         }
                       }
-                    ]
-                  }
-                },
-                {
-                  label: "Attack",
-                  value: "titan_attack",
-                  result: {
-                    slots: [
-                      { name: "Slot 1: Onslaught Reactor" },
-                      { name: "Slot 2: Quantum Sensor" }
-                    ]
-                  }
-                },
-                {
-                  label: "Defense (AVOID - Focus on Passives Only)",
-                  value: "titan_defense",
-                  result: {
-                    slots: [
-                      { name: "AVOID SPECIALIZATION" }
                     ]
                   }
                 }
