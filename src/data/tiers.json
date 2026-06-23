@@ -430,7 +430,12 @@
     },
     "Z": {
       "casual_name": "Legacy gear",
-      "items": []
+      "items": [
+        {
+          "name": "Destrier, Cossack, Schutze, Gepard, GI Patton, Vityaz, Golem, Boa, Griffin, Rogatka, Leo, Natasha, Rhino, Stalker, Carnage, Fuijin, Raijin, Gareth, Galahad, Lancelot, Jesse, Doc, Butch, Bolt, Kumiho, Hover, Ao Qin",
+          "description": "All self explanatory, T1-2 bots with no specializations and poor stats, don't invest in them."
+        }
+      ]
     }
   },
   "Titans": {
@@ -1407,7 +1412,12 @@
     },
     "F": {
       "casual_name": "uber hyper giga trash",
-      "items": []
+      "items": [
+        {
+          "name": "Chimera, Hydra, Spiral, Flux, Gekko, Tulumbas, Pin, Orkan, Pinata, Molot T, Molot, Aphid, Noricum, Trident, Nashorn, Kang Dae, Zenit, Ancile, Ecu, Zeus",
+          "description": "Ancient outdated legacy gear with no damage potential."
+        }
+      ]
     },
     "Z": {
       "casual_name": "Arguably beneficial to the enemy",

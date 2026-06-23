@@ -308,7 +308,7 @@ def parse_tiers():
                 desc = parts[1].strip()
                 
                 # Double check if item name is too long or contains sentences (fail-safe)
-                if len(item_name) < 100:
+                if len(item_name) < 300:
                     tiers_data[current_category][current_tier]["items"].append({
                         "name": item_name,
                         "description": desc
