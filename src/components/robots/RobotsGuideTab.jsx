@@ -56,7 +56,7 @@ export function RobotsGuideTab() {
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
         <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Value Ratings & Scores</h2>
         <p style={{ margin: '0 auto' }}>
-          Deep dive evaluations of Robots and Titans. Value rating represents F2P friendliness and return on investment. 
+          Value rating represents F2P friendliness and return on investment. 
           Scores range from <span style={{ color: '#ef4444' }}>-2 (Horrible)</span> to <span style={{ color: '#10b981' }}>+3 (Excellent)</span>.
         </p>
       </div>

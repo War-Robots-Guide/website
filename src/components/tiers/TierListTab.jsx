@@ -34,9 +34,9 @@ export function TierListTab({ onItemClick }) {
   return (
     <div className="animate-fade-in text-left">
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Community Tier List</h2>
+        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Tier Lists</h2>
         <p style={{ margin: '0 auto' }}>
-          Explore community-compiled tier rankings for robots, titans, weapons, modules, and turrets. 
+          Explore tier rankings for robots, titans, weapons, modules, and turrets. 
           Click any item to view the detailed explanation of its rank.
         </p>
       </div>

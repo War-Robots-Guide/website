@@ -167,9 +167,9 @@ export function HangarAnalyzerTab() {
   return (
     <div className="animate-fade-in text-left">
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Hangar Power Analyzer</h2>
+        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Hangar Analyzer</h2>
         <p style={{ margin: '0 auto' }}>
-          Evaluate your hangar composition, role coverage, and tactical synergy. A standard hangar consists of 5 robots and 1 titan.
+          Evaluate your hangar composition and role coverage
         </p>
       </div>
 
@@ -625,7 +625,7 @@ export function HangarAnalyzerTab() {
         </div>
       ) : (
         <div className="glass-panel" style={{ padding: '40px', marginTop: '32px', color: 'var(--text-muted)', textAlign: 'center' }}>
-          Select robots or a titan above to see your hangar's tactical roles profile and synergy rating.
+          Select robots or a titan above to see your hangar's roles profile.
         </div>
       )}
 

@@ -27,7 +27,7 @@ export function SpecializationsTab() {
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
         <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Module Specialization Guide</h2>
         <p style={{ margin: '0 auto' }}>
-          Pick the right class specializations for your hangar. Upgrading modules is expensive; this guide helps you avoid account-bricking selections.
+          Pick the right class specializations for your hangar
         </p>
       </div>
 
