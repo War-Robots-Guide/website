@@ -1,9 +1,16 @@
 import { useState } from 'react';
-import { CheckCircle2, XCircle } from 'lucide-react';
+import { Star, CheckCircle2, MinusCircle, XCircle } from 'lucide-react';
 import pilotsData from '../../data/pilots.json';
 
 export function PilotSkillsTab() {
   const [pilotSubTab, setPilotSubTab] = useState('robots');
+
+  const getCategoryIcon = (cat) => {
+    if (cat === 'Must Use') return <Star size={20} />;
+    if (cat === 'Usually Use') return <CheckCircle2 size={20} />;
+    if (cat === 'Sometimes Use') return <MinusCircle size={20} />;
+    return <XCircle size={20} />;
+  };
 
   return (
     <div className="animate-fade-in text-left">
@@ -49,7 +56,7 @@ export function PilotSkillsTab() {
           return (
             <div className="glass-panel" key={cat} style={{ backgroundColor: catBg, borderColor: catBorder }}>
               <h3 style={{ color: catColor, fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                {cat === "Don't Use" ? <XCircle size={20} /> : <CheckCircle2 size={20} />} {cat}
+                {getCategoryIcon(cat)} {cat}
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {skills.map((skill, sidx) => (

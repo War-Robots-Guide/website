@@ -39,7 +39,7 @@ export const specTree = {
                   result: {
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier" },
-                      { name: "Slot 2: Power Unit / Titan Slayer" }
+                      { name: "Slot 2: Integrated Power Unit / Titan Slayer" }
                     ]
                   }
                 }

@@ -81,8 +81,8 @@ export function DashboardTab({ onTabChange }) {
               <Sparkles className="cyan-glow-text" size={20} /> Featured Meta Robots
             </h3>
             <div className="dashboard-grid">
-              {/* Show Pathfinder and Imugi (Value Rating 5) */}
-              {robotGuideData?.robots?.filter(r => r.value_rating === 5).map(robot => (
+              {/* Show high-value robots (Value Rating >= 3) sorted by rating */}
+              {robotGuideData?.robots?.filter(r => r.value_rating >= 3).sort((a, b) => b.value_rating - a.value_rating).map(robot => (
                 <div className="glass-panel glass-panel-hover" key={robot.name} style={{ background: 'rgba(255,255,255,0.01)', padding: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                     <h4 style={{ color: 'var(--cyan)' }}>{robot.name}</h4>
@@ -110,7 +110,7 @@ export function DashboardTab({ onTabChange }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="glass-panel">
             <h3 style={{ fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Sparkles size={16} className="cyan-glow-text" /> Join our Communities
+              <Sparkles size={16} className="cyan-glow-text" /> Join our Official Communities
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '13px', lineHeight: 1.5, marginBottom: '16px' }}>
               Connect with fellow commanders, discuss guides, and share hangar feedback.
@@ -160,7 +160,7 @@ export function DashboardTab({ onTabChange }) {
           
           <div className="glass-panel" style={{ maxHeight: '550px', overflowY: 'auto' }}>
             <h3 style={{ fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', position: 'sticky', top: 0, background: 'rgba(15,18,30,0.9)', padding: '4px 0', zIndex: 10 }}>
-              <RefreshCw size={16} className="cyan-glow-text" /> Community Changelog
+              <RefreshCw size={16} className="cyan-glow-text" /> Change Log
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {robotGuideData?.changelog?.slice(0, 10).map((log, index) => (

@@ -98,7 +98,7 @@ export function BuildGuidesTab() {
             </div>
 
             <div className="build-explanation">
-              <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>TACTICAL EXPLANATION</span>
+              <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>EXPLANATION</span>
               {build.explanation}
             </div>
           </div>

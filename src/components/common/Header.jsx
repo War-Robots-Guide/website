@@ -10,7 +10,7 @@ export function Header({ activeTab, onTabChange }) {
           style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'flex', alignItems: 'center', gap: '8px' }}
         >
           <Shield size={24} className="logo-icon" />
-          <span className="logo-text">r/WarRobotsGuide</span>
+          <span className="logo-text">War Robots Guide</span>
         </button>
         
         <nav className="nav-links">
@@ -18,10 +18,10 @@ export function Header({ activeTab, onTabChange }) {
             <Compass size={16} /> Home
           </button>
           <button className={`nav-item ${activeTab === 'tiers' ? 'active' : ''}`} onClick={() => onTabChange('tiers')}>
-            <Award size={16} /> Tiers
+            <Award size={16} /> Tier Lists
           </button>
           <button className={`nav-item ${activeTab === 'robots' ? 'active' : ''}`} onClick={() => onTabChange('robots')}>
-            <Shield size={16} /> Robots & Titans
+            <Shield size={16} /> Value Ratings
           </button>
           <button className={`nav-item ${activeTab === 'builds' ? 'active' : ''}`} onClick={() => onTabChange('builds')}>
             <Sparkles size={16} /> Build Guides

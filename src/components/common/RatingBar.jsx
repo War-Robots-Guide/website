@@ -10,14 +10,23 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
   const percentage = ((clampedRating - minVal) / (maxVal - minVal)) * 100;
   
   const getRatingLabel = (val) => {
-    if (val <= -2) return 'Horrible (-2)';
-    if (val === -1) return 'Poor (-1)';
-    if (val === 0) return 'Average (0)';
-    if (val === 1) return 'Good (+1)';
-    if (val === 2) return 'Very Good (+2)';
-    if (val === 3) return 'Excellent (+3)';
-    if (val === 4) return 'Meta (+4)';
-    return 'God (+5)';
+    if (isTitan) {
+      if (val <= -2) return 'Horrible (-2)';
+      if (val === -1) return 'Bad (-1)';
+      if (val === 0) return 'Poor (0)';
+      if (val === 1) return 'Average (+1)';
+      if (val === 2) return 'Very Good (+2)';
+      return 'Excellent (+3)';
+    } else {
+      if (val <= -2) return 'Horrible (-2)';
+      if (val === -1) return 'Bad (-1)';
+      if (val === 0) return 'Poor (0)';
+      if (val === 1) return 'Usable (+1)';
+      if (val === 2) return 'Good (+2)';
+      if (val === 3) return 'Very Good (+3)';
+      if (val === 4) return 'Excellent (+4)';
+      return 'Best (+5)';
+    }
   };
 
   const getRatingColor = (val) => {

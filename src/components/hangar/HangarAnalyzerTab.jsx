@@ -3,6 +3,27 @@ import { X, BarChart2, Zap } from 'lucide-react';
 import { RatingBar } from '../common/RatingBar';
 import { ScoreMeter } from '../common/ScoreMeter';
 import { HangarSelectorModal } from './HangarSelectorModal';
+import tiersData from '../../data/tiers.json';
+
+const TIER_VALUES = { X: 9, S: 8, A: 7, B: 6, C: 5, D: 4, E: 3, F: 2, Z: 1 };
+const REVERSE_TIER_VALUES = { 9: 'X', 8: 'S', 7: 'A', 6: 'B', 5: 'C', 4: 'D', 3: 'E', 2: 'F', 1: 'Z' };
+
+const getTierForName = (name, category) => {
+  if (!name || !tiersData || !tiersData[category]) return null;
+  const catData = tiersData[category];
+  
+  for (const [tierLetter, tierObj] of Object.entries(catData)) {
+    if (tierObj.items) {
+      for (const item of tierObj.items) {
+        const names = item.name.split(',').map(n => n.trim().toLowerCase());
+        if (names.includes(name.toLowerCase())) {
+          return tierLetter;
+        }
+      }
+    }
+  }
+  return null;
+};
 
 const STATUS_COLORS = {
   MET: {
@@ -82,6 +103,33 @@ export function HangarAnalyzerTab() {
       alignmentColor
     };
   }, [hangarRobots]);
+
+  const averageTier = useMemo(() => {
+    let sum = 0;
+    let count = 0;
+    
+    hangarRobots.forEach(robot => {
+      if (robot) {
+        const tier = getTierForName(robot.name, 'Robots');
+        if (tier && TIER_VALUES[tier] !== undefined) {
+          sum += TIER_VALUES[tier];
+          count++;
+        }
+      }
+    });
+    
+    if (hangarTitan) {
+      const tier = getTierForName(hangarTitan.name, 'Titans');
+      if (tier && TIER_VALUES[tier] !== undefined) {
+        sum += TIER_VALUES[tier];
+        count++;
+      }
+    }
+    
+    if (count === 0) return 'N/A';
+    const avg = Math.round(sum / count);
+    return REVERSE_TIER_VALUES[avg] || 'N/A';
+  }, [hangarRobots, hangarTitan]);
 
   const handleOpenSelector = (slotIndex) => {
     setActiveSlot(slotIndex);
@@ -271,8 +319,6 @@ export function HangarAnalyzerTab() {
             <div style={{ display: 'flex', width: '100%', marginBottom: '10px' }}>
               <RatingBar rating={hangarTitan.value_rating} unitType="titan" />
             </div>
-
-            <span style={{ fontSize: '11px', color: 'var(--purple)', marginTop: 'auto', fontWeight: 600 }}>Heavy Deployment option</span>
           </div>
         ) : (
           <div 
@@ -355,7 +401,7 @@ export function HangarAnalyzerTab() {
           {/* Right Panel: Synergy Evaluation & Advice */}
           <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <h3 style={{ fontSize: '20px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--purple)' }}>
-              <Zap size={20} /> Tactical Synergy Rating
+              <Zap size={20} /> Hangar Rating
             </h3>
 
             {/* Alignment Score Badge */}
@@ -392,6 +438,43 @@ export function HangarAnalyzerTab() {
                 </p>
               </div>
             </div>
+
+            {/* Average Tier Badge */}
+            {averageTier !== 'N/A' && (
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '16px', 
+                background: 'rgba(0,0,0,0.2)', 
+                padding: '16px', 
+                borderRadius: '12px',
+                border: `1px solid var(--tier-${averageTier.toLowerCase()}-border)`
+              }}>
+                <div style={{ 
+                  fontSize: '24px', 
+                  fontWeight: 900, 
+                  color: `var(--tier-${averageTier.toLowerCase()})`,
+                  textShadow: `0 0 12px var(--tier-${averageTier.toLowerCase()})`,
+                  width: '68px',
+                  height: '68px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: `var(--tier-${averageTier.toLowerCase()}-bg)`,
+                  borderRadius: '50%',
+                  border: `3px solid var(--tier-${averageTier.toLowerCase()}-border)`,
+                  flexShrink: 0
+                }}>
+                  {averageTier}
+                </div>
+                <div>
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', display: 'block' }}>Average Hangar Tier</span>
+                  <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#fff', lineHeight: 1.4 }}>
+                    The average strength tier of active robots and titans in your hangar.
+                  </p>
+                </div>
+              </div>
+            )}
 
             {/* Core Hangar Roles Profile */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
