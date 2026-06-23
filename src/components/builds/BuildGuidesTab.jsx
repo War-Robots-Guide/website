@@ -77,7 +77,7 @@ export function BuildGuidesTab() {
                     <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{build.f2p_weapons || 'N/A'}</p>
                   </div>
                   <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '10px' }}>
-                    <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600 }}>BEST META SETUP</span>
+                    <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600 }}>BEST META SETUPS</span>
                     <p style={{ fontSize: '12px', color: '#fbbf24' }}>{build.best_weapons || 'N/A'}</p>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export function BuildGuidesTab() {
                     <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{build.f2p_drones || 'N/A'}</p>
                   </div>
                   <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '10px' }}>
-                    <span style={{ fontSize: '10px', color: '#a855f7', fontWeight: 600 }}>BEST META DRONE</span>
+                    <span style={{ fontSize: '10px', color: '#a855f7', fontWeight: 600 }}>BEST META DRONES</span>
                     <p style={{ fontSize: '12px', color: '#a855f7' }}>{build.best_drones || 'N/A'}</p>
                   </div>
                 </div>
