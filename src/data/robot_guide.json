@@ -760,11 +760,6 @@
           "footnote": "***"
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Sniper",
           "type": "secondary",
           "footnote": ""
@@ -772,21 +767,6 @@
         {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -811,11 +791,6 @@
           "footnote": "***"
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Sniper",
           "type": "secondary",
           "footnote": ""
@@ -823,21 +798,6 @@
         {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -875,21 +835,6 @@
           "role": "Midrange",
           "type": "primary",
           "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
         }
       ],
       "comments": "Typhon's access to mid-range support, availability in the super chest, and high damage make it a solid option. However, it is seriously outclassed by Pathfinder."
@@ -907,31 +852,6 @@
         "overall": 1
       },
       "roles": [
-        {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
         {
           "role": "Beacon Runner",
           "type": "secondary",
@@ -961,36 +881,6 @@
         {
           "role": "Support",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -1025,36 +915,6 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Assassin",
           "type": "primary",
           "footnote": ""
@@ -1081,32 +941,12 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Sniper",
           "type": "primary",
           "footnote": ""
         },
         {
           "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -1127,17 +967,7 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
           "type": "secondary",
           "footnote": ""
         },
@@ -1150,16 +980,6 @@
           "role": "Brawler",
           "type": "secondary",
           "footnote": "*"
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
         }
       ],
       "comments": "While a lack of availability in the superchest and half-reliance on defense points to stay alive are unappealing, Fafnir's raw power and flexibility make up for it."
@@ -1198,26 +1018,6 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
@@ -1244,33 +1044,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -1295,26 +1070,6 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
           "type": "secondary",
           "footnote": ""
@@ -1322,11 +1077,6 @@
         {
           "role": "Beacon Runner",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -1351,32 +1101,12 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "secondary",
           "footnote": ""
         },
         {
           "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -1397,33 +1127,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -1447,31 +1152,6 @@
         "overall": 2
       },
       "roles": [
-        {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
         {
           "role": "Beacon Runner",
           "type": "primary",
@@ -1529,38 +1209,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -1580,38 +1230,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Beacon Runner",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -1633,16 +1253,6 @@
         {
           "role": "Support",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -1682,28 +1292,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -1733,11 +1323,6 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "secondary",
           "footnote": ""
@@ -1749,21 +1334,6 @@
         },
         {
           "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -1784,37 +1354,12 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "primary",
           "footnote": ""
         },
         {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -1835,38 +1380,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -1906,16 +1421,6 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "secondary",
           "footnote": ""
@@ -1923,16 +1428,6 @@
         {
           "role": "Brawler",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -1951,36 +1446,6 @@
         "overall": 1
       },
       "roles": [
-        {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
         {
           "role": "Assassin",
           "type": "primary",
@@ -2008,11 +1473,6 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Sniper",
           "type": "secondary",
           "footnote": ""
@@ -2026,16 +1486,6 @@
           "role": "Brawler",
           "type": "primary",
           "footnote": "**"
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
         }
       ],
       "comments": "Pathfinder's performance remains incredible across all investment levels; between speed boosts, damage boosts, lockdown, shieldbreak, healing, and more, it can truly do it all."
@@ -2053,26 +1503,6 @@
         "overall": 2
       },
       "roles": [
-        {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
         {
           "role": "Brawler",
           "type": "primary",
@@ -2105,11 +1535,6 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "primary",
           "footnote": ""
@@ -2126,16 +1551,6 @@
         },
         {
           "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -2171,37 +1586,12 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "primary",
           "footnote": ""
         },
         {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -2222,11 +1612,6 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "secondary",
           "footnote": ""
@@ -2239,11 +1624,6 @@
         {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -2278,22 +1658,7 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
           "type": "secondary",
           "footnote": ""
         },
@@ -2342,21 +1707,6 @@
           "role": "Midrange",
           "type": "primary",
           "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
         }
       ],
       "comments": "Nuo's damage and teammate-buffing abilities are strong. Though not listed ingame, it also gets tremendous in-flight speed."
@@ -2380,33 +1730,8 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -2426,38 +1751,13 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "primary",
           "footnote": ""
         },
         {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -2476,26 +1776,6 @@
         "overall": 2
       },
       "roles": [
-        {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
         {
           "role": "Brawler",
           "type": "primary",
@@ -2528,11 +1808,6 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "primary",
           "footnote": ""
@@ -2544,21 +1819,6 @@
         },
         {
           "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -2589,27 +1849,12 @@
           "footnote": ""
         },
         {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "secondary",
           "footnote": ""
         },
         {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -2630,23 +1875,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -2681,38 +1911,13 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Tank-buster",
           "type": "primary",
           "footnote": ""
         },
         {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -2737,33 +1942,8 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -2790,11 +1970,6 @@
         {
           "role": "Tank-buster",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -2833,26 +2008,6 @@
         "overall": 1
       },
       "roles": [
-        {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
         {
           "role": "Brawler",
           "type": "primary",
@@ -2903,21 +2058,6 @@
           "role": "Midrange",
           "type": "primary",
           "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
         }
       ],
       "comments": "It was hard to believe that pixonic would powercreep Pathfinder, but you truly can't underestimate their motives to add the most unhealthy robots to the game as possible. Shoggoth is an unholy abomination child between mother Pathfinder and father Bagliore."
@@ -2936,38 +2076,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Sniper",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -3002,16 +2112,6 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Sniper",
           "type": "secondary",
           "footnote": ""
@@ -3019,11 +2119,6 @@
         {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -3058,33 +2153,8 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -3134,32 +2204,7 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
           "type": "secondary",
           "footnote": ""
         },
@@ -3215,38 +2260,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -3266,39 +2281,9 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
           "type": "primary",
           "footnote": "*"
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
         }
       ],
       "comments": "Falcon has all the tools it needs to succeed, but it can't use them all at the same time. T-falcon is very cheap, but falls off very quickly."
@@ -3316,31 +2301,6 @@
         "overall": 0
       },
       "roles": [
-        {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
         {
           "role": "Beacon Runner",
           "type": "secondary",
@@ -3368,38 +2328,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -3514,32 +2444,7 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -3559,31 +2464,6 @@
         "overall": 2
       },
       "roles": [
-        {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
         {
           "role": "Beacon Runner",
           "type": "primary",
@@ -3631,27 +2511,7 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
           "type": "secondary",
           "footnote": ""
         },
@@ -3722,38 +2582,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -3773,33 +2603,8 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -3823,26 +2628,6 @@
         "overall": 0
       },
       "roles": [
-        {
-          "role": "Support",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
         {
           "role": "Brawler",
           "type": "primary",

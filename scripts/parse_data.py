@@ -458,9 +458,10 @@ def parse_robot_guide():
                     
             role_type = "none"
             if color_hex:
-                if "00FF00" in color_hex: # Green
+                clean_hex = color_hex[-6:].upper() if isinstance(color_hex, str) else ""
+                if clean_hex == "00FF00": # Green
                     role_type = "primary"
-                elif "FFFF00" in color_hex: # Yellow
+                elif clean_hex == "FFFF00": # Yellow
                     role_type = "secondary"
                     
             # If the value is some footnote, we keep it
