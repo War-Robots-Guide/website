@@ -99,7 +99,14 @@ export function DetailModal({ selectedItem, onClose }) {
           {selectedItem.type === 'Robots' && (
             <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
               {(() => {
-                const rob = robotGuideData?.robots?.find(r => r.name.toLowerCase().trim() === selectedItem.name.toLowerCase().trim() || selectedItem.name.toLowerCase().includes(r.name.toLowerCase()));
+                const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
+                const isSelectedUe = cleanSelected.startsWith('ue ');
+                const rob = robotGuideData?.robots?.find(r => {
+                  const cleanR = r.name.replace(/\*+$/, '').trim().toLowerCase();
+                  const isR_Ue = cleanR.startsWith('ue ');
+                  if (isSelectedUe !== isR_Ue) return false;
+                  return cleanR === cleanSelected || cleanSelected.includes(cleanR);
+                });
                 if (rob) {
                   return (
                     <>
@@ -134,7 +141,14 @@ export function DetailModal({ selectedItem, onClose }) {
           {selectedItem.type === 'Titans' && (
             <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
               {(() => {
-                const titan = robotGuideData?.titans?.find(t => t.name.toLowerCase().trim() === selectedItem.name.toLowerCase().trim() || selectedItem.name.toLowerCase().includes(t.name.toLowerCase()));
+                const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
+                const isSelectedUe = cleanSelected.startsWith('ue ');
+                const titan = robotGuideData?.titans?.find(t => {
+                  const cleanT = t.name.replace(/\*+$/, '').trim().toLowerCase();
+                  const isT_Ue = cleanT.startsWith('ue ');
+                  if (isSelectedUe !== isT_Ue) return false;
+                  return cleanT === cleanSelected || cleanSelected.includes(cleanT);
+                });
                 if (titan) {
                   return (
                     <>
