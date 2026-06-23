@@ -4,6 +4,7 @@ import { RatingBar } from '../common/RatingBar';
 import { ScoreMeter } from '../common/ScoreMeter';
 import { HangarSelectorModal } from './HangarSelectorModal';
 import tiersData from '../../data/tiers.json';
+import robotGuideData from '../../data/robot_guide.json';
 
 const TIER_VALUES = { X: 9, S: 8, A: 7, B: 6, C: 5, D: 4, E: 3, F: 2, Z: 1 };
 const REVERSE_TIER_VALUES = { 9: 'X', 8: 'S', 7: 'A', 6: 'B', 5: 'C', 4: 'D', 3: 'E', 2: 'F', 1: 'Z' };
@@ -231,7 +232,7 @@ export function HangarAnalyzerTab() {
                       className={`role-badge ${r.type}`} 
                       style={{ fontSize: '10px', padding: '1px 6px', display: 'inline-block', width: 'fit-content' }}
                     >
-                      {r.role} {r.type === 'primary' ? '★' : '☆'}
+                      {r.role}{r.footnote && <sup style={{ marginLeft: '2px' }}>{r.footnote}</sup>} {r.type === 'primary' ? '★' : '☆'}
                     </span>
                   ))}
                 </div>
@@ -609,6 +610,18 @@ export function HangarAnalyzerTab() {
               })()}
             </div>
           </div>
+
+          {/* Footnotes */}
+          {robotGuideData?.footnotes && robotGuideData.footnotes.length > 0 && (
+            <div style={{ marginTop: '32px', padding: '16px 0 0 0', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)', width: '100%', gridColumn: 'span 2' }}>
+              <div style={{ fontWeight: 600, marginBottom: '8px', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.5px' }}>Footnotes</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {robotGuideData.footnotes.map((fn, idx) => (
+                  <div key={idx}>{fn}</div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <div className="glass-panel" style={{ padding: '40px', marginTop: '32px', color: 'var(--text-muted)', textAlign: 'center' }}>

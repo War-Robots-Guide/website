@@ -213,6 +213,18 @@ export function RobotsGuideTab() {
           ))}
         </div>
       )}
+
+      {/* Footnotes */}
+      {robotGuideData?.footnotes && robotGuideData.footnotes.length > 0 && (
+        <div style={{ marginTop: '32px', padding: '16px 0 0 0', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)' }}>
+          <div style={{ fontWeight: 600, marginBottom: '8px', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.5px' }}>Footnotes</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            {robotGuideData.footnotes.map((fn, idx) => (
+              <div key={idx}>{fn}</div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

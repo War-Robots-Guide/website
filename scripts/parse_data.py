@@ -261,6 +261,22 @@ def parse_tiers():
         docx_path = find_file_case_insensitive("Tier List Rationales.docx")
     xlsx_path = find_file_case_insensitive("WR tier lists.xlsx")
     
+    # Collect all items in Excel that end with '*'
+    asterisk_items = set()
+    try:
+        wb_temp = openpyxl.load_workbook(xlsx_path, data_only=True)
+        for sname in wb_temp.sheetnames:
+            sheet_temp = wb_temp[sname]
+            for r in range(1, sheet_temp.max_row + 1):
+                col1_val = sheet_temp.cell(row=r, column=2).value
+                if col1_val:
+                    items_list = [i.strip() for i in str(col1_val).split(",")]
+                    for item in items_list:
+                        if item.endswith("*"):
+                            asterisk_items.add(item.rstrip("*").strip().lower())
+    except Exception as e:
+        print(f"Warning: Failed to parse asterisks from WR tier lists.xlsx: {e}")
+
     # Parse standard tiers and descriptions from Tiers.docx / Tier List Rationales.docx
     doc = Document(docx_path)
     
@@ -311,6 +327,12 @@ def parse_tiers():
                 
                 # Double check if item name is too long or contains sentences (fail-safe)
                 if len(item_name) < 300:
+                    clean_item_name = item_name.lower().strip()
+                    sub_names = [sn.strip().lower() for sn in clean_item_name.split(",")]
+                    has_ast = any(sn in asterisk_items for sn in sub_names)
+                    if has_ast and not item_name.endswith("*"):
+                        item_name = item_name + "*"
+                        
                     tiers_data[current_category][current_tier]["items"].append({
                         "name": item_name,
                         "description": desc
@@ -673,13 +695,23 @@ def parse_robot_guide():
             r = nr - 1
         r += 1
         
+    # Parse footnotes from Bot Roles column 9
+    roles_footnotes = []
+    for r in range(2, roles_sheet.max_row + 1):
+        footnote_val = roles_sheet.cell(row=r, column=9).value
+        if footnote_val:
+            footnote_str = str(footnote_val).strip()
+            if footnote_str.startswith("*"):
+                roles_footnotes.append(footnote_str)
+
     # Output unified guide JSON
     guide_json = {
         "changelog": changelog,
         "builds": builds,
         "robots": robots_data,
         "titans": titans_data,
-        "camelot": camelot_data
+        "camelot": camelot_data,
+        "footnotes": roles_footnotes
     }
     
     with open(os.path.join(data_out_dir, "robot_guide.json"), "w", encoding="utf-8") as f:

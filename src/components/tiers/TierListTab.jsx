@@ -111,6 +111,11 @@ export function TierListTab({ onItemClick }) {
           );
         })}
       </div>
+
+      {/* Footnotes */}
+      <div style={{ marginTop: '24px', padding: '16px 0 0 0', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)' }}>
+        <p style={{ margin: 0 }}>* Only in squad / coordinated play</p>
+      </div>
     </div>
   );
 }

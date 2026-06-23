@@ -3209,5 +3209,11 @@
       "description": "Old \"Removed\" bot. This gets the closest to competing with Leo, but still is definitively worse.",
       "builds": []
     }
+  ],
+  "footnotes": [
+    "*Only with Traditionalist pilot skill",
+    "**Only with Freezo drone",
+    "***Only with Lock-down Ammo module or Paralysis drone",
+    "****Only with level 9 (or higher) Myia"
   ]
 }
