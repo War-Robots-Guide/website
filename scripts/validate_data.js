@@ -210,7 +210,7 @@ function validateSpecializations(data) {
 
 function validatePilots(data) {
   if (!data) return;
-  expectNonEmptyString(data.intro, 'pilots.intro');
+  expectString(data.intro, 'pilots.intro');
   for (const section of ['robots', 'titans']) {
     const sectionData = expectObject(data[section], `pilots.${section}`);
     for (const category of ['Must Use', 'Usually Use', 'Sometimes Use', "Don't Use"]) {

@@ -83,20 +83,22 @@ def parse_pilots():
             continue
             
         # Check categories within sections
-        if current_section in ["robots", "titans"]:
-            text_clean = text.lower().replace(" ", "")
-            if "mustuse" in text_clean:
-                current_category = "Must Use"
-                continue
-            elif "usuallyuse" in text_clean:
-                current_category = "Usually Use"
-                continue
-            elif "sometimesuse" in text_clean:
-                current_category = "Sometimes Use"
-                continue
-            elif "don'tuse" in text_clean or "dontuse" in text_clean:
-                current_category = "Don't Use"
-                continue
+        text_clean = text.lower().replace(" ", "")
+        matched_cat = None
+        if "mustuse" in text_clean:
+            matched_cat = "Must Use"
+        elif "usuallyuse" in text_clean:
+            matched_cat = "Usually Use"
+        elif "sometimesuse" in text_clean:
+            matched_cat = "Sometimes Use"
+        elif "don'tuse" in text_clean or "dontuse" in text_clean:
+            matched_cat = "Don't Use"
+            
+        if matched_cat:
+            if current_section == "intro":
+                current_section = "robots"
+            current_category = matched_cat
+            continue
                 
         # Parse skills
         if current_section == "intro":

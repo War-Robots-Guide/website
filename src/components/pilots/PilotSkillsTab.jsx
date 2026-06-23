@@ -21,11 +21,6 @@ export function PilotSkillsTab() {
         </p>
       </div>
 
-      {/* Intro */}
-      <div className="glass-panel" style={{ marginBottom: '24px', fontSize: '14px', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
-        {pilotsData.intro}
-      </div>
-
       {/* Sub Tabs: Robots vs Titans */}
       <div className="tab-pills">
         <button 

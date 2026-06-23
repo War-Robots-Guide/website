@@ -1,5 +1,5 @@
 {
-  "intro": "Pilot skills are probably the second most common thing that I often see newer/returning players mess up (the first being specializations) so with this post, I hope to present a concise guide that makes picking the best pilot skills for your robots and titans a breeze.\nBroadly, we can group pilot skills into four categories:\nMust use\nUsually use\nSometimes use\nDon't use (unless you know what you're doing)\nPilot skill priority is different for robots and titans, since even some of their skills that share the same name and general function don't all quite work the same, so lets go over each individually.",
+  "intro": "Pilot skills are probably the second most common thing that I often see newer/returning players mess up (the first being specializations) so with this post, I hope to present a concise guide that makes picking the best pilot skills for your robots and titans a breeze.\nBroadly, we can group pilot skills into four categories:",
   "robots": {
     "Must Use": [
       {
@@ -108,6 +108,10 @@
       }
     ],
     "Don't Use": [
+      {
+        "name": "General Info",
+        "description": "Pilot skill priority is different for robots and titans, since even some of their skills that share the same name and general function don't all quite work the same, so lets go over each individually."
+      },
       {
         "name": "Adamant Mechanic, Adamant Gunsmith",
         "description": "Unless you have a second hangar identical to your first that you only spawn in while you're losing, these skills are pretty hard to justify using."
