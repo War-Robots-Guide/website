@@ -9,12 +9,19 @@ export function BuildGuidesTab() {
     if (!robotGuideData?.builds) return [];
     const query = searchQuery.toLowerCase();
     
-    return robotGuideData.builds.filter(build => 
+    const filtered = robotGuideData.builds.filter(build =>
       build.build_name.toLowerCase().includes(query) ||
       build.robot.toLowerCase().includes(query) ||
       build.best_weapons.toLowerCase().includes(query) ||
       build.explanation.toLowerCase().includes(query)
     );
+
+    return filtered.map(build => ({
+      ...build,
+      parsed_build_name: build.build_name.replace(/\n/g, ' '),
+      parsed_pilot: build.pilot.replace(/\n/g, ' '),
+      parsed_specialization: build.specialization.split('\n')
+    }));
   }, [searchQuery]);
 
   return (
@@ -52,19 +59,19 @@ export function BuildGuidesTab() {
                 <span className="spec-class-tag" style={{ background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)', marginBottom: '4px', display: 'inline-block' }}>
                   {build.robot}
                 </span>
-                <h3 className="build-name">{build.build_name.replace(/\n/g, ' ')}</h3>
+                <h3 className="build-name">{build.parsed_build_name}</h3>
               </div>
             </div>
 
             <div className="build-meta-grid">
               <div className="build-meta-item">
                 <span className="build-meta-label">Optimal Pilot</span>
-                <span className="build-meta-value">{build.pilot.replace(/\n/g, ' ')}</span>
+                <span className="build-meta-value">{build.parsed_pilot}</span>
               </div>
               <div className="build-meta-item">
                 <span className="build-meta-label">Specialization Modules</span>
                 <span className="build-meta-value" style={{ fontSize: '11.5px', lineHeight: 1.4 }}>
-                  {build.specialization.split('\n').map((line, lidx) => (
+                  {build.parsed_specialization.map((line, lidx) => (
                     <div key={lidx}>{line}</div>
                   ))}
                 </span>
