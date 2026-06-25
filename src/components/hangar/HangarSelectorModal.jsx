@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Search, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from '../common/RatingBar';
+import { SearchInput } from '../common/SearchInput';
 
 export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelectorSearchQuery, onClose, onSelect }) {
   const isTitanSlot = activeSlot === 5;
@@ -31,18 +32,13 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
         </div>
         
         <div className="modal-body" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div className="search-input-wrapper">
-            <Search size={18} className="search-input-icon" />
-            <input 
-              type="text" 
-              className="search-input" 
-              placeholder={isTitanSlot ? "Search Titans..." : "Search Robots..."}
-              value={selectorSearchQuery}
-              onChange={(e) => setSelectorSearchQuery(e.target.value)}
-              autoFocus
-              aria-label={isTitanSlot ? "Search Titans" : "Search Robots"}
-            />
-          </div>
+          <SearchInput
+            placeholder={isTitanSlot ? "Search Titans..." : "Search Robots..."}
+            value={selectorSearchQuery}
+            onChange={(e) => setSelectorSearchQuery(e.target.value)}
+            autoFocus
+            aria-label={isTitanSlot ? "Search Titans" : "Search Robots"}
+          />
 
           <div style={{ maxHeight: '350px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', paddingRight: '4px' }} role="listbox">
             {isTitanSlot ? (

@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Search } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from '../common/RatingBar';
+import { SearchInput } from '../common/SearchInput';
 import { ScoreMeter } from '../common/ScoreMeter';
 
 export function RobotsGuideTab() {
@@ -78,16 +78,11 @@ export function RobotsGuideTab() {
 
       {/* Filter controls */}
       <div className="search-container">
-        <div className="search-input-wrapper">
-          <Search size={18} className="search-input-icon" />
-          <input 
-            type="text" 
-            className="search-input" 
-            placeholder={`Search ${guideSubTab}...`}
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-          />
-        </div>
+        <SearchInput
+          placeholder={`Search ${guideSubTab}...`}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
 
         {/* Value rating filter */}
         <select 
