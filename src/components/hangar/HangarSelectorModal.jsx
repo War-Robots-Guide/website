@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Search, X } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from '../common/RatingBar';
@@ -15,7 +16,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
       <div className="modal-content text-left" style={{ maxWidth: '600px' }} onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
@@ -111,6 +112,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
