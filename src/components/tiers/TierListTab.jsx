@@ -36,8 +36,7 @@ export function TierListTab({ onItemClick }) {
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
         <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Tier Lists</h2>
         <p style={{ margin: '0 auto' }}>
-          Explore tier rankings for robots, titans, weapons, modules, and turrets. 
-          Click any item to view the detailed explanation of its rank.
+          A power based tier list that ranks every unit in the game.
         </p>
       </div>
 

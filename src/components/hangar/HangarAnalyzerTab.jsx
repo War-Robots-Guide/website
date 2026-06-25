@@ -169,7 +169,7 @@ export function HangarAnalyzerTab() {
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
         <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Hangar Analyzer</h2>
         <p style={{ margin: '0 auto' }}>
-          Evaluate your hangar composition and role coverage
+          Get a general idea of how strong your hangar is.
         </p>
       </div>
 
@@ -226,15 +226,19 @@ export function HangarAnalyzerTab() {
 
               {item.roles && item.roles.length > 0 ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: 'auto' }}>
-                  {item.roles.map(r => (
-                    <span 
-                      key={r.role} 
-                      className={`role-badge ${r.type}`} 
-                      style={{ fontSize: '10px', padding: '1px 6px', display: 'inline-block', width: 'fit-content' }}
-                    >
-                      {r.role}{r.footnote && <sup style={{ marginLeft: '2px' }}>{r.footnote}</sup>} {r.type === 'primary' ? '★' : '☆'}
-                    </span>
-                  ))}
+                  {item.roles.map(r => {
+                    const tooltipText = r.footnote ? robotGuideData?.footnotes?.[parseInt(r.footnote) - 1] || r.footnote : '';
+                    return (
+                      <span
+                        key={r.role}
+                        className={`role-badge ${r.type}`}
+                        style={{ fontSize: '10px', padding: '1px 6px', display: 'inline-block', width: 'fit-content' }}
+                        title={tooltipText}
+                      >
+                        {r.role}{r.footnote && <sup style={{ marginLeft: '2px' }}>*</sup>} {r.type === 'primary' ? '★' : '☆'}
+                      </span>
+                    );
+                  })}
                 </div>
               ) : (
                 <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: 'auto' }}>No specific roles</span>
@@ -611,21 +615,10 @@ export function HangarAnalyzerTab() {
             </div>
           </div>
 
-          {/* Footnotes */}
-          {robotGuideData?.footnotes && robotGuideData.footnotes.length > 0 && (
-            <div style={{ marginTop: '32px', padding: '16px 0 0 0', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)', width: '100%', gridColumn: 'span 2' }}>
-              <div style={{ fontWeight: 600, marginBottom: '8px', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.5px' }}>Footnotes</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                {robotGuideData.footnotes.map((fn, idx) => (
-                  <div key={idx}>{fn}</div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       ) : (
         <div className="glass-panel" style={{ padding: '40px', marginTop: '32px', color: 'var(--text-muted)', textAlign: 'center' }}>
-          Select robots or a titan above to see your hangar's roles profile.
+          Fill out the hangar analyzer above for automated feedback.
         </div>
       )}
 

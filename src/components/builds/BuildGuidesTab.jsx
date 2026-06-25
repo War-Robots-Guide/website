@@ -22,7 +22,7 @@ export function BuildGuidesTab() {
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
         <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Optimized Robot Builds</h2>
         <p style={{ margin: '0 auto' }}>
-          Hangar configurations recommendation including optimal f2p equipment, best modules specializations, pilots, and drones.
+          Learn the best weapon, specialization, pilot, and drone configurations for your robots.
           <span style={{ display: 'block', marginTop: '8px', fontSize: '13px', color: 'var(--text-secondary)', opacity: 0.85 }}>
             <em>Note: Build guides are only provided for recommended robots.</em>
           </span>
