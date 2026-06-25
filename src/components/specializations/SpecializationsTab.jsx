@@ -3,6 +3,8 @@ import { Compass, RefreshCw, Sparkles, Zap } from 'lucide-react';
 import specializationsData from '../../data/specializations.json';
 import { specTree } from './specTree';
 
+const introParagraphs = specializationsData.intro.split('\n');
+
 export function SpecializationsTab() {
   const [specPath, setSpecPath] = useState([]);
 
@@ -33,7 +35,7 @@ export function SpecializationsTab() {
 
       {/* Intro text */}
       <div className="glass-panel" style={{ marginBottom: '24px', fontSize: '14px', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
-        {specializationsData.intro.split('\n').map((para, pidx) => (
+        {introParagraphs.map((para, pidx) => (
           <p key={pidx} style={{ marginBottom: para.startsWith('###') ? '12px' : '8px', marginTop: para.startsWith('###') ? '16px' : '0', fontWeight: para.startsWith('###') ? 700 : 400, color: para.startsWith('###') ? 'var(--cyan)' : 'inherit' }}>
             {para.startsWith('###') ? para.replace('### ', '') : para}
           </p>
