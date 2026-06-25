@@ -4,6 +4,18 @@ import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
 
 export function DashboardTab({ onTabChange }) {
+  // Memoize featured robots to avoid inline filtering and sorting on every render
+  const featuredRobots = useMemo(() => {
+    return robotGuideData?.robots
+      ?.filter(r => r.value_rating >= 3)
+      .sort((a, b) => b.value_rating - a.value_rating) || [];
+  }, []);
+
+  // Memoize changelog to avoid inline slicing on every render
+  const recentChangelog = useMemo(() => {
+    return robotGuideData?.changelog?.slice(0, 10) || [];
+  }, []);
+
   const stats = useMemo(() => {
     const totalRobots = robotGuideData?.robots?.length || 0;
     const totalTitans = robotGuideData?.titans?.length || 0;
@@ -88,7 +100,7 @@ export function DashboardTab({ onTabChange }) {
             </h3>
             <div className="dashboard-grid">
               {/* Show high-value robots (Value Rating >= 3) sorted by rating */}
-              {robotGuideData?.robots?.filter(r => r.value_rating >= 3).sort((a, b) => b.value_rating - a.value_rating).map(robot => (
+              {featuredRobots.map(robot => (
                 <div className="glass-panel glass-panel-hover" key={robot.name} style={{ background: 'rgba(255,255,255,0.01)', padding: '16px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                     <h4 style={{ color: 'var(--cyan)' }}>{robot.name}</h4>
@@ -166,7 +178,7 @@ export function DashboardTab({ onTabChange }) {
               <Wrench size={16} className="cyan-glow-text" /> Changelog
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {robotGuideData?.changelog?.slice(0, 10).map((log, index) => (
+              {recentChangelog.map((log, index) => (
                 <div key={index} style={{ borderLeft: '2px solid var(--cyan)', paddingLeft: '12px' }}>
                   <span style={{ fontSize: '11px', color: 'var(--cyan)', fontWeight: 600 }}>{log.date}</span>
                   <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', marginTop: '4px', lineHeight: 1.4 }}>
