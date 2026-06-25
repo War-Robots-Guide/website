@@ -153,7 +153,7 @@ export const specTree = {
         question: "Is it an Ultimate Titan?",
         options: [
           {
-            label: "Yes",
+            label: "Ultimate Titan",
             value: "titan_ue_yes",
             result: {
               slots: [
@@ -163,7 +163,7 @@ export const specTree = {
             }
           },
           {
-            label: "No",
+            label: "Not Ultimate",
             value: "titan_ue_no",
             next: {
               question: "What specialization is available on the Titan?",

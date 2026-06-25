@@ -27,7 +27,7 @@ export function SpecializationsTab() {
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
         <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Module Specialization Guide</h2>
         <p style={{ margin: '0 auto' }}>
-          Pick the right class specializations for your hangar
+          Learn what specializations and modules are the best for you.
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export function SpecializationsTab() {
             <div className={`spec-finder-result ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
               <div className={`spec-result-title ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
                 <Sparkles size={20} />
-                Recommended Specialization
+                Recommended Specialization: {specPath[specPath.length - 1]?.label}
               </div>
               <div className="spec-result-path">
                 Path: {specPath.map(s => s.label).join(' ➔ ')}

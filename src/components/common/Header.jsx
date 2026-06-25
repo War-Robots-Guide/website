@@ -1,4 +1,4 @@
-import { Shield, Compass, Award, Sparkles, Layers, UserCheck, BarChart2, Zap } from 'lucide-react';
+import { Shield, Compass, Award, Layers, UserCheck, BarChart2, Zap, Wrench } from 'lucide-react';
 
 export function Header({ activeTab, onTabChange }) {
   return (
@@ -24,7 +24,7 @@ export function Header({ activeTab, onTabChange }) {
             <Shield size={16} /> Value Ratings
           </button>
           <button className={`nav-item ${activeTab === 'builds' ? 'active' : ''}`} onClick={() => onTabChange('builds')}>
-            <Sparkles size={16} /> Build Guides
+            <Wrench size={16} /> Build Guides
           </button>
           <button className={`nav-item ${activeTab === 'specializations' ? 'active' : ''}`} onClick={() => onTabChange('specializations')}>
             <Layers size={16} /> Specializations

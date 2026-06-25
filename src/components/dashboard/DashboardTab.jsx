@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Shield, Sparkles, BarChart2, RefreshCw } from 'lucide-react';
+import { Star, Users, Wrench } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
 
@@ -50,21 +50,27 @@ export function DashboardTab({ onTabChange }) {
       {/* Quick Stats Grid */}
       <div className="dashboard-stats">
         <div className="glass-panel stat-card">
-          <div className="stat-icon"><Shield size={24} /></div>
+          <div className="stat-icon" style={{ background: 'transparent' }}>
+            <img src="/Icn_GoldRobot.png" alt="Robot Icon" width="24" height="24" />
+          </div>
           <div>
             <div className="stat-number">{stats.totalRobots + stats.totalTitans}</div>
             <div className="stat-label">Robots & Titans evaluated</div>
           </div>
         </div>
         <div className="glass-panel stat-card">
-          <div className="stat-icon"><BarChart2 size={24} /></div>
+          <div className="stat-icon" style={{ background: 'transparent' }}>
+            <img src="/Icn_GoldWeapon.png" alt="Weapon Icon" width="24" height="24" />
+          </div>
           <div>
             <div className="stat-number">{stats.totalWeapons}</div>
             <div className="stat-label">Weapons tested</div>
           </div>
         </div>
         <div className="glass-panel stat-card">
-          <div className="stat-icon"><Sparkles size={24} /></div>
+          <div className="stat-icon" style={{ background: 'transparent' }}>
+            <img src="/Icon_list_gold.png" alt="Build Icon" width="24" height="24" />
+          </div>
           <div>
             <div className="stat-number">{stats.totalBuilds}</div>
             <div className="stat-label">Mini build guides</div>
@@ -78,7 +84,7 @@ export function DashboardTab({ onTabChange }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="glass-panel">
             <h3 style={{ fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Sparkles className="cyan-glow-text" size={20} /> Featured Meta Robots
+              <Star className="cyan-glow-text" size={20} fill="currentColor" /> Featured Robots
             </h3>
             <div className="dashboard-grid">
               {/* Show high-value robots (Value Rating >= 3) sorted by rating */}
@@ -110,10 +116,10 @@ export function DashboardTab({ onTabChange }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="glass-panel">
             <h3 style={{ fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Sparkles size={16} className="cyan-glow-text" /> Join our Official Communities
+              <Users size={16} className="cyan-glow-text" /> Join our Official Communities
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '13px', lineHeight: 1.5, marginBottom: '16px' }}>
-              Connect with fellow commanders, discuss guides, and share hangar feedback.
+              Meet fellow commanders, discuss guides, and get detailed hangar feedback from veterans.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <a 
@@ -133,7 +139,6 @@ export function DashboardTab({ onTabChange }) {
                     <div style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>Visit our subreddit</div>
                   </div>
                 </div>
-                <span style={{ color: 'var(--text-muted)' }}>→</span>
               </a>
 
               <a 
@@ -149,18 +154,16 @@ export function DashboardTab({ onTabChange }) {
                     </svg>
                   </div>
                   <div>
-                    <div style={{ fontWeight: 600 }}>Discord Server</div>
-                    <div style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>Join our live chat</div>
+                    <div style={{ fontWeight: 600 }}>Join our discord</div>
                   </div>
                 </div>
-                <span style={{ color: 'var(--text-muted)' }}>→</span>
               </a>
             </div>
           </div>
           
           <div className="glass-panel" style={{ maxHeight: '550px', overflowY: 'auto' }}>
             <h3 style={{ fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', position: 'sticky', top: 0, background: 'rgba(15,18,30,0.9)', padding: '4px 0', zIndex: 10 }}>
-              <RefreshCw size={16} className="cyan-glow-text" /> Change Log
+              <Wrench size={16} className="cyan-glow-text" /> Changelog
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {robotGuideData?.changelog?.slice(0, 10).map((log, index) => (

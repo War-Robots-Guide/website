@@ -56,8 +56,7 @@ export function RobotsGuideTab() {
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
         <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Value Ratings & Scores</h2>
         <p style={{ margin: '0 auto' }}>
-          Value rating represents F2P friendliness and return on investment. 
-          Scores range from <span style={{ color: '#ef4444' }}>-2 (Horrible)</span> to <span style={{ color: '#10b981' }}>+3 (Excellent)</span>.
+          Value rating represents F2P friendliness and return on investment.
         </p>
       </div>
 
@@ -163,18 +162,21 @@ export function RobotsGuideTab() {
               {/* Roles Badges */}
               {robot.roles && robot.roles.length > 0 && (
                 <div className="robot-roles">
-                  {robot.roles.map(role => (
-                    <span 
-                      className={`role-badge ${role.type}`} 
-                      key={role.role}
-                      title={role.footnote ? `Requirement: ${role.footnote}` : ''}
-                    >
-                      {role.role}
-                      {role.type === 'primary' && ' (Primary)'}
-                      {role.type === 'secondary' && ' (Secondary)'}
-                      {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>{role.footnote}</sup>}
-                    </span>
-                  ))}
+                  {robot.roles.map(role => {
+                    const tooltipText = role.footnote ? robotGuideData?.footnotes?.[parseInt(role.footnote) - 1] || role.footnote : '';
+                    return (
+                      <span
+                        className={`role-badge ${role.type}`}
+                        key={role.role}
+                        title={tooltipText}
+                      >
+                        {role.role}
+                        {role.type === 'primary' && ' (Primary)'}
+                        {role.type === 'secondary' && ' (Secondary)'}
+                        {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>*</sup>}
+                      </span>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -214,17 +216,6 @@ export function RobotsGuideTab() {
         </div>
       )}
 
-      {/* Footnotes */}
-      {robotGuideData?.footnotes && robotGuideData.footnotes.length > 0 && (
-        <div style={{ marginTop: '32px', padding: '16px 0 0 0', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)' }}>
-          <div style={{ fontWeight: 600, marginBottom: '8px', textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.5px' }}>Footnotes</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            {robotGuideData.footnotes.map((fn, idx) => (
-              <div key={idx}>{fn}</div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

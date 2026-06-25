@@ -17,7 +17,7 @@ export function PilotSkillsTab() {
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
         <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Pilot Skills Directory</h2>
         <p style={{ margin: '0 auto' }}>
-          Learn which pilot skills are essential vs trash for Robot and Titan pilots.
+          Learn what pilot skills are the strongest and which skills should be avoided.
         </p>
       </div>
 
