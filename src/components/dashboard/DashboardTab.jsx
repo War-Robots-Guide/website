@@ -51,7 +51,7 @@ export function DashboardTab({ onTabChange }) {
       <div className="dashboard-stats">
         <div className="glass-panel stat-card">
           <div className="stat-icon" style={{ background: 'transparent' }}>
-            <img src="/Icn_GoldRobot.png" alt="Robot Icon" width="24" height="24" />
+            <img src="./Icn_GoldRobot.png" alt="Robot Icon" width="24" height="24" />
           </div>
           <div>
             <div className="stat-number">{stats.totalRobots + stats.totalTitans}</div>
@@ -60,7 +60,7 @@ export function DashboardTab({ onTabChange }) {
         </div>
         <div className="glass-panel stat-card">
           <div className="stat-icon" style={{ background: 'transparent' }}>
-            <img src="/Icn_GoldWeapon.png" alt="Weapon Icon" width="24" height="24" />
+            <img src="./Icn_GoldWeapon.png" alt="Weapon Icon" width="24" height="24" />
           </div>
           <div>
             <div className="stat-number">{stats.totalWeapons}</div>
@@ -69,7 +69,7 @@ export function DashboardTab({ onTabChange }) {
         </div>
         <div className="glass-panel stat-card">
           <div className="stat-icon" style={{ background: 'transparent' }}>
-            <img src="/Icon_list_gold.png" alt="Build Icon" width="24" height="24" />
+            <img src="./Icon_list_gold.png" alt="Build Icon" width="24" height="24" />
           </div>
           <div>
             <div className="stat-number">{stats.totalBuilds}</div>
