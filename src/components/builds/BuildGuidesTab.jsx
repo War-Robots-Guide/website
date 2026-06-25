@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
-import { Search } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
+import { SearchInput } from '../common/SearchInput';
 
 export function BuildGuidesTab() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -38,16 +38,11 @@ export function BuildGuidesTab() {
 
       {/* Search builds */}
       <div className="search-container">
-        <div className="search-input-wrapper">
-          <Search size={18} className="search-input-icon" />
-          <input 
-            type="text" 
-            className="search-input" 
-            placeholder="Search builds by bot name, weapon, description..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+        <SearchInput
+          placeholder="Search builds by bot name, weapon, description..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
       </div>
 
       {/* Builds Grid */}

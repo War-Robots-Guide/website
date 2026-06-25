@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
-import { Search } from 'lucide-react';
 import tiersData from '../../data/tiers.json';
+import { SearchInput } from '../common/SearchInput';
 
 export function TierListTab({ onItemClick }) {
   const [selectedCategory, setSelectedCategory] = useState('Robots');
@@ -55,16 +55,11 @@ export function TierListTab({ onItemClick }) {
 
       {/* Search filter inside Tiers */}
       <div className="search-container">
-        <div className="search-input-wrapper">
-          <Search size={18} className="search-input-icon" />
-          <input 
-            type="text" 
-            className="search-input" 
-            placeholder={`Search ${selectedCategory.toLowerCase()} in tier lists...`}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+        <SearchInput
+          placeholder={`Search ${selectedCategory.toLowerCase()} in tier lists...`}
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
       </div>
 
       {/* Tier list visual lines */}

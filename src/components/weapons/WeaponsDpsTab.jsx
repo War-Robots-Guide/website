@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Search, BarChart2, X } from 'lucide-react';
+import { BarChart2, X } from 'lucide-react';
 import weaponsDpsData from '../../data/weapons_dps.json';
+import { SearchInput } from '../common/SearchInput';
 
 export function WeaponsDpsTab() {
   const [selectedWeaponClass, setSelectedWeaponClass] = useState('Heavy Weapons');
@@ -118,16 +119,11 @@ export function WeaponsDpsTab() {
 
         {/* Search weapons */}
         <div className="search-container">
-          <div className="search-input-wrapper">
-            <Search size={18} className="search-input-icon" />
-            <input 
-              type="text" 
-              className="search-input" 
-              placeholder={`Search ${selectedWeaponClass.toLowerCase()}...`}
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-            />
-          </div>
+          <SearchInput
+            placeholder={`Search ${selectedWeaponClass.toLowerCase()}...`}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
         </div>
 
         {/* Weapons Data Table */}
