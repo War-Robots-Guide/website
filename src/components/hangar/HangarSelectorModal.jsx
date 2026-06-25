@@ -5,6 +5,7 @@ import { RatingBar } from '../common/RatingBar';
 
 export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelectorSearchQuery, onClose, onSelect }) {
   const isTitanSlot = activeSlot === 5;
+  const lowerCaseQuery = (selectorSearchQuery || "").toLowerCase();
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -45,7 +46,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
           <div style={{ maxHeight: '350px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', paddingRight: '4px' }} role="listbox">
             {isTitanSlot ? (
               // Titan selections
-              robotGuideData?.titans?.filter(t => t.name.toLowerCase().includes(selectorSearchQuery.toLowerCase())).map(titan => (
+              robotGuideData?.titans?.filter(t => t.name.toLowerCase().includes(lowerCaseQuery)).map(titan => (
                 <div 
                   key={titan.name} 
                   className="glass-panel glass-panel-hover" 
@@ -67,7 +68,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
               ))
             ) : (
               // Robot selections
-              robotGuideData?.robots?.filter(r => r.name.toLowerCase().includes(selectorSearchQuery.toLowerCase())).map(robot => (
+              robotGuideData?.robots?.filter(r => r.name.toLowerCase().includes(lowerCaseQuery)).map(robot => (
                 <div 
                   key={robot.name} 
                   className="glass-panel glass-panel-hover" 
@@ -101,8 +102,8 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
               ))
             )}
             
-            {((isTitanSlot && !robotGuideData?.titans?.some(t => t.name.toLowerCase().includes(selectorSearchQuery.toLowerCase()))) ||
-              (!isTitanSlot && !robotGuideData?.robots?.some(r => r.name.toLowerCase().includes(selectorSearchQuery.toLowerCase())))) && (
+            {((isTitanSlot && !robotGuideData?.titans?.some(t => t.name.toLowerCase().includes(lowerCaseQuery))) ||
+              (!isTitanSlot && !robotGuideData?.robots?.some(r => r.name.toLowerCase().includes(lowerCaseQuery)))) && (
               <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-muted)' }}>
                 No results found matching "{selectorSearchQuery}"
               </div>
