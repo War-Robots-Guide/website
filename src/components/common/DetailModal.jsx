@@ -42,7 +42,7 @@ export function DetailModal({ selectedItem, onClose }) {
           {/* Detailed Reasoning */}
           <div style={{ marginBottom: '20px' }}>
             <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>
-              Community Critique & Reasoning:
+              Rationale:
             </span>
             <p style={{ color: 'var(--text-primary)', fontSize: '14.5px', lineHeight: 1.6 }}>
               {selectedItem.data.description}
@@ -73,7 +73,7 @@ export function DetailModal({ selectedItem, onClose }) {
                       </div>
                       <div>
                         <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>CYCLE DPS</span>
-                        <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--purple)' }}>
+                        <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--cyan)' }}>
                           {parseFloat(dpsInfo.cycle_dps) ? Math.round(parseFloat(dpsInfo.cycle_dps)).toLocaleString() : dpsInfo.cycle_dps}
                         </span>
                       </div>
@@ -112,15 +112,15 @@ export function DetailModal({ selectedItem, onClose }) {
                     <>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                         <div>
-                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>VALUE RATING (F2P Return)</span>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
                           <RatingBar rating={rob.value_rating} unitType="robot" />
                         </div>
                         <div>
-                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>RATED TIER SHEET</span>
-                          <span className="role-badge primary" style={{ display: 'inline-flex', padding: '2px 8px' }}>{rob.sheet}</span>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
+                          <span className="role-badge primary" style={{ display: 'inline-flex', padding: '2px 8px' }}>Robot</span>
                         </div>
                       </div>
-                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>DETAILED ATTRIBUTE RATINGS (-2 to +3)</span>
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
                       <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
                         <ScoreMeter label="Longevity" score={rob.scores.longevity} />
                         <ScoreMeter label="Lethality" score={rob.scores.lethality} />
@@ -154,15 +154,15 @@ export function DetailModal({ selectedItem, onClose }) {
                     <>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                         <div>
-                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>VALUE RATING (F2P Return)</span>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
                           <RatingBar rating={titan.value_rating} unitType="titan" />
                         </div>
                         <div>
-                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>RATED TIER</span>
-                          <span className="role-badge secondary" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(168, 85, 247, 0.1)', color: 'var(--purple)', borderColor: 'rgba(168, 85, 247, 0.2)' }}>Titan Class</span>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
+                          <span className="role-badge secondary" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(84, 144, 180, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(84, 144, 180, 0.2)' }}>Titan</span>
                         </div>
                       </div>
-                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>DETAILED ATTRIBUTE RATINGS (-2 to +3)</span>
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
                       <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
                         <ScoreMeter label="Longevity" score={titan.scores.longevity} />
                         <ScoreMeter label="Lethality" score={titan.scores.lethality} />

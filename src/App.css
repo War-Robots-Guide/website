@@ -326,7 +326,7 @@
 }
 
 .modal-content {
-  background: #0f121e;
+  background: #122538;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   max-width: 600px;
@@ -503,7 +503,7 @@
 .score-fill {
   height: 100%;
   border-radius: 3px;
-  background: linear-gradient(90deg, var(--cyan), var(--indigo));
+  background: linear-gradient(90deg, #397496, var(--cyan));
 }
 
 .score-fill.negative {
@@ -790,7 +790,7 @@
 
 .chart-track-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--cyan), var(--indigo));
+  background: linear-gradient(90deg, #397496, var(--cyan));
   transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
@@ -798,7 +798,7 @@
 }
 
 .chart-track-fill.cycle {
-  background: linear-gradient(90deg, var(--purple), var(--indigo));
+  background: linear-gradient(90deg, #1e40af, #22d3ee);
 }
 
 .chart-value-label {

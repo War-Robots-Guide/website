@@ -179,11 +179,11 @@ export function WeaponsDpsTab() {
             
             <div className="chart-legend">
               <div className="legend-item">
-                <div className="legend-color-box" style={{ background: 'linear-gradient(90deg, var(--cyan), var(--indigo))' }}></div>
+                <div className="legend-color-box" style={{ background: 'linear-gradient(90deg, #397496, var(--cyan))' }}></div>
                 <span>Burst DPS (Short term damage unload)</span>
               </div>
               <div className="legend-item">
-                <div className="legend-color-box" style={{ background: 'linear-gradient(90deg, var(--purple), var(--indigo))' }}></div>
+                <div className="legend-color-box" style={{ background: 'linear-gradient(90deg, #1e40af, #22d3ee)' }}></div>
                 <span>Cycle DPS (Sustained damage output, includes reload)</span>
               </div>
             </div>

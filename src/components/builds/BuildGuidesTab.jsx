@@ -99,11 +99,11 @@ export function BuildGuidesTab() {
 
             <div className="build-meta-grid">
               <div className="build-meta-item">
-                <span className="build-meta-label">Optimal Pilot</span>
+                <span className="build-meta-label">Pilot options</span>
                 <span className="build-meta-value">{build.parsed_pilot}</span>
               </div>
               <div className="build-meta-item">
-                <span className="build-meta-label">Specialization Modules</span>
+                <span className="build-meta-label">specializations & modules</span>
                 <span className="build-meta-value" style={{ fontSize: '11.5px', lineHeight: 1.4 }}>
                   {build.parsed_specialization.map((line, lidx) => (
                     <div key={lidx}>{line}</div>

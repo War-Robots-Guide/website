@@ -39,12 +39,12 @@ export function BuildDetailModal({ build, onClose }) {
           
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             <div className="build-meta-item">
-              <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Optimal Pilot</span>
+              <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Pilot options</span>
               <span className="build-meta-value" style={{ fontSize: '14px', fontWeight: 600, color: '#fff' }}>{build.parsed_pilot}</span>
             </div>
             
             <div className="build-meta-item">
-              <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>Specialization Modules</span>
+              <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>specializations & modules</span>
               <span className="build-meta-value" style={{ fontSize: '12.5px', lineHeight: 1.5, color: '#fff' }}>
                 {build.parsed_specialization.map((line, lidx) => (
                   <div key={lidx}>{line}</div>
@@ -82,7 +82,7 @@ export function BuildDetailModal({ build, onClose }) {
           </div>
 
           <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
-            <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Explanation & Playstyle:</span>
+            <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Description:</span>
             <p style={{ color: 'var(--text-primary)', fontSize: '14.5px', lineHeight: 1.6, margin: 0 }}>
               {build.explanation}
             </p>

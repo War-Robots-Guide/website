@@ -193,7 +193,7 @@ export function DashboardTab({ onTabChange }) {
               paddingBottom: '16px', 
               paddingLeft: '24px',
               paddingRight: '24px',
-              background: '#0f121e', 
+              background: '#122538', 
               zIndex: 10 
             }}>
               <Wrench size={16} className="cyan-glow-text" /> Changelog
