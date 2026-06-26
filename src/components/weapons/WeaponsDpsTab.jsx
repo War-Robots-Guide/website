@@ -174,17 +174,17 @@ export function WeaponsDpsTab() {
         {compareList.length > 0 && (
           <div id="comparison-charts" className="glass-panel comparison-chart-container animate-fade-in" style={{ marginTop: '24px' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <img src="/icons/weapon_gold.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> Weapon Statistics Visual Comparison
+              <img src="/icons/weapon_gold.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> Weapon DPS visualizer
             </h3>
             
             <div className="chart-legend">
               <div className="legend-item">
                 <div className="legend-color-box" style={{ background: 'linear-gradient(90deg, #397496, var(--cyan))' }}></div>
-                <span>Burst DPS (Short term damage unload)</span>
+                <span>Burst DPS</span>
               </div>
               <div className="legend-item">
                 <div className="legend-color-box" style={{ background: 'linear-gradient(90deg, #1e40af, #22d3ee)' }}></div>
-                <span>Cycle DPS (Sustained damage output, includes reload)</span>
+                <span>Cycle DPS</span>
               </div>
             </div>
 
