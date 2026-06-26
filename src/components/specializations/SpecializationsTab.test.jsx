@@ -26,7 +26,7 @@ describe('SpecializationsTab', () => {
     expect(screen.getByText('Module Specialization Guide')).toBeInTheDocument();
     
     // Interactive Assistant title should render
-    expect(screen.getByText('Interactive Specialization Assistant')).toBeInTheDocument();
+    expect(screen.getByText('Automatic Specialization Picker')).toBeInTheDocument();
     
     // Specialization cards should render
     expect(screen.getByText('Damage Dealer/Raider')).toBeInTheDocument();

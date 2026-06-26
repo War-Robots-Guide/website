@@ -49,7 +49,7 @@ describe('RobotsGuideTab Search Prioritization', () => {
     // Wait for the debounce input handler (250ms)
     await waitFor(() => {
       const robotNames = screen.getAllByRole('heading', { level: 3 }).map(h => h.textContent);
-      // Wait, there might be other h3 headings like 'Interactive Specialization Assistant' but that's in specializations tab.
+      // Wait, there might be other h3 headings like 'Automatic Specialization Picker' but that's in specializations tab.
       // Under robots tab, let's filter to just headers of cards.
       // Let's filter names containing Ravana or Destrier
       const matchedNames = robotNames.filter(name => name === 'Ravana' || name === 'Destrier');

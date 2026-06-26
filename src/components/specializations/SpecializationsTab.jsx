@@ -40,7 +40,7 @@ export function SpecializationsTab() {
             <Compass size={22} className="cyan-glow-text" style={{ color: specPath[0]?.value === 'titan' ? 'var(--purple)' : 'var(--cyan)', textShadow: specPath[0]?.value === 'titan' ? '0 0 10px rgba(168, 85, 247, 0.5)' : '0 0 10px rgba(6, 182, 212, 0.5)' }} />
             <div>
               <h3 style={{ fontSize: '18px', fontWeight: 700, margin: 0, fontFamily: 'var(--heading)' }}>
-                Interactive Specialization Assistant
+                Automatic Specialization Picker
               </h3>
               <p style={{ margin: 0, fontSize: '12.5px', color: 'var(--text-secondary)' }}>
                 Find the optimal module specializations for your builds step-by-step
