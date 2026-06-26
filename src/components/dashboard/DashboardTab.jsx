@@ -173,28 +173,26 @@ export function DashboardTab({ onTabChange }) {
             </div>
           </div>
           
-          <div className="glass-panel" style={{ maxHeight: '550px', overflowY: 'auto' }}>
+          <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', padding: 0 }}>
             <h3 style={{ 
               fontSize: '18px', 
-              marginBottom: '12px', 
+              padding: '24px 24px 12px 24px',
+              margin: 0,
               display: 'flex', 
               alignItems: 'center', 
               gap: '8px', 
-              position: 'sticky', 
-              top: '-24px', 
-              marginTop: '-24px', 
-              marginLeft: '-24px',
-              marginRight: '-24px',
-              paddingTop: '16px', 
-              paddingBottom: '16px', 
-              paddingLeft: '24px',
-              paddingRight: '24px',
-              background: '#122538', 
-              zIndex: 10 
+              borderBottom: '1px solid var(--border-light)'
             }}>
               <Wrench size={16} className="cyan-glow-text" /> Changelog
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ 
+              maxHeight: '480px', 
+              overflowY: 'auto', 
+              padding: '16px 24px 24px 24px',
+              display: 'flex', 
+              flexDirection: 'column', 
+              gap: '16px' 
+            }}>
               {recentChangelog.map((log, index) => (
                 <div key={index} style={{ borderLeft: '2px solid var(--cyan)', paddingLeft: '12px' }}>
                   <span style={{ fontSize: '11px', color: 'var(--cyan)', fontWeight: 600 }}>{log.date}</span>
