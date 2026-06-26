@@ -21,8 +21,20 @@ function App() {
     setSelectedItem({ name, type, data });
   };
 
+  const tabs = ['dashboard', 'tiers', 'robots', 'builds', 'specializations', 'pilots', 'weapons', 'hangar'];
+
   return (
     <div className="app-container">
+      {/* Background Layers for cross-browser fading transitions */}
+      <div className="bg-layers">
+        {tabs.map((tab) => (
+          <div
+            key={tab}
+            className={`bg-layer bg-theme-${tab} ${activeTab === tab ? 'active' : ''}`}
+          />
+        ))}
+      </div>
+
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
 
       <main className={`main-content bg-theme-${activeTab}`}>
