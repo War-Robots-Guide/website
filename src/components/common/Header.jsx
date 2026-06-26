@@ -9,7 +9,7 @@ export function Header({ activeTab, onTabChange }) {
           onClick={() => onTabChange('dashboard')}
           style={{ background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', display: 'flex', alignItems: 'center', gap: '8px' }}
         >
-          <Shield size={24} className="logo-icon" />
+          <img src="/WRGICON.png" alt="War Robots Guide Logo" className="logo-img" />
           <span className="logo-text">War Robots Guide</span>
         </button>
         
