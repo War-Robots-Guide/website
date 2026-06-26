@@ -111,14 +111,14 @@ export function BuildGuidesTab() {
                 </span>
               </div>
               <div className="build-meta-item" style={{ gridColumn: 'span 2', borderTop: '1px solid var(--border-light)', paddingTop: '10px' }}>
-                <span className="build-meta-label">Weapons Setup</span>
+                <span className="build-meta-label">Weapon Options</span>
                 <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
                   <div style={{ flex: 1 }}>
                     <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600 }}>F2P SETUPS</span>
                     <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{build.f2p_weapons || 'N/A'}</p>
                   </div>
                   <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '10px' }}>
-                    <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600 }}>BEST META SETUPS</span>
+                    <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600 }}>META SETUPS</span>
                     <p style={{ fontSize: '12px', color: '#fbbf24' }}>{build.best_weapons || 'N/A'}</p>
                   </div>
                 </div>
@@ -131,8 +131,8 @@ export function BuildGuidesTab() {
                     <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{build.f2p_drones || 'N/A'}</p>
                   </div>
                   <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '10px' }}>
-                    <span style={{ fontSize: '10px', color: '#a855f7', fontWeight: 600 }}>BEST META DRONES</span>
-                    <p style={{ fontSize: '12px', color: '#a855f7' }}>{build.best_drones || 'N/A'}</p>
+                    <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600 }}>META DRONES</span>
+                    <p style={{ fontSize: '12px', color: '#fbbf24' }}>{build.best_drones || 'N/A'}</p>
                   </div>
                 </div>
               </div>

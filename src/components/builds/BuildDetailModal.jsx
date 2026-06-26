@@ -54,14 +54,14 @@ export function BuildDetailModal({ build, onClose }) {
           </div>
 
           <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
-            <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Weapons Setup</span>
+            <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Weapon Options</span>
             <div style={{ display: 'flex', gap: '16px' }}>
               <div style={{ flex: 1 }}>
                 <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>F2P SETUPS</span>
                 <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0 }}>{build.f2p_weapons || 'N/A'}</p>
               </div>
               <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '16px' }}>
-                <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600, display: 'block', marginBottom: '4px' }}>BEST META SETUPS</span>
+                <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600, display: 'block', marginBottom: '4px' }}>META SETUPS</span>
                 <p style={{ fontSize: '13px', color: '#fbbf24', margin: 0 }}>{build.best_weapons || 'N/A'}</p>
               </div>
             </div>
@@ -75,8 +75,8 @@ export function BuildDetailModal({ build, onClose }) {
                 <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0 }}>{build.f2p_drones || 'N/A'}</p>
               </div>
               <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '16px' }}>
-                <span style={{ fontSize: '10px', color: '#a855f7', fontWeight: 600, display: 'block', marginBottom: '4px' }}>BEST META DRONES</span>
-                <p style={{ fontSize: '13px', color: '#a855f7', margin: 0 }}>{build.best_drones || 'N/A'}</p>
+                <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600, display: 'block', marginBottom: '4px' }}>META DRONES</span>
+                <p style={{ fontSize: '13px', color: '#fbbf24', margin: 0 }}>{build.best_drones || 'N/A'}</p>
               </div>
             </div>
           </div>
