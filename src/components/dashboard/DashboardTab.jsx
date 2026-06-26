@@ -153,7 +153,6 @@ export function DashboardTab({ onTabChange }) {
                   </div>
                   <div>
                     <div style={{ fontWeight: 600 }}>r/WarRobotsGuide</div>
-                    <div style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>Visit our subreddit</div>
                   </div>
                 </div>
               </a>
