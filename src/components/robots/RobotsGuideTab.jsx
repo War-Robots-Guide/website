@@ -149,13 +149,13 @@ export function RobotsGuideTab({ onItemClick }) {
           className={`tab-pill ${guideSubTab === 'robots' ? 'active' : ''}`} 
           onClick={() => { setGuideSubTab('robots'); setRobotRoleFilter('All'); setRobotValueFilter('All'); setSearchInput(''); setSearchQuery(''); }}
         >
-          Robots Guide
+          Robots
         </button>
         <button 
           className={`tab-pill ${guideSubTab === 'titans' ? 'active' : ''}`} 
           onClick={() => { setGuideSubTab('titans'); setRobotRoleFilter('All'); setRobotValueFilter('All'); setSearchInput(''); setSearchQuery(''); }}
         >
-          Titans Guide
+          Titans
         </button>
       </div>
 

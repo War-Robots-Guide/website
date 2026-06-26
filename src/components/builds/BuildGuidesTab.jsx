@@ -114,7 +114,7 @@ export function BuildGuidesTab() {
                 <span className="build-meta-label">Weapons Setup</span>
                 <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
                   <div style={{ flex: 1 }}>
-                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600 }}>F2P SETUP</span>
+                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600 }}>F2P SETUPS</span>
                     <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{build.f2p_weapons || 'N/A'}</p>
                   </div>
                   <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '10px' }}>
@@ -127,7 +127,7 @@ export function BuildGuidesTab() {
                 <span className="build-meta-label">Drone Options</span>
                 <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
                   <div style={{ flex: 1 }}>
-                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600 }}>F2P DRONE</span>
+                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600 }}>F2P DRONES</span>
                     <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{build.f2p_drones || 'N/A'}</p>
                   </div>
                   <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '10px' }}>

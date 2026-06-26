@@ -57,7 +57,7 @@ export function BuildDetailModal({ build, onClose }) {
             <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Weapons Setup</span>
             <div style={{ display: 'flex', gap: '16px' }}>
               <div style={{ flex: 1 }}>
-                <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>F2P SETUP</span>
+                <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>F2P SETUPS</span>
                 <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0 }}>{build.f2p_weapons || 'N/A'}</p>
               </div>
               <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '16px' }}>
@@ -71,7 +71,7 @@ export function BuildDetailModal({ build, onClose }) {
             <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Drone Options</span>
             <div style={{ display: 'flex', gap: '16px' }}>
               <div style={{ flex: 1 }}>
-                <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>F2P DRONE</span>
+                <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>F2P DRONES</span>
                 <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0 }}>{build.f2p_drones || 'N/A'}</p>
               </div>
               <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '16px' }}>
