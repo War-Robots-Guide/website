@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Star, Users, Wrench } from 'lucide-react';
+import { Users } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
 
@@ -101,7 +101,7 @@ export function DashboardTab({ onTabChange }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="glass-panel">
             <h3 style={{ fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Star className="cyan-glow-text" size={20} fill="currentColor" /> Featured Robots
+              <img src="/icons/role_sniper_top.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> Featured Robots
             </h3>
             <div className="dashboard-grid">
               {/* Show high-value robots (Value Rating >= 3) sorted by rating */}
@@ -183,7 +183,7 @@ export function DashboardTab({ onTabChange }) {
               gap: '8px', 
               borderBottom: '1px solid var(--border-light)'
             }}>
-              <Wrench size={16} className="cyan-glow-text" /> Changelog
+              <img src="/icons/time_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} /> Changelog
             </h3>
             <div style={{ 
               maxHeight: '480px', 
