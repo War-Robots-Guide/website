@@ -1,15 +1,46 @@
 import { useState, useMemo, useEffect } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
+import tiersData from '../../data/tiers.json';
 import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
 import { ScoreMeter } from '../common/ScoreMeter';
 
-export function RobotsGuideTab() {
+export function RobotsGuideTab({ onItemClick }) {
   const [guideSubTab, setGuideSubTab] = useState('robots');
   const [searchInput, setSearchInput] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [robotValueFilter, setRobotValueFilter] = useState('All');
   const [robotRoleFilter, setRobotRoleFilter] = useState('All');
+
+  const handleCardClick = (item, category) => {
+    if (!onItemClick) return;
+
+    let description = '';
+    const cleanName = item.name.replace(/\*+$/, '').trim().toLowerCase();
+    const isUe = cleanName.startsWith('ue ');
+
+    if (tiersData && tiersData[category]) {
+      const catData = tiersData[category];
+      for (const tierLetter of Object.keys(catData)) {
+        const found = catData[tierLetter].items.find(tItem => {
+          const tClean = tItem.name.replace(/\*+$/, '').trim().toLowerCase();
+          const tIsUe = tClean.startsWith('ue ');
+          if (isUe !== tIsUe) return false;
+          return tClean === cleanName || cleanName.includes(tClean) || tClean.includes(cleanName);
+        });
+        if (found) {
+          description = found.description;
+          break;
+        }
+      }
+    }
+
+    if (!description) {
+      description = item.comments;
+    }
+
+    onItemClick(item.name, category, { description });
+  };
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -180,7 +211,15 @@ export function RobotsGuideTab() {
       {guideSubTab === 'robots' ? (
         <div className="dashboard-grid">
           {filteredRobots.map(robot => (
-            <div className="glass-panel glass-panel-hover robot-card" key={robot.name}>
+            <div 
+              className="glass-panel glass-panel-hover robot-card" 
+              key={robot.name}
+              onClick={() => handleCardClick(robot, 'Robots')}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(robot, 'Robots'); } }}
+              tabIndex={0}
+              role="button"
+              aria-label={`View details for ${robot.name}`}
+            >
               <div className="robot-card-header">
                 <div>
                   <h3 style={{ fontSize: '20px', color: 'var(--cyan)' }}>{robot.name}</h3>
@@ -233,7 +272,15 @@ export function RobotsGuideTab() {
         // Titans Grid
         <div className="dashboard-grid">
           {filteredTitans.map(titan => (
-            <div className="glass-panel glass-panel-hover robot-card" key={titan.name}>
+            <div 
+              className="glass-panel glass-panel-hover robot-card" 
+              key={titan.name}
+              onClick={() => handleCardClick(titan, 'Titans')}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(titan, 'Titans'); } }}
+              tabIndex={0}
+              role="button"
+              aria-label={`View details for ${titan.name}`}
+            >
               <div className="robot-card-header">
                 <div>
                   <h3 style={{ fontSize: '20px', color: 'var(--purple)' }}>{titan.name}</h3>

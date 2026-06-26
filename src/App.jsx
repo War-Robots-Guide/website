@@ -28,7 +28,7 @@ function App() {
       <main className={`main-content bg-theme-${activeTab}`}>
         {activeTab === 'dashboard' && <DashboardTab onTabChange={setActiveTab} />}
         {activeTab === 'tiers' && <TierListTab onItemClick={openItemDetails} />}
-        {activeTab === 'robots' && <RobotsGuideTab />}
+        {activeTab === 'robots' && <RobotsGuideTab onItemClick={openItemDetails} />}
         {activeTab === 'builds' && <BuildGuidesTab />}
         {activeTab === 'specializations' && <SpecializationsTab />}
         {activeTab === 'pilots' && <PilotSkillsTab />}
