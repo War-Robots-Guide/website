@@ -3,16 +3,13 @@ import pilotsData from '../../data/pilots.json';
 
 function PilotSkillCategory({ cat, skills }) {
   const getCategoryIcon = (cat) => {
-    let iconName = '';
-    if (cat === 'Must Use') {
-      iconName = 'pilot_green.png';
-    } else if (cat === 'Usually Use') {
-      iconName = 'pilot_blue.png';
-    } else if (cat === 'Sometimes Use') {
-      iconName = 'pilot_yellow.png';
-    } else {
-      iconName = 'pilot_red.png';
-    }
+    const iconName = cat === 'Must Use'
+      ? 'pilot_green.png'
+      : cat === 'Usually Use'
+      ? 'pilot_blue.png'
+      : cat === 'Sometimes Use'
+      ? 'pilot_yellow.png'
+      : 'pilot_red.png';
 
     return (
       <img 
