@@ -22,9 +22,9 @@ export function RobotsGuideTab() {
 
   const filteredRobots = useMemo(() => {
     if (!robotGuideData?.robots) return [];
-    const query = searchQuery.toLowerCase();
+    const query = searchQuery.toLowerCase().trim();
     
-    return robotGuideData.robots.filter(robot => {
+    let filtered = robotGuideData.robots.filter(robot => {
       const matchSearch = robot.name.toLowerCase().includes(query) || 
                           robot.comments.toLowerCase().includes(query);
       
@@ -35,13 +35,39 @@ export function RobotsGuideTab() {
       
       return matchSearch && matchValue && matchRole;
     });
+
+    if (query) {
+      filtered = [...filtered].sort((a, b) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+        
+        const aExact = aName === query;
+        const bExact = bName === query;
+        if (aExact && !bExact) return -1;
+        if (!aExact && bExact) return 1;
+        
+        const aStarts = aName.startsWith(query);
+        const bStarts = bName.startsWith(query);
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+        
+        const aIncludes = aName.includes(query);
+        const bIncludes = bName.includes(query);
+        if (aIncludes && !bIncludes) return -1;
+        if (!aIncludes && bIncludes) return 1;
+        
+        return 0;
+      });
+    }
+
+    return filtered;
   }, [searchQuery, robotValueFilter, robotRoleFilter]);
 
   const filteredTitans = useMemo(() => {
     if (!robotGuideData?.titans) return [];
-    const query = searchQuery.toLowerCase();
+    const query = searchQuery.toLowerCase().trim();
     
-    return robotGuideData.titans.filter(titan => {
+    let filtered = robotGuideData.titans.filter(titan => {
       const matchSearch = titan.name.toLowerCase().includes(query) || 
                           titan.comments.toLowerCase().includes(query);
       
@@ -49,6 +75,32 @@ export function RobotsGuideTab() {
       
       return matchSearch && matchValue;
     });
+
+    if (query) {
+      filtered = [...filtered].sort((a, b) => {
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
+        
+        const aExact = aName === query;
+        const bExact = bName === query;
+        if (aExact && !bExact) return -1;
+        if (!aExact && bExact) return 1;
+        
+        const aStarts = aName.startsWith(query);
+        const bStarts = bName.startsWith(query);
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+        
+        const aIncludes = aName.includes(query);
+        const bIncludes = bName.includes(query);
+        if (aIncludes && !bIncludes) return -1;
+        if (!aIncludes && bIncludes) return 1;
+        
+        return 0;
+      });
+    }
+
+    return filtered;
   }, [searchQuery, robotValueFilter]);
 
   return (
