@@ -1196,3 +1196,57 @@
   }
 }
 
+/* Tab-specific background styling */
+.main-content {
+  position: relative;
+  z-index: 0;
+}
+
+.main-content[class*="bg-theme-"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.15; /* subtle and faded background */
+  pointer-events: none;
+  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-image 0.5s ease-in-out; /* smooth transition when switching tabs */
+}
+
+.bg-theme-dashboard::before {
+  background-image: url('/backgrounds/home-bg.jpg');
+}
+
+.bg-theme-tiers::before {
+  background-image: url('/backgrounds/tierlist-bg.jpg');
+}
+
+.bg-theme-robots::before {
+  background-image: url('/backgrounds/value-bg.jpg');
+}
+
+.bg-theme-builds::before {
+  background-image: url('/backgrounds/buildguides-bg.jpg');
+}
+
+.bg-theme-specializations::before {
+  background-image: url('/backgrounds/specializations-bg.jpg');
+}
+
+.bg-theme-pilots::before {
+  background-image: url('/backgrounds/pilotskills-bg.jpg');
+}
+
+.bg-theme-weapons::before {
+  background-image: url('/backgrounds/dps-bg.jpg');
+}
+
+.bg-theme-hangar::before {
+  background-image: url('/backgrounds/hangaranalyzer-bg.jpg');
+}
+

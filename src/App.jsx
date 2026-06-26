@@ -25,7 +25,7 @@ function App() {
     <div className="app-container">
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
 
-      <main className="main-content">
+      <main className={`main-content bg-theme-${activeTab}`}>
         {activeTab === 'dashboard' && <DashboardTab onTabChange={setActiveTab} />}
         {activeTab === 'tiers' && <TierListTab onItemClick={openItemDetails} />}
         {activeTab === 'robots' && <RobotsGuideTab />}
