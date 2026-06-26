@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { X, BarChart2, Zap } from 'lucide-react';
+import { X } from 'lucide-react';
 import { RatingBar } from '../common/RatingBar';
 import { ScoreMeter } from '../common/ScoreMeter';
 import { HangarSelectorModal } from './HangarSelectorModal';
@@ -374,7 +374,7 @@ export function HangarAnalyzerTab() {
           {/* Left Panel: Role Strength Profiles */}
           <div className="glass-panel">
             <h3 style={{ fontSize: '20px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)' }}>
-              <BarChart2 size={20} /> Hangar Roles Profile
+              <img src="/icons/robot_gold.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> Hangar Roles Profile
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {Object.keys(hangarAnalysis.scores).map(role => {
@@ -414,7 +414,7 @@ export function HangarAnalyzerTab() {
           {/* Right Panel: Synergy Evaluation & Advice */}
           <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <h3 style={{ fontSize: '20px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--purple)' }}>
-              <Zap size={20} /> Hangar Rating
+              <img src="/icons/hint_operation.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> Hangar Rating
             </h3>
 
             {/* Alignment Score Badge */}

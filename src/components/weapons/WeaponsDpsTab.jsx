@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { BarChart2, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import { SearchInput } from '../common/SearchInput';
 
@@ -174,7 +174,7 @@ export function WeaponsDpsTab() {
         {compareList.length > 0 && (
           <div id="comparison-charts" className="glass-panel comparison-chart-container animate-fade-in" style={{ marginTop: '24px' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <BarChart2 size={20} className="cyan-glow-text" /> Weapon Statistics Visual Comparison
+              <img src="/icons/weapon_gold.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> Weapon Statistics Visual Comparison
             </h3>
             
             <div className="chart-legend">

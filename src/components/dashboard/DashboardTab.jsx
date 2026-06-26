@@ -67,8 +67,8 @@ export function DashboardTab({ onTabChange }) {
       {/* Quick Stats Grid */}
       <div className="dashboard-stats">
         <div className="glass-panel stat-card">
-          <div className="stat-icon" style={{ background: 'transparent' }}>
-            <img src="./Icn_GoldRobot.png" alt="Robot Icon" width="24" height="24" />
+          <div className="stat-icon">
+            <img src="/icons/robot_gold.png" alt="Robot Icon" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
           </div>
           <div>
             <div className="stat-number">{stats.totalRobots + stats.totalTitans}</div>
@@ -76,8 +76,8 @@ export function DashboardTab({ onTabChange }) {
           </div>
         </div>
         <div className="glass-panel stat-card">
-          <div className="stat-icon" style={{ background: 'transparent' }}>
-            <img src="./Icn_GoldWeapon.png" alt="Weapon Icon" width="24" height="24" />
+          <div className="stat-icon">
+            <img src="/icons/weapon_gold.png" alt="Weapon Icon" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
           </div>
           <div>
             <div className="stat-number">{stats.totalWeapons}</div>
@@ -85,8 +85,8 @@ export function DashboardTab({ onTabChange }) {
           </div>
         </div>
         <div className="glass-panel stat-card">
-          <div className="stat-icon" style={{ background: 'transparent' }}>
-            <img src="./Icon_list_gold.png" alt="Build Icon" width="24" height="24" />
+          <div className="stat-icon">
+            <img src="/icons/blackmarket_gold.png" alt="Build Icon" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
           </div>
           <div>
             <div className="stat-number">{stats.totalBuilds}</div>

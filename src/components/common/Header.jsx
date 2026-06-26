@@ -1,5 +1,3 @@
-import { Shield, Compass, Award, Layers, UserCheck, BarChart2, Zap, Wrench } from 'lucide-react';
-
 export function Header({ activeTab, onTabChange }) {
   return (
     <header className="header">
@@ -15,28 +13,28 @@ export function Header({ activeTab, onTabChange }) {
         
         <nav className="nav-links">
           <button className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => onTabChange('dashboard')}>
-            <Compass size={16} /> Home
+            <img src="/icons/ship_gold.png" alt="" className="nav-icon" /> Home
           </button>
           <button className={`nav-item ${activeTab === 'tiers' ? 'active' : ''}`} onClick={() => onTabChange('tiers')}>
-            <Award size={16} /> Tier Lists
+            <img src="/icons/hint_operation.png" alt="" className="nav-icon" /> Tier Lists
           </button>
           <button className={`nav-item ${activeTab === 'robots' ? 'active' : ''}`} onClick={() => onTabChange('robots')}>
-            <Shield size={16} /> Value Ratings
+            <img src="/icons/actions_orange.png" alt="" className="nav-icon" /> Value Ratings
           </button>
           <button className={`nav-item ${activeTab === 'builds' ? 'active' : ''}`} onClick={() => onTabChange('builds')}>
-            <Wrench size={16} /> Build Guides
+            <img src="/icons/robot_gold.png" alt="" className="nav-icon" /> Build Guides
           </button>
           <button className={`nav-item ${activeTab === 'specializations' ? 'active' : ''}`} onClick={() => onTabChange('specializations')}>
-            <Layers size={16} /> Specializations
+            <img src="/icons/module_old_gold.png" alt="" className="nav-icon" /> Specializations
           </button>
           <button className={`nav-item ${activeTab === 'pilots' ? 'active' : ''}`} onClick={() => onTabChange('pilots')}>
-            <UserCheck size={16} /> Pilot Skills
+            <img src="/icons/pilot_gold.png" alt="" className="nav-icon" /> Pilot Skills
           </button>
           <button className={`nav-item ${activeTab === 'weapons' ? 'active' : ''}`} onClick={() => onTabChange('weapons')}>
-            <BarChart2 size={16} /> Weapon DPS
+            <img src="/icons/weapon_gold.png" alt="" className="nav-icon" /> Weapon DPS
           </button>
           <button className={`nav-item ${activeTab === 'hangar' ? 'active' : ''}`} onClick={() => onTabChange('hangar')}>
-            <Zap size={16} /> Hangar Analyzer
+            <img src="/icons/microchip_gold.png" alt="" className="nav-icon" /> Hangar Analyzer
           </button>
         </nav>
       </div>

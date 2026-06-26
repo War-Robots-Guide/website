@@ -1,13 +1,30 @@
 import { useState } from 'react';
-import { Star, CheckCircle2, MinusCircle, XCircle } from 'lucide-react';
 import pilotsData from '../../data/pilots.json';
 
 function PilotSkillCategory({ cat, skills }) {
   const getCategoryIcon = (cat) => {
-    if (cat === 'Must Use') return <Star size={20} />;
-    if (cat === 'Usually Use') return <CheckCircle2 size={20} />;
-    if (cat === 'Sometimes Use') return <MinusCircle size={20} />;
-    return <XCircle size={20} />;
+    let iconName = '';
+    if (cat === 'Must Use') {
+      iconName = 'pilot_green.png';
+    } else if (cat === 'Usually Use') {
+      iconName = 'pilot_blue.png';
+    } else if (cat === 'Sometimes Use') {
+      iconName = 'pilot_yellow.png';
+    } else {
+      iconName = 'pilot_red.png';
+    }
+
+    return (
+      <img 
+        src={`/icons/${iconName}`} 
+        alt="" 
+        style={{ 
+          width: '20px', 
+          height: '20px', 
+          objectFit: 'contain'
+        }} 
+      />
+    );
   };
 
   const catColor = cat === 'Must Use' ? '#10b981' : cat === 'Usually Use' ? '#3b82f6' : cat === 'Sometimes Use' ? '#f59e0b' : '#ef4444';

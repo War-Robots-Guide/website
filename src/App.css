@@ -94,6 +94,23 @@
   box-shadow: 0 0 15px -3px rgba(57, 116, 150, 0.25);
 }
 
+.nav-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  opacity: 0.65;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.nav-item:hover .nav-icon {
+  opacity: 1;
+}
+
+.nav-item.active .nav-icon {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+}
+
 /* Page Layout */
 .main-content {
   flex-grow: 1;
@@ -186,8 +203,12 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-light);
   border-radius: 10px;
-  padding: 12px;
-  color: var(--cyan);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .stat-number {
