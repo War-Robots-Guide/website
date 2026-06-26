@@ -7,14 +7,43 @@ export function BuildGuidesTab() {
 
   const filteredBuilds = useMemo(() => {
     if (!robotGuideData?.builds) return [];
-    const query = searchQuery.toLowerCase();
+    const query = searchQuery.toLowerCase().trim();
     
-    const filtered = robotGuideData.builds.filter(build =>
+    let filtered = robotGuideData.builds.filter(build =>
       build.build_name.toLowerCase().includes(query) ||
       build.robot.toLowerCase().includes(query) ||
       build.best_weapons.toLowerCase().includes(query) ||
       build.explanation.toLowerCase().includes(query)
     );
+
+    if (query) {
+      // Prioritize robot name matches:
+      // 1. Exact match on robot name
+      // 2. Starts with robot name
+      // 3. Substring match on robot name
+      // 4. Other matches (non-robot)
+      filtered = [...filtered].sort((a, b) => {
+        const aRobot = a.robot.toLowerCase();
+        const bRobot = b.robot.toLowerCase();
+        
+        const aExact = aRobot === query;
+        const bExact = bRobot === query;
+        if (aExact && !bExact) return -1;
+        if (!aExact && bExact) return 1;
+        
+        const aStarts = aRobot.startsWith(query);
+        const bStarts = bRobot.startsWith(query);
+        if (aStarts && !bStarts) return -1;
+        if (!aStarts && bStarts) return 1;
+        
+        const aIncludes = aRobot.includes(query);
+        const bIncludes = bRobot.includes(query);
+        if (aIncludes && !bIncludes) return -1;
+        if (!aIncludes && bIncludes) return 1;
+        
+        return 0;
+      });
+    }
 
     return filtered.map(build => ({
       ...build,
@@ -48,7 +77,7 @@ export function BuildGuidesTab() {
       {/* Builds Grid */}
       <div className="dashboard-grid">
         {filteredBuilds.map((build, index) => (
-          <div className="glass-panel glass-panel-hover build-card" key={build.build_name || index}>
+          <div className="glass-panel glass-panel-hover build-card" key={`${build.robot}-${build.build_name}-${index}`}>
             <div className="build-title-row">
               <div>
                 <span className="spec-class-tag" style={{ background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)', marginBottom: '4px', display: 'inline-block' }}>
