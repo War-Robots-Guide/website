@@ -11,10 +11,15 @@ export function DashboardTab({ onTabChange }) {
       .sort((a, b) => b.value_rating - a.value_rating) || [];
   }, []);
 
+  const sortedChangelog = useMemo(() => {
+    if (!robotGuideData?.changelog) return [];
+    return [...robotGuideData.changelog].sort((a, b) => b.date.localeCompare(a.date));
+  }, []);
+
   // Memoize changelog to avoid inline slicing on every render
   const recentChangelog = useMemo(() => {
-    return robotGuideData?.changelog?.slice(0, 10) || [];
-  }, []);
+    return sortedChangelog.slice(0, 10);
+  }, [sortedChangelog]);
 
   const stats = useMemo(() => {
     const totalRobots = robotGuideData?.robots?.length || 0;
@@ -28,7 +33,7 @@ export function DashboardTab({ onTabChange }) {
       });
     }
     
-    const latestChange = robotGuideData?.changelog?.[0] || { date: 'N/A', text: 'No recent updates' };
+    const latestChange = sortedChangelog[0] || { date: 'N/A', text: 'No recent updates' };
     
     return {
       totalRobots,
@@ -37,7 +42,7 @@ export function DashboardTab({ onTabChange }) {
       totalWeapons: totalWeaponsCount,
       latestChange
     };
-  }, []);
+  }, [sortedChangelog]);
 
   return (
     <div className="animate-fade-in">
