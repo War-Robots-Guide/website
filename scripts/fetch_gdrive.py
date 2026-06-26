@@ -38,9 +38,8 @@ def execute_with_retry(request, dest_path):
 
 def download_folder_files():
     if not GDRIVE_FOLDER_ID:
-        print("GDRIVE_FOLDER_ID environment variable not found. Skipping Google Drive download.")
-        print("Using existing files in the 'sample data' directory.")
-        return True
+        print("Error: GDRIVE_FOLDER_ID environment variable not found.", file=sys.stderr)
+        return False
         
     # Validate Google Drive Folder ID format to prevent injection/malformed queries
     if not re.match(r'^[a-zA-Z0-9_-]+$', GDRIVE_FOLDER_ID):
@@ -48,9 +47,8 @@ def download_folder_files():
         return False
 
     if not GDRIVE_CREDENTIALS_JSON:
-        print("GDRIVE_CREDENTIALS_JSON environment variable not found. Skipping Google Drive download.")
-        print("Using existing files in the 'sample data' directory.")
-        return True
+        print("Error: GDRIVE_CREDENTIALS_JSON environment variable not found.", file=sys.stderr)
+        return False
         
     try:
         # Load credentials safely
