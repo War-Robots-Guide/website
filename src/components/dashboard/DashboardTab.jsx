@@ -152,7 +152,7 @@ export function DashboardTab({ onTabChange }) {
                     </svg>
                   </div>
                   <div>
-                    <div style={{ fontWeight: 600 }}>r/WarRobotsGuide</div>
+                    <div style={{ fontWeight: 600 }}>Check out our subreddit!</div>
                   </div>
                 </div>
               </a>
@@ -170,7 +170,7 @@ export function DashboardTab({ onTabChange }) {
                     </svg>
                   </div>
                   <div>
-                    <div style={{ fontWeight: 600 }}>Join our discord</div>
+                    <div style={{ fontWeight: 600 }}>Join our Discord!</div>
                   </div>
                 </div>
               </a>
