@@ -146,8 +146,8 @@ export function DashboardTab({ onTabChange }) {
                 className="community-card-link"
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div className="community-card-icon reddit" style={{ background: 'none' }}>
-                    <img src="/icons/reddit_logo.png" alt="Reddit" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                  <div className="community-card-icon reddit" style={{ background: 'none', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <img src="/icons/reddit_logo.png" alt="Reddit" style={{ width: '32px', height: '32px', objectFit: 'cover' }} />
                   </div>
                   <div>
                     <div style={{ fontWeight: 600 }}>Check out our subreddit!</div>
@@ -162,8 +162,8 @@ export function DashboardTab({ onTabChange }) {
                 className="community-card-link"
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div className="community-card-icon discord" style={{ background: 'none' }}>
-                    <img src="/icons/discord_logo.png" alt="Discord" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                  <div className="community-card-icon discord" style={{ background: 'none', width: '32px', height: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <img src="/icons/discord_logo.png" alt="Discord" style={{ width: '32px', height: '32px', objectFit: 'cover' }} />
                   </div>
                   <div>
                     <div style={{ fontWeight: 600 }}>Join our Discord!</div>
