@@ -196,7 +196,7 @@ function validateWeapons(data) {
 
 function validateSpecializations(data) {
   if (!data) return;
-  expectNonEmptyString(data.intro, 'specializations.intro');
+  expectString(data.intro, 'specializations.intro');
   expectArray(data.sections, 'specializations.sections').forEach((section, index) => {
     const path = `specializations.sections[${index}]`;
     expectNonEmptyString(section.title, `${path}.title`);

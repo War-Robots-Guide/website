@@ -161,7 +161,7 @@ def parse_specializations():
         "Ultimate (Titan)"
     ]
     
-    mode = "intro" # intro, body, conclusion
+    mode = "skip" # skip, intro, body, conclusion
     
     for p in doc.paragraphs:
         text = p.text.strip()
