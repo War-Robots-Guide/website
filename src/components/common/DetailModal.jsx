@@ -28,7 +28,16 @@ export function DetailModal({ selectedItem, onClose }) {
       <div className="modal-content text-left" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div>
-            <span className="spec-class-tag" style={{ background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)', marginBottom: '4px', display: 'inline-block' }}>
+            <span 
+              className="spec-class-tag" 
+              style={{ 
+                background: selectedItem.type === 'Titans' ? 'rgba(59, 130, 246, 0.1)' : 'rgba(6, 182, 212, 0.1)', 
+                color: selectedItem.type === 'Titans' ? 'var(--purple)' : 'var(--cyan)', 
+                borderColor: selectedItem.type === 'Titans' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(6, 182, 212, 0.2)', 
+                marginBottom: '4px', 
+                display: 'inline-block' 
+              }}
+            >
               {selectedItem.type}
             </span>
             <h3 id="modal-title" style={{ fontSize: '22px' }}>{selectedItem.name}</h3>
@@ -117,7 +126,7 @@ export function DetailModal({ selectedItem, onClose }) {
                         </div>
                         <div>
                           <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
-                          <span className="role-badge primary" style={{ display: 'inline-flex', padding: '2px 8px' }}>Robot</span>
+                          <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)' }}>Robot</span>
                         </div>
                       </div>
                       <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
@@ -159,7 +168,7 @@ export function DetailModal({ selectedItem, onClose }) {
                         </div>
                         <div>
                           <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
-                          <span className="role-badge secondary" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(84, 144, 180, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(84, 144, 180, 0.2)' }}>Titan</span>
+                          <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--purple)', borderColor: 'rgba(59, 130, 246, 0.2)' }}>Titan</span>
                         </div>
                       </div>
                       <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>

@@ -30,14 +30,15 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
   };
 
   const getRatingColor = (val) => {
-    if (val <= -2) return '#ef4444'; // Red
-    if (val === -1) return '#f97316'; // Orange
-    if (val === 0) return '#eab308'; // Yellow
-    if (val === 1) return '#84cc16'; // Lime
-    if (val === 2) return '#22c55e'; // Green
-    if (val === 3) return '#10b981'; // Emerald
-    if (val === 4) return '#06b6d4'; // Cyan
-    return '#fbbf24'; // Gold
+    if (isTitan) {
+      if (val >= 2) return '#22c55e'; // Green
+      if (val === 1) return '#eab308'; // Yellow
+      return '#ef4444'; // Red
+    } else {
+      if (val >= 4) return '#22c55e'; // Green
+      if (val >= 1) return '#eab308'; // Yellow
+      return '#ef4444'; // Red
+    }
   };
 
   return (

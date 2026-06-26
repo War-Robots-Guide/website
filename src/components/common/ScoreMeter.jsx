@@ -14,7 +14,16 @@ export function ScoreMeter({ label, score, options = {} }) {
   const percentage = customPercentage !== null 
     ? customPercentage 
     : Math.max(0, Math.min(100, ((scoreVal - min) / (max - min)) * 100));
+
+  // Determine score color based on green-yellow-red scale
+  const getScoreColor = (val) => {
+    if (val >= 2) return '#22c55e'; // Green
+    if (val >= 0) return '#eab308'; // Yellow
+    return '#ef4444'; // Red
+  };
+
   const isNegative = scoreVal < 0;
+  const fillColor = customFillColor || getScoreColor(scoreVal);
   
   return (
     <div className="score-bar-wrapper">
@@ -28,7 +37,7 @@ export function ScoreMeter({ label, score, options = {} }) {
             {customBadge}
           </div>
         ) : (
-          <span style={{ fontWeight: 700, color: isNegative && !customFillColor ? '#ef4444' : (customFillColor || '#10b981') }}>
+          <span style={{ fontWeight: 700, color: fillColor }}>
             {useScaleLabel ? (scoreVal > 0 ? `+${scoreVal}` : scoreVal) : scoreVal}
           </span>
         )}
@@ -38,11 +47,9 @@ export function ScoreMeter({ label, score, options = {} }) {
           className={`score-fill ${isNegative && !customFillColor ? 'negative' : ''}`} 
           style={{ 
             width: `${percentage}%`,
-            ...(customFillColor ? { 
-              background: customFillColor,
-              boxShadow: scoreVal > 0 || percentage > 0 ? `0 0 6px ${customFillColor}` : 'none',
-              transition: 'width 0.5s ease'
-            } : {})
+            background: fillColor,
+            boxShadow: percentage > 0 ? `0 0 6px ${fillColor}40` : 'none',
+            transition: 'width 0.5s ease-in-out'
           }}
         ></div>
       </div>
