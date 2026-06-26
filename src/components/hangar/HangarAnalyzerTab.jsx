@@ -297,8 +297,8 @@ export function HangarAnalyzerTab() {
               minHeight: '180px', 
               borderRadius: '12px',
               position: 'relative',
-              border: '1px solid rgba(168, 85, 247, 0.4)',
-              background: 'rgba(168, 85, 247, 0.05)'
+              border: '1px solid rgba(59, 130, 246, 0.4)',
+              background: 'rgba(59, 130, 246, 0.05)'
             }}
           >
             <button 
@@ -337,7 +337,7 @@ export function HangarAnalyzerTab() {
           <div 
             className="glass-panel glass-panel-hover" 
             style={{ 
-              border: '2px dashed rgba(168, 85, 247, 0.4)', 
+              border: '2px dashed rgba(59, 130, 246, 0.4)', 
               display: 'flex', 
               flexDirection: 'column', 
               alignItems: 'center', 
@@ -347,7 +347,7 @@ export function HangarAnalyzerTab() {
               cursor: 'pointer',
               borderRadius: '12px',
               transition: 'all 0.3s ease',
-              background: 'rgba(168, 85, 247, 0.02)'
+              background: 'rgba(59, 130, 246, 0.02)'
             }}
             onClick={() => handleOpenSelector(5)}
             onKeyDown={(e) => {
@@ -559,11 +559,11 @@ export function HangarAnalyzerTab() {
                   let badgeBg = 'rgba(255,255,255,0.02)';
                   let badgeText = current.toFixed(1);
                   if (hasOne) {
-                    badgeColor = '#a855f7';
-                    badgeBg = 'rgba(168, 85, 247, 0.1)';
-                  } else if (hasPartial) {
-                    badgeColor = '#3b82f6';
+                    badgeColor = 'var(--purple)';
                     badgeBg = 'rgba(59, 130, 246, 0.1)';
+                  } else if (hasPartial) {
+                    badgeColor = '#60a5fa';
+                    badgeBg = 'rgba(96, 165, 250, 0.1)';
                   }
 
                   return (

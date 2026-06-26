@@ -141,9 +141,9 @@ export function SpecializationsTab() {
           <div className="glass-panel glass-panel-hover spec-card" key={sidx}>
             <div className="spec-title-bar">
               <span className="spec-class-tag" style={{
-                background: sec.title.includes('(Robot)') ? 'rgba(6, 182, 212, 0.1)' : 'rgba(168, 85, 247, 0.1)',
+                background: sec.title.includes('(Robot)') ? 'rgba(6, 182, 212, 0.1)' : 'rgba(59, 130, 246, 0.1)',
                 color: sec.title.includes('(Robot)') ? 'var(--cyan)' : 'var(--purple)',
-                borderColor: sec.title.includes('(Robot)') ? 'rgba(6, 182, 212, 0.2)' : 'rgba(168, 85, 247, 0.2)'
+                borderColor: sec.title.includes('(Robot)') ? 'rgba(6, 182, 212, 0.2)' : 'rgba(59, 130, 246, 0.2)'
               }}>
                 {sec.title.includes('(Robot)') ? 'Robot' : 'Titan'}
               </span>

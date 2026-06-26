@@ -222,7 +222,7 @@ button, select, input {
 }
 
 .purple-glow-text {
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
   color: var(--purple);
 }
 
