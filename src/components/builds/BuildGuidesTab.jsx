@@ -1,9 +1,11 @@
 import { useState, useMemo } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { SearchInput } from '../common/SearchInput';
+import { BuildDetailModal } from './BuildDetailModal';
 
 export function BuildGuidesTab() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedBuild, setSelectedBuild] = useState(null);
 
   const filteredBuilds = useMemo(() => {
     if (!robotGuideData?.builds) return [];
@@ -77,7 +79,15 @@ export function BuildGuidesTab() {
       {/* Builds Grid */}
       <div className="dashboard-grid">
         {filteredBuilds.map((build, index) => (
-          <div className="glass-panel glass-panel-hover build-card" key={`${build.robot}-${build.build_name}-${index}`}>
+          <div 
+            className="glass-panel glass-panel-hover build-card" 
+            key={`${build.robot}-${build.build_name}-${index}`}
+            onClick={() => setSelectedBuild(build)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedBuild(build); } }}
+            tabIndex={0}
+            role="button"
+            aria-label={`View details for build ${build.parsed_build_name} on ${build.robot}`}
+          >
             <div className="build-title-row">
               <div>
                 <span className="spec-class-tag" style={{ background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)', marginBottom: '4px', display: 'inline-block' }}>
@@ -135,6 +145,10 @@ export function BuildGuidesTab() {
           </div>
         ))}
       </div>
+
+      {selectedBuild && (
+        <BuildDetailModal build={selectedBuild} onClose={() => setSelectedBuild(null)} />
+      )}
     </div>
   );
 }

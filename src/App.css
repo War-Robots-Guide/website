@@ -520,6 +520,7 @@
 .build-card {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .build-title-row {
