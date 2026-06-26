@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { Users } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
+import { RatingBar } from '../common/RatingBar';
 
 export function DashboardTab({ onTabChange }) {
   // Memoize featured robots to avoid inline filtering and sorting on every render
@@ -106,19 +107,34 @@ export function DashboardTab({ onTabChange }) {
             <div className="dashboard-grid">
               {/* Show high-value robots (Value Rating >= 3) sorted by rating */}
               {featuredRobots.map(robot => (
-                <div className="glass-panel glass-panel-hover" key={robot.name} style={{ background: 'rgba(255,255,255,0.01)', padding: '16px' }}>
+                <div className="glass-panel glass-panel-hover" key={robot.name} style={{ background: 'rgba(255,255,255,0.01)', padding: '16px', display: 'flex', flexDirection: 'column' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                    <h4 style={{ color: 'var(--cyan)' }}>{robot.name}</h4>
-                    <span className="role-badge primary" style={{ background: 'rgba(251,191,36,0.1)', color: '#fbbf24', border: '1px solid rgba(251,191,36,0.2)' }}>
-                      Value: {robot.value_rating}/5
-                    </span>
+                    <h4 style={{ color: 'var(--cyan)', margin: 0 }}>{robot.name}</h4>
+                    <div style={{ display: 'flex', minWidth: '100px', justifyContent: 'flex-end' }}>
+                      <RatingBar rating={robot.value_rating} unitType="robot" align="right" />
+                    </div>
                   </div>
-                  <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '12px', lineHeight: 1.5 }}>
+                  <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '12px', lineHeight: 1.5, flexGrow: 1 }}>
                     {robot.comments.slice(0, 160)}...
                   </p>
+                  
+                  {robot.roles && robot.roles.length > 0 && (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginBottom: '16px' }}>
+                      {robot.roles.map(r => (
+                        <span 
+                          key={r.role} 
+                          className={`role-badge ${r.type}`} 
+                          style={{ fontSize: '10px', padding: '1px 6px' }}
+                        >
+                          {r.role} {r.type === 'primary' ? '★' : '☆'}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   <button 
                     className="compare-action-btn" 
-                    style={{ padding: '6px 12px', fontSize: '11px', background: 'rgba(255,255,255,0.05)', color: '#fff', border: '1px solid var(--border-light)' }}
+                    style={{ padding: '6px 12px', fontSize: '11px', background: 'rgba(255,255,255,0.05)', color: '#fff', border: '1px solid var(--border-light)', marginTop: 'auto' }}
                     onClick={() => onTabChange('robots')}
                   >
                     View Detailed Scores
