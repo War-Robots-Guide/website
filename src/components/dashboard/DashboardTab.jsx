@@ -178,7 +178,24 @@ export function DashboardTab({ onTabChange }) {
           </div>
           
           <div className="glass-panel" style={{ maxHeight: '550px', overflowY: 'auto' }}>
-            <h3 style={{ fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', position: 'sticky', top: 0, background: 'rgba(15,18,30,0.9)', padding: '4px 0', zIndex: 10 }}>
+            <h3 style={{ 
+              fontSize: '18px', 
+              marginBottom: '12px', 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              position: 'sticky', 
+              top: '-24px', 
+              marginTop: '-24px', 
+              marginLeft: '-24px',
+              marginRight: '-24px',
+              paddingTop: '16px', 
+              paddingBottom: '16px', 
+              paddingLeft: '24px',
+              paddingRight: '24px',
+              background: '#0f121e', 
+              zIndex: 10 
+            }}>
               <Wrench size={16} className="cyan-glow-text" /> Changelog
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
