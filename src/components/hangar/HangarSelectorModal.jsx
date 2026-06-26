@@ -47,7 +47,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                 <div 
                   key={titan.name} 
                   className="glass-panel glass-panel-hover" 
-                  style={{ padding: '12px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', border: '1px solid var(--border-light)' }}
+                  style={{ flexShrink: 0, padding: '12px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', border: '1px solid var(--border-light)' }}
                   onClick={() => onSelect(titan)}
                   onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(titan); } }}
                   tabIndex={0}
@@ -69,7 +69,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                 <div 
                   key={robot.name} 
                   className="glass-panel glass-panel-hover" 
-                  style={{ padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '8px', cursor: 'pointer', border: '1px solid var(--border-light)' }}
+                  style={{ flexShrink: 0, padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: '8px', cursor: 'pointer', border: '1px solid var(--border-light)' }}
                   onClick={() => onSelect(robot)}
                   onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onSelect(robot); } }}
                   tabIndex={0}
