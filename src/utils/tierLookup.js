@@ -47,3 +47,27 @@ export const getTierForName = (name, category) => {
   const match = tierLookupCache[category].get(name.toLowerCase());
   return match ? match.tierLetter : null;
 };
+
+export const getDescriptionForName = (name, category) => {
+  if (!name || !tierLookupCache[category]) return '';
+
+  const cleanName = name.replace(/\*+$/, '').trim().toLowerCase();
+  const isUe = cleanName.startsWith('ue ');
+  const cache = tierLookupCache[category];
+
+  // Fast path: exact match
+  const exactMatch = cache.get(cleanName);
+  if (exactMatch && exactMatch.isUe === isUe) {
+    return exactMatch.description;
+  }
+
+  // Fallback: includes check
+  for (const cachedItem of cache.values()) {
+    if (isUe !== cachedItem.isUe) continue;
+    if (cleanName.includes(cachedItem.cleanName) || cachedItem.cleanName.includes(cleanName)) {
+      return cachedItem.description;
+    }
+  }
+
+  return '';
+};

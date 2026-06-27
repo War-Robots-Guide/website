@@ -3,7 +3,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import tiersData from '../../data/tiers.json';
 import { RatingBar } from '../common/RatingBar';
-import { tierLookupCache } from '../../utils/tierLookup';
+import { getDescriptionForName } from '../../utils/tierLookup';
 
 export function DashboardTab({ onItemClick }) {
   // Memoize featured robots to avoid inline filtering and sorting on every render
@@ -71,29 +71,8 @@ export function DashboardTab({ onItemClick }) {
   const handleCardClick = (item) => {
     if (!onItemClick) return;
 
-    let description = '';
-    const cleanName = item.name.replace(/\*+$/, '').trim().toLowerCase();
-    const isUe = cleanName.startsWith('ue ');
     const category = 'Robots';
-
-    if (tierLookupCache && tierLookupCache[category]) {
-      const cache = tierLookupCache[category];
-
-      // Fast path: exact match
-      const exactMatch = cache.get(cleanName);
-      if (exactMatch && exactMatch.isUe === isUe) {
-        description = exactMatch.description;
-      } else {
-        // Fallback: includes check
-        for (const cachedItem of cache.values()) {
-          if (isUe !== cachedItem.isUe) continue;
-          if (cleanName.includes(cachedItem.cleanName) || cachedItem.cleanName.includes(cleanName)) {
-            description = cachedItem.description;
-            break;
-          }
-        }
-      }
-    }
+    let description = getDescriptionForName(item.name, category);
 
     if (!description) {
       description = item.comments;
