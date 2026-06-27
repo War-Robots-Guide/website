@@ -28,7 +28,7 @@ export function Header({ activeTab, onTabChange, isEasterEggActive }) {
             <img src="/icons/actions_orange.png" alt="" className="nav-icon" /> Value Ratings
           </button>
           <button className={`nav-item ${activeTab === 'builds' ? 'active' : ''}`} onClick={() => onTabChange('builds')}>
-            <img src="/icons/robot_gold.png" alt="" className="nav-icon" /> Build Guides
+            <img src="/icons/drone_gold.png" alt="" className="nav-icon" /> Build Guides
           </button>
           <button className={`nav-item ${activeTab === 'specializations' ? 'active' : ''}`} onClick={() => onTabChange('specializations')}>
             <img src="/icons/module_old_gold.png" alt="" className="nav-icon" /> Specializations
