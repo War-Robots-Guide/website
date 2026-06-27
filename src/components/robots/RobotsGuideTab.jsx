@@ -80,7 +80,7 @@ export function RobotsGuideTab({ onItemClick }) {
   return (
     <div className="animate-fade-in text-left">
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Value Ratings & Scores</h2>
+        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Value Ratings</h2>
         <p style={{ margin: '0 auto' }}>
           Value rating represents F2P friendliness and return on investment.
         </p>
