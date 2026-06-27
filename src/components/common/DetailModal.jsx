@@ -31,14 +31,14 @@ export function DetailModal({ selectedItem, onClose }) {
             <span 
               className="spec-class-tag" 
               style={{ 
-                background: selectedItem.type === 'Titans' ? 'rgba(59, 130, 246, 0.1)' : 'rgba(6, 182, 212, 0.1)', 
-                color: selectedItem.type === 'Titans' ? 'var(--purple)' : 'var(--cyan)', 
-                borderColor: selectedItem.type === 'Titans' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(6, 182, 212, 0.2)', 
+                background: (selectedItem.type === 'Titans' || selectedItem.data?.isTitan) ? 'rgba(59, 130, 246, 0.1)' : 'rgba(6, 182, 212, 0.1)', 
+                color: (selectedItem.type === 'Titans' || selectedItem.data?.isTitan) ? 'var(--purple)' : 'var(--cyan)', 
+                borderColor: (selectedItem.type === 'Titans' || selectedItem.data?.isTitan) ? 'rgba(59, 130, 246, 0.2)' : 'rgba(6, 182, 212, 0.2)', 
                 marginBottom: '4px', 
                 display: 'inline-block' 
               }}
             >
-              {selectedItem.type}
+              {selectedItem.type === 'Specialization' ? (selectedItem.data?.isTitan ? 'Titan Specialization' : 'Robot Specialization') : selectedItem.type}
             </span>
             <h3 id="modal-title" style={{ fontSize: '22px' }}>{selectedItem.name}</h3>
           </div>
@@ -185,6 +185,28 @@ export function DetailModal({ selectedItem, onClose }) {
                 }
                 return null;
               })()}
+            </div>
+          )}
+
+          {/* For specializations */}
+          {selectedItem.type === 'Specialization' && selectedItem.data?.slots && (
+            <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
+              <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '12px', textTransform: 'uppercase' }}>
+                Recommended Slots:
+              </span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {selectedItem.data.slots.map((slot, slidx) => (
+                  <div className="spec-slot-box" key={slidx} style={{ marginTop: '0px' }}>
+                    <div className="spec-slot-title" style={{ color: selectedItem.data.isTitan ? 'var(--purple)' : 'var(--cyan)' }}>
+                      <img src="/icons/module_old_gold.png" alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+                      {slot.name}
+                    </div>
+                    <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: '4px 0 0 0' }}>
+                      {slot.content}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>

@@ -630,6 +630,7 @@
 .spec-card {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .spec-title-bar {

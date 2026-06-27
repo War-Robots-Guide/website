@@ -4,7 +4,7 @@ import specializationsData from '../../data/specializations.json';
 import { specTree } from './specTree';
 
 
-export function SpecializationsTab() {
+export function SpecializationsTab({ onItemClick }) {
   const [specPath, setSpecPath] = useState([]);
 
   // Derive current step state in specTree
@@ -138,7 +138,32 @@ export function SpecializationsTab() {
       {/* Specialization cards */}
       <div className="spec-grid">
         {specializationsData.sections.map((sec, sidx) => (
-          <div className="glass-panel glass-panel-hover spec-card" key={sidx}>
+          <div 
+            className="glass-panel glass-panel-hover spec-card" 
+            key={sidx}
+            onClick={() => {
+              const cleanTitle = sec.title.replace(' (Robot)', '').replace(' (Titan)', '');
+              onItemClick?.(cleanTitle, 'Specialization', { 
+                description: sec.description, 
+                slots: sec.slots, 
+                isTitan: !sec.title.includes('(Robot)') 
+              });
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const cleanTitle = sec.title.replace(' (Robot)', '').replace(' (Titan)', '');
+                onItemClick?.(cleanTitle, 'Specialization', { 
+                  description: sec.description, 
+                  slots: sec.slots, 
+                  isTitan: !sec.title.includes('(Robot)') 
+                });
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label={`View details for ${sec.title.replace(' (Robot)', '').replace(' (Titan)', '')}`}
+          >
             <div className="spec-title-bar">
               <span className="spec-class-tag" style={{
                 background: sec.title.includes('(Robot)') ? 'rgba(6, 182, 212, 0.1)' : 'rgba(59, 130, 246, 0.1)',

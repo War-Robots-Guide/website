@@ -42,7 +42,7 @@ function App() {
         {activeTab === 'tiers' && <TierListTab onItemClick={openItemDetails} />}
         {activeTab === 'robots' && <RobotsGuideTab onItemClick={openItemDetails} />}
         {activeTab === 'builds' && <BuildGuidesTab />}
-        {activeTab === 'specializations' && <SpecializationsTab />}
+        {activeTab === 'specializations' && <SpecializationsTab onItemClick={openItemDetails} />}
         {activeTab === 'pilots' && <PilotSkillsTab />}
         {activeTab === 'weapons' && <WeaponsDpsTab />}
         {activeTab === 'hangar' && <HangarAnalyzerTab />}
