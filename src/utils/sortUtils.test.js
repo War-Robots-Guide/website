@@ -40,13 +40,10 @@ describe('sortBySearchQuery', () => {
   });
 
   it('should maintain relative order if neither is a better match', () => {
-    const result = sortBySearchQuery(items, 'z', getKey);
-    // 'z' is only in 'Appetizer', so it should be prioritized if we query for z?
-    // Wait, the test is about equal match weight.
     // 'a' is in Apple, Banana, Pineapple, Appetizer.
-    const result2 = sortBySearchQuery(items, 'xyz', getKey);
+    const result = sortBySearchQuery(items, 'xyz', getKey);
     // None match, order should be preserved
-    expect(result2).toEqual(items);
+    expect(result).toEqual(items);
   });
 
   it('should prioritize includes match over no match', () => {
