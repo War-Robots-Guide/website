@@ -64,7 +64,7 @@ describe('RatingBar Component', () => {
       const { container } = render(<RatingBar rating={5} unitType="titan" />);
 
       // Max for titan is 3
-      expect(screen.getByText('Excellent (+3)')).toBeInTheDocument();
+      expect(screen.getByText('Best (+3)')).toBeInTheDocument();
 
       // Calculate expected percentage: ((3 - -2) / (3 - -2)) * 100 = 100%
       const markerElement = container.querySelector('div[style*="position: absolute"]');

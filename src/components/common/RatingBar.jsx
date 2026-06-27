@@ -14,9 +14,9 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
       if (val <= -2) return 'Horrible (-2)';
       if (val === -1) return 'Bad (-1)';
       if (val === 0) return 'Poor (0)';
-      if (val === 1) return 'Average (+1)';
+      if (val === 1) return 'Usable (+1)';
       if (val === 2) return 'Very Good (+2)';
-      return 'Excellent (+3)';
+      return 'Best (+3)';
     } else {
       if (val <= -2) return 'Horrible (-2)';
       if (val === -1) return 'Bad (-1)';
@@ -35,7 +35,7 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
       if (val === 1) return '#eab308'; // Yellow
       return '#ef4444'; // Red
     } else {
-      if (val >= 4) return '#22c55e'; // Green
+      if (val >= 3) return '#22c55e'; // Green
       if (val >= 1) return '#eab308'; // Yellow
       return '#ef4444'; // Red
     }
