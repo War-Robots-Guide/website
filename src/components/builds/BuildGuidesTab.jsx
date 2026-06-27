@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
+import { sortBySearchQuery } from '../../utils/sortUtils';
 import { SearchInput } from '../common/SearchInput';
 import { BuildDetailModal } from './BuildDetailModal';
 
@@ -24,27 +25,7 @@ export function BuildGuidesTab() {
       // 2. Starts with robot name
       // 3. Substring match on robot name
       // 4. Other matches (non-robot)
-      filtered = [...filtered].sort((a, b) => {
-        const aRobot = a.robot.toLowerCase();
-        const bRobot = b.robot.toLowerCase();
-        
-        const aExact = aRobot === query;
-        const bExact = bRobot === query;
-        if (aExact && !bExact) return -1;
-        if (!aExact && bExact) return 1;
-        
-        const aStarts = aRobot.startsWith(query);
-        const bStarts = bRobot.startsWith(query);
-        if (aStarts && !bStarts) return -1;
-        if (!aStarts && bStarts) return 1;
-        
-        const aIncludes = aRobot.includes(query);
-        const bIncludes = bRobot.includes(query);
-        if (aIncludes && !bIncludes) return -1;
-        if (!aIncludes && bIncludes) return 1;
-        
-        return 0;
-      });
+      filtered = sortBySearchQuery(filtered, query, (build) => build.robot);
     }
 
     return filtered.map(build => ({
