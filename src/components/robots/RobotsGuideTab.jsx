@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from '../common/RatingBar';
+import { sortBySearchQuery } from '../../utils/sortUtils';
 import { SearchInput } from '../common/SearchInput';
 import { ScoreMeter } from '../common/ScoreMeter';
 import { getDescriptionForName } from '../../utils/tierLookup';
@@ -50,27 +51,7 @@ export function RobotsGuideTab({ onItemClick }) {
     });
 
     if (query) {
-      filtered = [...filtered].sort((a, b) => {
-        const aName = a.name.toLowerCase();
-        const bName = b.name.toLowerCase();
-        
-        const aExact = aName === query;
-        const bExact = bName === query;
-        if (aExact && !bExact) return -1;
-        if (!aExact && bExact) return 1;
-        
-        const aStarts = aName.startsWith(query);
-        const bStarts = bName.startsWith(query);
-        if (aStarts && !bStarts) return -1;
-        if (!aStarts && bStarts) return 1;
-        
-        const aIncludes = aName.includes(query);
-        const bIncludes = bName.includes(query);
-        if (aIncludes && !bIncludes) return -1;
-        if (!aIncludes && bIncludes) return 1;
-        
-        return 0;
-      });
+      filtered = sortBySearchQuery(filtered, query, (robot) => robot.name);
     }
 
     return filtered;
@@ -90,27 +71,7 @@ export function RobotsGuideTab({ onItemClick }) {
     });
 
     if (query) {
-      filtered = [...filtered].sort((a, b) => {
-        const aName = a.name.toLowerCase();
-        const bName = b.name.toLowerCase();
-        
-        const aExact = aName === query;
-        const bExact = bName === query;
-        if (aExact && !bExact) return -1;
-        if (!aExact && bExact) return 1;
-        
-        const aStarts = aName.startsWith(query);
-        const bStarts = bName.startsWith(query);
-        if (aStarts && !bStarts) return -1;
-        if (!aStarts && bStarts) return 1;
-        
-        const aIncludes = aName.includes(query);
-        const bIncludes = bName.includes(query);
-        if (aIncludes && !bIncludes) return -1;
-        if (!aIncludes && bIncludes) return 1;
-        
-        return 0;
-      });
+      filtered = sortBySearchQuery(filtered, query, (titan) => titan.name);
     }
 
     return filtered;
