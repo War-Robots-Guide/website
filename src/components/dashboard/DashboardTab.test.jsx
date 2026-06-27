@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { DashboardTab } from './DashboardTab';
 
-// Mock robot guide data with unsorted dates
+// Mock robot guide data with unsorted dates and a featured robot
 vi.mock('../../data/robot_guide.json', () => ({
   default: {
     changelog: [
@@ -10,7 +10,14 @@ vi.mock('../../data/robot_guide.json', () => ({
       { date: '2026-06-01', text: 'Latest change' },
       { date: '2024-12-05', text: 'Oldest change' }
     ],
-    robots: [],
+    robots: [
+      {
+        name: 'Destrier',
+        value_rating: 4,
+        comments: 'Classic starter robot with decent speed.',
+        roles: [{ role: 'Beacon Runner', type: 'primary' }]
+      }
+    ],
     titans: [],
     builds: []
   }
@@ -19,6 +26,18 @@ vi.mock('../../data/robot_guide.json', () => ({
 vi.mock('../../data/weapons_dps.json', () => ({
   default: {
     light: []
+  }
+}));
+
+vi.mock('../../data/tiers.json', () => ({
+  default: {
+    Robots: {
+      A: {
+        items: [
+          { name: 'Destrier', description: 'Destrier description from tiers data' }
+        ]
+      }
+    }
   }
 }));
 
@@ -46,3 +65,24 @@ describe('DashboardTab Changelog Sorting', () => {
     expect(screen.getByText('2026-06-01')).toBeInTheDocument();
   });
 });
+
+describe('DashboardTab Interactivity', () => {
+  it('calls onItemClick when a robot card is clicked', () => {
+    const mockOnItemClick = vi.fn();
+    render(<DashboardTab onTabChange={() => {}} onItemClick={mockOnItemClick} />);
+    
+    // Find the robot card (by role and name)
+    const card = screen.getByRole('button', { name: /View details for Destrier/i });
+    expect(card).toBeInTheDocument();
+    
+    // Click the card
+    card.click();
+    
+    expect(mockOnItemClick).toHaveBeenCalledWith(
+      'Destrier',
+      'Robots',
+      { description: 'Destrier description from tiers data' }
+    );
+  });
+});
+

@@ -38,7 +38,7 @@ function App() {
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
 
       <main className={`main-content bg-theme-${activeTab}`}>
-        {activeTab === 'dashboard' && <DashboardTab onTabChange={setActiveTab} />}
+        {activeTab === 'dashboard' && <DashboardTab onTabChange={setActiveTab} onItemClick={openItemDetails} />}
         {activeTab === 'tiers' && <TierListTab onItemClick={openItemDetails} />}
         {activeTab === 'robots' && <RobotsGuideTab onItemClick={openItemDetails} />}
         {activeTab === 'builds' && <BuildGuidesTab />}

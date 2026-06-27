@@ -2,9 +2,10 @@ import { useMemo } from 'react';
 import { Users } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
+import tiersData from '../../data/tiers.json';
 import { RatingBar } from '../common/RatingBar';
 
-export function DashboardTab({ onTabChange }) {
+export function DashboardTab({ onTabChange, onItemClick }) {
   // Memoize featured robots to avoid inline filtering and sorting on every render
   const featuredRobots = useMemo(() => {
     return robotGuideData?.robots
@@ -44,6 +45,37 @@ export function DashboardTab({ onTabChange }) {
       latestChange
     };
   }, [sortedChangelog]);
+
+  const handleCardClick = (item) => {
+    if (!onItemClick) return;
+
+    let description = '';
+    const cleanName = item.name.replace(/\*+$/, '').trim().toLowerCase();
+    const isUe = cleanName.startsWith('ue ');
+    const category = 'Robots';
+
+    if (tiersData && tiersData[category]) {
+      const catData = tiersData[category];
+      for (const tierLetter of Object.keys(catData)) {
+        const found = catData[tierLetter].items.find(tItem => {
+          const tClean = tItem.name.replace(/\*+$/, '').trim().toLowerCase();
+          const tIsUe = tClean.startsWith('ue ');
+          if (isUe !== tIsUe) return false;
+          return tClean === cleanName || cleanName.includes(tClean) || tClean.includes(cleanName);
+        });
+        if (found) {
+          description = found.description;
+          break;
+        }
+      }
+    }
+
+    if (!description) {
+      description = item.comments;
+    }
+
+    onItemClick(item.name, category, { description });
+  };
 
   return (
     <div className="animate-fade-in">
@@ -107,7 +139,16 @@ export function DashboardTab({ onTabChange }) {
             <div className="dashboard-grid">
               {/* Show high-value robots (Value Rating >= 3) sorted by rating */}
               {featuredRobots.map(robot => (
-                <div className="glass-panel glass-panel-hover" key={robot.name} style={{ background: 'rgba(255,255,255,0.01)', padding: '16px', display: 'flex', flexDirection: 'column' }}>
+                <div 
+                  className="glass-panel glass-panel-hover robot-card" 
+                  key={robot.name} 
+                  style={{ background: 'rgba(255,255,255,0.01)', padding: '16px', display: 'flex', flexDirection: 'column' }}
+                  onClick={() => handleCardClick(robot)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(robot); } }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`View details for ${robot.name}`}
+                >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                     <h4 style={{ color: 'var(--cyan)', margin: 0 }}>{robot.name}</h4>
                     <div style={{ display: 'flex', minWidth: '100px', justifyContent: 'flex-end' }}>
@@ -119,7 +160,7 @@ export function DashboardTab({ onTabChange }) {
                   </p>
                   
                   {robot.roles && robot.roles.length > 0 && (
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginBottom: '16px' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                       {robot.roles.map(r => (
                         <span 
                           key={r.role} 
@@ -131,14 +172,6 @@ export function DashboardTab({ onTabChange }) {
                       ))}
                     </div>
                   )}
-
-                  <button 
-                    className="compare-action-btn" 
-                    style={{ padding: '6px 12px', fontSize: '11px', background: 'rgba(255,255,255,0.05)', color: '#fff', border: '1px solid var(--border-light)', marginTop: 'auto' }}
-                    onClick={() => onTabChange('robots')}
-                  >
-                    View Detailed Scores
-                  </button>
                 </div>
               ))}
             </div>
