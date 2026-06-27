@@ -8,9 +8,31 @@ import { RatingBar } from '../common/RatingBar';
 export function DashboardTab({ onTabChange, onItemClick }) {
   // Memoize featured robots to avoid inline filtering and sorting on every render
   const featuredRobots = useMemo(() => {
-    return robotGuideData?.robots
-      ?.filter(r => r.value_rating >= 3)
-      .sort((a, b) => b.value_rating - a.value_rating) || [];
+    if (!robotGuideData?.robots) return [];
+
+    // 1. Get F2P friendly robots (value_rating >= 3)
+    const f2p = robotGuideData.robots
+      .filter(r => r.value_rating >= 3)
+      .sort((a, b) => b.value_rating - a.value_rating)
+      .slice(0, 6)
+      .map(r => ({ ...r, isMeta: false }));
+
+    // 2. Get Meta robots (Tier X from tiersData, and value_rating < 3)
+    const tierXNames = new Set(
+      tiersData?.Robots?.X?.items?.map(item => item.name.toLowerCase()) || []
+    );
+
+    const meta = robotGuideData.robots
+      .filter(r => r.value_rating < 3 && tierXNames.has(r.name.toLowerCase()))
+      .sort((a, b) => {
+        const overallDiff = b.scores.overall - a.scores.overall;
+        if (overallDiff !== 0) return overallDiff;
+        return b.value_rating - a.value_rating;
+      })
+      .slice(0, 2)
+      .map(r => ({ ...r, isMeta: true }));
+
+    return [...f2p, ...meta];
   }, []);
 
   const sortedChangelog = useMemo(() => {
@@ -150,7 +172,26 @@ export function DashboardTab({ onTabChange, onItemClick }) {
                   aria-label={`View details for ${robot.name}`}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-                    <h4 style={{ color: 'var(--cyan)', margin: 0 }}>{robot.name}</h4>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <h4 style={{ color: 'var(--cyan)', margin: 0 }}>{robot.name}</h4>
+                      <span 
+                        className="role-badge" 
+                        style={{ 
+                          fontSize: '10px', 
+                          padding: '1px 6px', 
+                          background: robot.isMeta ? 'rgba(251, 191, 36, 0.1)' : 'rgba(34, 197, 94, 0.1)', 
+                          color: robot.isMeta ? '#fbbf24' : '#22c55e', 
+                          borderColor: robot.isMeta ? 'rgba(251, 191, 36, 0.2)' : 'rgba(34, 197, 94, 0.2)',
+                          textTransform: 'uppercase',
+                          fontWeight: 700,
+                          borderRadius: '4px',
+                          border: '1px solid',
+                          lineHeight: 1
+                        }}
+                      >
+                        {robot.isMeta ? 'Meta' : 'F2P'}
+                      </span>
+                    </div>
                     <div style={{ display: 'flex', minWidth: '100px', justifyContent: 'flex-end' }}>
                       <RatingBar rating={robot.value_rating} unitType="robot" align="right" />
                     </div>
