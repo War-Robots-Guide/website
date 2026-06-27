@@ -4,7 +4,7 @@ import weaponsDpsData from '../../data/weapons_dps.json';
 import tiersData from '../../data/tiers.json';
 import { RatingBar } from '../common/RatingBar';
 
-export function DashboardTab({ onTabChange, onItemClick }) {
+export function DashboardTab({ onItemClick }) {
   // Memoize featured robots to avoid inline filtering and sorting on every render
   const featuredRobots = useMemo(() => {
     if (!robotGuideData?.robots) return [];
