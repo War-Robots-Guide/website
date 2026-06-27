@@ -99,7 +99,7 @@ export function SpecializationsTab({ onItemClick }) {
               </div>
 
               <button className="spec-reset-btn" onClick={() => setSpecPath([])}>
-                <img src="/icons/time_gold.png" alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+                <img src="/icons/time_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
                 Reset
               </button>
             </div>
