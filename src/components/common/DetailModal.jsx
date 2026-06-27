@@ -136,7 +136,7 @@ export function DetailModal({ selectedItem, onClose }) {
                             {rob.roles.map(role => {
                               if (role.type === 'none') return null;
                               return (
-                                <span key={role.role} className={`role-badge role-${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
+                                <span key={role.role} className={`role-badge ${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
                                   {role.role}
                                 </span>
                               );
@@ -193,7 +193,7 @@ export function DetailModal({ selectedItem, onClose }) {
                             {titan.roles.map(role => {
                               if (role.type === 'none') return null;
                               return (
-                                <span key={role.role} className={`role-badge role-${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
+                                <span key={role.role} className={`role-badge ${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
                                   {role.role}
                                 </span>
                               );
