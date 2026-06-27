@@ -5,16 +5,16 @@ export const specTree = {
       label: "Robot",
       value: "robot",
       next: {
-        question: "What specialization is available on the robot?",
+        question: "What specialization/playstyle does your robot fall under?",
         options: [
           {
             label: "Damage Dealer / Raider",
             value: "damage_dealer",
             next: {
-              question: "Select your specialization:",
+              question: "Select your niche:",
               options: [
                 {
-                  label: ">800m damage dealer",
+                  label: ">800m damage dealer (Sniper)",
                   value: "long_range",
                   result: {
                     slots: [
@@ -24,7 +24,7 @@ export const specTree = {
                   }
                 },
                 {
-                  label: "<800m damage dealer",
+                  label: "<800m damage dealer (Assault)",
                   value: "standard_range",
                   result: {
                     slots: [
@@ -34,12 +34,22 @@ export const specTree = {
                   }
                 },
                 {
-                  label: "Raider",
-                  value: "Raider",
+                  label: "Raider (with powerful built in weapon)",
+                  value: "raider_with_weapon",
                   result: {
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier" },
-                      { name: "Slot 2: Integrated Power Unit / Titan Slayer" }
+                      { name: "Slot 2: Integrated Power Unit" }
+                    ]
+                  }
+                },
+                {
+                  label: "Raider (without powerful built in weapon)",
+                  value: "raider_without_weapon",
+                  result: {
+                    slots: [
+                      { name: "Slot 1: Nuclear Amplifier" },
+                      { name: "Slot 2: Titan Slayer" }
                     ]
                   }
                 }
@@ -56,11 +66,11 @@ export const specTree = {
                   label: "Brawler",
                   value: "brawler",
                   next: {
-                    question: "Choose your primary focus:",
+                    question: "Select your niche:",
                     options: [
                       {
-                        label: "Survivalist (General brawler)",
-                        value: "survivalist",
+                        label: "Survivalist or DoT Converter",
+                        value: "survivalist_dot",
                         result: {
                           slots: [
                             { name: "Slot 1: Repair Amplifier" },
@@ -69,8 +79,8 @@ export const specTree = {
                         }
                       },
                       {
-                        label: "Objective Stall (Titan charging)",
-                        value: "stall",
+                        label: "Titan charger",
+                        value: "titan_charger",
                         result: {
                           slots: [
                             { name: "Slot 1: Repair Amplifier" },
@@ -115,31 +125,12 @@ export const specTree = {
             }
           },
           {
-            label: "Non-Beacon Capping Saboteur",
+            label: "Non-Capping Saboteur",
             value: "saboteur_other",
-            next: {
-              question: "What is your tactical focus?",
-              options: [
-                {
-                  label: "Attack-focused",
-                  value: "attack",
-                  result: {
-                    slots: [
-                      { name: "Slot 1: Thermonuke / Piercer" },
-                      { name: "Slot 2: Thermonuke / Piercer" }
-                    ]
-                  }
-                },
-                {
-                  label: "Defense-focused",
-                  value: "defense",
-                  result: {
-                    slots: [
-                      { name: "Slot 1: Anticontrol" },
-                      { name: "Slot 2: Heavy Armor Kit" }
-                    ]
-                  }
-                }
+            result: {
+              slots: [
+                { name: "Slot 1: Anticontrol" },
+                { name: "Slot 2: Heavy Armor Kit" }
               ]
             }
           }
