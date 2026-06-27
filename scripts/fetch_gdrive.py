@@ -110,7 +110,7 @@ def download_folder_files():
             
             # Absolute path resolution check to prevent directory traversal
             dest_path = os.path.abspath(dest_path)
-            if not dest_path.startswith(target_dir_abs):
+            if os.path.commonpath([target_dir_abs, dest_path]) != target_dir_abs:
                 print(f"Error: Path traversal attempt detected in filename: {raw_file_name}", file=sys.stderr)
                 return False
             
