@@ -3,36 +3,11 @@ import { X } from 'lucide-react';
 import { RatingBar } from '../common/RatingBar';
 import { ScoreMeter } from '../common/ScoreMeter';
 import { HangarSelectorModal } from './HangarSelectorModal';
-import tiersData from '../../data/tiers.json';
 import robotGuideData from '../../data/robot_guide.json';
+import { getTierForName } from '../../utils/tierLookup';
 
 const TIER_VALUES = { X: 9, S: 8, A: 7, B: 6, C: 5, D: 4, E: 3, F: 2, Z: 1 };
 const REVERSE_TIER_VALUES = { 9: 'X', 8: 'S', 7: 'A', 6: 'B', 5: 'C', 4: 'D', 3: 'E', 2: 'F', 1: 'Z' };
-
-// Build a lookup cache once since tiersData is static
-const tierLookupCache = {};
-if (tiersData) {
-  for (const [category, catData] of Object.entries(tiersData)) {
-    tierLookupCache[category] = new Map();
-    for (const [tierLetter, tierObj] of Object.entries(catData)) {
-      if (tierObj.items) {
-        for (const item of tierObj.items) {
-          if (item.name) {
-            const names = item.name.split(',').map(n => n.trim().toLowerCase());
-            for (const n of names) {
-              tierLookupCache[category].set(n, tierLetter);
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-const getTierForName = (name, category) => {
-  if (!name || !tierLookupCache[category]) return null;
-  return tierLookupCache[category].get(name.toLowerCase()) || null;
-};
 
 const STATUS_COLORS = {
   MET: {

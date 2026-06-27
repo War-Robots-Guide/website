@@ -3,6 +3,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import tiersData from '../../data/tiers.json';
 import { RatingBar } from '../common/RatingBar';
+import { tierLookupCache } from '../../utils/tierLookup';
 
 export function DashboardTab({ onItemClick }) {
   // Memoize featured robots to avoid inline filtering and sorting on every render
@@ -75,18 +76,21 @@ export function DashboardTab({ onItemClick }) {
     const isUe = cleanName.startsWith('ue ');
     const category = 'Robots';
 
-    if (tiersData && tiersData[category]) {
-      const catData = tiersData[category];
-      for (const tierLetter of Object.keys(catData)) {
-        const found = catData[tierLetter].items.find(tItem => {
-          const tClean = tItem.name.replace(/\*+$/, '').trim().toLowerCase();
-          const tIsUe = tClean.startsWith('ue ');
-          if (isUe !== tIsUe) return false;
-          return tClean === cleanName || cleanName.includes(tClean) || tClean.includes(cleanName);
-        });
-        if (found) {
-          description = found.description;
-          break;
+    if (tierLookupCache && tierLookupCache[category]) {
+      const cache = tierLookupCache[category];
+
+      // Fast path: exact match
+      const exactMatch = cache.get(cleanName);
+      if (exactMatch && exactMatch.isUe === isUe) {
+        description = exactMatch.description;
+      } else {
+        // Fallback: includes check
+        for (const cachedItem of cache.values()) {
+          if (isUe !== cachedItem.isUe) continue;
+          if (cleanName.includes(cachedItem.cleanName) || cachedItem.cleanName.includes(cleanName)) {
+            description = cachedItem.description;
+            break;
+          }
         }
       }
     }
