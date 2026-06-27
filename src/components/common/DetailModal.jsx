@@ -129,6 +129,21 @@ export function DetailModal({ selectedItem, onClose }) {
                           <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)' }}>Robot</span>
                         </div>
                       </div>
+                      {rob.roles && rob.roles.length > 0 && (
+                        <div style={{ marginBottom: '16px' }}>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Roles</span>
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                            {rob.roles.map(role => {
+                              if (role.type === 'none') return null;
+                              return (
+                                <span key={role.role} className={`role-badge role-${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
+                                  {role.role}
+                                </span>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
                       <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
                       <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
                         <ScoreMeter label="Longevity" score={rob.scores.longevity} />
@@ -171,6 +186,21 @@ export function DetailModal({ selectedItem, onClose }) {
                           <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--purple)', borderColor: 'rgba(59, 130, 246, 0.2)' }}>Titan</span>
                         </div>
                       </div>
+                      {titan.roles && titan.roles.length > 0 && (
+                        <div style={{ marginBottom: '16px' }}>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Roles</span>
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                            {titan.roles.map(role => {
+                              if (role.type === 'none') return null;
+                              return (
+                                <span key={role.role} className={`role-badge role-${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
+                                  {role.role}
+                                </span>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
                       <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
                       <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
                         <ScoreMeter label="Longevity" score={titan.scores.longevity} />
