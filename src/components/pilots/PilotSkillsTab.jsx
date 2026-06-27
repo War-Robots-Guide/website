@@ -16,8 +16,8 @@ function PilotSkillCategory({ cat, skills }) {
         src={`/icons/${iconName}`} 
         alt="" 
         style={{ 
-          width: '20px', 
-          height: '20px', 
+          width: '26px', 
+          height: '26px', 
           objectFit: 'contain'
         }} 
       />

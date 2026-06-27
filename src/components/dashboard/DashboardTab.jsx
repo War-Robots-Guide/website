@@ -156,7 +156,7 @@ export function DashboardTab({ onTabChange, onItemClick }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="glass-panel">
             <h3 style={{ fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <img src="/icons/role_sniper_top.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> Featured Robots
+              <img src="/icons/role_sniper_top.png" alt="" style={{ width: '26px', height: '26px', objectFit: 'contain' }} /> Featured Robots
             </h3>
             <div className="dashboard-grid">
               {/* Show high-value robots (Value Rating >= 3) sorted by rating */}
@@ -223,7 +223,7 @@ export function DashboardTab({ onTabChange, onItemClick }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="glass-panel">
             <h3 style={{ fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Users size={16} className="cyan-glow-text" /> Join our Official Communities
+              <Users size={22} className="cyan-glow-text" /> Join our Official Communities
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '13px', lineHeight: 1.5, marginBottom: '16px' }}>
               Meet fellow commanders, discuss guides, and get detailed hangar feedback from veterans.
@@ -273,7 +273,7 @@ export function DashboardTab({ onTabChange, onItemClick }) {
               gap: '8px', 
               borderBottom: '1px solid var(--border-light)'
             }}>
-              <img src="/icons/time_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} /> Changelog
+              <img src="/icons/time_gold.png" alt="" style={{ width: '24px', height: '24px', objectFit: 'contain' }} /> Changelog
             </h3>
             <div style={{ 
               maxHeight: '480px', 

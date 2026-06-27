@@ -37,7 +37,7 @@ export function SpecializationsTab({ onItemClick }) {
       <div className="spec-finder-container" style={{ marginBottom: '24px' }}>
         <div className="spec-finder-content">
           <div className="spec-finder-header">
-            <img src="/icons/ms_turret.png" alt="" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+            <img src="/icons/ms_turret.png" alt="" style={{ width: '28px', height: '28px', objectFit: 'contain' }} />
             <div>
               <h3 style={{ fontSize: '18px', fontWeight: 700, margin: 0, fontFamily: 'var(--heading)' }}>
                 Automatic Specialization Picker
@@ -81,7 +81,7 @@ export function SpecializationsTab({ onItemClick }) {
             /* Render Result */
             <div className={`spec-finder-result ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
               <div className={`spec-result-title ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
-                <img src="/icons/role_sniper_top.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+                <img src="/icons/role_sniper_top.png" alt="" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
                 Recommended Specialization: {specPath[specPath.length - 1]?.label}
               </div>
               <div className="spec-result-path">
@@ -92,7 +92,7 @@ export function SpecializationsTab({ onItemClick }) {
                 {currentSpecNode.result.slots.map((slot, sIdx) => (
                   <div className="spec-result-slot-box" key={sIdx}>
                     <div className={`spec-result-slot-title ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
-                      <img src="/icons/module_old_gold.png" alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+                      <img src="/icons/module_old_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
                       {slot.name}
                     </div>
                   </div>
@@ -183,7 +183,7 @@ export function SpecializationsTab({ onItemClick }) {
               {sec.slots.map((slot, slidx) => (
                 <div className="spec-slot-box" key={slidx}>
                   <div className="spec-slot-title">
-                    <img src="/icons/module_old_gold.png" alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+                    <img src="/icons/module_old_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
                     {slot.name}
                   </div>
                   <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>

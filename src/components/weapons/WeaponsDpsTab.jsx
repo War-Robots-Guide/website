@@ -174,7 +174,7 @@ export function WeaponsDpsTab() {
         {compareList.length > 0 && (
           <div id="comparison-charts" className="glass-panel comparison-chart-container animate-fade-in" style={{ marginTop: '24px' }}>
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <img src="/icons/weapon_gold.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} /> Weapon DPS visualizer
+              <img src="/icons/weapon_gold.png" alt="" style={{ width: '26px', height: '26px', objectFit: 'contain' }} /> Weapon DPS visualizer
             </h3>
             
             <div className="chart-legend">

@@ -198,7 +198,7 @@ export function DetailModal({ selectedItem, onClose }) {
                 {selectedItem.data.slots.map((slot, slidx) => (
                   <div className="spec-slot-box" key={slidx} style={{ marginTop: '0px' }}>
                     <div className="spec-slot-title" style={{ color: selectedItem.data.isTitan ? 'var(--purple)' : 'var(--cyan)' }}>
-                      <img src="/icons/module_old_gold.png" alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+                      <img src="/icons/module_old_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
                       {slot.name}
                     </div>
                     <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: '4px 0 0 0' }}>
