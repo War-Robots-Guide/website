@@ -38,6 +38,7 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setSelectedItem(null);
   }, [activeTab]);
 
   const openItemDetails = (name, type, data) => {
