@@ -9,13 +9,12 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
   const isTitanSlot = activeSlot === 5;
   const lowerCaseQuery = (selectorSearchQuery || "").toLowerCase();
 
-  const filteredTitans = useMemo(() => {
-    return robotGuideData?.titans?.filter(t => t.name.toLowerCase().includes(lowerCaseQuery)) || [];
-  }, [lowerCaseQuery]);
-
-  const filteredRobots = useMemo(() => {
+  const filteredItems = useMemo(() => {
+    if (isTitanSlot) {
+      return robotGuideData?.titans?.filter(t => t.name.toLowerCase().includes(lowerCaseQuery)) || [];
+    }
     return robotGuideData?.robots?.filter(r => r.name.toLowerCase().includes(lowerCaseQuery)) || [];
-  }, [lowerCaseQuery]);
+  }, [isTitanSlot, lowerCaseQuery]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -51,7 +50,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
           <div style={{ maxHeight: '350px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '8px', paddingRight: '4px' }} role="listbox">
             {isTitanSlot ? (
               // Titan selections
-              filteredTitans.map(titan => (
+              filteredItems.map(titan => (
                 <div 
                   key={titan.name} 
                   className="glass-panel glass-panel-hover" 
@@ -73,7 +72,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
               ))
             ) : (
               // Robot selections
-              filteredRobots.map(robot => (
+              filteredItems.map(robot => (
                 <div 
                   key={robot.name} 
                   className="glass-panel glass-panel-hover" 
@@ -107,8 +106,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
               ))
             )}
             
-            {((isTitanSlot && filteredTitans.length === 0) ||
-              (!isTitanSlot && filteredRobots.length === 0)) && (
+            {filteredItems.length === 0 && (
               <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-muted)' }}>
                 No results found matching "{selectorSearchQuery}"
               </div>
