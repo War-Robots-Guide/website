@@ -1,9 +1,9 @@
 import { useState, useMemo, useEffect } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
-import tiersData from '../../data/tiers.json';
 import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
 import { ScoreMeter } from '../common/ScoreMeter';
+import { getDescriptionForName } from '../../utils/tierLookup';
 
 export function RobotsGuideTab({ onItemClick }) {
   const [guideSubTab, setGuideSubTab] = useState('robots');
@@ -15,25 +15,7 @@ export function RobotsGuideTab({ onItemClick }) {
   const handleCardClick = (item, category) => {
     if (!onItemClick) return;
 
-    let description = '';
-    const cleanName = item.name.replace(/\*+$/, '').trim().toLowerCase();
-    const isUe = cleanName.startsWith('ue ');
-
-    if (tiersData && tiersData[category]) {
-      const catData = tiersData[category];
-      for (const tierLetter of Object.keys(catData)) {
-        const found = catData[tierLetter].items.find(tItem => {
-          const tClean = tItem.name.replace(/\*+$/, '').trim().toLowerCase();
-          const tIsUe = tClean.startsWith('ue ');
-          if (isUe !== tIsUe) return false;
-          return tClean === cleanName || cleanName.includes(tClean) || tClean.includes(cleanName);
-        });
-        if (found) {
-          description = found.description;
-          break;
-        }
-      }
-    }
+    let description = getDescriptionForName(item.name, category);
 
     if (!description) {
       description = item.comments;
