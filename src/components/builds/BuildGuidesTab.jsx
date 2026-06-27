@@ -104,11 +104,11 @@ export function BuildGuidesTab() {
               </div>
               <div className="build-meta-item">
                 <span className="build-meta-label">specializations & modules</span>
-                <span className="build-meta-value" style={{ fontSize: '11.5px', lineHeight: 1.4 }}>
+                <div className="build-meta-value" style={{ fontSize: '11.5px', lineHeight: 1.4 }}>
                   {build.parsed_specialization.map((line, lidx) => (
                     <div key={lidx}>{line}</div>
                   ))}
-                </span>
+                </div>
               </div>
               <div className="build-meta-item" style={{ gridColumn: 'span 2', borderTop: '1px solid var(--border-light)', paddingTop: '10px' }}>
                 <span className="build-meta-label">Weapon Options</span>

@@ -36,6 +36,10 @@ function App() {
     }
   }, [isEasterEggActive]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]);
+
   const openItemDetails = (name, type, data) => {
     setSelectedItem({ name, type, data });
   };

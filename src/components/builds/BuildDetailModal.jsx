@@ -45,11 +45,11 @@ export function BuildDetailModal({ build, onClose }) {
             
             <div className="build-meta-item">
               <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>specializations & modules</span>
-              <span className="build-meta-value" style={{ fontSize: '12.5px', lineHeight: 1.5, color: '#fff' }}>
+              <div className="build-meta-value" style={{ fontSize: '12.5px', lineHeight: 1.5, color: '#fff' }}>
                 {build.parsed_specialization.map((line, lidx) => (
                   <div key={lidx}>{line}</div>
                 ))}
-              </span>
+              </div>
             </div>
           </div>
 
