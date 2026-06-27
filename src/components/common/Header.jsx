@@ -1,6 +1,12 @@
-export function Header({ activeTab, onTabChange }) {
+export function Header({ activeTab, onTabChange, isEasterEggActive }) {
   return (
-    <header className="header">
+    <header 
+      className="header"
+      style={isEasterEggActive ? { 
+        background: 'rgba(7, 8, 12, 0.35)', 
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)' 
+      } : {}}
+    >
       <div className="header-content">
         <button 
           className="logo-container" 

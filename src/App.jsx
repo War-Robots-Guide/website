@@ -62,7 +62,7 @@ function App() {
         ))}
       </div>
 
-      <Header activeTab={activeTab} onTabChange={setActiveTab} />
+      <Header activeTab={activeTab} onTabChange={setActiveTab} isEasterEggActive={isEasterEggActive} />
 
       <main className={`main-content bg-theme-${activeTab}`}>
         {activeTab === 'dashboard' && <DashboardTab onTabChange={setActiveTab} onItemClick={openItemDetails} />}
