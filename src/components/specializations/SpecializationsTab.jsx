@@ -1,5 +1,4 @@
 import { useState, useMemo } from 'react';
-import { RefreshCw } from 'lucide-react';
 import specializationsData from '../../data/specializations.json';
 import { specTree } from './specTree';
 
@@ -100,8 +99,8 @@ export function SpecializationsTab({ onItemClick }) {
               </div>
 
               <button className="spec-reset-btn" onClick={() => setSpecPath([])}>
-                <RefreshCw size={14} />
-                Reset & Start Over
+                <img src="/icons/time_gold.png" alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+                Reset
               </button>
             </div>
           ) : (
