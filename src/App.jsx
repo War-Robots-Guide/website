@@ -37,8 +37,11 @@ function App() {
   }, [isEasterEggActive]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
     setSelectedItem(null);
+    return () => clearTimeout(timer);
   }, [activeTab]);
 
   const openItemDetails = (name, type, data) => {

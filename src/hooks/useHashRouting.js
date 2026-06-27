@@ -27,7 +27,6 @@ export function useHashRouting(defaultTab = 'dashboard') {
   const setActiveTab = (tab) => {
     if (ALLOWED_TABS.includes(tab)) {
       window.location.hash = tab;
-      setActiveTabState(tab);
     }
   };
 
