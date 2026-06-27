@@ -126,7 +126,7 @@ export function DashboardTab({ onItemClick }) {
           </div>
           <div>
             <div className="stat-number">{stats.totalRobots + stats.totalTitans}</div>
-            <div className="stat-label">Robots & Titans evaluated</div>
+            <div className="stat-label">Robots and Titans evaluated</div>
           </div>
         </div>
         <div className="glass-panel stat-card">
