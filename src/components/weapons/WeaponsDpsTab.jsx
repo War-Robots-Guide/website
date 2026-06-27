@@ -183,7 +183,7 @@ export function WeaponsDpsTab() {
                 <span>Burst DPS</span>
               </div>
               <div className="legend-item">
-                <div className="legend-color-box" style={{ background: 'linear-gradient(90deg, #1e40af, #22d3ee)' }}></div>
+                <div className="legend-color-box" style={{ background: 'linear-gradient(90deg, #1e40af, #3b82f6)' }}></div>
                 <span>Cycle DPS</span>
               </div>
             </div>
