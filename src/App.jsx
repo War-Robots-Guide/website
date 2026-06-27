@@ -36,11 +36,16 @@ function App() {
     }
   }, [isEasterEggActive]);
 
+  const [prevActiveTab, setPrevActiveTab] = useState(activeTab);
+  if (activeTab !== prevActiveTab) {
+    setPrevActiveTab(activeTab);
+    setSelectedItem(null);
+  }
+
   useEffect(() => {
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0);
-    setSelectedItem(null);
     return () => clearTimeout(timer);
   }, [activeTab]);
 
