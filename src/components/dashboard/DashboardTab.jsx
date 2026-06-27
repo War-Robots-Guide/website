@@ -191,7 +191,10 @@ export function DashboardTab({ onItemClick }) {
                         {robot.isMeta ? 'Meta' : 'F2P'}
                       </span>
                     </div>
-                    <div style={{ display: 'flex', minWidth: '100px', justifyContent: 'flex-end' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', minWidth: '100px' }}>
+                      <span style={{ fontSize: '9.5px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '2px', letterSpacing: '0.5px' }}>
+                        Value Rating
+                      </span>
                       <RatingBar rating={robot.value_rating} unitType="robot" align="right" />
                     </div>
                   </div>
