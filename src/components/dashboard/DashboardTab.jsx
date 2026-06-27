@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { Users } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import tiersData from '../../data/tiers.json';
@@ -223,7 +222,7 @@ export function DashboardTab({ onTabChange, onItemClick }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="glass-panel">
             <h3 style={{ fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Users size={22} className="cyan-glow-text" /> Join our Official Communities
+              <img src="/icons/clan_hangar_gold.png" alt="" style={{ width: '26px', height: '26px', objectFit: 'contain' }} /> Join our Official Communities
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '13px', lineHeight: 1.5, marginBottom: '16px' }}>
               Meet fellow commanders, discuss guides, and get detailed hangar feedback from veterans.
