@@ -60,6 +60,8 @@ const CORE_ROLES_CONFIG = [
 ];
 
 const TOTAL_CORE_TARGETS = CORE_ROLES_CONFIG.reduce((sum, role) => sum + role.target, 0);
+const SUPPORT_TARGET = CORE_ROLES_CONFIG.find(r => r.key === 'Support')?.target || 2;
+const TANK_BUSTER_TARGET = CORE_ROLES_CONFIG.find(r => r.key === 'Tank-buster')?.target || 1;
 
 export function HangarAnalyzerTab() {
   const [hangarRobots, setHangarRobots] = useState([null, null, null, null, null]);
@@ -599,8 +601,6 @@ export function HangarAnalyzerTab() {
 
               {/* Additional Roles Recommendation Note */}
               {(() => {
-                const supportTarget = CORE_ROLES_CONFIG.find(r => r.key === 'Support')?.target || 2;
-                const tankBusterTarget = CORE_ROLES_CONFIG.find(r => r.key === 'Tank-buster')?.target || 1;
                 const supportScore = hangarAnalysis.scores['Support'] || 0;
                 const tankBusterScore = hangarAnalysis.scores['Tank-buster'] || 0;
 
@@ -615,8 +615,8 @@ export function HangarAnalyzerTab() {
                     lineHeight: 1.6 
                   }}>
                     <div style={{ fontWeight: 600, color: 'var(--cyan)', marginBottom: '6px' }}>Target Extension Options:</div>
-                    - Additional <strong>1x Support</strong> (Current: {supportScore.toFixed(1)} / {supportTarget + 1})<br />
-                    - Additional <strong>1x Tank-buster</strong> (Current: {tankBusterScore.toFixed(1)} / {tankBusterTarget + 1})
+                    - Additional <strong>1x Support</strong> (Current: {supportScore.toFixed(1)} / {SUPPORT_TARGET + 1})<br />
+                    - Additional <strong>1x Tank-buster</strong> (Current: {tankBusterScore.toFixed(1)} / {TANK_BUSTER_TARGET + 1})
                   </div>
                 );
               })()}
