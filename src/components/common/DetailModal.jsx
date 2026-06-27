@@ -1,11 +1,65 @@
 import { useEffect } from 'react';
 import { X } from 'lucide-react';
+import { useMemo } from 'react';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
 
+// Pre-compute lookup data outside the component to avoid recreating it on every render.
+const weaponsList = weaponsDpsData ? Object.values(weaponsDpsData).flat() : [];
+const precomputedWeapons = weaponsList.map(w => ({
+  ...w,
+  lowerName: w.name.toLowerCase()
+}));
+
+const precomputedRobots = robotGuideData?.robots ? robotGuideData.robots.map(r => {
+  const cleanName = r.name.replace(/\*+$/, '').trim().toLowerCase();
+  return {
+    ...r,
+    cleanName,
+    isUe: cleanName.startsWith('ue ')
+  };
+}) : [];
+
+const precomputedTitans = robotGuideData?.titans ? robotGuideData.titans.map(t => {
+  const cleanName = t.name.replace(/\*+$/, '').trim().toLowerCase();
+  return {
+    ...t,
+    cleanName,
+    isUe: cleanName.startsWith('ue ')
+  };
+}) : [];
+
 export function DetailModal({ selectedItem, onClose }) {
+  const dpsInfo = useMemo(() => {
+    if (!selectedItem || !selectedItem.type.includes('Weapons')) return null;
+    const targetLower = selectedItem.name.toLowerCase();
+    return precomputedWeapons.find(w => w.lowerName === targetLower || targetLower.includes(w.lowerName)) || null;
+  }, [selectedItem]);
+
+  const rob = useMemo(() => {
+    if (!selectedItem || selectedItem.type !== 'Robots') return null;
+    const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
+    const isSelectedUe = cleanSelected.startsWith('ue ');
+
+    return precomputedRobots.find(r => {
+      if (isSelectedUe !== r.isUe) return false;
+      return r.cleanName === cleanSelected || cleanSelected.includes(r.cleanName);
+    });
+  }, [selectedItem]);
+
+  const titan = useMemo(() => {
+    if (!selectedItem || selectedItem.type !== 'Titans') return null;
+    const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
+    const isSelectedUe = cleanSelected.startsWith('ue ');
+
+    return precomputedTitans.find(t => {
+      if (isSelectedUe !== t.isUe) return false;
+      return t.cleanName === cleanSelected || cleanSelected.includes(t.cleanName);
+    });
+  }, [selectedItem]);
+
   useEffect(() => {
     if (!selectedItem) return;
     const handleKeyDown = (e) => {
@@ -63,14 +117,6 @@ export function DetailModal({ selectedItem, onClose }) {
           {selectedItem.type.includes('Weapons') && (
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
               {(() => {
-                // Try to search weapon in weapons_dps.json
-                let dpsInfo = null;
-                if (weaponsDpsData) {
-                  Object.keys(weaponsDpsData).forEach(k => {
-                    const found = weaponsDpsData[k].find(w => w.name.toLowerCase() === selectedItem.name.toLowerCase() || selectedItem.name.toLowerCase().includes(w.name.toLowerCase()));
-                    if (found) dpsInfo = found;
-                  });
-                }
                 if (dpsInfo) {
                   return (
                     <>
@@ -108,14 +154,6 @@ export function DetailModal({ selectedItem, onClose }) {
           {selectedItem.type === 'Robots' && (
             <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
               {(() => {
-                const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
-                const isSelectedUe = cleanSelected.startsWith('ue ');
-                const rob = robotGuideData?.robots?.find(r => {
-                  const cleanR = r.name.replace(/\*+$/, '').trim().toLowerCase();
-                  const isR_Ue = cleanR.startsWith('ue ');
-                  if (isSelectedUe !== isR_Ue) return false;
-                  return cleanR === cleanSelected || cleanSelected.includes(cleanR);
-                });
                 if (rob) {
                   return (
                     <>
@@ -165,14 +203,6 @@ export function DetailModal({ selectedItem, onClose }) {
           {selectedItem.type === 'Titans' && (
             <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
               {(() => {
-                const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
-                const isSelectedUe = cleanSelected.startsWith('ue ');
-                const titan = robotGuideData?.titans?.find(t => {
-                  const cleanT = t.name.replace(/\*+$/, '').trim().toLowerCase();
-                  const isT_Ue = cleanT.startsWith('ue ');
-                  if (isSelectedUe !== isT_Ue) return false;
-                  return cleanT === cleanSelected || cleanSelected.includes(cleanT);
-                });
                 if (titan) {
                   return (
                     <>
