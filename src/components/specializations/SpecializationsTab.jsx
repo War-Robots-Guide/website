@@ -26,7 +26,7 @@ export function SpecializationsTab({ onItemClick }) {
   return (
     <div className="animate-fade-in text-left">
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Module Specialization Guide</h2>
+        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Specializations Guide</h2>
         <p style={{ margin: '0 auto' }}>
           Learn what specializations and modules are the best for you.
         </p>

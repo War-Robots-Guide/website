@@ -23,7 +23,7 @@ describe('SpecializationsTab', () => {
     render(<SpecializationsTab onItemClick={() => {}} />);
     
     // Header should still render
-    expect(screen.getByText('Module Specialization Guide')).toBeInTheDocument();
+    expect(screen.getByText('Specializations Guide')).toBeInTheDocument();
     
     // Interactive Assistant title should render
     expect(screen.getByText('Automatic Specialization Picker')).toBeInTheDocument();

@@ -135,7 +135,7 @@ export function DashboardTab({ onItemClick }) {
           </div>
           <div>
             <div className="stat-number">{stats.totalWeapons}</div>
-            <div className="stat-label">Weapons tested</div>
+            <div className="stat-label">Robot and Titan weapons tested</div>
           </div>
         </div>
         <div className="glass-panel stat-card">
