@@ -197,7 +197,7 @@ export function HangarAnalyzerTab() {
                 borderRadius: '12px',
                 position: 'relative',
                 border: '1px solid var(--border-light)',
-                background: 'rgba(15, 18, 30, 0.45)'
+                background: 'rgba(13, 30, 43, 0.45)'
               }}
             >
               <button 
