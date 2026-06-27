@@ -1,33 +1,51 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { X } from 'lucide-react';
+import { useMemo } from 'react';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
 
-export function DetailModal({ selectedItem, onClose }) {
+// Pre-compute lookup data outside the component to avoid recreating it on every render.
+const weaponsList = weaponsDpsData ? Object.values(weaponsDpsData).flat() : [];
+const precomputedWeapons = weaponsList.map(w => ({
+  ...w,
+  lowerName: w.name.toLowerCase()
+}));
 
+const precomputedRobots = robotGuideData?.robots ? robotGuideData.robots.map(r => {
+  const cleanName = r.name.replace(/\*+$/, '').trim().toLowerCase();
+  return {
+    ...r,
+    cleanName,
+    isUe: cleanName.startsWith('ue ')
+  };
+}) : [];
+
+const precomputedTitans = robotGuideData?.titans ? robotGuideData.titans.map(t => {
+  const cleanName = t.name.replace(/\*+$/, '').trim().toLowerCase();
+  return {
+    ...t,
+    cleanName,
+    isUe: cleanName.startsWith('ue ')
+  };
+}) : [];
+
+export function DetailModal({ selectedItem, onClose }) {
   const dpsInfo = useMemo(() => {
     if (!selectedItem || !selectedItem.type.includes('Weapons')) return null;
-    let foundDpsInfo = null;
-    if (weaponsDpsData) {
-      Object.keys(weaponsDpsData).forEach(k => {
-        const found = weaponsDpsData[k].find(w => w.name.toLowerCase() === selectedItem.name.toLowerCase() || selectedItem.name.toLowerCase().includes(w.name.toLowerCase()));
-        if (found) foundDpsInfo = found;
-      });
-    }
-    return foundDpsInfo;
+    const targetLower = selectedItem.name.toLowerCase();
+    return precomputedWeapons.find(w => w.lowerName === targetLower || targetLower.includes(w.lowerName)) || null;
   }, [selectedItem]);
 
   const rob = useMemo(() => {
     if (!selectedItem || selectedItem.type !== 'Robots') return null;
     const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
     const isSelectedUe = cleanSelected.startsWith('ue ');
-    return robotGuideData?.robots?.find(r => {
-      const cleanR = r.name.replace(/\*+$/, '').trim().toLowerCase();
-      const isR_Ue = cleanR.startsWith('ue ');
-      if (isSelectedUe !== isR_Ue) return false;
-      return cleanR === cleanSelected || cleanSelected.includes(cleanR);
+
+    return precomputedRobots.find(r => {
+      if (isSelectedUe !== r.isUe) return false;
+      return r.cleanName === cleanSelected || cleanSelected.includes(r.cleanName);
     });
   }, [selectedItem]);
 
@@ -35,11 +53,10 @@ export function DetailModal({ selectedItem, onClose }) {
     if (!selectedItem || selectedItem.type !== 'Titans') return null;
     const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
     const isSelectedUe = cleanSelected.startsWith('ue ');
-    return robotGuideData?.titans?.find(t => {
-      const cleanT = t.name.replace(/\*+$/, '').trim().toLowerCase();
-      const isT_Ue = cleanT.startsWith('ue ');
-      if (isSelectedUe !== isT_Ue) return false;
-      return cleanT === cleanSelected || cleanSelected.includes(cleanT);
+
+    return precomputedTitans.find(t => {
+      if (isSelectedUe !== t.isUe) return false;
+      return t.cleanName === cleanSelected || cleanSelected.includes(t.cleanName);
     });
   }, [selectedItem]);
 
@@ -131,88 +148,98 @@ export function DetailModal({ selectedItem, onClose }) {
           {/* For robots */}
           {selectedItem.type === 'Robots' && (
             <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
-              {rob ? (
-                <>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                    <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
-                      <RatingBar rating={rob.value_rating} unitType="robot" />
-                    </div>
-                    <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
-                      <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)' }}>Robot</span>
-                    </div>
-                  </div>
-                  {rob.roles && rob.roles.length > 0 && (
-                    <div style={{ marginBottom: '16px' }}>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Roles</span>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                        {rob.roles.map(role => {
-                          if (role.type === 'none') return null;
-                          return (
-                            <span key={role.role} className={`role-badge ${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
-                              {role.role}
-                            </span>
-                          );
-                        })}
+              {(() => {
+                if (rob) {
+                  return (
+                    <>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                        <div>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
+                          <RatingBar rating={rob.value_rating} unitType="robot" />
+                        </div>
+                        <div>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
+                          <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)' }}>Robot</span>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
-                  <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
-                    <ScoreMeter label="Longevity" score={rob.scores.longevity} />
-                    <ScoreMeter label="Lethality" score={rob.scores.lethality} />
-                    <ScoreMeter label="Mobility" score={rob.scores.mobility} />
-                    <ScoreMeter label="Utility" score={rob.scores.utility} />
-                    <ScoreMeter label="Accessibility" score={rob.scores.accessibility} />
-                    <ScoreMeter label="Overall Score" score={rob.scores.overall} />
-                  </div>
-                </>
-              ) : null}
+                      {rob.roles && rob.roles.length > 0 && (
+                        <div style={{ marginBottom: '16px' }}>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Roles</span>
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                            {rob.roles.map(role => {
+                              if (role.type === 'none') return null;
+                              return (
+                                <span key={role.role} className={`role-badge ${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
+                                  {role.role}
+                                </span>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
+                      <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
+                        <ScoreMeter label="Longevity" score={rob.scores.longevity} />
+                        <ScoreMeter label="Lethality" score={rob.scores.lethality} />
+                        <ScoreMeter label="Mobility" score={rob.scores.mobility} />
+                        <ScoreMeter label="Utility" score={rob.scores.utility} />
+                        <ScoreMeter label="Accessibility" score={rob.scores.accessibility} />
+                        <ScoreMeter label="Overall Score" score={rob.scores.overall} />
+                      </div>
+                    </>
+                  );
+                }
+                return null;
+              })()}
             </div>
           )}
 
           {/* For titans */}
           {selectedItem.type === 'Titans' && (
             <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
-              {titan ? (
-                <>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                    <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
-                      <RatingBar rating={titan.value_rating} unitType="titan" />
-                    </div>
-                    <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
-                      <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--purple)', borderColor: 'rgba(59, 130, 246, 0.2)' }}>Titan</span>
-                    </div>
-                  </div>
-                  {titan.roles && titan.roles.length > 0 && (
-                    <div style={{ marginBottom: '16px' }}>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Roles</span>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                        {titan.roles.map(role => {
-                          if (role.type === 'none') return null;
-                          return (
-                            <span key={role.role} className={`role-badge ${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
-                              {role.role}
-                            </span>
-                          );
-                        })}
+              {(() => {
+                if (titan) {
+                  return (
+                    <>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                        <div>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
+                          <RatingBar rating={titan.value_rating} unitType="titan" />
+                        </div>
+                        <div>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
+                          <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--purple)', borderColor: 'rgba(59, 130, 246, 0.2)' }}>Titan</span>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
-                  <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
-                    <ScoreMeter label="Longevity" score={titan.scores.longevity} />
-                    <ScoreMeter label="Lethality" score={titan.scores.lethality} />
-                    <ScoreMeter label="Mobility" score={titan.scores.mobility} />
-                    <ScoreMeter label="Utility" score={titan.scores.utility} />
-                    <ScoreMeter label="Accessibility" score={titan.scores.accessibility} />
-                    <ScoreMeter label="Overall Score" score={titan.scores.overall} />
-                  </div>
-                </>
-              ) : null}
+                      {titan.roles && titan.roles.length > 0 && (
+                        <div style={{ marginBottom: '16px' }}>
+                          <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Roles</span>
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                            {titan.roles.map(role => {
+                              if (role.type === 'none') return null;
+                              return (
+                                <span key={role.role} className={`role-badge ${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
+                                  {role.role}
+                                </span>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                      <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
+                      <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
+                        <ScoreMeter label="Longevity" score={titan.scores.longevity} />
+                        <ScoreMeter label="Lethality" score={titan.scores.lethality} />
+                        <ScoreMeter label="Mobility" score={titan.scores.mobility} />
+                        <ScoreMeter label="Utility" score={titan.scores.utility} />
+                        <ScoreMeter label="Accessibility" score={titan.scores.accessibility} />
+                        <ScoreMeter label="Overall Score" score={titan.scores.overall} />
+                      </div>
+                    </>
+                  );
+                }
+                return null;
+              })()}
             </div>
           )}
 
