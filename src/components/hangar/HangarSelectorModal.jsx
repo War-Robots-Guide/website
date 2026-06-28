@@ -5,15 +5,25 @@ import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
 
+const precomputedTitans = (robotGuideData?.titans || []).map(t => ({
+  ...t,
+  _searchName: t.name.toLowerCase(),
+}));
+
+const precomputedRobots = (robotGuideData?.robots || []).map(r => ({
+  ...r,
+  _searchName: r.name.toLowerCase(),
+}));
+
 export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelectorSearchQuery, onClose, onSelect }) {
   const isTitanSlot = activeSlot === 5;
   const lowerCaseQuery = (selectorSearchQuery || "").toLowerCase();
 
   const filteredItems = useMemo(() => {
     if (isTitanSlot) {
-      return robotGuideData?.titans?.filter(t => t.name.toLowerCase().includes(lowerCaseQuery)) || [];
+      return precomputedTitans.filter(t => t._searchName.includes(lowerCaseQuery));
     }
-    return robotGuideData?.robots?.filter(r => r.name.toLowerCase().includes(lowerCaseQuery)) || [];
+    return precomputedRobots.filter(r => r._searchName.includes(lowerCaseQuery));
   }, [isTitanSlot, lowerCaseQuery]);
 
   useEffect(() => {
