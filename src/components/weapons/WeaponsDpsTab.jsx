@@ -3,6 +3,20 @@ import { X } from 'lucide-react';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import { SearchInput } from '../common/SearchInput';
 
+// Pre-compute object mapping and lowercased fields to avoid
+// redundant allocations and string operations on every render/filter
+const processedWeaponsData = {};
+if (weaponsDpsData) {
+  Object.entries(weaponsDpsData).forEach(([weaponClass, weapons]) => {
+    processedWeaponsData[weaponClass] = weapons.map((weapon, index) => ({
+      ...weapon,
+      compareId: `${weaponClass}:${index}`,
+      nameLower: weapon.name ? weapon.name.toLowerCase() : '',
+      notesLower: weapon.notes ? weapon.notes.toLowerCase() : ''
+    }));
+  });
+}
+
 export function WeaponsDpsTab() {
   const [selectedWeaponClass, setSelectedWeaponClass] = useState('Heavy Weapons');
   const [searchInput, setSearchInput] = useState('');
@@ -20,18 +34,13 @@ export function WeaponsDpsTab() {
 
   // Filtered weapons for table
   const filteredWeapons = useMemo(() => {
-    if (!weaponsDpsData || !weaponsDpsData[selectedWeaponClass]) return [];
+    if (!processedWeaponsData[selectedWeaponClass]) return [];
     const query = searchQuery.toLowerCase();
     
-    return weaponsDpsData[selectedWeaponClass]
-      .map((weapon, index) => ({
-        ...weapon,
-        compareId: `${selectedWeaponClass}:${index}`
-      }))
-      .filter(weapon => 
-        weapon.name.toLowerCase().includes(query) ||
-        weapon.notes.toLowerCase().includes(query)
-      );
+    return processedWeaponsData[selectedWeaponClass].filter(weapon =>
+      weapon.nameLower.includes(query) ||
+      weapon.notesLower.includes(query)
+    );
   }, [selectedWeaponClass, searchQuery]);
 
   // Max DPS values for scaling chart bars
