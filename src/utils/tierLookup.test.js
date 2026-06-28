@@ -28,6 +28,14 @@ vi.mock('../data/tiers.json', () => {
             { name: "Short", description: "Short Description" },
             { name: "UE Short", description: "UE Short Description" }
           ]
+        },
+        B: {
+          items: [
+            { name: "", description: "No Name Description" }
+          ]
+        },
+        C: {
+          // No items array
         }
       }
     }
@@ -86,6 +94,10 @@ describe('tierLookup', () => {
     it('should handle multiple comma-separated names in cache', () => {
       expect(getDescriptionForName('Bot1', 'Robots')).toBe('Multi-bot Description');
       expect(getDescriptionForName('Bot2', 'Robots')).toBe('Multi-bot Description');
+    });
+
+    it('should return empty string if no match is found (fallback case)', () => {
+      expect(getDescriptionForName('NonExistentBot', 'Robots')).toBe('');
     });
   });
 
