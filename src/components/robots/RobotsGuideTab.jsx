@@ -1,10 +1,10 @@
 import { useState, useMemo, useEffect } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
-import { RatingBar } from '../common/RatingBar';
 import { sortBySearchQuery } from '../../utils/sortUtils';
-import { SearchInput } from '../common/SearchInput';
-import { ScoreMeter } from '../common/ScoreMeter';
 import { getDescriptionForName } from '../../utils/tierLookup';
+import { RobotCard } from './RobotCard';
+import { TitanCard } from './TitanCard';
+import { GuideFilters } from './GuideFilters';
 
 export function RobotsGuideTab({ onItemClick }) {
   const [guideSubTab, setGuideSubTab] = useState('robots');
@@ -103,155 +103,36 @@ export function RobotsGuideTab({ onItemClick }) {
       </div>
 
       {/* Filter controls */}
-      <div className="search-container">
-        <SearchInput
-          placeholder={`Search ${guideSubTab}...`}
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
+      <GuideFilters
+        guideSubTab={guideSubTab}
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        robotValueFilter={robotValueFilter}
+        setRobotValueFilter={setRobotValueFilter}
+        robotRoleFilter={robotRoleFilter}
+        setRobotRoleFilter={setRobotRoleFilter}
+      />
 
-        {/* Value rating filter */}
-        <select 
-          className="select-filter"
-          value={robotValueFilter}
-          onChange={(e) => setRobotValueFilter(e.target.value)}
-        >
-          <option value="All">All Value Ratings</option>
-          {guideSubTab === 'robots' && (
-            <>
-              <option value="5">Value Rating 5</option>
-              <option value="4">Value Rating 4</option>
-            </>
-          )}
-          <option value="3">Value Rating 3</option>
-          <option value="2">Value Rating 2</option>
-          <option value="1">Value Rating 1</option>
-          <option value="0">Value Rating 0</option>
-          <option value="-1">Value Rating -1</option>
-          <option value="-2">Value Rating -2</option>
-        </select>
-
-        {/* Roles filter (only for Robots) */}
-        {guideSubTab === 'robots' && (
-          <select 
-            className="select-filter"
-            value={robotRoleFilter}
-            onChange={(e) => setRobotRoleFilter(e.target.value)}
-          >
-            <option value="All">All Hangar Roles</option>
-            <option value="Support">Support</option>
-            <option value="Tank-buster">Tank-Buster</option>
-            <option value="Sniper">Sniper</option>
-            <option value="Midrange">Midrange</option>
-            <option value="Brawler">Brawler</option>
-            <option value="Beacon Runner">Beacon Runner</option>
-            <option value="Assassin">Assassin</option>
-          </select>
-        )}
+      {/* Robots/Titans Grid */}
+      <div className="dashboard-grid">
+        {guideSubTab === 'robots'
+          ? filteredRobots.map(robot => (
+              <RobotCard
+                key={robot.name}
+                robot={robot}
+                onClick={handleCardClick}
+                robotGuideData={robotGuideData}
+              />
+            ))
+          : filteredTitans.map(titan => (
+              <TitanCard
+                key={titan.name}
+                titan={titan}
+                onClick={handleCardClick}
+              />
+            ))
+        }
       </div>
-
-      {/* Robots Grid */}
-      {guideSubTab === 'robots' ? (
-        <div className="dashboard-grid">
-          {filteredRobots.map(robot => (
-            <div 
-              className="glass-panel glass-panel-hover robot-card" 
-              key={robot.name}
-              onClick={() => handleCardClick(robot, 'Robots')}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(robot, 'Robots'); } }}
-              tabIndex={0}
-              role="button"
-              aria-label={`View details for ${robot.name}`}
-            >
-              <div className="robot-card-header">
-                <div>
-                  <h3 style={{ fontSize: '20px', color: 'var(--cyan)' }}>{robot.name}</h3>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{robot.sheet}</span>
-                </div>
-                <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block', marginBottom: '2px', fontWeight: 600 }}>VALUE RATING</span>
-                  <RatingBar rating={robot.value_rating} unitType="robot" align="right" />
-                </div>
-              </div>
-
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: '8px 0' }}>
-                {robot.comments}
-              </p>
-
-              {/* Scores bars */}
-              <div className="robot-scores">
-                <ScoreMeter label="Longevity" score={robot.scores.longevity} />
-                <ScoreMeter label="Lethality" score={robot.scores.lethality} />
-                <ScoreMeter label="Mobility" score={robot.scores.mobility} />
-                <ScoreMeter label="Utility" score={robot.scores.utility} />
-                <ScoreMeter label="Accessibility" score={robot.scores.accessibility} />
-                <ScoreMeter label="Overall Score" score={robot.scores.overall} />
-              </div>
-
-              {/* Roles Badges */}
-              {robot.roles && robot.roles.length > 0 && (
-                <div className="robot-roles">
-                  {robot.roles.map(role => {
-                    const tooltipText = role.footnote ? robotGuideData?.footnotes?.[parseInt(role.footnote) - 1] || role.footnote : '';
-                    return (
-                      <span
-                        className={`role-badge ${role.type}`}
-                        key={role.role}
-                        title={tooltipText}
-                      >
-                        {role.role}
-                        {role.type === 'primary' && ' (Primary)'}
-                        {role.type === 'secondary' && ' (Secondary)'}
-                        {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>*</sup>}
-                      </span>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      ) : (
-        // Titans Grid
-        <div className="dashboard-grid">
-          {filteredTitans.map(titan => (
-            <div 
-              className="glass-panel glass-panel-hover robot-card" 
-              key={titan.name}
-              onClick={() => handleCardClick(titan, 'Titans')}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(titan, 'Titans'); } }}
-              tabIndex={0}
-              role="button"
-              aria-label={`View details for ${titan.name}`}
-            >
-              <div className="robot-card-header">
-                <div>
-                  <h3 style={{ fontSize: '20px', color: 'var(--purple)' }}>{titan.name}</h3>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Titan Class</span>
-                </div>
-                <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block', marginBottom: '2px', fontWeight: 600 }}>VALUE RATING</span>
-                  <RatingBar rating={titan.value_rating} unitType="titan" align="right" />
-                </div>
-              </div>
-
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: '8px 0' }}>
-                {titan.comments}
-              </p>
-
-              {/* Scores bars */}
-              <div className="robot-scores">
-                <ScoreMeter label="Longevity" score={titan.scores.longevity} />
-                <ScoreMeter label="Lethality" score={titan.scores.lethality} />
-                <ScoreMeter label="Mobility" score={titan.scores.mobility} />
-                <ScoreMeter label="Utility" score={titan.scores.utility} />
-                <ScoreMeter label="Accessibility" score={titan.scores.accessibility} />
-                <ScoreMeter label="Overall Score" score={titan.scores.overall} />
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
 
     </div>
   );
