@@ -106,6 +106,7 @@ export function TierListTab({ onItemClick }) {
               <div className="tier-content">
                 {tierInfo.items.map(item => {
                   // Omit internal search properties before passing to parent
+                  // eslint-disable-next-line no-unused-vars
                   const { _searchName, _searchDesc, ...publicItem } = item;
                   return (
                     <div
