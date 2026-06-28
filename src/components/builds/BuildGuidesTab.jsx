@@ -4,36 +4,34 @@ import { sortBySearchQuery } from '../../utils/sortUtils';
 import { SearchInput } from '../common/SearchInput';
 import { BuildDetailModal } from './BuildDetailModal';
 
+// Precompute static data at module level to optimize render loop
+const precomputedBuilds = (robotGuideData?.builds || []).map(build => ({
+  ...build,
+  _searchString: `${build.build_name} ${build.robot} ${build.best_weapons} ${build.explanation}`.toLowerCase(),
+  parsed_build_name: build.build_name.replace(/\n/g, ' '),
+  parsed_pilot: build.pilot.replace(/\n/g, ' '),
+  parsed_specialization: build.specialization.split('\n')
+}));
+
 export function BuildGuidesTab() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedBuild, setSelectedBuild] = useState(null);
 
   const filteredBuilds = useMemo(() => {
-    if (!robotGuideData?.builds) return [];
     const query = searchQuery.toLowerCase().trim();
     
-    let filtered = robotGuideData.builds.filter(build =>
-      build.build_name.toLowerCase().includes(query) ||
-      build.robot.toLowerCase().includes(query) ||
-      build.best_weapons.toLowerCase().includes(query) ||
-      build.explanation.toLowerCase().includes(query)
-    );
-
-    if (query) {
-      // Prioritize robot name matches:
-      // 1. Exact match on robot name
-      // 2. Starts with robot name
-      // 3. Substring match on robot name
-      // 4. Other matches (non-robot)
-      filtered = sortBySearchQuery(filtered, query, (build) => build.robot);
+    if (!query) {
+      return precomputedBuilds;
     }
 
-    return filtered.map(build => ({
-      ...build,
-      parsed_build_name: build.build_name.replace(/\n/g, ' '),
-      parsed_pilot: build.pilot.replace(/\n/g, ' '),
-      parsed_specialization: build.specialization.split('\n')
-    }));
+    let filtered = precomputedBuilds.filter(build => build._searchString.includes(query));
+
+    // Prioritize robot name matches:
+    // 1. Exact match on robot name
+    // 2. Starts with robot name
+    // 3. Substring match on robot name
+    // 4. Other matches (non-robot)
+    return sortBySearchQuery(filtered, query, (build) => build.robot);
   }, [searchQuery]);
 
   return (
