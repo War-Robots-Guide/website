@@ -11,8 +11,8 @@ export function DashboardHero() {
           Ultimate War Robots Database & Guides
         </h1>
         <p className="dashboard-hero-desc">
-          Welcome to the database compiled by the expert community at <span style={{ color: 'var(--cyan)', fontWeight: 600 }}>r/WarRobotsGuide</span>.
-          Get recommendations on weapon DPS, robot ratings, modules, pilots, and meta strategies.
+          Welcome to the database compiled by the expert community at <span style={{ color: 'var(--cyan)', fontWeight: 600 }}>War Robots Guide</span>.
+          Navigate to the top of the site to browse our extensive collection of helpful resources!
         </p>
       </div>
     </div>
