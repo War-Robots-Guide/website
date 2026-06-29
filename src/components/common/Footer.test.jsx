@@ -8,7 +8,9 @@ describe('Footer Component', () => {
     render(<Footer />);
 
     // Check if the main text content is rendered
-    expect(screen.getByText(/War Robots Guide Website\. Compiled by Adazahi, Spiritings, Tropical, mistermaths, and Running Riot\./i)).toBeInTheDocument();
+    expect(screen.getByText(/War Robots Guide Website/i)).toBeInTheDocument();
+    expect(screen.getByText('Adazahi')).toBeInTheDocument();
+    expect(screen.getByText(/Spiritings, Tropical/i)).toBeInTheDocument();
 
     // Check if the developer name is rendered
     expect(screen.getByText('CrimsonHawk')).toBeInTheDocument();
@@ -26,15 +28,29 @@ describe('Footer Component', () => {
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
 
-  it('does not crash when clicked if onDeveloperClick is not provided', async () => {
+  it('calls onAdazahiClick callback when the Adazahi name is clicked', async () => {
+    const mockOnClick = vi.fn();
     const user = userEvent.setup();
 
-    // Render without providing onDeveloperClick
+    render(<Footer onAdazahiClick={mockOnClick} />);
+
+    const adazahiSpan = screen.getByText('Adazahi');
+    await user.click(adazahiSpan);
+
+    expect(mockOnClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not crash when clicked if callbacks are not provided', async () => {
+    const user = userEvent.setup();
+
+    // Render without providing callbacks
     render(<Footer />);
 
     const developerSpan = screen.getByText('CrimsonHawk');
+    const adazahiSpan = screen.getByText('Adazahi');
 
     // This should not throw an error
     await user.click(developerSpan);
+    await user.click(adazahiSpan);
   });
 });

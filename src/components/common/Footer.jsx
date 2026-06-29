@@ -1,5 +1,5 @@
 
-export function Footer({ onDeveloperClick }) {
+export function Footer({ onDeveloperClick, onAdazahiClick }) {
   return (
     <footer style={{ 
       borderTop: '1px solid var(--border-light)', 
@@ -12,7 +12,14 @@ export function Footer({ onDeveloperClick }) {
       zIndex: 10
     }}>
       <p>
-        War Robots Guide Website. Compiled by Adazahi, Spiritings, Tropical, mistermaths, and Running Riot. Developed by{' '}
+        War Robots Guide Website. Compiled by{' '}
+        <span 
+          onClick={onAdazahiClick} 
+          style={{ cursor: 'pointer', userSelect: 'none' }}
+        >
+          Adazahi
+        </span>
+        , Spiritings, Tropical, mistermaths, and Running Riot. Developed by{' '}
         <span 
           onClick={onDeveloperClick} 
           style={{ cursor: 'pointer', userSelect: 'none' }}

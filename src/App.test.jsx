@@ -15,9 +15,10 @@ vi.mock('./components/common/Header', () => ({
 }));
 
 vi.mock('./components/common/Footer', () => ({
-  Footer: ({ onDeveloperClick }) => (
+  Footer: ({ onDeveloperClick, onAdazahiClick }) => (
     <footer data-testid="footer">
       <button data-testid="dev-btn" onClick={onDeveloperClick}>Dev Click</button>
+      <button data-testid="adazahi-btn" onClick={onAdazahiClick}>Adazahi Click</button>
     </footer>
   )
 }));
@@ -166,6 +167,30 @@ describe('App Component', () => {
 
     // Click 4th time
     await user.click(devBtn);
+
+    expect(screen.getByTestId('easter-egg-status')).toHaveTextContent('Active');
+    expect(document.body.style.background).toBe('rgb(7, 8, 12)'); // '#07080c' converts to rgb in jsdom
+  });
+
+  it('activates Adazahi easter egg when Adazahi name click is triggered 8 times', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    expect(screen.getByTestId('easter-egg-status')).toHaveTextContent('Inactive');
+    expect(document.body.style.background).toBe('');
+
+    const adazahiBtn = screen.getByTestId('adazahi-btn');
+
+    // Click 7 times
+    for (let i = 0; i < 7; i++) {
+      await user.click(adazahiBtn);
+    }
+
+    expect(screen.getByTestId('easter-egg-status')).toHaveTextContent('Inactive');
+    expect(document.body.style.background).toBe('');
+
+    // Click 8th time
+    await user.click(adazahiBtn);
 
     expect(screen.getByTestId('easter-egg-status')).toHaveTextContent('Active');
     expect(document.body.style.background).toBe('rgb(7, 8, 12)'); // '#07080c' converts to rgb in jsdom

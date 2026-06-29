@@ -18,6 +18,8 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isEasterEggActive, setIsEasterEggActive] = useState(false);
   const [clickCount, setClickCount] = useState(0);
+  const [isAdazahiEggActive, setIsAdazahiEggActive] = useState(false);
+  const [clickCountAdazahi, setClickCountAdazahi] = useState(0);
 
   const handleDeveloperClick = () => {
     const nextCount = clickCount + 1;
@@ -28,13 +30,22 @@ function App() {
     }
   };
 
+  const handleAdazahiClick = () => {
+    const nextCount = clickCountAdazahi + 1;
+    setClickCountAdazahi(nextCount);
+    if (nextCount === 8) {
+      setIsAdazahiEggActive(true);
+      console.log("Adazahi easter egg activated! Welcome to the Adazahi theme.");
+    }
+  };
+
   useEffect(() => {
-    if (isEasterEggActive) {
+    if (isEasterEggActive || isAdazahiEggActive) {
       document.body.style.background = '#07080c'; // Neutral dark background to remove blue tint
     } else {
       document.body.style.background = '';
     }
-  }, [isEasterEggActive]);
+  }, [isEasterEggActive, isAdazahiEggActive]);
 
   const [prevActiveTab, setPrevActiveTab] = useState(activeTab);
   if (activeTab !== prevActiveTab) {
@@ -63,7 +74,10 @@ function App() {
           <div
             key={tab}
             className={`bg-layer bg-theme-${tab} ${activeTab === tab ? 'active' : ''}`}
-            style={isEasterEggActive ? { 
+            style={isAdazahiEggActive ? {
+              backgroundImage: "url('/backgrounds/easteregg-adazahi-bg.jpg')",
+              opacity: activeTab === tab ? 0.75 : 0
+            } : isEasterEggActive ? { 
               backgroundImage: "url('/backgrounds/easteregg-crimsonhawk-bg.jpg')",
               opacity: activeTab === tab ? 0.75 : 0
             } : {}}
@@ -71,7 +85,7 @@ function App() {
         ))}
       </div>
 
-      <Header activeTab={activeTab} onTabChange={setActiveTab} isEasterEggActive={isEasterEggActive} />
+      <Header activeTab={activeTab} onTabChange={setActiveTab} isEasterEggActive={isEasterEggActive || isAdazahiEggActive} />
 
       <main className={`main-content bg-theme-${activeTab}`}>
         {activeTab === 'dashboard' && <DashboardTab onTabChange={setActiveTab} onItemClick={openItemDetails} />}
@@ -84,7 +98,7 @@ function App() {
         {activeTab === 'hangar' && <HangarAnalyzerTab />}
       </main>
 
-      <Footer onDeveloperClick={handleDeveloperClick} />
+      <Footer onDeveloperClick={handleDeveloperClick} onAdazahiClick={handleAdazahiClick} />
 
       {selectedItem && (
         <DetailModal selectedItem={selectedItem} onClose={() => setSelectedItem(null)} />
