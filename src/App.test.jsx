@@ -147,7 +147,7 @@ describe('App Component', () => {
     expect(screen.queryByTestId('detail-modal')).not.toBeInTheDocument();
   });
 
-  it('activates easter egg when developer click is triggered 8 times', async () => {
+  it('activates easter egg when developer click is triggered 4 times', async () => {
     const user = userEvent.setup();
     render(<App />);
 
@@ -156,15 +156,15 @@ describe('App Component', () => {
 
     const devBtn = screen.getByTestId('dev-btn');
 
-    // Click 7 times
-    for (let i = 0; i < 7; i++) {
+    // Click 3 times
+    for (let i = 0; i < 3; i++) {
       await user.click(devBtn);
     }
 
     expect(screen.getByTestId('easter-egg-status')).toHaveTextContent('Inactive');
     expect(document.body.style.background).toBe('');
 
-    // Click 8th time
+    // Click 4th time
     await user.click(devBtn);
 
     expect(screen.getByTestId('easter-egg-status')).toHaveTextContent('Active');

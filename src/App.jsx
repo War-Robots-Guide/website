@@ -22,7 +22,7 @@ function App() {
   const handleDeveloperClick = () => {
     const nextCount = clickCount + 1;
     setClickCount(nextCount);
-    if (nextCount === 8) {
+    if (nextCount === 4) {
       setIsEasterEggActive(true);
       console.log("Easter egg activated! Welcome to the CrimsonHawk theme.");
     }
