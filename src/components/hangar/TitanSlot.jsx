@@ -14,7 +14,8 @@ export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
           borderRadius: '12px',
           position: 'relative',
           border: '1px solid rgba(59, 130, 246, 0.4)',
-          background: 'rgba(59, 130, 246, 0.05)'
+          background: 'rgba(59, 130, 246, 0.05)',
+          overflow: 'visible'
         }}
       >
         <button

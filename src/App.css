@@ -1312,5 +1312,47 @@
   background-image: url('/backgrounds/hangaranalyzer-bg.jpg');
 }
 
+/* Value rating scale breaking animations */
+@keyframes needle-break-shake {
+  0% { transform: translateX(-50%) translate(0, 0); }
+  20% { transform: translateX(-50%) translate(-0.8px, 0.8px); }
+  40% { transform: translateX(-50%) translate(0.8px, -0.8px); }
+  60% { transform: translateX(-50%) translate(-0.8px, -0.8px); }
+  80% { transform: translateX(-50%) translate(0.8px, 0.8px); }
+  100% { transform: translateX(-50%) translate(0, 0); }
+}
+
+@keyframes text-break-shake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-0.8px, 0.8px); }
+  40% { transform: translate(0.8px, -0.8px); }
+  60% { transform: translate(-0.8px, -0.8px); }
+  80% { transform: translate(0.8px, 0.8px); }
+  100% { transform: translate(0, 0); }
+}
+
+.shake-needle {
+  will-change: transform;
+}
+
+.shake-text {
+  will-change: transform;
+}
+
+/* Run shaking animations only when card/panel is hovered or inside the active detail modal */
+.robot-card:hover .shake-needle,
+.glass-panel:hover .shake-needle,
+.modal-content .shake-needle {
+  animation: needle-break-shake 0.1s infinite linear;
+}
+
+.robot-card:hover .shake-text,
+.glass-panel:hover .shake-text,
+.modal-content .shake-text {
+  animation: text-break-shake 0.1s infinite linear;
+}
+
+
+
 
 

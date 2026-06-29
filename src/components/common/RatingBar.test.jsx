@@ -31,9 +31,9 @@ describe('RatingBar Component', () => {
       // Upper bounds are dynamic now in label
       expect(screen.getByText('Best (+10)')).toBeInTheDocument();
 
-      // Calculate expected percentage capped at 3: ((3 - -2) / (3 - -2)) * 100 = 100%
+      // Calculate expected percentage capped at 125% visual overflow
       const markerElement = container.querySelector('div[style*="position: absolute"]');
-      expect(markerElement).toHaveStyle({ left: '100%' });
+      expect(markerElement).toHaveStyle({ left: '125%' });
     });
 
     it('clamps rating to lower bound visually but shows dynamic label', () => {
@@ -66,9 +66,9 @@ describe('RatingBar Component', () => {
       // Upper bound shows actual value
       expect(screen.getByText('Best (+5)')).toBeInTheDocument();
 
-      // Calculate expected percentage: ((3 - -2) / (3 - -2)) * 100 = 100%
+      // Calculate expected percentage: 125% visual overflow
       const markerElement = container.querySelector('div[style*="position: absolute"]');
-      expect(markerElement).toHaveStyle({ left: '100%' });
+      expect(markerElement).toHaveStyle({ left: '125%' });
     });
   });
 

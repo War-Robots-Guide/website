@@ -6,10 +6,9 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
   const minVal = -2;
   const maxVal = 3;
   
-  // Clamp rating for visual bar positioning
-  const clampedRating = Math.min(maxVal, Math.max(minVal, rating));
-  // Calculate percentage
-  const percentage = ((clampedRating - minVal) / (maxVal - minVal)) * 100;
+  // Clamp rating for visual bar positioning: allow it to overflow to 125% when rating > 3
+  const clampedRating = Math.max(minVal, rating);
+  const percentage = Math.max(0, Math.min(125, ((clampedRating - minVal) / (maxVal - minVal)) * 100));
   
   const getRatingLabel = (val) => {
     const formattedVal = val > 0 ? `+${val}` : val;
@@ -34,6 +33,8 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
 
   const colorsList = getRatingColorsList();
 
+  const isBroken = rating > 3;
+
   return (
     <div style={{ 
       display: 'flex', 
@@ -57,18 +58,25 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
         marginTop: '6px',
         marginBottom: '4px'
       }}>
-        <div style={{
-          position: 'absolute',
-          left: `${percentage}%`,
-          top: '-6px',
-          transform: 'translateX(-50%)',
-          width: 0,
-          height: 0,
-          borderLeft: '4px solid transparent',
-          borderRight: '4px solid transparent',
-          borderTop: '6px solid #fff',
-          filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))'
-        }}></div>
+        {/* Needle */}
+        <div 
+          className={isBroken ? 'shake-needle' : ''}
+          style={{
+            position: 'absolute',
+            left: `${percentage}%`,
+            top: '-6px',
+            transform: 'translateX(-50%)',
+            width: 0,
+            height: 0,
+            borderLeft: '4px solid transparent',
+            borderRight: '4px solid transparent',
+            borderTop: `6px solid ${isBroken ? colorsList[5] : '#fff'}`,
+            filter: isBroken
+              ? `drop-shadow(0 0 5px ${colorsList[5]}) drop-shadow(0 2px 4px rgba(0,0,0,0.5))`
+              : 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))',
+            zIndex: 2
+          }}
+        ></div>
       </div>
     </div>
   );

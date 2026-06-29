@@ -5,6 +5,7 @@ export function RobotCard({ robot, onClick, robotGuideData }) {
   return (
     <div
       className="glass-panel glass-panel-hover robot-card"
+      style={{ overflow: 'visible' }}
       onClick={() => onClick(robot, 'Robots')}
       onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(robot, 'Robots'); } }}
       tabIndex={0}

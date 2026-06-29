@@ -19,6 +19,9 @@ export function ScoreMeter({ label, score, options = {} }) {
 
   const isNegative = scoreVal < 0;
   const fillColor = customFillColor || getRatingColor(scoreVal);
+  const isBroken = scoreVal > 3;
+
+
   
   return (
     <div className="score-bar-wrapper">
@@ -32,7 +35,15 @@ export function ScoreMeter({ label, score, options = {} }) {
             {customBadge}
           </div>
         ) : (
-          <span style={{ fontWeight: 700, color: fillColor }}>
+          <span 
+            className={isBroken ? 'shake-text' : ''}
+            style={{ 
+              fontWeight: 700, 
+              color: fillColor,
+              display: isBroken ? 'inline-block' : 'inline',
+              filter: isBroken ? `drop-shadow(0 0 4px ${fillColor})` : 'none'
+            }}
+          >
             {useScaleLabel ? (scoreVal > 0 ? `+${scoreVal}` : scoreVal) : scoreVal}
           </span>
         )}

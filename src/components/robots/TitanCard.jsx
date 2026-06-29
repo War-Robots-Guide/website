@@ -5,6 +5,7 @@ export function TitanCard({ titan, onClick }) {
   return (
     <div
       className="glass-panel glass-panel-hover robot-card"
+      style={{ overflow: 'visible' }}
       onClick={() => onClick(titan, 'Titans')}
       onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(titan, 'Titans'); } }}
       tabIndex={0}

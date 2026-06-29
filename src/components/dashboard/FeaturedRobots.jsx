@@ -12,7 +12,7 @@ export function FeaturedRobots({ featuredRobots, handleCardClick }) {
           <div
             className="glass-panel glass-panel-hover robot-card"
             key={robot.name}
-            style={{ background: 'rgba(255,255,255,0.01)', padding: '16px', display: 'flex', flexDirection: 'column' }}
+            style={{ background: 'rgba(255,255,255,0.01)', padding: '16px', display: 'flex', flexDirection: 'column', overflow: 'visible' }}
             onClick={() => handleCardClick(robot)}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleCardClick(robot); } }}
             tabIndex={0}
