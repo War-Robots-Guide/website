@@ -126,7 +126,7 @@ function validateRobotGuide(data) {
     expectNonEmptyString(robot.name, `${path}.name`);
     expectString(robot.comments, `${path}.comments`);
     expectNonEmptyString(robot.sheet, `${path}.sheet`);
-    expectNumberInRange(robot.value_rating, `${path}.value_rating`, -2, 5);
+    expectNumberInRange(robot.value_rating, `${path}.value_rating`, -5, 10);
     validateScores(robot.scores, `${path}.scores`, 'robot');
     expectArray(robot.roles, `${path}.roles`).forEach((role, roleIndex) => {
       expectNonEmptyString(role.role, `${path}.roles[${roleIndex}].role`);
@@ -149,7 +149,7 @@ function validateRobotGuide(data) {
     const path = `robot_guide.titans[${index}]`;
     expectNonEmptyString(titan.name, `${path}.name`);
     expectString(titan.comments, `${path}.comments`);
-    expectNumberInRange(titan.value_rating, `${path}.value_rating`, -2, 3);
+    expectNumberInRange(titan.value_rating, `${path}.value_rating`, -5, 10);
     validateScores(titan.scores, `${path}.scores`, 'titan');
 
     // Track uniqueness (Warning only)
@@ -164,7 +164,7 @@ function validateRobotGuide(data) {
 
 function validateScores(scores, path, unitType = 'robot') {
   const scoreObj = expectObject(scores, path);
-  const maxVal = unitType === 'titan' ? 3 : 5;
+  const maxVal = unitType === 'titan' ? 5 : 10;
   for (const key of ['longevity', 'lethality', 'mobility', 'utility', 'accessibility']) {
     expectNumberInRange(scoreObj[key], `${path}.${key}`, -3, 3);
   }
