@@ -160,16 +160,16 @@
         {
           "name": "UE Griffin",
           "description": "Starting to see a pattern yet? High damage potential with blind and 4 medium slots."
+        },
+        {
+          "name": "Lio",
+          "description": "Extremely competent support bot with the potential to turn a teammate into an incredibly hard to kill tank. That being said, it\u2019s as susceptible to being hunted down and killed just as Nuo is, and the defense it provides is often not as valuable as Nuo\u2019s offense. In the past, it was a pretty good tank itself with Showdown, but nowadays, you\u2019d rather not expose yourself if you can avoid it."
         }
       ]
     },
     "B": {
       "casual_name": "Solid",
       "items": [
-        {
-          "name": "Lio",
-          "description": "Extremely competent support bot with the potential to turn a teammate into an incredibly hard to kill tank. That being said, it\u2019s as susceptible to being hunted down and killed as Nuo is, and the defense it provides is honestly not as valuable as Nuo\u2019s offense. In the past, it was a pretty good tank itself with Showdown, but nowadays, you\u2019d rather not expose yourself if you can avoid it."
-        },
         {
           "name": "Ravana",
           "description": "Powercreep has caught up with this grandpa of a bot, but it\u2019s still chugging along. A strict downgrade from UE Ravana, but still good in of itself."
@@ -265,7 +265,7 @@
         },
         {
           "name": "Erebus",
-          "description": "Unique 1100m blackout ability that can disrupt people from behind cover across the map means it must be in this tier at minimum, but the rest of the bot leaves much to be desired."
+          "description": "Unique 800m blackout ability that can disrupt people from behind cover across the map means it must be in this tier at minimum, but the rest of the bot leaves much to be desired."
         },
         {
           "name": "Harpy",
@@ -323,6 +323,10 @@
         {
           "name": "Blitz",
           "description": "Pretty outdated bot that relies on suppression to land in order to be able to fight. Decent when the enemy doesn't have some form of suppression immunity active."
+        },
+        {
+          "name": "Weyland",
+          "description": "Comparable tank to Fenrir that trades a bit of tankieness for additional supportive utility via healing. The pilot provides a very frail shield that can be rapidly activated and deactivated, useful for blocking high damage single shot attacks."
         }
       ]
     },
@@ -532,7 +536,7 @@
         },
         {
           "name": "Murometz",
-          "description": "Trades off a lot of Aethers benefits (healing, speed, ability duration) for stealth in ability (which can sometimes be better and sometimes be wore) as well as an instant EMP, which is the main bread and butter of Muro. Played right, it can punch way above it's weight class."
+          "description": "Trades off a lot of Aethers benefits (healing, speed, ability duration) for stealth in ability (which can sometimes be better and sometimes be worse) as well as an instant EMP, which is the main bread and butter of Muro. Played right, it can punch way above it's weight class."
         },
         {
           "name": "Devourer",
@@ -549,7 +553,7 @@
         },
         {
           "name": "Heimdall",
-          "description": "Mediocre brawler and mediocre support. The suppression rocket is not a reliable form of defense due to the prevalence of anticontrol/anti jamming turret."
+          "description": "Mediocre brawler and usable support. The suppression rocket is not a reliable form of defense due to the prevalence of anticontrol/anti jamming turret."
         }
       ]
     },
@@ -1117,7 +1121,7 @@
         },
         {
           "name": "UE Toxin, UE Venom",
-          "description": "On the watchlist for now. I am a believer that on builds that abuse rust (ie Webby Imugi) these weapons can pose a serious threat to titans, able to ignore their defenses. Unfortunately, the total lack of base damage means these weapons do fully repairable damage (hence why they are only usable with rust abusers) and struggle to get through aegis shields."
+          "description": "On the watchlist for now. I am a believer that on builds that abuse rust (ie Webby Imugi) or have high shieldbreaker uptime (ie Hawkeye Vector) these weapons can pose a serious threat to titans, able to ignore their defenses. Unfortunately, the total lack of base damage means these weapons do fully repairable DoT damage and struggle to get through aegis shields."
         }
       ]
     },
@@ -1256,15 +1260,15 @@
         },
         {
           "name": "Shifang, Fengbao, Leiming",
-          "description": "F2p version of Krokos in that they can be used to charge your titan fast early on, but they pretty much do no damage, unlike krokos. That being said, I'll note that they have the benefit of ignoring stealth. locking down, and hitting several targets at once."
+          "description": "F2p titan charging weapons that deal pretty much no damage. That being said, I'll note that they have the benefit of ignoring stealth, locking down, and hitting several targets at once."
         },
         {
           "name": "Hornet, Wasp",
-          "description": "Solid burst damage, but awfully long reload. Just use Decay family instead."
+          "description": "Solid burst damage at 600m, but awfully long reload. Just use Decay family instead."
         },
         {
           "name": "Kramola, Razdor, Smuta",
-          "description": "Weird machineguns that go around corners but have an awfully long reload and mediocre damage. Not terrible, and have niche circumstances where they can force enemies out of cover, but still not really worth using."
+          "description": "Homing machineguns that go around corners but have an awfully long reload and subpar damage. Not terrible, and have niche circumstances where they can force enemies out of cover, but still not really worth using."
         },
         {
           "name": "Pulsar",
@@ -1321,7 +1325,7 @@
         },
         {
           "name": "Tempest",
-          "description": "Usable damage but it's claim of 800m range is quite deceptive; the accuracy gets pretty bad past 350m. A sidegrade of Avenger that trades damage for better accuracy (because even though its accuracy sucks, it's still better than Avenger's)."
+          "description": "Usable damage but its claim of 800m range is quite deceptive; the accuracy gets pretty bad past 350m. A sidegrade of Avenger that trades damage for better accuracy (because even though its accuracy sucks, it's still better than Avenger's)."
         },
         {
           "name": "Exodus",
@@ -1407,6 +1411,10 @@
         {
           "name": "Trebuchet, Ballista, Arbalest",
           "description": "Outdated, poor damage. If someone can prove that Trebs can consistently onetap Anaksors, I'll majorly raise their tier."
+        },
+        {
+          "name": "Flux",
+          "description": "The damage is incredibly bad (comparable to weapons in F tier) though it has notably exceptional mothership charge accumulation which is why it\u2019s in D tier."
         }
       ]
     },
@@ -1414,7 +1422,7 @@
       "casual_name": "uber hyper giga trash",
       "items": [
         {
-          "name": "Chimera, Hydra, Spiral, Flux, Gekko, Tulumbas, Pin, Orkan, Pinata, Molot T, Molot, Aphid, Noricum, Trident, Nashorn, Kang Dae, Zenit, Ancile, Ecu, Zeus",
+          "name": "Chimera, Hydra, Spiral, Gekko, Tulumbas, Pin, Orkan, Pinata, Molot T, Molot, Aphid, Noricum, Trident, Nashorn, Kang Dae, Zenit, Ancile, Ecu, Zeus",
           "description": "Ancient outdated legacy gear with no damage potential."
         }
       ]

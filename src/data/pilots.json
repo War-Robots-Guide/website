@@ -24,7 +24,7 @@
       },
       {
         "name": "Suppressor",
-        "description": "The value of this skill depends on your suppression power. Most bots that suppress do 50% or 75%, so they should definitely take this skill, but if a bot with 90% suppression comes out, it's overkill."
+        "description": "The value of this skill depends on your suppression power. Most bots that suppress do 75% or less, so they should definitely take this skill, but if a bot with 90% suppression comes out, it's overkill."
       },
       {
         "name": "Dodger",
@@ -104,7 +104,7 @@
       },
       {
         "name": "Guidance Operator",
-        "description": "The problem with this skill is that all the weapons it applies to suck, except boom family, which are mid but you should use this for them."
+        "description": "The problem with this skill is that all the weapons it applies to suck, except boom family, which are mid but you should probably use this for them if you can make space for it."
       }
     ],
     "Don't Use": [
@@ -118,7 +118,7 @@
       },
       {
         "name": "Raider Mechanic, Ninja",
-        "description": "These skills are hard to justify slotting in."
+        "description": "These skills are hard to justify slotting in over more reliable and unconditional stat boosts."
       },
       {
         "name": "\"Opportunist\" skills, Bounty hunter",
@@ -162,7 +162,7 @@
     "Must Use": [
       {
         "name": "Mechanic",
-        "description": "Playing the game without this skill feels awful. Titans like this skill especially."
+        "description": "Playing the game without this skill feels awful. This skill is especially valuable for titans, who spend more time under fire and have easier access to grey damage resistance."
       },
       {
         "name": "Road Hog",
@@ -195,20 +195,20 @@
       {
         "name": "Stubborn Warrior",
         "description": "Unlike stubborn speedster, this is pretty much just guaranteed free durability since you will almost certainly get to 30% health before dying (unless you get oneshot) so you can treat it as some more free durability. Especially powerful while TRA is active."
+      },
+      {
+        "name": "Suppressor",
+        "description": "The value of this skill depends on your suppression power. Most titans that suppress do 75% or less, so they should definitely take this skill. This skill is overkill and redundant on titans with 90% suppression, though so far, every 90% suppression titan to ever come out has had it nerfed down to a more reasonable value."
       }
     ],
     "Usually Use": [
       {
         "name": "Jaeger",
-        "description": "For titans with 1 Alpha and 2 Beta slots, Jaeger is comparable to taking another copy of titan slayer, which is obviously good."
+        "description": "For titans with 1 Alpha and 2 Beta slots, Jaeger is comparable to taking another copy of titan slayer, which is obviously good. The skill shoots up in value for titans with more beta slots and loses value if the Titan has built in bonus mitigation or a max stacked TNA to bring their betas to 100% mitigation without this skill."
       },
       {
         "name": "Sharpshooter",
         "description": "Most weapons with this skill available will want to take it if possible. Some weapons gain more from it than others. Ask yourself the question: Do my weapons feel like they miss a lot at the range I usually play this bot at? If yes, take sharpshooter."
-      },
-      {
-        "name": "Suppressor",
-        "description": "The value of this skill depends on your suppression power. Most titans that suppress do 50% or 75%, so they should definitely take this skill, but for UE Nodens who has a 90% suppression, this skill is overkill."
       },
       {
         "name": "Wonderworker",
@@ -300,7 +300,7 @@
       },
       {
         "name": "Hoplite",
-        "description": "You have probably never heard of this skill before. That is for a good reason. Very good for players who like when their titan instantly wilts after someone with venires looks at them. That should be all... let me know if I missed anything or you have any further pilot related questions!"
+        "description": "You have probably never heard of this skill before. That is for a good reason. It makes your physical shields much stronger at the cost of abouy a third of your HP. Yikes. That should be all... let me know if I missed anything or you have any further pilot related questions!"
       }
     ]
   }
