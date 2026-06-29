@@ -111,7 +111,7 @@ describe('ScoreMeter Component', () => {
       );
 
       const fillElement = container.querySelector('.score-fill');
-      expect(fillElement).toHaveStyle({ background: '#ff00ff' });
+      expect(fillElement).toHaveStyle({ backgroundColor: '#ff00ff', backgroundImage: 'none' });
       // When customFillColor is provided, it doesn't get the 'negative' class even if score < 0
       expect(fillElement).not.toHaveClass('negative');
     });

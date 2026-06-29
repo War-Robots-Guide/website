@@ -53,7 +53,8 @@ export function ScoreMeter({ label, score, options = {} }) {
           className={`score-fill ${isNegative && !customFillColor ? 'negative' : ''}`} 
           style={{ 
             width: `${percentage}%`,
-            background: fillColor,
+            backgroundColor: fillColor,
+            backgroundImage: 'none',
             boxShadow: percentage > 0 ? `0 0 6px ${fillColor}40` : 'none',
             transition: 'width 0.5s ease-in-out'
           }}
