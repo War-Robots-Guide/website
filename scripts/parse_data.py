@@ -406,12 +406,84 @@ def parse_tiers():
     print("Parsed tier lists and descriptions.")
 
 # ----------------------------------------------------
-# 5. PARSE Copy of A Simplified Robot Guide for New Players.xlsx
+# 5. PARSE The Simplified WR Guide for New Players.xlsx
 # ----------------------------------------------------
+def hex_to_rgb(hex_str):
+    hex_str = hex_str.lstrip('#')
+    return tuple(int(hex_str[i:i+2], 16) for i in (0, 2, 4))
+
+def rgb_to_hex(rgb):
+    return '#{:02x}{:02x}{:02x}'.format(*rgb)
+
+def interpolate_color(color1, color2, factor):
+    rgb1 = hex_to_rgb(color1)
+    rgb2 = hex_to_rgb(color2)
+    rgb_interp = tuple(int(round(a + factor * (b - a))) for a, b in zip(rgb1, rgb2))
+    return rgb_to_hex(rgb_interp)
+
+def extract_rating_colors(wb):
+    # Default fallback colors
+    rating_colors = {
+        "min": "#ef4444",
+        "mid": "#eab308",
+        "max": "#22c55e",
+        "super": "#3b82f6"
+    }
+    try:
+        sheet = None
+        for sname in ["Tier 4", "Tier 3", "Titans"]:
+            if sname in wb.sheetnames:
+                sheet = wb[sname]
+                break
+        if sheet is not None:
+            cfs = sheet.conditional_formatting
+            for cf in cfs:
+                for rule in cf.rules:
+                    if rule.type == "colorScale" and rule.colorScale:
+                        colors = rule.colorScale.color
+                        if len(colors) >= 3:
+                            c_min = colors[0].rgb
+                            c_mid = colors[1].rgb
+                            c_max = colors[2].rgb
+                            if isinstance(c_min, str) and len(c_min) >= 6:
+                                rating_colors["min"] = "#" + c_min[-6:].lower()
+                            if isinstance(c_mid, str) and len(c_mid) >= 6:
+                                rating_colors["mid"] = "#" + c_mid[-6:].lower()
+                            if isinstance(c_max, str) and len(c_max) >= 6:
+                                rating_colors["max"] = "#" + c_max[-6:].lower()
+                    elif rule.type == "cellIs" and rule.operator in ["greaterThanOrEqual", "equal"] and rule.dxfId is not None:
+                        dxf_list = wb._differential_styles
+                        if hasattr(dxf_list, "styles") and int(rule.dxfId) < len(dxf_list.styles):
+                            style = dxf_list.styles[int(rule.dxfId)]
+                            if style.fill and style.fill.fill_type == "solid" and style.fill.start_color:
+                                c_super = style.fill.start_color.rgb
+                                if isinstance(c_super, str) and len(c_super) >= 6:
+                                    rating_colors["super"] = "#" + c_super[-6:].lower()
+    except Exception as e:
+        print(f"Warning: Failed to extract rating colors from spreadsheet: {e}")
+        
+    c_min = rating_colors["min"]
+    c_mid = rating_colors["mid"]
+    c_max = rating_colors["max"]
+    c_super = rating_colors["super"]
+    
+    c_neg1 = interpolate_color(c_min, c_mid, 0.5)
+    c_pos1 = interpolate_color(c_mid, c_max, 0.5)
+    
+    return {
+        "<= -2": c_min,
+        "-1": c_neg1,
+        "0": c_mid,
+        "+1": c_pos1,
+        "+2": c_max,
+        ">= +3": c_super
+    }
+
 def parse_robot_guide():
-    filepath = find_file_case_insensitive("Copy of A Simplified Robot Guide for New Players.xlsx")
+    filepath = find_file_case_insensitive("The Simplified WR Guide for New Players.xlsx")
     
     wb = openpyxl.load_workbook(filepath, data_only=True)
+
     
     # 5.1 Parse Changelog (start at row 2 to skip headers)
     changelog = []
@@ -704,6 +776,8 @@ def parse_robot_guide():
             if footnote_str.startswith("*"):
                 roles_footnotes.append(footnote_str)
 
+    rating_colors = extract_rating_colors(wb)
+
     # Output unified guide JSON
     guide_json = {
         "changelog": changelog,
@@ -711,7 +785,8 @@ def parse_robot_guide():
         "robots": robots_data,
         "titans": titans_data,
         "camelot": camelot_data,
-        "footnotes": roles_footnotes
+        "footnotes": roles_footnotes,
+        "rating_colors": rating_colors
     }
     
     with open(os.path.join(data_out_dir, "robot_guide.json"), "w", encoding="utf-8") as f:

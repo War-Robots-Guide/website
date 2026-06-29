@@ -1,4 +1,6 @@
 
+import { getRatingColor } from '../../utils/ratingColors';
+
 export function ScoreMeter({ label, score, options = {} }) {
   const {
     min = -2,
@@ -15,15 +17,8 @@ export function ScoreMeter({ label, score, options = {} }) {
     ? customPercentage 
     : Math.max(0, Math.min(100, ((scoreVal - min) / (max - min)) * 100));
 
-  // Determine score color based on green-yellow-red scale
-  const getScoreColor = (val) => {
-    if (val >= 2) return '#22c55e'; // Green
-    if (val >= 0) return '#eab308'; // Yellow
-    return '#ef4444'; // Red
-  };
-
   const isNegative = scoreVal < 0;
-  const fillColor = customFillColor || getScoreColor(scoreVal);
+  const fillColor = customFillColor || getRatingColor(scoreVal);
   
   return (
     <div className="score-bar-wrapper">

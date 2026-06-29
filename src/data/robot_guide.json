@@ -1,80 +1,188 @@
 {
   "changelog": [
     {
-      "date": "2026-06-07",
-      "text": "Added Aopo as a f2p option for Anaksor. -adazahi"
+      "date": "2024-11-06",
+      "text": "Updates for data pad update, Dux, Condor, and bot re-evaluations: Dagon -1 Longevity, Ophion +1 Lethality, Shenlou +1 Accessibility, Dux added at total +1, Condor added at total +1. - Mistermath"
     },
     {
-      "date": "2026-05-29",
-      "text": "Added shoggoth to mini build guides. May soon be worth considering Piercer to be a f2p weapon. Removed piercer from most \"best builds\" in favor or Shantak. Added Voonith + Urhag to the best options for most midranger builds.\nYes, I know they have longer range, but I'm not gonna make a new sniper node for every single bot that can use these op ranged guns, they work at midrange too. \nShoggoth speed 0-> -1, bots with no mobility have -1, not 0. -Adazahi"
+      "date": "2024-12-20",
+      "text": "Updates for data pad update: Pathfinder +2 Accessibility - Mistermath"
     },
     {
-      "date": "2026-05-28",
-      "text": "Added Shoggoth, Hastatus accessiblity from -1 to 0 because it is now in common data pads, Fixed Nether rating as it was different in some places, Rex lethality 0->1 due to BIW's bug fix, could even argue Rex being potential +2 lethality but that's less about a noob guide and more for power level raking -Tropical"
+      "date": "2024-12-29",
+      "text": "Update for 10.6 patch: Ravager added at total 0. - Mistermath"
     },
     {
-      "date": "2026-05-21",
-      "text": "Added Myia to Loki, Skyros, and Nightingale recommendations. -Adazahi"
+      "date": "2025-01-16",
+      "text": "Added and began work on Camelot ratings. - Mistermath"
     },
     {
-      "date": "2026-05-16",
-      "text": "Aether longevity -1 -> 0, the forcefield is indeed real protection that requires concentrated firepower from several TNA titans to actually kill through. Fixed atlas being 2 on titan sheet but 3 on intro sheet. \nMurometz mobility 0 -> -1, there isn't any reason for it to have 0 in mobility when it lacks any mobility at all, unless vertical mobility is counted, but then ao ming would have 0 mobility. \nEiffel lethality 1 ->2, having ran it myself, I feel confident in suggesting eiffel as a final bot for f2ps -Adazahi"
+      "date": "2025-01-20",
+      "text": "Completed Camelot tier list. - Mistermath"
     },
     {
-      "date": "2026-05-01",
-      "text": "Added seeker as an option for dux. -adazahi"
+      "date": "2025-01-29",
+      "text": "Added Samjok at total +1. - Mistermath"
     },
     {
-      "date": "2026-04-30",
-      "text": "Atlas accessibility -1 -> 0 due to being added to the black market and it likely already deserved the 0-rating anyways. - Tropical"
+      "date": "2025-02-02",
+      "text": "Updates for data pad update: Curie -1 Accessibility, Raptor +1 Accessibility, Bagliore +1 Accessibility. - Mistermath"
     },
     {
-      "date": "2026-04-28",
-      "text": "Changed F2P builds for Loki and Skyros (beacon capper) to harpoons. Non F2P unchanged as meta weapons for the occasional opportunistic attack are probably just as relevant."
+      "date": "2025-02-05",
+      "text": "Moved Doc from F-tier to C-tier on the SAGE Retro Camelot tier list. - Mistermath"
     },
     {
-      "date": "2026-04-16",
-      "text": "Re-evaluations: Bulgasari mobility 0 -> +1, Haechi mobility 0 -> +1. Multiple dashes are now sufficient for +1 rating. Rex accessibility -2 -> -1 following move to common/blue pads. -Mistermath"
+      "date": "2025-02-09",
+      "text": "Bot re-evaluations: Strider -1 Lethality, Mars -1 Longevity, Blitz +1 Accessibility. - Mistermath"
     },
     {
-      "date": "2026-04-15",
-      "text": "Added new curving flames to mini build guides. -Adazahi Fixed the way adazahi credits his notes in the changes log -Tropical"
+      "date": "2025-02-14",
+      "text": "Bot re-evaluations: Harpy -1 Lethality. - Mistermath"
     },
     {
-      "date": "2026-04-14",
-      "text": "Added Vector & Waymaker. -Tropical. Added Vector to mini build guides + edited anaksor best pilot to be the new one. -Adazahi"
+      "date": "2025-02-26",
+      "text": "Bot re-shifts owing to 10.8 patch. Related re-evaluations: Invader +1 Accessibility, Blitz +1 Accessibility, Leech +1 Mobility, Phantom +1 Accessibility & -1 Durability, Ao Jun +1 Accessibility. - Mistermath"
     },
     {
-      "date": "2026-04-08",
-      "text": "Re-evaluations: Samjok Access 0 -> +1, Anaksor Access -2 -> -3. Samjok is in the gold chest and doesn't require much leveling to function. Anaksor without the drone has issues with chip damage. -Adazahi"
+      "date": "2025-02-27",
+      "text": "Update for 10.8 patch: Condor -1 Lethality & -1 Mobility, Dux -1 Mobility, Raptor +1 Utility & -1 Accessibility, Nemesis +1 Accessibility & -1 Longevity. - Mistermath"
     },
     {
-      "date": "2026-04-06",
-      "text": "Changed mini build guide weapons: Dux best -> replaced any ue weapons with close range only, Demeter best -> replaced any UE weapons with close range only, Lio f2p -> Growler, Leech f2p -> growler + porthos, \nNuo best -> Machiara + Basilus or UE redeemer/taran, Lynx f2p -> Nucleon or Talon, Siren -> renamed \"titan charger\" to \"titan charger/assault\", Raptor best -> close range UE or kroko guns, Nightingale best -> Elox Murix, \nUE burst weapons, Kroko guns, Teth best -> removed hybrid acid shotgun build, Ammit -> Added machiara + velios and close range UE to best, rust rocket, bsg, and growler to f2p, Raven best -> added midrange UE setups, Anaksor f2p -> added screamer growler\nre-added pilum + gladius to all midrange setups that had it entirely replaced with anaksor guns, the extra 100m of range makes it a decent option (though still mostly worse than anaksor guns, still best at 600m). Added UE index, added rust machine guns to any bots with atomizer or nucleon suggested.\n-Adazahi"
+      "date": "2025-03-07",
+      "text": "Updates for BM update: Curie +1 Accessibility, Condor +1 Accessibility - Mistermath"
     },
     {
-      "date": "2026-03-28",
-      "text": "Changed f2p Imugi mini build guide reccomendation to Growler Howler from Havoc Scatter. -Adazahi"
+      "date": "2025-04-23",
+      "text": "Added Lio and Nuo at total +1. - Mistermath"
     },
     {
-      "date": "2026-03-25",
-      "text": "Added UE Devastator + UE Havoc to Anaksor titan slayer build suggestions. Eiffel and Bersagliere Mobility changed from 1 -> 2 to fit with new mobility evaluation standards. Dagon access changed from -2 -> -1 because while it requires 6 weapons and statchecks, it's available through black market. Stryx, who is available through only data pads and still requires 5 weapons is only -1, so this seems fair. -Adazahi"
+      "date": "2025-04-29",
+      "text": "Update for Workshop update: Imugi +2 Accessibility. - Mistermath"
     },
     {
-      "date": "2026-03-09",
-      "text": "Changed pilot recommendation on Skirmisher Anaksor to Mei Lan -Adazahi"
+      "date": "2025-05-12",
+      "text": "Bot re-evaluations: Nether -1 Accessibility. - Mistermath"
     },
     {
-      "date": "2026-03-08",
-      "text": "Re-evaluated what counts as 2 mobility. Imugi, Nightingale, Strider, Nuo, Raven, Nether, and Seraph all have been raised from 1 -> 2. -Adazahi"
+      "date": "2025-05-14",
+      "text": "Bot re-evaluations: Typhon -1 Longevity, Erebus -1 Longevity, Invader -1 Longevity, Mars -1 Accessibility - Mistermath"
     },
     {
-      "date": "2026-03-07",
-      "text": "Kaji mobility 1 -> 0, Access -1 -> 0. Nerfs really reduced it's speed, but it's in common data pads now. Rex Longevity 2 -> 1, Access -3 -> 2. Rex isn't as tanky as before, but it's a little easier to get your hands on now. \nPrinceps access -3 -> -2, Atlas access -2 -> -1, both are & have been inside the titan pads for a few months now. Sword mobility 1 -> 0, don't use the dash anymore, utility -1 -> 0, run it like a siren with lockdown unit. \nUpdated a few robot & titan comments, roles, and mini build guides as well. -Adazahi & Tropical"
+      "date": "2025-05-19",
+      "text": "Bot re-evaluations: Hellburner -1 Accessibility. - Mistermath"
+    },
+    {
+      "date": "2025-05-20",
+      "text": "Updates for data pad update: Dux +2 Accessibility, Ravager +1 Accessibility. Added Sword Unit at total 0. - Mistermath"
+    },
+    {
+      "date": "2025-05-27",
+      "text": "Corrected a data entry error for Typhon and Nether. - Mistermath"
+    },
+    {
+      "date": "2025-06-15",
+      "text": "Added Teth at a total of +1 - MrCactus"
+    },
+    {
+      "date": "2025-07-01",
+      "text": "11.2 Mega Patch updates for a total of: Orochi +1, Condor -1, Dux +1,  Samjok +1, Nuo +2 - MrCactus"
+    },
+    {
+      "date": "2025-07-18",
+      "text": "Modified changes made on 07/01 following review; Orochi +1 Longevity reverted to 0 Longevity. Condor's -1 Accessibility kept, added -1 Longevity. - Mistermath"
+    },
+    {
+      "date": "2025-08-04",
+      "text": "Added Strix at a total of -1 - MrCactus"
+    },
+    {
+      "date": "2025-08-18",
+      "text": "Bot re-evaluations: Revenant 0 Accessibility, Ochokotchi 0 Accessibility, Raptor 0 Accessibility. - MrCactus"
+    },
+    {
+      "date": "2025-12-13",
+      "text": "Bot re-evaluations: Scorpion 2, Shenlou 1, Ao Jun -1, Condor -1, Loki 2, Pathfinder 5, Lio/Nuo 3, Demeter 3, Dux 2, Crisis 2. Changed rating system to allow -2 and +2 in certain traits, allowing more precise control of tier by extensuating a bots extreme proficiency (or lack thereof) in any given trait. Added Kaji, Rex, Hastatus -Adazahi"
+    },
+    {
+      "date": "2025-12-14",
+      "text": "Bot re-evaluations: Tyr, Fenrir, Weyland, Behemoth -1, Ophion 0, Fury, Orochi 1, Dagon -2. Strix changed to Stryx - Adazahi"
+    },
+    {
+      "date": "2025-12-26",
+      "text": "Bot re-eval: Crisis access -1. Four good f2p heavy weapons? In this economy? - Adazahi"
+    },
+    {
+      "date": "2025-12-27",
+      "text": "Added experimental layout for a titan tab. - Mistermath"
+    },
+    {
+      "date": "2025-12-27",
+      "text": "Bedwyr 0 lethality (+1) due to deathmark. Princeps +1 lethality +1 longevity and +1 utility due to it being damage dealer with TNA and 2 alpha 2 beta as well as the force push ability that can CC enemies. -3 accessibility due to it being paid gambling only, so overall same grade. Atlas utility +1 mobility +1 due to jump, accessibility -2 for same reason. \nBjorn +1 lethality, it has an entire alpha weapon on most brawlers. Added Kid, Ming, Arthur. Kaji 0 longevity, nondens 0 longevity. -Adazahi"
+    },
+    {
+      "date": "2025-12-28",
+      "text": "After a bit of discussion through discord, Crisis deserves +1 mobility if Bagliore has +1 for having a simple relatively one-time use beacon teleport (which should be used defensively instead of for covering ground, but that's neither here nor there) -Tropical\nSkyros +2 mobility -1 lethality to be consistent with Loki -Adazahi changed adazahi password and signed him out of his account have fun \ud83d\ude02-tropical\nBlitz utility +1, access 0, since it has suppression but still relies on statchecking when the suppression runs out (or if the enemy has anticontrol). also, blew up tropical's house. -adzadongy"
+    },
+    {
+      "date": "2025-12-29",
+      "text": "Bot re-evaluations: Crisis mobility +1->0, Bagliore mobility +1->0, accessibility -2->-1, Ravager accessibility +1->0, Dux Longevity 0->+1 Mobility +1->0.\nFootnote: Considering re-evaluation of accessibility ratings for Sword-Unit and Teth. Let this also be a reminder that the point of rating things systematically is that the process should determine the results, not the other way around.\nMobility is most certainly not a category Crisis excels in. Lethality and Accessibility should be the two areas where a debate can be had. \nAn argument that either Flux/Gauss Crisis is a legitimate build or that Crisis should have +2 Lethality would be still lukewarm, but significantly more tenable than Crisis being a mobility king. - Mistermath\nMath and I decided on Crisis, Stryx, and Bagliore all sharing +2 lethality as they are the three highest firepower piercer-holders in the game, and unlike behemoth, the only other 4H bot, also have either damage boosts or 5H. -Adazahi"
+    },
+    {
+      "date": "2025-01-05",
+      "text": "Bot re-evaluations: Teth & Sword Unit Accessibility -1 -> 0. - Mistermath"
+    },
+    {
+      "date": "2026-01-12",
+      "text": "Bot re-evaluations: Blitz Utility +1->0. Moved back down to bring in line with other suppression robots. Consider raising Rayker from 0 to +1 in the future due to significantly more range and charges on suppression. - Mistermath"
+    },
+    {
+      "date": "2026-01-15",
+      "text": "Bot re-evaluations: Ravager Longevity 0->+1. Bringing in line with Loki and Crisis. Worth noting that Ravager's superior bulk to Crisis may allow it to act as a slower Loki. -Mistermath"
+    },
+    {
+      "date": "2026-01-20",
+      "text": "Bot re-evaluations: Fury Utility +1->-1, Accessibility +1->+2. Jaeger mobility -1->0. Changes for the purposes of consistency. In terms of accessibility, Fury is the only pre-leveled T3 bot. -Mistermath"
+    },
+    {
+      "date": "2026-01-21",
+      "text": "Added Ammit at a total rating of +2. -adazi"
+    },
+    {
+      "date": "2026-01-22",
+      "text": "Changed sword description to remove anything about execute. It's execution threshold is too low to reliably execute things anymore - Adazahi"
+    },
+    {
+      "date": "2026-01-25",
+      "text": "Added new \"Bot Roles\" page. -Mistermath & Adazahi"
+    },
+    {
+      "date": "2026-01-28",
+      "text": "Edited the Nuo & Lio short blurbs to exclude the \"available through common data pads\" part, and increased Hastatus's accessibility rating to -1 from -2. At least, with Kaji being at -1 and \nHastatus also being in the same pads & locations as Kaji, I think it's fair to have it at -1. Also somewhat of the same reasoning as to why Bagliore has -1 in accessibility. \nMaybe considering increasing Rex's accessibility to -2 from -3? My reasoning being Bull isn't mandatory (personally ran it long enough to determine that mk3 is the bigger & more impactful hurdle), \nand the fact Ammit h-as -2 despite being economically the same as Rex was on its release. -Tropical"
+    },
+    {
+      "date": "2026-01-29",
+      "text": "Edited Nuo & Lio comments to mention expected future additions to superchest in order to justify maintaining accessibility rating. Fixed what appeared to be a consistency error for Orochi and Nether on T4 tab. - Mistermath"
+    },
+    {
+      "date": "2026-01-30",
+      "text": "Started progress on mini build guides. Added info about roles and mini build guides section to the intro. - Adazahi"
+    },
+    {
+      "date": "2026-02-02",
+      "text": "Finished mini build guide. -adazahi"
+    },
+    {
+      "date": "2026-02-04",
+      "text": "Added hastatus build guide, removed titan chargers, devourer 0->+1 utility and +1->0 longevity, edited descriptions for Bjorn, Devourer, and Princeps - Adazahi"
+    },
+    {
+      "date": "2026-02-05",
+      "text": "Removed ARM from pathfinder build guide. % damage weapons dont scale well with hunter stacks. Added pretty colors for organization. -Adazahi"
     },
     {
       "date": "2026-03-03",
-      "text": "Ankasor lethality +2 -> +1. While Ankasor sports decent firepower and a really good BiW, it's seemingly insane firepower is carried by the OP new guns, which the other +2 Lethality bots (ie Bagliore) can wield many more of. -Adazahi"
+      "text": "Update for 11.8 patch: Lio longevity +2->+1. Corrected utility for Rex/Hastatus from 0->-1. -Mistermath"
     },
     {
       "date": "2026-03-03",
@@ -82,187 +190,87 @@
     },
     {
       "date": "2026-03-03",
-      "text": "Update for 11.8 patch: Lio longevity +2->+1. Corrected utility for Rex/Hastatus from 0->-1. -Mistermath"
+      "text": "Ankasor lethality +2 -> +1. While Ankasor sports decent firepower and a really good BiW, it's seemingly insane firepower is carried by the OP new guns, which the other +2 Lethality bots (ie Bagliore) can wield many more of. -Adazahi"
     },
     {
-      "date": "2026-02-05",
-      "text": "Removed ARM from pathfinder build guide. % damage weapons dont scale well with hunter stacks. Added pretty colors for organization. -Adazahi"
+      "date": "2026-03-07",
+      "text": "Kaji mobility 1 -> 0, Access -1 -> 0. Nerfs really reduced it's speed, but it's in common data pads now. Rex Longevity 2 -> 1, Access -3 -> 2. Rex isn't as tanky as before, but it's a little easier to get your hands on now. \nPrinceps access -3 -> -2, Atlas access -2 -> -1, both are & have been inside the titan pads for a few months now. Sword mobility 1 -> 0, don't use the dash anymore, utility -1 -> 0, run it like a siren with lockdown unit. \nUpdated a few robot & titan comments, roles, and mini build guides as well. -Adazahi & Tropical"
     },
     {
-      "date": "2026-02-04",
-      "text": "Added hastatus build guide, removed titan chargers, devourer 0->+1 utility and +1->0 longevity, edited descriptions for Bjorn, Devourer, and Princeps - Adazahi"
+      "date": "2026-03-08",
+      "text": "Re-evaluated what counts as 2 mobility. Imugi, Nightingale, Strider, Nuo, Raven, Nether, and Seraph all have been raised from 1 -> 2. -Adazahi"
     },
     {
-      "date": "2026-02-02",
-      "text": "Finished mini build guide. -adazahi"
+      "date": "2026-03-09",
+      "text": "Changed pilot recommendation on Skirmisher Anaksor to Mei Lan -Adazahi"
     },
     {
-      "date": "2026-01-30",
-      "text": "Started progress on mini build guides. Added info about roles and mini build guides section to the intro. - Adazahi"
+      "date": "2026-03-25",
+      "text": "Added UE Devastator + UE Havoc to Anaksor titan slayer build suggestions. Eiffel and Bersagliere Mobility changed from 1 -> 2 to fit with new mobility evaluation standards. Dagon access changed from -2 -> -1 because while it requires 6 weapons and statchecks, it's available through black market. Stryx, who is available through only data pads and still requires 5 weapons is only -1, so this seems fair. -Adazahi"
     },
     {
-      "date": "2026-01-29",
-      "text": "Edited Nuo & Lio comments to mention expected future additions to superchest in order to justify maintaining accessibility rating. Fixed what appeared to be a consistency error for Orochi and Nether on T4 tab. - Mistermath"
+      "date": "2026-03-28",
+      "text": "Changed f2p Imugi mini build guide reccomendation to Growler Howler from Havoc Scatter. -Adazahi"
     },
     {
-      "date": "2026-01-28",
-      "text": "Edited the Nuo & Lio short blurbs to exclude the \"available through common data pads\" part, and increased Hastatus's accessibility rating to -1 from -2. At least, with Kaji being at -1 and \nHastatus also being in the same pads & locations as Kaji, I think it's fair to have it at -1. Also somewhat of the same reasoning as to why Bagliore has -1 in accessibility. \nMaybe considering increasing Rex's accessibility to -2 from -3? My reasoning being Bull isn't mandatory (personally ran it long enough to determine that mk3 is the bigger & more impactful hurdle), \nand the fact Ammit h-as -2 despite being economically the same as Rex was on its release. -Tropical"
+      "date": "2026-04-06",
+      "text": "Changed mini build guide weapons: Dux best -> replaced any ue weapons with close range only, Demeter best -> replaced any UE weapons with close range only, Lio f2p -> Growler, Leech f2p -> growler + porthos, \nNuo best -> Machiara + Basilus or UE redeemer/taran, Lynx f2p -> Nucleon or Talon, Siren -> renamed \"titan charger\" to \"titan charger/assault\", Raptor best -> close range UE or kroko guns, Nightingale best -> Elox Murix, \nUE burst weapons, Kroko guns, Teth best -> removed hybrid acid shotgun build, Ammit -> Added machiara + velios and close range UE to best, rust rocket, bsg, and growler to f2p, Raven best -> added midrange UE setups, Anaksor f2p -> added screamer growler\nre-added pilum + gladius to all midrange setups that had it entirely replaced with anaksor guns, the extra 100m of range makes it a decent option (though still mostly worse than anaksor guns, still best at 600m). Added UE index, added rust machine guns to any bots with atomizer or nucleon suggested.\n-Adazahi"
     },
     {
-      "date": "2026-01-25",
-      "text": "Added new \"Bot Roles\" page. -Mistermath & Adazahi"
+      "date": "2026-04-08",
+      "text": "Re-evaluations: Samjok Access 0 -> +1, Anaksor Access -2 -> -3. Samjok is in the gold chest and doesn't require much leveling to function. Anaksor without the drone has issues with chip damage. -Adazahi"
     },
     {
-      "date": "2026-01-22",
-      "text": "Changed sword description to remove anything about execute. It's execution threshold is too low to reliably execute things anymore - Adazahi"
+      "date": "2026-04-14",
+      "text": "Added Vector & Waymaker. -Tropical. Added Vector to mini build guides + edited anaksor best pilot to be the new one. -Adazahi"
     },
     {
-      "date": "2026-01-21",
-      "text": "Added Ammit at a total rating of +2. -adazi"
+      "date": "2026-04-15",
+      "text": "Added new curving flames to mini build guides. -Adazahi Fixed the way adazahi credits his notes in the changes log -Tropical"
     },
     {
-      "date": "2026-01-20",
-      "text": "Bot re-evaluations: Fury Utility +1->-1, Accessibility +1->+2. Jaeger mobility -1->0. Changes for the purposes of consistency. In terms of accessibility, Fury is the only pre-leveled T3 bot. -Mistermath"
+      "date": "2026-04-16",
+      "text": "Re-evaluations: Bulgasari mobility 0 -> +1, Haechi mobility 0 -> +1. Multiple dashes are now sufficient for +1 rating. Rex accessibility -2 -> -1 following move to common/blue pads. -Mistermath"
     },
     {
-      "date": "2026-01-15",
-      "text": "Bot re-evaluations: Ravager Longevity 0->+1. Bringing in line with Loki and Crisis. Worth noting that Ravager's superior bulk to Crisis may allow it to act as a slower Loki. -Mistermath"
+      "date": "2026-04-28",
+      "text": "Changed F2P builds for Loki and Skyros (beacon capper) to harpoons. Non F2P unchanged as meta weapons for the occasional opportunistic attack are probably just as relevant."
     },
     {
-      "date": "2026-01-12",
-      "text": "Bot re-evaluations: Blitz Utility +1->0. Moved back down to bring in line with other suppression robots. Consider raising Rayker from 0 to +1 in the future due to significantly more range and charges on suppression. - Mistermath"
+      "date": "2026-04-30",
+      "text": "Atlas accessibility -1 -> 0 due to being added to the black market and it likely already deserved the 0-rating anyways. - Tropical"
     },
     {
-      "date": "2025-01-05",
-      "text": "Bot re-evaluations: Teth & Sword Unit Accessibility -1 -> 0. - Mistermath"
+      "date": "2026-05-01",
+      "text": "Added seeker as an option for dux. -adazahi"
     },
     {
-      "date": "2025-12-29",
-      "text": "Bot re-evaluations: Crisis mobility +1->0, Bagliore mobility +1->0, accessibility -2->-1, Ravager accessibility +1->0, Dux Longevity 0->+1 Mobility +1->0.\nFootnote: Considering re-evaluation of accessibility ratings for Sword-Unit and Teth. Let this also be a reminder that the point of rating things systematically is that the process should determine the results, not the other way around.\nMobility is most certainly not a category Crisis excels in. Lethality and Accessibility should be the two areas where a debate can be had. \nAn argument that either Flux/Gauss Crisis is a legitimate build or that Crisis should have +2 Lethality would be still lukewarm, but significantly more tenable than Crisis being a mobility king. - Mistermath\nMath and I decided on Crisis, Stryx, and Bagliore all sharing +2 lethality as they are the three highest firepower piercer-holders in the game, and unlike behemoth, the only other 4H bot, also have either damage boosts or 5H. -Adazahi"
+      "date": "2026-05-16",
+      "text": "Aether longevity -1 -> 0, the forcefield is indeed real protection that requires concentrated firepower from several TNA titans to actually kill through. Fixed atlas being 2 on titan sheet but 3 on intro sheet. \nMurometz mobility 0 -> -1, there isn't any reason for it to have 0 in mobility when it lacks any mobility at all, unless vertical mobility is counted, but then ao ming would have 0 mobility. \nEiffel lethality 1 ->2, having ran it myself, I feel confident in suggesting eiffel as a final bot for f2ps -Adazahi"
     },
     {
-      "date": "2025-12-28",
-      "text": "After a bit of discussion through discord, Crisis deserves +1 mobility if Bagliore has +1 for having a simple relatively one-time use beacon teleport (which should be used defensively instead of for covering ground, but that's neither here nor there) -Tropical\nSkyros +2 mobility -1 lethality to be consistent with Loki -Adazahi changed adazahi password and signed him out of his account have fun 😂-tropical\nBlitz utility +1, access 0, since it has suppression but still relies on statchecking when the suppression runs out (or if the enemy has anticontrol). also, blew up tropical's house. -adzadongy"
+      "date": "2026-05-21",
+      "text": "Added Myia to Loki, Skyros, and Nightingale recommendations. -Adazahi"
     },
     {
-      "date": "2025-12-27",
-      "text": "Bedwyr 0 lethality (+1) due to deathmark. Princeps +1 lethality +1 longevity and +1 utility due to it being damage dealer with TNA and 2 alpha 2 beta as well as the force push ability that can CC enemies. -3 accessibility due to it being paid gambling only, so overall same grade. Atlas utility +1 mobility +1 due to jump, accessibility -2 for same reason. \nBjorn +1 lethality, it has an entire alpha weapon on most brawlers. Added Kid, Ming, Arthur. Kaji 0 longevity, nondens 0 longevity. -Adazahi"
+      "date": "2026-05-28",
+      "text": "Added Shoggoth, Hastatus accessiblity from -1 to 0 because it is now in common data pads, Fixed Nether rating as it was different in some places, Rex lethality 0->1 due to BIW's bug fix, could even argue Rex being potential +2 lethality but that's less about a noob guide and more for power level raking -Tropical"
     },
     {
-      "date": "2025-12-27",
-      "text": "Added experimental layout for a titan tab. - Mistermath"
+      "date": "2026-05-29",
+      "text": "Added shoggoth to mini build guides. May soon be worth considering Piercer to be a f2p weapon. Removed piercer from most \"best builds\" in favor or Shantak. Added Voonith + Urhag to the best options for most midranger builds.\nYes, I know they have longer range, but I'm not gonna make a new sniper node for every single bot that can use these op ranged guns, they work at midrange too. \nShoggoth speed 0-> -1, bots with no mobility have -1, not 0. -Adazahi"
     },
     {
-      "date": "2025-12-26",
-      "text": "Bot re-eval: Crisis access -1. Four good f2p heavy weapons? In this economy? - Adazahi"
+      "date": "2026-06-07",
+      "text": "Added Aopo as a f2p option for Anaksor. -adazahi"
     },
     {
-      "date": "2025-12-14",
-      "text": "Bot re-evaluations: Tyr, Fenrir, Weyland, Behemoth -1, Ophion 0, Fury, Orochi 1, Dagon -2. Strix changed to Stryx - Adazahi"
+      "date": "2026-06-28",
+      "text": "Skyros, Loki, nightingale Lethality -1 -> -2. Samjok lethality 0 -> -1. Loki accessibility 1 -> 2. Pathfinder and Shoggoth utility 2 -> 3. Imugi, Nuo and Lio utility 1 -> 2.\nAlso, Dagon was shown as -2 in the main list but actually -1 overall, so I fixed that. Jaeger, Mars, Seraph, Fury, Strider, Haechi, Bulgasari Longevity -1 -> -2, Tyr longevity 0 -> -1. Hastatus, Stryx & Ammit mobility 0 -> -1 - Adazahi\nWaymaker Utility 2->3, Nether Longevity -1->-2, Nemesis Lethality 0->-1 Longevity 0 -> 1, Hawk longevity 0->-1, Pathfinder longevity 0->1. Reverted Bulgasari change. Revenant mobility 0 -> 1 lethality 0->-1, Shell & Condor utility -1 -> -2 for charging enemy nuke amps.\nChanged color scheme to distinguish 3+ ratings with blue. -Mistermath"
     },
     {
-      "date": "2025-12-13",
-      "text": "Bot re-evaluations: Scorpion 2, Shenlou 1, Ao Jun -1, Condor -1, Loki 2, Pathfinder 5, Lio/Nuo 3, Demeter 3, Dux 2, Crisis 2. Changed rating system to allow -2 and +2 in certain traits, allowing more precise control of tier by extensuating a bots extreme proficiency (or lack thereof) in any given trait. Added Kaji, Rex, Hastatus -Adazahi"
-    },
-    {
-      "date": "2025-08-18",
-      "text": "Bot re-evaluations: Revenant 0 Accessibility, Ochokotchi 0 Accessibility, Raptor 0 Accessibility. - MrCactus"
-    },
-    {
-      "date": "2025-08-04",
-      "text": "Added Strix at a total of -1 - MrCactus"
-    },
-    {
-      "date": "2025-07-18",
-      "text": "Modified changes made on 07/01 following review; Orochi +1 Longevity reverted to 0 Longevity. Condor's -1 Accessibility kept, added -1 Longevity. - Mistermath"
-    },
-    {
-      "date": "2025-07-01",
-      "text": "11.2 Mega Patch updates for a total of: Orochi +1, Condor -1, Dux +1,  Samjok +1, Nuo +2 - MrCactus"
-    },
-    {
-      "date": "2025-06-15",
-      "text": "Added Teth at a total of +1 - MrCactus"
-    },
-    {
-      "date": "2025-05-27",
-      "text": "Corrected a data entry error for Typhon and Nether. - Mistermath"
-    },
-    {
-      "date": "2025-05-20",
-      "text": "Updates for data pad update: Dux +2 Accessibility, Ravager +1 Accessibility. Added Sword Unit at total 0. - Mistermath"
-    },
-    {
-      "date": "2025-05-19",
-      "text": "Bot re-evaluations: Hellburner -1 Accessibility. - Mistermath"
-    },
-    {
-      "date": "2025-05-14",
-      "text": "Bot re-evaluations: Typhon -1 Longevity, Erebus -1 Longevity, Invader -1 Longevity, Mars -1 Accessibility - Mistermath"
-    },
-    {
-      "date": "2025-05-12",
-      "text": "Bot re-evaluations: Nether -1 Accessibility. - Mistermath"
-    },
-    {
-      "date": "2025-04-29",
-      "text": "Update for Workshop update: Imugi +2 Accessibility. - Mistermath"
-    },
-    {
-      "date": "2025-04-23",
-      "text": "Added Lio and Nuo at total +1. - Mistermath"
-    },
-    {
-      "date": "2025-03-07",
-      "text": "Updates for BM update: Curie +1 Accessibility, Condor +1 Accessibility - Mistermath"
-    },
-    {
-      "date": "2025-02-27",
-      "text": "Update for 10.8 patch: Condor -1 Lethality & -1 Mobility, Dux -1 Mobility, Raptor +1 Utility & -1 Accessibility, Nemesis +1 Accessibility & -1 Longevity. - Mistermath"
-    },
-    {
-      "date": "2025-02-26",
-      "text": "Bot re-shifts owing to 10.8 patch. Related re-evaluations: Invader +1 Accessibility, Blitz +1 Accessibility, Leech +1 Mobility, Phantom +1 Accessibility & -1 Durability, Ao Jun +1 Accessibility. - Mistermath"
-    },
-    {
-      "date": "2025-02-14",
-      "text": "Bot re-evaluations: Harpy -1 Lethality. - Mistermath"
-    },
-    {
-      "date": "2025-02-09",
-      "text": "Bot re-evaluations: Strider -1 Lethality, Mars -1 Longevity, Blitz +1 Accessibility. - Mistermath"
-    },
-    {
-      "date": "2025-02-05",
-      "text": "Moved Doc from F-tier to C-tier on the SAGE Retro Camelot tier list. - Mistermath"
-    },
-    {
-      "date": "2025-02-02",
-      "text": "Updates for data pad update: Curie -1 Accessibility, Raptor +1 Accessibility, Bagliore +1 Accessibility. - Mistermath"
-    },
-    {
-      "date": "2025-01-29",
-      "text": "Added Samjok at total +1. - Mistermath"
-    },
-    {
-      "date": "2025-01-20",
-      "text": "Completed Camelot tier list. - Mistermath"
-    },
-    {
-      "date": "2025-01-16",
-      "text": "Added and began work on Camelot ratings. - Mistermath"
-    },
-    {
-      "date": "2024-12-29",
-      "text": "Update for 10.6 patch: Ravager added at total 0. - Mistermath"
-    },
-    {
-      "date": "2024-12-20",
-      "text": "Updates for data pad update: Pathfinder +2 Accessibility - Mistermath"
-    },
-    {
-      "date": "2024-11-06",
-      "text": "Updates for data pad update, Dux, Condor, and bot re-evaluations: Dagon -1 Longevity, Ophion +1 Lethality, Shenlou +1 Accessibility, Dux added at total +1, Condor added at total +1. - Mistermath"
+      "date": "2026-06-29",
+      "text": "Mauler Lethality 1 -> 2; stacked up darklight is more lethal than a charged Eiffel. Newton Utility 1 -> 2; Choke is incredibly clutch and unique to Newton. \nMinos Utility -1 -> 0; Charge knocks enemies around, and CC is considered utility. Rook Utility 0 -> -1; while it has CC and suppression, it charges enemy nuclear amplifiers. \nBedwyr Utility 1 -> 2; Taunt is an incredibly powerful and uncounterable ability that allows Bedwyr to decide the outcome of fights happening in completely different areas of the map. - Adazahi"
     }
   ],
   "builds": [
@@ -746,11 +754,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 0,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": 0.0,
+        "accessibility": 1.0,
         "overall": 1
       },
       "roles": [
@@ -777,11 +785,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": 1.0,
+        "accessibility": 1.0,
         "overall": 2
       },
       "roles": [
@@ -808,11 +816,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": -1,
-        "lethality": 1,
-        "mobility": -1,
-        "utility": 1,
-        "accessibility": 1,
+        "longevity": -1.0,
+        "lethality": 1.0,
+        "mobility": -1.0,
+        "utility": 1.0,
+        "accessibility": 1.0,
         "overall": 1
       },
       "roles": [
@@ -844,11 +852,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "roles": [
@@ -870,11 +878,11 @@
       "sheet": "Tier 4",
       "value_rating": 3,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": 1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": 1.0,
+        "accessibility": 1.0,
         "overall": 3
       },
       "roles": [
@@ -891,12 +899,12 @@
       "sheet": "Tier 4",
       "value_rating": -2,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 1,
-        "overall": -1
+        "longevity": -2.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
+        "overall": -2
       },
       "roles": [],
       "comments": "Jaeger is worse than Fury."
@@ -906,11 +914,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 2
       },
       "roles": [
@@ -927,11 +935,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": -1,
-        "lethality": 1,
-        "mobility": -1,
-        "utility": 1,
-        "accessibility": 1,
+        "longevity": -1.0,
+        "lethality": 1.0,
+        "mobility": -1.0,
+        "utility": 1.0,
+        "accessibility": 1.0,
         "overall": 1
       },
       "roles": [
@@ -958,11 +966,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 1,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "roles": [
@@ -987,29 +995,29 @@
     {
       "name": "Hawk",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": -2,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
-        "overall": -1
+        "longevity": -1.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
+        "overall": -2
       },
       "roles": [],
-      "comments": "Compared to the other aerial bots, Hawk lacks both damage and utility. The retraction of weapons during flight really hurts it."
+      "comments": "Compared to the other aerial bots, Hawk lacks both damage and utility. The retraction of weapons during flight hurts it terribly, so it should fly as little as possible."
     },
     {
       "name": "Nightingale",
       "sheet": "Tier 4",
-      "value_rating": 3,
+      "value_rating": 2,
       "scores": {
-        "longevity": 0,
-        "lethality": -1,
-        "mobility": 2,
-        "utility": 1,
-        "accessibility": 1,
-        "overall": 3
+        "longevity": 0.0,
+        "lethality": -2.0,
+        "mobility": 2.0,
+        "utility": 1.0,
+        "accessibility": 1.0,
+        "overall": 2
       },
       "roles": [
         {
@@ -1035,11 +1043,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 2
       },
       "roles": [
@@ -1059,14 +1067,14 @@
     {
       "name": "Shell",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 0,
-        "overall": 0
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": -2.0,
+        "accessibility": 0.0,
+        "overall": -1
       },
       "roles": [
         {
@@ -1087,11 +1095,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 1,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": 1.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "roles": [
@@ -1118,11 +1126,11 @@
       "sheet": "Tier 4",
       "value_rating": 0,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": -1.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
         "overall": 0
       },
       "roles": [
@@ -1137,19 +1145,19 @@
           "footnote": ""
         }
       ],
-      "comments": "Revenant's protection from grey damage necessitates tons of healing to make useful, which means lots of investment and a giant powercell burn rate."
+      "comments": "Revenant's protection from grey damage necessitates tons of healing to make useful, which means lots of investment and a giant powercell burn rate. However, with Ricardo + Engine Expert, Revenant becomes extremely fast on top of already being able to teleport."
     },
     {
       "name": "Skyros",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 1,
       "scores": {
-        "longevity": 1,
-        "lethality": -1,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": 1,
-        "overall": 2
+        "longevity": 1.0,
+        "lethality": -2.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
+        "overall": 1
       },
       "roles": [
         {
@@ -1163,19 +1171,19 @@
           "footnote": ""
         }
       ],
-      "comments": "Skyros is an F2P beacon capturing machine, not even requiring a single upgrade or any equipment to work."
+      "comments": "Skyros is an F2P beacon capturing machine, not even requiring a single upgrade or any equipment to work. It competes with Loki, whose stealth is sometimes superior to Skyros's resistances."
     },
     {
       "name": "Seraph",
       "sheet": "Tier 4",
       "value_rating": -1,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": 0,
-        "overall": 0
+        "longevity": -2.0,
+        "lethality": 0.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
+        "overall": -1
       },
       "roles": [],
       "comments": "Seraph technically has a niche via stellar air speed, but is otherwise unremarkable. It's alright for mindlessly clearing early PvE levels."
@@ -1185,11 +1193,11 @@
       "sheet": "Tier 4",
       "value_rating": -2,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": -2.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": -2
       },
       "roles": [],
@@ -1200,11 +1208,11 @@
       "sheet": "Tier 4",
       "value_rating": 0,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": 0
       },
       "roles": [
@@ -1221,12 +1229,12 @@
       "sheet": "Tier 4",
       "value_rating": 0,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": 2,
-        "utility": 0,
-        "accessibility": 0,
-        "overall": 1
+        "longevity": -2.0,
+        "lethality": 0.0,
+        "mobility": 2.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
+        "overall": 0
       },
       "roles": [
         {
@@ -1240,14 +1248,14 @@
     {
       "name": "Imugi",
       "sheet": "Tier 4",
-      "value_rating": 5,
+      "value_rating": 6,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 2,
-        "utility": 1,
-        "accessibility": 1,
-        "overall": 5
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 2.0,
+        "utility": 2.0,
+        "accessibility": 1.0,
+        "overall": 6
       },
       "roles": [
         {
@@ -1283,11 +1291,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 2
       },
       "roles": [
@@ -1314,11 +1322,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": 2,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": 2.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
         "overall": 2
       },
       "roles": [
@@ -1345,11 +1353,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 0
       },
       "roles": [
@@ -1371,11 +1379,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "roles": [
@@ -1390,13 +1398,13 @@
     {
       "name": "Dagon",
       "sheet": "Tier 4",
-      "value_rating": -2,
+      "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": -1,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": -1.0,
         "overall": -1
       },
       "roles": [],
@@ -1407,11 +1415,11 @@
       "sheet": "Tier 4",
       "value_rating": 0,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": 0
       },
       "roles": [
@@ -1438,11 +1446,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "roles": [
@@ -1457,14 +1465,14 @@
     {
       "name": "Pathfinder",
       "sheet": "Tier 4",
-      "value_rating": 5,
+      "value_rating": 7,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 1,
-        "utility": 2,
-        "accessibility": 1,
-        "overall": 5
+        "longevity": 1.0,
+        "lethality": 1.0,
+        "mobility": 1.0,
+        "utility": 3.0,
+        "accessibility": 1.0,
+        "overall": 7
       },
       "roles": [
         {
@@ -1495,11 +1503,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": 2
       },
       "roles": [
@@ -1526,11 +1534,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": 2,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": -1,
+        "longevity": 1.0,
+        "lethality": 2.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": -1.0,
         "overall": 1
       },
       "roles": [
@@ -1560,14 +1568,14 @@
     {
       "name": "Condor",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": -2,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
-        "overall": -1
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -2.0,
+        "accessibility": 0.0,
+        "overall": -2
       },
       "roles": [],
       "comments": "Condor's a mediore statchecker with no notable traits that'd make it worth investing into."
@@ -1577,11 +1585,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 1.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 2
       },
       "roles": [
@@ -1603,11 +1611,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 1,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "roles": [
@@ -1644,11 +1652,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": 0,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": -1.0,
+        "mobility": 1.0,
+        "utility": 1.0,
+        "accessibility": 1.0,
         "overall": 2
       },
       "roles": [
@@ -1678,14 +1686,14 @@
     {
       "name": "Nuo",
       "sheet": "Tier 4",
-      "value_rating": 4,
+      "value_rating": 5,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 2,
-        "utility": 1,
-        "accessibility": 0,
-        "overall": 4
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 2.0,
+        "utility": 2.0,
+        "accessibility": 0.0,
+        "overall": 5
       },
       "roles": [
         {
@@ -1714,14 +1722,14 @@
     {
       "name": "Lio",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 3,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 1,
-        "accessibility": 0,
-        "overall": 2
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": 2.0,
+        "accessibility": 0.0,
+        "overall": 3
       },
       "roles": [
         {
@@ -1742,11 +1750,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "roles": [
@@ -1768,11 +1776,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": 2
       },
       "roles": [
@@ -1797,14 +1805,14 @@
     {
       "name": "Stryx",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 2,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": -1,
-        "overall": 0
+        "longevity": 0.0,
+        "lethality": 2.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": -1.0,
+        "overall": -1
       },
       "roles": [
         {
@@ -1830,11 +1838,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": 1,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": 1.0,
+        "accessibility": 0.0,
         "overall": 2
       },
       "roles": [
@@ -1866,11 +1874,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 1,
-        "lethality": 1,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": -1,
+        "longevity": 1.0,
+        "lethality": 1.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": -1.0,
         "overall": 1
       },
       "roles": [
@@ -1900,14 +1908,14 @@
     {
       "name": "Hastatus",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 0,
       "scores": {
-        "longevity": 1,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
-        "overall": 1
+        "longevity": 1.0,
+        "lethality": 1.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
+        "overall": 0
       },
       "roles": [
         {
@@ -1928,12 +1936,12 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 2,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 2,
-        "accessibility": -2,
-        "overall": 2
+        "longevity": 2.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": 2.0,
+        "accessibility": -2.0,
+        "overall": 1
       },
       "roles": [
         {
@@ -1954,11 +1962,11 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": 1,
-        "mobility": 2,
-        "utility": 1,
-        "accessibility": -3,
+        "longevity": 1.0,
+        "lethality": 1.0,
+        "mobility": 2.0,
+        "utility": 1.0,
+        "accessibility": -3.0,
         "overall": 2
       },
       "roles": [
@@ -2000,11 +2008,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 2,
-        "lethality": 0,
-        "mobility": 2,
-        "utility": 0,
-        "accessibility": -3,
+        "longevity": 2.0,
+        "lethality": 0.0,
+        "mobility": 2.0,
+        "utility": 0.0,
+        "accessibility": -3.0,
         "overall": 1
       },
       "roles": [
@@ -2031,12 +2039,12 @@
       "sheet": "Tier 4",
       "value_rating": 2,
       "scores": {
-        "longevity": 0,
-        "lethality": 3,
-        "mobility": -1,
-        "utility": 2,
-        "accessibility": -2,
-        "overall": 2
+        "longevity": 0.0,
+        "lethality": 3.0,
+        "mobility": -1.0,
+        "utility": 3.0,
+        "accessibility": -2.0,
+        "overall": 3
       },
       "roles": [
         {
@@ -2065,14 +2073,14 @@
     {
       "name": "Fury",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": -1,
       "scores": {
-        "longevity": -1,
-        "lethality": 1,
-        "mobility": -1,
-        "utility": -1,
-        "accessibility": 2,
-        "overall": 0
+        "longevity": -2.0,
+        "lethality": 1.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 2.0,
+        "overall": -1
       },
       "roles": [
         {
@@ -2086,14 +2094,14 @@
     {
       "name": "Strider",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": -1,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": 0,
-        "overall": 0
+        "longevity": -2.0,
+        "lethality": 0.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
+        "overall": -1
       },
       "roles": [],
       "comments": "Strider has some potential with the legendary pilot, but it is too outclassed by Nether."
@@ -2103,11 +2111,11 @@
       "sheet": "Tier 3",
       "value_rating": 3,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 3
       },
       "roles": [
@@ -2132,18 +2140,18 @@
           "footnote": ""
         }
       ],
-      "comments": "Raven is the gold standard for offensive F2P bots, staying viable all the way up in championship league via its legendary pilot."
+      "comments": "Raven is the gold standard for offensive F2P bots, staying viable all the way up in champion league via its legendary pilot."
     },
     {
       "name": "Rayker",
       "sheet": "Tier 3",
       "value_rating": 0,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 0,
-        "accessibility": 1,
+        "longevity": -1.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": 0.0,
+        "accessibility": 1.0,
         "overall": 0
       },
       "roles": [
@@ -2165,11 +2173,11 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": -1
       },
       "roles": [],
@@ -2178,14 +2186,14 @@
     {
       "name": "Bulgasari",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": -2,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 0,
-        "overall": -1
+        "longevity": -2.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
+        "overall": -2
       },
       "roles": [],
       "comments": "Bulgasari is mediocre to bad across the board, and really needs its legendary pilot to function at all."
@@ -2195,12 +2203,12 @@
       "sheet": "Tier 3",
       "value_rating": 0,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 1,
-        "overall": 0
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
+        "overall": 0.0
       },
       "roles": [
         {
@@ -2221,11 +2229,11 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": -1.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": -1
       },
       "roles": [],
@@ -2234,14 +2242,14 @@
     {
       "name": "Haechi",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": -2,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 0,
-        "overall": -1
+        "longevity": -2.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
+        "overall": -2
       },
       "roles": [],
       "comments": "Haechi is similar to Bulgasari, but also lacks a decent pilot."
@@ -2251,11 +2259,11 @@
       "sheet": "Tier 3",
       "value_rating": 0,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 0
       },
       "roles": [
@@ -2272,11 +2280,11 @@
       "sheet": "Tier 3",
       "value_rating": 0,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
         "overall": 0
       },
       "roles": [
@@ -2293,11 +2301,11 @@
       "sheet": "Tier 3",
       "value_rating": 0,
       "scores": {
-        "longevity": 0,
-        "lethality": -1,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": -1.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 0
       },
       "roles": [
@@ -2319,11 +2327,11 @@
       "sheet": "Tier 3",
       "value_rating": 0,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 0
       },
       "roles": [
@@ -2340,11 +2348,11 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
         "overall": -1
       },
       "roles": [],
@@ -2355,11 +2363,11 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 1.0,
+        "lethality": -1.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": -1
       },
       "roles": [],
@@ -2370,11 +2378,11 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": 1,
-        "lethality": -1,
-        "mobility": -2,
-        "utility": 1,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": -1.0,
+        "mobility": -2.0,
+        "utility": 1.0,
+        "accessibility": 0.0,
         "overall": -1
       },
       "roles": [],
@@ -2385,11 +2393,11 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": -2,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": -2.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": -1
       },
       "roles": [],
@@ -2400,11 +2408,11 @@
       "sheet": "Tier 3",
       "value_rating": -2,
       "scores": {
-        "longevity": 1,
-        "lethality": -1,
-        "mobility": -1,
-        "utility": -1,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": -1.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 0.0,
         "overall": -2
       },
       "roles": [],
@@ -2415,11 +2423,11 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": -1,
-        "mobility": 0,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": -1.0,
+        "mobility": 0.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": -1
       },
       "roles": [],
@@ -2430,11 +2438,11 @@
       "sheet": "Tier 3",
       "value_rating": 1,
       "scores": {
-        "longevity": 1,
-        "lethality": -1,
-        "mobility": 0,
-        "utility": 1,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": -1.0,
+        "mobility": 0.0,
+        "utility": 1.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "roles": [
@@ -2456,11 +2464,11 @@
       "sheet": "Tier 3",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": -1,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 1.0,
+        "lethality": -2.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": 2.0,
         "overall": 2
       },
       "roles": [
@@ -2480,14 +2488,14 @@
     {
       "name": "Tyr",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": -2,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": 0,
-        "accessibility": 0,
-        "overall": -1
+        "longevity": -1.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
+        "overall": -2
       },
       "roles": [],
       "comments": "Tyr's an unimpressive middle ground between Weyland's bulk and Mender's speed."
@@ -2497,11 +2505,11 @@
       "sheet": "Tier 3",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "roles": [
@@ -2528,11 +2536,11 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": -2,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": -2.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": -1
       },
       "roles": [],
@@ -2543,11 +2551,11 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": -1
       },
       "roles": [],
@@ -2558,26 +2566,26 @@
       "sheet": "Tier 3",
       "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": -1
       },
       "roles": [],
-      "comments": "Ao Jun is frail and requires getting extremely close in order to use its flamethrowers, making it too risky for not much reward. It's short uptime ability and long cooldown make it extremely clunky, especially in comparison to other flying bots."
+      "comments": "Ao Jun is frail and requires getting extremely close in order to use its flamethrowers, making it too risky for not much reward. Its short uptime ability and long cooldown make it extremely clunky, especially in comparison to other flying bots."
     },
     {
       "name": "Ares",
       "sheet": "Tier 3",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 1
       },
       "roles": [
@@ -2594,11 +2602,11 @@
       "sheet": "Tier 3",
       "value_rating": 2,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 2
       },
       "roles": [
@@ -2620,11 +2628,11 @@
       "sheet": "Tier 3",
       "value_rating": 0,
       "scores": {
-        "longevity": 0,
-        "lethality": -1,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": -1.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 0
       },
       "roles": [
@@ -2652,11 +2660,11 @@
       "name": "Kid",
       "value_rating": -2,
       "scores": {
-        "longevity": -1,
-        "lethality": -2,
-        "mobility": -1,
-        "utility": -1,
-        "accessibility": 3,
+        "longevity": -1.0,
+        "lethality": -2.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 3.0,
         "overall": -2
       },
       "comments": "Kid is given for free. It's only worth using until you get any other titan to replace it with."
@@ -2665,11 +2673,11 @@
       "name": "Arthur",
       "value_rating": -2,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": -1.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": -2
       },
       "comments": "T2 titans are not worth wasting platinum on. Their lack of specializations neuters their stats."
@@ -2678,11 +2686,11 @@
       "name": "Ao Ming",
       "value_rating": -2,
       "scores": {
-        "longevity": -1,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": -1.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": -2
       },
       "comments": "T2 titans are not worth wasting platinum on. Their lack of specializations neuters their stats."
@@ -2691,25 +2699,25 @@
       "name": "Nodens",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": 1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": 1.0,
+        "accessibility": 1.0,
         "overall": 1
       },
       "comments": "Nodens is a cheap, simple, and reasonably effective support. The increased defense mitigation it has on its passive makes it no slouch on offense despite having only beta weapons."
     },
     {
       "name": "Minos",
-      "value_rating": 1,
+      "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": -1,
-        "mobility": 1,
-        "utility": -1,
-        "accessibility": 1,
-        "overall": 1
+        "longevity": 1.0,
+        "lethality": -1.0,
+        "mobility": 1.0,
+        "utility": 0.0,
+        "accessibility": 1.0,
+        "overall": 2
       },
       "comments": "Minos is a fast, safe, and cheap beacon runner, though it'll struggle to kill titans due to its lack of Alpha hardpoints."
     },
@@ -2717,11 +2725,11 @@
       "name": "Sharanga",
       "value_rating": 0,
       "scores": {
-        "longevity": -1,
-        "lethality": 1,
-        "mobility": -1,
-        "utility": 0,
-        "accessibility": 1,
+        "longevity": -1.0,
+        "lethality": 1.0,
+        "mobility": -1.0,
+        "utility": 0.0,
+        "accessibility": 1.0,
         "overall": 0
       },
       "comments": "Sharanga is an offensive titan without the proper tools to stay safe or gain target access."
@@ -2730,11 +2738,11 @@
       "name": "Murometz",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": -1,
-        "utility": 0,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": -1.0,
+        "utility": 0.0,
+        "accessibility": 1.0,
         "overall": 1
       },
       "comments": "Murometz can often straight-up kill opposing titans while they are EMP'd by it, making it a solid, cheap anti-titan titan."
@@ -2743,11 +2751,11 @@
       "name": "Luchador",
       "value_rating": -1,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": -1,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": -1.0,
         "overall": -1
       },
       "comments": "Luchador is one of the weaker brawling titans, making it a statchecker that is bad at statchecking."
@@ -2756,11 +2764,11 @@
       "name": "Heimdall",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 1,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": 1.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "comments": "Heimdall has decent supporting capacity, though its extra cost over Nodens comes with questionable benefit."
@@ -2769,11 +2777,11 @@
       "name": "Indra",
       "value_rating": 2,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 0,
-        "utility": 0,
-        "accessibility": 1,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 0.0,
+        "utility": 0.0,
+        "accessibility": 1.0,
         "overall": 2
       },
       "comments": "Like Ravana, Indra's phasing and lasso scale with the opponent's strength, making it an excellent anti-meta choice."
@@ -2782,11 +2790,11 @@
       "name": "Aether",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "comments": "Aether is to Murometz what Heimdall is to Nodens. More expensive with questionable sidegrades."
@@ -2795,38 +2803,38 @@
       "name": "Sirius",
       "value_rating": -2,
       "scores": {
-        "longevity": 0,
-        "lethality": -1,
-        "mobility": -1,
-        "utility": 0,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": -1.0,
+        "mobility": -1.0,
+        "utility": 0.0,
+        "accessibility": 0.0,
         "overall": -2
       },
       "comments": "With a giant hitbox, poor speed, and miniscule damage, Sirius is a sitting duck."
     },
     {
       "name": "Rook",
-      "value_rating": 0,
+      "value_rating": -1,
       "scores": {
-        "longevity": 0,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": 0,
-        "accessibility": -1,
-        "overall": 0
+        "longevity": 0.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": -1.0,
+        "accessibility": -1.0,
+        "overall": -1
       },
       "comments": "Rook's huge dash lets it play the role of an assassin or beacon runner, though it does the job very unreliably and lacks good survival tools."
     },
     {
       "name": "Newton",
-      "value_rating": 1,
+      "value_rating": 2,
       "scores": {
-        "longevity": -1,
-        "lethality": 1,
-        "mobility": -1,
-        "utility": 1,
-        "accessibility": 1,
-        "overall": 1
+        "longevity": -1.0,
+        "lethality": 1.0,
+        "mobility": -1.0,
+        "utility": 2.0,
+        "accessibility": 1.0,
+        "overall": 2
       },
       "comments": "Newton's a solid sniper whose choke provides good team utility."
     },
@@ -2834,25 +2842,25 @@
       "name": "Eiffel",
       "value_rating": 2,
       "scores": {
-        "longevity": 0,
-        "lethality": 2,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": -1,
+        "longevity": 0.0,
+        "lethality": 2.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": -1.0,
         "overall": 2
       },
       "comments": "If you can afford to build it by acquiring weapons for and leveling the required 5 hardpoints, Eiffel has unmatched raw firepower. Hybrid setups using instant unload snipers (ie Vendicatoire) in the summoned slots are recommended."
     },
     {
       "name": "Bedwyr",
-      "value_rating": 2,
+      "value_rating": 3,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": -1,
-        "utility": 1,
-        "accessibility": 1,
-        "overall": 2
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": -1.0,
+        "utility": 2.0,
+        "accessibility": 1.0,
+        "overall": 3
       },
       "comments": "Bedwyr's taunt and giant absorber provide great team support and survivability that doesn't depend solely on stats, respectively."
     },
@@ -2860,25 +2868,25 @@
       "name": "Bersagliere",
       "value_rating": 3,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 2,
-        "utility": -1,
-        "accessibility": 1,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 2.0,
+        "utility": -1.0,
+        "accessibility": 1.0,
         "overall": 3
       },
       "comments": "Between stealth, 3 Alphas, and a large jump, Bersagliere has all the tools it needs to be a strong, safe damage dealer."
     },
     {
       "name": "Mauler",
-      "value_rating": 1,
+      "value_rating": 2,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 1,
-        "utility": 0,
-        "accessibility": -1,
-        "overall": 1
+        "longevity": 0.0,
+        "lethality": 2.0,
+        "mobility": 1.0,
+        "utility": 0.0,
+        "accessibility": -1.0,
+        "overall": 2
       },
       "comments": "Mauler is extremely deadly, and enemies in its abillity's zone will melt rapidly. However, without significant investment, it will be frail for a long time."
     },
@@ -2886,11 +2894,11 @@
       "name": "Devourer",
       "value_rating": 1,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": -1,
-        "utility": 1,
-        "accessibility": 0,
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": -1.0,
+        "utility": 1.0,
+        "accessibility": 0.0,
         "overall": 1
       },
       "comments": "Devourer is a debuffer that can seriously impede enemies' movement, damage, and defense by essence shifting them. Unfortunately, it relies on allies or mothership effects in order to make use of this ability."
@@ -2899,11 +2907,11 @@
       "name": "Bjorn",
       "value_rating": 0,
       "scores": {
-        "longevity": 1,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": -1,
-        "accessibility": -1,
+        "longevity": 1.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": -1.0,
         "overall": 0
       },
       "comments": "Bjorn is a decent statchecker with high uptime and firepower but poor mobility outside of ball mode. It trades luchador's jump for it's better ability uptime and an extra alpha weapon."
@@ -2912,11 +2920,11 @@
       "name": "Atlas",
       "value_rating": 3,
       "scores": {
-        "longevity": 1,
-        "lethality": 0,
-        "mobility": 1,
-        "utility": 1,
-        "accessibility": 0,
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 1.0,
+        "utility": 1.0,
+        "accessibility": 0.0,
         "overall": 3
       },
       "comments": "Atlas is comparable to Bedwyr, namely trading off Taunt and a more utility focused absorber shield for nasty EMP application & area denial, plus some mobility."
@@ -2925,27 +2933,27 @@
       "name": "Princeps",
       "value_rating": 1,
       "scores": {
-        "longevity": 2,
-        "lethality": 1,
-        "mobility": -1,
-        "utility": 1,
-        "accessibility": -2,
+        "longevity": 2.0,
+        "lethality": 1.0,
+        "mobility": -1.0,
+        "utility": 1.0,
+        "accessibility": -2.0,
         "overall": 1
       },
-      "comments": "Princeps has an overpowered mix of high damage, the best defensive ability in the game, and as a cherry on top, crowd control utility."
+      "comments": "Princeps has an overpowered mix of high damage, the best defensive ability in the game, and as a cherry on top, crowd control utility. Unfortunately, like most other meta titans, it loses a lot of f2p value due to lack of accessibility."
     },
     {
       "name": "Waymaker",
-      "value_rating": 1,
+      "value_rating": 2,
       "scores": {
-        "longevity": 0,
-        "lethality": 1,
-        "mobility": 0,
-        "utility": 2,
-        "accessibility": -2,
-        "overall": 1
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 0.0,
+        "utility": 3.0,
+        "accessibility": -2.0,
+        "overall": 2
       },
-      "comments": "Waymaker is a potent support titan that's dragged down by pixonic gimping much of its kit to overcompensate for how strong hunter stacks are. It also suffers from opportunity cost; pathfinder only requires a robot slot to do what it does while waymaker requires a titan slot."
+      "comments": "Waymaker is a potent support titan that's dragged down by the rest of its kit. It also suffers from opportunity cost; pathfinder only requires a robot slot to do what it does while waymaker requires a titan slot."
     }
   ],
   "camelot": [
@@ -3215,5 +3223,13 @@
     "**Only with Freezo drone",
     "***Only with Lock-down Ammo module or Paralysis drone",
     "****Only with level 9 (or higher) Myia"
-  ]
+  ],
+  "rating_colors": {
+    "<= -2": "#ff0000",
+    "-1": "#ff8000",
+    "0": "#ffff00",
+    "+1": "#80ff00",
+    "+2": "#00ff00",
+    ">= +3": "#00ffff"
+  }
 }

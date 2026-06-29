@@ -77,6 +77,13 @@ export function RobotsGuideTab({ onItemClick }) {
     return filtered;
   }, [searchQuery, robotValueFilter]);
 
+  const availableRatings = useMemo(() => {
+    const items = guideSubTab === 'robots' ? robotGuideData?.robots : robotGuideData?.titans;
+    if (!items) return [];
+    const ratings = items.map(item => item.value_rating);
+    return Array.from(new Set(ratings)).sort((a, b) => b - a);
+  }, [guideSubTab]);
+
   return (
     <div className="animate-fade-in text-left">
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
@@ -111,7 +118,9 @@ export function RobotsGuideTab({ onItemClick }) {
         setRobotValueFilter={setRobotValueFilter}
         robotRoleFilter={robotRoleFilter}
         setRobotRoleFilter={setRobotRoleFilter}
+        availableRatings={availableRatings}
       />
+
 
       {/* Robots/Titans Grid */}
       <div className="dashboard-grid">

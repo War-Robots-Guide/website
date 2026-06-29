@@ -7,7 +7,8 @@ export function GuideFilters({
   robotValueFilter,
   setRobotValueFilter,
   robotRoleFilter,
-  setRobotRoleFilter
+  setRobotRoleFilter,
+  availableRatings = []
 }) {
   return (
     <div className="search-container">
@@ -24,18 +25,11 @@ export function GuideFilters({
         onChange={(e) => setRobotValueFilter(e.target.value)}
       >
         <option value="All">All Value Ratings</option>
-        {guideSubTab === 'robots' && (
-          <>
-            <option value="5">Value Rating 5</option>
-            <option value="4">Value Rating 4</option>
-          </>
-        )}
-        <option value="3">Value Rating 3</option>
-        <option value="2">Value Rating 2</option>
-        <option value="1">Value Rating 1</option>
-        <option value="0">Value Rating 0</option>
-        <option value="-1">Value Rating -1</option>
-        <option value="-2">Value Rating -2</option>
+        {availableRatings.map(rating => (
+          <option key={rating} value={rating}>
+            Value Rating {rating > 0 ? `+${rating}` : rating}
+          </option>
+        ))}
       </select>
 
       {/* Roles filter (only for Robots) */}

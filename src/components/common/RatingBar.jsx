@@ -1,45 +1,38 @@
 
+import { getRatingColor, getRatingColorsList } from '../../utils/ratingColors';
+
 export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
   const isTitan = unitType === 'titan';
   const minVal = -2;
-  const maxVal = isTitan ? 3 : 5;
+  const maxVal = 3;
   
-  // Clamp rating
+  // Clamp rating for visual bar positioning
   const clampedRating = Math.min(maxVal, Math.max(minVal, rating));
   // Calculate percentage
   const percentage = ((clampedRating - minVal) / (maxVal - minVal)) * 100;
   
   const getRatingLabel = (val) => {
+    const formattedVal = val > 0 ? `+${val}` : val;
     if (isTitan) {
-      if (val <= -2) return 'Horrible (-2)';
+      if (val <= -2) return `Horrible (${formattedVal})`;
       if (val === -1) return 'Bad (-1)';
       if (val === 0) return 'Poor (0)';
       if (val === 1) return 'Usable (+1)';
       if (val === 2) return 'Very Good (+2)';
-      return 'Best (+3)';
+      return `Best (${formattedVal})`;
     } else {
-      if (val <= -2) return 'Horrible (-2)';
+      if (val <= -2) return `Horrible (${formattedVal})`;
       if (val === -1) return 'Bad (-1)';
       if (val === 0) return 'Poor (0)';
       if (val === 1) return 'Usable (+1)';
       if (val === 2) return 'Good (+2)';
       if (val === 3) return 'Very Good (+3)';
       if (val === 4) return 'Excellent (+4)';
-      return 'Best (+5)';
+      return `Best (${formattedVal})`;
     }
   };
 
-  const getRatingColor = (val) => {
-    if (isTitan) {
-      if (val >= 2) return '#22c55e'; // Green
-      if (val === 1) return '#eab308'; // Yellow
-      return '#ef4444'; // Red
-    } else {
-      if (val >= 3) return '#22c55e'; // Green
-      if (val >= 1) return '#eab308'; // Yellow
-      return '#ef4444'; // Red
-    }
-  };
+  const colorsList = getRatingColorsList();
 
   return (
     <div style={{ 
@@ -51,15 +44,15 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
       marginLeft: align === 'right' ? 'auto' : '0'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontSize: '11px', fontWeight: 700, color: getRatingColor(clampedRating) }}>
-          {getRatingLabel(clampedRating)}
+        <span style={{ fontSize: '11px', fontWeight: 700, color: getRatingColor(rating) }}>
+          {getRatingLabel(rating)}
         </span>
       </div>
       <div style={{ 
         width: '100%', 
         height: '6px', 
         borderRadius: '3px', 
-        background: 'linear-gradient(to right, #ef4444 0%, #eab308 50%, #22c55e 100%)', 
+        background: `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[1]} 20%, ${colorsList[2]} 40%, ${colorsList[3]} 60%, ${colorsList[4]} 80%, ${colorsList[5]} 100%)`, 
         position: 'relative',
         marginTop: '6px',
         marginBottom: '4px'
@@ -80,3 +73,5 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
     </div>
   );
 }
+
+
