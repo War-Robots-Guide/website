@@ -40,8 +40,7 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
       display: 'flex', 
       flexDirection: 'column', 
       gap: '4px', 
-      width: '100%', 
-      maxWidth: '160px',
+      width: '110px',
       marginLeft: align === 'right' ? 'auto' : '0'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -52,15 +51,22 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
       <div style={{ 
         width: '100%', 
         height: '6px', 
-        borderRadius: '3px', 
-        background: `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[1]} 20%, ${colorsList[2]} 40%, ${colorsList[3]} 60%, ${colorsList[4]} 80%, ${colorsList[5]} 100%)`, 
         position: 'relative',
         marginTop: '6px',
         marginBottom: '4px'
       }}>
+        {/* Main Bar Fill */}
+        <div 
+          className={isBroken ? 'rating-bar-shattered' : ''}
+          style={{
+            width: '100%', 
+            height: '100%', 
+            borderRadius: '3px', 
+            background: `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[1]} 20%, ${colorsList[2]} 40%, ${colorsList[3]} 60%, ${colorsList[4]} 80%, ${colorsList[5]} 100%)`, 
+          }}
+        />
         {/* Needle */}
         <div 
-          className={isBroken ? 'shake-needle' : ''}
           style={{
             position: 'absolute',
             left: `${percentage}%`,
@@ -77,6 +83,40 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
             zIndex: 2
           }}
         ></div>
+        
+        {/* Shatter & Spill overlay effects */}
+        {isBroken && (
+          <>
+            {/* Spilled Blue Flow/Trail to Needle */}
+            <div className="blue-spill-flow" style={{
+              position: 'absolute',
+              left: '90%',
+              top: '1px',
+              width: `${percentage - 90}%`,
+              height: '4px',
+              background: `linear-gradient(to right, ${colorsList[5]} 35%, rgba(59, 130, 246, 0.4) 70%, rgba(59, 130, 246, 0) 100%)`,
+              zIndex: 1,
+              borderRadius: '2px',
+              transformOrigin: 'left center'
+            }} />
+
+            {/* Shards breaking off */}
+            <div className="bar-shard shard-1" style={{ background: colorsList[5] }} />
+            <div className="bar-shard shard-2" style={{ background: colorsList[5] }} />
+            <div className="bar-shard shard-3" style={{ background: colorsList[5] }} />
+
+            {/* Spill Droplets from the break */}
+            <div className="spill-droplet" style={{ left: '91%', top: '1px', '--drip-x': '15px', '--drip-y': '-6px', animationDelay: '0s', animationDuration: '0.8s' }} />
+            <div className="spill-droplet" style={{ left: '93%', top: '3px', '--drip-x': '25px', '--drip-y': '8px', animationDelay: '0.2s', animationDuration: '1.1s' }} />
+            <div className="spill-droplet" style={{ left: '90%', top: '4px', '--drip-x': '10px', '--drip-y': '12px', animationDelay: '0.4s', animationDuration: '0.7s' }} />
+            <div className="spill-droplet" style={{ left: '92%', top: '2px', '--drip-x': '30px', '--drip-y': '2px', animationDelay: '0.6s', animationDuration: '1.3s' }} />
+            <div className="spill-droplet" style={{ left: '94%', top: '5px', '--drip-x': '18px', '--drip-y': '6px', animationDelay: '0.8s', animationDuration: '0.9s' }} />
+
+            {/* Spill Droplets from the needle */}
+            <div className="spill-droplet" style={{ left: `${percentage}%`, top: '4px', '--drip-x': '5px', '--drip-y': '15px', animationDelay: '0.1s', animationDuration: '1.0s' }} />
+            <div className="spill-droplet" style={{ left: `${percentage}%`, top: '4px', '--drip-x': '-5px', '--drip-y': '18px', animationDelay: '0.5s', animationDuration: '1.2s' }} />
+          </>
+        )}
       </div>
     </div>
   );
