@@ -12,6 +12,9 @@ export function RobotsGuideTab({ onItemClick }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [robotValueFilter, setRobotValueFilter] = useState('All');
   const [robotRoleFilter, setRobotRoleFilter] = useState('All');
+  const [statFilter, setStatFilter] = useState('All');
+  const [minScoreFilter, setMinScoreFilter] = useState('All');
+  const [sortBy, setSortBy] = useState('Default');
 
   const handleCardClick = (item, category) => {
     if (!onItemClick) return;
@@ -47,15 +50,27 @@ export function RobotsGuideTab({ onItemClick }) {
       const matchRole = robotRoleFilter === 'All' || 
                         robot.roles.some(r => r.role === robotRoleFilter && r.type !== 'none');
       
-      return matchSearch && matchValue && matchRole;
+      let matchStat = true;
+      if (statFilter !== 'All' && minScoreFilter !== 'All') {
+        const score = robot.scores?.[statFilter];
+        matchStat = score !== undefined && score >= parseInt(minScoreFilter);
+      }
+      
+      return matchSearch && matchValue && matchRole && matchStat;
     });
 
-    if (query) {
+    if (sortBy !== 'Default') {
+      filtered = [...filtered].sort((a, b) => {
+        const valA = sortBy === 'value_rating' ? a.value_rating : (a.scores?.[sortBy] ?? -999);
+        const valB = sortBy === 'value_rating' ? b.value_rating : (b.scores?.[sortBy] ?? -999);
+        return valB - valA;
+      });
+    } else if (query) {
       filtered = sortBySearchQuery(filtered, query, (robot) => robot.name);
     }
 
     return filtered;
-  }, [searchQuery, robotValueFilter, robotRoleFilter]);
+  }, [searchQuery, robotValueFilter, robotRoleFilter, statFilter, minScoreFilter, sortBy]);
 
   const filteredTitans = useMemo(() => {
     if (!robotGuideData?.titans) return [];
@@ -67,15 +82,27 @@ export function RobotsGuideTab({ onItemClick }) {
       
       const matchValue = robotValueFilter === 'All' || titan.value_rating === parseInt(robotValueFilter);
       
-      return matchSearch && matchValue;
+      let matchStat = true;
+      if (statFilter !== 'All' && minScoreFilter !== 'All') {
+        const score = titan.scores?.[statFilter];
+        matchStat = score !== undefined && score >= parseInt(minScoreFilter);
+      }
+      
+      return matchSearch && matchValue && matchStat;
     });
 
-    if (query) {
+    if (sortBy !== 'Default') {
+      filtered = [...filtered].sort((a, b) => {
+        const valA = sortBy === 'value_rating' ? a.value_rating : (a.scores?.[sortBy] ?? -999);
+        const valB = sortBy === 'value_rating' ? b.value_rating : (b.scores?.[sortBy] ?? -999);
+        return valB - valA;
+      });
+    } else if (query) {
       filtered = sortBySearchQuery(filtered, query, (titan) => titan.name);
     }
 
     return filtered;
-  }, [searchQuery, robotValueFilter]);
+  }, [searchQuery, robotValueFilter, statFilter, minScoreFilter, sortBy]);
 
   const availableRatings = useMemo(() => {
     const items = guideSubTab === 'robots' ? robotGuideData?.robots : robotGuideData?.titans;
@@ -97,13 +124,31 @@ export function RobotsGuideTab({ onItemClick }) {
       <div className="tab-pills">
         <button 
           className={`tab-pill ${guideSubTab === 'robots' ? 'active' : ''}`} 
-          onClick={() => { setGuideSubTab('robots'); setRobotRoleFilter('All'); setRobotValueFilter('All'); setSearchInput(''); setSearchQuery(''); }}
+          onClick={() => { 
+            setGuideSubTab('robots'); 
+            setRobotRoleFilter('All'); 
+            setRobotValueFilter('All'); 
+            setStatFilter('All');
+            setMinScoreFilter('All');
+            setSortBy('Default');
+            setSearchInput(''); 
+            setSearchQuery(''); 
+          }}
         >
           Robots
         </button>
         <button 
           className={`tab-pill ${guideSubTab === 'titans' ? 'active' : ''}`} 
-          onClick={() => { setGuideSubTab('titans'); setRobotRoleFilter('All'); setRobotValueFilter('All'); setSearchInput(''); setSearchQuery(''); }}
+          onClick={() => { 
+            setGuideSubTab('titans'); 
+            setRobotRoleFilter('All'); 
+            setRobotValueFilter('All'); 
+            setStatFilter('All');
+            setMinScoreFilter('All');
+            setSortBy('Default');
+            setSearchInput(''); 
+            setSearchQuery(''); 
+          }}
         >
           Titans
         </button>
@@ -118,6 +163,12 @@ export function RobotsGuideTab({ onItemClick }) {
         setRobotValueFilter={setRobotValueFilter}
         robotRoleFilter={robotRoleFilter}
         setRobotRoleFilter={setRobotRoleFilter}
+        statFilter={statFilter}
+        setStatFilter={setStatFilter}
+        minScoreFilter={minScoreFilter}
+        setMinScoreFilter={setMinScoreFilter}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
         availableRatings={availableRatings}
       />
 

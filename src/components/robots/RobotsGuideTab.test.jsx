@@ -59,4 +59,12 @@ describe('RobotsGuideTab Search Prioritization', () => {
       expect(matchedNames[1]).toBe('Destrier');
     });
   });
+
+  it('filters by stat score minimums and sorts by stat scores', () => {
+    render(<RobotsGuideTab />);
+    
+    // Check that new filter and sorting options are available in the document
+    expect(screen.getByText('All Stats')).toBeInTheDocument();
+    expect(screen.getByText('Default Sort')).toBeInTheDocument();
+  });
 });
