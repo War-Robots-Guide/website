@@ -5,6 +5,7 @@ import weaponsDpsData from '../../data/weapons_dps.json';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
+import { getTierForName } from '../../utils/tierLookup';
 
 // Pre-compute lookup data outside the component to avoid recreating it on every render.
 const weaponsList = weaponsDpsData ? Object.values(weaponsDpsData).flat() : [];
@@ -32,6 +33,12 @@ const precomputedTitans = robotGuideData?.titans ? robotGuideData.titans.map(t =
 }) : [];
 
 export function DetailModal({ selectedItem, onClose }) {
+  const tier = useMemo(() => {
+    if (!selectedItem) return null;
+    if (selectedItem.type !== 'Robots' && selectedItem.type !== 'Titans') return null;
+    return getTierForName(selectedItem.name, selectedItem.type);
+  }, [selectedItem]);
+
   const dpsInfo = useMemo(() => {
     if (!selectedItem || !selectedItem.type.includes('Weapons')) return null;
     const targetLower = selectedItem.name.toLowerCase();
@@ -155,9 +162,26 @@ export function DetailModal({ selectedItem, onClose }) {
                       <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
                       <RatingBar rating={rob.value_rating} unitType="robot" />
                     </div>
+                    {tier && (
+                      <div>
+                        <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Tier</span>
+                        <span className={`tier-badge-${tier.toLowerCase()}`} style={{ 
+                          display: 'inline-flex', 
+                          padding: '2px 8px', 
+                          fontWeight: 'bold',
+                          fontSize: '11px',
+                          borderRadius: '4px',
+                          background: `var(--tier-${tier.toLowerCase()}-bg)`,
+                          color: `var(--tier-${tier.toLowerCase()})`,
+                          border: `1px solid var(--tier-${tier.toLowerCase()}-border)`,
+                          textTransform: 'uppercase',
+                          marginTop: '4px'
+                        }}>{tier} Tier</span>
+                      </div>
+                    )}
                     <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
-                      <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)' }}>Robot</span>
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Class:</span>
+                      <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)', marginTop: '4px' }}>Robot</span>
                     </div>
                   </div>
                   {rob.roles && rob.roles.length > 0 && (
@@ -199,9 +223,26 @@ export function DetailModal({ selectedItem, onClose }) {
                       <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
                       <RatingBar rating={titan.value_rating} unitType="titan" />
                     </div>
+                    {tier && (
+                      <div>
+                        <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Tier</span>
+                        <span className={`tier-badge-${tier.toLowerCase()}`} style={{ 
+                          display: 'inline-flex', 
+                          padding: '2px 8px', 
+                          fontWeight: 'bold',
+                          fontSize: '11px',
+                          borderRadius: '4px',
+                          background: `var(--tier-${tier.toLowerCase()}-bg)`,
+                          color: `var(--tier-${tier.toLowerCase()})`,
+                          border: `1px solid var(--tier-${tier.toLowerCase()}-border)`,
+                          textTransform: 'uppercase',
+                          marginTop: '4px'
+                        }}>{tier} Tier</span>
+                      </div>
+                    )}
                     <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>Class:</span>
-                      <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--purple)', borderColor: 'rgba(59, 130, 246, 0.2)' }}>Titan</span>
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Class:</span>
+                      <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--purple)', borderColor: 'rgba(59, 130, 246, 0.2)', marginTop: '4px' }}>Titan</span>
                     </div>
                   </div>
                   {titan.roles && titan.roles.length > 0 && (

@@ -1,7 +1,10 @@
 import { RatingBar } from '../common/RatingBar';
 import { ScoreMeter } from '../common/ScoreMeter';
+import { getTierForName } from '../../utils/tierLookup';
 
 export function RobotCard({ robot, onClick, robotGuideData }) {
+  const tier = getTierForName(robot.name, 'Robots');
+
   return (
     <div
       className="glass-panel glass-panel-hover robot-card"
@@ -14,7 +17,23 @@ export function RobotCard({ robot, onClick, robotGuideData }) {
     >
       <div className="robot-card-header">
         <div>
-          <h3 style={{ fontSize: '20px', color: 'var(--cyan)' }}>{robot.name}</h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '2px' }}>
+            <h3 style={{ fontSize: '20px', color: 'var(--cyan)', margin: 0 }}>{robot.name}</h3>
+            {tier && (
+              <span className={`tier-badge-${tier.toLowerCase()}`} style={{
+                fontSize: '11px',
+                fontWeight: 'bold',
+                padding: '1px 6px',
+                borderRadius: '4px',
+                background: `var(--tier-${tier.toLowerCase()}-bg)`,
+                color: `var(--tier-${tier.toLowerCase()})`,
+                border: `1px solid var(--tier-${tier.toLowerCase()}-border)`,
+                textTransform: 'uppercase'
+              }}>
+                {tier} Tier
+              </span>
+            )}
+          </div>
           <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{robot.sheet}</span>
         </div>
         <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
