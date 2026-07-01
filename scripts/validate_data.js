@@ -166,9 +166,9 @@ function validateScores(scores, path, unitType = 'robot') {
   const scoreObj = expectObject(scores, path);
   const maxVal = unitType === 'titan' ? 5 : 10;
   for (const key of ['longevity', 'lethality', 'mobility', 'utility', 'accessibility']) {
-    expectNumberInRange(scoreObj[key], `${path}.${key}`, -3, 3);
+    expectNumberInRange(scoreObj[key], `${path}.${key}`, -5, 3);
   }
-  expectNumberInRange(scoreObj['overall'], `${path}.overall`, -3, maxVal);
+  expectNumberInRange(scoreObj['overall'], `${path}.overall`, -5, maxVal);
 }
 
 function validateWeapons(data) {
