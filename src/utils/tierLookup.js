@@ -71,3 +71,16 @@ export const getDescriptionForName = (name, category) => {
 
   return '';
 };
+
+export const getFootnoteText = (footnote, footnotesData) => {
+  if (!footnote) return '';
+  if (!footnotesData) return footnote;
+  if (/^\d+$/.test(footnote)) {
+    const idx = parseInt(footnote, 10) - 1;
+    return footnotesData[idx] || footnote;
+  }
+  return footnotesData.find(f => {
+    const prefix = f.match(/^\*+/)?.[0] || '';
+    return prefix === footnote;
+  }) || footnote;
+};

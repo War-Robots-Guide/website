@@ -42,7 +42,7 @@ vi.mock('../data/tiers.json', () => {
   };
 });
 
-import { getTierForName, getDescriptionForName } from './tierLookup';
+import { getTierForName, getDescriptionForName, getFootnoteText } from './tierLookup';
 
 describe('tierLookup', () => {
   describe('getDescriptionForName', () => {
@@ -121,6 +121,36 @@ describe('tierLookup', () => {
 
     it('should return null if not found', () => {
       expect(getTierForName('NonExistentBot', 'Robots')).toBeNull();
+    });
+  });
+
+  describe('getFootnoteText', () => {
+    const mockFootnotes = [
+      "*Only with Traditionalist pilot skill",
+      "**Only with Freezo drone",
+      "***Only with Lock-down Ammo module"
+    ];
+
+    it('should return empty string for invalid inputs', () => {
+      expect(getFootnoteText(null, mockFootnotes)).toBe('');
+      expect(getFootnoteText(undefined, mockFootnotes)).toBe('');
+      expect(getFootnoteText('*', null)).toBe('*');
+    });
+
+    it('should match asterisk strings correctly', () => {
+      expect(getFootnoteText('*', mockFootnotes)).toBe('*Only with Traditionalist pilot skill');
+      expect(getFootnoteText('**', mockFootnotes)).toBe('**Only with Freezo drone');
+      expect(getFootnoteText('***', mockFootnotes)).toBe('***Only with Lock-down Ammo module');
+    });
+
+    it('should match numeric indices correctly', () => {
+      expect(getFootnoteText('1', mockFootnotes)).toBe('*Only with Traditionalist pilot skill');
+      expect(getFootnoteText('2', mockFootnotes)).toBe('**Only with Freezo drone');
+    });
+
+    it('should fallback to returning the key if not found in list', () => {
+      expect(getFootnoteText('****', mockFootnotes)).toBe('****');
+      expect(getFootnoteText('4', mockFootnotes)).toBe('4');
     });
   });
 });

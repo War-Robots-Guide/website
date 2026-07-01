@@ -5,7 +5,7 @@ import weaponsDpsData from '../../data/weapons_dps.json';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
-import { getTierForName } from '../../utils/tierLookup';
+import { getTierForName, getFootnoteText } from '../../utils/tierLookup';
 
 // Pre-compute lookup data outside the component to avoid recreating it on every render.
 const weaponsList = weaponsDpsData ? Object.values(weaponsDpsData).flat() : [];
@@ -190,13 +190,34 @@ export function DetailModal({ selectedItem, onClose }) {
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                         {rob.roles.map(role => {
                           if (role.type === 'none') return null;
+                          const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
                           return (
-                            <span key={role.role} className={`role-badge ${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
+                            <span
+                              key={role.role}
+                              className={`role-badge ${role.type}`}
+                              style={{ display: 'inline-flex', padding: '2px 8px', alignItems: 'center' }}
+                              title={tooltipText}
+                            >
                               {role.role}
+                              {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>{role.footnote}</sup>}
                             </span>
                           );
                         })}
                       </div>
+                      {rob.roles.some(r => r.footnote) && (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '8px' }}>
+                          {rob.roles
+                            .filter(r => r.footnote)
+                            .map(r => {
+                              const fText = getFootnoteText(r.footnote, robotGuideData?.footnotes);
+                              return (
+                                <span key={r.role} style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.3 }}>
+                                  {r.footnote} {fText.replace(/^\*+/, '').trim()}
+                                </span>
+                              );
+                            })}
+                        </div>
+                      )}
                     </div>
                   )}
                   <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
@@ -251,13 +272,34 @@ export function DetailModal({ selectedItem, onClose }) {
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                         {titan.roles.map(role => {
                           if (role.type === 'none') return null;
+                          const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
                           return (
-                            <span key={role.role} className={`role-badge ${role.type}`} style={{ display: 'inline-flex', padding: '2px 8px' }}>
+                            <span
+                              key={role.role}
+                              className={`role-badge ${role.type}`}
+                              style={{ display: 'inline-flex', padding: '2px 8px', alignItems: 'center' }}
+                              title={tooltipText}
+                            >
                               {role.role}
+                              {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>{role.footnote}</sup>}
                             </span>
                           );
                         })}
                       </div>
+                      {titan.roles.some(r => r.footnote) && (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '8px' }}>
+                          {titan.roles
+                            .filter(r => r.footnote)
+                            .map(r => {
+                              const fText = getFootnoteText(r.footnote, robotGuideData?.footnotes);
+                              return (
+                                <span key={r.role} style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.3 }}>
+                                  {r.footnote} {fText.replace(/^\*+/, '').trim()}
+                                </span>
+                              );
+                            })}
+                        </div>
+                      )}
                     </div>
                   )}
                   <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>

@@ -1,6 +1,6 @@
 import { RatingBar } from '../common/RatingBar';
 import { ScoreMeter } from '../common/ScoreMeter';
-import { getTierForName } from '../../utils/tierLookup';
+import { getTierForName, getFootnoteText } from '../../utils/tierLookup';
 
 export function RobotCard({ robot, onClick, robotGuideData }) {
   const tier = getTierForName(robot.name, 'Robots');
@@ -58,22 +58,39 @@ export function RobotCard({ robot, onClick, robotGuideData }) {
 
       {/* Roles Badges */}
       {robot.roles && robot.roles.length > 0 && (
-        <div className="robot-roles">
-          {robot.roles.map(role => {
-            const tooltipText = role.footnote ? robotGuideData?.footnotes?.[parseInt(role.footnote) - 1] || role.footnote : '';
-            return (
-              <span
-                className={`role-badge ${role.type}`}
-                key={role.role}
-                title={tooltipText}
-              >
-                {role.role}
-                {role.type === 'primary' && ' (Primary)'}
-                {role.type === 'secondary' && ' (Secondary)'}
-                {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>*</sup>}
-              </span>
-            );
-          })}
+        <div className="robot-roles" style={{ display: 'block' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+            {robot.roles.map(role => {
+              const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
+              return (
+                <span
+                  className={`role-badge ${role.type}`}
+                  key={role.role}
+                  title={tooltipText}
+                  style={{ display: 'inline-flex', alignItems: 'center' }}
+                >
+                  {role.role}
+                  {role.type === 'primary' && ' (Primary)'}
+                  {role.type === 'secondary' && ' (Secondary)'}
+                  {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>{role.footnote}</sup>}
+                </span>
+              );
+            })}
+          </div>
+          {robot.roles.some(r => r.footnote) && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '8px' }}>
+              {robot.roles
+                .filter(r => r.footnote)
+                .map(r => {
+                  const fText = getFootnoteText(r.footnote, robotGuideData?.footnotes);
+                  return (
+                    <span key={r.role} style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.3 }}>
+                      {r.footnote} {fText.replace(/^\*+/, '').trim()}
+                    </span>
+                  );
+                })}
+            </div>
+          )}
         </div>
       )}
     </div>
