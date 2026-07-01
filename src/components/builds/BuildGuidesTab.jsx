@@ -41,7 +41,7 @@ export function BuildGuidesTab() {
         <p style={{ margin: '0 auto' }}>
           Learn the best weapon, specialization, pilot, and drone configurations for your robots.
           <span style={{ display: 'block', marginTop: '8px', fontSize: '13px', color: 'var(--text-secondary)', opacity: 0.85 }}>
-            <em>Note: Build guides are only provided for recommended robots.</em>
+            <em>Build guides are only provided for recommended robots.</em>
           </span>
         </p>
       </div>
