@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import tiersData from '../../data/tiers.json';
-import { getDescriptionForName } from '../../utils/tierLookup';
 
 import { DashboardHero } from './DashboardHero';
 import { QuickStats } from './QuickStats';
@@ -77,11 +76,7 @@ export function DashboardTab({ onItemClick }) {
     if (!onItemClick) return;
 
     const category = 'Robots';
-    let description = getDescriptionForName(item.name, category);
-
-    if (!description) {
-      description = item.comments;
-    }
+    const description = item.comments;
 
     onItemClick(item.name, category, { description });
   };

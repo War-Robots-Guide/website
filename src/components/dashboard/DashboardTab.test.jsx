@@ -81,7 +81,7 @@ describe('DashboardTab Interactivity', () => {
     expect(mockOnItemClick).toHaveBeenCalledWith(
       'Destrier',
       'Robots',
-      { description: 'Destrier description from tiers data' }
+      { description: 'Classic starter robot with decent speed.' }
     );
   });
 });

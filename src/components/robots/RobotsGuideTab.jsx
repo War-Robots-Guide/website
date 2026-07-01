@@ -1,7 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { sortBySearchQuery } from '../../utils/sortUtils';
-import { getDescriptionForName } from '../../utils/tierLookup';
 import { RobotCard } from './RobotCard';
 import { TitanCard } from './TitanCard';
 import { GuideFilters } from './GuideFilters';
@@ -19,11 +18,7 @@ export function RobotsGuideTab({ onItemClick }) {
   const handleCardClick = (item, category) => {
     if (!onItemClick) return;
 
-    let description = getDescriptionForName(item.name, category);
-
-    if (!description) {
-      description = item.comments;
-    }
+    const description = item.comments;
 
     onItemClick(item.name, category, { description });
   };
