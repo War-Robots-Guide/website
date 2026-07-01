@@ -6,9 +6,16 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
   const minVal = -2;
   const maxVal = 3;
   
-  // Clamp rating for visual bar positioning: allow it to overflow to 125% when rating > 3
-  const clampedRating = Math.max(minVal, rating);
-  const percentage = Math.max(0, Math.min(125, ((clampedRating - minVal) / (maxVal - minVal)) * 100));
+  // Calculate percentage: 20% per step <= 3, and 10% per step > 3
+  let percentage;
+  if (rating <= 3) {
+    const clampedRating = Math.max(minVal, rating);
+    percentage = Math.max(0, ((clampedRating - minVal) / (maxVal - minVal)) * 100);
+  } else {
+    const maxRating = isTitan ? 5 : 7;
+    const clampedRating = Math.min(maxRating, rating);
+    percentage = 100 + (clampedRating - 3) * 10;
+  }
   
   const getRatingLabel = (val) => {
     const formattedVal = val > 0 ? `+${val}` : val;
@@ -104,17 +111,6 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
             <div className="bar-shard shard-1" style={{ background: colorsList[5] }} />
             <div className="bar-shard shard-2" style={{ background: colorsList[5] }} />
             <div className="bar-shard shard-3" style={{ background: colorsList[5] }} />
-
-            {/* Spill Droplets from the break */}
-            <div className="spill-droplet" style={{ left: '91%', top: '1px', '--drip-x': '15px', '--drip-y': '-6px', animationDelay: '0s', animationDuration: '0.8s' }} />
-            <div className="spill-droplet" style={{ left: '93%', top: '3px', '--drip-x': '25px', '--drip-y': '8px', animationDelay: '0.2s', animationDuration: '1.1s' }} />
-            <div className="spill-droplet" style={{ left: '90%', top: '4px', '--drip-x': '10px', '--drip-y': '12px', animationDelay: '0.4s', animationDuration: '0.7s' }} />
-            <div className="spill-droplet" style={{ left: '92%', top: '2px', '--drip-x': '30px', '--drip-y': '2px', animationDelay: '0.6s', animationDuration: '1.3s' }} />
-            <div className="spill-droplet" style={{ left: '94%', top: '5px', '--drip-x': '18px', '--drip-y': '6px', animationDelay: '0.8s', animationDuration: '0.9s' }} />
-
-            {/* Spill Droplets from the needle */}
-            <div className="spill-droplet" style={{ left: `${percentage}%`, top: '4px', '--drip-x': '5px', '--drip-y': '15px', animationDelay: '0.1s', animationDuration: '1.0s' }} />
-            <div className="spill-droplet" style={{ left: `${percentage}%`, top: '4px', '--drip-x': '-5px', '--drip-y': '18px', animationDelay: '0.5s', animationDuration: '1.2s' }} />
           </>
         )}
       </div>
