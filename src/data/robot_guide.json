@@ -270,7 +270,15 @@
     },
     {
       "date": "2026-06-29",
-      "text": "Mauler Lethality 1 -> 2; stacked up darklight is more lethal than a charged Eiffel. Newton Utility 1 -> 2; Choke is incredibly clutch and unique to Newton. \nMinos Utility -1 -> 0; Charge knocks enemies around, and CC is considered utility. Rook Utility 0 -> -1; while it has CC and suppression, it charges enemy nuclear amplifiers. \nBedwyr Utility 1 -> 2; Taunt is an incredibly powerful and uncounterable ability that allows Bedwyr to decide the outcome of fights happening in completely different areas of the map. - Adazahi"
+      "text": "Mauler Lethality 1 -> 2; stacked up darklight is more lethal than a charged Eiffel. Newton Utility 1 -> 2; Choke is incredibly clutch and unique to Newton. \nMinos Utility -1 -> 0; Charge knocks enemies around, and CC is considered utility. Rook Utility 0 -> -1; while it has CC and suppression, it charges enemy nuclear amplifiers. \nBedwyr Utility 1 -> 2; Taunt is an incredibly powerful and uncounterable ability that allows Bedwyr to decide the outcome of fights happening in completely different areas of the map. - Adazahi\nRex Longevity 1->0, Revenant longevity 1->0, Hastatus longevity 1->0, Ammit 2->1 utility, Teth mobility 1->0. Changes for patch. -Mistermath"
+    },
+    {
+      "date": "2026-06-30",
+      "text": "Added Vulcan & Omen Vulcan, Ammit accessiblity -2 -> -1 due to now being in common data pads & Showdown becoming the new best drone for Ammit over Scales (Showdown being of course a staple F2P drone) -Tropical \nUpdated mini build guides due to nerfs and added new gear. -Adazahi"
+    },
+    {
+      "date": "2026-07-01",
+      "text": "Added ochokochi build guide and updated a couple others after further testing. -adazahi"
     }
   ],
   "builds": [
@@ -279,7 +287,7 @@
       "robot": "Pathfinder",
       "f2p_weapons": "Not recommended for F2P",
       "f2p_drones": "",
-      "best_weapons": "Kroko, Fahrenheit,\nUE Cryo, or close\nrange UE setups",
+      "best_weapons": "Kroko, Fahrenheit,\nUE Cryo, close\nrange UE setups,\nor Lumens",
       "best_drones": "Lv12 Freezo",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nRepair or UC",
@@ -290,7 +298,7 @@
       "robot": "Pathfinder",
       "f2p_weapons": "Hazard, Atomizer\nor Damper",
       "f2p_drones": "Lv9 Freezo",
-      "best_weapons": "Midrange UE setups,\nMachiara, UE Vortex\nUrhag",
+      "best_weapons": "Midrange UE setups,\nMachiara, UE Vortex\nUrhag, Lumens",
       "best_drones": "Lv12 Freezo",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -301,7 +309,7 @@
       "robot": "Pathfinder",
       "f2p_weapons": "Not recommended for F2P",
       "f2p_drones": "",
-      "best_weapons": "Midrange UE setups,\nMachiara, UE Vortex",
+      "best_weapons": "Midrange UE setups,\nMachiara, UE Vortex\nLumens",
       "best_drones": "Lv12 Qingting",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -312,7 +320,7 @@
       "robot": "Imugi",
       "f2p_weapons": "Not recommended for F2P",
       "f2p_drones": "",
-      "best_weapons": "UE Igniter + UE Blaze\n(or UE Shredder)\nUE Arms\nMachiara + Velos\nFahrenheit + Celsius",
+      "best_weapons": "Lumens, UE Arms\nMachiara + Velos\nFahrenheit + Celsius",
       "best_drones": "Lv12 Webby",
       "pilot": "Monique\nLenormond",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -323,8 +331,8 @@
       "robot": "Imugi",
       "f2p_weapons": "Howler + Growler",
       "f2p_drones": "Lv4 Showdown\nLv9 Armadillo\nLv9 Seeker",
-      "best_weapons": "Close range UE setups,\nFahrenheit + Celsius,\nor Elox + Murix",
-      "best_drones": "Lv12 Kestrel\nLv12 Scales\nLv12 Seeker",
+      "best_weapons": "Close range UE setups,\nFahrenheit + Celsius,\nor Lumens",
+      "best_drones": "Lv12 Kestrel",
       "pilot": "Mao Ling",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
       "explanation": "Mao Ling combined with a defensive drone turn Imugi into an uncharacteristically tanky\nrobot even when on the ground, allowing it to somewhat sustain a fight even out of ability."
@@ -334,7 +342,7 @@
       "robot": "Nuo",
       "f2p_weapons": "Hazard + Decay\nSubduer + Damper,\nor Nucleon + Atomizer",
       "f2p_drones": "Lv9 Aopo\nLv4 Showdown\nLv9 Seeker",
-      "best_weapons": "Machiara + Basilius or\nUE Redeemer + UE Taran",
+      "best_weapons": "Machiara + Basilius,\nLumens",
       "best_drones": "Lv12 Aopo\nLv4 Showdown",
       "pilot": "Walter\nTrommel",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nRepair, UC, or\nPhase Shift",
@@ -356,7 +364,7 @@
       "robot": "Lio",
       "f2p_weapons": "Growler",
       "f2p_drones": "Lv4 Showdown",
-      "best_weapons": "Any UE weapons, Kroko,\nFahrenheit",
+      "best_weapons": "Any UE weapons,\nFahrenheit, Lumens",
       "best_drones": "Lv4+ Showdown\nLv12 Scales",
       "pilot": "Walter\nTrommel",
       "specialization": "Support (Accelerator +\nLast Stand)\nBrawler (Repair Amp +\nImmune Amp)\nRepair or UC",
@@ -367,7 +375,7 @@
       "robot": "Demeter",
       "f2p_weapons": "Mogwan",
       "f2p_drones": "Lv9 Whiteout\nLv9 Seeker",
-      "best_weapons": "Close Range UE weapons,\nKroko, Machiara or Murix",
+      "best_weapons": "Close Range UE weapons,\nMachiara, Lumens, Murix",
       "best_drones": "Lv9 Whiteout\nLv12 UE Glider\nLv12 Seeker",
       "pilot": "APPM-3TR",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -376,9 +384,9 @@
     {
       "build_name": "Evasive\nBrawler",
       "robot": "Ravana",
-      "f2p_weapons": "Havoc",
+      "f2p_weapons": "Havoc or Growler",
       "f2p_drones": "Lv4 Showdown\nLv9 Whiteout\nLv9 Armadillo\nLv9 Seeker",
-      "best_weapons": "UE Burst weapons, Kroko,\nor Murix",
+      "best_weapons": "UE Burst weapons,\nMurix",
       "best_drones": "Lv12 UE Glider\nLv4+ Showdown\nLv9 Whiteout\nLv12 Armadillo\nLv12 Seeker",
       "pilot": "Arnav Poe",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or UC",
@@ -400,7 +408,7 @@
       "robot": "Skyros",
       "f2p_weapons": "Not recommended for F2P",
       "f2p_drones": "Lv1 Whiteout\nLv1 Myia",
-      "best_weapons": "Liodari + Kroko + Hippo,\nElox + Murix + UE Glory",
+      "best_weapons": "UE Halo/Elox +\nUE Corona/Murix +\nUE Glory",
       "best_drones": "Lv12 Scales",
       "pilot": "Roberto Baros",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nDefense (Anticontrol +\nHeavy Armor Kit)\nRepair or UC",
@@ -411,7 +419,7 @@
       "robot": "Lynx",
       "f2p_weapons": "Nucleon, Subduer,\nor Talon",
       "f2p_drones": "Lv9 Armadillo\nLv4 Showdown\nLv9 Whiteout\nLv9 Kestrel\nLv9 Seeker",
-      "best_weapons": "Basilieus, Liodari, Kelvin, \nor UE Redeemer",
+      "best_weapons": "Basilieus, Liodari, Kelvin, \nLumens, or UE Redeemer",
       "best_drones": "Lv12 UE Glider\nLv4+ Showdown\nLv9 Whiteout\nLv12 Armadillo\nLv12 Kestrel\nLv12 Seeker",
       "pilot": "Sati \"Cat\" \nFelidae",
       "specialization": "Any Specialization\nPhase Shift",
@@ -433,7 +441,7 @@
       "robot": "Siren",
       "f2p_weapons": "Nucleon + Quarker,\nSubduer + Tamer,\nor Decay + Blight",
       "f2p_drones": "Lv9 Hawkeye\nLv4 Showdown",
-      "best_weapons": "Basilieus + Velos \nPilum + Gladius or\nShantak + Voonith",
+      "best_weapons": "Basilieus + Velos \nPilum + Gladius\nShantak + Voonith \nLumens",
       "best_drones": "Lv12 Hawkeye\nLv4+ Showdown\nLv12 UE Glider\nLv12 Armadillo",
       "pilot": "Twins",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
@@ -444,7 +452,7 @@
       "robot": "Raptor",
       "f2p_weapons": "Kirin + Gangil",
       "f2p_drones": "Lv9 Hawkeye\nLv4 Showdown\nLv9 Armadillo\nLv9 Whiteout",
-      "best_weapons": "Liodari + Hippo or\nClose range UE setups",
+      "best_weapons": "Lumens or\nClose range UE setups",
       "best_drones": "Lv12 Hawkeye\nLv4 Showdown\nLv12 Armadillo\nLv9 Whiteout",
       "pilot": "Gloria Earhart",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nJump Unit,\nRepair, or UC",
@@ -455,7 +463,7 @@
       "robot": "Nightingale",
       "f2p_weapons": "Havoc + Scatter",
       "f2p_drones": "Lv9 Kestrel\nLv4+ Showdown\nLv9 Whiteout\nLv1 Myia",
-      "best_weapons": "Elox + Murix, Kroko +\nHippo, or UE burst\nweapons",
+      "best_weapons": "Elox + Murix or UE burst\nweapons",
       "best_drones": "Lv12 Kestrel\nLv12 Myia",
       "pilot": "Virginia Walker",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -466,7 +474,7 @@
       "robot": "Dux",
       "f2p_weapons": "Atomizer + Quarker\nor Damper + Quarker",
       "f2p_drones": "Lv9 Kestrel\nLv4+ Showdown\nLv9 Armadillo\nLv9 Whteout\nLv9+ Seeker",
-      "best_weapons": "Quarker + Murix, Quarker\n+ Kroko, Quarker +\nMachiara, Fahrenheit +\nCelsius, or close range\nUE setups",
+      "best_weapons": "Quarker + Murix, Quarker\n+ Lumen, Quarker +\nMachiara, Fahrenheit +\nCelsius, or close range\nUE setups",
       "best_drones": "Lv12 Webby\nLv12 Kestrel\nLv12 UE Glider\nLv12 Seeker",
       "pilot": "Willa Owe",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -477,7 +485,7 @@
       "robot": "Scorpion",
       "f2p_weapons": "Havoc + Scatter",
       "f2p_drones": "Lv9 Kestrel\nLv4+ Showdown\nLv9 Armadilllo\nLv9 Whiteout",
-      "best_weapons": "Elox + Murix,\nUE Burst weapons,\nor Kroko + Hippo",
+      "best_weapons": "Elox + Murix,\nUE Burst weapons",
       "best_drones": "Lv12 Kestrel\nLv4+ Showdown\nLv12 Armadilllo\nLv9 Whiteout\nLv12 UE Glider",
       "pilot": "Ash Skarsgard",
       "specialization": "Any Specialization\nPhase Shift",
@@ -488,7 +496,7 @@
       "robot": "Kaji",
       "f2p_weapons": "Decay + Blight +\nHazard",
       "f2p_drones": "Lv4 Showdown\nLv9 Seeker",
-      "best_weapons": "Boom + Bash + Pow\nHedjet + Deshret + Pshent,\nKroko + Hippo + Liodari or\nVoonith + Urhag + Shantak",
+      "best_weapons": "Lumens, Machiara + Velos \n+ Basileus, UE burst setups",
       "best_drones": "Lv12 Kocho\nLv12 Myia",
       "pilot": "Kevin O'Reilly",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nPhase Shift",
@@ -510,7 +518,7 @@
       "robot": "Crisis",
       "f2p_weapons": "Decay",
       "f2p_drones": "Lv4+ Showdown",
-      "best_weapons": "Basilieus or Pilum",
+      "best_weapons": "Basilieus or Lumens",
       "best_drones": "Lv12 Showdown",
       "pilot": "Gintaire\nKaityre",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -521,7 +529,7 @@
       "robot": "Teth",
       "f2p_weapons": "Devasator + Havoc\n+ Scatter or Kirin +\nMogwan + Gangil",
       "f2p_drones": "Lv4 Showdown\nLv9 Armadillo\nLv9 Whiteout\nLv9 Seeker",
-      "best_weapons": "Kroko + Hippo + Liodari or\nClose range UE setups",
+      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius + Kelvin, Basileus\n+ Machiara + Velos",
       "best_drones": "Lv12 Scarebus\nLv4 Showdown\nLv12 Armadillo\nLv12 Seeker",
       "pilot": "Bast Neferu",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or UC",
@@ -532,7 +540,7 @@
       "robot": "Ammit",
       "f2p_weapons": "Claw + Jaw, Howler +\nGrowler, Mace + Cudgel,\nor Atomizer + Quarker",
       "f2p_drones": "Lv4 Showdown\nLv9 Whiteout\nLv9 Seeker",
-      "best_weapons": "Kroko + Hippo\nMachiara + Velos\nClose range UE setups",
+      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius, Machiara + Velos",
       "best_drones": "Lv12 Scales\nLv4+ Showdown",
       "pilot": "Mei Lan",
       "specialization": "Tank (Repair Amp +\nHeavy Armor Kit)\nRepair or UC",
@@ -543,7 +551,7 @@
       "robot": "Raven",
       "f2p_weapons": "Hazard + Blight, Arms,\nDamper + Tamer, or\nAtomizer + Quarker",
       "f2p_drones": "Lv4+ Showdown\nLv9 Seeker",
-      "best_weapons": "Machiara + Velos,\nMidrange UE Setups\nVoonith + Urhag",
+      "best_weapons": "Machiara + Velos,\nMidrange UE Setups\nVoonith + Urhag\nLumens",
       "best_drones": "Lv12 Kestrel\nLv12 Showdown\nLv12 Aopo\nLv12 Seeker",
       "pilot": "Nessa Riggs",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or\nJump Unit",
@@ -565,7 +573,7 @@
       "robot": "Loki",
       "f2p_weapons": "Not recommended for F2P",
       "f2p_drones": "",
-      "best_weapons": "Elox",
+      "best_weapons": "Elox or UE Halo",
       "best_drones": "Lv12 Kestrel",
       "pilot": "Chester Coen",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nPhase Shift",
@@ -576,7 +584,7 @@
       "robot": "Leech",
       "f2p_weapons": "Growler or Porthos",
       "f2p_drones": "Lv4 Showdown\nLv9 Armadillo\nLv9 Whiteout\nLv9 Seeker",
-      "best_weapons": "Murix, Kroko, Fahrenheit\nor Close range UE setups",
+      "best_weapons": "Murix, Fahrenheit, Lumen\nor Close range UE setups",
       "best_drones": "Lv12 Scales\nLv12 UE Glider\nLv12 Seeker",
       "pilot": "Thomas\nMindread\n(With Engine\nExpert skill)",
       "specialization": "Damage Dealer\n(Nike Amp + Overdrive)\nPhase Shift",
@@ -587,7 +595,7 @@
       "robot": "Leech",
       "f2p_weapons": "Hazard, Damper,\nor Atomizer",
       "f2p_drones": "Lv4 Showdown\nLv9 Armadillo",
-      "best_weapons": "Midrange UE setups\nMachiara or Urhag",
+      "best_weapons": "Midrange UE setups\nMachiara, Lumen or Urhag",
       "best_drones": "Lv12 Scales\nLv12 UE Glider\nLv12 Seeker",
       "pilot": "Thomas\nMindread\n(With Engine\nExpert skill)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -609,29 +617,40 @@
       "robot": "Bagliore",
       "f2p_weapons": "Decay, Nucleon,\nor Subduer",
       "f2p_drones": "Lv4 Showdown\nLv9 Armadillo\nLv4 Seeker",
-      "best_weapons": "Basilieus or Pilum",
+      "best_weapons": "Basilieus, Lumen\nor UE Incinerator",
       "best_drones": "Lv12 Scales\nLv12 Armadillo\nLv4+ Showdown\nLv12 UE Glider\nLv12 Seeker",
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
-      "explanation": "Most gunboats are better relegated to being midrangers at f2p level investment. At non f2p investment,\nIf you don't have Basilieus but you do have Shantak/Piercer, use that instead."
+      "explanation": "Most gunboats are better relegated to being midrangers at f2p level investment. At non f2p investment,\nIf you don't have Basilieus but you do have Shantak/Piercer, use that instead. Unfortunately, even as\na midranger, Bagliore is a mk3 merchant since it's passive gets MUCH stronger at mk3, but it is still\nservicable at mk2. Just know that mk3 bagliore is a priority."
     },
     {
       "build_name": "Brawler",
       "robot": "Bagliore",
       "f2p_weapons": "Not recommended for F2P",
       "f2p_drones": "",
-      "best_weapons": "Liodari, UE Redeemer,\nUE Avenger",
+      "best_weapons": "UE Redeemer, UE\nCalaimity, Lumens,\nBasilieus",
       "best_drones": "Lv12 Scales\nLv12 Armadillo\nLv4+ Showdown\nLv12 UE Glider\nLv12 Seeker",
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
       "explanation": "Bagliore as a Brawler is able to statcheck a surprising amount of enemies, especially if you properly\ntime the Nova Light healing and prepare groundwork in advance. This only works if you have high\nquality weapons and mk3. Not recommended for f2p."
     },
     {
+      "build_name": "Brawler",
+      "robot": "Ochokochi",
+      "f2p_weapons": "Not recommended for F2P",
+      "f2p_drones": "",
+      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius, Machiara + Velos",
+      "best_drones": "Lv12 Bull \nLv12 Hiruko \nLv4+ Showdown",
+      "pilot": "Vepkho\nLovidze",
+      "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or UC",
+      "explanation": "Ochokochi is a fairly decent brawler that functions as a sidegrade to Rex. It trades burst uptime (only\none ability charge) and damage (no damage boosting pilot) as well as protection from low hit count guns\n(can't cleanse DoT stacks) for a strong CC ability that can launch people off the map. Just like Rex, it \nis a mk3 merchant that struggles to survive without it due to the crucial DoT resistance passive. Unless\nyou are a f2p that managed to get mk3 ocho, it is not recommended for f2p."
+    },
+    {
       "build_name": "Midranger",
       "robot": "Sword Unit",
       "f2p_weapons": "Damper + Tamer,\nARMS, or\nAtomizer + Quarker",
       "f2p_drones": "Lv4 Showdown\nLv9 Armadillo\nLv9 Whiteout\nLv9 Aopo\nLv9 Seeker",
-      "best_weapons": "Midrange UE setups,\nMachiara + Velos",
+      "best_weapons": "Midrange UE setups,\nMachiara + Velos\nLumens",
       "best_drones": "Lv4+ Showdown\nLv12 Armadillo\nLv9 Whiteout\nLv12 Aopo\nLv12 UE Glider\nLv12 WARD\nLv12 Seeker",
       "pilot": "Otto Schreyer\n(With Arms)\nSam Stone\n(With EMGS)\nShani Kyne\n(if you have)\nMiharu Sharpe\n(Otherwise)",
       "specialization": "Raider (Nuke Amp +\nAny)\nPhase Shift or Lockdown\nAmmo",
@@ -642,18 +661,18 @@
       "robot": "Rex",
       "f2p_weapons": "Not recommended for F2P",
       "f2p_drones": "",
-      "best_weapons": "Elox + Murix, Hippo +\nKroko, Fahrenheit + \nCelsius, Close range UE\nsetups",
+      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius, Machiara + Velos",
       "best_drones": "Lv12 Bull",
       "pilot": "Danny Kiberia",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or UC",
-      "explanation": "Rex is able to deal unbelievably high damage for a brawler when equipped with the Danny pilot. The\nreduced amount of charges gives it less uptime at the start of the battle, but it shouldn't matter\nsince you can end fights so quickly with the damage boost. Not recommended for f2p."
+      "explanation": "Rex is able to deal unbelievably high damage for a brawler when equipped with the Danny pilot. The\nreduced amount of charges gives it less uptime at the start of the battle, but it shouldn't matter\nsince you can end fights so quickly with the damage boost. Just like Ochokochi, it is a mk3 merchant \nthat struggles to survive without it due to the crucial DoT resistance passive. Unless you are a f2p that\nmanaged to get mk3 Rex, it is not recommended for f2p."
     },
     {
       "build_name": "Midranger",
       "robot": "Hastatus",
       "f2p_weapons": "Decay + Blight,\nDamper + Subduer, or\nNucleon + Quarker",
       "f2p_drones": "Lv4 Showdown\nLv9 Armadillo\nLv9 Seeker",
-      "best_weapons": "Machiara + Velos\nPilum + Gladius or\nShantak + Voonith",
+      "best_weapons": "Machiara + Velos\nLumens,\nShantak + Voonith, or\nUE Incinerator + UE Scald",
       "best_drones": "Lv4+ Showdown\nLv12 Armadillo\nLv12 UE Glider\nLv12 Seeker",
       "pilot": "Lucius Palma,\nLian Xin Bai\nis competitive",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
@@ -664,7 +683,7 @@
       "robot": "Stryx",
       "f2p_weapons": "Decay, Nucleon,\nor Subduer",
       "f2p_drones": "Lv4 Showdown\nLv9 Armadillo\nLv9 Seeker",
-      "best_weapons": "Basilieus or Pilum",
+      "best_weapons": "Basilieus, Lumen, or\nUE Incinerator",
       "best_drones": "Lv4+ Showdown\nLv12 Armadillo\nLv12 UE Glider\nLv12 Seeker",
       "pilot": "Ryder Mourn",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
@@ -686,30 +705,19 @@
       "robot": "Anaksor",
       "f2p_weapons": "Damper + Subduer,\nScreamer + Growler,\nor Nucleon + Atomizer",
       "f2p_drones": "Lv9 Seeker\nLv9 Aopo",
-      "best_weapons": "Machiara + Basilius or\nUE Devastator + UE \nHavoc, UE Machineguns,\nor Fahrenheit + Kelvin",
+      "best_weapons": "Machiara + Basilius,\nLumens, or\nFahrenheit + Kelvin",
       "best_drones": "Lv12 Myia",
       "pilot": "Single Malt",
       "specialization": "Raider\n(Nuke Amp + Integrated)\nPhase Shift, SB, or QS",
-      "explanation": "Ankasor will yield results as long as your screen is turned on while piloting it. This robot can\ncomfortably 1v1 most titans in the game with a bit of patience, it's only real counter is getting \nonetapped by croc guns or vendicatoires."
-    },
-    {
-      "build_name": "Titan Charger/\nSkirmisher",
-      "robot": "Anaksor",
-      "f2p_weapons": "Not recommended for F2P",
-      "f2p_drones": "",
-      "best_weapons": "Kroko + Liodari",
-      "best_drones": "Lv12 Myia",
-      "pilot": "Mei Lan",
-      "specialization": "Raider\n(Nuke Amp + Integrated)\nPhase Shift, SB, or QS",
-      "explanation": "The idea behind this build is that you onetap the enemy before they onetap you. Also charges titans\nabsurdly fast, so it's a good opener"
+      "explanation": "Ankasor will yield results as long as your screen is turned on while piloting it. This robot can\ncomfortably 1v1 most titans in the game with a bit of patience, though its most recent nerf has made it\nrequire a bit of forethought. If you notice that your cloak just got triggered for the third time, make sure\nto land in order to not get lit up midair with no protection. Also, don't let people get within 150m of you\nwhile you're flying."
     },
     {
       "build_name": "Brawler",
       "robot": "Vector",
       "f2p_weapons": "Howler + Growler,\nHavoc + Scatter, or\nClaw + Jaw",
       "f2p_drones": "Lv4 Showdown\nLv9 Whiteout\nLv9 Seeker\nLv9 Hawkeye\nLv9 Armadillo",
-      "best_weapons": "Kroko + Liodari, Fahrenheit\n+ Celsius, or close range\nUE setups",
-      "best_drones": "Lv12 Tensor",
+      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius, Machiara + Velos",
+      "best_drones": "Lv12 Tensor\nLv12 Hawkeye",
       "pilot": "Nika Schum",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift,\nRepair, or UC",
       "explanation": "Vector is an absurdly fast brawler that can skate across the map. Regular brawling builds are very\nstrong on it, but as you might expect, fast brawlers tend to be best used as titan chargers."
@@ -719,11 +727,11 @@
       "robot": "Vector",
       "f2p_weapons": "Shifang + Leiming",
       "f2p_drones": "Lv4 Showdown\nLv9 Whiteout\nLv9 Seeker\nLv9 Hawkeye",
-      "best_weapons": "Kroko + Liodari",
-      "best_drones": "Lv12 Tensor",
+      "best_weapons": "UE Venom + UE Toxin",
+      "best_drones": "Lv12 Hawkeye",
       "pilot": "Nika Schum",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or UC",
-      "explanation": "Vector is probably the single best titan charging bot in the game, competing with the likes of UE\nBrawlers and Teth."
+      "explanation": "Vector is probably the single best titan charging bot in the game due to how much time it can stall for\nwith its 3 long duration ability charges."
     },
     {
       "build_name": "Sniper\nSupport",
@@ -734,18 +742,40 @@
       "best_drones": "Lv12 Fhtagn\nLv12 Solar",
       "pilot": "Baek Taejun",
       "specialization": "Damage Dealer\n(Nuke amp + Rangefind)\nPhase shift or SB",
-      "explanation": "A pathfinder with a nuclear amp is scary, but a pathfinder that can lock you down and turn you into\nstacks from across the map is scarier."
+      "explanation": "A pathfinder with a nuclear amp is scary, but a pathfinder that can lock you down and turn you into\nstacks from across the map is scarier. Not recommended for f2p due to lack of good f2p snipers."
     },
     {
       "build_name": "Midrange\nSupport",
       "robot": "Shoggoth",
       "f2p_weapons": "Decay + Hazard\nNucleon + Atomizer\nSubduer + Damper",
       "f2p_drones": "Lv9 Freezo\nLv9 Fhtagn",
-      "best_weapons": "Machiara + Basileus",
+      "best_weapons": "Machiara + Basileus\nLumens",
       "best_drones": "Lv12 Fhtagn",
       "pilot": "Baek Taejun",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift or SB",
       "explanation": "A more accessable support due to the lack of good f2p snipers in the meta."
+    },
+    {
+      "build_name": "Assault",
+      "robot": "Vulcan",
+      "f2p_weapons": "Growler + Howler\nAtomizer + Quarker",
+      "f2p_drones": "Lv9 Seeker",
+      "best_weapons": "Lumens,\nMachiara + Velos, \nUE Arms\nFahrenheit + Celsius",
+      "best_drones": "Lv12 Lar",
+      "pilot": "Ines Diaz",
+      "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift",
+      "explanation": "The general build if the only Vulcan you have is the regular edition. Vulcan is incredibly oppressive and\ncan statcheck almost anything in the game when scaled, though before it upgrades itself it is relatively\nmediocre and thus requires proper target selection to actually survive past its weak phase."
+    },
+    {
+      "build_name": "Debuffer\nAssault",
+      "robot": "Omen Vulcan",
+      "f2p_weapons": "Not recommended for F2P",
+      "f2p_drones": "",
+      "best_weapons": "Lumens,\nMachiara + Velos \nUE Arms\nFahrenheit + Celsius\nFahrenheit + UE Toxin\nUE Arm + UE Toxin\nLumen + UE Toxin",
+      "best_drones": "Lv12 Webby",
+      "pilot": "Ines Diaz",
+      "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase Shift, UC, or\nAdvanced repair",
+      "explanation": "The most effective Vulcan build in most situations, able to apply constant rust with 100% uptime. This\nrust application effect alows Vulcan to run UE Toxins in the light slots. It is not reccomended to run\nUE Venom in the medium slots as DoT damage does not charge the ability and you will struggle\nto scale up if you do this."
     }
   ],
   "robots": [
@@ -1124,14 +1154,14 @@
     {
       "name": "Revenant",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": -1,
       "scores": {
-        "longevity": 1.0,
+        "longevity": 0.0,
         "lethality": -1.0,
         "mobility": 1.0,
         "utility": -1.0,
         "accessibility": 0.0,
-        "overall": 0
+        "overall": -1
       },
       "roles": [
         {
@@ -1176,7 +1206,7 @@
     {
       "name": "Seraph",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": -2,
       "scores": {
         "longevity": -2.0,
         "lethality": 0.0,
@@ -1227,7 +1257,7 @@
     {
       "name": "Nether",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": -1,
       "scores": {
         "longevity": -2.0,
         "lethality": 0.0,
@@ -1398,7 +1428,7 @@
     {
       "name": "Dagon",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": -2,
       "scores": {
         "longevity": 0.0,
         "lethality": 1.0,
@@ -1774,14 +1804,14 @@
     {
       "name": "Teth",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 1,
       "scores": {
         "longevity": 1.0,
         "lethality": 0.0,
-        "mobility": 1.0,
+        "mobility": 0.0,
         "utility": 0.0,
         "accessibility": 0.0,
-        "overall": 2
+        "overall": 1
       },
       "roles": [
         {
@@ -1800,7 +1830,7 @@
           "footnote": ""
         }
       ],
-      "comments": "Teth is an extremely mobile tank with good utility, making it able to do Raptor's off-tank beacon runner role very effectively."
+      "comments": "Teth's EMP is good utility, making it comparable to Raptor as a tank but with much less mobility."
     },
     {
       "name": "Stryx",
@@ -1872,14 +1902,14 @@
     {
       "name": "Rex",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 0,
       "scores": {
-        "longevity": 1.0,
+        "longevity": 0.0,
         "lethality": 1.0,
         "mobility": 1.0,
         "utility": -1.0,
         "accessibility": -1.0,
-        "overall": 1
+        "overall": 0
       },
       "roles": [
         {
@@ -1908,14 +1938,14 @@
     {
       "name": "Hastatus",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": -1,
       "scores": {
-        "longevity": 1.0,
+        "longevity": 0.0,
         "lethality": 1.0,
         "mobility": -1.0,
         "utility": -1.0,
         "accessibility": 0.0,
-        "overall": 0
+        "overall": -1
       },
       "roles": [
         {
@@ -1934,13 +1964,13 @@
     {
       "name": "Ammit",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 0,
       "scores": {
         "longevity": 2.0,
         "lethality": 0.0,
         "mobility": -1.0,
-        "utility": 2.0,
-        "accessibility": -2.0,
+        "utility": 1.0,
+        "accessibility": -1.0,
         "overall": 1
       },
       "roles": [
@@ -2069,6 +2099,83 @@
         }
       ],
       "comments": "It was hard to believe that pixonic would powercreep Pathfinder, but you truly can't underestimate their motives to add the most unhealthy robots to the game as possible. Shoggoth is an unholy abomination child between mother Pathfinder and father Bagliore."
+    },
+    {
+      "name": "Vulcan",
+      "sheet": "Tier 4",
+      "value_rating": -1,
+      "scores": {
+        "longevity": 1.0,
+        "lethality": 2.0,
+        "mobility": 0.0,
+        "utility": -1.0,
+        "accessibility": -3.0,
+        "overall": -1
+      },
+      "roles": [
+        {
+          "role": "Tank-buster",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Sniper",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Brawler",
+          "type": "secondary",
+          "footnote": ""
+        }
+      ],
+      "comments": "Vulcan is the next generation of damage dealers, quite literally a walking Nuclear Amplifier: effortless to scale up, incredibly lethal, strong defensive capabilities for a non-brawling robot, and haunting strength if you obtain its special edition variant and equip Webby..."
+    },
+    {
+      "name": "Omen Vulcan",
+      "sheet": "Tier 4",
+      "value_rating": 1,
+      "scores": {
+        "longevity": 1.0,
+        "lethality": 2.0,
+        "mobility": 0.0,
+        "utility": 2.0,
+        "accessibility": -4.0,
+        "overall": 1
+      },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Tank-buster",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Sniper",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Brawler",
+          "type": "secondary",
+          "footnote": ""
+        }
+      ],
+      "comments": "Vulcan is a one of a kind robot that requires two different entries in order to justify its actual value; the Special Edition Vulcan causes Webby to apply 100% rust permanently against any targets you aim at. Exceedingly lethal to use against brawler/healing reliant titans."
     },
     {
       "name": "Fury",

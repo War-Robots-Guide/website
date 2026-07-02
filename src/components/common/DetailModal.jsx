@@ -50,9 +50,13 @@ export function DetailModal({ selectedItem, onClose }) {
     const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
     const isSelectedUe = cleanSelected.startsWith('ue ');
 
+    // Try exact match first
+    const exact = precomputedRobots.find(r => r.cleanName === cleanSelected);
+    if (exact) return exact;
+
     return precomputedRobots.find(r => {
       if (isSelectedUe !== r.isUe) return false;
-      return r.cleanName === cleanSelected || cleanSelected.includes(r.cleanName);
+      return cleanSelected.includes(r.cleanName);
     });
   }, [selectedItem]);
 
@@ -61,9 +65,13 @@ export function DetailModal({ selectedItem, onClose }) {
     const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
     const isSelectedUe = cleanSelected.startsWith('ue ');
 
+    // Try exact match first
+    const exact = precomputedTitans.find(t => t.cleanName === cleanSelected);
+    if (exact) return exact;
+
     return precomputedTitans.find(t => {
       if (isSelectedUe !== t.isUe) return false;
-      return t.cleanName === cleanSelected || cleanSelected.includes(t.cleanName);
+      return cleanSelected.includes(t.cleanName);
     });
   }, [selectedItem]);
 
