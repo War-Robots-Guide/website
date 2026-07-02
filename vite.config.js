@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name: 'War Robots Guide Database',
         short_name: 'WR Guide',
-        description: 'Official database for War Robots Guide. Explore community tier lists, detailed robot value ratings, optimized build guides, weapon DPS comparisons, and automated hangar synergy analyzer.',
+        description: 'Find optimal builds, check out tier lists, chart weapon DPS, and more at the WRG database!',
         theme_color: '#0a0e17',
         background_color: '#0a0e17',
         display: 'standalone',
