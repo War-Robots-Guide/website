@@ -27,35 +27,35 @@ const BACKGROUND_IMAGES = {
 const TAB_METADATA = {
   dashboard: {
     title: 'War Robots Guide Database & Tools',
-    description: 'Find optimal builds, check out tier lists, chart weapon DPS, and run hangar analysis at the War Robots Guide community database!'
+    description: 'Welcome to the database compiled by the expert community at War Robots Guide. Navigate to the top of the site to browse our extensive collection of helpful resources!'
   },
   tiers: {
     title: 'War Robots Meta Tier List | War Robots Guide',
-    description: 'Browse the latest meta tiers and community placements for Robots, Titans, Drones, Motherships, and Weapons.'
+    description: 'A power based tier list that ranks every unit in the game.'
   },
   robots: {
     title: 'War Robots Ratings & Guide | War Robots Guide',
-    description: 'Compare ratings, roles, and longevity scores for all robots and titans. Find optimal F2P and premium builds.'
+    description: 'Value rating represents F2P friendliness and return on investment.'
   },
   builds: {
     title: 'War Robots Optimal Builds | War Robots Guide',
-    description: 'Detailed setup recommendations for every major robot, showcasing optimal weapons, drones, pilots, and module specializations.'
+    description: 'Learn the best weapon, specialization, pilot, and drone configurations for your robots.'
   },
   specializations: {
     title: 'Module Specialization Layouts | War Robots Guide',
-    description: 'Guide to class-based module layouts and passive upgrade priorities for robots and titans.'
+    description: 'Learn what specializations and modules are the best for you.'
   },
   pilots: {
     title: 'Best Pilot Skills & Builds | War Robots Guide',
-    description: 'Find recommended pilot skills categorized by tier efficiency (Must Use, Usually Use, etc.) for all robots and titans.'
+    description: 'Learn what pilot skills are the strongest and which skills should be avoided.'
   },
   weapons: {
     title: 'Weapon DPS Statistics & Charts | War Robots Guide',
-    description: 'Compare weapon burst and cycle DPS, ranges, reload speeds, and special weapon mechanics in an interactive chart.'
+    description: 'Compare the DPS of most weapons in the game. Select up to four weapons to generate a bar chart.'
   },
   hangar: {
     title: 'Hangar Analyzer & Optimizer | War Robots Guide',
-    description: 'Analyze your active hangar composition. Get personalized feedback on role balance, upgrade paths, and optimal loadouts.'
+    description: 'Get a general idea of how strong your hangar is.'
   }
 };
 
