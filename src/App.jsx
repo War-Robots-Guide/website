@@ -71,6 +71,12 @@ function App() {
     if (metaDesc) {
       metaDesc.setAttribute('content', meta.description);
     }
+
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      const canonicalUrl = `https://warrobotsguide.com${activeTab === 'dashboard' ? '' : '/' + activeTab}`;
+      canonicalLink.setAttribute('href', canonicalUrl);
+    }
   }, [activeTab]);
   const [isEasterEggActive, setIsEasterEggActive] = useState(false);
   const [clickCount, setClickCount] = useState(0);

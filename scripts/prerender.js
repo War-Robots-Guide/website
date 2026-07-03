@@ -44,8 +44,10 @@ const ROUTE_METADATA = {
   }
 };
 
-function replaceMeta(html, metadata) {
+function replaceMeta(html, metadata, route) {
+  const canonicalUrl = `https://warrobotsguide.com${route === 'dashboard' ? '' : '/' + route}`;
   return html
+    .replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonicalUrl}" />`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${metadata.title}</title>`)
     .replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${metadata.description}" />`)
     .replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${metadata.title}" />`)
@@ -72,7 +74,7 @@ function prerender() {
   const indexContent = fs.readFileSync(indexPath, 'utf-8');
 
   // 1. Update root index.html with dashboard metadata
-  const updatedRootContent = replaceMeta(indexContent, ROUTE_METADATA.dashboard);
+  const updatedRootContent = replaceMeta(indexContent, ROUTE_METADATA.dashboard, 'dashboard');
   fs.writeFileSync(indexPath, updatedRootContent, 'utf-8');
   console.log('Updated root: dist/index.html with default metadata');
 
@@ -91,7 +93,7 @@ function prerender() {
 
     const routeIndexPath = path.join(routeDir, 'index.html');
     const metadata = ROUTE_METADATA[route] || ROUTE_METADATA.dashboard;
-    const routeContent = replaceMeta(indexContent, metadata);
+    const routeContent = replaceMeta(indexContent, metadata, route);
     fs.writeFileSync(routeIndexPath, routeContent, 'utf-8');
     console.log(`Created route: dist/${route}/index.html with route metadata`);
   });
