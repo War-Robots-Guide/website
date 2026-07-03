@@ -83,7 +83,10 @@ export function WeaponsDpsTab() {
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
         <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Weapon DPS Calculator & Comparison</h2>
         <p style={{ margin: '0 auto' }}>
-          Compare burst and cycle DPS metrics for all weapons. Select up to 4 weapons to generate a comparative bar chart.
+          Compare the DPS of most weapons in the game. Select up to four weapons to generate a bar chart.
+          <span style={{ display: 'block', marginTop: '8px', fontSize: '13px', color: 'var(--text-secondary)', opacity: 0.85 }}>
+            <em>Several older weapons are not included.</em>
+          </span>
         </p>
       </div>
 

@@ -37,7 +37,7 @@ export function BuildGuidesTab() {
   return (
     <div className="animate-fade-in text-left">
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Optimized Robot Builds</h2>
+        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Robot build guides</h2>
         <p style={{ margin: '0 auto' }}>
           Learn the best weapon, specialization, pilot, and drone configurations for your robots.
           <span style={{ display: 'block', marginTop: '8px', fontSize: '13px', color: 'var(--text-secondary)', opacity: 0.85 }}>
