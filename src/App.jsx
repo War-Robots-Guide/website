@@ -64,10 +64,10 @@ function App() {
   if (activeTab !== currentTab) {
     setLastTab(currentTab);
     setCurrentTab(activeTab);
+    setSelectedItem(null);
   }
 
   useEffect(() => {
-    setSelectedItem(null);
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0);
