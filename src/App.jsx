@@ -13,6 +13,17 @@ import { WeaponsDpsTab } from './components/weapons/WeaponsDpsTab';
 import { HangarAnalyzerTab } from './components/hangar/HangarAnalyzerTab';
 import { DetailModal } from './components/common/DetailModal';
 
+const BACKGROUND_IMAGES = {
+  dashboard: '/backgrounds/home-bg.jpg',
+  tiers: '/backgrounds/tierlist-bg.jpg',
+  robots: '/backgrounds/value-bg.jpg',
+  builds: '/backgrounds/buildguides-bg.jpg',
+  specializations: '/backgrounds/specializations-bg.jpg',
+  pilots: '/backgrounds/pilotskills-bg.jpg',
+  weapons: '/backgrounds/dps-bg.jpg',
+  hangar: '/backgrounds/hangaranalyzer-bg.jpg',
+};
+
 function App() {
   const [activeTab, setActiveTab] = useHashRouting('dashboard');
   const [selectedItem, setSelectedItem] = useState(null);
@@ -47,16 +58,26 @@ function App() {
     }
   }, [isEasterEggActive, isAdazahiEggActive]);
 
-  const [prevActiveTab, setPrevActiveTab] = useState(activeTab);
-  if (activeTab !== prevActiveTab) {
-    setPrevActiveTab(activeTab);
-    setSelectedItem(null);
+  const [lastTab, setLastTab] = useState(activeTab);
+  const [currentTab, setCurrentTab] = useState(activeTab);
+
+  if (activeTab !== currentTab) {
+    setLastTab(currentTab);
+    setCurrentTab(activeTab);
   }
 
   useEffect(() => {
+    setSelectedItem(null);
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0);
+    return () => clearTimeout(timer);
+  }, [activeTab]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLastTab(activeTab);
+    }, 500);
     return () => clearTimeout(timer);
   }, [activeTab]);
 
@@ -70,19 +91,32 @@ function App() {
     <div className="app-container">
       {/* Background Layers for cross-browser fading transitions */}
       <div className="bg-layers">
-        {tabs.map((tab) => (
-          <div
-            key={tab}
-            className={`bg-layer bg-theme-${tab} ${activeTab === tab ? 'active' : ''}`}
-            style={isAdazahiEggActive ? {
-              backgroundImage: "url('/backgrounds/easteregg-adazahi-bg.jpg')",
-              opacity: activeTab === tab ? 0.75 : 0
-            } : isEasterEggActive ? { 
-              backgroundImage: "url('/backgrounds/easteregg-crimsonhawk-bg.jpg')",
-              opacity: activeTab === tab ? 0.75 : 0
-            } : {}}
-          />
-        ))}
+        {tabs.map((tab) => {
+          const isActive = activeTab === tab;
+          const isVisible = tab === activeTab || tab === lastTab;
+
+          let bgUrl = 'none';
+          if (isVisible) {
+            if (isAdazahiEggActive) {
+              bgUrl = "url('/backgrounds/easteregg-adazahi-bg.jpg')";
+            } else if (isEasterEggActive) {
+              bgUrl = "url('/backgrounds/easteregg-crimsonhawk-bg.jpg')";
+            } else {
+              bgUrl = `url('${BACKGROUND_IMAGES[tab]}')`;
+            }
+          }
+
+          return (
+            <div
+              key={tab}
+              className={`bg-layer bg-theme-${tab} ${isActive ? 'active' : ''}`}
+              style={{
+                backgroundImage: bgUrl,
+                opacity: isActive ? (isEasterEggActive || isAdazahiEggActive ? 0.75 : 0.15) : 0
+              }}
+            />
+          );
+        })}
       </div>
 
       <Header activeTab={activeTab} onTabChange={setActiveTab} isEasterEggActive={isEasterEggActive || isAdazahiEggActive} />

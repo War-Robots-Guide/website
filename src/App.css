@@ -1273,43 +1273,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   transition: opacity 0.5s ease-in-out;
-  will-change: opacity;
 }
 
 .bg-layer.active {
   opacity: 0.15; /* subtle and faded background */
-}
-
-.bg-layer.bg-theme-dashboard {
-  background-image: url('/backgrounds/home-bg.jpg');
-}
-
-.bg-layer.bg-theme-tiers {
-  background-image: url('/backgrounds/tierlist-bg.jpg');
-}
-
-.bg-layer.bg-theme-robots {
-  background-image: url('/backgrounds/value-bg.jpg');
-}
-
-.bg-layer.bg-theme-builds {
-  background-image: url('/backgrounds/buildguides-bg.jpg');
-}
-
-.bg-layer.bg-theme-specializations {
-  background-image: url('/backgrounds/specializations-bg.jpg');
-}
-
-.bg-layer.bg-theme-pilots {
-  background-image: url('/backgrounds/pilotskills-bg.jpg');
-}
-
-.bg-layer.bg-theme-weapons {
-  background-image: url('/backgrounds/dps-bg.jpg');
-}
-
-.bg-layer.bg-theme-hangar {
-  background-image: url('/backgrounds/hangaranalyzer-bg.jpg');
 }
 
 /* Shattered Rating Bar Effects */
