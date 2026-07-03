@@ -35,10 +35,37 @@ export function RobotsGuideTab({ onItemClick }) {
     };
   }, [searchInput]);
 
-  // Reset lazy loading count when any filters or active tab change
-  useEffect(() => {
+  // Reset lazy loading count when any filters or active tab change without useEffect
+  const [prevFilterState, setPrevFilterState] = useState({
+    guideSubTab,
+    searchQuery,
+    robotValueFilter,
+    robotRoleFilter,
+    statFilter,
+    minScoreFilter,
+    sortBy,
+  });
+
+  if (
+    guideSubTab !== prevFilterState.guideSubTab ||
+    searchQuery !== prevFilterState.searchQuery ||
+    robotValueFilter !== prevFilterState.robotValueFilter ||
+    robotRoleFilter !== prevFilterState.robotRoleFilter ||
+    statFilter !== prevFilterState.statFilter ||
+    minScoreFilter !== prevFilterState.minScoreFilter ||
+    sortBy !== prevFilterState.sortBy
+  ) {
+    setPrevFilterState({
+      guideSubTab,
+      searchQuery,
+      robotValueFilter,
+      robotRoleFilter,
+      statFilter,
+      minScoreFilter,
+      sortBy,
+    });
     setVisibleCount(12);
-  }, [guideSubTab, searchQuery, robotValueFilter, robotRoleFilter, statFilter, minScoreFilter, sortBy]);
+  }
 
   const filteredRobots = useMemo(() => {
     if (!robotGuideData?.robots) return [];

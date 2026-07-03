@@ -19,6 +19,12 @@ export function BuildGuidesTab() {
 
   // Lazy loading state
   const [visibleCount, setVisibleCount] = useState(12);
+  const [prevSearchQuery, setPrevSearchQuery] = useState(searchQuery);
+
+  if (searchQuery !== prevSearchQuery) {
+    setPrevSearchQuery(searchQuery);
+    setVisibleCount(12);
+  }
 
   const filteredBuilds = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
@@ -35,11 +41,6 @@ export function BuildGuidesTab() {
     // 3. Substring match on robot name
     // 4. Other matches (non-robot)
     return sortBySearchQuery(filtered, query, (build) => build.robot);
-  }, [searchQuery]);
-
-  // Reset lazy loading count when search query changes
-  useEffect(() => {
-    setVisibleCount(12);
   }, [searchQuery]);
 
   // Paginated visible items list

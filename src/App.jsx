@@ -148,7 +148,7 @@ function App() {
 
           if (!isVisible) return null;
 
-          let bgUrl = 'none';
+          let bgUrl;
           if (isAdazahiEggActive) {
             bgUrl = "url('/backgrounds/easteregg-adazahi-bg.webp')";
           } else if (isEasterEggActive) {
