@@ -33,8 +33,8 @@ describe('Header Component', () => {
     ];
 
     expectedTabs.forEach(tabLabel => {
-      // Get by role to ensure accessibility and robustness
-      expect(screen.getByRole('button', { name: new RegExp(tabLabel, 'i') })).toBeInTheDocument();
+      // Get by role to ensure accessibility and robustness (links instead of buttons)
+      expect(screen.getByRole('link', { name: new RegExp(tabLabel, 'i') })).toBeInTheDocument();
     });
   });
 
@@ -42,18 +42,18 @@ describe('Header Component', () => {
     const { rerender } = render(<Header {...defaultProps} activeTab="dashboard" />);
 
     // Check if Home tab is active
-    let homeButton = screen.getByRole('button', { name: /home/i });
-    expect(homeButton).toHaveClass('active');
+    let homeLink = screen.getByRole('link', { name: /home/i });
+    expect(homeLink).toHaveClass('active');
 
     // Rerender with a different active tab
     rerender(<Header {...defaultProps} activeTab="tiers" />);
 
     // Home should no longer be active, Tier Lists should be active
-    homeButton = screen.getByRole('button', { name: /home/i });
-    expect(homeButton).not.toHaveClass('active');
+    homeLink = screen.getByRole('link', { name: /home/i });
+    expect(homeLink).not.toHaveClass('active');
 
-    const tierListsButton = screen.getByRole('button', { name: /tier lists/i });
-    expect(tierListsButton).toHaveClass('active');
+    const tierListsLink = screen.getByRole('link', { name: /tier lists/i });
+    expect(tierListsLink).toHaveClass('active');
   });
 
   it('calls onTabChange with correct ID when a tab is clicked', async () => {
@@ -62,13 +62,13 @@ describe('Header Component', () => {
     render(<Header {...defaultProps} onTabChange={onTabChangeMock} />);
 
     // Click the Tier Lists tab
-    const tierListsButton = screen.getByRole('button', { name: /tier lists/i });
-    await user.click(tierListsButton);
+    const tierListsLink = screen.getByRole('link', { name: /tier lists/i });
+    await user.click(tierListsLink);
     expect(onTabChangeMock).toHaveBeenCalledWith('tiers');
 
     // Click the Build Guides tab
-    const buildGuidesButton = screen.getByRole('button', { name: /build guides/i });
-    await user.click(buildGuidesButton);
+    const buildGuidesLink = screen.getByRole('link', { name: /build guides/i });
+    await user.click(buildGuidesLink);
     expect(onTabChangeMock).toHaveBeenCalledWith('builds');
   });
 
@@ -77,8 +77,8 @@ describe('Header Component', () => {
     const user = userEvent.setup();
     render(<Header {...defaultProps} onTabChange={onTabChangeMock} />);
 
-    const logoButton = screen.getByRole('button', { name: /war robots guide logo/i });
-    await user.click(logoButton);
+    const logoLink = screen.getByRole('link', { name: /war robots guide logo/i });
+    await user.click(logoLink);
     expect(onTabChangeMock).toHaveBeenCalledWith('dashboard');
   });
 

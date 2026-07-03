@@ -15,15 +15,27 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="War Robots Guide Database" />
     <meta property="og:description" content="Find optimal builds, check out tier lists, chart weapon DPS, and more at the WRG database!" />
-    <meta property="og:image" content="./banner.jpg" />
+    <meta property="og:image" content="https://warrobotsguide.com/banner.jpg" />
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="War Robots Guide Database" />
     <meta name="twitter:description" content="Find optimal builds, check out tier lists, chart weapon DPS, and more at the WRG database!" />
-    <meta name="twitter:image" content="./banner.jpg" />
+    <meta name="twitter:image" content="https://warrobotsguide.com/banner.jpg" />
 
     <meta name="theme-color" content="#0a0e17" />
+
+    <!-- Redirect legacy hash URLs to path URLs -->
+    <script>
+      (function() {
+        if (window.location.hash && (window.location.pathname === '/' || window.location.pathname === '/index.html')) {
+          var tab = window.location.hash.replace('#', '');
+          if (['dashboard', 'tiers', 'robots', 'builds', 'specializations', 'pilots', 'weapons', 'hangar'].includes(tab)) {
+            window.location.replace(tab === 'dashboard' ? '/' : '/' + tab);
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

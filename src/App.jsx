@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import { useHashRouting } from './hooks/useHashRouting';
+import { usePathRouting } from './hooks/usePathRouting';
 import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';
 import { DashboardTab } from './components/dashboard/DashboardTab';
@@ -25,7 +25,7 @@ const BACKGROUND_IMAGES = {
 };
 
 function App() {
-  const [activeTab, setActiveTab] = useHashRouting('dashboard');
+  const [activeTab, setActiveTab] = usePathRouting('dashboard');
   const [selectedItem, setSelectedItem] = useState(null);
   const [isEasterEggActive, setIsEasterEggActive] = useState(false);
   const [clickCount, setClickCount] = useState(0);

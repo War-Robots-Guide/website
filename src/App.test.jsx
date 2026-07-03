@@ -69,12 +69,16 @@ vi.mock('./components/common/DetailModal', () => ({
 }));
 
 describe('App Component', () => {
+  let originalPathname;
+
   beforeEach(() => {
-    window.location.hash = ''; // Reset hash
+    originalPathname = window.location.pathname;
+    window.history.pushState(null, '', '/');
     window.scrollTo = vi.fn();
   });
 
   afterEach(() => {
+    window.history.pushState(null, '', originalPathname);
     vi.restoreAllMocks();
   });
 
@@ -89,7 +93,7 @@ describe('App Component', () => {
     });
   });
 
-  it('changes tabs and scrolls to top when hash changes via interaction', async () => {
+  it('changes tabs and scrolls to top when pathname changes via interaction', async () => {
     const user = userEvent.setup();
     render(<App />);
 
@@ -101,10 +105,10 @@ describe('App Component', () => {
     // Change tab
     await user.click(screen.getByText('Go to Robots'));
 
-    // Since useHashRouting sets window.location.hash, and jsdom does not trigger hashchange
+    // Since usePathRouting sets window.location.pathname, and jsdom does not trigger popstate
     // automatically, we trigger it manually
     act(() => {
-      window.dispatchEvent(new Event('hashchange'));
+      window.dispatchEvent(new Event('popstate'));
     });
 
     expect(screen.getByTestId('robots-guide-tab')).toBeInTheDocument();
@@ -141,7 +145,7 @@ describe('App Component', () => {
     // Change tab
     await user.click(screen.getByText('Go to Robots'));
     act(() => {
-      window.dispatchEvent(new Event('hashchange'));
+      window.dispatchEvent(new Event('popstate'));
     });
 
     // Modal should be gone
