@@ -146,15 +146,15 @@ function App() {
           const isActive = activeTab === tab;
           const isVisible = tab === activeTab || tab === lastTab;
 
+          if (!isVisible) return null;
+
           let bgUrl = 'none';
-          if (isVisible) {
-            if (isAdazahiEggActive) {
-              bgUrl = "url('/backgrounds/easteregg-adazahi-bg.jpg')";
-            } else if (isEasterEggActive) {
-              bgUrl = "url('/backgrounds/easteregg-crimsonhawk-bg.jpg')";
-            } else {
-              bgUrl = `url('${BACKGROUND_IMAGES[tab]}')`;
-            }
+          if (isAdazahiEggActive) {
+            bgUrl = "url('/backgrounds/easteregg-adazahi-bg.jpg')";
+          } else if (isEasterEggActive) {
+            bgUrl = "url('/backgrounds/easteregg-crimsonhawk-bg.jpg')";
+          } else {
+            bgUrl = `url('${BACKGROUND_IMAGES[tab]}')`;
           }
 
           return (

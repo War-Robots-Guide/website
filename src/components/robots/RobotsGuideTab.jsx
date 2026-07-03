@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { sortBySearchQuery } from '../../utils/sortUtils';
 import { RobotCard } from './RobotCard';
@@ -14,6 +14,9 @@ export function RobotsGuideTab({ onItemClick }) {
   const [statFilter, setStatFilter] = useState('All');
   const [minScoreFilter, setMinScoreFilter] = useState('All');
   const [sortBy, setSortBy] = useState('Default');
+
+  // Lazy loading state
+  const [visibleCount, setVisibleCount] = useState(12);
 
   const handleCardClick = (item, category) => {
     if (!onItemClick) return;
@@ -31,6 +34,11 @@ export function RobotsGuideTab({ onItemClick }) {
       clearTimeout(handler);
     };
   }, [searchInput]);
+
+  // Reset lazy loading count when any filters or active tab change
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [guideSubTab, searchQuery, robotValueFilter, robotRoleFilter, statFilter, minScoreFilter, sortBy]);
 
   const filteredRobots = useMemo(() => {
     if (!robotGuideData?.robots) return [];
@@ -98,6 +106,38 @@ export function RobotsGuideTab({ onItemClick }) {
 
     return filtered;
   }, [searchQuery, robotValueFilter, statFilter, minScoreFilter, sortBy]);
+
+  // Paginated visible items lists
+  const visibleRobots = useMemo(() => {
+    return filteredRobots.slice(0, visibleCount);
+  }, [filteredRobots, visibleCount]);
+
+  const visibleTitans = useMemo(() => {
+    return filteredTitans.slice(0, visibleCount);
+  }, [filteredTitans, visibleCount]);
+
+  // IntersectionObserver callback ref for infinite scrolling
+  const observerRef = useRef(null);
+  const sentinelRef = useCallback((node) => {
+    if (observerRef.current) observerRef.current.disconnect();
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setVisibleCount((prev) => prev + 12);
+      }
+    }, { rootMargin: '200px' });
+
+    if (node) observerRef.current.observe(node);
+  }, []);
+
+  // Cleanup observer on unmount
+  useEffect(() => {
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
 
   const availableRatings = useMemo(() => {
     const items = guideSubTab === 'robots' ? robotGuideData?.robots : robotGuideData?.titans;
@@ -171,7 +211,7 @@ export function RobotsGuideTab({ onItemClick }) {
       {/* Robots/Titans Grid */}
       <div className="dashboard-grid">
         {guideSubTab === 'robots'
-          ? filteredRobots.map(robot => (
+          ? visibleRobots.map(robot => (
               <RobotCard
                 key={robot.name}
                 robot={robot}
@@ -179,7 +219,7 @@ export function RobotsGuideTab({ onItemClick }) {
                 robotGuideData={robotGuideData}
               />
             ))
-          : filteredTitans.map(titan => (
+          : visibleTitans.map(titan => (
               <TitanCard
                 key={titan.name}
                 titan={titan}
@@ -188,6 +228,15 @@ export function RobotsGuideTab({ onItemClick }) {
             ))
         }
       </div>
+
+      {/* Sentinel element for infinite scroll */}
+      {((guideSubTab === 'robots' && visibleCount < filteredRobots.length) ||
+        (guideSubTab === 'titans' && visibleCount < filteredTitans.length)) && (
+        <div 
+          ref={sentinelRef} 
+          style={{ height: '20px', margin: '20px 0' }} 
+        />
+      )}
 
     </div>
   );

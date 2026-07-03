@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { sortBySearchQuery } from '../../utils/sortUtils';
 import { SearchInput } from '../common/SearchInput';
@@ -17,6 +17,9 @@ export function BuildGuidesTab() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedBuild, setSelectedBuild] = useState(null);
 
+  // Lazy loading state
+  const [visibleCount, setVisibleCount] = useState(12);
+
   const filteredBuilds = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
     
@@ -33,6 +36,39 @@ export function BuildGuidesTab() {
     // 4. Other matches (non-robot)
     return sortBySearchQuery(filtered, query, (build) => build.robot);
   }, [searchQuery]);
+
+  // Reset lazy loading count when search query changes
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [searchQuery]);
+
+  // Paginated visible items list
+  const visibleBuilds = useMemo(() => {
+    return filteredBuilds.slice(0, visibleCount);
+  }, [filteredBuilds, visibleCount]);
+
+  // IntersectionObserver callback ref for infinite scrolling
+  const observerRef = useRef(null);
+  const sentinelRef = useCallback((node) => {
+    if (observerRef.current) observerRef.current.disconnect();
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setVisibleCount((prev) => prev + 12);
+      }
+    }, { rootMargin: '200px' });
+
+    if (node) observerRef.current.observe(node);
+  }, []);
+
+  // Cleanup observer on unmount
+  useEffect(() => {
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
 
   return (
     <div className="animate-fade-in text-left">
@@ -57,7 +93,7 @@ export function BuildGuidesTab() {
 
       {/* Builds Grid */}
       <div className="dashboard-grid">
-        {filteredBuilds.map((build, index) => (
+        {visibleBuilds.map((build, index) => (
           <div 
             className="glass-panel glass-panel-hover build-card" 
             key={`${build.robot}-${build.build_name}-${index}`}
@@ -124,6 +160,14 @@ export function BuildGuidesTab() {
           </div>
         ))}
       </div>
+
+      {/* Sentinel element for infinite scroll */}
+      {visibleCount < filteredBuilds.length && (
+        <div 
+          ref={sentinelRef} 
+          style={{ height: '20px', margin: '20px 0' }} 
+        />
+      )}
 
       {selectedBuild && (
         <BuildDetailModal build={selectedBuild} onClose={() => setSelectedBuild(null)} />
