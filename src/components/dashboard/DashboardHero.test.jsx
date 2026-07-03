@@ -13,7 +13,7 @@ describe('DashboardHero Component', () => {
     const image = screen.getByRole('img', { name: /war robots hangar banner/i });
     expect(image).toBeInTheDocument();
     expect(image).toHaveClass('dashboard-hero-img');
-    expect(image).toHaveAttribute('src', 'banner.jpg');
+    expect(image).toHaveAttribute('src', 'banner.webp');
 
     // Check the container of the image
     const container = image.parentElement;

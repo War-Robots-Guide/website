@@ -14,14 +14,14 @@ import { HangarAnalyzerTab } from './components/hangar/HangarAnalyzerTab';
 import { DetailModal } from './components/common/DetailModal';
 
 const BACKGROUND_IMAGES = {
-  dashboard: '/backgrounds/home-bg.jpg',
-  tiers: '/backgrounds/tierlist-bg.jpg',
-  robots: '/backgrounds/value-bg.jpg',
-  builds: '/backgrounds/buildguides-bg.jpg',
-  specializations: '/backgrounds/specializations-bg.jpg',
-  pilots: '/backgrounds/pilotskills-bg.jpg',
-  weapons: '/backgrounds/dps-bg.jpg',
-  hangar: '/backgrounds/hangaranalyzer-bg.jpg',
+  dashboard: '/backgrounds/home-bg.webp',
+  tiers: '/backgrounds/tierlist-bg.webp',
+  robots: '/backgrounds/value-bg.webp',
+  builds: '/backgrounds/buildguides-bg.webp',
+  specializations: '/backgrounds/specializations-bg.webp',
+  pilots: '/backgrounds/pilotskills-bg.webp',
+  weapons: '/backgrounds/dps-bg.webp',
+  hangar: '/backgrounds/hangaranalyzer-bg.webp',
 };
 
 const TAB_METADATA = {
@@ -150,9 +150,9 @@ function App() {
 
           let bgUrl = 'none';
           if (isAdazahiEggActive) {
-            bgUrl = "url('/backgrounds/easteregg-adazahi-bg.jpg')";
+            bgUrl = "url('/backgrounds/easteregg-adazahi-bg.webp')";
           } else if (isEasterEggActive) {
-            bgUrl = "url('/backgrounds/easteregg-crimsonhawk-bg.jpg')";
+            bgUrl = "url('/backgrounds/easteregg-crimsonhawk-bg.webp')";
           } else {
             bgUrl = `url('${BACKGROUND_IMAGES[tab]}')`;
           }
