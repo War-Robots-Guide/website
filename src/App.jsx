@@ -24,9 +24,54 @@ const BACKGROUND_IMAGES = {
   hangar: '/backgrounds/hangaranalyzer-bg.jpg',
 };
 
+const TAB_METADATA = {
+  dashboard: {
+    title: 'War Robots Guide Database & Tools',
+    description: 'Find optimal builds, check out tier lists, chart weapon DPS, and run hangar analysis at the War Robots Guide community database!'
+  },
+  tiers: {
+    title: 'War Robots Meta Tier List | War Robots Guide',
+    description: 'Browse the latest meta tiers and community placements for Robots, Titans, Drones, Motherships, and Weapons.'
+  },
+  robots: {
+    title: 'War Robots Ratings & Guide | War Robots Guide',
+    description: 'Compare ratings, roles, and longevity scores for all robots and titans. Find optimal F2P and premium builds.'
+  },
+  builds: {
+    title: 'War Robots Optimal Builds | War Robots Guide',
+    description: 'Detailed setup recommendations for every major robot, showcasing optimal weapons, drones, pilots, and module specializations.'
+  },
+  specializations: {
+    title: 'Module Specialization Layouts | War Robots Guide',
+    description: 'Guide to class-based module layouts and passive upgrade priorities for robots and titans.'
+  },
+  pilots: {
+    title: 'Best Pilot Skills & Builds | War Robots Guide',
+    description: 'Find recommended pilot skills categorized by tier efficiency (Must Use, Usually Use, etc.) for all robots and titans.'
+  },
+  weapons: {
+    title: 'Weapon DPS Statistics & Charts | War Robots Guide',
+    description: 'Compare weapon burst and cycle DPS, ranges, reload speeds, and special weapon mechanics in an interactive chart.'
+  },
+  hangar: {
+    title: 'Hangar Analyzer & Optimizer | War Robots Guide',
+    description: 'Analyze your active hangar composition. Get personalized feedback on role balance, upgrade paths, and optimal loadouts.'
+  }
+};
+
 function App() {
   const [activeTab, setActiveTab] = usePathRouting('dashboard');
   const [selectedItem, setSelectedItem] = useState(null);
+
+  useEffect(() => {
+    const meta = TAB_METADATA[activeTab] || TAB_METADATA.dashboard;
+    document.title = meta.title;
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', meta.description);
+    }
+  }, [activeTab]);
   const [isEasterEggActive, setIsEasterEggActive] = useState(false);
   const [clickCount, setClickCount] = useState(0);
   const [isAdazahiEggActive, setIsAdazahiEggActive] = useState(false);
