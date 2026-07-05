@@ -81,7 +81,7 @@ export function SpecializationsTab({ onItemClick }) {
             <div className={`spec-finder-result ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
               <div className={`spec-result-title ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
                 <img src="/icons/role_sniper_top.png" alt="" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
-                Recommended Specialization: {specPath[specPath.length - 1]?.label}
+                Recommended Specialization: {currentSpecNode.result.specialization}
               </div>
               <div className="spec-result-path">
                 Path: {specPath.map(s => s.label).join(' ➔ ')}

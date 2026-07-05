@@ -17,6 +17,7 @@ export const specTree = {
                   label: ">800m damage dealer (Sniper)",
                   value: "long_range",
                   result: {
+                    specialization: "Damage Dealer / Raider",
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier" },
                       { name: "Slot 2: Rangefinder" }
@@ -27,6 +28,7 @@ export const specTree = {
                   label: "<800m damage dealer (Assault)",
                   value: "standard_range",
                   result: {
+                    specialization: "Damage Dealer / Raider",
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier" },
                       { name: "Slot 2: Overdrive Unit" }
@@ -37,6 +39,7 @@ export const specTree = {
                   label: "Raider (with powerful built in weapon)",
                   value: "raider_with_weapon",
                   result: {
+                    specialization: "Damage Dealer / Raider",
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier" },
                       { name: "Slot 2: Integrated Power Unit" }
@@ -47,6 +50,7 @@ export const specTree = {
                   label: "Raider (without powerful built in weapon)",
                   value: "raider_without_weapon",
                   result: {
+                    specialization: "Damage Dealer / Raider",
                     slots: [
                       { name: "Slot 1: Nuclear Amplifier" },
                       { name: "Slot 2: Titan Slayer" }
@@ -72,6 +76,7 @@ export const specTree = {
                         label: "Survivalist or DoT Converter",
                         value: "survivalist_dot",
                         result: {
+                          specialization: "Brawler / Tank",
                           slots: [
                             { name: "Slot 1: Repair Amplifier" },
                             { name: "Slot 2: Immune Amplifier" }
@@ -82,6 +87,7 @@ export const specTree = {
                         label: "Titan charger",
                         value: "titan_charger",
                         result: {
+                          specialization: "Brawler / Tank",
                           slots: [
                             { name: "Slot 1: Repair Amplifier" },
                             { name: "Slot 2: Last Stand" }
@@ -95,6 +101,7 @@ export const specTree = {
                   label: "Tank",
                   value: "tank",
                   result: {
+                    specialization: "Brawler / Tank",
                     slots: [
                       { name: "Slot 1: Heavy Armor Kit" },
                       { name: "Slot 2: Repair Amplifier" }
@@ -108,6 +115,7 @@ export const specTree = {
             label: "Support",
             value: "support",
             result: {
+              specialization: "Support",
               slots: [
                 { name: "Slot 1: Accelerator" },
                 { name: "Slot 2: Last Stand" }
@@ -118,6 +126,7 @@ export const specTree = {
             label: "Beacon Capping Saboteur",
             value: "saboteur_capper",
             result: {
+              specialization: "Saboteur",
               slots: [
                 { name: "Slot 1: Beacon Operator" },
                 { name: "Slot 2: Accelerator" }
@@ -128,6 +137,7 @@ export const specTree = {
             label: "Non-Capping Saboteur",
             value: "saboteur_other",
             result: {
+              specialization: "Attack / Defense",
               slots: [
                 { name: "Slot 1: Anticontrol" },
                 { name: "Slot 2: Heavy Armor Kit" }
@@ -147,6 +157,7 @@ export const specTree = {
             label: "Ultimate Titan",
             value: "titan_ue_yes",
             result: {
+              specialization: "Ultimate",
               slots: [
                 { name: "Slot 1: anything works" },
                 { name: "Slot 2: anything but Grand Balanced Reactor" }
@@ -169,6 +180,7 @@ export const specTree = {
                         label: "Standard",
                         value: "standard",
                         result: {
+                          specialization: "Damage Dealer",
                           slots: [
                             { name: "Slot 1: Nuclear Amplifier" },
                             { name: "Slot 2: Overdrive" }
@@ -179,6 +191,7 @@ export const specTree = {
                         label: "Sniper",
                         value: "sniper",
                         result: {
+                          specialization: "Damage Dealer",
                           slots: [
                             { name: "Slot 1: Nuclear Amplifier" },
                             { name: "Slot 2: Cannibal Reactor" }
@@ -189,6 +202,7 @@ export const specTree = {
                         label: "Anti Stealth",
                         value: "titan_anti_stealth",
                         result: {
+                          specialization: "Attack",
                           slots: [
                             { name: "Slot 1: Onslaught Reactor" },
                             { name: "Slot 2: Quantum Sensor" }
@@ -208,6 +222,7 @@ export const specTree = {
                         label: "Brawler",
                         value: "brawler",
                         result: {
+                          specialization: "Brawler / Tank",
                           slots: [
                             { name: "Slot 1: Repair Amplifier" },
                             { name: "Slot 2: Anticontrol" }
@@ -218,6 +233,7 @@ export const specTree = {
                         label: "Tank",
                         value: "tank",
                         result: {
+                          specialization: "Brawler / Tank",
                           slots: [
                             { name: "Slot 1: Repair Amplifier" },
                             { name: "Slot 2: Last Stand" }
