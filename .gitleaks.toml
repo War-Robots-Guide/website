@@ -1,0 +1,14 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Ignore Cloudflare Web Analytics public token (legacy)"
+regexes = [
+    '''2f02aa9307d545d7bfa66f9e3ae6e552'''
+]
+
+[[allowlists]]
+description = "Ignore Cloudflare Web Analytics public token"
+regexes = [
+    '''2f02aa9307d545d7bfa66f9e3ae6e552'''
+]
