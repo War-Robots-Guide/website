@@ -7,7 +7,7 @@ import { BuildDetailModal } from './BuildDetailModal';
 // Precompute static data at module level to optimize render loop
 const precomputedBuilds = (robotGuideData?.builds || []).map(build => ({
   ...build,
-  _searchString: `${build.build_name} ${build.robot} ${build.best_weapons} ${build.explanation}`.toLowerCase(),
+  _searchString: `${build.build_name} ${build.robot} ${build.best_weapons} ${build.drone_options || ''} ${build.explanation}`.toLowerCase(),
   parsed_build_name: build.build_name.replace(/\n/g, ' '),
   parsed_pilot: build.pilot.replace(/\n/g, ' '),
   parsed_specialization: build.specialization.split('\n')
@@ -141,16 +141,9 @@ export function BuildGuidesTab() {
               </div>
               <div className="build-meta-item" style={{ gridColumn: 'span 2', borderTop: '1px solid var(--border-light)', paddingTop: '10px' }}>
                 <span className="build-meta-label">Drone Options</span>
-                <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
-                  <div style={{ flex: 1 }}>
-                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600 }}>F2P DRONES</span>
-                    <p style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>{build.f2p_drones || 'N/A'}</p>
-                  </div>
-                  <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '10px' }}>
-                    <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600 }}>META DRONES</span>
-                    <p style={{ fontSize: '12px', color: '#fbbf24' }}>{build.best_drones || 'N/A'}</p>
-                  </div>
-                </div>
+                <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', marginTop: '4px', margin: 0, whiteSpace: 'pre-line', lineHeight: 1.4 }}>
+                  {build.drone_options || 'N/A'}
+                </p>
               </div>
             </div>
 

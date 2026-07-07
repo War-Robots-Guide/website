@@ -10,9 +10,8 @@ vi.mock('../../data/robot_guide.json', () => ({
         build_name: 'Brawler',
         robot: 'Pathfinder',
         f2p_weapons: 'Hazard',
-        f2p_drones: 'Lv9 Freezo',
+        drone_options: 'Lv9 Freezo\nLv12 Freezo',
         best_weapons: 'Kroko',
-        best_drones: 'Lv12 Freezo',
         pilot: 'John Orsted',
         specialization: 'Support',
         explanation: 'Pathfinder brawler explanation.'
@@ -21,9 +20,8 @@ vi.mock('../../data/robot_guide.json', () => ({
         build_name: 'Sniper',
         robot: 'Nuo',
         f2p_weapons: 'Gauss',
-        f2p_drones: 'Lv9 Aopo',
+        drone_options: 'Lv9 Aopo\nLv12 Solar',
         best_weapons: 'Shantak',
-        best_drones: 'Lv12 Solar',
         pilot: 'Walter Trommel',
         specialization: 'Damage Dealer',
         explanation: 'Nuo sniper explanation.'
@@ -32,9 +30,8 @@ vi.mock('../../data/robot_guide.json', () => ({
         build_name: 'Brawler',
         robot: 'Nuo',
         f2p_weapons: 'Nucleon',
-        f2p_drones: 'Lv9 Aopo',
+        drone_options: 'Lv9 Aopo\nLv12 Aopo',
         best_weapons: 'Machiara',
-        best_drones: 'Lv12 Aopo',
         pilot: 'Walter Trommel',
         specialization: 'Damage Dealer',
         explanation: 'Nuo brawler explanation.'

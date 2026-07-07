@@ -69,16 +69,9 @@ export function BuildDetailModal({ build, onClose }) {
 
           <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
             <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Drone Options</span>
-            <div style={{ display: 'flex', gap: '16px' }}>
-              <div style={{ flex: 1 }}>
-                <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>F2P DRONES</span>
-                <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: 0 }}>{build.f2p_drones || 'N/A'}</p>
-              </div>
-              <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '16px' }}>
-                <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600, display: 'block', marginBottom: '4px' }}>META DRONES</span>
-                <p style={{ fontSize: '13px', color: '#fbbf24', margin: 0 }}>{build.best_drones || 'N/A'}</p>
-              </div>
-            </div>
+            <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', margin: 0, whiteSpace: 'pre-line', lineHeight: 1.5 }}>
+              {build.drone_options || 'N/A'}
+            </p>
           </div>
 
           <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>

@@ -518,12 +518,11 @@ def parse_robot_guide():
                 "build_name": str(bname).strip(),
                 "robot": str(bot).strip(),
                 "f2p_weapons": str(builds_sheet.cell(row=r, column=3).value or "").strip(),
-                "f2p_drones": str(builds_sheet.cell(row=r, column=4).value or "").strip(),
-                "best_weapons": str(builds_sheet.cell(row=r, column=5).value or "").strip(),
-                "best_drones": str(builds_sheet.cell(row=r, column=6).value or "").strip(),
-                "pilot": str(builds_sheet.cell(row=r, column=7).value or "").strip(),
-                "specialization": str(builds_sheet.cell(row=r, column=8).value or "").strip(),
-                "explanation": str(builds_sheet.cell(row=r, column=9).value or "").strip(),
+                "best_weapons": str(builds_sheet.cell(row=r, column=4).value or "").strip(),
+                "drone_options": str(builds_sheet.cell(row=r, column=5).value or "").strip(),
+                "pilot": str(builds_sheet.cell(row=r, column=6).value or "").strip(),
+                "specialization": str(builds_sheet.cell(row=r, column=7).value or "").strip(),
+                "explanation": str(builds_sheet.cell(row=r, column=8).value or "").strip(),
             })
 
     # 5.3 Parse Roles with fill colors
