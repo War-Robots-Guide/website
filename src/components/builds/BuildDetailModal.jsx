@@ -2,6 +2,28 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 
+function renderDroneOptions(options, fontSize = '13.5px') {
+  if (!options || options === 'N/A') return 'N/A';
+  const lines = options.split('\n').map(l => l.trim()).filter(Boolean);
+  if (lines.length === 0) return 'N/A';
+  return (
+    <div style={{ fontSize, lineHeight: 1.5 }}>
+      {lines.map((line, idx) => (
+        <span
+          key={idx}
+          style={{
+            display: 'block',
+            fontWeight: idx === 0 ? 700 : 'normal',
+            color: idx === 0 ? 'var(--text-primary)' : 'var(--text-secondary)'
+          }}
+        >
+          {line}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function BuildDetailModal({ build, onClose }) {
   useEffect(() => {
     if (!build) return;
@@ -69,9 +91,9 @@ export function BuildDetailModal({ build, onClose }) {
 
           <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
             <span className="build-meta-label" style={{ fontSize: '11px', textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Drone Options</span>
-            <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', margin: 0, whiteSpace: 'pre-line', lineHeight: 1.5 }}>
-              {build.drone_options || 'N/A'}
-            </p>
+            <div style={{ marginTop: '8px' }}>
+              {renderDroneOptions(build.drone_options, '13.5px')}
+            </div>
           </div>
 
           <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>

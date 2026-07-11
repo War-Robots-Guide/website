@@ -237,6 +237,68 @@ export function AnalysisDashboard({
             })}
           </div>
 
+          {/* Titan Deployment Roles */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '16px' }}>
+            <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
+              Titan Deployment Roles
+            </div>
+
+            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+              Deployment strategy configurations:
+            </p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+              {[
+                { name: 'Early Drop', key: 'Early Drop' },
+                { name: 'Late Drop', key: 'Late Drop' }
+              ].map(role => {
+                const current = hangarAnalysis.scores[role.key] || 0;
+                const hasOne = current >= 1.0;
+                const hasPartial = current > 0 && current < 1.0;
+
+                let badgeColor = 'var(--text-muted)';
+                let badgeBg = 'rgba(255,255,255,0.02)';
+                let badgeText = current.toFixed(1);
+                if (hasOne) {
+                  badgeColor = 'var(--purple)';
+                  badgeBg = 'rgba(59, 130, 246, 0.1)';
+                } else if (hasPartial) {
+                  badgeColor = '#60a5fa';
+                  badgeBg = 'rgba(96, 165, 250, 0.1)';
+                }
+
+                return (
+                  <div
+                    key={role.name}
+                    style={{
+                      background: badgeBg,
+                      border: `1px solid ${hasOne || hasPartial ? badgeColor + '30' : 'var(--border-light)'}`,
+                      padding: '10px',
+                      borderRadius: '8px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '6px',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    <span style={{ fontSize: '12px', color: hasOne || hasPartial ? 'var(--text-primary)' : 'var(--text-secondary)', textAlign: 'center' }}>{role.name}</span>
+                    <span style={{
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      color: badgeColor,
+                      background: hasOne || hasPartial ? 'transparent' : 'rgba(255,255,255,0.05)',
+                      padding: '2px 6px',
+                      borderRadius: '4px'
+                    }}>
+                      {badgeText} / 1
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Additional Roles Recommendation Note */}
           {(() => {
             const supportScore = hangarAnalysis.scores['Support'] || 0;

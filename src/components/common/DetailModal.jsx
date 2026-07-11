@@ -40,9 +40,20 @@ export function DetailModal({ selectedItem, onClose }) {
   }, [selectedItem]);
 
   const dpsInfo = useMemo(() => {
-    if (!selectedItem || !selectedItem.type.includes('Weapons')) return null;
-    const targetLower = selectedItem.name.toLowerCase();
-    return precomputedWeapons.find(w => w.lowerName === targetLower || targetLower.includes(w.lowerName)) || null;
+    if (!selectedItem || !selectedItem.type.toLowerCase().includes('weapons')) return null;
+    const parts = selectedItem.name.toLowerCase().split(',').map(p => p.replace(/\*+$/, '').trim());
+    
+    for (const part of parts) {
+      if (!part) continue;
+      
+      const match = precomputedWeapons.find(w => {
+        const wClean = w.lowerName.replace(/\s*\(.*\)/g, '').trim();
+        return wClean === part || wClean.includes(part) || part.includes(wClean);
+      });
+      
+      if (match) return match;
+    }
+    return null;
   }, [selectedItem]);
 
   const rob = useMemo(() => {
@@ -129,10 +140,14 @@ export function DetailModal({ selectedItem, onClose }) {
 
           {/* Extra context if available */}
           {/* For weapons */}
-          {selectedItem.type.includes('Weapons') && (
+          {selectedItem.type.toLowerCase().includes('weapons') && (
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
               {dpsInfo ? (
                 <>
+                  <div style={{ gridColumn: 'span 2', marginBottom: '4px' }}>
+                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase' }}>Stats shown for</span>
+                    <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--cyan)' }}>{dpsInfo.name}</span>
+                  </div>
                   <div>
                     <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>BURST DPS</span>
                     <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--cyan)' }}>

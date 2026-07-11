@@ -13,6 +13,28 @@ const precomputedBuilds = (robotGuideData?.builds || []).map(build => ({
   parsed_specialization: build.specialization.split('\n')
 }));
 
+function renderDroneOptions(options, fontSize = '12.5px') {
+  if (!options || options === 'N/A') return 'N/A';
+  const lines = options.split('\n').map(l => l.trim()).filter(Boolean);
+  if (lines.length === 0) return 'N/A';
+  return (
+    <div style={{ fontSize, lineHeight: 1.4 }}>
+      {lines.map((line, idx) => (
+        <span
+          key={idx}
+          style={{
+            display: 'block',
+            fontWeight: idx === 0 ? 700 : 'normal',
+            color: idx === 0 ? 'var(--text-primary)' : 'var(--text-secondary)'
+          }}
+        >
+          {line}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function BuildGuidesTab() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedBuild, setSelectedBuild] = useState(null);
@@ -141,9 +163,9 @@ export function BuildGuidesTab() {
               </div>
               <div className="build-meta-item" style={{ gridColumn: 'span 2', borderTop: '1px solid var(--border-light)', paddingTop: '10px' }}>
                 <span className="build-meta-label">Drone Options</span>
-                <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', marginTop: '4px', margin: 0, whiteSpace: 'pre-line', lineHeight: 1.4 }}>
-                  {build.drone_options || 'N/A'}
-                </p>
+                <div style={{ marginTop: '4px' }}>
+                  {renderDroneOptions(build.drone_options, '12.5px')}
+                </div>
               </div>
             </div>
 

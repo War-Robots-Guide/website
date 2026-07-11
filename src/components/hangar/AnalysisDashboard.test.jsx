@@ -112,7 +112,7 @@ describe('AnalysisDashboard', () => {
 
     // Sniper score 0 => 0.0 / 1 (missing)
     expect(screen.getAllByText('Sniper').length).toBeGreaterThan(0);
-    expect(screen.getByText('0.0 / 1')).toBeInTheDocument();
+    expect(screen.getAllByText('0.0 / 1').length).toBeGreaterThan(0);
   });
 
   it('renders Target Extension Options correctly', () => {

@@ -23,14 +23,14 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
       if (val <= -2) return `Horrible (${formattedVal})`;
       if (val === -1) return 'Bad (-1)';
       if (val === 0) return 'Poor (0)';
-      if (val === 1) return 'Usable (+1)';
+      if (val === 1) return 'Fair (+1)';
       if (val === 2) return 'Very Good (+2)';
       return `Best (${formattedVal})`;
     } else {
       if (val <= -2) return `Horrible (${formattedVal})`;
       if (val === -1) return 'Bad (-1)';
       if (val === 0) return 'Poor (0)';
-      if (val === 1) return 'Usable (+1)';
+      if (val === 1) return 'Fair (+1)';
       if (val === 2) return 'Good (+2)';
       if (val === 3) return 'Very Good (+3)';
       if (val === 4) return 'Excellent (+4)';
@@ -83,9 +83,9 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
             height: 0,
             borderLeft: '4px solid transparent',
             borderRight: '4px solid transparent',
-            borderTop: `6px solid ${isBroken ? colorsList[5] : '#fff'}`,
+            borderTop: `6px solid ${isBroken ? '#06b6d4' : '#fff'}`,
             filter: isBroken
-              ? `drop-shadow(0 0 5px ${colorsList[5]}) drop-shadow(0 2px 4px rgba(0,0,0,0.5))`
+              ? `drop-shadow(0 0 5px #06b6d4) drop-shadow(0 2px 4px rgba(0,0,0,0.5))`
               : 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))',
             zIndex: 2
           }}
@@ -99,18 +99,18 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
               position: 'absolute',
               left: '90%',
               top: '1px',
-              width: `${percentage - 90}%`,
+              width: `${Math.min(10, percentage - 90)}%`,
               height: '4px',
-              background: `linear-gradient(to right, ${colorsList[5]} 35%, rgba(59, 130, 246, 0.4) 70%, rgba(59, 130, 246, 0) 100%)`,
+              background: `linear-gradient(to right, #06b6d4 35%, rgba(6, 182, 212, 0.4) 70%, rgba(6, 182, 212, 0) 100%)`,
               zIndex: 1,
               borderRadius: '2px',
               transformOrigin: 'left center'
             }} />
 
             {/* Shards breaking off */}
-            <div className="bar-shard shard-1" style={{ background: colorsList[5] }} />
-            <div className="bar-shard shard-2" style={{ background: colorsList[5] }} />
-            <div className="bar-shard shard-3" style={{ background: colorsList[5] }} />
+            <div className="bar-shard shard-1" style={{ background: '#06b6d4' }} />
+            <div className="bar-shard shard-2" style={{ background: '#06b6d4' }} />
+            <div className="bar-shard shard-3" style={{ background: '#06b6d4' }} />
           </>
         )}
       </div>

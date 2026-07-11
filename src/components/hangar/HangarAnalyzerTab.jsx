@@ -22,7 +22,7 @@ export function HangarAnalyzerTab() {
   const [selectorSearchQuery, setSelectorSearchQuery] = useState('');
 
   const hangarAnalysis = useMemo(() => {
-    const rolesList = ['Support', 'Tank-buster', 'Sniper', 'Midrange', 'Brawler', 'Beacon Runner', 'Assassin'];
+    const rolesList = ['Support', 'Tank-buster', 'Sniper', 'Midrange', 'Brawler', 'Beacon Runner', 'Assassin', 'Early Drop', 'Late Drop'];
     const scores = {};
     rolesList.forEach(r => {
       scores[r] = 0;
@@ -47,6 +47,20 @@ export function HangarAnalyzerTab() {
       }
     });
 
+    // Parse hangarTitan roles if selected
+    if (hangarTitan && hangarTitan.roles) {
+      hangarTitan.roles.forEach(roleObj => {
+        const rName = roleObj.role;
+        if (scores[rName] !== undefined) {
+          if (roleObj.type === 'primary') {
+            scores[rName] += 1.0;
+          } else if (roleObj.type === 'secondary') {
+            scores[rName] += 0.5;
+          }
+        }
+      });
+    }
+
     const coreMetCount = CORE_ROLES_CONFIG.reduce((sum, role) => {
       const score = scores[role.key] || 0;
       return sum + Math.min(role.target, score);
@@ -64,7 +78,7 @@ export function HangarAnalyzerTab() {
       corePercent,
       alignmentColor
     };
-  }, [hangarRobots]);
+  }, [hangarRobots, hangarTitan]);
 
   const averageTier = useMemo(() => {
     let sum = 0;

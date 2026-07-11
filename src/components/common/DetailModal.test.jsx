@@ -75,7 +75,7 @@ describe('DetailModal Component', () => {
 
     render(<DetailModal selectedItem={selectedItem} onClose={mockOnClose} />);
 
-    expect(screen.getByText('Cryo')).toBeInTheDocument();
+    expect(screen.getAllByText('Cryo').length).toBeGreaterThan(0);
     expect(screen.getByText('Weapons')).toBeInTheDocument();
     expect(screen.getByText('Freezes enemies.')).toBeInTheDocument();
 

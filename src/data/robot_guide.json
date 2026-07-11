@@ -299,6 +299,14 @@
     {
       "date": "2026-07-06",
       "text": "We have issues with updating the intro page lol. Went through and fixed the ratings for ten robots that had different ratings on the intro page from what they had on the value calculator. -Adazahi"
+    },
+    {
+      "date": "2026-07-07",
+      "text": "Added an automatic updater for value ratings. Now all you need to do is update the calculator and re-sort the list! -Adazahi"
+    },
+    {
+      "date": "2026-07-11",
+      "text": "Skyros, Loki, Falcon Longevity 1 -> 2. Permanent uptime on incredible protection is worth the upscale. Falcon lethality & mobility 0 -> -1. We're assuming tfalc since that's far better than regular Falcon.  \nFalcon access 0 -> 1 to match Skyros. T3 means cheaper upgrades, but also need to level a heavy weapon. Mender mobility 0 -> 1, Weyland mobility -2 -> 0. Buffed accelerator in support track solves problems. \nMercury Access 0 -> 1 to match Spectre and inquisitor. Orochi Access 0 -> 1 Longevity 0 -> -1. To account for its insane downtime, I'm reducing longevity. At the same time, there's no real reason for it to have 0 accessibility.   \nKhepri mobility 0 -> 1 because support track & built in speed boost, Fury longevity -2 -> -1, idk why it was so low. Bulwark longevity 1 -> 0, aegis/physical shield reliant tanks are unreliable. -Adazahi"
     }
   ],
   "builds": [
@@ -306,7 +314,7 @@
       "build_name": "Anti-Brawler\nSupport",
       "robot": "Pathfinder",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Kroko, Fahrenheit,\nUE Cryo, close\nrange UE setups,\nor Lumens",
+      "best_weapons": "Fahrenheit,\nUE Cryo, close\nrange UE setups,\nLumens",
       "drone_options": "Freezo",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nRepair or UC",
@@ -326,7 +334,7 @@
       "build_name": "Lockdown\nSupport",
       "robot": "Pathfinder",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Midrange UE setups,\nMachiara, UE Vortex\nLumens",
+      "best_weapons": "Midrange UE setups,\nMachiara, UE Vortex\nLumens, Urhag",
       "drone_options": "Qingting",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -367,9 +375,9 @@
       "robot": "Nuo",
       "f2p_weapons": "Gauss + Weber",
       "best_weapons": "Shantak + Urhag",
-      "drone_options": "Solar",
+      "drone_options": "Solar\nAopo",
       "pilot": "Walter\nTrommel\nor Basil\nLapatte",
-      "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nRepair, UC, or\nPhase Shift",
+      "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nRepair, UC, or\nPhase Shift",
       "explanation": "Nuo is probably the only bot in the game that can make a f2p friendly sniper build. Since it gives itself\nsuch a large damage boost that stacks multiplicatively with the defense ignore on Gauss + Weber,\ntheir mediocre performance is somewhat alleviated vs bots relying on DP. Playing at a super long\ndistance means you're often not linked, so Basil becomes a competitive pilot choice. For f2p, it's\nnot worth spending memorium on Basil since he's so incredibly niche, and sometimes there\nis a friendly sniper in the backline with you that makes great use of the link. For p2w ranged\nweapons, Solar becomes the best drone. Solar still works with railguns, but it's value is questionable."
     },
     {
@@ -867,11 +875,11 @@
       "sheet": "Tier 4",
       "value_rating": 1,
       "scores": {
-        "longevity": 0.0,
+        "longevity": -1.0,
         "lethality": 0.0,
         "mobility": 2.0,
         "utility": -1.0,
-        "accessibility": 0.0,
+        "accessibility": 1.0,
         "overall": 1
       },
       "roles": [
@@ -1113,14 +1121,14 @@
     {
       "name": "Khepri",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 2,
       "scores": {
         "longevity": 0.0,
         "lethality": 0.0,
-        "mobility": 0.0,
+        "mobility": 1.0,
         "utility": 1.0,
         "accessibility": 0.0,
-        "overall": 1
+        "overall": 2
       },
       "roles": [
         {
@@ -1170,14 +1178,14 @@
     {
       "name": "Skyros",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 2,
       "scores": {
-        "longevity": 1.0,
+        "longevity": 2.0,
         "lethality": -2.0,
         "mobility": 2.0,
         "utility": -1.0,
         "accessibility": 1.0,
-        "overall": 1
+        "overall": 2
       },
       "roles": [
         {
@@ -1418,7 +1426,7 @@
     {
       "name": "Dagon",
       "sheet": "Tier 4",
-      "value_rating": -2,
+      "value_rating": -1,
       "scores": {
         "longevity": 0.0,
         "lethality": 1.0,
@@ -2057,12 +2065,12 @@
           "footnote": ""
         }
       ],
-      "comments": "Vector is a modern cross between an Ochokochi and a Raptor: It has both immense survivability and map-crossing speed. Unfortunately, it's not any easier to invest in than other new brawlers, requiring every piece of the puzzle and mk3 for maximum impact."
+      "comments": "Vector is a modern cross between an Ochokochi and a Raptor: It has immense survivability, crowd control that can toss enemies out of bounds, and map-crossing speed. Unfortunately, like most new brawlers, it requires mk3 at minimum for maximum impact."
     },
     {
       "name": "Shoggoth",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 3,
       "scores": {
         "longevity": 0.0,
         "lethality": 3.0,
@@ -2175,14 +2183,14 @@
     {
       "name": "Fury",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 0,
       "scores": {
-        "longevity": -2.0,
+        "longevity": -1.0,
         "lethality": 1.0,
         "mobility": -1.0,
         "utility": -1.0,
         "accessibility": 2.0,
-        "overall": -1
+        "overall": 0
       },
       "roles": [
         {
@@ -2324,7 +2332,7 @@
           "footnote": ""
         }
       ],
-      "comments": "With the legendary pilot, Hellburner becomes a kamikaze machine, but it is limited by low durability and terrible hardpoints."
+      "comments": "With the legendary pilot, Hellburner gains a bit of extra survivability, but it is limited by low base durability and terrible hardpoints."
     },
     {
       "name": "Cerberus",
@@ -2382,11 +2390,11 @@
       "sheet": "Tier 3",
       "value_rating": 0,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
+        "longevity": 2.0,
+        "lethality": -1.0,
+        "mobility": -1.0,
         "utility": -1.0,
-        "accessibility": 0.0,
+        "accessibility": 1.0,
         "overall": 0
       },
       "roles": [
@@ -2396,7 +2404,7 @@
           "footnote": "*"
         }
       ],
-      "comments": "Falcon has all the tools it needs to succeed, but it can't use them all at the same time. T-falcon is very cheap, but falls off very quickly."
+      "comments": "T-falcon is very cheap and tanky, but not nearly as good as modern brawlers. Regular Falcon isn't worth playing."
     },
     {
       "name": "Pursuer",
@@ -2448,14 +2456,14 @@
     {
       "name": "Mercury",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 0,
       "scores": {
         "longevity": 0.0,
         "lethality": 0.0,
         "mobility": 0.0,
         "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": -1
+        "accessibility": 1.0,
+        "overall": 0
       },
       "roles": [],
       "comments": "Mercury is a sidegrade to Inquisitor, trading hardpoint strength for a better ability."
@@ -2478,17 +2486,17 @@
     {
       "name": "Weyland",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 1,
       "scores": {
         "longevity": 1.0,
         "lethality": -1.0,
-        "mobility": -2.0,
+        "mobility": 0.0,
         "utility": 1.0,
         "accessibility": 0.0,
-        "overall": -1
+        "overall": 1
       },
       "roles": [],
-      "comments": "Weyland's an extremely slow close-range support, necessitating heavy investment for not enough return."
+      "comments": "Weyland is a relatively slow close-range support-tank hybrid, necessitating heavy investment for not questionable return."
     },
     {
       "name": "Behemoth",
@@ -2508,14 +2516,14 @@
     {
       "name": "Bulwark",
       "sheet": "Tier 3",
-      "value_rating": -2,
+      "value_rating": -3,
       "scores": {
-        "longevity": 1.0,
+        "longevity": 0.0,
         "lethality": -1.0,
         "mobility": -1.0,
         "utility": -1.0,
         "accessibility": 0.0,
-        "overall": -2
+        "overall": -3
       },
       "roles": [],
       "comments": "Bulwark is a statcheck machine that loses to other statcheck machines."
@@ -2538,14 +2546,14 @@
     {
       "name": "Mender",
       "sheet": "Tier 3",
-      "value_rating": 1,
+      "value_rating": 2,
       "scores": {
         "longevity": 1.0,
         "lethality": -1.0,
-        "mobility": 0.0,
+        "mobility": 1.0,
         "utility": 1.0,
         "accessibility": 0.0,
-        "overall": 1
+        "overall": 2
       },
       "roles": [
         {
@@ -2559,19 +2567,19 @@
           "footnote": ""
         }
       ],
-      "comments": "While like Weyland, Mender is a close-range support, its emphasis on speed gives it an edge."
+      "comments": "Mender is a more mobile version of Weyland that has the ability to heal a minor amount of grey damage through its legendary pilot."
     },
     {
       "name": "Loki",
       "sheet": "Tier 3",
-      "value_rating": 2,
+      "value_rating": 3,
       "scores": {
-        "longevity": 1.0,
+        "longevity": 2.0,
         "lethality": -2.0,
         "mobility": 2.0,
         "utility": -1.0,
         "accessibility": 2.0,
-        "overall": 2
+        "overall": 3
       },
       "roles": [
         {
@@ -2769,6 +2777,7 @@
         "accessibility": 3.0,
         "overall": -2
       },
+      "roles": [],
       "comments": "Kid is given for free. It's only worth using until you get any other titan to replace it with."
     },
     {
@@ -2782,6 +2791,7 @@
         "accessibility": 1.0,
         "overall": -2
       },
+      "roles": [],
       "comments": "T2 titans are not worth wasting platinum on. Their lack of specializations neuters their stats."
     },
     {
@@ -2795,6 +2805,7 @@
         "accessibility": 1.0,
         "overall": -2
       },
+      "roles": [],
       "comments": "T2 titans are not worth wasting platinum on. Their lack of specializations neuters their stats."
     },
     {
@@ -2808,6 +2819,33 @@
         "accessibility": 1.0,
         "overall": 1
       },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Sniper",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Nodens is a cheap, simple, and reasonably effective support. The increased defense mitigation it has on its passive makes it no slouch on offense despite having only beta weapons."
     },
     {
@@ -2821,6 +2859,23 @@
         "accessibility": 1.0,
         "overall": 2
       },
+      "roles": [
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Minos is a fast, safe, and cheap beacon runner, though it's less effective at killing enemy titans due to its lack of Alpha hardpoints."
     },
     {
@@ -2834,6 +2889,23 @@
         "accessibility": 1.0,
         "overall": 0
       },
+      "roles": [
+        {
+          "role": "Sniper",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "secondary",
+          "footnote": ""
+        }
+      ],
       "comments": "Sharanga is an offensive titan without the proper tools to stay safe or gain target access."
     },
     {
@@ -2847,6 +2919,23 @@
         "accessibility": 1.0,
         "overall": 1
       },
+      "roles": [
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Murometz can often straight-up kill opposing titans while they are EMP'd by it, making it a solid, cheap anti-titan titan."
     },
     {
@@ -2860,6 +2949,18 @@
         "accessibility": -1.0,
         "overall": -1
       },
+      "roles": [
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Luchador is one of the weaker brawling titans, making it a statchecker that is bad at statchecking."
     },
     {
@@ -2873,6 +2974,28 @@
         "accessibility": 0.0,
         "overall": 1
       },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "secondary",
+          "footnote": ""
+        }
+      ],
       "comments": "Heimdall has decent supporting capacity, though its extra cost over Nodens comes with questionable benefit."
     },
     {
@@ -2886,6 +3009,28 @@
         "accessibility": 1.0,
         "overall": 2
       },
+      "roles": [
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Like Ravana, Indra's phasing and lasso scale with the opponent's strength, making it an excellent anti-meta choice."
     },
     {
@@ -2899,6 +3044,23 @@
         "accessibility": 0.0,
         "overall": 1
       },
+      "roles": [
+        {
+          "role": "Sniper",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Aether is to Murometz what Heimdall is to Nodens. More expensive with questionable sidegrades."
     },
     {
@@ -2912,6 +3074,28 @@
         "accessibility": 0.0,
         "overall": -2
       },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "secondary",
+          "footnote": ""
+        }
+      ],
       "comments": "With a giant hitbox, poor speed, and miniscule damage, Sirius is a sitting duck."
     },
     {
@@ -2925,6 +3109,23 @@
         "accessibility": -1.0,
         "overall": -1
       },
+      "roles": [
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "secondary",
+          "footnote": ""
+        }
+      ],
       "comments": "Rook's huge dash lets it play the role of an assassin or beacon runner, though it does the job very unreliably and lacks good survival tools."
     },
     {
@@ -2938,6 +3139,28 @@
         "accessibility": 1.0,
         "overall": 2
       },
+      "roles": [
+        {
+          "role": "Sniper",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "secondary",
+          "footnote": ""
+        }
+      ],
       "comments": "Newton's a solid sniper whose choke provides good team utility."
     },
     {
@@ -2951,6 +3174,28 @@
         "accessibility": -1.0,
         "overall": 2
       },
+      "roles": [
+        {
+          "role": "Sniper",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "If you can afford to build it by acquiring weapons for and leveling the required 5 hardpoints, Eiffel has unmatched raw firepower. Hybrid setups using instant unload snipers (ie Vendicatoire) in the summoned slots are recommended."
     },
     {
@@ -2964,6 +3209,28 @@
         "accessibility": 1.0,
         "overall": 3
       },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Bedwyr's taunt and giant absorber provide great team support and survivability that doesn't depend solely on stats, respectively."
     },
     {
@@ -2977,6 +3244,33 @@
         "accessibility": 1.0,
         "overall": 3
       },
+      "roles": [
+        {
+          "role": "Sniper",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Between stealth, 3 Alphas, persistent shieldbreaker, and a large jump, Bersagliere has all the tools it needs to be a strong and safe damage dealer."
     },
     {
@@ -2990,6 +3284,28 @@
         "accessibility": -1.0,
         "overall": 2
       },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Mauler is extremely deadly, and enemies in its abillity's zone will melt rapidly. However, without significant investment, it will be frail for a long time."
     },
     {
@@ -3003,6 +3319,33 @@
         "accessibility": 0.0,
         "overall": 1
       },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Sniper",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "secondary",
+          "footnote": ""
+        }
+      ],
       "comments": "Devourer is a debuffer that can seriously impede enemies' movement, damage, and defense by essence shifting them. Unfortunately, it relies on allies or mothership effects in order to make use of this ability as it is susceptible to being bursted down."
     },
     {
@@ -3016,6 +3359,28 @@
         "accessibility": -1.0,
         "overall": 0
       },
+      "roles": [
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Bjorn is a decent statchecker with high uptime and firepower but poor mobility outside of ball mode. It trades luchador's jump for it's better ability uptime and an extra alpha weapon."
     },
     {
@@ -3029,6 +3394,33 @@
         "accessibility": 0.0,
         "overall": 3
       },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Atlas is comparable to Bedwyr, namely trading off Taunt and a more utility focused absorber shield for nasty EMP application & area denial, plus some mobility."
     },
     {
@@ -3042,6 +3434,38 @@
         "accessibility": -2.0,
         "overall": 1
       },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Sniper",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Brawler",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Princeps has an overpowered mix of high damage, the best defensive ability in the game, and as a cherry on top, crowd control utility. Unfortunately, like most other meta titans, it loses a lot of f2p value due to lack of accessibility."
     },
     {
@@ -3055,6 +3479,33 @@
         "accessibility": -2.0,
         "overall": 2
       },
+      "roles": [
+        {
+          "role": "Support",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Sniper",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Late Drop",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
       "comments": "Waymaker is a potent support titan that's dragged down by the rest of its kit. It also suffers from opportunity cost; pathfinder only requires a robot slot to do what it does while waymaker requires a titan slot."
     }
   ],

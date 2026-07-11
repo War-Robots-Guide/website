@@ -1,5 +1,6 @@
 import { X } from 'lucide-react';
 import { RatingBar } from '../common/RatingBar';
+import robotGuideData from '../../data/robot_guide.json';
 
 export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
   if (item) {
@@ -49,6 +50,26 @@ export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
         <div style={{ display: 'flex', width: '100%', marginBottom: '10px' }}>
           <RatingBar rating={item.value_rating} unitType="titan" />
         </div>
+
+        {item.roles && item.roles.length > 0 ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: 'auto' }}>
+            {item.roles.map(r => {
+              const tooltipText = r.footnote ? robotGuideData?.footnotes?.[parseInt(r.footnote) - 1] || r.footnote : '';
+              return (
+                <span
+                  key={r.role}
+                  className={`role-badge ${r.type}`}
+                  style={{ fontSize: '10px', padding: '1px 6px', display: 'inline-block', width: 'fit-content' }}
+                  title={tooltipText}
+                >
+                  {r.role}{r.footnote && <sup style={{ marginLeft: '2px' }}>*</sup>} {r.type === 'primary' ? '★' : '☆'}
+                </span>
+              );
+            })}
+          </div>
+        ) : (
+          <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: 'auto' }}>No specific roles</span>
+        )}
       </div>
     );
   }

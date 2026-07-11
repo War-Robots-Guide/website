@@ -570,6 +570,50 @@ def parse_robot_guide():
                 })
         roles_data[bot_str.lower()] = bot_roles
 
+    # 5.3.5 Parse Titan Roles with fill colors
+    titan_roles_sheet = wb["Titan Roles"]
+    titan_roles_data = {}
+    titan_role_headers = [titan_roles_sheet.cell(row=1, column=c).value for c in range(1, 9)] # Titan, Support, Sniper, Midrange, Brawler, Beacon Runner, Early Drop, Late Drop
+    
+    for r in range(2, titan_roles_sheet.max_row + 1):
+        titan_name = titan_roles_sheet.cell(row=r, column=1).value
+        if not titan_name:
+            continue
+        titan_str = str(titan_name).strip()
+        # Skip description text
+        if len(titan_str) > 40:
+            continue
+            
+        titan_roles = []
+        for c in range(2, 9):
+            cell = titan_roles_sheet.cell(row=r, column=c)
+            val = cell.value
+            fill = cell.fill
+            
+            color_hex = None
+            if fill and fill.fill_type == 'solid':
+                color = fill.start_color
+                if color:
+                    color_hex = color.rgb
+                    
+            role_type = "none"
+            if color_hex:
+                clean_hex = color_hex[-6:].upper() if isinstance(color_hex, str) else ""
+                if clean_hex == "00FF00": # Green
+                    role_type = "primary"
+                elif clean_hex == "FFFF00": # Yellow
+                    role_type = "secondary"
+                    
+            footnote = str(val).strip() if val is not None else ""
+            
+            if role_type != "none" or footnote:
+                titan_roles.append({
+                    "role": titan_role_headers[c-1],
+                    "type": role_type,
+                    "footnote": footnote
+                })
+        titan_roles_data[titan_str.lower()] = titan_roles
+
     # 5.4 Parse Tiers/Value ratings and detailed scores
     # We combine 'Tier 4' and 'Tier 3' robots
     robots_data = []
@@ -683,6 +727,9 @@ def parse_robot_guide():
         else:
             unmatched_rating_rows.append(f"titan '{tname}' in Titans")
             
+        # Lookup roles
+        t_roles = titan_roles_data.get(original_name.lower().strip(), [])
+
         titans_data.append({
             "name": original_name,
             "value_rating": val_rating,
@@ -694,6 +741,7 @@ def parse_robot_guide():
                 "accessibility": details["accessibility"],
                 "overall": details["overall"]
             },
+            "roles": t_roles,
             "comments": details["comments"]
         })
 

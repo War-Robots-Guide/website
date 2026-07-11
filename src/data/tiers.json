@@ -62,7 +62,7 @@
         },
         {
           "name": "UE Leo",
-          "description": "Somewhat tanky attacker with all around solid stats. Has the ability to easily stack both QR and SB together via the pilot and Hawkeye drone, while still having room for Phase Shift or UC. Unfortunately, it\u2019s a bit susceptible to chip damage, and some Kroko builds may onetap it through the shield if charged up."
+          "description": "Somewhat tanky attacker with all around solid stats. Has the ability to easily stack both QR and SB together via the pilot and Hawkeye drone, while still having room for Phase Shift or UC. Unfortunately, it\u2019s a bit susceptible to chip damage, and some high damage builds may be able to kill it through the reflector."
         },
         {
           "name": "UE Ravana",
@@ -75,6 +75,14 @@
         {
           "name": "UE Hawk",
           "description": "Pretty much just a worse version of Anaksor. Susceptible to chip damage and lacks deft survivor, but otherwise an incredibly strong bot. Personal favorite of The Crimson Hawk."
+        },
+        {
+          "name": "UE Sword",
+          "description": "While UE Sword doesn\u2019t tickle quite like regular Sword, it will be much rarer than it was before to get charged up enough to actually do hugely significant damage with the slashes. When it does happen, however, it can be match-deciding."
+        },
+        {
+          "name": "Nuo",
+          "description": "Powerful support with a buff that\u2019s similar to Pathfinder\u2019s, trading permanent uptime after acquisition for a more frontloaded buff that doesn\u2019t require a kill. Also gives blind stacks, grey immunity and healing, but enemies will often track it down and prioritize killing it. Additionally, Nuo\u2019s high damage and speed make it a fairly strong sniper with wide target access."
         }
       ]
     },
@@ -82,24 +90,40 @@
       "casual_name": "solid",
       "items": [
         {
-          "name": "Nuo",
-          "description": "Powerful support with a buff that\u2019s similar to pathfinders, trading permanent uptime after acquisition for a frontloaded buff that doesn\u2019t require a kill. Also gives blind stacks, grey immunity and healing, but enemies will often track it down and prioritize killing it."
+          "name": "Lio",
+          "description": "Extremely competent support bot with the potential to turn a teammate into an incredibly hard to kill tank. That being said, it\u2019s as susceptible to being hunted down and killed just as Nuo is, and the defense it provides is often not as valuable as Nuo\u2019s offense. In the past, it was a pretty good tank itself with Showdown, but nowadays, you\u2019d rather not expose yourself if you can avoid it."
         },
         {
           "name": "Imugi",
-          "description": "Powerful Skirmisher and beacon capper with great uptime. One of the few Anaksor counters, able to fly up to it's detection range and kill it. Just hope the enemy isn\u2019t using QR or seeker."
+          "description": "Powerful Skirmisher and beacon capper with great uptime. Webby synergy allows it to support the team by debuffing enemies during fly-bys. Just hope the enemy isn\u2019t using QR or seeker."
+        },
+        {
+          "name": "Demeter",
+          "description": "A valuable support that can rescue friendly bots from the most perilous of situations. Strongest during titan phase, but weak to shieldbreaker titans such as Bersagliere."
         },
         {
           "name": "Bagliore",
           "description": "Some of the highest firepower possible in the game with a useful teleport, strong heal, and some defense points. Great sniper platform."
         },
         {
-          "name": "Demeter",
-          "description": "A support that can rescue friendly titans from the most perilous of situations. Weak to shieldbreaker titans such as Bersagliere, though."
+          "name": "Stryx",
+          "description": "Similar to Bagliore, a really powerful sniper platform with high damage potential and built in shieldbreaker. Lacks the groundwork damage boost that Bagliore has but makes up for it by wielding 5 heavies. That being said, it does spend a substantial amount of time with only 3 heavies available."
+        },
+        {
+          "name": "Crisis",
+          "description": "Trades off the tankieness of Stryx and Bagliore for permanent stealth. Has built in shieldbreaker like Stryx and a damage boost like Bagliore, but 4 heavies without nearly as big a damage boost as Bagliore."
         },
         {
           "name": "Dux",
-          "description": "The drones pack a punch and can ignore defense points - a rare and powerful feature that makes for a good anti-tank bot. A personal favorite of Spiritings."
+          "description": "The drones pack a punch and can ignore defense points - a rare and powerful feature that makes for a good anti-tank bot. Webby synergy allows it to prevent healing, leaning even further into its anti-tank role. A personal favorite of Spiritings."
+        },
+        {
+          "name": "Kaji",
+          "description": "A unique robot that can set relatively dangerous traps. Limited range on the mines prevents it's niche from being represented in higher tiers, however."
+        },
+        {
+          "name": "Hastatus",
+          "description": "Solid mid-late game bot that can poke titans and tanks pretty much for free, but requires reliable cover to function properly and can\u2019t stall for nearly as long as it could before its nerf."
         },
         {
           "name": "UE Phantom",
@@ -111,31 +135,15 @@
         },
         {
           "name": "UE Bulgasari",
-          "description": "If used properly, the unbreakable shield and dashes give it great stalling potential. Unfortunately it\u2019s completely eaten alive by flames, and if you let an enemy sneak a Kroko shot past your shield, you\u2019re in trouble."
+          "description": "If used properly, the unbreakable shield and dashes give it great stalling potential. Unfortunately it\u2019s completely eaten alive by splash damage."
         },
         {
           "name": "UE Rayker",
           "description": "Kind of like a downgraded pathfinder, able to abuse Freezo and harass enemies with suppression that actually does great damage and can even execute. Unfortunately, it lacks the mark ability that keeps pathfinder solidly in X tier."
         },
         {
-          "name": "UE Mender",
-          "description": "Can heal a bit of grey damage and stall a bit with DMI, built in revive, and high damage resistance."
-        },
-        {
           "name": "UE Ao Jun",
           "description": "Competent titan slayer, but not nearly on the level of UE Hawk or Anaksor."
-        },
-        {
-          "name": "Kaji",
-          "description": "A unique robot that can set relatively dangerous traps. Limited range on the mines prevents it's niche from being represented in higher tiers, however."
-        },
-        {
-          "name": "Stryx",
-          "description": "Similar to Bagliore, a really powerful sniper platform with high damage potential and built in shieldbreaker. Lacks the groundwork damage boost that Bagliore has but makes up for it by wielding 5 heavies. That being said, it does spend a substantial amount of time with only 3 heavies available."
-        },
-        {
-          "name": "Crisis",
-          "description": "Trades off the tankieness of Stryx and Bagliore for permanent stealth. Has built in shieldbreaker like Stryx and a damage boost like Bagliore, but 4 heavies without nearly as big a damage boost as Bagliore."
         },
         {
           "name": "UE Spectre",
@@ -154,12 +162,8 @@
           "description": "Starting to see a pattern yet? High damage potential with blind and 4 medium slots."
         },
         {
-          "name": "Lio",
-          "description": "Extremely competent support bot with the potential to turn a teammate into an incredibly hard to kill tank. That being said, it\u2019s as susceptible to being hunted down and killed just as Nuo is, and the defense it provides is often not as valuable as Nuo\u2019s offense. In the past, it was a pretty good tank itself with Showdown, but nowadays, you\u2019d rather not expose yourself if you can avoid it."
-        },
-        {
-          "name": "Hastatus",
-          "description": "Solid mid-late game bot that can poke titans and tanks pretty much for free, but requires reliable cover to function properly and can\u2019t stall for nearly as long as it could before its nerf."
+          "name": "Rex",
+          "description": "Capable of outputting a ton of damage, but susceptible to being bursted down due to its significantly nerfed resistance."
         }
       ]
     },
@@ -215,22 +219,18 @@
           "description": "While it has a disruptive EMP and decent sustain, the massive nerf to it's BiW has rendered it rather immobile and thus hard to justify using over meta openers."
         },
         {
-          "name": "Rex",
-          "description": "Capable of outputting a ton of damage, but susceptible to being bursted down due to it's significantly nerfed resistance."
+          "name": "Ochokochi",
+          "description": "A slight downgrade to Rex that trades a lot of raw stats for a pretty strong crowd control ability that can launch people off the map if timed right."
         },
         {
-          "name": "UE Sword",
-          "description": "While its sword doesn\u2019t tickle quite like regular Sword, it will be rare to get charged up enough to actually do hugely significant damage with the slashes."
+          "name": "UE Mender",
+          "description": "Can heal a bit of grey damage and stall a bit with DMI, built in revive, and high damage resistance."
         }
       ]
     },
     "C": {
       "casual_name": "mid",
       "items": [
-        {
-          "name": "Ochokochi",
-          "description": "Another step down from Rex in terms of opening bots. Competent but powercrept."
-        },
         {
           "name": "Revenant",
           "description": "Similar to Ocho in that it can stall for a bit and recover to full health thanks to grey damage mitigation, but slightly worse in my opinion."
@@ -478,6 +478,14 @@
         {
           "name": "UE Ming",
           "description": "4 Alphas enable powerful hybrid builds with long reload burst weapon on the back and sustained weapons on top. Otherwise, you can go all in with 4 sustained weapons or 4 burst weapons for an statchecking monster. Can fight Princeps on it's own terms only if cover that it can fly over and land behind is present. Tanky and relatively resilient to fire from robots while on the ground. Both TRA and TNA are good choices. Adazahi\u2019s personal favorite."
+        },
+        {
+          "name": "UE Murometz",
+          "description": "Despite the fact that the UE Murometz simply has stronger stats and faster cooldowns than the regular Murometz, it is a considerably powerful damage platform that truly brings back the reign of terror our ancient titan had back in the day. Strong health, on-demand area of effect EMP, nearly perfected sustainability with the legendary pilot, and a playstyle that allows for easy use of UE TNA to make the titan exceptionally lethal each ability sweep. This titan can more or less be looked at as a sidegrade UE Ming, which is really saying something as far as a non-brawler titan is capable of doing."
+        },
+        {
+          "name": "UE Minos",
+          "description": "Previously held in A tier but since migrated to S tier due to reevaluation of its kit: when played and built correctly, UE Minos is effectively a stronger and harder to counter Altas, with the same powerful EMP utility and very strong mobility as far as most titans are capable of. Out of the highest ranking titans, UE Minos is the strongest beacon contester & staller by far."
         }
       ]
     },
@@ -486,15 +494,11 @@
       "items": [
         {
           "name": "Atlas",
-          "description": "Absorbers on the sides and an occasional absorber in the front alongside a CC ability that can snag anaksors and tanky stats make this one of the best brawlers in the game."
+          "description": "Absorbers on the sides and an occasional absorber in the front alongside a CC ability that can snag flying raiders out of the sky and tanky stats make this one of the best brawlers in the game."
         },
         {
           "name": "Bedwyr",
           "description": "Incredibly high uptime on a purple shield, tanky stats, and the most annoying taunt ability in the game make for an extremely solid brawler titan."
-        },
-        {
-          "name": "UE Minos",
-          "description": "Very powerful brawler with a reflector that everyone has to respect (and the longest EMP in the game, because why not). Held back by it's low firepower but nonetheless a very competent Titan."
         },
         {
           "name": "Indra",
@@ -502,11 +506,15 @@
         },
         {
           "name": "Newton*",
-          "description": "The lift ability can snag Princeps out of ability from 800m away, exposing it to your team. Otherwise the bot is relatively defenseless, it really needs good teamplay to work. Minus one tier outside of squad play."
+          "description": "The lift ability can snag damage dealer titans whose defensive ability is on cooldown from 800m away, exposing them to your team. Otherwise the bot is relatively defenseless, it really needs good teamplay to work. Minus one tier outside of squad play."
         },
         {
           "name": "Waymaker",
-          "description": "Hunter stacks are still OP, and Waymaker\u2019s Hunter stacks heal even more grey damage than Pathfinder\u2019s, but the Titan pretty much doesn\u2019t have anything else. The second ability is mid, and the opportunity cost of using this Titan just for Hunter stacks is too high considering you have 5 bots and 1 Titan."
+          "description": "Hunter stacks are still OP, and Waymaker\u2019s Hunter stacks heal even more grey damage than Pathfinder\u2019s, but the Titan pretty much doesn\u2019t have anything else. The second ability is mid, and the opportunity cost of using this Titan just for Hunter stacks is too high considering you have 5 bots and 1 Titan. F2p\u2019s should keep an eye on this Titan as it very well may become the best f2p Titan in the game after it becomes readily accessible."
+        },
+        {
+          "name": "UE Nodens",
+          "description": "Similar to Waymaker, but it gives up the ability to stack teammates with marks for better personal stats and more reliable grey healing that doesn\u2019t require kills."
         }
       ]
     },
@@ -536,10 +544,6 @@
         {
           "name": "Eiffel",
           "description": "The f2p version of UE Ming. Vendicatoires in the summoned slots add a ton of burst that can kill enemies before they have the chance to hit their deft survivor, and the mobility with the dash is comparable to even Bersagliere. The only downside is that it lacks protection and strongly relies on motherships like Stealther or Bifrost."
-        },
-        {
-          "name": "UE Nodens",
-          "description": "Niche support that is eclipsed by Waymaker in almost every way."
         }
       ]
     },
@@ -641,6 +645,10 @@
         {
           "name": "Kestrel",
           "description": "While this drone is incredibly broken on certain bots (ie Imugi) due to the ability to spam heals from its 4th ability, it's technically generic thanks to the death mark from the first ability and stealther/lifesaver allowing any bot to trigger the heal."
+        },
+        {
+          "name": "Lar",
+          "description": "The best option on regular edition Vulcan. Omen Vulcan should equip Webby instead. This drone is much more universal than some of the others released recently, as it's last ability works on all bots and it's other abilities individually work on a wide variety of bots, but only Vulcan can use both at once."
         }
       ]
     },
@@ -686,10 +694,6 @@
         {
           "name": "Scales",
           "description": "Only really ideal on Ammit, though its technically a universal drone, most bots that don\u2019t have a specific drone would much rather use just about any other universal drone."
-        },
-        {
-          "name": "Lar",
-          "description": "The best option on regular edition Vulcan. Omen Vulcan should equip Webby instead. This drone is more universal than some of the others in it's tier, as it's last ability works on all bots and it's other abilities individually work on a wide variety of bots, but only Vulcan can use both at once."
         },
         {
           "name": "Hiruko",
@@ -996,7 +1000,7 @@
       ]
     },
     "B": {
-      "casual_name": "Use with Lifesaver if you have two protection slots",
+      "casual_name": "Use w/ Lifesaver if 2 protection slots",
       "items": [
         {
           "name": "Anti-Jamming Support",
@@ -1505,6 +1509,10 @@
         {
           "name": "Vendicatoire",
           "description": "Strong for niche setups, such as Hybrid UE Ming and Eiffel (putting it as summoned weapons in flight so it reloads while you're on the ground). Technically viable for getting cheeky princeps onetaps with a full set on Bersagliere or UE Ming, but honestly not worth sacrificing your titan to be a one trick wonder like that. Also worth noting that it sometimes whiffs against fast enemies due to slow projectiles, and with a 15 second reload, that SUCKS."
+        },
+        {
+          "name": "UE Bulava, UE Kisten",
+          "description": "Very lethal rocket platforms that are leaps and bounds stronger than their normal counterparts. Putting aside its obviously stronger stats for a moment, the UE variant of these weapons have their ancient aiming flaw almost entirely fixed, which makes them extremely versatile at chipping down & bursting down targets, and combining them with the Explosive Expert titan pilot skills makes them practically undodgeable. Even the mothership charge on these weapons is powerful. The only real downside of these weapons is that some awkward terrain of certain maps can make them harder to use, but otherwise a very small issue for the power delivered."
         }
       ]
     },
