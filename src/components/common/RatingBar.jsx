@@ -12,9 +12,9 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
     const clampedRating = Math.max(minVal, rating);
     percentage = Math.max(0, ((clampedRating - minVal) / (maxVal - minVal)) * 100);
   } else {
-    const maxRating = isTitan ? 5 : 7;
-    const clampedRating = Math.min(maxRating, rating);
-    percentage = 100 + (clampedRating - 3) * 10;
+    // Cap visual percentage at 102% so that the arrow (needle) and laser (flow) stay
+    // inside the card boundaries and never clip out, while still showing overflow.
+    percentage = 102;
   }
   
   const getRatingLabel = (val) => {
@@ -99,7 +99,7 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
               position: 'absolute',
               left: '90%',
               top: '1px',
-              width: `${Math.min(10, percentage - 90)}%`,
+              width: `${percentage - 90}%`,
               height: '4px',
               background: `linear-gradient(to right, #06b6d4 35%, rgba(6, 182, 212, 0.4) 70%, rgba(6, 182, 212, 0) 100%)`,
               zIndex: 1,

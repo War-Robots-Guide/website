@@ -1,6 +1,6 @@
 export function DashboardHero() {
   return (
-    <div className="hero-banner" style={{ padding: 0, overflow: 'hidden', position: 'relative', borderRadius: 0 }}>
+    <div className="hero-banner" style={{ padding: 0, overflow: 'hidden', position: 'relative' }}>
       <img
         src="banner.webp"
         alt="War Robots Hangar Banner"

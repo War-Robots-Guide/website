@@ -52,47 +52,54 @@
 
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  align-items: flex-end; /* Align folder tabs at the bottom */
+  gap: 4px;
   overflow-x: auto;
+  overflow-y: hidden; /* Prevent vertical scrollbar */
   max-width: 100%;
-  padding-bottom: 2px;
-  -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.nav-links::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  margin-bottom: -12px; /* Pull down flush with header bottom border */
+  margin-top: 4px;
 }
 
 .nav-item {
+  flex-shrink: 0; /* Prevent buttons from shrinking on narrow screens */
   display: flex;
   align-items: center;
   gap: 6px;
   background: transparent;
   border: 1px solid transparent;
+  border-bottom: none; /* No bottom border for tabs */
   color: var(--text-secondary);
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 8px 14px 10px 14px; /* Extra bottom padding to overlap the border */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s ease;
   text-decoration: none;
+  position: relative;
+  top: 1px; /* Align exactly on top of the bottom border */
 }
 
 .nav-item:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.03);
-  border-color: var(--border-light);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+  border-bottom: none;
 }
 
 .nav-item.active {
   color: #ffffff;
-  background: rgba(57, 116, 150, 0.22);
-  border-color: rgba(57, 116, 150, 0.45);
-  box-shadow: 0 0 15px -3px rgba(57, 116, 150, 0.25);
+  background: var(--bg-deep); /* Connect seamlessly with body background */
+  border-color: rgba(57, 116, 150, 0.35);
+  border-bottom: 2px solid var(--bg-deep) !important; /* Cover the header border */
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  font-weight: 600;
 }
 
 .nav-icon {
@@ -230,23 +237,20 @@
 .tab-pills {
   display: inline-flex;
   gap: 4px;
-  background: rgba(7, 8, 12, 0.6);
+  background: rgba(255, 255, 255, 0.07);
   border: 1px solid var(--border-light);
   padding: 4px;
   border-radius: 99px; /* Capsule shape */
   overflow-x: auto;
+  overflow-y: hidden; /* Prevent vertical scrollbar */
   margin-bottom: 24px;
   width: fit-content;
   max-width: 100%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  scrollbar-width: none;
-}
-
-.tab-pills::-webkit-scrollbar {
-  display: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .tab-pill {
+  flex-shrink: 0; /* Prevent pill buttons from shrinking */
   border: none;
   background: transparent;
   color: var(--text-secondary);
