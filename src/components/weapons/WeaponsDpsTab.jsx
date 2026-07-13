@@ -46,19 +46,18 @@ export function WeaponsDpsTab() {
 
   // Max DPS values for scaling chart bars
   const maxDpsValues = useMemo(() => {
-    if (compareList.length === 0) return { burst: 1, cycle: 1 };
+    if (compareList.length === 0) return { maxDps: 1 };
     
-    let maxBurst = 1;
-    let maxCycle = 1;
+    let maxVal = 1;
     
     compareList.forEach(w => {
       const bDps = Math.round(parseFloat(w.burst_dps)) || 0;
       const cDps = Math.round(parseFloat(w.cycle_dps)) || 0;
-      if (bDps > maxBurst) maxBurst = bDps;
-      if (cDps > maxCycle) maxCycle = cDps;
+      if (bDps > maxVal) maxVal = bDps;
+      if (cDps > maxVal) maxVal = cDps;
     });
     
-    return { burst: maxBurst, cycle: maxCycle };
+    return { maxDps: maxVal };
   }, [compareList]);
 
   const toggleWeaponCompare = (weapon, className) => {
@@ -206,8 +205,8 @@ export function WeaponsDpsTab() {
                 const bDps = Math.round(parseFloat(weapon.burst_dps)) || 0;
                 const cDps = Math.round(parseFloat(weapon.cycle_dps)) || 0;
                 
-                const burstPercent = Math.max(5, (bDps / maxDpsValues.burst) * 100);
-                const cyclePercent = Math.max(5, (cDps / maxDpsValues.cycle) * 100);
+                const burstPercent = Math.max(5, (bDps / maxDpsValues.maxDps) * 100);
+                const cyclePercent = Math.max(5, (cDps / maxDpsValues.maxDps) * 100);
                 
                 return (
                   <div className="chart-bar-row" key={weapon.compareId}>
