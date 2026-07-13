@@ -94,10 +94,10 @@
 
 .nav-item.active {
   color: #ffffff;
-  background: var(--bg-deep); /* Connect seamlessly with body background */
-  border-color: rgba(57, 116, 150, 0.35);
-  border-bottom: 2px solid var(--bg-deep) !important; /* Cover the header border */
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+  background: #163042; /* Connect seamlessly with body background but lighter */
+  border-color: rgba(57, 116, 150, 0.45);
+  border-bottom: 2px solid #163042 !important; /* Cover the header border */
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.25);
   z-index: 10;
   font-weight: 600;
 }
@@ -922,7 +922,7 @@
   }
   
   .dashboard-hero-img {
-    height: auto;
+    height: 240px;
   }
   
   .dashboard-hero-overlay {

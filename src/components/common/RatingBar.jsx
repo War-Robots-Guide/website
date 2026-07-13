@@ -6,15 +6,22 @@ export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
   const minVal = -2;
   const maxVal = 3;
   
-  // Calculate percentage: 20% per step <= 3, and 10% per step > 3
+  // Calculate percentage: 20% per step <= 3, and 10% per step > 3.
+  // For ratings > 3, we dynamically scale the visual overflow percentage up to 118%
+  // so that higher ratings (+5, +7) get progressively longer visible cyan laser beams,
+  // while staying safely inside the card container limits to prevent clipping.
   let percentage;
   if (rating <= 3) {
     const clampedRating = Math.max(minVal, rating);
     percentage = Math.max(0, ((clampedRating - minVal) / (maxVal - minVal)) * 100);
   } else {
-    // Cap visual percentage at 102% so that the arrow (needle) and laser (flow) stay
-    // inside the card boundaries and never clip out, while still showing overflow.
-    percentage = 102;
+    const maxRating = isTitan ? 5 : 7;
+    const clampedRating = Math.min(maxRating, rating);
+    // rating 4 -> 104.5%
+    // rating 5 -> 109%
+    // rating 6 -> 113.5%
+    // rating 7 -> 118%
+    percentage = 100 + (clampedRating - 3) * 4.5;
   }
   
   const getRatingLabel = (val) => {
