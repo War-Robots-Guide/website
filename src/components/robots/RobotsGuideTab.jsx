@@ -4,6 +4,7 @@ import { sortBySearchQuery } from '../../utils/sortUtils';
 import { RobotCard } from './RobotCard';
 import { TitanCard } from './TitanCard';
 import { GuideFilters } from './GuideFilters';
+import { SlidingTabPills } from '../common/SlidingTabPills';
 import { getTierForName } from '../../utils/tierLookup';
 
 export function RobotsGuideTab({ onItemClick }) {
@@ -206,38 +207,23 @@ export function RobotsGuideTab({ onItemClick }) {
       </div>
 
       {/* Sub Tabs: Robots vs Titans */}
-      <div className="tab-pills">
-        <button 
-          className={`tab-pill ${guideSubTab === 'robots' ? 'active' : ''}`} 
-          onClick={() => { 
-            setGuideSubTab('robots'); 
-            setRobotRoleFilter('All'); 
-            setRobotValueFilter('All'); 
-            setStatFilter('All');
-            setMinScoreFilter('All');
-            setSortBy('Default');
-            setSearchInput(''); 
-            setSearchQuery(''); 
-          }}
-        >
-          Robots
-        </button>
-        <button 
-          className={`tab-pill ${guideSubTab === 'titans' ? 'active' : ''}`} 
-          onClick={() => { 
-            setGuideSubTab('titans'); 
-            setRobotRoleFilter('All'); 
-            setRobotValueFilter('All'); 
-            setStatFilter('All');
-            setMinScoreFilter('All');
-            setSortBy('Default');
-            setSearchInput(''); 
-            setSearchQuery(''); 
-          }}
-        >
-          Titans
-        </button>
-      </div>
+      <SlidingTabPills
+        tabs={[
+          { label: 'Robots', value: 'robots' },
+          { label: 'Titans', value: 'titans' }
+        ]}
+        activeTab={guideSubTab}
+        onChange={(val) => {
+          setGuideSubTab(val);
+          setRobotRoleFilter('All');
+          setRobotValueFilter('All');
+          setStatFilter('All');
+          setMinScoreFilter('All');
+          setSortBy('Default');
+          setSearchInput('');
+          setSearchQuery('');
+        }}
+      />
 
       {/* Filter controls */}
       <GuideFilters

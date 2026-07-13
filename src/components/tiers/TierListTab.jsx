@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import tiersData from '../../data/tiers.json';
 import { SearchInput } from '../common/SearchInput';
+import { SlidingTabPills } from '../common/SlidingTabPills';
 
 // Pre-compute lowercased names and descriptions once outside the component
 // to avoid expensive .toLowerCase() calls on every keystroke during filtering.
@@ -55,17 +56,19 @@ export function TierListTab({ onItemClick }) {
       </div>
 
       {/* Category Select Tab Pills */}
-      <div className="tab-pills">
-        {['Robots', 'Titans', 'Drones', 'Motherships', 'Mothership Turrets', 'Robot Weapons', 'Titan Weapons'].map(cat => (
-          <button 
-            key={cat} 
-            className={`tab-pill ${selectedCategory === cat ? 'active' : ''}`}
-            onClick={() => { setSelectedCategory(cat); setSearchQuery(''); }}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      <SlidingTabPills
+        tabs={[
+          { label: 'Robots', value: 'Robots' },
+          { label: 'Titans', value: 'Titans' },
+          { label: 'Drones', value: 'Drones' },
+          { label: 'Motherships', value: 'Motherships' },
+          { label: 'Mothership Turrets', value: 'Mothership Turrets' },
+          { label: 'Robot Weapons', value: 'Robot Weapons' },
+          { label: 'Titan Weapons', value: 'Titan Weapons' }
+        ]}
+        activeTab={selectedCategory}
+        onChange={(val) => { setSelectedCategory(val); setSearchQuery(''); }}
+      />
 
       {/* Search filter inside Tiers */}
       <div className="search-container">

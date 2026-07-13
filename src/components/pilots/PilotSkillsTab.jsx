@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import pilotsData from '../../data/pilots.json';
 
+import { SlidingTabPills } from '../common/SlidingTabPills';
+
 function PilotSkillCategory({ cat, skills }) {
   const getCategoryIcon = (cat) => {
     const iconName = cat === 'Must Use'
@@ -62,20 +64,14 @@ export function PilotSkillsTab() {
       </div>
 
       {/* Sub Tabs: Robots vs Titans */}
-      <div className="tab-pills">
-        <button 
-          className={`tab-pill ${pilotSubTab === 'robots' ? 'active' : ''}`} 
-          onClick={() => setPilotSubTab('robots')}
-        >
-          Robot Pilots
-        </button>
-        <button 
-          className={`tab-pill ${pilotSubTab === 'titans' ? 'active' : ''}`} 
-          onClick={() => setPilotSubTab('titans')}
-        >
-          Titan Pilots
-        </button>
-      </div>
+      <SlidingTabPills
+        tabs={[
+          { label: 'Robot Pilots', value: 'robots' },
+          { label: 'Titan Pilots', value: 'titans' }
+        ]}
+        activeTab={pilotSubTab}
+        onChange={setPilotSubTab}
+      />
 
       {/* Skills sections by category */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

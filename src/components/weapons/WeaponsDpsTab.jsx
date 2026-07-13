@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { X } from 'lucide-react';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import { SearchInput } from '../common/SearchInput';
+import { SlidingTabPills } from '../common/SlidingTabPills';
 
 // Pre-compute object mapping and lowercased fields to avoid
 // redundant allocations and string operations on every render/filter
@@ -117,17 +118,17 @@ export function WeaponsDpsTab() {
         )}
 
         {/* Weapon Class Pills */}
-        <div className="tab-pills">
-          {['Heavy Weapons', 'Medium Weapons', 'Light Weapons', 'Alpha Weapons', 'Beta Weapons'].map(wclass => (
-            <button 
-              key={wclass} 
-              className={`tab-pill ${selectedWeaponClass === wclass ? 'active' : ''}`}
-              onClick={() => { setSelectedWeaponClass(wclass); setSearchInput(''); setSearchQuery(''); }}
-            >
-              {wclass.replace(' Weapons', '')}
-            </button>
-          ))}
-        </div>
+        <SlidingTabPills
+          tabs={[
+            { label: 'Heavy', value: 'Heavy Weapons' },
+            { label: 'Medium', value: 'Medium Weapons' },
+            { label: 'Light', value: 'Light Weapons' },
+            { label: 'Alpha', value: 'Alpha Weapons' },
+            { label: 'Beta', value: 'Beta Weapons' }
+          ]}
+          activeTab={selectedWeaponClass}
+          onChange={(val) => { setSelectedWeaponClass(val); setSearchInput(''); setSearchQuery(''); }}
+        />
 
         {/* Search weapons */}
         <div className="search-container">
