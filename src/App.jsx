@@ -109,11 +109,9 @@ function App() {
     }
   }, [isEasterEggActive, isAdazahiEggActive]);
 
-  const [lastTab, setLastTab] = useState(activeTab);
   const [currentTab, setCurrentTab] = useState(activeTab);
 
   if (activeTab !== currentTab) {
-    setLastTab(currentTab);
     setCurrentTab(activeTab);
     setSelectedItem(null);
   }
@@ -122,13 +120,6 @@ function App() {
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0);
-    return () => clearTimeout(timer);
-  }, [activeTab]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLastTab(activeTab);
-    }, 500);
     return () => clearTimeout(timer);
   }, [activeTab]);
 
@@ -144,9 +135,6 @@ function App() {
       <div className="bg-layers">
         {tabs.map((tab) => {
           const isActive = activeTab === tab;
-          const isVisible = tab === activeTab || tab === lastTab;
-
-          if (!isVisible) return null;
 
           let bgUrl;
           if (isAdazahiEggActive) {
@@ -157,10 +145,8 @@ function App() {
             bgUrl = `url('${BACKGROUND_IMAGES[tab]}')`;
           }
 
-          const isOutgoing = tab === lastTab && !isActive;
-          const transformStyle = isActive 
-            ? 'scale(1) translate3d(0, 0, 0)' 
-            : (isOutgoing ? 'scale(1.15) translate3d(0, 0, 0)' : 'scale(0.85) translate3d(0, 0, 0)');
+          const transformStyle = isActive ? 'scale(1.02)' : 'scale(1.12)';
+          const filterStyle = isActive ? 'blur(0px)' : 'blur(4px)';
 
           return (
             <div
@@ -169,7 +155,8 @@ function App() {
               style={{
                 backgroundImage: bgUrl,
                 opacity: isActive ? (isEasterEggActive || isAdazahiEggActive ? 0.75 : 0.15) : 0,
-                transform: transformStyle
+                transform: transformStyle,
+                filter: filterStyle
               }}
             />
           );
