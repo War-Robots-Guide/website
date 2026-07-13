@@ -21,10 +21,26 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
   const lowerCaseQuery = (selectorSearchQuery || "").toLowerCase();
 
   const filteredItems = useMemo(() => {
-    if (isTitanSlot) {
-      return precomputedTitans.filter(t => t._searchName.includes(lowerCaseQuery));
-    }
-    return precomputedRobots.filter(r => r._searchName.includes(lowerCaseQuery));
+    const category = isTitanSlot ? 'Titans' : 'Robots';
+    const items = isTitanSlot ? precomputedTitans : precomputedRobots;
+    const filtered = items.filter(item => item._searchName.includes(lowerCaseQuery));
+
+    const TIER_ORDER = { 'x': 0, 's': 1, 'a': 2, 'b': 3, 'c': 4, 'd': 5 };
+    const getTierRank = (item) => {
+      const tier = getTierForName(item.name, category);
+      if (!tier) return 99;
+      const key = tier.toLowerCase();
+      return TIER_ORDER[key] !== undefined ? TIER_ORDER[key] : 98;
+    };
+
+    return [...filtered].sort((a, b) => {
+      const rankA = getTierRank(a);
+      const rankB = getTierRank(b);
+      if (rankA !== rankB) {
+        return rankA - rankB;
+      }
+      return a.name.localeCompare(b.name);
+    });
   }, [isTitanSlot, lowerCaseQuery]);
 
   useEffect(() => {
