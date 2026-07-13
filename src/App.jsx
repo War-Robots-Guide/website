@@ -157,10 +157,10 @@ function App() {
             bgUrl = `url('${BACKGROUND_IMAGES[tab]}')`;
           }
 
-          const tabIndex = tabs.indexOf(tab);
-          const activeIndex = tabs.indexOf(activeTab);
-          const offset = tabIndex > activeIndex ? '80px' : '-80px';
-          const transformStyle = isActive ? 'scale(1) translate3d(0, 0, 0)' : `scale(1.06) translate3d(${offset}, 0, 0)`;
+          const isOutgoing = tab === lastTab && !isActive;
+          const transformStyle = isActive 
+            ? 'scale(1) translate3d(0, 0, 0)' 
+            : (isOutgoing ? 'scale(1.15) translate3d(0, 0, 0)' : 'scale(0.85) translate3d(0, 0, 0)');
 
           return (
             <div
