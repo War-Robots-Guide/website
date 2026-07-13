@@ -8,6 +8,13 @@ export function AnalysisDashboard({
   SUPPORT_TARGET,
   TANK_BUSTER_TARGET
 }) {
+  const formatRatio = (current, target) => {
+    const hasDecimal = current % 1 !== 0;
+    const cStr = hasDecimal ? current.toFixed(1) : current.toString();
+    const tStr = hasDecimal ? target.toFixed(1) : target.toString();
+    return `${cStr} / ${tStr}`;
+  };
+
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginTop: '32px', textAlign: 'left' }} className="responsive-split">
 
@@ -152,7 +159,7 @@ export function AnalysisDashboard({
                 label={role.name}
                 score={current}
                 options={{
-                  customValueLabel: `${current} / ${role.target}`,
+                  customValueLabel: formatRatio(current, role.target),
                   customPercentage: percentage,
                   customFillColor: status.color,
                   customBadge: (
@@ -197,7 +204,7 @@ export function AnalysisDashboard({
 
               let badgeColor = 'var(--text-muted)';
               let badgeBg = 'rgba(255,255,255,0.02)';
-              let badgeText = current.toFixed(1);
+              const displayRatio = formatRatio(current, 1);
               if (hasOne) {
                 badgeColor = 'var(--purple)';
                 badgeBg = 'rgba(59, 130, 246, 0.1)';
@@ -230,7 +237,7 @@ export function AnalysisDashboard({
                     padding: '2px 6px',
                     borderRadius: '4px'
                   }}>
-                    {badgeText} / 1
+                    {displayRatio}
                   </span>
                 </div>
               );
@@ -258,7 +265,7 @@ export function AnalysisDashboard({
 
                 let badgeColor = 'var(--text-muted)';
                 let badgeBg = 'rgba(255,255,255,0.02)';
-                let badgeText = current.toFixed(1);
+                const displayRatio = formatRatio(current, 1);
                 if (hasOne) {
                   badgeColor = 'var(--purple)';
                   badgeBg = 'rgba(59, 130, 246, 0.1)';
@@ -291,7 +298,7 @@ export function AnalysisDashboard({
                       padding: '2px 6px',
                       borderRadius: '4px'
                     }}>
-                      {badgeText} / 1
+                      {displayRatio}
                     </span>
                   </div>
                 );
@@ -315,8 +322,8 @@ export function AnalysisDashboard({
                 lineHeight: 1.6
               }}>
                 <div style={{ fontWeight: 600, color: 'var(--cyan)', marginBottom: '6px' }}>Target Extension Options:</div>
-                - Additional <strong>1x Support</strong> (Current: {supportScore.toFixed(1)} / {SUPPORT_TARGET + 1})<br />
-                - Additional <strong>1x Tank-buster</strong> (Current: {tankBusterScore.toFixed(1)} / {TANK_BUSTER_TARGET + 1})
+                - Additional <strong>1x Support</strong> (Current: {formatRatio(supportScore, SUPPORT_TARGET + 1)})<br />
+                - Additional <strong>1x Tank-buster</strong> (Current: {formatRatio(tankBusterScore, TANK_BUSTER_TARGET + 1)})
               </div>
             );
           })()}

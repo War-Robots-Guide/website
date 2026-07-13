@@ -82,7 +82,7 @@ describe('AnalysisDashboard', () => {
 
     // Support: target 2, score 2.5 => MET
     expect(screen.getAllByText('Support').length).toBeGreaterThan(0);
-    expect(screen.getByText('2.5 / 2')).toBeInTheDocument();
+    expect(screen.getByText('2.5 / 2.0')).toBeInTheDocument();
 
     // Beacon Runner: target 1, score 1.0 => MET
     expect(screen.getAllByText('Beacon Runner').length).toBeGreaterThan(0);
@@ -90,11 +90,11 @@ describe('AnalysisDashboard', () => {
 
     // Midrange: target 2, score 0.5 => UNDERFILLED
     expect(screen.getAllByText('Midrange').length).toBeGreaterThan(0);
-    expect(screen.getByText('0.5 / 2')).toBeInTheDocument();
+    expect(screen.getByText('0.5 / 2.0')).toBeInTheDocument();
 
     // Tank-buster: target 1, score 0 => MISSING
     expect(screen.getAllByText('Tank-buster').length).toBeGreaterThan(0);
-    expect(screen.getByText('0 / 1')).toBeInTheDocument();
+    expect(screen.getAllByText('0 / 1').length).toBeGreaterThan(0);
   });
 
   it('renders Additional Hangar Roles with correct values', () => {
@@ -102,17 +102,17 @@ describe('AnalysisDashboard', () => {
 
     expect(screen.getByText('Additional Hangar Roles')).toBeInTheDocument();
 
-    // Assassin score 1.5 => 1.5 / 1 (has one)
+    // Assassin score 1.5 => 1.5 / 1.0 (has one)
     expect(screen.getAllByText('Assassin').length).toBeGreaterThan(0);
-    expect(screen.getByText('1.5 / 1')).toBeInTheDocument();
+    expect(screen.getByText('1.5 / 1.0')).toBeInTheDocument();
 
-    // Brawler score 0.5 => 0.5 / 1 (has partial)
+    // Brawler score 0.5 => 0.5 / 1.0 (has partial)
     expect(screen.getAllByText('Brawler').length).toBeGreaterThan(0);
-    expect(screen.getByText('0.5 / 1')).toBeInTheDocument();
+    expect(screen.getByText('0.5 / 1.0')).toBeInTheDocument();
 
-    // Sniper score 0 => 0.0 / 1 (missing)
+    // Sniper score 0 => 0 / 1 (missing)
     expect(screen.getAllByText('Sniper').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('0.0 / 1').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('0 / 1').length).toBeGreaterThan(0);
   });
 
   it('renders Target Extension Options correctly', () => {
@@ -120,10 +120,10 @@ describe('AnalysisDashboard', () => {
 
     expect(screen.getByText('Target Extension Options:')).toBeInTheDocument();
 
-    // Support Current: 2.5 / 3 (SUPPORT_TARGET + 1)
-    expect(screen.getByText((content) => content.includes('Current: 2.5 / 3'))).toBeInTheDocument();
+    // Support Current: 2.5 / 3.0 (SUPPORT_TARGET + 1)
+    expect(screen.getByText((content) => content.includes('Current: 2.5 / 3.0'))).toBeInTheDocument();
 
-    // Tank-buster Current: 0.0 / 2 (TANK_BUSTER_TARGET + 1)
-    expect(screen.getByText((content) => content.includes('Current: 0.0 / 2'))).toBeInTheDocument();
+    // Tank-buster Current: 0 / 2 (TANK_BUSTER_TARGET + 1)
+    expect(screen.getByText((content) => content.includes('Current: 0 / 2'))).toBeInTheDocument();
   });
 });
