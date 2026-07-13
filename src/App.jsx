@@ -157,13 +157,19 @@ function App() {
             bgUrl = `url('${BACKGROUND_IMAGES[tab]}')`;
           }
 
+          const tabIndex = tabs.indexOf(tab);
+          const activeIndex = tabs.indexOf(activeTab);
+          const offset = tabIndex > activeIndex ? '80px' : '-80px';
+          const transformStyle = isActive ? 'scale(1) translate3d(0, 0, 0)' : `scale(1.06) translate3d(${offset}, 0, 0)`;
+
           return (
             <div
               key={tab}
               className={`bg-layer bg-theme-${tab} ${isActive ? 'active' : ''}`}
               style={{
                 backgroundImage: bgUrl,
-                opacity: isActive ? (isEasterEggActive || isAdazahiEggActive ? 0.75 : 0.15) : 0
+                opacity: isActive ? (isEasterEggActive || isAdazahiEggActive ? 0.75 : 0.15) : 0,
+                transform: transformStyle
               }}
             />
           );
