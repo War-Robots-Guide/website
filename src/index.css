@@ -121,7 +121,7 @@ body {
   z-index: 1;
   overflow: hidden;
   border: 1px solid var(--border-light);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 24px;
   
   transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -142,6 +142,7 @@ body {
   z-index: -1;
   pointer-events: none;
   opacity: 0; /* Start hidden and let the animation fade it in */
+  border-radius: inherit;
   
   /* GPU acceleration to prevent backdrop-filter blur snapping during opacity/transform animations */
   transform: translateZ(0);

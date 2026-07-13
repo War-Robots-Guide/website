@@ -13,7 +13,7 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
           flexDirection: 'column',
           padding: '16px',
           minHeight: '180px',
-          borderRadius: '12px',
+          borderRadius: '16px',
           position: 'relative',
           border: '1px solid var(--border-light)',
           background: 'rgba(13, 30, 43, 0.45)',
@@ -112,7 +112,7 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
         padding: '24px',
         minHeight: '180px',
         cursor: 'pointer',
-        borderRadius: '12px',
+        borderRadius: '16px',
         transition: 'all 0.3s ease'
       }}
       onClick={() => onOpenSelector(index)}

@@ -13,7 +13,7 @@ export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
           flexDirection: 'column',
           padding: '16px',
           minHeight: '180px',
-          borderRadius: '12px',
+          borderRadius: '16px',
           position: 'relative',
           border: '1px solid rgba(59, 130, 246, 0.4)',
           background: 'rgba(59, 130, 246, 0.05)',
@@ -112,7 +112,7 @@ export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
         padding: '24px',
         minHeight: '180px',
         cursor: 'pointer',
-        borderRadius: '12px',
+        borderRadius: '16px',
         transition: 'all 0.3s ease',
         background: 'rgba(59, 130, 246, 0.02)'
       }}

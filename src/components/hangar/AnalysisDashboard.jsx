@@ -64,7 +64,7 @@ export function AnalysisDashboard({
           gap: '16px',
           background: 'rgba(0,0,0,0.2)',
           padding: '16px',
-          borderRadius: '12px',
+          borderRadius: '16px',
           border: `1px solid ${hangarAnalysis.alignmentColor}40`
         }}>
           <div style={{
@@ -100,7 +100,7 @@ export function AnalysisDashboard({
             gap: '16px',
             background: 'rgba(0,0,0,0.2)',
             padding: '16px',
-            borderRadius: '12px',
+            borderRadius: '16px',
             border: `1px solid var(--tier-${averageTier.toLowerCase()}-border)`
           }}>
             <div style={{
