@@ -4,6 +4,7 @@ import { sortBySearchQuery } from '../../utils/sortUtils';
 import { RobotCard } from './RobotCard';
 import { TitanCard } from './TitanCard';
 import { GuideFilters } from './GuideFilters';
+import { getTierForName } from '../../utils/tierLookup';
 
 export function RobotsGuideTab({ onItemClick }) {
   const [guideSubTab, setGuideSubTab] = useState('robots');
@@ -95,8 +96,19 @@ export function RobotsGuideTab({ onItemClick }) {
         const valB = sortBy === 'value_rating' ? b.value_rating : (b.scores?.[sortBy] ?? -999);
         return valB - valA;
       });
-    } else if (query) {
-      filtered = sortBySearchQuery(filtered, query, (robot) => robot.name);
+    } else {
+      // Default Sort: Sort by Tiers (highest to lowest)
+      const getTierWeight = (item, category) => {
+        const tier = getTierForName(item.name, category);
+        const TIER_ORDER = { 'X': 9, 'S': 8, 'A': 7, 'B': 6, 'C': 5, 'D': 4, 'E': 3, 'F': 2, 'Z': 1 };
+        return TIER_ORDER[tier] ?? 0;
+      };
+      filtered = [...filtered].sort((a, b) => {
+        return getTierWeight(b, 'Robots') - getTierWeight(a, 'Robots');
+      });
+      if (query) {
+        filtered = sortBySearchQuery(filtered, query, (robot) => robot.name);
+      }
     }
 
     return filtered;
@@ -127,8 +139,19 @@ export function RobotsGuideTab({ onItemClick }) {
         const valB = sortBy === 'value_rating' ? b.value_rating : (b.scores?.[sortBy] ?? -999);
         return valB - valA;
       });
-    } else if (query) {
-      filtered = sortBySearchQuery(filtered, query, (titan) => titan.name);
+    } else {
+      // Default Sort: Sort by Tiers (highest to lowest)
+      const getTierWeight = (item, category) => {
+        const tier = getTierForName(item.name, category);
+        const TIER_ORDER = { 'X': 9, 'S': 8, 'A': 7, 'B': 6, 'C': 5, 'D': 4, 'E': 3, 'F': 2, 'Z': 1 };
+        return TIER_ORDER[tier] ?? 0;
+      };
+      filtered = [...filtered].sort((a, b) => {
+        return getTierWeight(b, 'Titans') - getTierWeight(a, 'Titans');
+      });
+      if (query) {
+        filtered = sortBySearchQuery(filtered, query, (titan) => titan.name);
+      }
     }
 
     return filtered;
