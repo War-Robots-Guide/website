@@ -83,6 +83,8 @@
   text-decoration: none;
   position: relative;
   top: 1px; /* Align exactly on top of the bottom border */
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Slide-up drawer background box for active folder tabs */
@@ -93,12 +95,11 @@
   left: 0;
   right: 0;
   bottom: -4px; /* Extend slightly below the nav-item bottom to overlay the header border */
-  background: var(--bg-deep);
+  background: var(--bg-deep); /* Connect seamlessly with body background */
   border: 1px solid rgba(57, 116, 150, 0.45);
   border-bottom: none;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.25);
   z-index: -1;
   opacity: 0;
   transform: translateY(100%);
@@ -116,6 +117,14 @@
   color: #ffffff;
   z-index: 10;
   font-weight: 600;
+  outline: none;
+  box-shadow: none;
+}
+
+.nav-item:focus,
+.nav-item:active {
+  outline: none;
+  box-shadow: none;
 }
 
 .nav-item.active::before {
