@@ -82,21 +82,24 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                         <span 
                           className={`tier-badge-${tierLower}`} 
                           style={{ 
-                            fontSize: '10.5px', 
+                            fontSize: '10px', 
                             fontWeight: 700, 
                             background: `var(--tier-${tierLower}-bg)`, 
                             color: `var(--tier-${tierLower})`, 
                             border: `1px solid var(--tier-${tierLower}-border)`, 
-                            padding: '1px 6px', 
+                            padding: '2px 6px', 
                             borderRadius: '4px' 
                           }}
                         >
-                          {tier}
+                          {tier} Tier
                         </span>
                       </div>
                     );
                   })()}
-                  <div style={{ display: 'flex', minWidth: '160px', justifyContent: 'flex-end' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '2px' }}>
+                    <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      Value Rating
+                    </span>
                     <RatingBar rating={titan.value_rating} unitType="titan" align="right" />
                   </div>
                 </div>
@@ -124,19 +127,22 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                           <span 
                             className={`tier-badge-${tierLower}`} 
                             style={{ 
-                              fontSize: '10.5px', 
+                              fontSize: '10px', 
                               fontWeight: 700, 
                               background: `var(--tier-${tierLower}-bg)`, 
                               color: `var(--tier-${tierLower})`, 
                               border: `1px solid var(--tier-${tierLower}-border)`, 
-                              padding: '1px 6px', 
+                              padding: '2px 6px', 
                               borderRadius: '4px' 
                             }}
                           >
-                            {tier}
+                            {tier} Tier
                           </span>
                         </div>
-                        <div style={{ display: 'flex', minWidth: '160px', justifyContent: 'flex-end' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '2px' }}>
+                          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                            Value Rating
+                          </span>
                           <RatingBar rating={robot.value_rating} unitType="robot" align="right" />
                         </div>
                       </div>

@@ -70,7 +70,10 @@ export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
           );
         })()}
 
-        <div style={{ display: 'flex', width: '100%', marginBottom: '10px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginBottom: '10px', gap: '2px' }}>
+          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+            Value Rating
+          </span>
           <RatingBar rating={item.value_rating} unitType="titan" />
         </div>
 
