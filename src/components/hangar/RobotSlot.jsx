@@ -1,5 +1,6 @@
 import { X } from 'lucide-react';
 import { RatingBar } from '../common/RatingBar';
+import { getTierForName } from '../../utils/tierLookup';
 import robotGuideData from '../../data/robot_guide.json';
 
 export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
@@ -43,9 +44,31 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
           Robot Slot {index + 1}
         </span>
 
-        <h4 style={{ fontSize: '16px', color: 'var(--cyan)', margin: '0 0 6px 0', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: '140px' }} title={item.name}>
-          {item.name}
-        </h4>
+        {(() => {
+          const tier = getTierForName(item.name, 'Robots') || 'Z';
+          const tierLower = tier.toLowerCase();
+          return (
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px', gap: '8px' }}>
+              <h4 style={{ fontSize: '16px', color: 'var(--cyan)', margin: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: '110px' }} title={item.name}>
+                {item.name}
+              </h4>
+              <span 
+                className={`tier-badge-${tierLower}`} 
+                style={{ 
+                  fontSize: '11px', 
+                  fontWeight: 700, 
+                  background: `var(--tier-${tierLower}-bg)`, 
+                  color: `var(--tier-${tierLower})`, 
+                  border: `1px solid var(--tier-${tierLower}-border)`, 
+                  padding: '2px 6px', 
+                  borderRadius: '4px' 
+                }}
+              >
+                {tier} Tier
+              </span>
+            </div>
+          );
+        })()}
 
         <div style={{ display: 'flex', width: '100%', marginBottom: '10px' }}>
           <RatingBar rating={item.value_rating} unitType="robot" />

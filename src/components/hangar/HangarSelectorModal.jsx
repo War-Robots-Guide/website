@@ -4,6 +4,7 @@ import { X } from 'lucide-react';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
+import { getTierForName } from '../../utils/tierLookup';
 
 const precomputedTitans = (robotGuideData?.titans || []).map(t => ({
   ...t,
@@ -71,10 +72,30 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                   role="option"
                   aria-selected="false"
                 >
-                  <div>
-                    <span style={{ fontWeight: 700, color: '#fff' }}>{titan.name}</span>
-                    <span style={{ fontSize: '11px', color: 'var(--purple)', marginLeft: '10px' }}>Titan</span>
-                  </div>
+                  {(() => {
+                    const tier = getTierForName(titan.name, 'Titans') || 'Z';
+                    const tierLower = tier.toLowerCase();
+                    return (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <span style={{ fontWeight: 700, color: '#fff' }}>{titan.name}</span>
+                        <span style={{ fontSize: '11px', color: 'var(--purple)', fontWeight: 600, textTransform: 'uppercase' }}>Titan</span>
+                        <span 
+                          className={`tier-badge-${tierLower}`} 
+                          style={{ 
+                            fontSize: '10.5px', 
+                            fontWeight: 700, 
+                            background: `var(--tier-${tierLower}-bg)`, 
+                            color: `var(--tier-${tierLower})`, 
+                            border: `1px solid var(--tier-${tierLower}-border)`, 
+                            padding: '1px 6px', 
+                            borderRadius: '4px' 
+                          }}
+                        >
+                          {tier}
+                        </span>
+                      </div>
+                    );
+                  })()}
                   <div style={{ display: 'flex', minWidth: '160px', justifyContent: 'flex-end' }}>
                     <RatingBar rating={titan.value_rating} unitType="titan" align="right" />
                   </div>
@@ -93,12 +114,34 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                   role="option"
                   aria-selected="false"
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: 700, color: '#fff' }}>{robot.name}</span>
-                    <div style={{ display: 'flex', minWidth: '160px', justifyContent: 'flex-end' }}>
-                      <RatingBar rating={robot.value_rating} unitType="robot" align="right" />
-                    </div>
-                  </div>
+                  {(() => {
+                    const tier = getTierForName(robot.name, 'Robots') || 'Z';
+                    const tierLower = tier.toLowerCase();
+                    return (
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <span style={{ fontWeight: 700, color: '#fff' }}>{robot.name}</span>
+                          <span 
+                            className={`tier-badge-${tierLower}`} 
+                            style={{ 
+                              fontSize: '10.5px', 
+                              fontWeight: 700, 
+                              background: `var(--tier-${tierLower}-bg)`, 
+                              color: `var(--tier-${tierLower})`, 
+                              border: `1px solid var(--tier-${tierLower}-border)`, 
+                              padding: '1px 6px', 
+                              borderRadius: '4px' 
+                            }}
+                          >
+                            {tier}
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', minWidth: '160px', justifyContent: 'flex-end' }}>
+                          <RatingBar rating={robot.value_rating} unitType="robot" align="right" />
+                        </div>
+                      </div>
+                    );
+                  })()}
                   {robot.roles && robot.roles.length > 0 && (
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                       {robot.roles.map(role => (
