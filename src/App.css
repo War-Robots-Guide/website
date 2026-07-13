@@ -79,7 +79,7 @@
   font-size: 14px;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   text-decoration: none;
   position: relative;
   top: 1px; /* Align exactly on top of the bottom border */
@@ -260,7 +260,7 @@
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
   letter-spacing: 0.3px;
 }
 
