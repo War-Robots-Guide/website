@@ -16,9 +16,29 @@ def find_file_case_insensitive(filename):
     if not os.path.exists(sample_dir):
         return os.path.join(sample_dir, filename)
     target_lower = filename.lower()
+    
+    # 1. Try exact match (case-insensitive)
     for f in os.listdir(sample_dir):
         if f.lower() == target_lower:
             return os.path.join(sample_dir, f)
+            
+    # 2. Try fuzzy match for versioned spreadsheet (1-10)
+    if "1-10" in target_lower or "1_10" in target_lower or "ver" in target_lower:
+        for f in os.listdir(sample_dir):
+            f_lower = f.lower()
+            if "simplified" in f_lower and "new players" in f_lower and f_lower.endswith(".xlsx"):
+                if "1-10" in f_lower or "1_10" in f_lower or "ver" in f_lower:
+                    print(f"Fuzzy matched versioned spreadsheet: {f}")
+                    return os.path.join(sample_dir, f)
+                    
+    # 3. Try general fuzzy match
+    if "simplified" in target_lower and "new players" in target_lower:
+        for f in os.listdir(sample_dir):
+            f_lower = f.lower()
+            if "simplified" in f_lower and "new players" in f_lower and f_lower.endswith(".xlsx"):
+                print(f"Fuzzy matched spreadsheet: {f}")
+                return os.path.join(sample_dir, f)
+                
     return os.path.join(sample_dir, filename)
 
 
