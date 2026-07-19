@@ -25,11 +25,11 @@
         },
         {
           "name": "UE Scorpion",
-          "description": "Largely in this tier due to the fact that it\u2019s one of few ways to effectively counter Anaksor. Teleporting to them when they land can yield a quick kill if they don\u2019t respect your range."
+          "description": "Largely in this tier due to the fact that it\u2019s one of few ways to effectively counter Anaksor. Teleporting to them when they land can yield a quick kill if they don\u2019t respect your range. UE Scorpion has all-around strong stats, however, making it the most powerful saboteur/assassin in the game as of yet."
         },
         {
           "name": "UE Revenant",
-          "description": "Second only to Vector as an opener and Ammit as a tank. This robot combines extreme sustain and mobility into a single OP package. Most X tier opener bots on are approximately the same level, but this is a personal favorite of Adazahi."
+          "description": "Second only to Vector as an opener and Ammit as a tank. This robot combines extreme sustain and mobility into a single OP package. Most X tier opener bots are on approximately the same level, but this is a personal favorite of Adazahi."
         },
         {
           "name": "Shoggoth",
@@ -54,7 +54,7 @@
       "items": [
         {
           "name": "UE Lancelot",
-          "description": "While Lance has a lot of sustain through its grey healing, the nerf it got to it's HP was very significant and made it susceptible to being bursted down."
+          "description": "While Lance has a lot of sustain through its grey healing, the nerf it got to its HP was very significant and made it susceptible to being bursted down."
         },
         {
           "name": "UE Haechi",
@@ -111,7 +111,7 @@
         },
         {
           "name": "Crisis",
-          "description": "Trades off the tankieness of Stryx and Bagliore for permanent stealth. Has built in shieldbreaker like Stryx and a damage boost like Bagliore, but 4 heavies without nearly as big a damage boost as Bagliore."
+          "description": "Trades off the tankiness of Stryx and Bagliore for permanent stealth. Has built in shieldbreaker like Stryx and a damage boost like Bagliore, but 4 heavies without nearly as big a damage boost as Bagliore."
         },
         {
           "name": "Dux",
@@ -119,7 +119,7 @@
         },
         {
           "name": "Kaji",
-          "description": "A unique robot that can set relatively dangerous traps. Limited range on the mines prevents it's niche from being represented in higher tiers, however."
+          "description": "A unique robot that can set relatively dangerous traps. Limited range on the mines prevents its niche from being represented in higher tiers, however."
         },
         {
           "name": "Hastatus",
@@ -176,11 +176,11 @@
         },
         {
           "name": "Lynx",
-          "description": "Competent tank-buster thanks to it's high uptime stealth, forcefield, and the strongest execute in the game."
+          "description": "Competent tank-buster thanks to it's high uptime stealth, forcefield, and the strongest execution in the game."
         },
         {
           "name": "Raptor",
-          "description": "Acceptable opener bot that\u2019s showing it's age. Similarly to Teth, can be a competent disruptor with EMP from the pilot."
+          "description": "Acceptable opener bot that\u2019s showing its age. Similarly to Teth, it can be a competent disruptor with EMP from the pilot."
         },
         {
           "name": "Raven",
@@ -192,7 +192,7 @@
         },
         {
           "name": "Loki",
-          "description": "Similar to Skyros, but rather than being focused down, it needs to be QR\u2019d. Can be incredibly annoying during Titan phase if the team lacks QS titans."
+          "description": "Similar to Skyros, but rather than being focused down, it needs to be QR\u2019d. Can be incredibly annoying during the Titan phase if the team lacks QS titans."
         },
         {
           "name": "Leech",
@@ -204,7 +204,7 @@
         },
         {
           "name": "Scorpion",
-          "description": "Inferior to the UE version, but still competent and may even be able to score kills on Anaksors. That being said, unlike UE scorpion, an Anaksor can phase your stealth and outbrawl you, so you might have to just be satisfied with taking it's deft survivor."
+          "description": "Inferior to the UE version, but still competent and may even be able to score kills on Anaksors. That being said, unlike UE scorpion, an Anaksor can phase your stealth and outbrawl you, so you might have to just be satisfied with taking its deft survivor."
         },
         {
           "name": "Shenlou",
@@ -216,7 +216,7 @@
         },
         {
           "name": "Teth",
-          "description": "While it has a disruptive EMP and decent sustain, the massive nerf to it's BiW has rendered it rather immobile and thus hard to justify using over meta openers."
+          "description": "While it has a disruptive EMP and decent sustain, the massive nerf to its BiW has rendered it rather immobile and thus hard to justify using over meta openers."
         },
         {
           "name": "Ochokochi",
@@ -233,7 +233,7 @@
       "items": [
         {
           "name": "Revenant",
-          "description": "Similar to Ocho in that it can stall for a bit and recover to full health thanks to grey damage mitigation, but slightly worse in my opinion."
+          "description": "Similar to Ocho in that it can stall for a bit and recover to full health thanks to grey damage mitigation, but slightly worse."
         },
         {
           "name": "Ravager",
@@ -245,7 +245,7 @@
         },
         {
           "name": "Nightingale",
-          "description": "A downgrade from imugi, retaining the high uptime stealth and great speed in air, but trading the ability to shoot while flying for more support capabilities, which honestly aren\u2019t worth it."
+          "description": "A downgrade from imugi, retaining the high uptime stealth and great speed in air, but trading the ability to shoot while flying for adjacent support capabilities, which honestly aren\u2019t worth it."
         },
         {
           "name": "Fafnir",
@@ -265,7 +265,7 @@
         },
         {
           "name": "UE Fujin",
-          "description": "A relatively light frame with\u2026 brawler specialization? Wtf? Would be a tier higher if it had nuclear amplifier, but as it stands it\u2019s a fine robot with basically no modules."
+          "description": "A relatively light frame with\u2026 brawler specialization? Wtf? Would be a tier higher if it had access to a nuclear amplifier, but as it stands it\u2019s a fine robot with basically no modules."
         },
         {
           "name": "UE Invader",
@@ -322,7 +322,7 @@
         },
         {
           "name": "Curie",
-          "description": "Extra armorplates durability is not enough, leaving it frail in ability and extremely frail out of ability. Turret range is pretty short and damage in unimpressive by modern standards."
+          "description": "Extra armorplates durability is not enough, leaving it frail in ability and extremely frail out of ability. Turret range is pretty short and damage is unimpressive by modern standards."
         },
         {
           "name": "Ares",
@@ -342,7 +342,7 @@
         },
         {
           "name": "Weyland",
-          "description": "Comparable tank to Fenrir that trades a bit of tankieness for additional supportive utility via healing. The pilot provides a very frail shield that can be rapidly activated and deactivated, useful for blocking high damage single shot attacks."
+          "description": "Comparable tank to Fenrir that trades a bit of tankiness for additional supportive utility via healing. The pilot provides a very frail shield that can be rapidly activated and deactivated, useful for blocking high damage single shot attacks."
         }
       ]
     },
@@ -351,7 +351,7 @@
       "items": [
         {
           "name": "Hellburner",
-          "description": "Fast beacon capper that can\u2019t do much else. Powercrept explosion, awful weapon slots, and low durability hold it back. Legendary pilot helps curb some of its weaknesses."
+          "description": "Fast beacon capper that can\u2019t do much else. Powercrept explosion, awful weapon slots, and low durability hold it back. The legendary pilot helps curb some of its weaknesses."
         },
         {
           "name": "Mender",
@@ -473,11 +473,11 @@
       "items": [
         {
           "name": "Bersagliere",
-          "description": "It\u2019s incredible mobility and firepower allow it to be where it wants when it wants, making it one of few titans that can fight Princeps on it's own terms. Shieldbreaker is a cherry on top. Tropical and Running Riot\u2019s personal favorite."
+          "description": "Its incredible mobility and firepower allow it to be where it wants when it wants, making it one of few titans that can fight Princeps on its own terms. Shieldbreaker is a cherry on top. Tropical and Running Riot\u2019s personal favorite."
         },
         {
           "name": "UE Ming",
-          "description": "4 Alphas enable powerful hybrid builds with long reload burst weapon on the back and sustained weapons on top. Otherwise, you can go all in with 4 sustained weapons or 4 burst weapons for an statchecking monster. Can fight Princeps on it's own terms only if cover that it can fly over and land behind is present. Tanky and relatively resilient to fire from robots while on the ground. Both TRA and TNA are good choices. Adazahi\u2019s personal favorite."
+          "description": "4 Alphas enable powerful hybrid builds with long reload burst weapons on the back and sustained weapons on top. Otherwise, you can go all in with 4 sustained weapons or 4 burst weapons for a statchecking monster. Can fight Princeps on its own terms only if cover that it can fly over and land behind is present. Tanky and relatively resilient to fire from robots while on the ground. Both TRA and TNA are good choices. Adazahi\u2019s personal favorite."
         },
         {
           "name": "UE Murometz",
@@ -502,7 +502,7 @@
         },
         {
           "name": "Indra",
-          "description": "Similar to Ravana, it has the powerful phase shift ability that allows it to dodge enemy uptime and fight on it's own terms. That being said, it\u2019s suffered a lot from it's most recent nerf, so it\u2019s no longer the single best f2p goat it used to be."
+          "description": "Similar to Ravana, it has the powerful phase shift ability that allows it to dodge enemy uptime and fight on its own terms. That being said, it suffered a lot from its most recent nerf, so it\u2019s no longer the single best f2p goat it used to be."
         },
         {
           "name": "Newton*",
@@ -641,20 +641,20 @@
         {
           "name": "Armadillo",
           "description": "A f2p alternative to UE Glider, having a higher ceiling, but making you work much harder to get to the baseline amount of DP as UE Glider (and lacking the phase shift synergy)"
-        },
-        {
-          "name": "Kestrel",
-          "description": "While this drone is incredibly broken on certain bots (ie Imugi) due to the ability to spam heals from its 4th ability, it's technically generic thanks to the death mark from the first ability and stealther/lifesaver allowing any bot to trigger the heal."
-        },
-        {
-          "name": "Lar",
-          "description": "The best option on regular edition Vulcan. Omen Vulcan should equip Webby instead. This drone is much more universal than some of the others released recently, as it's last ability works on all bots and it's other abilities individually work on a wide variety of bots, but only Vulcan can use both at once."
         }
       ]
     },
     "A": {
       "casual_name": "Really strong but only on a few robots",
       "items": [
+        {
+          "name": "Lar",
+          "description": "The best option on regular edition Vulcan. Omen Vulcan should equip Webby instead. This drone is much more universal than some of the others released recently, as its last ability works on all bots and its other abilities individually work on a wide variety of bots, but only Vulcan can use both at once (and most bots that can use 2 of the abilities have a better option)."
+        },
+        {
+          "name": "Kestrel",
+          "description": "This drone is incredibly broken on certain bots (ie Imugi) due to how it can spam heals from its 4th ability."
+        },
         {
           "name": "Myia",
           "description": "One of the most broken drones in the game, giving pretty much immunity to grey damage and an extremely OP built in weapon. Unfortunately, it only really works on Kaji and Anaksor."
@@ -681,11 +681,11 @@
         },
         {
           "name": "Webby",
-          "description": "The strongest debuffing drone in the game, as its weapon can apply 100% rust effect. Unfortunately it only activates when used on Dux and Imugi (and Fafnir I guess)."
+          "description": "The strongest debuffing drone in the game, as its weapon can apply 100% rust effect. Unfortunately it only activates when used on Dux, Imugi, and Omen Vulcan (and Fafnir I guess)."
         },
         {
           "name": "Solar",
-          "description": "Allows you to melt people from across the map with snipers thanks to it's defense penetration, but is seriously restricted to only a small subset of weapons and only activates if there is an enemy further than 700m available to shoot. Also has a pretty long cooldown."
+          "description": "Allows you to melt people from across the map with snipers thanks to its defense penetration, but is seriously restricted to only a small subset of weapons and only activates if there is an enemy further than 700m available to shoot. Also has a pretty long cooldown."
         },
         {
           "name": "Fhtagn",
@@ -693,11 +693,11 @@
         },
         {
           "name": "Scales",
-          "description": "Only really ideal on Ammit, though its technically a universal drone, most bots that don\u2019t have a specific drone would much rather use just about any other universal drone."
+          "description": "Only really ideal on Ammit, though it's technically a universal drone, most bots that don\u2019t have a specific drone would much rather use just about any other universal drone."
         },
         {
           "name": "Hiruko",
-          "description": "While this drone is an acceptable universal drone and a decent specific drone for Rex and Ochokochi, the main reason it is this high is due to it's value when used on UE Rhino. UE Rhino doesn\u2019t really need bull since it is already damn near unkillable in ability, so Hiruko\u2019s damage boosting ability helps offset its poor firepower."
+          "description": "While this drone is an acceptable universal drone and a decent specific drone for Rex and Ochokochi, the main reason it is this high is due to its value when used on UE Rhino. UE Rhino doesn\u2019t really need bull since it is already damn near unkillable in ability, so Hiruko\u2019s damage boosting ability helps offset its poor firepower."
         }
       ]
     },
@@ -706,7 +706,7 @@
       "items": [
         {
           "name": "Shai",
-          "description": "Had a far fall from grace after getting nerfed pretty badly. Still usable if you have a maxxed one from back in the day, but not worth investing in."
+          "description": "Had a far fall from grace after getting nerfed pretty badly. Still usable if you have a maxed one from back in the day, but not worth investing in."
         },
         {
           "name": "Reviver",
@@ -776,7 +776,7 @@
         },
         {
           "name": "Pascal",
-          "description": "A relatively mediocre survivalist drone. It\u2019s damage ability only works on Curie (and doesn\u2019t do much for it at that) and it's protective abilities are outclassed by many other defensive drones."
+          "description": "A relatively mediocre survivalist drone. Its damage ability only works on Curie (and doesn\u2019t do much for it at that) and its protective abilities are outclassed by many other defensive drones."
         }
       ]
     },
@@ -785,7 +785,7 @@
       "items": [
         {
           "name": "Wave",
-          "description": "Weapon with grey damage that rarely hits, paper thin shields every time you lose a physical shield, and a slightly boost to flight speed are not enough to justify taking your drone slot."
+          "description": "Built-in weapon with grey damage that rarely hits, paper thin shields every time you lose a physical shield, and a slight boost to flight speed are not enough to justify taking your drone slot."
         },
         {
           "name": "Patron",
@@ -991,7 +991,7 @@
       "items": [
         {
           "name": "Damage Enforce System",
-          "description": "Extremely OP Turret that provides a huge 50% damage boost for 10 seconds. It's only downside is that it has to compete with durability extender."
+          "description": "Extremely OP Turret that provides a huge 50% damage boost for 10 seconds. Its only downside is that it has to compete with durability extender."
         },
         {
           "name": "Positive Energy Recuperator",
@@ -1092,11 +1092,11 @@
         },
         {
           "name": "Voonith, Urhag, Shantak",
-          "description": "These are currently the best long range snipers in the game. On top of their ability to somewhat counter anaksor and stealth robots thanks to their vertical spread, they also do insane damage at range."
+          "description": "These are currently the best long range snipers in the game. On top of their ability to somewhat counter Anaksor and stealth robots thanks to their vertical spread, they also do insane damage at range."
         },
         {
           "name": "UE Toxin, UE Venom",
-          "description": "On builds that abuse rust (ie Webby Imugi) or have high shieldbreaker uptime (ie Hawkeye Vector) these weapons can pose a serious threat to titans and well defended (ie Reflector) bots, able to ignore their defenses. Unfortunately, the total lack of base damage means these weapons do fully repairable DoT damage and struggle to get through aegis shields (which is why they are really only reccomended with Webby or Hawkeye)."
+          "description": "On builds that abuse rust (ie Webby Imugi) or have high shieldbreaker uptime (ie Hawkeye Vector) these weapons can pose a serious threat to titans and well defended (ie Reflector) bots, able to ignore their defenses. Unfortunately, the total lack of base damage means these weapons do fully repairable DoT damage and struggle to get through aegis shields (which is why they are really only recommended with Webby or Hawkeye)."
         },
         {
           "name": "UE Storm",
@@ -1117,6 +1117,10 @@
         {
           "name": "Lumen L, Lumen M, Lumen H",
           "description": "Incredibly broken new laser type weapons that bend around corners and have essentially no downtime. Due to their incredible sustain, they are viable on both midrange damage dealers as well as brawlers."
+        },
+        {
+          "name": "Murix",
+          "description": "Deadly shotgun at point blank, but tickle past like, 100m. Notably better than Elox in terms of damage, and it just so happens that more top tier builds running acid shotguns have plenty of medium slots but lack light slots."
         }
       ]
     },
@@ -1128,12 +1132,12 @@
           "description": "Solid niche weapon that can tear through enemies that have defense points but no DMI. Can be exceptionally strong against non TRA titans, and even TRA titans after their DMI has expired."
         },
         {
-          "name": "Murix",
-          "description": "Deadly shotgun at point blank, but tickle past like, 100m. Notably stronger than the light counterpart since it's nerf was much tamer for no real reason. Sort of carried by it's great synergy with UE Scorpion."
+          "name": "Elox",
+          "description": "Deadly shotgun at point blank, but tickle past like, 100m. Muix is a bit stronger than Elox since its nerf was much less significant for no real reason."
         },
         {
           "name": "Piercer",
-          "description": "A fairly strong sniper that was the best in the game up until it was powercrept by Shantak."
+          "description": "A fairly strong sniper that was the best in the game up until it was powercrept and nerfed."
         },
         {
           "name": "UE Wasp",
@@ -1157,10 +1161,6 @@
       "casual_name": "solid",
       "items": [
         {
-          "name": "Elox",
-          "description": "Usable shotgun at point blank, but tickle past like, 100m. Notably weaker than the medium counterpart since it's nerf was much harsher for no real reason. Also kind of lacks builds that make good use of it."
-        },
-        {
           "name": "UE Orkan",
           "description": "A solid burst rocket launcher with acceptable splash."
         },
@@ -1178,11 +1178,11 @@
         },
         {
           "name": "UE Shocktrain",
-          "description": "Similar to UE Ion, but they trade off 100m range and a bit of damage for instant delivery. Eligible to be raised by a tier if anyone can show me that they consistently onetap Anaksors, though I don't believe they can."
+          "description": "Similar to UE Ion, but they trade off 100m range and a bit of damage for instant delivery. Eligible to be raised by a tier if anyone can show me that they consistently one tap Anaksors, though I don't believe they can."
         },
         {
           "name": "UE Vortex",
-          "description": "Ridiculous damage thats unfortunately only usable on pretty much just pathfinder due to how easy it is to miss with them."
+          "description": "Ridiculous damage that's unfortunately only usable on pretty much just pathfinder due to how easy it is to miss with them."
         },
         {
           "name": "UE Tulumbas",
@@ -1214,7 +1214,7 @@
         },
         {
           "name": "UE Cryo",
-          "description": "The nerf to their fire rate and damage has left UE Cryo much less bursty than they once were, but they are still fairly functional weapons nonetheless."
+          "description": "The nerf to their fire rate and damage has left UE Cryos much less bursty than they once were, but they are still fairly functional weapons nonetheless."
         }
       ]
     },
@@ -1246,8 +1246,8 @@
           "description": "The go-to f2p 600m range weapons."
         },
         {
-          "name": "Subduer",
-          "description": "Trades some of Decay's range for the rust effect. Decent damage for a f2p weapon."
+          "name": "Subduer, Tamer, Damper",
+          "description": ": Trades some of Decay's range for the rust effect. Decent damage for a f2p weapon."
         },
         {
           "name": "Bash, Boom, Pow",
@@ -1256,16 +1256,24 @@
         {
           "name": "Pilum, Gladus",
           "description": "600m range niche weapons nerfed to f2p level performance (comparable to Decay family)."
+        },
+        {
+          "name": "Pulsar",
+          "description": "Usable damage with the ability to lockdown. Sidegrade to Hazard that trades some damage for the ability to lockdown."
+        },
+        {
+          "name": "Splinter, Shatter, Brisant",
+          "description": "These weapons are something like Cudgel/Hammer/Mace but more specialized to be used at range. Which is weird, because they are shotguns. Not really bad, but their only use case is specifically around 200m range, where they are the best shotguns. At further or closer ranges, they are outperformed."
+        },
+        {
+          "name": "Shifang, Fengbao, Leiming",
+          "description": "These weapons basically serve to just charge your titan. They have the benefits of locking down, ignoring stealth, and hitting multiple enemies at once, but their damage and range is awful."
         }
       ]
     },
     "C": {
       "casual_name": "mid",
       "items": [
-        {
-          "name": "Splinter, Shatter, Brisant",
-          "description": "These weapons are something like Cudgel/Hammer/Mace but more specialized to be used at range. Which is weird, because they are shotguns. Not really bad, but just don't have many use cases."
-        },
         {
           "name": "Morana, Chione, Jotunn",
           "description": "600m weapons that are okay on paper, but aside from straight up worse damage than Decay family, they also are prone to missing a lot, and their arcing trajectory is only useful on a couple maps (ie Moon)."
@@ -1276,7 +1284,11 @@
         },
         {
           "name": "Gauss, Volt, Weber",
-          "description": "These snipers are unfortunately pretty mediocre. They had a far fall from grace, at some point being the best weapons in the game despite being T3. Nowadays, they have 1 somewhat viable build (Nuo) and are rarely worth using over Decay family for f2p players seeking range."
+          "description": "These snipers are unfortunately pretty mediocre. They had a far fall from grace, at some point being the best weapons in the game despite being T3. Nowadays, they have 1 somewhat viable build (Nuo) and are rarely worth using over the Decay family for f2p players seeking range."
+        },
+        {
+          "name": "Hwangje, Taeja, Yeoje",
+          "description": "Poor damage but long range. Can be competitive with Gauss family if using Solar/Ftaghn and Harold Han pilot."
         },
         {
           "name": "Puncher, Shredder",
@@ -1284,7 +1296,7 @@
         },
         {
           "name": "Claw, Jaw, Talon",
-          "description": "Support weapons with a a strong effect (fragility can reduce defense points through DMI!), usable damage, and an arcing trajectory similar to Morana family. Unfortunately, they are prone to missing, especially when there is an elevation difference (ie you are in a flying bot). Their buff gave them new life... but they need a little more to truly be worth it."
+          "description": "Support weapons with a strong effect (fragility can reduce defense points through DMI!), usable damage, and an arcing trajectory similar to the Morana family. Unfortunately, they are prone to missing, especially when there is an elevation difference (ie you are in a flying bot). Their buff gave them new life... but they need a little more to truly be worth it."
         },
         {
           "name": "Incinerator, Scald",
@@ -1295,32 +1307,44 @@
           "description": "Used to be a top tier f2p 350m weapon, but ever since its nerf, it has become hard to justify using."
         },
         {
-          "name": "Tamer, Damper",
-          "description": "Unfortunately they are notably weaker than Subduer, which is a shame, because it means rust machine gun f2p builds are only really viable for robots using mostly heavy slots."
-        },
-        {
           "name": "Nanea, Leinani",
-          "description": "Pretty much just worse Decay family."
-        },
-        {
-          "name": "Shifang, Fengbao, Leiming",
-          "description": "F2p titan charging weapons that deal pretty much no damage. That being said, I'll note that they have the benefit of ignoring stealth, locking down, and hitting several targets at once."
+          "description": "Pretty much just worse versions of weapons from the Decay family."
         },
         {
           "name": "Hornet, Wasp",
-          "description": "Solid burst damage at 600m, but awfully long reload. Just use Decay family instead."
+          "description": "Solid burst damage at 600m, but awfully long reload. Just use the Decay family instead."
         },
         {
           "name": "Kramola, Razdor, Smuta",
           "description": "Homing machineguns that go around corners but have an awfully long reload and subpar damage. Not terrible, and have niche circumstances where they can force enemies out of cover, but still not really worth using."
         },
         {
-          "name": "Pulsar",
-          "description": "Usable damage with the ability to lockdown. Say it with me folks: Just use decay family."
-        },
-        {
           "name": "UE Dragoon, UE Hussar",
           "description": "Ultimates that were unjustly nerfed to hell twice over. Not worth investing in for anyone, as they yield awful results despite their price."
+        },
+        {
+          "name": "Cestus, Ksiphos, Labrys",
+          "description": "500m weapons with mid damage."
+        },
+        {
+          "name": "Avenger, Punisher T, Punisher",
+          "description": "Outdated machine guns, but they're cheap as hell and often your last resort. Bad accuracy."
+        },
+        {
+          "name": "Tempest",
+          "description": "Usable damage but its claim of 800m range is quite deceptive; the accuracy gets pretty bad past 350m. A sidegrade of Avenger that trades damage for better accuracy (because even though its accuracy sucks, it's still better than Avenger's)."
+        },
+        {
+          "name": "Exodus",
+          "description": "Outdated rocket launcher with surprisingly good burst but an absurdly long reload."
+        },
+        {
+          "name": "Glacier, Cryo, Rime",
+          "description": "Pretty much on par with Exodus but work on all slots."
+        },
+        {
+          "name": "Viper",
+          "description": "Outdated energy machine gun. Comparable to Avenger but with better accuracy and some damage as DoT."
         }
       ]
     },
@@ -1328,12 +1352,8 @@
       "casual_name": "poor",
       "items": [
         {
-          "name": "Cestus, Ksiphos, Labrys",
-          "description": "500m weapons with extremely mid damage."
-        },
-        {
-          "name": "Smite, Discipline",
-          "description": "Good luck hitting anything with these."
+          "name": "Trebuchet",
+          "description": "Long range with some of the highest damage per bullet in the game. Unfortunately, it has an insanely long reload. These weapons may prove to be semi-usable in certain metas that favor damage dealt in a single shot may."
         },
         {
           "name": "Regulator",
@@ -1349,7 +1369,7 @@
         },
         {
           "name": "Scorcher",
-          "description": "Weaker than Scald, it's light counterpart."
+          "description": "Weaker than Scald, its light counterpart."
         },
         {
           "name": "Blaze, Ember, Igniter",
@@ -1362,26 +1382,6 @@
         {
           "name": "Shocktrain",
           "description": "Outdated zap gun, clunky lock on with damage that isn't really worth it."
-        },
-        {
-          "name": "Viper",
-          "description": "Outdated energy machine gun. Comparable to Avenger but with better accuracy and some damage as DoT."
-        },
-        {
-          "name": "Avenger, Punisher T, Punisher",
-          "description": "Very outdated machine guns, but they're cheap as hell and often your last resort. Bad accuracy."
-        },
-        {
-          "name": "Tempest",
-          "description": "Usable damage but its claim of 800m range is quite deceptive; the accuracy gets pretty bad past 350m. A sidegrade of Avenger that trades damage for better accuracy (because even though its accuracy sucks, it's still better than Avenger's)."
-        },
-        {
-          "name": "Exodus",
-          "description": "Outdated rocket launcher with surprisingly good burst but an absurdly long reload."
-        },
-        {
-          "name": "Glacier, Cryo, Rime",
-          "description": "Pretty much on par with Exodus after their nerfs"
         },
         {
           "name": "Hel, Skadi, Snaer",
@@ -1398,6 +1398,10 @@
         {
           "name": "Sting",
           "description": "Surprisingly, this weapon performs comparably to Marquess."
+        },
+        {
+          "name": "Needle, Spike, Stake",
+          "description": "Their best use case is unironically just their paper thin shield that can block a single big shot, their damage is awful, never use these weapons for their damage. One could potentially justify using Needle on a light slot if they had no other choice, but the heavier counterparts can only really be justified on weapons that are constantly stowed (ie Spike on Fafnir top slots)."
         }
       ]
     },
@@ -1406,19 +1410,15 @@
       "items": [
         {
           "name": "Bane, Toxin, Venom",
-          "description": "DoT weapons are only good if their DoT is incredibly strong. As you might be able to guess... these weapons have fairly weak DoT."
+          "description": "DoT weapons are only good if their DoT is incredibly strong. As you might be able to guess...these weapons have fairly weak DoT."
         },
         {
-          "name": "Hwangje, Taeja, Yeoje",
-          "description": "Poor damage but long range. If you really want 800m weapons, just use Gauss family rather than tickle beams."
+          "name": "Smite, Discipline",
+          "description": "Good luck hitting anything with these."
         },
         {
           "name": "Spear",
           "description": "Similar damage to Magnum but with more range. Not really a big enough difference to justify a full tier increase over Magnum though."
-        },
-        {
-          "name": "Needle, Spike, Stake",
-          "description": "Their best use case is unironically just their paper thin shield that can block a single big shot, their damage is awful. One could potentially justify using Needle on a light slot if they had no other choice, but the heavier counterparts can only really be justified on weapons that are constantly stowed (ie Spike on Fafnir top slots)."
         },
         {
           "name": "Reaper",
@@ -1457,8 +1457,8 @@
           "description": "Outdated ancient shotguns. Even at point blank range, Thunder loses to Avenger."
         },
         {
-          "name": "Trebuchet, Ballista, Arbalest",
-          "description": "Outdated, poor damage. If someone can prove that Trebs can consistently onetap Anaksors, I'll majorly raise their tier."
+          "name": "Ballista, Arbalest",
+          "description": "Outdated, poor damage."
         },
         {
           "name": "Flux",
@@ -1494,7 +1494,7 @@
           "description": "The most broken titan weapons in the game right now. Do way too much damage for their range."
         },
         {
-          "name": "Torch, Furance",
+          "name": "Torch, Furnace",
           "description": "Trades the cracked sustained DPS of Venire family for an extra 200m of range. Does pretty much the same burst DPS though."
         }
       ]
@@ -1533,7 +1533,7 @@
         },
         {
           "name": "UE Gendarme",
-          "description": "Niche 800m weapon that is largely not worth investing in. Not bad or anything, but powercrept directly by Furance family."
+          "description": "Niche 800m weapon that is largely not worth investing in. Not bad or anything, but powercrept directly by the Furnace family."
         }
       ]
     },
@@ -1567,7 +1567,7 @@
         },
         {
           "name": "Glaive, Lance",
-          "description": "Focused damage into the last shot allows you to open up with a ton of burst damage. Surprisingly strong in practice when compared to how they sheet thanks to this feature, but they are still pretty dated generally weaker versions of Arbiter/Equalizer."
+          "description": "Focused damage into the last shot allows you to open up with a ton of burst damage. Surprisingly strong in practice when compared to how they sheet thanks to this feature, but they are still pretty dated and generally weaker versions of Arbiter/Equalizer."
         },
         {
           "name": "Fulger, Tonans",

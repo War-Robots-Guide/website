@@ -306,7 +306,31 @@
     },
     {
       "date": "2026-07-11",
-      "text": "Skyros, Loki, Falcon Longevity 1 -> 2. Permanent uptime on incredible protection is worth the upscale. Falcon lethality & mobility 0 -> -1. We're assuming tfalc since that's far better than regular Falcon.  \nFalcon access 0 -> 1 to match Skyros. T3 means cheaper upgrades, but also need to level a heavy weapon. Mender mobility 0 -> 1, Weyland mobility -2 -> 0. Buffed accelerator in support track solves problems. \nMercury Access 0 -> 1 to match Spectre and inquisitor. Orochi Access 0 -> 1 Longevity 0 -> -1. To account for its insane downtime, I'm reducing longevity. At the same time, there's no real reason for it to have 0 accessibility.   \nKhepri mobility 0 -> 1 because support track & built in speed boost, Fury longevity -2 -> -1, idk why it was so low. Bulwark longevity 1 -> 0, aegis/physical shield reliant tanks are unreliable. -Adazahi"
+      "text": "Skyros, Loki, Falcon Longevity 1 -> 2. Permanent uptime on incredible protection is worth the upscale. Falcon lethality & mobility 0 -> -1. We're assuming tfalc since that's far better than regular Falcon.  \nFalcon access 0 -> 1 to match Skyros. T3 means cheaper upgrades, but also need to level a heavy weapon. Mender mobility 0 -> 1, Weyland mobility -2 -> 0. Buffed accelerator in support track solves problems. \nMercury Access 0 -> 1 to match Spectre and inquisitor. Orochi Access 0 -> 1 Longevity 0 -> -1. To account for its insane downtime, I'm reducing longevity. At the same time, there's no real reason for it to have 0 accessibility.   \nKhepri mobility 0 -> 1 because support track & built in speed boost, Fury longevity -2 -> -1, idk why it was so low. Bulwark longevity 1 -> 0, aegis/physical shield reliant tanks are unreliable. Siren & Leech longevity 0 ->1. \nGood uptime on reliable defenses, low base HP partially mitigated by T3 resistance passive (and/or pilots). siren utility 1 -> 0. Both siren and harpy can AoE lockdown, and freeze slowdown doesn't matter if they're locked already. \nLynx lethality 0 -> 1. I believe execute is worth a point in lethality. Fenrir mobility -2 -> -1, Access 1 -> 0. Fenrir is a statchecker hence 0 access, and it isn't behemoth level slow hence -1 mobility. \nPhantom mobility 1 -> 2 Accessibility 1 -> 0. Phantom is a statchecker with map crossing speed and a blink back to where it started, should it so choose. -Adazahi\nReverted changes to Loki, Mercury, Orochi, Fury, Leech, Fenrir, and Phantom. Partially reverted changes to Weyland and Siren. These changes were all inconsistent with existing scores. -Mistermath"
+    },
+    {
+      "date": "2026-07-12",
+      "text": "Overhauled rating system to use a 0-10 scale. -Adazahi & Mistermath"
+    },
+    {
+      "date": "2026-07-13",
+      "text": "Fafnir lethality 8 -> 7. Seeing as it must pick between 2 medium + BiW and 4 medium, it probably averages 4 mediums - we can discuss later if fafnir typically gains >>2 mediums worth of charge for its BiW\nNemesis lethality 2 -> 3. I believe the BiW is worth 0.25 of a heavy or more. If the wiki is to be trusted, it has the same burst as exodus but with a far smaller total payload (~60k vs ~170k) though when charged it doubles the burst DPS and payload. \nPursuer lethality 4 -> 2, 3 light slots with no damage boosts if I'm not missing anything. Mauler to 9 -> 10 lethality, darklight is the most lethal ability in the game bar none. Ares longevity 5 -> 6, higher uptime than 6's though lower durability to compensate\nHellburner access 7 -> 6, close range statchecker that needs levels to not instantly die (and to do damage with its explosion) Falcon utility 4 -> 2, it uses showdown over seeker, Nemesis utility 2 -> 4, it uses seeker, Nemesis access 7 -> 8, while it values bulk\nslightly more than the other pantheon bots, it also only needs 2 weapons leveled. Mercury mobility 6 -> 5, it often cancels its jump partway through to dive on an enemy, thus not going as far. Cerberus longevity 4 -> 2, this thing is frailer than rayker with a \nweaker suppression. Spectre lethality 6 -> 7, 4 mediums + NA + damage boost pilot. Bulwark utility 2 -> 3, charges NA but holds seeker. Phantom utility 2 -> 4, holds seeker. \nAo guang lethality 7 -> 6. 3M w/ NA and a far far worse BiW than ophion. Weyland utility 5 -> 7 assuming seeker, showdown isn't ideal due to how much it heals already.Weyland mobility 2 -> 3, the criterion say under 60kph w/ insufficent speed boosts. \nWeyland can reach 70kph very easily whenever it needs to, but it spends enough time slowed down to not go to the 4+ score classificiation  -adazahi\nfuture point of discussion: Why are Siren + Harpy 6 lethality but Cerbrus 7 lethality despite having effectively the same slots + NA? Is the 20% damage pilot and BiW DoT better than Siren and Harpy BiW? Can cerberus even justify the damage pilot\nwith how incredibly frail it is? I am not so sure - maybe the range pilot should be assumed."
+    },
+    {
+      "date": "2026-07-13",
+      "text": "Added Piercer as a f2p option for snipers in mini build guides now that it's in weapon chest. Also added Egyptian ball family. Atlas Longevity 9 -> 8 since shields disable during jump. Waymaker lethality 8 -> 9 due to scaling potential. -Adazahi"
+    },
+    {
+      "date": "2026-07-13",
+      "text": "Added Samjok mini build guide and minorly updated some drone suggestions for other guides. -Adazahi"
+    },
+    {
+      "date": "2026-07-17",
+      "text": "Added some K-laser sniper builds as f2p options as well as Anaksor eldritch sniper build. -Adazahi"
+    },
+    {
+      "date": "2026-07-17",
+      "text": "Reworked SWORD accessibility rating to assume players have it due to being free at one point, despite no longer being available. Edited comment section to reflect. -Mistermath\nReworked mobility rating to include vertical mobility as +1 point and reworked accessibility rating to include self exposure without adequate protection as -1 point. \nSquished all other accessibility ratings in cases where it was relevant & changed color scale to remove the light green and include more blues. -Adazahi"
     }
   ],
   "builds": [
@@ -314,7 +338,7 @@
       "build_name": "Anti-Brawler\nSupport",
       "robot": "Pathfinder",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Fahrenheit,\nUE Cryo, close\nrange UE setups,\nLumens",
+      "best_weapons": "Fahrenheit\nUE Cryo\nclose range UE setups\nLumens",
       "drone_options": "Freezo",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nRepair or UC",
@@ -323,8 +347,8 @@
     {
       "build_name": "Midrange\nSupport",
       "robot": "Pathfinder",
-      "f2p_weapons": "Hazard, Atomizer\nor Damper",
-      "best_weapons": "Midrange UE setups,\nMachiara, UE Vortex\nUrhag, Lumens",
+      "f2p_weapons": "Hazard\nAtomizer\nDamper",
+      "best_weapons": "Midrange UE setups\nMachiara\nUE Vortex\nUrhag\nLumens",
       "drone_options": "Freezo\nFtaghn",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -334,7 +358,7 @@
       "build_name": "Lockdown\nSupport",
       "robot": "Pathfinder",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Midrange UE setups,\nMachiara, UE Vortex\nLumens, Urhag",
+      "best_weapons": "Midrange UE setups\nMachiara\nUE Vortex\nLumens\nUrhag",
       "drone_options": "Qingting",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -343,18 +367,18 @@
     {
       "build_name": "Debuffer\nSupport",
       "robot": "Imugi",
-      "f2p_weapons": "Howler + Growler\nAtomizer + Quarker \nARMs",
-      "best_weapons": "Lumens, UE Arms\nMachiara + Velos\nFahrenheit + Celsius",
+      "f2p_weapons": "Howler+Growler\nAtomizer+Quarker \nARMs\nMace+Cudgel",
+      "best_weapons": "Lumens\nUE Arms\nMachiara+Velos\nFahrenheit+Celsius\nUE Venoms",
       "drone_options": "Webby",
       "pilot": "Monique\nLenormond",
-      "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
+      "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift or UC",
       "explanation": "Monique's ability allows Imugi to be one of three bots in the game that can trigger Webby's\nRust ability. The rust is strong, but the build won't work without Lv12 Webby."
     },
     {
       "build_name": "Hybrid\nBrawler",
       "robot": "Imugi",
       "f2p_weapons": "Howler + Growler",
-      "best_weapons": "Close range UE setups,\nFahrenheit + Celsius,\nor Lumens",
+      "best_weapons": "Close range UE setups\nFahrenheit+Celsius\nLumens",
       "drone_options": "Kestrel\nShowdown",
       "pilot": "Mao Ling",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -363,30 +387,30 @@
     {
       "build_name": "Offensive\nSupport",
       "robot": "Nuo",
-      "f2p_weapons": "Hazard + Decay\nSubduer + Damper,\nor Nucleon + Atomizer",
-      "best_weapons": "Machiara + Basilius,\nLumens",
+      "f2p_weapons": "Hazard+Decay\nSubduer+Damper\nNucleon+Atomizer",
+      "best_weapons": "Machiara+Basilius\nLumens",
       "drone_options": "Aopo\nShowdown",
-      "pilot": "Walter\nTrommel",
+      "pilot": "Walter Trommel",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nRepair, UC, or\nPhase Shift",
       "explanation": "Nuo is able to emulalte Pathfider's OP damage buffs with a bit of a sidegrade. The max\ndamage boost is lower and requires you to stay alive and linked, but it also stacks MUCH\nfaster, provides stacks of counterblind, and provides grey immunity + healing with Walter."
     },
     {
       "build_name": "Sniper\nSupport\nHybrid",
       "robot": "Nuo",
-      "f2p_weapons": "Gauss + Weber",
+      "f2p_weapons": "Gauss+Weber\nYeoje+Hwangje",
       "best_weapons": "Shantak + Urhag",
-      "drone_options": "Solar\nAopo",
-      "pilot": "Walter\nTrommel\nor Basil\nLapatte",
+      "drone_options": "Solar\nAopo\n(Use Aopo for\nGauss+Weber)",
+      "pilot": "Walter Trommel\nBasil Lapatte\nHarold Han\n(With K-lasers)",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nRepair, UC, or\nPhase Shift",
-      "explanation": "Nuo is probably the only bot in the game that can make a f2p friendly sniper build. Since it gives itself\nsuch a large damage boost that stacks multiplicatively with the defense ignore on Gauss + Weber,\ntheir mediocre performance is somewhat alleviated vs bots relying on DP. Playing at a super long\ndistance means you're often not linked, so Basil becomes a competitive pilot choice. For f2p, it's\nnot worth spending memorium on Basil since he's so incredibly niche, and sometimes there\nis a friendly sniper in the backline with you that makes great use of the link. For p2w ranged\nweapons, Solar becomes the best drone. Solar still works with railguns, but it's value is questionable."
+      "explanation": "Nuo is probably the only bot in the game that can make a f2p friendly sniper build. Since it gives itself\nsuch a large damage boost that stacks multiplicatively with the defense ignore on Gauss + Weber (or K-lasers \nwith solar), their mediocre performance is somewhat alleviated vs bots relying on DP. Playing at a super long\ndistance means you're often not linked, so Basil becomes a competitive pilot choice. For f2p, it's\nnot worth spending memorium on Basil since he's so incredibly niche, and sometimes there\nis a friendly sniper in the backline with you that makes great use of the link. Harold is ideal\nfor K-lasers though. For weapons without built in defense mitigation, Solar becomes the best drone.\nSolar still works with railguns, but its value is questionable."
     },
     {
       "build_name": "Defensive\nSupport",
       "robot": "Lio",
       "f2p_weapons": "Growler",
-      "best_weapons": "Any UE weapons,\nFahrenheit, Lumens",
+      "best_weapons": "Any UE weapons\nFahrenheit\nLumens\nMachiara",
       "drone_options": "Showdown",
-      "pilot": "Walter\nTrommel",
+      "pilot": "Walter Trommel",
       "specialization": "Support (Accelerator +\nLast Stand)\nBrawler (Repair Amp +\nImmune Amp)\nRepair or UC",
       "explanation": "While Lio is not nearly as tanky as it once was, it can still share a noticable amount of defense points\nwith an ally, heal them, and give them grey resistance + occasional countersuppression charges.\nLio should be played conservatively, hiding from high-damage enemies while staying in range of a \ntanky teammate that it's linked to."
     },
@@ -394,18 +418,18 @@
       "build_name": "Rescue\nSupport",
       "robot": "Demeter",
       "f2p_weapons": "Mogwan",
-      "best_weapons": "Close Range UE weapons,\nMachiara, Lumens, Murix",
-      "drone_options": "Seeker\nWhiteout\nUE Glider",
+      "best_weapons": "Close Range UE weapons\nMachiara\nLumens\nMurix",
+      "drone_options": "Seeker\nWhiteout\nUE Glider\nGlider",
       "pilot": "APPM-3TR",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
-      "explanation": "Demeter with Mogwans, Whiteout, and Appmeter provides not only healing and shielding, but\nalso debuffing to the enemy. At p2w investment, it's better to use OP weapons of your own\nrather than Mogwans, though Whiteout is difficult to justify replacing with much other than UE\nGlider, which can help you slip away to cover after your shield drops."
+      "explanation": "Demeter with Mogwans, Whiteout, and Appmeter provides not only healing and shielding, but\nalso debuffing to the enemy. At p2w investment, it's better to use OP weapons of your own\nrather than Mogwans."
     },
     {
       "build_name": "Evasive\nBrawler",
       "robot": "Ravana",
       "f2p_weapons": "Havoc \nGrowler\nMogwan \nMace",
-      "best_weapons": "UE Burst weapons,\nMurix",
-      "drone_options": "UE Glider\nShowdown\nWhiteout\nArmadillo\nSeeker",
+      "best_weapons": "UE Burst weapons\nMurix",
+      "drone_options": "Seeker\nShowdown\nWhiteout\nArmadillo\nUE Glider",
       "pilot": "Arnav Poe",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or UC",
       "explanation": "Ravana should not attempt to statcheck meta brawlers; rather, its value lies in its ability to\noutlast the protective abilities of meta hit-and-run type bots."
@@ -413,19 +437,19 @@
     {
       "build_name": "Beacon\nCapper",
       "robot": "Skyros",
-      "f2p_weapons": "Needle/Spike/Stake",
+      "f2p_weapons": "Needle+Spike+Stake\n(for Aegis)",
       "best_weapons": "Doesn't matter",
       "drone_options": "Whiteout\nMyia\nShowdown\nWARD",
       "pilot": "Theseus",
-      "specialization": "Saboteur (Beacon Op +\nAccelerator)\nDefense (Anticontrol +\nHeavy Armor Kit)\nRepair or UC",
+      "specialization": "Saboteur (Beacon Op +\nAccelerator)\nRepair or UC",
       "explanation": "Skyros played as a beacon capper should not leave ball mode. Just keep on rollin' and know\nwhen to eject into a titan."
     },
     {
       "build_name": "Opportunist",
       "robot": "Skyros",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "UE Halo/Elox +\nUE Corona/Murix +\nUE Glory",
-      "drone_options": "Scales\nWhiteout",
+      "best_weapons": "UE Burst Weapons\nElox+Murix+UE Burst",
+      "drone_options": "Scales\nWhiteout\nArmadillo",
       "pilot": "Roberto Baros",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nDefense (Anticontrol +\nHeavy Armor Kit)\nRepair or UC",
       "explanation": "The scales drone makes the hit-and-run skyros playstyle kind of real, since it means you don't\nneed theseus for DMI anymore. However, the burst required for this playstyle to be successful\n(and not to mention the OP drone) make this a very exclusive build. Not recommended for f2p."
@@ -433,18 +457,18 @@
     {
       "build_name": "Assassin",
       "robot": "Lynx",
-      "f2p_weapons": "Nucleon, Subduer,\nScreamer, Talon",
-      "best_weapons": "Basilieus, Liodari, Kelvin, \nLumens, or UE Redeemer",
+      "f2p_weapons": "Nucleon\nSubduer\nScreamer\nTalon\nPshent\nBrisant",
+      "best_weapons": "Basilieus\nLiodari\nKelvin\nLumens\nUE Redeemer",
       "drone_options": "Kestrel\nUE Glider\nShowdown\nWhiteout\nArmadillo\nSeeker",
       "pilot": "Sati \"Cat\" \nFelidae",
       "specialization": "Any Specialization\nPhase Shift",
-      "explanation": "Lynx is currently the only non-UE bot in the game with a reliable execute (Sword's sucks now).\nThis allows it to be competent at killing bots way out of it's weight class, especially with the aid\nof a teammate."
+      "explanation": "Lynx is currently the only non-UE bot in the game with a reliable execute (Sword's sucks now).\nThis allows it to be competent at killing bots way out of its weight class, especially with the aid\nof a teammate."
     },
     {
       "build_name": "Titan\nCharger/\nAssault",
       "robot": "Siren",
-      "f2p_weapons": "Athos + Aramis",
-      "best_weapons": "Athos + Aramis",
+      "f2p_weapons": "Athos+Aramis",
+      "best_weapons": "Athos+Aramis",
       "drone_options": "Hawkeye\nShowdown\nSeeker\nUE Glider\nArmadillo",
       "pilot": "Twins",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
@@ -453,8 +477,8 @@
     {
       "build_name": "Midrange",
       "robot": "Siren",
-      "f2p_weapons": "Nucleon + Quarker,\nSubduer + Tamer,\nor Decay + Blight",
-      "best_weapons": "Basilieus + Velos \nPilum + Gladius\nShantak + Voonith \nLumens",
+      "f2p_weapons": "Nucleon+Quarker\nSubduer+Tamer\nDecay+Blight",
+      "best_weapons": "Basilieus+Velos \nPilum+Gladius\nShantak+Voonith \nLumens",
       "drone_options": "Hawkeye\nShowdown\nSeeker\nUE Glider\nArmadillo",
       "pilot": "Twins",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
@@ -464,8 +488,8 @@
       "build_name": "Brawler",
       "robot": "Raptor",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Lumens\nKelvin + Celsius\nBasileus + Velos\nClose range UE\nsetups",
-      "drone_options": "Showdown\nHawkeye\nArmadillo\nWhiteout\nSeeker\nTensor",
+      "best_weapons": "Lumens\nKelvin+Celsius\nBasileus+Velos\nClose range UE setups\nAny+Velos",
+      "drone_options": "Showdown",
       "pilot": "Gloria Earhart",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nJump Unit or UC",
       "explanation": "Raptor is a decent opening robot, regardless of if it's being used for titan charge or not. Jump unit\nhelps you reach center early in the game, and can even cross maps to contest distant beacons. \nSimilarly to a lot of other new brawlers, it gains way too much from mk3 to be f2p viable unless you \nmanage to save enough to get it there. The ingame stat screen claims it gets 25% grey resist from mk3, \nbut in reality, it gets a massive 50% grey resist. Thus, not recommended for f2p."
@@ -473,8 +497,8 @@
     {
       "build_name": "Flex\nSupport",
       "robot": "Nightingale",
-      "f2p_weapons": "Havoc + Scatter",
-      "best_weapons": "Elox + Murix or UE burst\nweapons",
+      "f2p_weapons": "Havoc+Scatter\nDeshret+Hedjet\nMogwan+Gangil",
+      "best_weapons": "Elox + Murix\nUE burst weapons",
       "drone_options": "Kestrel\nMyia",
       "pilot": "Virginia Walker",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -483,8 +507,8 @@
     {
       "build_name": "Tank\nBuster",
       "robot": "Dux",
-      "f2p_weapons": "Atomizer + Quarker\nor Damper + Quarker",
-      "best_weapons": "Quarker + Murix, Quarker\n+ Lumen, Quarker +\nMachiara, Fahrenheit +\nCelsius, or close range\nUE setups",
+      "f2p_weapons": "Atomizer+Quarker\nMace+Quarker\nAnything+Quarker tbh",
+      "best_weapons": "Lumens\nVelos+Machiara\nFahrenheit+Celsius\nClose range UE setups\nQuarker+Any",
       "drone_options": "Webby\nKestrel\nUE Glider\nSeeker",
       "pilot": "Willa Owe",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -493,8 +517,8 @@
     {
       "build_name": "Assassin",
       "robot": "Scorpion",
-      "f2p_weapons": "Havoc + Scatter \nMogwan + Gangil",
-      "best_weapons": "Elox + Murix,\nUE Burst weapons",
+      "f2p_weapons": "Havoc+Scatter \nMogwan+Gangil\nDeshret+Hedjet\nMace+Cudgel",
+      "best_weapons": "Elox+Murix\nUE Burst weapons",
       "drone_options": "Seeker\nKestrel\nShowdown\nArmadilllo\nWhiteout\nUE Glider",
       "pilot": "Ash Skarsgard",
       "specialization": "Any Specialization\nPhase Shift",
@@ -503,8 +527,8 @@
     {
       "build_name": "Minelayer",
       "robot": "Kaji",
-      "f2p_weapons": "Decay + Blight +\nHazard",
-      "best_weapons": "Lumens, Machiara + Velos \n+ Basileus, UE burst setups",
+      "f2p_weapons": "Decay+Blight+Hazard",
+      "best_weapons": "Lumens\nMachiara+Velos+Basileus\nUE burst setups",
       "drone_options": "Myia\nKocho",
       "pilot": "Kevin O'Reilly",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nPhase Shift",
@@ -513,29 +537,29 @@
     {
       "build_name": "Sniper",
       "robot": "Crisis",
-      "f2p_weapons": "Not recommended for F2P",
+      "f2p_weapons": "Piercer",
       "best_weapons": "Shantak",
       "drone_options": "Solar",
       "pilot": "Gintaire\nKaityre",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nPhase Shift",
-      "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper. The alternative (Gauss) is pretty unimpressive\nexcept for shutting down Lios. Not recommended for f2p."
+      "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper, though with Piercer as a f2p alternative, you can justify\nusing that with solar if you have it."
     },
     {
       "build_name": "Midranger",
       "robot": "Crisis",
       "f2p_weapons": "Decay",
-      "best_weapons": "Basilieus or Lumens",
+      "best_weapons": "Basilieus\nLumens",
       "drone_options": "Showdown",
       "pilot": "Gintaire\nKaityre",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
-      "explanation": "Most gunboats are better relegated to being midrangers at f2p level investment. If you have\nPiercers and Solar, however, you should just use that instead."
+      "explanation": "Most gunboats are better relegated to being midrangers at f2p level investment. If you have\nShantak/Piercer and Solar, however, you should just use that instead."
     },
     {
       "build_name": "Brawler",
       "robot": "Teth",
-      "f2p_weapons": "Devasator + Havoc\n+ Scatter or Kirin +\nMogwan + Gangil",
-      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius + Kelvin, Basileus\n+ Machiara + Velos",
-      "drone_options": "Seeker\nScarebus\nShowdown\nArmadillo",
+      "f2p_weapons": "Devasator+Havoc+Scatter\nKirin+Mogwan+Gangil\nDeshret+Hedjet+Pshent\nCudgel+Mace+Hammer",
+      "best_weapons": "Lumens\nClose range UE setups\nFahrenheit+Celsius+Kelvin\nBasileus+Machiara+Velos\nAny+Velos\nMurix+Elox+Any",
+      "drone_options": "Seeker\nScarebeus\nShowdown\nArmadillo",
       "pilot": "Bast Neferu",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or UC",
       "explanation": "Teth is an effective brawler regardless of if you use it as a titan charger. It's EMP can interrput\nother Brawlers like Rex and Ammit, and it's forcefield and regenerating physical shield lets it\nsustain close ranged fights."
@@ -543,18 +567,18 @@
     {
       "build_name": "Tank",
       "robot": "Ammit",
-      "f2p_weapons": "Claw + Jaw, Howler +\nGrowler, Mace + Cudgel,\nor Atomizer + Quarker",
-      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius, Machiara + Velos",
+      "f2p_weapons": "Claw+Jaw\nHowler+Growler\nMace+Cudgel\nAtomizer+Quarker",
+      "best_weapons": "Lumens\nClose range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nAny+Velos",
       "drone_options": "Scales\nShowdown",
       "pilot": "Mei Lan",
       "specialization": "Tank (Repair Amp +\nHeavy Armor Kit)\nRepair or UC",
-      "explanation": "Not much needs to be said about Ammit. It is the current broken robot, you can run almost\nanything and it will probably work decently."
+      "explanation": "Not much needs to be said about Ammit. It is a pretty broken robot, you can run almost anything \nand it will probably work decently. Scales and Showdown are about equal on it, with Showdown\nbeing better when fighting robots and Scales being better when fighting titans."
     },
     {
       "build_name": "Midranger",
       "robot": "Raven",
-      "f2p_weapons": "Hazard + Blight,\nDamper + Tamer, or\nAtomizer + Quarker",
-      "best_weapons": "Machiara + Velos,\nMidrange UE Setups\nVoonith + Urhag\nLumens",
+      "f2p_weapons": "Hazard+Blight,\nDamper+Tamer\nAtomizer+Quarker",
+      "best_weapons": "Machiara+Velos\nMidrange UE Setups\nVoonith+Urhag\nLumens",
       "drone_options": "Kestrel\nShowdown\nSeeker",
       "pilot": "Nessa Riggs",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or\nJump Unit",
@@ -565,7 +589,7 @@
       "robot": "Loki",
       "f2p_weapons": "Needles (for Aegis)",
       "best_weapons": "Doesn't matter",
-      "drone_options": "Whiteout\nShowdown\nMyia",
+      "drone_options": "Whiteout\nShowdown\nMyia\nWARD\nKestrel",
       "pilot": "Chester Coen",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nPhase Shift",
       "explanation": "Similarly to Skyros, beacon capper Loki has pretty much no good reason to exit stealth."
@@ -574,8 +598,8 @@
       "build_name": "Opportunist",
       "robot": "Loki",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Elox or UE Halo",
-      "drone_options": "Kestrel",
+      "best_weapons": "Elox\nUE Halo",
+      "drone_options": "Kestrel\nArmadillo",
       "pilot": "Chester Coen",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nPhase Shift",
       "explanation": "Loki as an opportunist is just like Skyros as an opportunist, requiring very high burst damage\nweapoms and a specific level 12 drone in order to perform.Not recommended for f2p."
@@ -583,9 +607,9 @@
     {
       "build_name": "Assault",
       "robot": "Leech",
-      "f2p_weapons": "Growler or Porthos",
-      "best_weapons": "Murix, Fahrenheit, Lumen\nor Close range UE setups",
-      "drone_options": "Seeker\nScales\nUE Glider",
+      "f2p_weapons": "Growler\nPorthos\nMace",
+      "best_weapons": "Fahrenheit\nLumen\nClose range UE setups",
+      "drone_options": "Seeker\nScales\nUE Glider\nGlider",
       "pilot": "Thomas\nMindread\n(With Engine\nExpert skill)",
       "specialization": "Damage Dealer\n(Nike Amp + Overdrive)\nPhase Shift",
       "explanation": "Close ranged leech is a pretty dangerous build in 2026, but it's still viable if played with care. Thomas\nmindread with engine expert is a must in order to get in and out dangerous situations. Scales drone\nat high investment is also a huge upgrade, allowing leech to hold up in titan phase."
@@ -593,9 +617,9 @@
     {
       "build_name": "Midranger",
       "robot": "Leech",
-      "f2p_weapons": "Hazard, Damper,\nor Atomizer",
-      "best_weapons": "Midrange UE setups\nMachiara, Lumen or Urhag",
-      "drone_options": "Seeker\nScales\nUE Glider",
+      "f2p_weapons": "Hazard\nDamper\nAtomizer",
+      "best_weapons": "Midrange UE setups\nMachiara\nLumen\nUrhag",
+      "drone_options": "Seeker\nScales\nUE Glider\nGlider",
       "pilot": "Thomas\nMindread\n(With Engine\nExpert skill)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "Midrange leech is a much safer leech variant. You should still ideally use Thomas with Engine expert.\nbut it's less important."
@@ -603,18 +627,18 @@
     {
       "build_name": "Sniper",
       "robot": "Bagliore",
-      "f2p_weapons": "Not recommended for F2P",
+      "f2p_weapons": "Piercer",
       "best_weapons": "Shantak",
       "drone_options": "Solar",
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nPhase Shift,\nRepair, or UC",
-      "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper. The alternative (Gauss) is pretty unimpressive\nexcept for shutting down Lios. Not recommended for f2p."
+      "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper, though with Piercer as a f2p alternative, you can justify\nusing that with solar if you have it."
     },
     {
       "build_name": "Midranger",
       "robot": "Bagliore",
-      "f2p_weapons": "Decay, Nucleon,\nor Subduer",
-      "best_weapons": "Basilieus, Lumen\nor UE Incinerator",
+      "f2p_weapons": "Decay\nNucleon\nSubduer",
+      "best_weapons": "Basilieus\nLumen\nUE Incinerator",
       "drone_options": "Seeker\nScales\nArmadillo\nShowdown\nUE Glider",
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
@@ -624,7 +648,7 @@
       "build_name": "Brawler",
       "robot": "Bagliore",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "UE Redeemer, UE\nCalaimity, Lumens,\nBasilieus",
+      "best_weapons": "Kelvin\nLumens\nBasilieus\nUE Incinerator\nUE Redeemer",
       "drone_options": "Seeker\nScales\nArmadillo\nShowdown\nUE Glider",
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
@@ -634,7 +658,7 @@
       "build_name": "Brawler",
       "robot": "Ochokochi",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius, Machiara + Velos",
+      "best_weapons": "Lumens\nClose range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nElox+Murix\nAny+Velos",
       "drone_options": "Bull \nHiruko \nShowdown",
       "pilot": "Vepkho\nLovidze",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or UC",
@@ -643,8 +667,8 @@
     {
       "build_name": "Tank Buster",
       "robot": "Sword Unit",
-      "f2p_weapons": "Damper + Tamer,\nARMS, or\nAtomizer + Quarker",
-      "best_weapons": "Midrange UE setups,\nMachiara + Velos\nLumens",
+      "f2p_weapons": "Damper + Tamer\nARMS\nAtomizer + Quarker",
+      "best_weapons": "Midrange UE setups\nUE Arms\nMachiara+Velos\nLumens",
       "drone_options": "Seeker\nShowdown\nArmadillo\nWhiteout\nUE Glider\nWARD",
       "pilot": "Otto Schreyer\n(With Arms)\nSam Stone\n(With EMGS)\nShani Kyne\n(if you have)\nMiharu Sharpe\n(Otherwise)",
       "specialization": "Raider (Nuke Amp +\nAny)\nPhase Shift or Lockdown\nAmmo",
@@ -654,7 +678,7 @@
       "build_name": "Brawler",
       "robot": "Rex",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius, Machiara + Velos",
+      "best_weapons": "Lumens\nClose range UE setups\nFahrenheit+Celsius\nElox+Murix\nMachiara+Velos\nAny+Velos",
       "drone_options": "Bull\nHiruko",
       "pilot": "Danny Kiberia",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or UC",
@@ -663,8 +687,8 @@
     {
       "build_name": "Midranger",
       "robot": "Hastatus",
-      "f2p_weapons": "Decay + Blight,\nDamper + Subduer, or\nNucleon + Quarker",
-      "best_weapons": "Machiara + Velos\nLumens,\nShantak + Voonith, or\nUE Incinerator + UE Scald",
+      "f2p_weapons": "Decay+Blight\nTamer+Subduer\nNucleon+Quarker",
+      "best_weapons": "Basileus+Velos\nLumens\nShantak+Voonith\nUE Incinerator+UE Scald",
       "drone_options": "Seeker\nShowdown\nArmadillo\nUE Glider",
       "pilot": "Lucius Palma,\nLian Xin Bai\nis competitive",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
@@ -673,9 +697,9 @@
     {
       "build_name": "Midranger",
       "robot": "Stryx",
-      "f2p_weapons": "Decay, Nucleon,\nor Subduer",
-      "best_weapons": "Basilieus, Lumen, or\nUE Incinerator",
-      "drone_options": "Seeker\nShowdown\nArmadillo\nUE Glider",
+      "f2p_weapons": "Decay\nNucleon\nSubduer",
+      "best_weapons": "Basilieus\nLumen\nUE Incinerator",
+      "drone_options": "Seeker\nShowdown\nArmadillo\nUE Glider\nLar",
       "pilot": "Ryder Mourn",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift,\nRepair, or UC",
       "explanation": "Most gunboats are better relegated to being midrangers at f2p level investment. At non f2p investment,\nIf you don't have Basilieus but you do have Shantak/Piercer, use that instead."
@@ -683,28 +707,38 @@
     {
       "build_name": "Sniper",
       "robot": "Stryx",
-      "f2p_weapons": "Not recommended for F2P",
+      "f2p_weapons": "Piercer",
       "best_weapons": "Shantak",
       "drone_options": "Solar",
       "pilot": "Ryder Mourn",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nPhase Shift,\nRepair, or UC",
-      "explanation": "Snipers are only good due to how powerful Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper. The alternative (Gauss) is pretty unimpressive\nexcept for shutting down Lios. Not recommended for f2p."
+      "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper, though with Piercer as a f2p alternative, you can justify\nusing that with solar if you have it."
     },
     {
       "build_name": "Titan Slayer",
       "robot": "Anaksor",
-      "f2p_weapons": "Damper + Subduer,\nScreamer + Growler,\nor Nucleon + Atomizer",
-      "best_weapons": "Machiara + Basilius,\nLumens, or\nFahrenheit + Kelvin",
+      "f2p_weapons": "Damper+Subduer\nScreamer+Growler\nNucleon+Atomizer",
+      "best_weapons": "Machiara+Basilius\nLumens\nFahrenheit+Kelvin",
       "drone_options": "Myia\nAopo\nSeeker",
       "pilot": "Single Malt",
       "specialization": "Raider\n(Nuke Amp + Integrated)\nPhase Shift, SB, or QS",
       "explanation": "Ankasor will yield results as long as your screen is turned on while piloting it. This robot can\ncomfortably 1v1 most titans in the game with a bit of patience, though its most recent nerf has made it\nrequire a bit of forethought. If you notice that your cloak just got triggered for the third time, make sure\nto land in order to not get lit up midair with no protection. Also, don't let people get within 150m of you\nwhile you're flying."
     },
     {
+      "build_name": "Titan Sniper",
+      "robot": "Anaksor",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "Urhag+Shantak",
+      "drone_options": "Solar\nMyia",
+      "pilot": "Single Malt",
+      "specialization": "Raider\n(Nuke Amp + Integrated)\nUC, SB, or QS",
+      "explanation": "Sniping with Anaksor is technically a viable strat simply thanks to a combination of how OP eldritch snipers are\nand how much target access it has for free. Not recommended for f2p due to lack of access to eldritch snipers."
+    },
+    {
       "build_name": "Brawler",
       "robot": "Vector",
-      "f2p_weapons": "Howler + Growler,\nHavoc + Scatter, or\nClaw + Jaw",
-      "best_weapons": "Lumens, close range \nUE setups, Fahrenheit +\nCelsius, Machiara + Velos",
+      "f2p_weapons": "Howler + Growler\nHavoc + Scatter\nClaw + Jaw",
+      "best_weapons": "Lumens\nClose range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nMurix+Elox\nAny+Velos",
       "drone_options": "Hawkeye\nTensor",
       "pilot": "Nika Schum",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift,\nRepair, or UC",
@@ -714,7 +748,7 @@
       "build_name": "Titan Charger",
       "robot": "Vector",
       "f2p_weapons": "Shifang + Leiming",
-      "best_weapons": "UE Venom + UE Toxin",
+      "best_weapons": "UE Venom+UE Toxin\nKroko+Hippo",
       "drone_options": "Hawkeye",
       "pilot": "Nika Schum",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or UC",
@@ -723,28 +757,28 @@
     {
       "build_name": "Sniper\nSupport",
       "robot": "Shoggoth",
-      "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Urhag + Shantak",
-      "drone_options": "Fhtagn\nSolar",
-      "pilot": "Baek Taejun",
+      "f2p_weapons": "Gauss+Weber\nYeoje+Hwangje",
+      "best_weapons": "Urhag+Shantak",
+      "drone_options": "Fhtagn\nSolar\nFreezo\nSeeker",
+      "pilot": "Baek Taejun\nHarold Han\n(With K-lasers)",
       "specialization": "Damage Dealer\n(Nuke amp + Rangefind)\nPhase shift or SB",
-      "explanation": "A pathfinder with a nuclear amp is scary, but a pathfinder that can lock you down and turn you into\nstacks from across the map is scarier. Not recommended for f2p due to lack of good f2p snipers."
+      "explanation": "A pathfinder with a nuclear amp is scary, but a pathfinder that can lock you down and turn you into\nstacks from across the map is scarier. The sniper builds are scuffed at f2p investment due to lack\nof a medium Piercer, though it can still pull it off for a similar reason that Nuo can."
     },
     {
       "build_name": "Midrange\nSupport",
       "robot": "Shoggoth",
-      "f2p_weapons": "Decay + Hazard\nNucleon + Atomizer\nSubduer + Damper",
-      "best_weapons": "Machiara + Basileus\nLumens",
-      "drone_options": "Fhtagn\nSeeker",
+      "f2p_weapons": "Decay+Hazard\nNucleon+Atomizer\nSubduer+Damper",
+      "best_weapons": "Machiara+Basileus\nLumens",
+      "drone_options": "Fhtagn\nSeeker\nFreezo",
       "pilot": "Baek Taejun",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift or SB",
-      "explanation": "A more accessable support due to the lack of good f2p snipers in the meta."
+      "explanation": "The ideal way to play Shoggoth for f2p players. Still very powerful at p2w investment, though Urhag+Shantak\nis generally the strongest p2w build."
     },
     {
       "build_name": "Assault",
       "robot": "Vulcan",
-      "f2p_weapons": "Growler + Howler\nAtomizer + Quarker",
-      "best_weapons": "Lumens,\nMachiara + Velos, \nUE Arms\nFahrenheit + Celsius",
+      "f2p_weapons": "Growler+Howler\nAtomizer+Quarker",
+      "best_weapons": "Lumens\nMachiara+Velos \nUE Arms\nFahrenheit+Celsius",
       "drone_options": "Lar\nSeeker",
       "pilot": "Ines Diaz",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift",
@@ -753,8 +787,8 @@
     {
       "build_name": "Debuffer\nAssault",
       "robot": "Omen Vulcan",
-      "f2p_weapons": "Growler + Howler\nAtomizer + Quarker",
-      "best_weapons": "Lumens,\nMachiara + Velos \nUE Arms\nFahrenheit + Celsius\nFahrenheit + UE Toxin\nUE Arm + UE Toxin\nLumen + UE Toxin",
+      "f2p_weapons": "Growler+Howler\nAtomizer+Quarker",
+      "best_weapons": "Lumens\nMachiara+Velos \nUE Arms\nFahrenheit+Celsius\nFahrenheit+UE Toxin\nUE Arm+UE Toxin\nLumen+UE Toxin",
       "drone_options": "Webby",
       "pilot": "Ines Diaz",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase Shift, UC, or\nAdvanced repair",
@@ -763,26 +797,36 @@
     {
       "build_name": "Debuffer\nAssault",
       "robot": "Fafnir",
-      "f2p_weapons": "Spikes on top slots,\nGrowler, Hazard",
-      "best_weapons": "Spikes on top slots.\nLumens,\nMachiara,\nFahrenheit,\nAny UE setups",
+      "f2p_weapons": "Spikes on top slots\nGrowler \nHazard",
+      "best_weapons": "Spikes on top slots.\nLumens\nMachiara\nFahrenheit\nAny UE setups",
       "drone_options": "Webby",
       "pilot": "Noa Minax",
       "specialization": "Raider\n(Nuke amp + Integrated)\nPhase Shift, UC, or\nAdvanced repair",
       "explanation": "While extremely fragile and easy to shut down, the ability to wield a rust webby makes a bot \ntechnically viable by default. So long as your teammates take the attention, Fafnir can provide some \nserious debuffing utility with good uptime and has high damage potential if charged."
+    },
+    {
+      "build_name": "Saboteur",
+      "robot": "Samjok",
+      "f2p_weapons": "Pshent+Hedjet\nSmuta+Kramola",
+      "best_weapons": "Liodari+Hippo\nBoom+Pow\nLumens\nKelvin+Celsius",
+      "drone_options": "Seeker\nChongue\nUE Glider\nGlider",
+      "pilot": "Sim Yo-Han",
+      "specialization": "Saboteur (Beacon Op +\nAccelerator)\nPhase Shift",
+      "explanation": "Samjok can be an oppressively annoying saboteur when equipped with weapons that either have the\nmeans to deal damage from around cover, deal damage during phase shift, unload instantly, or a\ncombination of these effects. Samjok should ideally never expose itself to the enemy."
     }
   ],
   "robots": [
     {
       "name": "Harpy",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 30,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": 0.0,
-        "accessibility": 1.0,
-        "overall": 1
+        "longevity": 6.0,
+        "lethality": 7.0,
+        "mobility": 5.0,
+        "utility": 6.0,
+        "accessibility": 6.0,
+        "overall": 30
       },
       "roles": [
         {
@@ -806,14 +850,14 @@
     {
       "name": "Siren",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 34,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": 1.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 7.0,
+        "lethality": 7.0,
+        "mobility": 5.0,
+        "utility": 8.0,
+        "accessibility": 7.0,
+        "overall": 34
       },
       "roles": [
         {
@@ -837,24 +881,19 @@
     {
       "name": "Typhon",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 26,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 1.0,
-        "mobility": -1.0,
-        "utility": 1.0,
-        "accessibility": 1.0,
-        "overall": 1
+        "longevity": 4.0,
+        "lethality": 7.0,
+        "mobility": 3.0,
+        "utility": 6.0,
+        "accessibility": 6.0,
+        "overall": 26
       },
       "roles": [
         {
           "role": "Support",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Tank-buster",
-          "type": "secondary",
           "footnote": ""
         },
         {
@@ -873,14 +912,14 @@
     {
       "name": "Orochi",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 30,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 0.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 1
+        "longevity": 6.0,
+        "lethality": 5.0,
+        "mobility": 9.0,
+        "utility": 3.0,
+        "accessibility": 7.0,
+        "overall": 30
       },
       "roles": [
         {
@@ -899,14 +938,14 @@
     {
       "name": "Demeter",
       "sheet": "Tier 4",
-      "value_rating": 4,
+      "value_rating": 36,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": 1.0,
-        "accessibility": 1.0,
-        "overall": 4
+        "longevity": 7.0,
+        "lethality": 4.0,
+        "mobility": 8.0,
+        "utility": 8.0,
+        "accessibility": 9.0,
+        "overall": 36
       },
       "roles": [
         {
@@ -920,14 +959,14 @@
     {
       "name": "Jaeger",
       "sheet": "Tier 4",
-      "value_rating": -2,
+      "value_rating": 20,
       "scores": {
-        "longevity": -2.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -2
+        "longevity": 1.0,
+        "lethality": 6.0,
+        "mobility": 6.0,
+        "utility": 2.0,
+        "accessibility": 5.0,
+        "overall": 20
       },
       "roles": [],
       "comments": "Jaeger is worse than Fury."
@@ -935,14 +974,14 @@
     {
       "name": "Scorpion",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 30,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 6.0,
+        "lethality": 4.0,
+        "mobility": 9.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 30
       },
       "roles": [
         {
@@ -956,14 +995,14 @@
     {
       "name": "Erebus",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 27,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 1.0,
-        "mobility": -1.0,
-        "utility": 1.0,
-        "accessibility": 1.0,
-        "overall": 1
+        "longevity": 4.0,
+        "lethality": 7.0,
+        "mobility": 2.0,
+        "utility": 7.0,
+        "accessibility": 7.0,
+        "overall": 27
       },
       "roles": [
         {
@@ -987,14 +1026,14 @@
     {
       "name": "Fafnir",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 31,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": 1.0,
-        "accessibility": 0.0,
-        "overall": 2
+        "longevity": 7.0,
+        "lethality": 7.0,
+        "mobility": 5.0,
+        "utility": 7.0,
+        "accessibility": 5.0,
+        "overall": 31
       },
       "roles": [
         {
@@ -1005,7 +1044,7 @@
         {
           "role": "Tank-buster",
           "type": "secondary",
-          "footnote": ""
+          "footnote": "*****"
         },
         {
           "role": "Midrange",
@@ -1023,29 +1062,29 @@
     {
       "name": "Hawk",
       "sheet": "Tier 4",
-      "value_rating": -2,
+      "value_rating": 19,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": -2
+        "longevity": 2.0,
+        "lethality": 7.0,
+        "mobility": 3.0,
+        "utility": 3.0,
+        "accessibility": 4.0,
+        "overall": 19
       },
       "roles": [],
-      "comments": "Compared to the other aerial bots, Hawk lacks both damage and utility. The retraction of weapons during flight hurts it terribly, so it should fly as little as possible."
+      "comments": "Compared to the other aerial bots, Hawk lacks both damage and utility. The retraction of weapons during flight hurts it terribly, so it should fly as little as possible and play as Natasha Pro Max."
     },
     {
       "name": "Nightingale",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 31,
       "scores": {
-        "longevity": 0.0,
-        "lethality": -2.0,
-        "mobility": 2.0,
-        "utility": 1.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 7.0,
+        "lethality": 0.0,
+        "mobility": 9.0,
+        "utility": 7.0,
+        "accessibility": 8.0,
+        "overall": 31
       },
       "roles": [
         {
@@ -1069,14 +1108,14 @@
     {
       "name": "Ravana",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 29,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 8.0,
+        "lethality": 4.0,
+        "mobility": 8.0,
+        "utility": 3.0,
+        "accessibility": 6.0,
+        "overall": 29
       },
       "roles": [
         {
@@ -1095,14 +1134,14 @@
     {
       "name": "Shell",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": 19,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": -2.0,
-        "accessibility": 0.0,
-        "overall": -1
+        "longevity": 4.0,
+        "lethality": 4.0,
+        "mobility": 7.0,
+        "utility": 0.0,
+        "accessibility": 4.0,
+        "overall": 19
       },
       "roles": [
         {
@@ -1121,14 +1160,14 @@
     {
       "name": "Khepri",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 31,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": 1.0,
-        "accessibility": 0.0,
-        "overall": 2
+        "longevity": 6.0,
+        "lethality": 5.0,
+        "mobility": 7.0,
+        "utility": 7.0,
+        "accessibility": 6.0,
+        "overall": 31
       },
       "roles": [
         {
@@ -1152,14 +1191,14 @@
     {
       "name": "Revenant",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": 22,
       "scores": {
-        "longevity": 0.0,
-        "lethality": -1.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": -1
+        "longevity": 6.0,
+        "lethality": 3.0,
+        "mobility": 8.0,
+        "utility": 1.0,
+        "accessibility": 4.0,
+        "overall": 22
       },
       "roles": [
         {
@@ -1178,14 +1217,14 @@
     {
       "name": "Skyros",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 31,
       "scores": {
-        "longevity": 2.0,
-        "lethality": -2.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 9.0,
+        "lethality": 0.0,
+        "mobility": 10.0,
+        "utility": 3.0,
+        "accessibility": 9.0,
+        "overall": 31
       },
       "roles": [
         {
@@ -1204,14 +1243,14 @@
     {
       "name": "Seraph",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": 23,
       "scores": {
-        "longevity": -2.0,
-        "lethality": 0.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": -1
+        "longevity": 1.0,
+        "lethality": 6.0,
+        "mobility": 9.0,
+        "utility": 3.0,
+        "accessibility": 4.0,
+        "overall": 23
       },
       "roles": [],
       "comments": "Seraph technically has a niche via stellar air speed, but is otherwise unremarkable. It's alright for mindlessly clearing early PvE levels."
@@ -1219,14 +1258,14 @@
     {
       "name": "Mars",
       "sheet": "Tier 4",
-      "value_rating": -2,
+      "value_rating": 20,
       "scores": {
-        "longevity": -2.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -2
+        "longevity": 1.0,
+        "lethality": 6.0,
+        "mobility": 6.0,
+        "utility": 3.0,
+        "accessibility": 4.0,
+        "overall": 20
       },
       "roles": [],
       "comments": "Mars is heavily reliant on its turret to differentiate itself, but the slow projectile speed and outright mediocre damage means it's unfortunately unreliable."
@@ -1234,14 +1273,14 @@
     {
       "name": "Angler",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": 27,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": 0
+        "longevity": 8.0,
+        "lethality": 5.0,
+        "mobility": 4.0,
+        "utility": 5.0,
+        "accessibility": 5.0,
+        "overall": 27
       },
       "roles": [
         {
@@ -1255,14 +1294,14 @@
     {
       "name": "Nether",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": 27,
       "scores": {
-        "longevity": -2.0,
-        "lethality": 0.0,
-        "mobility": 2.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": 0
+        "longevity": 1.0,
+        "lethality": 6.0,
+        "mobility": 10.0,
+        "utility": 6.0,
+        "accessibility": 4.0,
+        "overall": 27
       },
       "roles": [
         {
@@ -1276,20 +1315,25 @@
     {
       "name": "Imugi",
       "sheet": "Tier 4",
-      "value_rating": 6,
+      "value_rating": 40,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 2.0,
-        "utility": 2.0,
-        "accessibility": 1.0,
-        "overall": 6
+        "longevity": 8.0,
+        "lethality": 5.0,
+        "mobility": 10.0,
+        "utility": 9.0,
+        "accessibility": 8.0,
+        "overall": 40
       },
       "roles": [
         {
           "role": "Support",
           "type": "primary",
           "footnote": ""
+        },
+        {
+          "role": "Tank-buster",
+          "type": "secondary",
+          "footnote": "*****"
         },
         {
           "role": "Midrange",
@@ -1317,14 +1361,14 @@
     {
       "name": "Lynx",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 33,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 7.0,
+        "lethality": 7.0,
+        "mobility": 8.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 33
       },
       "roles": [
         {
@@ -1348,14 +1392,14 @@
     {
       "name": "Crisis",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 29,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 2.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": 2
+        "longevity": 7.0,
+        "lethality": 9.0,
+        "mobility": 3.0,
+        "utility": 2.0,
+        "accessibility": 8.0,
+        "overall": 29
       },
       "roles": [
         {
@@ -1379,14 +1423,14 @@
     {
       "name": "Ophion",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": 27,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 0
+        "longevity": 6.0,
+        "lethality": 6.0,
+        "mobility": 6.0,
+        "utility": 2.0,
+        "accessibility": 7.0,
+        "overall": 27
       },
       "roles": [
         {
@@ -1405,14 +1449,14 @@
     {
       "name": "Ochokochi",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 26,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 6.0,
+        "lethality": 5.0,
+        "mobility": 7.0,
+        "utility": 4.0,
+        "accessibility": 4.0,
+        "overall": 26
       },
       "roles": [
         {
@@ -1426,14 +1470,14 @@
     {
       "name": "Dagon",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": 23,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": -1.0,
-        "overall": -1
+        "longevity": 6.0,
+        "lethality": 7.0,
+        "mobility": 6.0,
+        "utility": 3.0,
+        "accessibility": 1.0,
+        "overall": 23
       },
       "roles": [],
       "comments": "Dagon is moderately powerful but difficult to invest in, given its stat-check nature and 6 hardpoints."
@@ -1441,14 +1485,14 @@
     {
       "name": "Curie",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": 28,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": 0
+        "longevity": 6.0,
+        "lethality": 6.0,
+        "mobility": 6.0,
+        "utility": 5.0,
+        "accessibility": 5.0,
+        "overall": 28
       },
       "roles": [
         {
@@ -1472,14 +1516,14 @@
     {
       "name": "Shenlou",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 27,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 5.0,
+        "lethality": 6.0,
+        "mobility": 9.0,
+        "utility": 3.0,
+        "accessibility": 4.0,
+        "overall": 27
       },
       "roles": [
         {
@@ -1493,19 +1537,24 @@
     {
       "name": "Pathfinder",
       "sheet": "Tier 4",
-      "value_rating": 7,
+      "value_rating": 44,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 1.0,
-        "mobility": 1.0,
-        "utility": 3.0,
-        "accessibility": 1.0,
-        "overall": 7
+        "longevity": 8.0,
+        "lethality": 8.0,
+        "mobility": 8.0,
+        "utility": 10.0,
+        "accessibility": 10.0,
+        "overall": 44
       },
       "roles": [
         {
           "role": "Support",
           "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Tank-buster",
+          "type": "secondary",
           "footnote": ""
         },
         {
@@ -1529,14 +1578,14 @@
     {
       "name": "Raptor",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 30,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": 2
+        "longevity": 7.0,
+        "lethality": 5.0,
+        "mobility": 8.0,
+        "utility": 5.0,
+        "accessibility": 5.0,
+        "overall": 30
       },
       "roles": [
         {
@@ -1560,14 +1609,14 @@
     {
       "name": "Bagliore",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 29,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 2.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": -1.0,
-        "overall": 1
+        "longevity": 8.0,
+        "lethality": 9.0,
+        "mobility": 5.0,
+        "utility": 2.0,
+        "accessibility": 5.0,
+        "overall": 29
       },
       "roles": [
         {
@@ -1596,14 +1645,14 @@
     {
       "name": "Condor",
       "sheet": "Tier 4",
-      "value_rating": -2,
+      "value_rating": 22,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": -2.0,
-        "accessibility": 0.0,
-        "overall": -2
+        "longevity": 5.0,
+        "lethality": 6.0,
+        "mobility": 6.0,
+        "utility": 0.0,
+        "accessibility": 5.0,
+        "overall": 22
       },
       "roles": [],
       "comments": "Condor's a mediore statchecker with no notable traits that'd make it worth investing into."
@@ -1611,14 +1660,14 @@
     {
       "name": "Dux",
       "sheet": "Tier 4",
-      "value_rating": 4,
+      "value_rating": 36,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": 1.0,
-        "accessibility": 1.0,
-        "overall": 4
+        "longevity": 7.0,
+        "lethality": 8.0,
+        "mobility": 6.0,
+        "utility": 7.0,
+        "accessibility": 8.0,
+        "overall": 36
       },
       "roles": [
         {
@@ -1642,14 +1691,14 @@
     {
       "name": "Ravager",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 27,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 8.0,
+        "lethality": 8.0,
+        "mobility": 3.0,
+        "utility": 2.0,
+        "accessibility": 6.0,
+        "overall": 27
       },
       "roles": [
         {
@@ -1683,14 +1732,14 @@
     {
       "name": "Samjok",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 33,
       "scores": {
-        "longevity": 0.0,
-        "lethality": -1.0,
-        "mobility": 1.0,
-        "utility": 1.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 6.0,
+        "lethality": 4.0,
+        "mobility": 8.0,
+        "utility": 7.0,
+        "accessibility": 8.0,
+        "overall": 33
       },
       "roles": [
         {
@@ -1719,14 +1768,14 @@
     {
       "name": "Nuo",
       "sheet": "Tier 4",
-      "value_rating": 5,
+      "value_rating": 39,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 2.0,
-        "utility": 2.0,
-        "accessibility": 0.0,
-        "overall": 5
+        "longevity": 6.0,
+        "lethality": 8.0,
+        "mobility": 10.0,
+        "utility": 9.0,
+        "accessibility": 6.0,
+        "overall": 39
       },
       "roles": [
         {
@@ -1755,14 +1804,14 @@
     {
       "name": "Lio",
       "sheet": "Tier 4",
-      "value_rating": 3,
+      "value_rating": 34,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": 2.0,
-        "accessibility": 0.0,
-        "overall": 3
+        "longevity": 7.0,
+        "lethality": 6.0,
+        "mobility": 6.0,
+        "utility": 9.0,
+        "accessibility": 6.0,
+        "overall": 34
       },
       "roles": [
         {
@@ -1781,14 +1830,14 @@
     {
       "name": "Sword Unit",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 32,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 5.0,
+        "lethality": 8.0,
+        "mobility": 5.0,
+        "utility": 4.0,
+        "accessibility": 10.0,
+        "overall": 32
       },
       "roles": [
         {
@@ -1802,34 +1851,24 @@
           "footnote": ""
         }
       ],
-      "comments": "A level 1 Sword with level 1 ARMs equipped is a genuinely functional tankbuster, making it a solid F2P choice. Lockdown Unit is a great way to keep a tank in place and soften them up for your teammates."
+      "comments": "A level 1 Sword with level 1 ARMs equipped is a genuinely viable tankbuster, making it a solid F2P choice. Lockdown Unit or Ward are great ways to keep a tank in place and soften them up for your teammates. Unfortunately it's a collab item that is no longer obtainable."
     },
     {
       "name": "Teth",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 26,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 8.0,
+        "lethality": 6.0,
+        "mobility": 6.0,
+        "utility": 4.0,
+        "accessibility": 2.0,
+        "overall": 26
       },
       "roles": [
         {
           "role": "Brawler",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Beacon Runner",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -1838,14 +1877,14 @@
     {
       "name": "Stryx",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": 20,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 2.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": -1.0,
-        "overall": -1
+        "longevity": 4.0,
+        "lethality": 9.0,
+        "mobility": 2.0,
+        "utility": 2.0,
+        "accessibility": 3.0,
+        "overall": 20
       },
       "roles": [
         {
@@ -1869,14 +1908,14 @@
     {
       "name": "Kaji",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 31,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": 1.0,
-        "accessibility": 0.0,
-        "overall": 2
+        "longevity": 6.0,
+        "lethality": 7.0,
+        "mobility": 5.0,
+        "utility": 7.0,
+        "accessibility": 6.0,
+        "overall": 31
       },
       "roles": [
         {
@@ -1905,14 +1944,14 @@
     {
       "name": "Rex",
       "sheet": "Tier 4",
-      "value_rating": 0,
+      "value_rating": 25,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": -1.0,
-        "overall": 0
+        "longevity": 7.0,
+        "lethality": 7.0,
+        "mobility": 7.0,
+        "utility": 2.0,
+        "accessibility": 2.0,
+        "overall": 25
       },
       "roles": [
         {
@@ -1941,14 +1980,14 @@
     {
       "name": "Hastatus",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": 23,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": -1
+        "longevity": 5.0,
+        "lethality": 7.0,
+        "mobility": 3.0,
+        "utility": 3.0,
+        "accessibility": 5.0,
+        "overall": 23
       },
       "roles": [
         {
@@ -1962,19 +2001,19 @@
           "footnote": ""
         }
       ],
-      "comments": "Hastatus is a versatile midranger with a strong defense system that can be best described as \"Phase shift but you can shoot.\" Effective but somewhat difficult to invest in, requiring mk3 for maximum efficiency, and is counterplayed pretty easily."
+      "comments": "Hastatus is a versatile midranger with a decent defense system that can be best described as \"Phase shift but you can shoot.\" Effective but somewhat difficult to invest in, requiring mk3 for maximum efficiency, and is counterplayed pretty easily."
     },
     {
       "name": "Ammit",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 26,
       "scores": {
-        "longevity": 2.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": 1.0,
-        "accessibility": -1.0,
-        "overall": 1
+        "longevity": 10.0,
+        "lethality": 5.0,
+        "mobility": 2.0,
+        "utility": 6.0,
+        "accessibility": 3.0,
+        "overall": 26
       },
       "roles": [
         {
@@ -1993,14 +2032,14 @@
     {
       "name": "Anaksor",
       "sheet": "Tier 4",
-      "value_rating": 2,
+      "value_rating": 31,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 1.0,
-        "mobility": 2.0,
-        "utility": 1.0,
-        "accessibility": -3.0,
-        "overall": 2
+        "longevity": 7.0,
+        "lethality": 8.0,
+        "mobility": 9.0,
+        "utility": 7.0,
+        "accessibility": 0.0,
+        "overall": 31
       },
       "roles": [
         {
@@ -2039,14 +2078,14 @@
     {
       "name": "Vector",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 32,
       "scores": {
-        "longevity": 2.0,
-        "lethality": 0.0,
-        "mobility": 2.0,
-        "utility": 0.0,
-        "accessibility": -3.0,
-        "overall": 1
+        "longevity": 10.0,
+        "lethality": 6.0,
+        "mobility": 10.0,
+        "utility": 6.0,
+        "accessibility": 0.0,
+        "overall": 32
       },
       "roles": [
         {
@@ -2070,14 +2109,14 @@
     {
       "name": "Shoggoth",
       "sheet": "Tier 4",
-      "value_rating": 3,
+      "value_rating": 31,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 3.0,
-        "mobility": -1.0,
-        "utility": 3.0,
-        "accessibility": -2.0,
-        "overall": 3
+        "longevity": 6.0,
+        "lethality": 10.0,
+        "mobility": 4.0,
+        "utility": 10.0,
+        "accessibility": 1.0,
+        "overall": 31
       },
       "roles": [
         {
@@ -2106,14 +2145,14 @@
     {
       "name": "Vulcan",
       "sheet": "Tier 4",
-      "value_rating": -1,
+      "value_rating": 26,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 2.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": -3.0,
-        "overall": -1
+        "longevity": 9.0,
+        "lethality": 9.0,
+        "mobility": 4.0,
+        "utility": 4.0,
+        "accessibility": 0.0,
+        "overall": 26
       },
       "roles": [
         {
@@ -2142,14 +2181,14 @@
     {
       "name": "Omen Vulcan",
       "sheet": "Tier 4",
-      "value_rating": 1,
+      "value_rating": 31,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 2.0,
-        "mobility": 0.0,
-        "utility": 2.0,
-        "accessibility": -4.0,
-        "overall": 1
+        "longevity": 9.0,
+        "lethality": 9.0,
+        "mobility": 4.0,
+        "utility": 9.0,
+        "accessibility": 0.0,
+        "overall": 31
       },
       "roles": [
         {
@@ -2183,35 +2222,40 @@
     {
       "name": "Fury",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": 21,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 1.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 2.0,
-        "overall": 0
+        "longevity": 0.0,
+        "lethality": 7.0,
+        "mobility": 2.0,
+        "utility": 3.0,
+        "accessibility": 9.0,
+        "overall": 21
       },
       "roles": [
         {
           "role": "Sniper",
           "type": "primary",
           "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "secondary",
+          "footnote": ""
         }
       ],
-      "comments": "Fury has decent firepower, comes pre-leveled, and its pilot grants it access to unlimited shieldbreaker. It's a passable sniper to use as a weapon platform while you wait for something better."
+      "comments": "Fury has decent firepower, comes pre-leveled, and its pilot grants it access to unlimited shieldbreaker. It's a barely passable sniper to use as a weapon platform while you wait for something better."
     },
     {
       "name": "Strider",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 22,
       "scores": {
-        "longevity": -2.0,
-        "lethality": 0.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": -1
+        "longevity": 0.0,
+        "lethality": 3.0,
+        "mobility": 10.0,
+        "utility": 3.0,
+        "accessibility": 6.0,
+        "overall": 22
       },
       "roles": [],
       "comments": "Strider has some potential with the legendary pilot, but it is too outclassed by Nether."
@@ -2219,14 +2263,14 @@
     {
       "name": "Raven",
       "sheet": "Tier 3",
-      "value_rating": 3,
+      "value_rating": 34,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 3
+        "longevity": 6.0,
+        "lethality": 7.0,
+        "mobility": 10.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 34
       },
       "roles": [
         {
@@ -2255,14 +2299,14 @@
     {
       "name": "Rayker",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": 27,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": 0.0,
-        "accessibility": 1.0,
-        "overall": 0
+        "longevity": 4.0,
+        "lethality": 7.0,
+        "mobility": 4.0,
+        "utility": 4.0,
+        "accessibility": 8.0,
+        "overall": 27
       },
       "roles": [
         {
@@ -2281,14 +2325,14 @@
     {
       "name": "Ao Guang",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 23,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -1
+        "longevity": 5.0,
+        "lethality": 6.0,
+        "mobility": 4.0,
+        "utility": 3.0,
+        "accessibility": 5.0,
+        "overall": 23
       },
       "roles": [],
       "comments": "Ao Guang is mediocre in the air and terrible outside of it."
@@ -2296,14 +2340,14 @@
     {
       "name": "Bulgasari",
       "sheet": "Tier 3",
-      "value_rating": -2,
+      "value_rating": 23,
       "scores": {
-        "longevity": -2.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": -2
+        "longevity": 4.0,
+        "lethality": 4.0,
+        "mobility": 7.0,
+        "utility": 3.0,
+        "accessibility": 5.0,
+        "overall": 23
       },
       "roles": [],
       "comments": "Bulgasari is mediocre to bad across the board, and really needs its legendary pilot to function at all."
@@ -2311,19 +2355,24 @@
     {
       "name": "Hellburner",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": 26,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 0.0
+        "longevity": 6.0,
+        "lethality": 4.0,
+        "mobility": 7.0,
+        "utility": 3.0,
+        "accessibility": 6.0,
+        "overall": 26
       },
       "roles": [
         {
           "role": "Brawler",
           "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "primary",
           "footnote": ""
         },
         {
@@ -2337,14 +2386,14 @@
     {
       "name": "Cerberus",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 27,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": -1
+        "longevity": 3.0,
+        "lethality": 7.0,
+        "mobility": 4.0,
+        "utility": 5.0,
+        "accessibility": 8.0,
+        "overall": 27
       },
       "roles": [],
       "comments": "Cerberus's utility via Blackout is seriously limited by its low range and lack of an EMP."
@@ -2352,14 +2401,14 @@
     {
       "name": "Haechi",
       "sheet": "Tier 3",
-      "value_rating": -2,
+      "value_rating": 24,
       "scores": {
-        "longevity": -2.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": -2
+        "longevity": 1.0,
+        "lethality": 6.0,
+        "mobility": 8.0,
+        "utility": 3.0,
+        "accessibility": 6.0,
+        "overall": 24
       },
       "roles": [],
       "comments": "Haechi is similar to Bulgasari, but also lacks a decent pilot."
@@ -2367,14 +2416,14 @@
     {
       "name": "Inquisitor",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": 28,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 0
+        "longevity": 6.0,
+        "lethality": 5.0,
+        "mobility": 6.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 28
       },
       "roles": [
         {
@@ -2388,14 +2437,14 @@
     {
       "name": "Falcon",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": 24,
       "scores": {
-        "longevity": 2.0,
-        "lethality": -1.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 0
+        "longevity": 9.0,
+        "lethality": 1.0,
+        "mobility": 3.0,
+        "utility": 2.0,
+        "accessibility": 9.0,
+        "overall": 24
       },
       "roles": [
         {
@@ -2409,14 +2458,14 @@
     {
       "name": "Pursuer",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": 26,
       "scores": {
-        "longevity": 0.0,
-        "lethality": -1.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 0
+        "longevity": 5.0,
+        "lethality": 2.0,
+        "mobility": 8.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 26
       },
       "roles": [
         {
@@ -2435,14 +2484,14 @@
     {
       "name": "Spectre",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": 29,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 0
+        "longevity": 5.0,
+        "lethality": 7.0,
+        "mobility": 6.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 29
       },
       "roles": [
         {
@@ -2456,14 +2505,14 @@
     {
       "name": "Mercury",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": 26,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 0
+        "longevity": 6.0,
+        "lethality": 5.0,
+        "mobility": 6.0,
+        "utility": 3.0,
+        "accessibility": 6.0,
+        "overall": 26
       },
       "roles": [],
       "comments": "Mercury is a sidegrade to Inquisitor, trading hardpoint strength for a better ability."
@@ -2471,14 +2520,14 @@
     {
       "name": "Nemesis",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 24,
       "scores": {
-        "longevity": 1.0,
-        "lethality": -1.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -1
+        "longevity": 7.0,
+        "lethality": 3.0,
+        "mobility": 3.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 24
       },
       "roles": [],
       "comments": "Nemesis sacrifices too much firepower and speed for its absorber shield."
@@ -2486,14 +2535,14 @@
     {
       "name": "Weyland",
       "sheet": "Tier 3",
-      "value_rating": 1,
+      "value_rating": 26,
       "scores": {
-        "longevity": 1.0,
-        "lethality": -1.0,
-        "mobility": 0.0,
-        "utility": 1.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 7.0,
+        "lethality": 3.0,
+        "mobility": 3.0,
+        "utility": 6.0,
+        "accessibility": 7.0,
+        "overall": 26
       },
       "roles": [],
       "comments": "Weyland is a relatively slow close-range support-tank hybrid, necessitating heavy investment for not questionable return."
@@ -2501,14 +2550,14 @@
     {
       "name": "Behemoth",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 20,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": -2.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -1
+        "longevity": 4.0,
+        "lethality": 8.0,
+        "mobility": 0.0,
+        "utility": 2.0,
+        "accessibility": 6.0,
+        "overall": 20
       },
       "roles": [],
       "comments": "Behemoth's worse than Bagliore in basically every way. Even Fury has a niche over it with its shieldbreaker."
@@ -2516,14 +2565,14 @@
     {
       "name": "Bulwark",
       "sheet": "Tier 3",
-      "value_rating": -3,
+      "value_rating": 16,
       "scores": {
-        "longevity": 0.0,
-        "lethality": -1.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 0.0,
-        "overall": -3
+        "longevity": 4.0,
+        "lethality": 3.0,
+        "mobility": 2.0,
+        "utility": 2.0,
+        "accessibility": 5.0,
+        "overall": 16
       },
       "roles": [],
       "comments": "Bulwark is a statcheck machine that loses to other statcheck machines."
@@ -2531,14 +2580,14 @@
     {
       "name": "Invader",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 22,
       "scores": {
-        "longevity": 0.0,
-        "lethality": -1.0,
-        "mobility": 0.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": -1
+        "longevity": 5.0,
+        "lethality": 3.0,
+        "mobility": 4.0,
+        "utility": 4.0,
+        "accessibility": 6.0,
+        "overall": 22
       },
       "roles": [],
       "comments": "Invader's biggest issue is that as a statchecking tank, you'll need to upgrade it tremendously before it will have enough durability to do its job."
@@ -2546,14 +2595,14 @@
     {
       "name": "Mender",
       "sheet": "Tier 3",
-      "value_rating": 2,
+      "value_rating": 33,
       "scores": {
-        "longevity": 1.0,
-        "lethality": -1.0,
-        "mobility": 1.0,
-        "utility": 1.0,
-        "accessibility": 0.0,
-        "overall": 2
+        "longevity": 7.0,
+        "lethality": 3.0,
+        "mobility": 8.0,
+        "utility": 7.0,
+        "accessibility": 8.0,
+        "overall": 33
       },
       "roles": [
         {
@@ -2572,14 +2621,14 @@
     {
       "name": "Loki",
       "sheet": "Tier 3",
-      "value_rating": 3,
+      "value_rating": 31,
       "scores": {
-        "longevity": 2.0,
-        "lethality": -2.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": 2.0,
-        "overall": 3
+        "longevity": 8.0,
+        "lethality": 0.0,
+        "mobility": 10.0,
+        "utility": 3.0,
+        "accessibility": 10.0,
+        "overall": 31
       },
       "roles": [
         {
@@ -2598,14 +2647,14 @@
     {
       "name": "Tyr",
       "sheet": "Tier 3",
-      "value_rating": -2,
+      "value_rating": 25,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": -2
+        "longevity": 4.0,
+        "lethality": 5.0,
+        "mobility": 4.0,
+        "utility": 6.0,
+        "accessibility": 6.0,
+        "overall": 25
       },
       "roles": [],
       "comments": "Tyr's an unimpressive middle ground between Weyland's bulk and Mender's speed."
@@ -2613,14 +2662,14 @@
     {
       "name": "Blitz",
       "sheet": "Tier 3",
-      "value_rating": 1,
+      "value_rating": 29,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 7.0,
+        "lethality": 5.0,
+        "mobility": 7.0,
+        "utility": 4.0,
+        "accessibility": 6.0,
+        "overall": 29
       },
       "roles": [
         {
@@ -2644,29 +2693,29 @@
     {
       "name": "Fenrir",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 24,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": -2.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -1
+        "longevity": 8.0,
+        "lethality": 5.0,
+        "mobility": 1.0,
+        "utility": 2.0,
+        "accessibility": 8.0,
+        "overall": 24
       },
       "roles": [],
-      "comments": "Fenrir is a strange case. It's free and can use midrange weapons somewhat well, but reaching its maximum potential as a closerange statchecker requires tons of investment."
+      "comments": "Fenrir is a strange case. It's given for free and can use midrange weapons somewhat well, but reaching Fenrir's maximum potential as a closerange statchecker requires tons of investment."
     },
     {
       "name": "Hades",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 25,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -1
+        "longevity": 5.0,
+        "lethality": 6.0,
+        "mobility": 3.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 25
       },
       "roles": [],
       "comments": "Hades is better than Nemesis, but is still plainly outclassed by other absorber bots."
@@ -2674,14 +2723,14 @@
     {
       "name": "Ao Jun",
       "sheet": "Tier 3",
-      "value_rating": -1,
+      "value_rating": 28,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -1
+        "longevity": 5.0,
+        "lethality": 6.0,
+        "mobility": 6.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 28
       },
       "roles": [],
       "comments": "Ao Jun is frail and requires getting extremely close in order to use its flamethrowers, making it too risky for not much reward. Its long cooldown and generally short lived playstyle makes it extremely clunky to use, especially in comparison to other flying bots."
@@ -2689,14 +2738,14 @@
     {
       "name": "Ares",
       "sheet": "Tier 3",
-      "value_rating": 1,
+      "value_rating": 27,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 1
+        "longevity": 5.0,
+        "lethality": 7.0,
+        "mobility": 4.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 27
       },
       "roles": [
         {
@@ -2710,14 +2759,14 @@
     {
       "name": "Leech",
       "sheet": "Tier 3",
-      "value_rating": 2,
+      "value_rating": 32,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 7.0,
+        "lethality": 7.0,
+        "mobility": 7.0,
+        "utility": 3.0,
+        "accessibility": 8.0,
+        "overall": 32
       },
       "roles": [
         {
@@ -2736,14 +2785,14 @@
     {
       "name": "Phantom",
       "sheet": "Tier 3",
-      "value_rating": 0,
+      "value_rating": 25,
       "scores": {
-        "longevity": 0.0,
-        "lethality": -1.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 0
+        "longevity": 5.0,
+        "lethality": 3.0,
+        "mobility": 8.0,
+        "utility": 3.0,
+        "accessibility": 6.0,
+        "overall": 25
       },
       "roles": [
         {
@@ -2762,62 +2811,62 @@
           "footnote": ""
         }
       ],
-      "comments": "Phantom has to compete with Hellburner, Leech, and Blitz. While the teleporter is nice, it's worse in every other aspect."
+      "comments": "Phantom is essentially a Loki with brawling tendencies. Few bots are both as fast and tanky as it is; though it pays for it on the firepower department."
     }
   ],
   "titans": [
     {
       "name": "Kid",
-      "value_rating": -2,
+      "value_rating": 15,
       "scores": {
-        "longevity": -1.0,
-        "lethality": -2.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 3.0,
-        "overall": -2
+        "longevity": 1.0,
+        "lethality": 0.0,
+        "mobility": 2.0,
+        "utility": 2.0,
+        "accessibility": 10.0,
+        "overall": 15
       },
       "roles": [],
       "comments": "Kid is given for free. It's only worth using until you get any other titan to replace it with."
     },
     {
       "name": "Arthur",
-      "value_rating": -2,
+      "value_rating": 12,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -2
+        "longevity": 1.0,
+        "lethality": 1.0,
+        "mobility": 1.0,
+        "utility": 1.0,
+        "accessibility": 8.0,
+        "overall": 12
       },
       "roles": [],
       "comments": "T2 titans are not worth wasting platinum on. Their lack of specializations neuters their stats."
     },
     {
       "name": "Ao Ming",
-      "value_rating": -2,
+      "value_rating": 15,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": -2
+        "longevity": 0.0,
+        "lethality": 1.0,
+        "mobility": 4.0,
+        "utility": 2.0,
+        "accessibility": 8.0,
+        "overall": 15
       },
       "roles": [],
       "comments": "T2 titans are not worth wasting platinum on. Their lack of specializations neuters their stats."
     },
     {
       "name": "Nodens",
-      "value_rating": 1,
+      "value_rating": 29,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": 1.0,
-        "accessibility": 1.0,
-        "overall": 1
+        "longevity": 5.0,
+        "lethality": 6.0,
+        "mobility": 3.0,
+        "utility": 7.0,
+        "accessibility": 8.0,
+        "overall": 29
       },
       "roles": [
         {
@@ -2850,14 +2899,14 @@
     },
     {
       "name": "Minos",
-      "value_rating": 2,
+      "value_rating": 30,
       "scores": {
-        "longevity": 1.0,
-        "lethality": -1.0,
-        "mobility": 1.0,
-        "utility": 0.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 8.0,
+        "lethality": 3.0,
+        "mobility": 8.0,
+        "utility": 4.0,
+        "accessibility": 7.0,
+        "overall": 30
       },
       "roles": [
         {
@@ -2871,6 +2920,11 @@
           "footnote": ""
         },
         {
+          "role": "Early Drop",
+          "type": "secondary",
+          "footnote": ""
+        },
+        {
           "role": "Late Drop",
           "type": "primary",
           "footnote": ""
@@ -2880,14 +2934,14 @@
     },
     {
       "name": "Sharanga",
-      "value_rating": 0,
+      "value_rating": 23,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 1.0,
-        "mobility": -1.0,
-        "utility": 0.0,
-        "accessibility": 1.0,
-        "overall": 0
+        "longevity": 3.0,
+        "lethality": 7.0,
+        "mobility": 2.0,
+        "utility": 4.0,
+        "accessibility": 7.0,
+        "overall": 23
       },
       "roles": [
         {
@@ -2910,14 +2964,14 @@
     },
     {
       "name": "Murometz",
-      "value_rating": 1,
+      "value_rating": 30,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": -1.0,
-        "utility": 0.0,
-        "accessibility": 1.0,
-        "overall": 1
+        "longevity": 5.0,
+        "lethality": 7.0,
+        "mobility": 5.0,
+        "utility": 6.0,
+        "accessibility": 7.0,
+        "overall": 30
       },
       "roles": [
         {
@@ -2940,19 +2994,24 @@
     },
     {
       "name": "Luchador",
-      "value_rating": -1,
+      "value_rating": 19,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": -1.0,
-        "overall": -1
+        "longevity": 7.0,
+        "lethality": 5.0,
+        "mobility": 2.0,
+        "utility": 3.0,
+        "accessibility": 2.0,
+        "overall": 19
       },
       "roles": [
         {
           "role": "Brawler",
           "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Early Drop",
+          "type": "secondary",
           "footnote": ""
         },
         {
@@ -2965,14 +3024,14 @@
     },
     {
       "name": "Heimdall",
-      "value_rating": 1,
+      "value_rating": 26,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": 1.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 5.0,
+        "lethality": 4.0,
+        "mobility": 5.0,
+        "utility": 7.0,
+        "accessibility": 5.0,
+        "overall": 26
       },
       "roles": [
         {
@@ -3000,14 +3059,14 @@
     },
     {
       "name": "Indra",
-      "value_rating": 2,
+      "value_rating": 32,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 0.0,
-        "utility": 0.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 8.0,
+        "lethality": 6.0,
+        "mobility": 7.0,
+        "utility": 4.0,
+        "accessibility": 7.0,
+        "overall": 32
       },
       "roles": [
         {
@@ -3035,14 +3094,14 @@
     },
     {
       "name": "Aether",
-      "value_rating": 1,
+      "value_rating": 28,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 6.0,
+        "lethality": 7.0,
+        "mobility": 5.0,
+        "utility": 5.0,
+        "accessibility": 5.0,
+        "overall": 28
       },
       "roles": [
         {
@@ -3065,14 +3124,14 @@
     },
     {
       "name": "Sirius",
-      "value_rating": -2,
+      "value_rating": 25,
       "scores": {
-        "longevity": 0.0,
-        "lethality": -1.0,
-        "mobility": -1.0,
-        "utility": 0.0,
-        "accessibility": 0.0,
-        "overall": -2
+        "longevity": 6.0,
+        "lethality": 5.0,
+        "mobility": 4.0,
+        "utility": 5.0,
+        "accessibility": 5.0,
+        "overall": 25
       },
       "roles": [
         {
@@ -3100,14 +3159,14 @@
     },
     {
       "name": "Rook",
-      "value_rating": -1,
+      "value_rating": 24,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": -1.0,
-        "accessibility": -1.0,
-        "overall": -1
+        "longevity": 5.0,
+        "lethality": 5.0,
+        "mobility": 8.0,
+        "utility": 1.0,
+        "accessibility": 5.0,
+        "overall": 24
       },
       "roles": [
         {
@@ -3130,14 +3189,14 @@
     },
     {
       "name": "Newton",
-      "value_rating": 2,
+      "value_rating": 30,
       "scores": {
-        "longevity": -1.0,
-        "lethality": 1.0,
-        "mobility": -1.0,
-        "utility": 2.0,
-        "accessibility": 1.0,
-        "overall": 2
+        "longevity": 2.0,
+        "lethality": 8.0,
+        "mobility": 2.0,
+        "utility": 9.0,
+        "accessibility": 9.0,
+        "overall": 30
       },
       "roles": [
         {
@@ -3165,14 +3224,14 @@
     },
     {
       "name": "Eiffel",
-      "value_rating": 2,
+      "value_rating": 30,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 2.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": -1.0,
-        "overall": 2
+        "longevity": 6.0,
+        "lethality": 10.0,
+        "mobility": 9.0,
+        "utility": 2.0,
+        "accessibility": 3.0,
+        "overall": 30
       },
       "roles": [
         {
@@ -3200,14 +3259,14 @@
     },
     {
       "name": "Bedwyr",
-      "value_rating": 3,
+      "value_rating": 33,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": -1.0,
-        "utility": 2.0,
-        "accessibility": 1.0,
-        "overall": 3
+        "longevity": 8.0,
+        "lethality": 6.0,
+        "mobility": 2.0,
+        "utility": 9.0,
+        "accessibility": 8.0,
+        "overall": 33
       },
       "roles": [
         {
@@ -3235,14 +3294,14 @@
     },
     {
       "name": "Bersagliere",
-      "value_rating": 3,
+      "value_rating": 35,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 2.0,
-        "utility": -1.0,
-        "accessibility": 1.0,
-        "overall": 3
+        "longevity": 7.0,
+        "lethality": 8.0,
+        "mobility": 10.0,
+        "utility": 2.0,
+        "accessibility": 8.0,
+        "overall": 35
       },
       "roles": [
         {
@@ -3275,14 +3334,14 @@
     },
     {
       "name": "Mauler",
-      "value_rating": 2,
+      "value_rating": 33,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 2.0,
-        "mobility": 1.0,
-        "utility": 0.0,
-        "accessibility": -1.0,
-        "overall": 2
+        "longevity": 6.0,
+        "lethality": 10.0,
+        "mobility": 7.0,
+        "utility": 7.0,
+        "accessibility": 3.0,
+        "overall": 33
       },
       "roles": [
         {
@@ -3310,14 +3369,14 @@
     },
     {
       "name": "Devourer",
-      "value_rating": 1,
+      "value_rating": 33,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": -1.0,
-        "utility": 1.0,
-        "accessibility": 0.0,
-        "overall": 1
+        "longevity": 6.0,
+        "lethality": 8.0,
+        "mobility": 3.0,
+        "utility": 8.0,
+        "accessibility": 8.0,
+        "overall": 33
       },
       "roles": [
         {
@@ -3350,14 +3409,14 @@
     },
     {
       "name": "Bjorn",
-      "value_rating": 0,
+      "value_rating": 24,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": -1.0,
-        "accessibility": -1.0,
-        "overall": 0
+        "longevity": 8.0,
+        "lethality": 6.0,
+        "mobility": 4.0,
+        "utility": 3.0,
+        "accessibility": 3.0,
+        "overall": 24
       },
       "roles": [
         {
@@ -3385,14 +3444,14 @@
     },
     {
       "name": "Atlas",
-      "value_rating": 3,
+      "value_rating": 35,
       "scores": {
-        "longevity": 1.0,
-        "lethality": 0.0,
-        "mobility": 1.0,
-        "utility": 1.0,
-        "accessibility": 0.0,
-        "overall": 3
+        "longevity": 8.0,
+        "lethality": 5.0,
+        "mobility": 7.0,
+        "utility": 8.0,
+        "accessibility": 7.0,
+        "overall": 35
       },
       "roles": [
         {
@@ -3425,14 +3484,14 @@
     },
     {
       "name": "Princeps",
-      "value_rating": 1,
+      "value_rating": 30,
       "scores": {
-        "longevity": 2.0,
-        "lethality": 1.0,
-        "mobility": -1.0,
-        "utility": 1.0,
-        "accessibility": -2.0,
-        "overall": 1
+        "longevity": 10.0,
+        "lethality": 7.0,
+        "mobility": 4.0,
+        "utility": 8.0,
+        "accessibility": 1.0,
+        "overall": 30
       },
       "roles": [
         {
@@ -3470,14 +3529,14 @@
     },
     {
       "name": "Waymaker",
-      "value_rating": 2,
+      "value_rating": 32,
       "scores": {
-        "longevity": 0.0,
-        "lethality": 1.0,
-        "mobility": 0.0,
-        "utility": 3.0,
-        "accessibility": -2.0,
-        "overall": 2
+        "longevity": 6.0,
+        "lethality": 9.0,
+        "mobility": 6.0,
+        "utility": 10.0,
+        "accessibility": 1.0,
+        "overall": 32
       },
       "roles": [
         {
@@ -3771,13 +3830,7 @@
       "builds": []
     }
   ],
-  "footnotes": [
-    "*Only with Traditionalist pilot skill",
-    "**Only with level 9 (or higher) Freezo drone",
-    "***Only with Lock-down Ammo module or Paralysis drone",
-    "****Only with level 9 (or higher) Myia",
-    "*****Only with level 12 Webby"
-  ],
+  "footnotes": [],
   "rating_colors": {
     "<= -2": "#ff0000",
     "-1": "#ff8000",

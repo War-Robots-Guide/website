@@ -33,7 +33,7 @@ export function GuideFilters({
         <option value="All">All Value Ratings</option>
         {availableRatings.map(rating => (
           <option key={rating} value={rating}>
-            Value Rating {rating > 0 ? `+${rating}` : rating}
+            Value Rating {rating}
           </option>
         ))}
       </select>
@@ -87,12 +87,9 @@ export function GuideFilters({
           onChange={(e) => setMinScoreFilter(e.target.value)}
         >
           <option value="All">Any Score</option>
-          <option value="-2">-2 or better</option>
-          <option value="-1">-1 or better</option>
-          <option value="0">0 or better</option>
-          <option value="1">+1 or better</option>
-          <option value="2">+2 or better</option>
-          <option value="3">+3 or better</option>
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(score => (
+            <option key={score} value={score}>{score} or better</option>
+          ))}
         </select>
       )}
 

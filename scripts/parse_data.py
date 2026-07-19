@@ -480,7 +480,7 @@ def extract_rating_colors(wb):
     }
 
 def parse_robot_guide():
-    filepath = find_file_case_insensitive("The Simplified WR Guide for New Players.xlsx")
+    filepath = find_file_case_insensitive("The Simplified WR Guide for New Players, 1-10 Ver_.xlsx")
     
     wb = openpyxl.load_workbook(filepath, data_only=True)
 

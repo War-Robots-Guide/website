@@ -14,20 +14,20 @@ export function DashboardTab({ onItemClick }) {
   const featuredRobots = useMemo(() => {
     if (!robotGuideData?.robots) return [];
 
-    // 1. Get F2P friendly robots (value_rating >= 3)
+    // 1. Get F2P friendly robots (value_rating >= 31)
     const f2p = robotGuideData.robots
-      .filter(r => r.value_rating >= 3)
+      .filter(r => r.value_rating >= 31)
       .sort((a, b) => b.value_rating - a.value_rating)
       .slice(0, 6)
       .map(r => ({ ...r, isMeta: false }));
 
-    // 2. Get Meta robots (Tier X from tiersData, and value_rating < 3)
+    // 2. Get Meta robots (Tier X from tiersData, and value_rating < 31)
     const tierXNames = new Set(
       tiersData?.Robots?.X?.items?.map(item => item.name.toLowerCase()) || []
     );
 
     const meta = robotGuideData.robots
-      .filter(r => r.value_rating < 3 && tierXNames.has(r.name.toLowerCase()))
+      .filter(r => r.value_rating < 31 && tierXNames.has(r.name.toLowerCase()))
       .sort((a, b) => {
         const overallDiff = b.scores.overall - a.scores.overall;
         if (overallDiff !== 0) return overallDiff;

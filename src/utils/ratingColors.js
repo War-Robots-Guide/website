@@ -13,12 +13,21 @@ const defaultColors = {
 const colors = (robotGuideData && robotGuideData.rating_colors) || defaultColors;
 
 export const getRatingColor = (val) => {
-  if (val <= -1.5) return colors["<= -2"];
-  if (val <= -0.5) return colors["-1"];
-  if (val <= 0.5) return colors["0"];
-  if (val <= 1.5) return colors["+1"];
-  if (val <= 2.5) return colors["+2"];
-  return colors[">= +3"];
+  if (val <= 10) {
+    if (val <= 2) return colors["<= -2"];
+    if (val <= 4) return colors["-1"];
+    if (val <= 6) return colors["0"];
+    if (val <= 7) return colors["+1"];
+    if (val <= 8) return colors["+2"];
+    return colors[">= +3"];
+  } else {
+    if (val <= 15) return colors["<= -2"];
+    if (val <= 20) return colors["-1"];
+    if (val <= 25) return colors["0"];
+    if (val <= 30) return colors["+1"];
+    if (val <= 35) return colors["+2"];
+    return colors[">= +3"];
+  }
 };
 
 export const getRatingColorsList = () => {

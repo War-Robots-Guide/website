@@ -5,44 +5,42 @@ import { RatingBar } from './RatingBar';
 describe('RatingBar Component', () => {
   describe('default unitType (robot)', () => {
     it('renders correctly with a standard positive rating', () => {
-      const { container } = render(<RatingBar rating={2} />);
+      const { container } = render(<RatingBar rating={28} />);
 
-      // Should show the correct label for rating 2
-      expect(screen.getByText('Good (+2)')).toBeInTheDocument();
+      // Should show the correct label for rating 28 (Fair)
+      expect(screen.getByText('Fair (28)')).toBeInTheDocument();
 
-      // Calculate expected percentage: ((2 - -2) / (3 - -2)) * 100 = 80%
+      // Calculate expected percentage: ((28 - 0) / (35 - 0)) * 100 = 80%
       const markerElement = container.querySelector('div[style*="position: absolute"]');
       expect(markerElement).toHaveStyle({ left: '80%' });
     });
 
-    it('renders correctly with a negative rating', () => {
-      const { container } = render(<RatingBar rating={-1} />);
+    it('renders correctly with a negative/low rating', () => {
+      const { container } = render(<RatingBar rating={7} />);
 
-      expect(screen.getByText('Bad (-1)')).toBeInTheDocument();
+      expect(screen.getByText('Horrible (7)')).toBeInTheDocument();
 
-      // Calculate expected percentage: ((-1 - -2) / (3 - -2)) * 100 = 20%
+      // Calculate expected percentage: ((7 - 0) / (35 - 0)) * 100 = 20%
       const markerElement = container.querySelector('div[style*="position: absolute"]');
       expect(markerElement).toHaveStyle({ left: '20%' });
     });
 
     it('clamps rating to upper bound visually but shows dynamic label', () => {
-      const { container } = render(<RatingBar rating={10} />);
+      const { container } = render(<RatingBar rating={44} />);
 
-      // Upper bounds are dynamic now in label
-      expect(screen.getByText('Best (+10)')).toBeInTheDocument();
+      expect(screen.getByText('Excellent (44)')).toBeInTheDocument();
 
-      // Calculate expected percentage capped at 118% visual overflow
+      // Calculate expected percentage: 100 + (44 - 35) * 1.2 = 110.8% visual overflow
       const markerElement = container.querySelector('div[style*="position: absolute"]');
-      expect(markerElement).toHaveStyle({ left: '118%' });
+      expect(markerElement).toHaveStyle({ left: '110.8%' });
     });
 
     it('clamps rating to lower bound visually but shows dynamic label', () => {
       const { container } = render(<RatingBar rating={-5} />);
 
-      // Lower bounds are dynamic now in label
       expect(screen.getByText('Horrible (-5)')).toBeInTheDocument();
 
-      // Calculate expected percentage capped at -2: ((-2 - -2) / (3 - -2)) * 100 = 0%
+      // Calculate expected percentage capped at 0: ((0 - 0) / (35 - 0)) * 100 = 0%
       const markerElement = container.querySelector('div[style*="position: absolute"]');
       expect(markerElement).toHaveStyle({ left: '0%' });
     });
@@ -50,25 +48,21 @@ describe('RatingBar Component', () => {
 
   describe('unitType "titan"', () => {
     it('renders correctly with a standard positive rating', () => {
-      const { container } = render(<RatingBar rating={2} unitType="titan" />);
+      const { container } = render(<RatingBar rating={28} unitType="titan" />);
 
-      // For titan, rating 2 is "Very Good (+2)"
-      expect(screen.getByText('Very Good (+2)')).toBeInTheDocument();
+      expect(screen.getByText('Fair (28)')).toBeInTheDocument();
 
-      // Calculate expected percentage: ((2 - -2) / (3 - -2)) * 100 = (4 / 5) * 100 = 80%
       const markerElement = container.querySelector('div[style*="position: absolute"]');
       expect(markerElement).toHaveStyle({ left: '80%' });
     });
 
     it('clamps rating to upper bound visually but shows dynamic label', () => {
-      const { container } = render(<RatingBar rating={5} unitType="titan" />);
+      const { container } = render(<RatingBar rating={44} unitType="titan" />);
 
-      // Upper bound shows actual value
-      expect(screen.getByText('Best (+5)')).toBeInTheDocument();
+      expect(screen.getByText('Excellent (44)')).toBeInTheDocument();
 
-      // Calculate expected percentage: 109% visual overflow
       const markerElement = container.querySelector('div[style*="position: absolute"]');
-      expect(markerElement).toHaveStyle({ left: '109%' });
+      expect(markerElement).toHaveStyle({ left: '110.8%' });
     });
   });
 

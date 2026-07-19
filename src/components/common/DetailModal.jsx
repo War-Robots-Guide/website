@@ -245,12 +245,12 @@ export function DetailModal({ selectedItem, onClose }) {
                   )}
                   <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
                   <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
-                    <ScoreMeter label="Longevity" score={rob.scores.longevity} />
-                    <ScoreMeter label="Lethality" score={rob.scores.lethality} />
-                    <ScoreMeter label="Mobility" score={rob.scores.mobility} />
-                    <ScoreMeter label="Utility" score={rob.scores.utility} />
-                    <ScoreMeter label="Accessibility" score={rob.scores.accessibility} />
-                    <ScoreMeter label="Overall Score" score={rob.scores.overall} />
+                    <ScoreMeter label="Longevity" score={rob.scores.longevity} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Lethality" score={rob.scores.lethality} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Mobility" score={rob.scores.mobility} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Utility" score={rob.scores.utility} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Accessibility" score={rob.scores.accessibility} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Overall Score" score={rob.scores.overall} options={{ min: 0, max: 35 }} />
                   </div>
                 </>
               ) : null}
@@ -327,12 +327,12 @@ export function DetailModal({ selectedItem, onClose }) {
                   )}
                   <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
                   <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
-                    <ScoreMeter label="Longevity" score={titan.scores.longevity} />
-                    <ScoreMeter label="Lethality" score={titan.scores.lethality} />
-                    <ScoreMeter label="Mobility" score={titan.scores.mobility} />
-                    <ScoreMeter label="Utility" score={titan.scores.utility} />
-                    <ScoreMeter label="Accessibility" score={titan.scores.accessibility} />
-                    <ScoreMeter label="Overall Score" score={titan.scores.overall} />
+                    <ScoreMeter label="Longevity" score={titan.scores.longevity} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Lethality" score={titan.scores.lethality} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Mobility" score={titan.scores.mobility} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Utility" score={titan.scores.utility} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Accessibility" score={titan.scores.accessibility} options={{ min: 0, max: 10 }} />
+                    <ScoreMeter label="Overall Score" score={titan.scores.overall} options={{ min: 0, max: 35 }} />
                   </div>
                 </>
               ) : null}

@@ -13,7 +13,7 @@ vi.mock('../../data/robot_guide.json', () => ({
     robots: [
       {
         name: 'Destrier',
-        value_rating: 4,
+        value_rating: 34,
         comments: 'Classic starter robot with decent speed.',
         roles: [{ role: 'Beacon Runner', type: 'primary' }]
       }

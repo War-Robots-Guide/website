@@ -3,13 +3,13 @@ import { getRatingColor } from '../../utils/ratingColors';
 
 export function ScoreMeter({ label, score, options = {} }) {
   const {
-    min = -2,
-    max = 3,
+    min = 0,
+    max = 10,
     customValueLabel = null,
     customPercentage = null,
     customFillColor = null,
     customBadge = null,
-    useScaleLabel = true
+    useScaleLabel = false
   } = options;
 
   const scoreVal = parseInt(score) || 0;
@@ -19,7 +19,7 @@ export function ScoreMeter({ label, score, options = {} }) {
 
   const isNegative = scoreVal < 0;
   const fillColor = customFillColor || getRatingColor(scoreVal);
-  const isBroken = scoreVal > 3;
+  const isBroken = scoreVal > max;
 
 
   

@@ -18,40 +18,36 @@ import { getRatingColor, getRatingColorsList } from './ratingColors';
 
 describe('ratingColors utility', () => {
   describe('getRatingColor', () => {
-    it('returns the <= -2 color for values <= -1.5', () => {
-      expect(getRatingColor(-2)).toBe('#mock_red');
-      expect(getRatingColor(-1.5)).toBe('#mock_red');
-      expect(getRatingColor(-5)).toBe('#mock_red');
+    describe('attribute ratings (<= 10)', () => {
+      it('returns correct colors based on range thresholds', () => {
+        expect(getRatingColor(1)).toBe('#mock_red');
+        expect(getRatingColor(2)).toBe('#mock_red');
+        expect(getRatingColor(3)).toBe('#mock_orange');
+        expect(getRatingColor(4)).toBe('#mock_orange');
+        expect(getRatingColor(5)).toBe('#mock_yellow');
+        expect(getRatingColor(6)).toBe('#mock_yellow');
+        expect(getRatingColor(7)).toBe('#mock_lime');
+        expect(getRatingColor(8)).toBe('#mock_green');
+        expect(getRatingColor(9)).toBe('#mock_blue');
+        expect(getRatingColor(10)).toBe('#mock_blue');
+      });
     });
 
-    it('returns the -1 color for values <= -0.5 and > -1.5', () => {
-      expect(getRatingColor(-1.4)).toBe('#mock_orange');
-      expect(getRatingColor(-1)).toBe('#mock_orange');
-      expect(getRatingColor(-0.5)).toBe('#mock_orange');
-    });
-
-    it('returns the 0 color for values <= 0.5 and > -0.5', () => {
-      expect(getRatingColor(-0.4)).toBe('#mock_yellow');
-      expect(getRatingColor(0)).toBe('#mock_yellow');
-      expect(getRatingColor(0.5)).toBe('#mock_yellow');
-    });
-
-    it('returns the +1 color for values <= 1.5 and > 0.5', () => {
-      expect(getRatingColor(0.6)).toBe('#mock_lime');
-      expect(getRatingColor(1)).toBe('#mock_lime');
-      expect(getRatingColor(1.5)).toBe('#mock_lime');
-    });
-
-    it('returns the +2 color for values <= 2.5 and > 1.5', () => {
-      expect(getRatingColor(1.6)).toBe('#mock_green');
-      expect(getRatingColor(2)).toBe('#mock_green');
-      expect(getRatingColor(2.5)).toBe('#mock_green');
-    });
-
-    it('returns the >= +3 color for values > 2.5', () => {
-      expect(getRatingColor(2.6)).toBe('#mock_blue');
-      expect(getRatingColor(3)).toBe('#mock_blue');
-      expect(getRatingColor(10)).toBe('#mock_blue');
+    describe('overall ratings (> 10)', () => {
+      it('returns correct colors based on range thresholds', () => {
+        expect(getRatingColor(12)).toBe('#mock_red');
+        expect(getRatingColor(15)).toBe('#mock_red');
+        expect(getRatingColor(16)).toBe('#mock_orange');
+        expect(getRatingColor(20)).toBe('#mock_orange');
+        expect(getRatingColor(21)).toBe('#mock_yellow');
+        expect(getRatingColor(25)).toBe('#mock_yellow');
+        expect(getRatingColor(26)).toBe('#mock_lime');
+        expect(getRatingColor(30)).toBe('#mock_lime');
+        expect(getRatingColor(31)).toBe('#mock_green');
+        expect(getRatingColor(35)).toBe('#mock_green');
+        expect(getRatingColor(36)).toBe('#mock_blue');
+        expect(getRatingColor(44)).toBe('#mock_blue');
+      });
     });
   });
 

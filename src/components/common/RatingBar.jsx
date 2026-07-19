@@ -2,52 +2,33 @@
 import { getRatingColor, getRatingColorsList } from '../../utils/ratingColors';
 
 export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
-  const isTitan = unitType === 'titan';
-  const minVal = -2;
-  const maxVal = 3;
+  const minVal = 0;
+  const maxVal = 35;
   
-  // Calculate percentage: 20% per step <= 3, and 10% per step > 3.
-  // For ratings > 3, we dynamically scale the visual overflow percentage up to 118%
-  // so that higher ratings (+5, +7) get progressively longer visible cyan laser beams,
-  // while staying safely inside the card container limits to prevent clipping.
   let percentage;
-  if (rating <= 3) {
+  if (rating <= 35) {
     const clampedRating = Math.max(minVal, rating);
     percentage = Math.max(0, ((clampedRating - minVal) / (maxVal - minVal)) * 100);
   } else {
-    const maxRating = isTitan ? 5 : 7;
+    const maxRating = 50;
     const clampedRating = Math.min(maxRating, rating);
-    // rating 4 -> 104.5%
-    // rating 5 -> 109%
-    // rating 6 -> 113.5%
-    // rating 7 -> 118%
-    percentage = 100 + (clampedRating - 3) * 4.5;
+    percentage = 100 + (clampedRating - 35) * 1.2;
   }
   
   const getRatingLabel = (val) => {
-    const formattedVal = val > 0 ? `+${val}` : val;
-    if (isTitan) {
-      if (val <= -2) return `Horrible (${formattedVal})`;
-      if (val === -1) return 'Bad (-1)';
-      if (val === 0) return 'Poor (0)';
-      if (val === 1) return 'Fair (+1)';
-      if (val === 2) return 'Very Good (+2)';
-      return `Best (${formattedVal})`;
-    } else {
-      if (val <= -2) return `Horrible (${formattedVal})`;
-      if (val === -1) return 'Bad (-1)';
-      if (val === 0) return 'Poor (0)';
-      if (val === 1) return 'Fair (+1)';
-      if (val === 2) return 'Good (+2)';
-      if (val === 3) return 'Very Good (+3)';
-      if (val === 4) return 'Excellent (+4)';
-      return `Best (${formattedVal})`;
-    }
+    if (val <= 15) return `Horrible (${val})`;
+    if (val <= 20) return `Bad (${val})`;
+    if (val <= 25) return `Poor (${val})`;
+    if (val <= 30) return `Fair (${val})`;
+    if (val <= 35) return `Good (${val})`;
+    if (val <= 40) return `Very Good (${val})`;
+    if (val <= 45) return `Excellent (${val})`;
+    return `Best (${val})`;
   };
 
   const colorsList = getRatingColorsList();
 
-  const isBroken = rating > 3;
+  const isBroken = rating > 35;
 
   return (
     <div style={{ 

@@ -4,26 +4,26 @@ import { ScoreMeter } from './ScoreMeter';
 
 describe('ScoreMeter Component', () => {
   it('renders correctly with required props', () => {
-    const { container } = render(<ScoreMeter label="Test Label" score={0} />);
+    const { container } = render(<ScoreMeter label="Test Label" score={5} />);
 
     // Check if the label is rendered
     expect(screen.getByText('Test Label')).toBeInTheDocument();
 
-    // Check if the score is rendered (since useScaleLabel is true by default, score > 0 will have '+', but 0 is just '0')
-    expect(screen.getByText('0')).toBeInTheDocument();
+    // Check if the score is rendered (since useScaleLabel is false by default, score is just '5')
+    expect(screen.getByText('5')).toBeInTheDocument();
 
-    // The percentage formula: Math.max(0, Math.min(100, ((0 - -2) / (3 - -2)) * 100)) = (2/5)*100 = 40%
+    // The percentage formula: Math.max(0, Math.min(100, ((5 - 0) / (10 - 0)) * 100)) = 50%
     const fillElement = container.querySelector('.score-fill');
-    expect(fillElement).toHaveStyle({ width: '40%' });
+    expect(fillElement).toHaveStyle({ width: '50%' });
   });
 
-  it('renders correctly with a positive score and scale label', () => {
-    const { container } = render(<ScoreMeter label="Test Label" score={2} />);
+  it('renders correctly with a positive score and scale label when enabled', () => {
+    const { container } = render(<ScoreMeter label="Test Label" score={8} options={{ useScaleLabel: true }} />);
 
-    // Score should have a '+' prefix
-    expect(screen.getByText('+2')).toBeInTheDocument();
+    // Score should have a '+' prefix when enabled
+    expect(screen.getByText('+8')).toBeInTheDocument();
 
-    // The percentage formula: Math.max(0, Math.min(100, ((2 - -2) / (3 - -2)) * 100)) = (4/5)*100 = 80%
+    // The percentage formula: Math.max(0, Math.min(100, ((8 - 0) / (10 - 0)) * 100)) = 80%
     const fillElement = container.querySelector('.score-fill');
     expect(fillElement).toHaveStyle({ width: '80%' });
     expect(fillElement).not.toHaveClass('negative');
@@ -35,15 +35,15 @@ describe('ScoreMeter Component', () => {
     // Score should just be '-1'
     expect(screen.getByText('-1')).toBeInTheDocument();
 
-    // The percentage formula: Math.max(0, Math.min(100, ((-1 - -2) / (3 - -2)) * 100)) = (1/5)*100 = 20%
+    // The percentage formula: Math.max(0, Math.min(100, ((-1 - 0) / (10 - 0)) * 100)) = 0%
     const fillElement = container.querySelector('.score-fill');
-    expect(fillElement).toHaveStyle({ width: '20%' });
+    expect(fillElement).toHaveStyle({ width: '0%' });
     expect(fillElement).toHaveClass('negative');
   });
 
   it('handles score parsed as string', () => {
-    render(<ScoreMeter label="Test Label" score="2" />);
-    expect(screen.getByText('+2')).toBeInTheDocument();
+    render(<ScoreMeter label="Test Label" score="8" />);
+    expect(screen.getByText('8')).toBeInTheDocument();
   });
 
   it('handles non-integer score gracefully (falls back to 0)', () => {
