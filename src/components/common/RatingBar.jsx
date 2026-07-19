@@ -1,7 +1,7 @@
 
 import { getRatingColor, getRatingColorsList } from '../../utils/ratingColors';
 
-export function RatingBar({ rating, unitType = 'robot', align = 'left' }) {
+export function RatingBar({ rating, align = 'left' }) {
   const minVal = 0;
   const maxVal = 35;
   

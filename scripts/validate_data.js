@@ -162,7 +162,7 @@ function validateRobotGuide(data) {
   });
 }
 
-function validateScores(scores, path, unitType = 'robot') {
+function validateScores(scores, path) {
   const scoreObj = expectObject(scores, path);
   for (const key of ['longevity', 'lethality', 'mobility', 'utility', 'accessibility']) {
     expectNumberInRange(scoreObj[key], `${path}.${key}`, 0, 10);
