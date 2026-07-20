@@ -28,8 +28,6 @@ export function RatingBar({ rating, align = 'left' }) {
 
   const colorsList = getRatingColorsList();
 
-  const isBroken = rating > 35;
-
   return (
     <div style={{ 
       display: 'flex', 
@@ -52,12 +50,11 @@ export function RatingBar({ rating, align = 'left' }) {
       }}>
         {/* Main Bar Fill */}
         <div 
-          className={isBroken ? 'rating-bar-shattered' : ''}
           style={{
             width: '100%', 
             height: '100%', 
             borderRadius: '3px', 
-            background: `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[1]} 20%, ${colorsList[2]} 40%, ${colorsList[3]} 60%, ${colorsList[4]} 80%, ${colorsList[5]} 100%)`, 
+            background: `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[2]} 50%, ${colorsList[4]} 100%)`, 
           }}
         />
         {/* Needle */}
@@ -71,36 +68,11 @@ export function RatingBar({ rating, align = 'left' }) {
             height: 0,
             borderLeft: '4px solid transparent',
             borderRight: '4px solid transparent',
-            borderTop: `6px solid ${isBroken ? '#06b6d4' : '#fff'}`,
-            filter: isBroken
-              ? `drop-shadow(0 0 5px #06b6d4) drop-shadow(0 2px 4px rgba(0,0,0,0.5))`
-              : 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))',
+            borderTop: '6px solid #fff',
+            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.5))',
             zIndex: 2
           }}
         ></div>
-        
-        {/* Shatter & Spill overlay effects */}
-        {isBroken && (
-          <>
-            {/* Spilled Blue Flow/Trail to Needle */}
-            <div className="blue-spill-flow" style={{
-              position: 'absolute',
-              left: '90%',
-              top: '1px',
-              width: `${percentage - 90}%`,
-              height: '4px',
-              background: `linear-gradient(to right, #06b6d4 35%, rgba(6, 182, 212, 0.4) 70%, rgba(6, 182, 212, 0) 100%)`,
-              zIndex: 1,
-              borderRadius: '2px',
-              transformOrigin: 'left center'
-            }} />
-
-            {/* Shards breaking off */}
-            <div className="bar-shard shard-1" style={{ background: '#06b6d4' }} />
-            <div className="bar-shard shard-2" style={{ background: '#06b6d4' }} />
-            <div className="bar-shard shard-3" style={{ background: '#06b6d4' }} />
-          </>
-        )}
       </div>
     </div>
   );

@@ -19,9 +19,6 @@ export function ScoreMeter({ label, score, options = {} }) {
 
   const isNegative = scoreVal < 0;
   const fillColor = customFillColor || getRatingColor(scoreVal);
-  const isBroken = scoreVal > max;
-
-
   
   return (
     <div className="score-bar-wrapper">
@@ -36,12 +33,9 @@ export function ScoreMeter({ label, score, options = {} }) {
           </div>
         ) : (
           <span 
-            className={isBroken ? 'shake-text' : ''}
             style={{ 
               fontWeight: 700, 
-              color: fillColor,
-              display: isBroken ? 'inline-block' : 'inline',
-              filter: isBroken ? `drop-shadow(0 0 4px ${fillColor})` : 'none'
+              color: fillColor
             }}
           >
             {useScaleLabel ? (scoreVal > 0 ? `+${scoreVal}` : scoreVal) : scoreVal}
