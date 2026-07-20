@@ -6,6 +6,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
 import { getTierForName, getFootnoteText } from '../../utils/tierLookup';
+import { getOverallScoreRange } from '../../utils/ratingColors';
 
 // Pre-compute lookup data outside the component to avoid recreating it on every render.
 const weaponsList = weaponsDpsData ? Object.values(weaponsDpsData).flat() : [];
@@ -31,6 +32,8 @@ const precomputedTitans = robotGuideData?.titans ? robotGuideData.titans.map(t =
     isUe: cleanName.startsWith('ue ')
   };
 }) : [];
+
+const { min: overallMin, max: overallMax } = getOverallScoreRange();
 
 export function DetailModal({ selectedItem, onClose }) {
   const tier = useMemo(() => {
@@ -250,7 +253,7 @@ export function DetailModal({ selectedItem, onClose }) {
                     <ScoreMeter label="Mobility" score={rob.scores.mobility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Utility" score={rob.scores.utility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Accessibility" score={rob.scores.accessibility} options={{ min: 0, max: 10 }} />
-                    <ScoreMeter label="Overall Score" score={rob.scores.overall} options={{ min: 0, max: 50 }} />
+                     <ScoreMeter label="Overall Score" score={rob.scores.overall} options={{ min: overallMin, max: overallMax }} />
                   </div>
                 </>
               ) : null}
@@ -332,7 +335,7 @@ export function DetailModal({ selectedItem, onClose }) {
                     <ScoreMeter label="Mobility" score={titan.scores.mobility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Utility" score={titan.scores.utility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Accessibility" score={titan.scores.accessibility} options={{ min: 0, max: 10 }} />
-                    <ScoreMeter label="Overall Score" score={titan.scores.overall} options={{ min: 0, max: 50 }} />
+                     <ScoreMeter label="Overall Score" score={titan.scores.overall} options={{ min: overallMin, max: overallMax }} />
                   </div>
                 </>
               ) : null}

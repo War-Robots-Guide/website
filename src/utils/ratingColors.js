@@ -21,11 +21,10 @@ export const getRatingColor = (val) => {
     if (val <= 8) return colors["+2"];
     return colors[">= +3"];
   } else {
-    if (val <= 15) return colors["<= -2"];
-    if (val <= 20) return colors["-1"];
-    if (val <= 25) return colors["0"];
-    if (val <= 30) return colors["+1"];
-    if (val <= 35) return colors["+2"];
+    if (val <= 20) return colors["<= -2"];
+    if (val <= 25) return colors["-1"];
+    if (val <= 30) return colors["0"];
+    if (val <= 34) return colors["+2"];
     return colors[">= +3"];
   }
 };
@@ -39,4 +38,38 @@ export const getRatingColorsList = () => {
     colors["+2"],
     colors[">= +3"]
   ];
+};
+
+export const getValueRatingRange = () => {
+  const robots = robotGuideData?.robots || [];
+  const titans = robotGuideData?.titans || [];
+  const ratings = [
+    ...robots.map(r => r.value_rating),
+    ...titans.map(t => t.value_rating)
+  ].filter(val => typeof val === 'number' && !isNaN(val));
+  
+  if (ratings.length === 0) {
+    return { min: 12, max: 44 };
+  }
+  return {
+    min: Math.min(...ratings),
+    max: Math.max(...ratings)
+  };
+};
+
+export const getOverallScoreRange = () => {
+  const robots = robotGuideData?.robots || [];
+  const titans = robotGuideData?.titans || [];
+  const scores = [
+    ...robots.map(r => r.scores?.overall),
+    ...titans.map(t => t.scores?.overall)
+  ].filter(val => typeof val === 'number' && !isNaN(val));
+  
+  if (scores.length === 0) {
+    return { min: 12, max: 44 };
+  }
+  return {
+    min: Math.min(...scores),
+    max: Math.max(...scores)
+  };
 };

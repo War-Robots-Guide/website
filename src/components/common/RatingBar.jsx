@@ -1,25 +1,42 @@
-
-import { getRatingColor, getRatingColorsList } from '../../utils/ratingColors';
+import { getRatingColor, getRatingColorsList, getValueRatingRange } from '../../utils/ratingColors';
 
 export function RatingBar({ rating, align = 'left' }) {
-  const minVal = 0;
-  const maxVal = 50;
+  const { min: minVal, max: maxVal } = getValueRatingRange();
   
   const clampedRating = Math.max(minVal, Math.min(maxVal, rating));
   const percentage = Math.round(((clampedRating - minVal) / (maxVal - minVal)) * 10000) / 100;
   
   const getRatingLabel = (val) => {
-    if (val <= 15) return `Horrible (${val})`;
     if (val <= 20) return `Bad (${val})`;
     if (val <= 25) return `Poor (${val})`;
     if (val <= 30) return `Fair (${val})`;
-    if (val <= 35) return `Good (${val})`;
-    if (val <= 40) return `Very Good (${val})`;
-    if (val <= 45) return `Excellent (${val})`;
+    if (val <= 34) return `Good (${val})`;
     return `Best (${val})`;
   };
 
   const colorsList = getRatingColorsList();
+
+  const getGradientStops = () => {
+    const range = maxVal - minVal;
+    if (range <= 0) {
+      return `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[5]} 100%)`;
+    }
+    const pRed = Math.max(0, Math.min(100, ((20 - minVal) / range) * 100));
+    const pOrange = Math.max(0, Math.min(100, ((25 - minVal) / range) * 100));
+    const pYellow = Math.max(0, Math.min(100, ((30 - minVal) / range) * 100));
+    const pGreen = Math.max(0, Math.min(100, ((34 - minVal) / range) * 100));
+    const pCyan = Math.max(0, Math.min(100, ((35 - minVal) / range) * 100));
+    
+    return `linear-gradient(to right, 
+      ${colorsList[0]} 0%, 
+      ${colorsList[0]} ${pRed.toFixed(2)}%, 
+      ${colorsList[1]} ${pOrange.toFixed(2)}%, 
+      ${colorsList[2]} ${pYellow.toFixed(2)}%, 
+      ${colorsList[4]} ${pGreen.toFixed(2)}%, 
+      ${colorsList[5]} ${pCyan.toFixed(2)}%, 
+      ${colorsList[5]} 100%
+    )`;
+  };
 
   return (
     <div style={{ 
@@ -47,7 +64,7 @@ export function RatingBar({ rating, align = 'left' }) {
             width: '100%', 
             height: '100%', 
             borderRadius: '3px', 
-            background: `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[1]} 20%, ${colorsList[2]} 40%, ${colorsList[3]} 60%, ${colorsList[4]} 80%, ${colorsList[5]} 100%)`, 
+            background: getGradientStops(), 
           }}
         />
         {/* Needle */}
