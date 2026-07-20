@@ -94,7 +94,7 @@ export function DashboardTab({ onItemClick }) {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <CommunityLinks />
-          <Changelog recentChangelog={recentChangelog} />
+          <Changelog recentChangelog={recentChangelog} style={{ flex: 1 }} />
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@ describe('Changelog Component', () => {
     expect(screen.queryByText(/2023-/)).not.toBeInTheDocument();
 
     // Find the container for entries and check if it's empty
-    const entriesContainer = container.querySelector('div[style*="max-height"]');
+    const entriesContainer = container.querySelector('div[style*="overflow-y"]');
     expect(entriesContainer).toBeInTheDocument();
     expect(entriesContainer.children.length).toBe(0);
   });

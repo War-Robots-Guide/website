@@ -1,6 +1,6 @@
-export function Changelog({ recentChangelog }) {
+export function Changelog({ recentChangelog, style = {} }) {
   return (
-    <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', padding: 0 }}>
+    <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', padding: 0, ...style }}>
       <h3 style={{
         fontSize: '18px',
         padding: '24px 24px 12px 24px',
@@ -13,7 +13,7 @@ export function Changelog({ recentChangelog }) {
         <img src="/icons/time_gold.png" alt="" style={{ width: '24px', height: '24px', objectFit: 'contain' }} /> Changelog
       </h3>
       <div style={{
-        maxHeight: '480px',
+        flex: 1,
         overflowY: 'auto',
         padding: '16px 24px 24px 24px',
         display: 'flex',
