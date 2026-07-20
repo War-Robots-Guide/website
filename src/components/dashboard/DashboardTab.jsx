@@ -87,14 +87,16 @@ export function DashboardTab({ onItemClick }) {
 
       <QuickStats stats={stats} />
 
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px', textAlign: 'left' }} className="responsive-split">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div className="dashboard-grid">
+        <div className="dashboard-main-col">
           <FeaturedRobots featuredRobots={featuredRobots} handleCardClick={handleCardClick} />
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <div className="dashboard-side-col">
           <CommunityLinks />
-          <Changelog recentChangelog={recentChangelog} style={{ flex: 1 }} />
+          <div className="changelog-wrapper">
+            <Changelog recentChangelog={recentChangelog} />
+          </div>
         </div>
       </div>
     </div>
