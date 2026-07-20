@@ -10,9 +10,9 @@ describe('RatingBar Component', () => {
       // Should show the correct label for rating 28 (Fair)
       expect(screen.getByText('Fair (28)')).toBeInTheDocument();
 
-      // Calculate expected percentage: ((28 - 0) / (35 - 0)) * 100 = 80%
+      // Calculate expected percentage: ((28 - 0) / 50) * 100 = 56%
       const markerElement = container.querySelector('div[style*="position: absolute"]');
-      expect(markerElement).toHaveStyle({ left: '80%' });
+      expect(markerElement).toHaveStyle({ left: '56%' });
     });
 
     it('renders correctly with a negative/low rating', () => {
@@ -20,9 +20,9 @@ describe('RatingBar Component', () => {
 
       expect(screen.getByText('Horrible (7)')).toBeInTheDocument();
 
-      // Calculate expected percentage: ((7 - 0) / (35 - 0)) * 100 = 20%
+      // Calculate expected percentage: ((7 - 0) / 50) * 100 = 14%
       const markerElement = container.querySelector('div[style*="position: absolute"]');
-      expect(markerElement).toHaveStyle({ left: '20%' });
+      expect(markerElement).toHaveStyle({ left: '14%' });
     });
 
     it('clamps rating to upper bound visually but shows dynamic label', () => {
@@ -30,9 +30,9 @@ describe('RatingBar Component', () => {
 
       expect(screen.getByText('Excellent (44)')).toBeInTheDocument();
 
-      // Calculate expected percentage: 100 + (44 - 35) * 1.2 = 110.8% visual overflow
+      // Calculate expected percentage: ((44 - 0) / 50) * 100 = 88%
       const markerElement = container.querySelector('div[style*="position: absolute"]');
-      expect(markerElement).toHaveStyle({ left: '110.8%' });
+      expect(markerElement).toHaveStyle({ left: '88%' });
     });
 
     it('clamps rating to lower bound visually but shows dynamic label', () => {
@@ -53,7 +53,7 @@ describe('RatingBar Component', () => {
       expect(screen.getByText('Fair (28)')).toBeInTheDocument();
 
       const markerElement = container.querySelector('div[style*="position: absolute"]');
-      expect(markerElement).toHaveStyle({ left: '80%' });
+      expect(markerElement).toHaveStyle({ left: '56%' });
     });
 
     it('clamps rating to upper bound visually but shows dynamic label', () => {
@@ -62,7 +62,7 @@ describe('RatingBar Component', () => {
       expect(screen.getByText('Excellent (44)')).toBeInTheDocument();
 
       const markerElement = container.querySelector('div[style*="position: absolute"]');
-      expect(markerElement).toHaveStyle({ left: '110.8%' });
+      expect(markerElement).toHaveStyle({ left: '88%' });
     });
   });
 

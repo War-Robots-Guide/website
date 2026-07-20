@@ -3,17 +3,10 @@ import { getRatingColor, getRatingColorsList } from '../../utils/ratingColors';
 
 export function RatingBar({ rating, align = 'left' }) {
   const minVal = 0;
-  const maxVal = 35;
+  const maxVal = 50;
   
-  let percentage;
-  if (rating <= 35) {
-    const clampedRating = Math.max(minVal, rating);
-    percentage = Math.max(0, ((clampedRating - minVal) / (maxVal - minVal)) * 100);
-  } else {
-    const maxRating = 50;
-    const clampedRating = Math.min(maxRating, rating);
-    percentage = 100 + (clampedRating - 35) * 1.2;
-  }
+  const clampedRating = Math.max(minVal, Math.min(maxVal, rating));
+  const percentage = Math.round(((clampedRating - minVal) / (maxVal - minVal)) * 10000) / 100;
   
   const getRatingLabel = (val) => {
     if (val <= 15) return `Horrible (${val})`;
@@ -54,7 +47,7 @@ export function RatingBar({ rating, align = 'left' }) {
             width: '100%', 
             height: '100%', 
             borderRadius: '3px', 
-            background: `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[2]} 50%, ${colorsList[4]} 100%)`, 
+            background: `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[1]} 20%, ${colorsList[2]} 40%, ${colorsList[3]} 60%, ${colorsList[4]} 80%, ${colorsList[5]} 100%)`, 
           }}
         />
         {/* Needle */}

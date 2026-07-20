@@ -250,7 +250,7 @@ export function DetailModal({ selectedItem, onClose }) {
                     <ScoreMeter label="Mobility" score={rob.scores.mobility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Utility" score={rob.scores.utility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Accessibility" score={rob.scores.accessibility} options={{ min: 0, max: 10 }} />
-                    <ScoreMeter label="Overall Score" score={rob.scores.overall} options={{ min: 0, max: 35 }} />
+                    <ScoreMeter label="Overall Score" score={rob.scores.overall} options={{ min: 0, max: 50 }} />
                   </div>
                 </>
               ) : null}
@@ -332,7 +332,7 @@ export function DetailModal({ selectedItem, onClose }) {
                     <ScoreMeter label="Mobility" score={titan.scores.mobility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Utility" score={titan.scores.utility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Accessibility" score={titan.scores.accessibility} options={{ min: 0, max: 10 }} />
-                    <ScoreMeter label="Overall Score" score={titan.scores.overall} options={{ min: 0, max: 35 }} />
+                    <ScoreMeter label="Overall Score" score={titan.scores.overall} options={{ min: 0, max: 50 }} />
                   </div>
                 </>
               ) : null}
