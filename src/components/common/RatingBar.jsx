@@ -17,25 +17,7 @@ export function RatingBar({ rating, align = 'left' }) {
   const colorsList = getRatingColorsList();
 
   const getGradientStops = () => {
-    const range = maxVal - minVal;
-    if (range <= 0) {
-      return `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[5]} 100%)`;
-    }
-    const pRed = Math.max(0, Math.min(100, ((20 - minVal) / range) * 100));
-    const pOrange = Math.max(0, Math.min(100, ((25 - minVal) / range) * 100));
-    const pYellow = Math.max(0, Math.min(100, ((30 - minVal) / range) * 100));
-    const pGreen = Math.max(0, Math.min(100, ((34 - minVal) / range) * 100));
-    const pCyan = Math.max(0, Math.min(100, ((35 - minVal) / range) * 100));
-    
-    return `linear-gradient(to right, 
-      ${colorsList[0]} 0%, 
-      ${colorsList[0]} ${pRed.toFixed(2)}%, 
-      ${colorsList[1]} ${pOrange.toFixed(2)}%, 
-      ${colorsList[2]} ${pYellow.toFixed(2)}%, 
-      ${colorsList[4]} ${pGreen.toFixed(2)}%, 
-      ${colorsList[5]} ${pCyan.toFixed(2)}%, 
-      ${colorsList[5]} 100%
-    )`;
+    return `linear-gradient(to right, ${colorsList[0]} 0%, ${colorsList[1]} 25%, ${colorsList[2]} 50%, ${colorsList[4]} 75%, ${colorsList[5]} 100%)`;
   };
 
   return (
