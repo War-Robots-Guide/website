@@ -87,7 +87,7 @@ export function DashboardTab({ onItemClick }) {
 
       <QuickStats stats={stats} />
 
-      <div className="dashboard-grid">
+      <div className="dashboard-layout-grid">
         <div className="dashboard-main-col">
           <FeaturedRobots featuredRobots={featuredRobots} handleCardClick={handleCardClick} />
         </div>

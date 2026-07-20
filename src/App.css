@@ -1332,7 +1332,7 @@
 }
 
 /* Dashboard Grid Layout */
-.dashboard-grid {
+.dashboard-layout-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 24px;
@@ -1418,7 +1418,7 @@
 
 /* Responsive Overrides */
 @media (max-width: 900px) {
-  .dashboard-grid {
+  .dashboard-layout-grid {
     grid-template-columns: 1fr;
   }
   .dashboard-side-col {
