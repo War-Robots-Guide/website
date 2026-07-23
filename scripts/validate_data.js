@@ -85,7 +85,13 @@ function expectNumberInRange(value, path, min, max) {
 
 function validateTiers(data) {
   if (!data) return;
+  if (data.disclaimers) {
+    expectArray(data.disclaimers, 'tiers.disclaimers').forEach((disclaimer, index) => {
+      expectString(disclaimer, `tiers.disclaimers[${index}]`);
+    });
+  }
   for (const [category, tiers] of Object.entries(expectObject(data, 'tiers'))) {
+    if (category === 'disclaimers') continue;
     for (const [tier, tierInfo] of Object.entries(expectObject(tiers, `tiers.${category}`))) {
       const tierPath = `tiers.${category}.${tier}`;
       expectNonEmptyString(tierInfo.casual_name, `${tierPath}.casual_name`);

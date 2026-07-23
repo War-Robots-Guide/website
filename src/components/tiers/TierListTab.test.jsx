@@ -5,6 +5,7 @@ import { TierListTab } from './TierListTab';
 // Mock the JSON data
 vi.mock('../../data/tiers.json', () => ({
   default: {
+    disclaimers: ["Important disclaimer text"],
     Robots: {
       S: {
         casual_name: "Top Tier",

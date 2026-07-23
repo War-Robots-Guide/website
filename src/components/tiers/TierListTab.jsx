@@ -8,6 +8,7 @@ import { SlidingTabPills } from '../common/SlidingTabPills';
 const optimizedTiersData = tiersData ? JSON.parse(JSON.stringify(tiersData)) : {};
 if (optimizedTiersData) {
   Object.keys(optimizedTiersData).forEach(cat => {
+    if (cat === 'disclaimers') return;
     Object.keys(optimizedTiersData[cat]).forEach(tierLetter => {
       optimizedTiersData[cat][tierLetter].items.forEach(item => {
         item._searchName = item.name.toLowerCase();

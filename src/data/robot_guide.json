@@ -331,6 +331,10 @@
     {
       "date": "2026-07-17",
       "text": "Reworked SWORD accessibility rating to assume players have it due to being free at one point, despite no longer being available. Edited comment section to reflect. -Mistermath\nReworked mobility rating to include vertical mobility as +1 point and reworked accessibility rating to include self exposure without adequate protection as -1 point. \nSquished all other accessibility ratings in cases where it was relevant & changed color scale to remove the light green and include more blues. -Adazahi"
+    },
+    {
+      "date": "2026-07-21",
+      "text": "Added deshret+hedjet sword build and noted that it can use the sword dash but is dangerous to play. Added pulsar as an option on bots using Hazard as well as Dux. Added boom bash as shoggoth and kaji builds. -Adazahi"
     }
   ],
   "builds": [
@@ -347,7 +351,7 @@
     {
       "build_name": "Midrange\nSupport",
       "robot": "Pathfinder",
-      "f2p_weapons": "Hazard\nAtomizer\nDamper",
+      "f2p_weapons": "Hazard\nAtomizer\nDamper\nPulsar",
       "best_weapons": "Midrange UE setups\nMachiara\nUE Vortex\nUrhag\nLumens",
       "drone_options": "Freezo\nFtaghn",
       "pilot": "John Orsted",
@@ -387,7 +391,7 @@
     {
       "build_name": "Offensive\nSupport",
       "robot": "Nuo",
-      "f2p_weapons": "Hazard+Decay\nSubduer+Damper\nNucleon+Atomizer",
+      "f2p_weapons": "Hazard+Decay\nSubduer+Damper\nNucleon+Atomizer\nPulsar+Decay",
       "best_weapons": "Machiara+Basilius\nLumens",
       "drone_options": "Aopo\nShowdown",
       "pilot": "Walter Trommel",
@@ -401,7 +405,7 @@
       "best_weapons": "Shantak + Urhag",
       "drone_options": "Solar\nAopo\n(Use Aopo for\nGauss+Weber)",
       "pilot": "Walter Trommel\nBasil Lapatte\nHarold Han\n(With K-lasers)",
-      "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nRepair, UC, or\nPhase Shift",
+      "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nRepair, UC, or\nPhase Shift",
       "explanation": "Nuo is probably the only bot in the game that can make a f2p friendly sniper build. Since it gives itself\nsuch a large damage boost that stacks multiplicatively with the defense ignore on Gauss + Weber (or K-lasers \nwith solar), their mediocre performance is somewhat alleviated vs bots relying on DP. Playing at a super long\ndistance means you're often not linked, so Basil becomes a competitive pilot choice. For f2p, it's\nnot worth spending memorium on Basil since he's so incredibly niche, and sometimes there\nis a friendly sniper in the backline with you that makes great use of the link. Harold is ideal\nfor K-lasers though. For weapons without built in defense mitigation, Solar becomes the best drone.\nSolar still works with railguns, but its value is questionable."
     },
     {
@@ -507,7 +511,7 @@
     {
       "build_name": "Tank\nBuster",
       "robot": "Dux",
-      "f2p_weapons": "Atomizer+Quarker\nMace+Quarker\nAnything+Quarker tbh",
+      "f2p_weapons": "Atomizer+Quarker\nMace+Quarker\nPulsar+Quarker\nAnything+Quarker",
       "best_weapons": "Lumens\nVelos+Machiara\nFahrenheit+Celsius\nClose range UE setups\nQuarker+Any",
       "drone_options": "Webby\nKestrel\nUE Glider\nSeeker",
       "pilot": "Willa Owe",
@@ -522,17 +526,17 @@
       "drone_options": "Seeker\nKestrel\nShowdown\nArmadilllo\nWhiteout\nUE Glider",
       "pilot": "Ash Skarsgard",
       "specialization": "Any Specialization\nPhase Shift",
-      "explanation": "Scorpion should be played like a wuss, teleporting in to try and steal deft survivor triggers and\nkills on squishy bots within it's short stealth duration and then immediately running away."
+      "explanation": "Scorpion should be played like a wuss, teleporting in to try and steal deft survivor triggers and\nkills on squishy bots within its short stealth duration and then immediately running away."
     },
     {
       "build_name": "Minelayer",
       "robot": "Kaji",
       "f2p_weapons": "Decay+Blight+Hazard",
-      "best_weapons": "Lumens\nMachiara+Velos+Basileus\nUE burst setups",
-      "drone_options": "Myia\nKocho",
+      "best_weapons": "Lumens\nMachiara+Velos+Basileus\nUE burst setups\nBoom+Bash+Pow",
+      "drone_options": "Myia\nKocho\nSeeker",
       "pilot": "Kevin O'Reilly",
-      "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nPhase Shift",
-      "explanation": "Kaji's tactical gameplay with its mines make it's own weapons relatively unimportant in the grand\nscheme of things. Well placed mines can take down incredibly heavy and valuable targets, as well\nas locking down important objectives. Rangefinder works regardless of weapons if mines are far."
+      "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift",
+      "explanation": "Kaji's tactical gameplay with its mines make its own weapons relatively unimportant in the grand scheme of things.\nWell placed mines can take down incredibly heavy and valuable targets, as well as locking down important objectives.\nRangefinder works regardless of weapons if mines are far. Boom+Bash is a somewhat meme build that can be toxic in\nTDM but is overall worse than the others in beacon modes."
     },
     {
       "build_name": "Sniper",
@@ -541,7 +545,7 @@
       "best_weapons": "Shantak",
       "drone_options": "Solar",
       "pilot": "Gintaire\nKaityre",
-      "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nPhase Shift",
+      "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift",
       "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper, though with Piercer as a f2p alternative, you can justify\nusing that with solar if you have it."
     },
     {
@@ -577,7 +581,7 @@
     {
       "build_name": "Midranger",
       "robot": "Raven",
-      "f2p_weapons": "Hazard+Blight,\nDamper+Tamer\nAtomizer+Quarker",
+      "f2p_weapons": "Hazard+Blight\nPulsar+Blight\nDamper+Tamer\nAtomizer+Quarker",
       "best_weapons": "Machiara+Velos\nMidrange UE Setups\nVoonith+Urhag\nLumens",
       "drone_options": "Kestrel\nShowdown\nSeeker",
       "pilot": "Nessa Riggs",
@@ -617,7 +621,7 @@
     {
       "build_name": "Midranger",
       "robot": "Leech",
-      "f2p_weapons": "Hazard\nDamper\nAtomizer",
+      "f2p_weapons": "Hazard\nDamper\nAtomizer\nPulsar",
       "best_weapons": "Midrange UE setups\nMachiara\nLumen\nUrhag",
       "drone_options": "Seeker\nScales\nUE Glider\nGlider",
       "pilot": "Thomas\nMindread\n(With Engine\nExpert skill)",
@@ -631,7 +635,7 @@
       "best_weapons": "Shantak",
       "drone_options": "Solar",
       "pilot": "Nova Light \n(My beloved)",
-      "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nPhase Shift,\nRepair, or UC",
+      "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift,\nRepair, or UC",
       "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper, though with Piercer as a f2p alternative, you can justify\nusing that with solar if you have it."
     },
     {
@@ -667,12 +671,12 @@
     {
       "build_name": "Tank Buster",
       "robot": "Sword Unit",
-      "f2p_weapons": "Damper + Tamer\nARMS\nAtomizer + Quarker",
+      "f2p_weapons": "Damper+Tamer\nARMS\nAtomizer+Quarker\nDeshret+Hedjet",
       "best_weapons": "Midrange UE setups\nUE Arms\nMachiara+Velos\nLumens",
       "drone_options": "Seeker\nShowdown\nArmadillo\nWhiteout\nUE Glider\nWARD",
       "pilot": "Otto Schreyer\n(With Arms)\nSam Stone\n(With EMGS)\nShani Kyne\n(if you have)\nMiharu Sharpe\n(Otherwise)",
-      "specialization": "Raider (Nuke Amp +\nAny)\nPhase Shift or Lockdown\nAmmo",
-      "explanation": "Using Sword's Sword is no longer worth it. Sword should be played as though it were a sidegraded\nSiren, teleporting back to the translocator to refresh the ability after the flight phase ends. It's very\nmuch capable of outputting decent damage to enemies this way, though you may want to try using \nLockdown Unit in order to ensure they can't escape you. While Sword doesn't suffer from Siren's issue\nof getting bursted down by high damage weapons or titans, it is instead susceptable to shieldbreaker."
+      "specialization": "Raider (Nuke Amp + Any)\nPhase Shift or Lockdown\nAmmo",
+      "explanation": "Using Sword's Sword is no longer worth it. Sword should be played as though it were a sidegraded\nSiren, teleporting back to the translocator to refresh the ability after the flight phase ends. It's very\nmuch capable of outputting decent damage to enemies this way, though you may want to try using \nLockdown Unit in order to ensure they can't escape you. While Sword doesn't suffer from Siren's issue\nof getting bursted down by high damage weapons or titans, it is instead susceptable to shieldbreaker.\n\nDeshret+Hedjet build with Miharu Sharpe is the only sword build that can justify dashing in, but you need to ensure\nthat you choose a target that can't kill you (or is near the execution threshold) and then teleport out ASAP."
     },
     {
       "build_name": "Brawler",
@@ -711,7 +715,7 @@
       "best_weapons": "Shantak",
       "drone_options": "Solar",
       "pilot": "Ryder Mourn",
-      "specialization": "Damage Dealer\n(Nuke Amp + Rangefind)\nPhase Shift,\nRepair, or UC",
+      "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift,\nRepair, or UC",
       "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper, though with Piercer as a f2p alternative, you can justify\nusing that with solar if you have it."
     },
     {
@@ -751,7 +755,7 @@
       "best_weapons": "UE Venom+UE Toxin\nKroko+Hippo",
       "drone_options": "Hawkeye",
       "pilot": "Nika Schum",
-      "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or UC",
+      "specialization": "Brawler (Repair Amp +\nLast Stand)\nPhase Shift or UC",
       "explanation": "Vector is probably the single best titan charging bot in the game due to how much time it can stall for\nwith its 3 long duration ability charges."
     },
     {
@@ -761,18 +765,18 @@
       "best_weapons": "Urhag+Shantak",
       "drone_options": "Fhtagn\nSolar\nFreezo\nSeeker",
       "pilot": "Baek Taejun\nHarold Han\n(With K-lasers)",
-      "specialization": "Damage Dealer\n(Nuke amp + Rangefind)\nPhase shift or SB",
+      "specialization": "Damage Dealer\n(Nuke amp + Rangefinder)\nPhase shift or SB",
       "explanation": "A pathfinder with a nuclear amp is scary, but a pathfinder that can lock you down and turn you into\nstacks from across the map is scarier. The sniper builds are scuffed at f2p investment due to lack\nof a medium Piercer, though it can still pull it off for a similar reason that Nuo can."
     },
     {
       "build_name": "Midrange\nSupport",
       "robot": "Shoggoth",
       "f2p_weapons": "Decay+Hazard\nNucleon+Atomizer\nSubduer+Damper",
-      "best_weapons": "Machiara+Basileus\nLumens",
+      "best_weapons": "Machiara+Basileus\nLumens\nBoom+Bash",
       "drone_options": "Fhtagn\nSeeker\nFreezo",
       "pilot": "Baek Taejun",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift or SB",
-      "explanation": "The ideal way to play Shoggoth for f2p players. Still very powerful at p2w investment, though Urhag+Shantak\nis generally the strongest p2w build."
+      "explanation": "The ideal way to play Shoggoth for f2p players. Still very powerful at p2w investment, though Urhag+Shantak\nis generally the strongest p2w build. Boom+Bash is a somewhat meme build that can be toxic in TDM but is\noverall worse than the others in beacon modes."
     },
     {
       "build_name": "Assault",
@@ -797,7 +801,7 @@
     {
       "build_name": "Debuffer\nAssault",
       "robot": "Fafnir",
-      "f2p_weapons": "Spikes on top slots\nGrowler \nHazard",
+      "f2p_weapons": "Spikes on top slots\nGrowler \nHazard\nPulsar",
       "best_weapons": "Spikes on top slots.\nLumens\nMachiara\nFahrenheit\nAny UE setups",
       "drone_options": "Webby",
       "pilot": "Noa Minax",

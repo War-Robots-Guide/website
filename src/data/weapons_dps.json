@@ -8,6 +8,13 @@
       "notes": "VERY IMPORTANT: While Tonans beats Vendicatoire in terms of burst vs Titans at base, the Titan damage boost is additive with boosts from nuclear amplifier, etc\nTLDR: Vendicatoire does ~15% more damage than Tonans when both have a fully stacked NA on a damage dealer titan."
     },
     {
+      "name": "UE Bulava",
+      "burst_dps": 99700.0,
+      "cycle_dps": 16616.0,
+      "range": "500m",
+      "notes": "Assumes all missiles hit the target. Does not account for projectile travel time."
+    },
+    {
       "name": "Veyron (25m)",
       "burst_dps": 97519.0,
       "cycle_dps": 41748.0,
@@ -227,6 +234,13 @@
       "notes": "100% grey damage DAMAGE AT RANGE TESTED AGAINST A TITAN."
     },
     {
+      "name": "UE Kisten",
+      "burst_dps": 60916.7,
+      "cycle_dps": 10152.376,
+      "range": "500m",
+      "notes": "Assumes all missiles hit the target. Does not account for projectile travel time."
+    },
+    {
       "name": "Ruiner (25m)",
       "burst_dps": 59188.0,
       "cycle_dps": 27153.33333,
@@ -418,6 +432,20 @@
       "notes": "Fragility effect can increase damage against enemies with defense points"
     },
     {
+      "name": "Glacier (Frozen)",
+      "burst_dps": 60134.4,
+      "cycle_dps": 12026.88,
+      "range": "350m",
+      "notes": "Note: Cryo rockets need to be almost maxxed to deal damage because they have ultimate mk2 upgrade scaling for some reason. Enemy frozen."
+    },
+    {
+      "name": "Glacier (No Freeze)",
+      "burst_dps": 51763.2,
+      "cycle_dps": 10352.64,
+      "range": "350m",
+      "notes": "Note: Cryo rockets need to be almost maxxed to deal damage because they have ultimate mk2 upgrade scaling for some reason. Enemy not frozen."
+    },
+    {
       "name": "UE Devastator (25m)",
       "burst_dps": 51466.0,
       "cycle_dps": 35364.0,
@@ -474,6 +502,13 @@
       "notes": "100% grey damage"
     },
     {
+      "name": "Lumen-H (Heat x1)",
+      "burst_dps": 42633.0,
+      "cycle_dps": 25655.0,
+      "range": "600m",
+      "notes": "This is the damage dealt by a single lumen shooting at a target that can accumulate heat. CURRENTLY INFLATED BY INTEL."
+    },
+    {
       "name": "Kelvin",
       "burst_dps": 42386.75,
       "cycle_dps": 30386.225,
@@ -493,6 +528,13 @@
       "cycle_dps": 13584.0,
       "range": "25m",
       "notes": "Intel already accounted for"
+    },
+    {
+      "name": "Exodus",
+      "burst_dps": 38848.0,
+      "cycle_dps": 7670.0,
+      "range": "300m",
+      "notes": ""
     },
     {
       "name": "Exodus",
@@ -544,6 +586,13 @@
       "notes": "CURRENTLY INFLATED BY INTEL"
     },
     {
+      "name": "Lumen-H (Heat x2)",
+      "burst_dps": 31291.0,
+      "cycle_dps": 18830.0,
+      "range": "600m",
+      "notes": "This is the damage dealt by each lumen when you have two lumens. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
+    },
+    {
       "name": "Avenger (25m)",
       "burst_dps": 30598.0,
       "cycle_dps": 17954.0,
@@ -593,11 +642,25 @@
       "notes": "Ignores defense points"
     },
     {
+      "name": "Lumen-H (Heat x3)",
+      "burst_dps": 26277.0,
+      "cycle_dps": 15812.0,
+      "range": "600m",
+      "notes": "This is the damage dealt by each lumen when you have three lumens. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
+    },
+    {
       "name": "Screamer",
       "burst_dps": 25782.0,
       "cycle_dps": 15282.0,
       "range": "25m",
       "notes": "Each sonicblast does 25k damage. A full mag of 1 screamer results in 1 blast. The blast is accounted for in the DPS. Spread at range not accounted for. 100% grey damage"
+    },
+    {
+      "name": "Lumen-H (Heat x4)",
+      "burst_dps": 24243.0,
+      "cycle_dps": 14594.0,
+      "range": "600m",
+      "notes": "This is the damage dealt by each lumen when you have four lumens. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
     },
     {
       "name": "Decay",
@@ -719,10 +782,24 @@
       "notes": "Enemy frozen"
     },
     {
+      "name": "Ember (25m)",
+      "burst_dps": 19625.0,
+      "cycle_dps": 14952.0,
+      "range": "25m",
+      "notes": "Range is 350m but projectile travel time signficiantly lowers damage output so point blank is assumed. Flame weapons very rarely actually hit their full DPS potential."
+    },
+    {
       "name": "Gauss (T4 Powerman)",
       "burst_dps": 18247.6,
       "cycle_dps": 4450.18,
       "range": "800m",
+      "notes": ""
+    },
+    {
+      "name": "Tempest (25m)",
+      "burst_dps": 17999.0,
+      "cycle_dps": 9290.0,
+      "range": "25m",
       "notes": ""
     },
     {
@@ -747,6 +824,13 @@
       "notes": "Fragility effect can increase damage against enemies with defense points"
     },
     {
+      "name": "Dragoon",
+      "burst_dps": 16994.0,
+      "cycle_dps": 6394.0,
+      "range": "600m",
+      "notes": ""
+    },
+    {
       "name": "Hel (No Freeze)",
       "burst_dps": 16416.75,
       "cycle_dps": 4724.95,
@@ -766,6 +850,13 @@
       "cycle_dps": 10340.0,
       "range": "150m",
       "notes": "Great titan chargerate but poor damage."
+    },
+    {
+      "name": "Lumen-H (No Heat)",
+      "burst_dps": 15525.0,
+      "cycle_dps": 9342.0,
+      "range": "600m",
+      "notes": "Assumes you're shooting a shield, which cannot accumulate heat. CURRENTLY INFLATED BY INTEL."
     },
     {
       "name": "Prisma (800m)",
@@ -889,6 +980,13 @@
       "notes": "Assumes pilot with T4 powerman skill (-30% charge time)"
     },
     {
+      "name": "Cryo (Frozen)",
+      "burst_dps": 47606.4,
+      "cycle_dps": 9521.28,
+      "range": "350m",
+      "notes": "Note: Cryo rockets need to be almost maxxed to deal damage because they have ultimate mk2 upgrade scaling for some reason. Enemy frozen."
+    },
+    {
       "name": "UE Corona (25m)",
       "burst_dps": 45876.0,
       "cycle_dps": 21755.0,
@@ -908,6 +1006,13 @@
       "cycle_dps": 8256.64,
       "range": "350m",
       "notes": "Burst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion."
+    },
+    {
+      "name": "Cryo (No Freeze)",
+      "burst_dps": 40979.2,
+      "cycle_dps": 8195.84,
+      "range": "350m",
+      "notes": "Note: Cryo rockets need to be almost maxxed to deal damage because they have ultimate mk2 upgrade scaling for some reason. Enemy not frozen."
     },
     {
       "name": "UE Ion",
@@ -971,6 +1076,13 @@
       "cycle_dps": 22933.0,
       "range": "300m",
       "notes": "Assumes you stop shooting before they overheat, so the cooldown is only 5 seconds rather than 6 seconds."
+    },
+    {
+      "name": "Lumen-M (Heat x1)",
+      "burst_dps": 31974.75,
+      "cycle_dps": 19241.25,
+      "range": "600m",
+      "notes": "This is the damage dealt by a single lumen shooting at a target that can accumulate heat. CURRENTLY INFLATED BY INTEL."
     },
     {
       "name": "Urhag (800m)",
@@ -1043,6 +1155,13 @@
       "notes": "Percentage damage is widely variable since it's based on current health. Arms are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 arms can easily do ~75% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP\nthat the percentage damage is irrelevant (or when shooting shields)."
     },
     {
+      "name": "Lumen-M (Heat x2)",
+      "burst_dps": 23468.25,
+      "cycle_dps": 14122.5,
+      "range": "600m",
+      "notes": "This is the damage dealt by each lumen when you have two lumens. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
+    },
+    {
       "name": "UE Venom",
       "burst_dps": 23444.0,
       "cycle_dps": 19181.0,
@@ -1078,6 +1197,13 @@
       "notes": "Includes the DoT damage, much of which is dealt while reloading."
     },
     {
+      "name": "Lumen-M (Heat x3)",
+      "burst_dps": 19707.75,
+      "cycle_dps": 11859.0,
+      "range": "600m",
+      "notes": "This is the damage dealt by each lumen when you have three lumens. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
+    },
+    {
       "name": "UE Wasp",
       "burst_dps": 19167.0,
       "cycle_dps": 12835.0,
@@ -1111,6 +1237,13 @@
       "cycle_dps": 12314.0,
       "range": "350m",
       "notes": ""
+    },
+    {
+      "name": "Lumen-M (Heat x4)",
+      "burst_dps": 18182.25,
+      "cycle_dps": 10945.5,
+      "range": "600m",
+      "notes": "This is the damage dealt by each lumen when you have four lumens. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
     },
     {
       "name": "Hazard",
@@ -1188,6 +1321,13 @@
       "cycle_dps": 11403.0,
       "range": "500m",
       "notes": "At longer range, atomizer needs to cool off about 75% of the way to max heat in order to hit every shot"
+    },
+    {
+      "name": "Igniter (25m)",
+      "burst_dps": 15700.0,
+      "cycle_dps": 11961.6,
+      "range": "25m",
+      "notes": "Range is 350m but projectile travel time signficiantly lowers damage output so point blank is assumed. Flame weapons very rarely actually hit their full DPS potential."
     },
     {
       "name": "Havoc (200m)",
@@ -1302,11 +1442,25 @@
       "notes": "Enemy not frozen"
     },
     {
+      "name": "Hussar",
+      "burst_dps": 12317.684,
+      "cycle_dps": 4633.955,
+      "range": "600m",
+      "notes": ""
+    },
+    {
       "name": "Nanea (Energy Blaster)",
       "burst_dps": 12201.50376,
       "cycle_dps": 7286.466165,
       "range": "600m",
       "notes": "Charges ships slowly, but concentrates damage in bursty energy balls that have small splash."
+    },
+    {
+      "name": "Lumen-M (No Heat)",
+      "burst_dps": 11643.75,
+      "cycle_dps": 7006.5,
+      "range": "600m",
+      "notes": "Assumes you're shooting a shield, which cannot accumulate heat. CURRENTLY INFLATED BY INTEL."
     },
     {
       "name": "Yeoje (Harold Han)",
@@ -1409,6 +1563,13 @@
       "notes": "CURRENTLY INFLATED BY INTEL. UE Scald gets about 75% of a blast per mag, so 75% of a blast is accounted for in the DPS."
     },
     {
+      "name": "Rime (Frozen)",
+      "burst_dps": 31320.0,
+      "cycle_dps": 6264.0,
+      "range": "350m",
+      "notes": "Note: Cryo rockets need to be almost maxxed to deal damage because they have ultimate mk2 upgrade scaling for some reason. Enemy frozen."
+    },
+    {
       "name": "Hippo (Uncharged)",
       "burst_dps": 31041.0,
       "cycle_dps": 6208.0,
@@ -1428,6 +1589,13 @@
       "cycle_dps": 12197.88,
       "range": "500m",
       "notes": "Fragility effect can increase damage against enemies with defense points"
+    },
+    {
+      "name": "Rime (No Freeze)",
+      "burst_dps": 26960.0,
+      "cycle_dps": 5392.0,
+      "range": "350m",
+      "notes": "Note: Cryo rockets need to be almost maxxed to deal damage because they have ultimate mk2 upgrade scaling for some reason. Enemy not frozen."
     },
     {
       "name": "UE Scatter (25m)",
@@ -1486,6 +1654,13 @@
       "notes": "Assumes you stop shooting before they overheat, so the cooldown is only 5 seconds rather than 6 seconds."
     },
     {
+      "name": "Lumen-M (Heat x1)",
+      "burst_dps": 21316.5,
+      "cycle_dps": 12827.5,
+      "range": "600m",
+      "notes": "This is the damage dealt by a single lumen shooting at a target that can accumulate heat. CURRENTLY INFLATED BY INTEL."
+    },
+    {
       "name": "Voonith (800m)",
       "burst_dps": 20719.0,
       "cycle_dps": 9669.0,
@@ -1542,6 +1717,13 @@
       "notes": "CURRENTLY INFLATED BY INTEL"
     },
     {
+      "name": "Lumen-M (Heat x2)",
+      "burst_dps": 15645.5,
+      "cycle_dps": 9415.0,
+      "range": "600m",
+      "notes": "This is the damage dealt by each lumen when you have two lumens. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
+    },
+    {
       "name": "Howler (25m)",
       "burst_dps": 15326.13636,
       "cycle_dps": 9679.545455,
@@ -1570,6 +1752,13 @@
       "notes": ""
     },
     {
+      "name": "Lumen-M (Heat x3)",
+      "burst_dps": 13138.5,
+      "cycle_dps": 7906.0,
+      "range": "600m",
+      "notes": "This is the damage dealt by each lumen when you have three lumens. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
+    },
+    {
       "name": "Quarker (25m)",
       "burst_dps": 12851.0,
       "cycle_dps": 12851.0,
@@ -1584,11 +1773,11 @@
       "notes": "At longer range, quarker needs to cool off about 75% of the way to max heat in order to hit every shot"
     },
     {
-      "name": "Scatter (25m)",
-      "burst_dps": 12514.0,
-      "cycle_dps": 3190.0,
-      "range": "200m",
-      "notes": ""
+      "name": "Lumen-M (Heat x4)",
+      "burst_dps": 12121.5,
+      "cycle_dps": 7297.0,
+      "range": "600m",
+      "notes": "This is the damage dealt by each lumen when you have four lumens. Yes, they do less damage the more you have.  CURRENTLY INFLATED BY INTEL."
     },
     {
       "name": "Aramis",
@@ -1668,6 +1857,13 @@
       "notes": ""
     },
     {
+      "name": "Blaze (25m)",
+      "burst_dps": 10205.0,
+      "cycle_dps": 7775.04,
+      "range": "25m",
+      "notes": "Range is 350m but projectile travel time signficiantly lowers damage output so point blank is assumed. Flame weapons very rarely actually hit their full DPS potential."
+    },
+    {
       "name": "UE Shredder (150m)",
       "burst_dps": 9885.0,
       "cycle_dps": 5432.0,
@@ -1680,6 +1876,13 @@
       "cycle_dps": 2841.256,
       "range": "600m",
       "notes": "Enemy frozen"
+    },
+    {
+      "name": "Marquess",
+      "burst_dps": 9556.0,
+      "cycle_dps": 3595.0,
+      "range": "600m",
+      "notes": ""
     },
     {
       "name": "Smite",
@@ -1731,6 +1934,13 @@
       "notes": "Great titan chargerate but poor damage."
     },
     {
+      "name": "Lumen-M (No Heat)",
+      "burst_dps": 7762.5,
+      "cycle_dps": 4671.0,
+      "range": "600m",
+      "notes": "Assumes you're shooting a shield, which cannot accumulate heat. CURRENTLY INFLATED BY INTEL."
+    },
+    {
       "name": "Arm-L (No % Damage)",
       "burst_dps": 7202.0,
       "cycle_dps": 3200.0,
@@ -1745,7 +1955,7 @@
       "notes": "Enemy not frozen"
     },
     {
-      "name": "Cudgel (25m)",
+      "name": "Cudgel (350m)",
       "burst_dps": 3270.54,
       "cycle_dps": 1251.64,
       "range": "350m",

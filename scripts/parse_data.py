@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 import pandas as pd
 import openpyxl
 from docx import Document
@@ -16,29 +17,83 @@ def find_file_case_insensitive(filename):
     if not os.path.exists(sample_dir):
         return os.path.join(sample_dir, filename)
     target_lower = filename.lower()
+    files = os.listdir(sample_dir)
     
     # 1. Try exact match (case-insensitive)
-    for f in os.listdir(sample_dir):
+    for f in files:
         if f.lower() == target_lower:
             return os.path.join(sample_dir, f)
             
     # 2. Try fuzzy match for versioned spreadsheet (1-10)
-    if "1-10" in target_lower or "1_10" in target_lower or "ver" in target_lower:
-        for f in os.listdir(sample_dir):
+    if ("simplified" in target_lower or "new players" in target_lower) and ("1-10" in target_lower or "1_10" in target_lower or "ver" in target_lower):
+        for f in files:
             f_lower = f.lower()
             if "simplified" in f_lower and "new players" in f_lower and f_lower.endswith(".xlsx"):
                 if "1-10" in f_lower or "1_10" in f_lower or "ver" in f_lower:
                     print(f"Fuzzy matched versioned spreadsheet: {f}")
                     return os.path.join(sample_dir, f)
                     
-    # 3. Try general fuzzy match
-    if "simplified" in target_lower and "new players" in target_lower:
-        for f in os.listdir(sample_dir):
+    # 3. Try general fuzzy match for simplified spreadsheet
+    if "simplified" in target_lower or "new players" in target_lower:
+        for f in files:
             f_lower = f.lower()
             if "simplified" in f_lower and "new players" in f_lower and f_lower.endswith(".xlsx"):
                 print(f"Fuzzy matched spreadsheet: {f}")
                 return os.path.join(sample_dir, f)
-                
+
+    # 4. Try fuzzy match for tier docx (Tiers.docx / Tier List Rationales.docx / Tier List Rationales & Disclaimers.docx)
+    if ("tier" in target_lower or "rationale" in target_lower) and target_lower.endswith(".docx"):
+        for f in files:
+            f_lower = f.lower()
+            if ("tier" in f_lower or "rationale" in f_lower) and f_lower.endswith(".docx"):
+                print(f"Fuzzy matched tier docx: {f}")
+                return os.path.join(sample_dir, f)
+
+    # 5. Try fuzzy match for pilot docx
+    if "pilot" in target_lower and target_lower.endswith(".docx"):
+        for f in files:
+            f_lower = f.lower()
+            if "pilot" in f_lower and f_lower.endswith(".docx"):
+                print(f"Fuzzy matched pilot docx: {f}")
+                return os.path.join(sample_dir, f)
+
+    # 6. Try fuzzy match for specialization docx
+    if "specialization" in target_lower and target_lower.endswith(".docx"):
+        for f in files:
+            f_lower = f.lower()
+            if "specialization" in f_lower and f_lower.endswith(".docx"):
+                print(f"Fuzzy matched specialization docx: {f}")
+                return os.path.join(sample_dir, f)
+
+    # 7. Try fuzzy match for weapon dps xlsx
+    if "dps" in target_lower and target_lower.endswith(".xlsx"):
+        for f in files:
+            f_lower = f.lower()
+            if "dps" in f_lower and f_lower.endswith(".xlsx"):
+                print(f"Fuzzy matched DPS spreadsheet: {f}")
+                return os.path.join(sample_dir, f)
+
+    # 8. Try fuzzy match for WR tier lists xlsx
+    if ("wr tier" in target_lower or "tier list" in target_lower) and target_lower.endswith(".xlsx"):
+        for f in files:
+            f_lower = f.lower()
+            if "tier" in f_lower and f_lower.endswith(".xlsx"):
+                print(f"Fuzzy matched WR tier lists spreadsheet: {f}")
+                return os.path.join(sample_dir, f)
+
+    # 9. Generic word matching fallback
+    target_stem = os.path.splitext(target_lower)[0]
+    target_ext = os.path.splitext(target_lower)[1]
+    target_words = [w for w in re.split(r'\W+', target_stem) if len(w) > 2]
+    if target_words:
+        for f in files:
+            f_lower = f.lower()
+            if target_ext and not f_lower.endswith(target_ext):
+                continue
+            if all(word in f_lower for word in target_words):
+                print(f"Fuzzy matched file by words: {f}")
+                return os.path.join(sample_dir, f)
+
     return os.path.join(sample_dir, filename)
 
 
@@ -276,11 +331,33 @@ def parse_weapons_dps():
 # 4. PARSE Tiers.docx and WR tier lists.xlsx
 # ----------------------------------------------------
 def parse_tiers():
-    docx_path = find_file_case_insensitive("Tiers.docx")
+    docx_path = find_file_case_insensitive("Tier List Rationales & Disclaimers.docx")
     if not os.path.exists(docx_path):
         docx_path = find_file_case_insensitive("Tier List Rationales.docx")
+    if not os.path.exists(docx_path):
+        docx_path = find_file_case_insensitive("Tiers.docx")
+        
+    if not os.path.exists(docx_path) and os.path.exists(sample_dir):
+        for f in os.listdir(sample_dir):
+            if f.endswith(".docx") and ("tier" in f.lower() or "rationale" in f.lower() or "disclaimer" in f.lower()):
+                docx_path = os.path.join(sample_dir, f)
+                break
+
+    if not os.path.exists(docx_path):
+        print(f"Warning: Tier list docx not found at '{docx_path}'.")
+        if os.path.exists(os.path.join(data_out_dir, "tiers.json")):
+            print("Using existing pre-compiled src/data/tiers.json.")
+            return
+        else:
+            raise FileNotFoundError(f"Package not found at '{docx_path}'")
+
     xlsx_path = find_file_case_insensitive("WR tier lists.xlsx")
-    
+    if not os.path.exists(xlsx_path) and os.path.exists(sample_dir):
+        for f in os.listdir(sample_dir):
+            if f.endswith(".xlsx") and "tier" in f.lower():
+                xlsx_path = os.path.join(sample_dir, f)
+                break
+
     # Collect all items in Excel that end with '*'
     asterisk_items = set()
     try:
@@ -297,7 +374,7 @@ def parse_tiers():
     except Exception as e:
         print(f"Warning: Failed to parse asterisks from WR tier lists.xlsx: {e}")
 
-    # Parse standard tiers and descriptions from Tiers.docx / Tier List Rationales.docx
+    # Parse standard tiers and descriptions from docx
     doc = Document(docx_path)
     
     categories = ["Robots", "Titans", "Drones", "Motherships", "Mothership Turrets", "Robot Weapons", "Titan Weapons"]
@@ -309,12 +386,14 @@ def parse_tiers():
         "titans": "Titans",
         "drones": "Drones",
         "mothership": "Motherships",
+        "motherships": "Motherships",
         "mothership turrets": "Mothership Turrets",
         "robot weapons": "Robot Weapons",
         "titan weapons": "Titan Weapons"
     }
     
     tiers_data = {cat: {t: {"casual_name": "", "items": []} for t in tiers_list} for cat in categories}
+    disclaimers = []
     
     current_category = None
     current_tier = None
@@ -331,6 +410,13 @@ def parse_tiers():
         if text_lower in category_mapping:
             current_category = category_mapping[text_lower]
             current_tier = None
+            continue
+            
+        # Save disclaimers before first category
+        if current_category is None:
+            if text in ["Tab 1", "Intro"]:
+                continue
+            disclaimers.append(text)
             continue
             
         # Check tier heading (e.g. "X tier", "X Tier", "S tier")
@@ -421,6 +507,8 @@ def parse_tiers():
             if not tiers_data[cat][t]["casual_name"]:
                 tiers_data[cat][t]["casual_name"] = f"{t} Tier"
                 
+    tiers_data["disclaimers"] = disclaimers
+
     with open(os.path.join(data_out_dir, "tiers.json"), "w", encoding="utf-8") as f:
         json.dump(tiers_data, f, indent=2)
     print("Parsed tier lists and descriptions.")
