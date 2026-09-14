@@ -26,7 +26,7 @@ describe('CommunityLinks Component', () => {
     // Discord link
     const discordLink = screen.getByRole('link', { name: /Join our Discord!/i });
     expect(discordLink).toBeInTheDocument();
-    expect(discordLink).toHaveAttribute('href', 'https://discord.gg/FPxpXthPS');
+    expect(discordLink).toHaveAttribute('href', 'https://discord.gg/wT7WFzBCTS');
     expect(discordLink).toHaveAttribute('target', '_blank');
     expect(discordLink).toHaveAttribute('rel', 'noopener noreferrer');
   });

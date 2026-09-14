@@ -25,7 +25,7 @@ export function CommunityLinks() {
         </a>
 
         <a
-          href="https://discord.gg/FPxpXthPS"
+          href="https://discord.gg/wT7WFzBCTS"
           target="_blank"
           rel="noopener noreferrer"
           className="community-card-link"
