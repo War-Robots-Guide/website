@@ -41,6 +41,9 @@ describe('TierListTab', () => {
     render(<TierListTab onItemClick={vi.fn()} />);
     expect(screen.getByText('Tier Lists')).toBeInTheDocument();
     expect(screen.getByText('A power based tier list that ranks every unit in the game.')).toBeInTheDocument();
+    expect(screen.getByText(/Ranked for squad-play potential/)).toBeInTheDocument();
+    expect(screen.getByText(/Requires a highly specific build; otherwise/)).toBeInTheDocument();
+    expect(screen.getByText(/Requires both a highly specific build and coordinated play/)).toBeInTheDocument();
   });
 
   it('renders the default category (Robots) and its items', () => {

@@ -146,6 +146,10 @@
           "description": "Solid opener robot. It can be a competent disruptor with EMP from the pilot. Superjump with jump unit allows it to be first to center on many maps, and its massive grey resist makes it benefit greatly from showdown."
         },
         {
+          "name": "Dagon***",
+          "description": "Similar to Ravager in that it\u2019s a mediocre gunboat that doesn\u2019t bring much to the table that bots in tiers above it can\u2019t match or exceed. When equipped with Noricums, Solar, and a teammate or mothership with lockdown, it can completely shut down camping Shoggoths and other low-average HP snipers from across the map without exposing itself."
+        },
+        {
           "name": "UE Phantom",
           "description": "Really fast and relatively tanky with good sustain, but not as tanky as modern tanks, who can often feel comparable (albeit still ultimately worse) in terms of mobility. Nonetheless an acceptable opener bot."
         },
@@ -231,6 +235,10 @@
           "description": "A slight downgrade to Rex that trades a lot of raw stats for a pretty strong crowd control ability that can launch people off the map if timed right."
         },
         {
+          "name": "Nether***",
+          "description": "Decently upgraded version of strider that is somewhat usable with the shieldbreaker pilot, but dies way too fast at close range. When equipped with Noricums, Solar, and a teammate or mothership with lockdown, it can shut down camping Shoggoths and other low-average HP snipers from across the map without exposing itself. It is slightly less effective than Dagon for this purpose, if you really want to build an anti-Shoggoth Noricum build, you should just use Dagon."
+        },
+        {
           "name": "UE Mender",
           "description": "Can heal a bit of grey damage and stall a bit with DMI, built in revive, and high damage resistance."
         }
@@ -246,10 +254,6 @@
         {
           "name": "Ravager",
           "description": "A gunboat type robot that didn\u2019t age too well since it doesn\u2019t bring any damage boosts or utility (past the permanent stealth) to the table. On the watchlist for a tier increase since the new Urhag weapons finally give it a medium sniper and it can still kind of stall as a Loki would, though it has much less speed."
-        },
-        {
-          "name": "Dagon",
-          "description": "Similar to Ravager in that it\u2019s a mediocre gunboat that doesn\u2019t bring much to the table that bots in tiers above it can\u2019t match or exceed."
         },
         {
           "name": "Nightingale",
@@ -335,10 +339,6 @@
         {
           "name": "Ares",
           "description": "With the pilot it's fairly usable, but still loses to modern absorber bots and is extremely punishing to play due to how incredibly weak it is out of ability."
-        },
-        {
-          "name": "Nether",
-          "description": "Decently upgraded version of strider that is somewhat usable with the shieldbreaker pilot, but dies way too fast at close range."
         },
         {
           "name": "Blitz",
@@ -1343,6 +1343,14 @@
         {
           "name": "Deshret, Hedjet, Pshent",
           "description": "Weird weapons that can do a lot of burst and even hurt people through walls. Unfortunately, they trade a decent bit of damage for this utility."
+        },
+        {
+          "name": "Noricum***",
+          "description": "When equipped on a Dagon with Solar and a teammate or mothership with lockdown, it can completely shut down camping Shoggoths and other low-average HP snipers from across the map without being exposed."
+        },
+        {
+          "name": "Bash**, Boom**, Pow**",
+          "description": "Can be annoying in TDM, but they are incredibly clunky for most builds. Only considered A tier when used with Lar, especially on Vulcan, as the BiW can apply the death mark and cause them to oneshot most enemies."
         }
       ]
     },
@@ -1380,10 +1388,6 @@
         {
           "name": "Subduer, Tamer, Damper",
           "description": ": Trades some of Decay's range for the rust effect. Decent damage for a f2p weapon."
-        },
-        {
-          "name": "Bash, Boom, Pow",
-          "description": "Can be annoying in TDM, but honestly just too clunky to justify using, especially in beacon modes."
         },
         {
           "name": "Pilum, Gladus",
@@ -1589,6 +1593,10 @@
           "description": "Outdated ancient shotguns. Even at point blank range, Thunder loses to Avenger. That being said, Avenger costs gold and Thunder can be had for free, so you should use Thunder in the early game over Avenger."
         },
         {
+          "name": "Zenit",
+          "description": "Technically usable on builds like Stryx with Lockdown Ammo to counter campers without exposing yourself, but it\u2019s incredibly unreliable. Noricum is better for this very specific niche."
+        },
+        {
           "name": "Ballista, Arbalest",
           "description": "Outdated snipers with poor damage. Unlike trebuchet, they don\u2019t deal massive single shot damage, and instead split their damage across several shots, so they are in a lower tier than it."
         }
@@ -1619,10 +1627,6 @@
         },
         {
           "name": "Aphid",
-          "description": "Homing weapons always have lower damage to compensate for how they can deal damage without line of sight. Thus, one could imagine how 10+ year old homing weapons in the modern age barely even tickle."
-        },
-        {
-          "name": "Noricum, Zenit",
           "description": "Homing weapons always have lower damage to compensate for how they can deal damage without line of sight. Thus, one could imagine how 10+ year old homing weapons in the modern age barely even tickle."
         },
         {
@@ -1833,6 +1837,8 @@
     "\u2060THESE TIER LISTS ARE UPDATED FOR THE CURRENT LIVE GAME. ANY CURRENT TEST SERVER REBALANCES ARE NOT CONSIDERED. The list will be updated only after the rebalances go live.",
     "\u2060ITEMS AREN'T ORDERED WITHIN TIERS. It's random order within the tier with ultimates sorted to the far right side, but I'm open to discussing tier order on reddit or discord if you'd like.",
     "\u2060Items marked with an asterisk (*) are items that are being ranked due to their potential in squad play. For solo matches, they go down one.",
+    "Items marked with two asterisks (**) are items that require an incredibly specific build in order to perform at the tier they are ranked at. Read the rationale for these items for more info. Generally, these items are much lower tier than shown if not used with that specific build.",
+    "\u2060Items marked with three asterisks (***) are items that both require an incredibly specific build and coordinated play in order to perform at the tier they are ranked at. Read the rationale for these items for more info. Generally, these items are much lower tier than shown if not used with that specific build, and in solo matches, they go down one.",
     "Ranking is by power and nothing else. Refer to the Newbie Guide for investment based rankings.",
     "The drone tier list breaks some of these rules: \u2060Unlike all other tier lists, the highest tiers (X and S) do not mean the best drones. To make the tier list useful, drones are ranked by both power and versatility. A tier drones are hyperspecific and only work on one bot, so they are usually better than X and S tier drones, but only on that one bot. X and S tier drones are generic and great for any bot.",
     "Ultimate gear is denoted by a special color",

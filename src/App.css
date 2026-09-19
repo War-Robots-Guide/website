@@ -379,6 +379,23 @@
   text-overflow: ellipsis;
 }
 
+.tier-marker-legend {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.tier-marker-legend p {
+  margin: 4px 0;
+}
+
+.tier-marker-legend strong {
+  color: var(--text-primary);
+}
+
 /* Modal and Detail Dialog */
 .modal-overlay {
   position: fixed;
@@ -1439,7 +1456,6 @@
     max-height: 480px;
   }
 }
-
 
 
 

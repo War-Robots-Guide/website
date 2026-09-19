@@ -130,8 +130,10 @@ export function TierListTab({ onItemClick }) {
       </div>
 
       {/* Footnotes */}
-      <div style={{ marginTop: '24px', padding: '16px 0 0 0', borderTop: '1px solid var(--border-light)', fontSize: '12px', color: 'var(--text-muted)' }}>
-        <p style={{ margin: 0 }}>* Only in squad / coordinated play</p>
+      <div className="tier-marker-legend" aria-label="Tier list marker meanings">
+        <p><strong>*</strong> Ranked for squad-play potential; move down one tier in solo play.</p>
+        <p><strong>**</strong> Requires a highly specific build; otherwise it ranks much lower.</p>
+        <p><strong>***</strong> Requires both a highly specific build and coordinated play; otherwise it ranks much lower, and moves down one tier in solo play.</p>
       </div>
     </div>
   );
