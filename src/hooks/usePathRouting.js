@@ -1,28 +1,16 @@
 import { useState, useEffect } from 'react';
+import { DEFAULT_ROUTE_ID, ROUTES_BY_ID, getRouteByPath } from '../config/routes';
 
-const ALLOWED_TABS = ['dashboard', 'tiers', 'robots', 'builds', 'specializations', 'pilots', 'weapons', 'hangar'];
-
-export function usePathRouting(defaultTab = 'dashboard') {
+export function usePathRouting(defaultTab = DEFAULT_ROUTE_ID) {
   const getInitialTab = () => {
-    const path = window.location.pathname.replace(/^\/|\/$/g, '');
-    if (path === '' || path === 'index.html') {
-      return defaultTab;
-    }
-    return ALLOWED_TABS.includes(path) ? path : defaultTab;
+    return getRouteByPath(window.location.pathname)?.id || defaultTab;
   };
 
   const [activeTab, setActiveTabState] = useState(getInitialTab);
 
   useEffect(() => {
     const handlePopState = () => {
-      const path = window.location.pathname.replace(/^\/|\/$/g, '');
-      if (path === '' || path === 'index.html') {
-        setActiveTabState(defaultTab);
-      } else if (ALLOWED_TABS.includes(path)) {
-        setActiveTabState(path);
-      } else {
-        setActiveTabState(defaultTab);
-      }
+      setActiveTabState(getRouteByPath(window.location.pathname)?.id || defaultTab);
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -30,16 +18,11 @@ export function usePathRouting(defaultTab = 'dashboard') {
   }, [defaultTab]);
 
   const setActiveTab = (tab) => {
-    if (ALLOWED_TABS.includes(tab)) {
-      const currentPath = window.location.pathname.replace(/^\/|\/$/g, '');
-      const targetTab = tab === defaultTab ? '' : tab;
-      
-      if (currentPath !== targetTab) {
-        const newPath = tab === defaultTab ? '/' : `/${tab}`;
-        window.history.pushState(null, '', newPath);
-        setActiveTabState(tab);
-      }
-    }
+    const route = ROUTES_BY_ID[tab];
+    if (!route || route.path === window.location.pathname) return;
+
+    window.history.pushState(null, '', route.path);
+    setActiveTabState(tab);
   };
 
   return [activeTab, setActiveTab];

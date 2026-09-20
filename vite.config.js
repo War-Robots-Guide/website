@@ -49,8 +49,41 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
-        dontCacheBustURLsMatching: /\.[0-9a-f]{8}\./
+        // Keep route chunks out of the install-time precache so that React's
+        // dynamic imports remain genuinely on-demand. Requested chunks are
+        // cached below for subsequent visits.
+        globPatterns: ['**/*.{css,html,ico,png,svg,webmanifest}'],
+        dontCacheBustURLsMatching: /\.[0-9a-f]{8}\./,
+        runtimeCaching: [
+          {
+            urlPattern: /\/assets\/.*\.js$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'lazy-route-scripts-v1',
+              expiration: {
+                maxEntries: 64,
+                maxAgeSeconds: 60 * 60 * 24 * 30,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            urlPattern: /\/backgrounds\/.*\.webp$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'route-backgrounds-v1',
+              expiration: {
+                maxEntries: 16,
+                maxAgeSeconds: 60 * 60 * 24 * 30,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
       }
     })
   ],
@@ -72,12 +105,8 @@ export default defineConfig({
             }
             return 'vendor';
           }
-          if (id.includes('src/data/')) {
-            return 'data';
-          }
         }
       }
     }
   }
 })
-

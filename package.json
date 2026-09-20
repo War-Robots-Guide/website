@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.js",
+    "build": "vite build && node scripts/prerender.js && node scripts/verify_build.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "validate:data": "node scripts/validate_data.js",
+    "verify:build": "node scripts/verify_build.js",
     "test": "vitest run",
     "test:watch": "vitest"
   },

@@ -71,6 +71,11 @@ vi.mock('./components/common/DetailModal', () => ({
 describe('App Component', () => {
   let originalPathname;
 
+  const renderApp = async () => {
+    render(<App />);
+    await screen.findByTestId('dashboard-tab');
+  };
+
   beforeEach(() => {
     originalPathname = window.location.pathname;
     window.history.pushState(null, '', '/');
@@ -83,7 +88,7 @@ describe('App Component', () => {
   });
 
   it('renders dashboard tab by default', async () => {
-    render(<App />);
+    await renderApp();
     expect(screen.getByTestId('support-banner')).toBeInTheDocument();
     expect(screen.getByTestId('header')).toBeInTheDocument();
     expect(screen.getByTestId('dashboard-tab')).toBeInTheDocument();
@@ -96,7 +101,7 @@ describe('App Component', () => {
 
   it('changes tabs and scrolls to top when pathname changes via interaction', async () => {
     const user = userEvent.setup();
-    render(<App />);
+    await renderApp();
 
     await waitFor(() => {
       expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
@@ -112,7 +117,7 @@ describe('App Component', () => {
       window.dispatchEvent(new Event('popstate'));
     });
 
-    expect(screen.getByTestId('robots-guide-tab')).toBeInTheDocument();
+    expect(await screen.findByTestId('robots-guide-tab')).toBeInTheDocument();
     expect(screen.getByTestId('active-tab')).toHaveTextContent('robots');
 
     await waitFor(() => {
@@ -122,12 +127,12 @@ describe('App Component', () => {
 
   it('opens detail modal on item click and closes it', async () => {
     const user = userEvent.setup();
-    render(<App />);
+    await renderApp();
 
     // Click button inside dashboard to open item details
     await user.click(screen.getByText('Open Item'));
 
-    expect(screen.getByTestId('detail-modal')).toBeInTheDocument();
+    expect(await screen.findByTestId('detail-modal')).toBeInTheDocument();
     expect(screen.getByTestId('modal-item-name')).toHaveTextContent('Item 1');
 
     // Close the modal
@@ -137,11 +142,11 @@ describe('App Component', () => {
 
   it('clears selectedItem when tab changes', async () => {
     const user = userEvent.setup();
-    render(<App />);
+    await renderApp();
 
     // Open modal
     await user.click(screen.getByText('Open Item'));
-    expect(screen.getByTestId('detail-modal')).toBeInTheDocument();
+    expect(await screen.findByTestId('detail-modal')).toBeInTheDocument();
 
     // Change tab
     await user.click(screen.getByText('Go to Robots'));
@@ -155,7 +160,7 @@ describe('App Component', () => {
 
   it('activates easter egg when developer click is triggered 4 times', async () => {
     const user = userEvent.setup();
-    render(<App />);
+    await renderApp();
 
     expect(screen.getByTestId('easter-egg-status')).toHaveTextContent('Inactive');
     expect(document.body.style.background).toBe('');
@@ -179,7 +184,7 @@ describe('App Component', () => {
 
   it('activates Adazahi easter egg when Adazahi name click is triggered 8 times', async () => {
     const user = userEvent.setup();
-    render(<App />);
+    await renderApp();
 
     expect(screen.queryByTestId('adazahi-easter-egg')).not.toBeInTheDocument();
     expect(document.body.style.background).toBe('');

@@ -1345,7 +1345,21 @@
 }
 
 .bg-layer.active {
-  opacity: 0.15; /* subtle and faded background */
+  opacity: var(--bg-active-opacity, 0.15);
+  animation: background-fade-in 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes background-fade-in {
+  from { opacity: 0; }
+  to { opacity: var(--bg-active-opacity, 0.15); }
+}
+
+.route-loading {
+  min-height: 45vh;
+  display: grid;
+  place-items: center;
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 
 /* Dashboard Grid Layout */
@@ -1456,8 +1470,6 @@
     max-height: 480px;
   }
 }
-
-
 
 
 

@@ -2,58 +2,42 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import process from 'node:process';
+import { DEFAULT_ROUTE_ID, ROUTES, ROUTES_BY_ID, getCanonicalUrl } from '../src/config/routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DIST_DIR = path.join(__dirname, '../dist');
-const ROUTES = ['dashboard', 'tiers', 'robots', 'builds', 'specializations', 'pilots', 'weapons', 'hangar'];
+const SITEMAP_LAST_MODIFIED = '2026-07-03';
 
-const ROUTE_METADATA = {
-  dashboard: {
-    title: 'War Robots Guide Database & Tools',
-    description: 'Welcome to the database compiled by the expert community at War Robots Guide. Navigate to the top of the site to browse our extensive collection of helpful resources!'
-  },
-  tiers: {
-    title: 'War Robots Meta Tier List | War Robots Guide',
-    description: 'A power based tier list that ranks every unit in the game.'
-  },
-  robots: {
-    title: 'War Robots Ratings & Guide | War Robots Guide',
-    description: 'Value rating represents F2P friendliness and return on investment.'
-  },
-  builds: {
-    title: 'War Robots Optimal Builds | War Robots Guide',
-    description: 'Learn the best weapon, specialization, pilot, and drone configurations for your robots.'
-  },
-  specializations: {
-    title: 'Module Specialization Layouts | War Robots Guide',
-    description: 'Learn what specializations and modules are the best for you.'
-  },
-  pilots: {
-    title: 'Best Pilot Skills & Builds | War Robots Guide',
-    description: 'Learn what pilot skills are the strongest and which skills should be avoided.'
-  },
-  weapons: {
-    title: 'Weapon DPS Statistics & Charts | War Robots Guide',
-    description: 'Compare the DPS of most weapons in the game. Select up to four weapons to generate a bar chart.'
-  },
-  hangar: {
-    title: 'Hangar Analyzer & Optimizer | War Robots Guide',
-    description: 'Get a general idea of how strong your hangar is.'
-  }
-};
-
-function replaceMeta(html, metadata, route) {
-  const canonicalUrl = `https://warrobotsguide.com${route === 'dashboard' ? '' : '/' + route}`;
+function replaceMeta(html, route) {
+  const canonicalUrl = getCanonicalUrl(route);
   return html
     .replace(/<link rel="canonical" href=".*?" \/>/, `<link rel="canonical" href="${canonicalUrl}" />`)
-    .replace(/<title>[\s\S]*?<\/title>/, `<title>${metadata.title}</title>`)
-    .replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${metadata.description}" />`)
-    .replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${metadata.title}" />`)
-    .replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${metadata.description}" />`)
-    .replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${metadata.title}" />`)
-    .replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${metadata.description}" />`);
+    .replace(/<title>[\s\S]*?<\/title>/, `<title>${route.title}</title>`)
+    .replace(/<meta name="description" content=".*?" \/>/, `<meta name="description" content="${route.description}" />`)
+    .replace(/<meta property="og:title" content=".*?" \/>/, `<meta property="og:title" content="${route.title}" />`)
+    .replace(/<meta property="og:description" content=".*?" \/>/, `<meta property="og:description" content="${route.description}" />`)
+    .replace(/<meta name="twitter:title" content=".*?" \/>/, `<meta name="twitter:title" content="${route.title}" />`)
+    .replace(/<meta name="twitter:description" content=".*?" \/>/, `<meta name="twitter:description" content="${route.description}" />`);
+}
+
+function generateSitemap() {
+  const entries = ROUTES.map((route) => `  <url>
+    <loc>${getCanonicalUrl(route)}${route.path === '/' ? '/' : ''}</loc>
+    <lastmod>${SITEMAP_LAST_MODIFIED}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>${route.sitemapPriority}</priority>
+  </url>`);
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries.join('\n')}
+</urlset>
+`;
+
+  fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap, 'utf-8');
+  console.log(`Generated sitemap.xml with ${ROUTES.length} canonical routes`);
 }
 
 function prerender() {
@@ -74,7 +58,8 @@ function prerender() {
   const indexContent = fs.readFileSync(indexPath, 'utf-8');
 
   // 1. Update root index.html with dashboard metadata
-  const updatedRootContent = replaceMeta(indexContent, ROUTE_METADATA.dashboard, 'dashboard');
+  const defaultRoute = ROUTES_BY_ID[DEFAULT_ROUTE_ID];
+  const updatedRootContent = replaceMeta(indexContent, defaultRoute);
   fs.writeFileSync(indexPath, updatedRootContent, 'utf-8');
   console.log('Updated root: dist/index.html with default metadata');
 
@@ -85,18 +70,19 @@ function prerender() {
 
   // 3. Generate subdirectories and index.html files for each route with route-specific metadata
   ROUTES.forEach(route => {
-    const routeDir = path.join(DIST_DIR, route);
+    const routeDir = path.join(DIST_DIR, route.slug);
 
     if (!fs.existsSync(routeDir)) {
       fs.mkdirSync(routeDir, { recursive: true });
     }
 
     const routeIndexPath = path.join(routeDir, 'index.html');
-    const metadata = ROUTE_METADATA[route] || ROUTE_METADATA.dashboard;
-    const routeContent = replaceMeta(indexContent, metadata, route);
+    const routeContent = replaceMeta(indexContent, route);
     fs.writeFileSync(routeIndexPath, routeContent, 'utf-8');
-    console.log(`Created route: dist/${route}/index.html with route metadata`);
+    console.log(`Created route: dist/${route.slug}/index.html with route metadata`);
   });
+
+  generateSitemap();
 
   // 4. Expose raw JSON database endpoints in dist for LLM crawlers
   console.log('Exposing raw database JSON endpoints for AI models...');
