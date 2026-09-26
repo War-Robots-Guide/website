@@ -1,0 +1,1 @@
+function e(e,t,n){return[...e].sort((e,r)=>{let i=n(e).toLowerCase(),a=n(r).toLowerCase(),o=i===t,s=a===t;if(o&&!s)return-1;if(!o&&s)return 1;let c=i.startsWith(t),l=a.startsWith(t);if(c&&!l)return-1;if(!c&&l)return 1;let u=i.includes(t),d=a.includes(t);return u&&!d?-1:!u&&d?1:0})}export{e as t};
