@@ -227,6 +227,16 @@ function validatePilots(data) {
   }
 }
 
+// Helper to strip tier list emoji tags and trailing asterisks
+function cleanUnitName(name) {
+  if (!name) return '';
+  return name
+    .replace(/^\[?(?:👥|‼️|⬆️?|⬇️?|👁️?)\]?\s*/u, '')
+    .replace(/\*+$/, '')
+    .trim()
+    .toLowerCase();
+}
+
 // --------------------------------------------------
 // CROSS-FILE DATA INTEGRITY VERIFICATION
 // --------------------------------------------------
@@ -235,7 +245,8 @@ function runCrossFileChecks() {
 
   // 1. Verify robots referenced in tiers exist in robot_guide
   for (const robot of referencedRobots) {
-    if (!definedRobots.has(robot.name.toLowerCase().trim())) {
+    const clean = cleanUnitName(robot.name);
+    if (!definedRobots.has(clean)) {
       console.warn(`[Data Integrity Warning] ${robot.path}: Robot '${robot.name}' referenced in tiers is missing from robot_guide.json`);
       warningCount++;
     }
@@ -243,7 +254,8 @@ function runCrossFileChecks() {
 
   // 2. Verify titans referenced in tiers exist in robot_guide
   for (const titan of referencedTitans) {
-    if (!definedTitans.has(titan.name.toLowerCase().trim())) {
+    const clean = cleanUnitName(titan.name);
+    if (!definedTitans.has(clean)) {
       console.warn(`[Data Integrity Warning] ${titan.path}: Titan '${titan.name}' referenced in tiers is missing from robot_guide.json`);
       warningCount++;
     }
@@ -251,7 +263,7 @@ function runCrossFileChecks() {
 
   // 3. Verify weapons referenced in tiers exist in weapons_dps
   for (const weapon of referencedWeapons) {
-    const normName = weapon.name.toLowerCase().trim();
+    const normName = cleanUnitName(weapon.name);
     
     // Family/broad names that do not need individual weapon verification
     if (normName.includes('family') || 
@@ -263,7 +275,7 @@ function runCrossFileChecks() {
 
     // Split by comma, slash, 'and', 'or' to get individual weapons in a group
     const parts = weapon.name.split(/,|\/|\band\b|\bor\b/)
-      .map(part => part.trim().toLowerCase())
+      .map(part => cleanUnitName(part))
       .filter(part => part.length > 0);
 
     let foundMatch = false;

@@ -10,7 +10,11 @@ vi.mock('../data/tiers.json', () => {
             { name: "Ares", description: "Ares Description" },
             { name: "UE Ares", description: "UE Ares Description" },
             // Asterisk edge case
-            { name: "Phantom***", description: "Phantom Description" }
+            { name: "Phantom***", description: "Phantom Description" },
+            // Emoji tag edge cases
+            { name: "⬇️Dedopali", description: "Dedopali Description" },
+            { name: "⬆️Fang", description: "Fang Description" },
+            { name: "👁️Shoggoth", description: "Shoggoth Description" }
           ]
         },
         S: {
@@ -23,7 +27,9 @@ vi.mock('../data/tiers.json', () => {
         },
         A: {
           items: [
-            // Multiple names in one string
+            // Multiple names in one string with tags
+            { name: "‼️Bash, ‼️Boom, ‼️Pow", description: "Bash Boom Pow Description" },
+            { name: "👥Newton", description: "Newton Description" },
             { name: "Bot1, Bot2", description: "Multi-bot Description" },
             { name: "Short", description: "Short Description" },
             { name: "UE Short", description: "UE Short Description" }
@@ -42,9 +48,24 @@ vi.mock('../data/tiers.json', () => {
   };
 });
 
-import { getTierForName, getDescriptionForName, getFootnoteText } from './tierLookup';
+import { getTierForName, getDescriptionForName, getFootnoteText, stripTagsAndAsterisks } from './tierLookup';
 
 describe('tierLookup', () => {
+  describe('stripTagsAndAsterisks', () => {
+    it('should strip emoji tags and trailing asterisks properly', () => {
+      expect(stripTagsAndAsterisks('⬇️Dedopali')).toBe('Dedopali');
+      expect(stripTagsAndAsterisks('⬆️Fang')).toBe('Fang');
+      expect(stripTagsAndAsterisks('👁️Shoggoth')).toBe('Shoggoth');
+      expect(stripTagsAndAsterisks('‼️Lynx')).toBe('Lynx');
+      expect(stripTagsAndAsterisks('👥Newton')).toBe('Newton');
+      expect(stripTagsAndAsterisks('[👥] Newton')).toBe('Newton');
+      expect(stripTagsAndAsterisks('[‼️] Lynx')).toBe('Lynx');
+      expect(stripTagsAndAsterisks('Phantom***')).toBe('Phantom');
+      expect(stripTagsAndAsterisks(null)).toBe('');
+      expect(stripTagsAndAsterisks('')).toBe('');
+    });
+  });
+
   describe('getDescriptionForName', () => {
     it('should return empty string for invalid inputs', () => {
       expect(getDescriptionForName(null, 'Robots')).toBe('');
@@ -64,6 +85,24 @@ describe('tierLookup', () => {
       expect(getDescriptionForName('Phantom', 'Robots')).toBe('Phantom Description');
       // Both have asterisks
       expect(getDescriptionForName('Phantom*', 'Robots')).toBe('Phantom Description');
+    });
+
+    it('should match exact name with emoji tags in input or cache', () => {
+      // Cache has tag "⬇️Dedopali", input is clean "Dedopali"
+      expect(getDescriptionForName('Dedopali', 'Robots')).toBe('Dedopali Description');
+      // Both have tag
+      expect(getDescriptionForName('⬇️Dedopali', 'Robots')).toBe('Dedopali Description');
+      // Input has bracketed tag
+      expect(getDescriptionForName('[⬇️] Dedopali', 'Robots')).toBe('Dedopali Description');
+      // Input has tag, cache is clean
+      expect(getDescriptionForName('⬇️Ares', 'Robots')).toBe('Ares Description');
+      // Other tags
+      expect(getDescriptionForName('Fang', 'Robots')).toBe('Fang Description');
+      expect(getDescriptionForName('Shoggoth', 'Robots')).toBe('Shoggoth Description');
+      expect(getDescriptionForName('Newton', 'Robots')).toBe('Newton Description');
+      expect(getDescriptionForName('Bash', 'Robots')).toBe('Bash Boom Pow Description');
+      expect(getDescriptionForName('Boom', 'Robots')).toBe('Bash Boom Pow Description');
+      expect(getDescriptionForName('Pow', 'Robots')).toBe('Bash Boom Pow Description');
     });
 
     it('should match via fallback if provided name includes cached item name', () => {
@@ -112,6 +151,21 @@ describe('tierLookup', () => {
     it('should return correct tier letter for exact match', () => {
       expect(getTierForName('Ares', 'Robots')).toBe('X');
       expect(getTierForName('Thunder', 'Robots')).toBe('S');
+    });
+
+    it('should return correct tier letter for tagged items (input or cache)', () => {
+      expect(getTierForName('Dedopali', 'Robots')).toBe('X');
+      expect(getTierForName('⬇️Dedopali', 'Robots')).toBe('X');
+      expect(getTierForName('[⬇️] Dedopali', 'Robots')).toBe('X');
+      expect(getTierForName('Fang', 'Robots')).toBe('X');
+      expect(getTierForName('⬆️Fang', 'Robots')).toBe('X');
+      expect(getTierForName('Shoggoth', 'Robots')).toBe('X');
+      expect(getTierForName('👁️Shoggoth', 'Robots')).toBe('X');
+      expect(getTierForName('Newton', 'Robots')).toBe('A');
+      expect(getTierForName('👥Newton', 'Robots')).toBe('A');
+      expect(getTierForName('[👥] Newton', 'Robots')).toBe('A');
+      expect(getTierForName('Bash', 'Robots')).toBe('A');
+      expect(getTierForName('‼️Bash', 'Robots')).toBe('A');
     });
 
     it('should return correct tier letter for comma-separated items', () => {

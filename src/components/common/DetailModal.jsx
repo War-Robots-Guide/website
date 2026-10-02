@@ -5,7 +5,7 @@ import weaponsDpsData from '../../data/weapons_dps.json';
 import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
-import { getTierForName, getFootnoteText } from '../../utils/tierLookup';
+import { getTierForName, getFootnoteText, stripTagsAndAsterisks } from '../../utils/tierLookup';
 import { getOverallScoreRange } from '../../utils/ratingColors';
 
 // Pre-compute lookup data outside the component to avoid recreating it on every render.
@@ -16,7 +16,7 @@ const precomputedWeapons = weaponsList.map(w => ({
 }));
 
 const precomputedRobots = robotGuideData?.robots ? robotGuideData.robots.map(r => {
-  const cleanName = r.name.replace(/\*+$/, '').trim().toLowerCase();
+  const cleanName = stripTagsAndAsterisks(r.name).toLowerCase();
   return {
     ...r,
     cleanName,
@@ -25,7 +25,7 @@ const precomputedRobots = robotGuideData?.robots ? robotGuideData.robots.map(r =
 }) : [];
 
 const precomputedTitans = robotGuideData?.titans ? robotGuideData.titans.map(t => {
-  const cleanName = t.name.replace(/\*+$/, '').trim().toLowerCase();
+  const cleanName = stripTagsAndAsterisks(t.name).toLowerCase();
   return {
     ...t,
     cleanName,
@@ -44,7 +44,7 @@ export function DetailModal({ selectedItem, onClose }) {
 
   const dpsInfo = useMemo(() => {
     if (!selectedItem || !selectedItem.type.toLowerCase().includes('weapons')) return null;
-    const parts = selectedItem.name.toLowerCase().split(',').map(p => p.replace(/\*+$/, '').trim());
+    const parts = selectedItem.name.split(',').map(p => stripTagsAndAsterisks(p).toLowerCase());
     
     for (const part of parts) {
       if (!part) continue;
@@ -61,7 +61,7 @@ export function DetailModal({ selectedItem, onClose }) {
 
   const rob = useMemo(() => {
     if (!selectedItem || selectedItem.type !== 'Robots') return null;
-    const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
+    const cleanSelected = stripTagsAndAsterisks(selectedItem.name).toLowerCase();
     const isSelectedUe = cleanSelected.startsWith('ue ');
 
     // Try exact match first
@@ -76,7 +76,7 @@ export function DetailModal({ selectedItem, onClose }) {
 
   const titan = useMemo(() => {
     if (!selectedItem || selectedItem.type !== 'Titans') return null;
-    const cleanSelected = selectedItem.name.replace(/\*+$/, '').trim().toLowerCase();
+    const cleanSelected = stripTagsAndAsterisks(selectedItem.name).toLowerCase();
     const isSelectedUe = cleanSelected.startsWith('ue ');
 
     // Try exact match first

@@ -1,5 +1,14 @@
 import tiersData from '../data/tiers.json';
 
+// Helper to strip tier list emoji tags and trailing asterisks
+export const stripTagsAndAsterisks = (name) => {
+  if (!name) return '';
+  return name
+    .replace(/^\[?(?:👥|‼️|⬆️?|⬇️?|👁️?)\]?\s*/u, '')
+    .replace(/\*+$/, '')
+    .trim();
+};
+
 // Build a lookup cache once since tiersData is static
 export const tierLookupCache = {};
 
@@ -11,29 +20,39 @@ if (tiersData) {
         for (const item of tierObj.items) {
           if (item.name) {
             // For HangarAnalyzerTab: it splits by comma
-            const names = item.name.split(',').map(n => n.trim().toLowerCase());
-            for (const n of names) {
-              tierLookupCache[category].set(n, {
+            const rawNames = item.name.split(',').map(n => n.trim().toLowerCase());
+            for (const n of rawNames) {
+              const cleanN = stripTagsAndAsterisks(n).toLowerCase();
+              const entry = {
                 tierLetter: tierLetter,
                 // Store description for DashboardTab
                 description: item.description,
                 // Clean name for DashboardTab iteration fallback
-                cleanName: n.replace(/\*+$/, '').trim(),
-                isUe: n.replace(/\*+$/, '').trim().startsWith('ue '),
+                cleanName: cleanN,
+                isUe: cleanN.startsWith('ue '),
                 originalName: item.name
-              });
+              };
+              tierLookupCache[category].set(n, entry);
+              if (!tierLookupCache[category].has(cleanN)) {
+                tierLookupCache[category].set(cleanN, entry);
+              }
             }
 
             // Also store the exact cleaned name from DashboardTab logic
-            const tClean = item.name.replace(/\*+$/, '').trim().toLowerCase();
+            const tRaw = item.name.trim().toLowerCase();
+            const tClean = stripTagsAndAsterisks(item.name).toLowerCase();
+            const mainEntry = {
+              tierLetter: tierLetter,
+              description: item.description,
+              cleanName: tClean,
+              isUe: tClean.startsWith('ue '),
+              originalName: item.name
+            };
+            if (!tierLookupCache[category].has(tRaw)) {
+              tierLookupCache[category].set(tRaw, mainEntry);
+            }
             if (!tierLookupCache[category].has(tClean)) {
-               tierLookupCache[category].set(tClean, {
-                tierLetter: tierLetter,
-                description: item.description,
-                cleanName: tClean,
-                isUe: tClean.startsWith('ue '),
-                originalName: item.name
-              });
+              tierLookupCache[category].set(tClean, mainEntry);
             }
           }
         }
@@ -44,9 +63,13 @@ if (tiersData) {
 
 export const getTierForName = (name, category) => {
   if (!name || !tierLookupCache[category]) return null;
-  const clean = name.trim().toLowerCase();
-  const match = tierLookupCache[category].get(clean);
+  const raw = name.trim().toLowerCase();
+  const match = tierLookupCache[category].get(raw);
   if (match) return match.tierLetter;
+
+  const clean = stripTagsAndAsterisks(name).toLowerCase();
+  const cleanMatch = tierLookupCache[category].get(clean);
+  if (cleanMatch) return cleanMatch.tierLetter;
 
   // Check alias without 'unit' (e.g. 'ue sword unit' -> 'ue sword')
   const alias = clean.replace(/\s+unit$/, '');
@@ -59,12 +82,13 @@ export const getTierForName = (name, category) => {
 export const getDescriptionForName = (name, category) => {
   if (!name || !tierLookupCache[category]) return '';
 
-  const cleanName = name.replace(/\*+$/, '').trim().toLowerCase();
+  const cleanName = stripTagsAndAsterisks(name).toLowerCase();
   const isUe = cleanName.startsWith('ue ');
   const cache = tierLookupCache[category];
 
-  // Fast path: exact match
-  const exactMatch = cache.get(cleanName);
+  // Fast path: exact match on raw or clean name
+  const raw = name.trim().toLowerCase();
+  const exactMatch = cache.get(raw) || cache.get(cleanName);
   if (exactMatch && exactMatch.isUe === isUe) {
     return exactMatch.description;
   }

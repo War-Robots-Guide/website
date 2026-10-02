@@ -129,11 +129,13 @@ export function TierListTab({ onItemClick }) {
         })}
       </div>
 
-      {/* Footnotes */}
+      {/* Tier list tag legend */}
       <div className="tier-marker-legend" aria-label="Tier list marker meanings">
-        <p><strong>*</strong> Ranked for squad-play potential; move down one tier in solo play.</p>
-        <p><strong>**</strong> Requires a highly specific build; otherwise it ranks much lower.</p>
-        <p><strong>***</strong> Requires both a highly specific build and coordinated play; otherwise it ranks much lower, and moves down one tier in solo play.</p>
+        <p><strong>[👥]</strong> Items that are being ranked due to their potential in squad play. For solo matches, they go down one.</p>
+        <p><strong>[‼️]</strong> Items that require an incredibly specific build in order to perform at the tier they are ranked at. Read the rationale for these items to learn what build is high tier. Generally, these items are much lower tier than shown if not used with that specific build.</p>
+        <p><strong>[⬆️]</strong> Items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances. Read the rationale for these items for more info.</p>
+        <p><strong>[⬇️]</strong> Items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances. Read the rationale for these items for more info.</p>
+        <p><strong>[👁️]</strong> Items so powerful that the meta is being bent around them. [⬆️] and [⬇️] tags are based on these.</p>
       </div>
     </div>
   );

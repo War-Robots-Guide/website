@@ -38,6 +38,14 @@ def find_file_case_insensitive(filename):
                 print(f"Fuzzy matched robot guide spreadsheet (simplified): {f}")
                 return os.path.join(sample_dir, f)
 
+    # 2b. Try match for mini build guides spreadsheet (Adazahi r_WarRobotsGuide Mini Build Guides.xlsx / Mini Build Guides.xlsx)
+    if "mini build" in target_lower or "build guide" in target_lower:
+        for f in files:
+            f_lower = f.lower()
+            if ("mini build" in f_lower or "build guide" in f_lower) and f_lower.endswith(".xlsx"):
+                print(f"Fuzzy matched mini build guide spreadsheet: {f}")
+                return os.path.join(sample_dir, f)
+
     # 3. Try fuzzy match for tier docx (Tier List Rationales.docx / Tier List Rationales & Disclaimers.docx / Tiers.docx)
     if ("tier" in target_lower or "rationale" in target_lower or "disclaimer" in target_lower) and target_lower.endswith(".docx"):
         for f in files:
@@ -356,8 +364,10 @@ def parse_tiers():
                 xlsx_path = os.path.join(sample_dir, f)
                 break
 
-    # Collect all items in Excel that end with '*'
-    asterisk_items = set()
+    # Collect tagged items from WR tier lists.xlsx
+    # Maps normalized item name -> emoji tag
+    tag_items = {}
+    TAG_REGEX = re.compile(r'^([👥‼️⬆⬇👁️\ufe0f]+)\s*')
     try:
         wb_temp = openpyxl.load_workbook(xlsx_path, data_only=True)
         for sname in wb_temp.sheetnames:
@@ -365,12 +375,24 @@ def parse_tiers():
             for r in range(1, sheet_temp.max_row + 1):
                 col1_val = sheet_temp.cell(row=r, column=2).value
                 if col1_val:
-                    items_list = [i.strip() for i in str(col1_val).split(",")]
+                    items_list = [i.strip() for i in re.split(r'[,]+|\n', str(col1_val)) if i.strip()]
                     for item in items_list:
-                        if item.endswith("*"):
-                            asterisk_items.add(item.rstrip("*").strip().lower())
+                        m = TAG_REGEX.match(item)
+                        if m:
+                            tag = m.group(1)
+                            if tag == '⬆': tag = '⬆️'
+                            elif tag == '⬇': tag = '⬇️'
+                            elif tag == '👁': tag = '👁️'
+                            clean = item[m.end():].strip().lower()
+                            tag_items[clean] = tag
+                            tag_items[clean.replace(" ", "")] = tag
+                        elif item.endswith("*"):
+                            clean = item.rstrip("*").strip().lower()
+                            ast_count = len(item) - len(item.rstrip("*"))
+                            tag_items[clean] = "*" * ast_count
+                            tag_items[clean.replace(" ", "")] = "*" * ast_count
     except Exception as e:
-        print(f"Warning: Failed to parse asterisks from WR tier lists.xlsx: {e}")
+        print(f"Warning: Failed to parse tags from WR tier lists.xlsx: {e}")
 
     # Parse standard tiers and descriptions from docx
     doc = Document(docx_path)
@@ -414,6 +436,24 @@ def parse_tiers():
         if current_category is None:
             if text in ["Tab 1", "Intro"]:
                 continue
+            # Filter out legacy asterisk disclaimers and normalize tag explanations
+            if re.search(r'marked with (?:an asterisk|two asterisks|three asterisks|\*+)', text, re.IGNORECASE):
+                continue
+            if text.startswith("[👥]") or text.startswith("👥") or "👥" in text[:5]:
+                disclaimers.append("Items marked with a [👥] are items that are being ranked due to their potential in squad play. For solo matches, they go down one.")
+                continue
+            if text.startswith("[‼️]") or text.startswith("‼️") or "‼️" in text[:5]:
+                disclaimers.append("Items marked with [‼️] are items that require an incredibly specific build in order to perform at the tier they are ranked at. Read the rationale for these items to learn what build is high tier. Generally, these items are much lower tier than shown if not used with that specific build.")
+                continue
+            if text.startswith("[⬆️]") or text.startswith("⬆️") or "⬆" in text[:5]:
+                disclaimers.append("Items marked with a [⬆️] are items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances. Read the rationale for these items for more info.")
+                continue
+            if text.startswith("[⬇️]") or text.startswith("⬇️") or "⬇" in text[:5]:
+                disclaimers.append("Items marked with a [⬇️] are items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances. Read the rationale for these items for more info.")
+                continue
+            if text.startswith("[👁️]") or text.startswith("👁️") or "👁" in text[:5]:
+                disclaimers.append("Items marked with an [👁️] are items so powerful that the meta is being bent around them. [⬆️] and [⬇️] tags are based on these.")
+                continue
             disclaimers.append(text)
             continue
             
@@ -431,11 +471,30 @@ def parse_tiers():
                 
                 # Double check if item name is too long or contains sentences (fail-safe)
                 if len(item_name) < 300:
-                    clean_item_name = item_name.lower().strip()
-                    sub_names = [sn.strip().lower() for sn in clean_item_name.split(",")]
-                    has_ast = any(sn in asterisk_items for sn in sub_names)
-                    if has_ast and not item_name.endswith("*"):
-                        item_name = item_name + "*"
+                    sub_parts = [sp.strip() for sp in item_name.split(",")]
+                    tagged_parts = []
+                    item_has_tag = False
+                    for sp in sub_parts:
+                        m = TAG_REGEX.match(sp)
+                        if m:
+                            tagged_parts.append(sp)
+                            item_has_tag = True
+                            continue
+                        sp_clean = sp.lower()
+                        tag = tag_items.get(sp_clean) or tag_items.get(sp_clean.replace(" ", ""))
+                        if tag:
+                            tagged_parts.append(f"{tag}{sp}")
+                            item_has_tag = True
+                        else:
+                            tagged_parts.append(sp)
+
+                    if item_has_tag:
+                        item_name = ", ".join(tagged_parts)
+                    else:
+                        clean_full = item_name.lower().strip()
+                        tag = tag_items.get(clean_full) or tag_items.get(clean_full.replace(" ", ""))
+                        if tag:
+                            item_name = f"{tag}{item_name}"
                         
                     tiers_data[current_category][current_tier]["items"].append({
                         "name": item_name,
@@ -455,6 +514,19 @@ def parse_tiers():
                         "name": "Note",
                         "description": text
                     })
+
+    # Ensure all 5 tag explanations are in disclaimers if not already present
+    tag_explanations = [
+        "Items marked with a [👥] are items that are being ranked due to their potential in squad play. For solo matches, they go down one.",
+        "Items marked with [‼️] are items that require an incredibly specific build in order to perform at the tier they are ranked at. Read the rationale for these items to learn what build is high tier. Generally, these items are much lower tier than shown if not used with that specific build.",
+        "Items marked with a [⬆️] are items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances. Read the rationale for these items for more info.",
+        "Items marked with a [⬇️] are items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances. Read the rationale for these items for more info.",
+        "Items marked with an [👁️] are items so powerful that the meta is being bent around them. [⬆️] and [⬇️] tags are based on these."
+    ]
+    for exp in tag_explanations:
+        tag_key = exp.split("]")[0] + "]"
+        if not any(tag_key in d for d in disclaimers):
+            disclaimers.append(exp)
 
     # Now parse casual tier names from WR tier lists.xlsx
     wb = openpyxl.load_workbook(xlsx_path, data_only=True)
@@ -611,43 +683,86 @@ def parse_robot_guide():
                 "text": str(txt_val).strip()
             })
             
-    # 5.2 Parse Mini Build Guides (support both 'Robot Mini Build Guides' and legacy 'Mini Build Guides')
-    builds_sheet_name = "Robot Mini Build Guides" if "Robot Mini Build Guides" in wb.sheetnames else "Mini Build Guides"
-    builds_sheet = wb[builds_sheet_name]
+    # 5.2 Parse Mini Build Guides (support multi-sheet and separate workbook)
+    builds_wb = wb
+    builds_sheets = []
+
+    for s in ["Robot Mini Build Guides", "Ultimate Robot Mini Build Guide", "Mini Build Guides"]:
+        if s in wb.sheetnames:
+            builds_sheets.append(wb[s])
+
+    if not builds_sheets:
+        mini_builds_file = find_file_case_insensitive("Mini Build Guides.xlsx")
+        if os.path.exists(mini_builds_file):
+            builds_wb = openpyxl.load_workbook(mini_builds_file, data_only=True)
+            for s in ["Robot Mini Build Guides", "Ultimate Robot Mini Build Guide", "Mini Build Guides"]:
+                if s in builds_wb.sheetnames:
+                    builds_sheets.append(builds_wb[s])
+        else:
+            simplified_file = find_file_case_insensitive("The Simplified WR Guide for New Players.xlsx")
+            if os.path.exists(simplified_file):
+                builds_wb = openpyxl.load_workbook(simplified_file, data_only=True)
+                for s in ["Robot Mini Build Guides", "Ultimate Robot Mini Build Guide", "Mini Build Guides"]:
+                    if s in builds_wb.sheetnames:
+                        builds_sheets.append(builds_wb[s])
+
     builds = []
-    ue_weapon_index = {}
+    ue_weapon_index = {
+        "Midrange": "Pulsar, Ion, Arms, Molot/Tempest, Shocktrain, Wasp, Incinerator/Scald,",
+        "Burst": "Storm, Glory, Corona, Halo, Cryo, Incinerator/Scald, ArmM/ArmL (some midrange weapons are also burst weapons)",
+        "Close Range": '"Burst", Calmity/Scourge, Orkan, Punisher/Avenger, Blaze/Igniter, Shredder, Redeemer/Taran, Venom/Toxin (only use with Shieldbreak or Webby)',
+        "Any": "Anything goes. Exceptions: Hussar, Dragoon, Scatter, Havoc, and Devastator are not recommended because they suck. Vortex is niche and only recommended on pathfinder."
+    }
 
-    for r in range(2, builds_sheet.max_row + 1):
-        bname = builds_sheet.cell(row=r, column=1).value
-        bot = builds_sheet.cell(row=r, column=2).value
-        
-        bname_str = str(bname).strip() if bname else ""
-        bot_str = str(bot).strip() if bot else ""
-
-        if bname_str.startswith("*") or bname_str.startswith("UE Index") or "f2p weapons" in bname_str.lower():
-            break
+    for bsheet in builds_sheets:
+        for r in range(2, bsheet.max_row + 1):
+            bname = bsheet.cell(row=r, column=1).value
+            bot = bsheet.cell(row=r, column=2).value
             
-        if bname and bot:
-            is_ultimate = (bname_str.lower() == "ultimate") or bot_str.lower().startswith("ue ")
-            builds.append({
-                "build_name": bname_str,
-                "robot": bot_str,
-                "f2p_weapons": str(builds_sheet.cell(row=r, column=3).value or "").strip(),
-                "best_weapons": str(builds_sheet.cell(row=r, column=4).value or "").strip(),
-                "drone_options": str(builds_sheet.cell(row=r, column=5).value or "").strip(),
-                "pilot": str(builds_sheet.cell(row=r, column=6).value or "").strip(),
-                "specialization": str(builds_sheet.cell(row=r, column=7).value or "").strip(),
-                "explanation": str(builds_sheet.cell(row=r, column=8).value or "").strip(),
-                "is_ultimate": is_ultimate
-            })
+            bname_str = str(bname).strip() if bname else ""
+            bot_str = str(bot).strip() if bot else ""
 
-    # Parse UE Weapon Index (rows 78-83 in Robot Mini Build Guides or wherever quoted index appears)
-    for r in range(1, builds_sheet.max_row + 1):
-        c1_val = str(builds_sheet.cell(row=r, column=1).value or "").strip()
-        c2_val = str(builds_sheet.cell(row=r, column=2).value or "").strip()
-        if c1_val.startswith('"') and c1_val.endswith('"'):
-            cat = c1_val.strip('"')
-            ue_weapon_index[cat] = c2_val
+            if bname_str.startswith("*") or bname_str.startswith("UE Index") or "f2p weapons" in bname_str.lower():
+                break
+                
+            if bname and bot:
+                is_ultimate = (bname_str.lower() == "ultimate") or bot_str.lower().startswith("ue ")
+                builds.append({
+                    "build_name": bname_str,
+                    "robot": bot_str,
+                    "f2p_weapons": str(bsheet.cell(row=r, column=3).value or "").strip(),
+                    "best_weapons": str(bsheet.cell(row=r, column=4).value or "").strip(),
+                    "drone_options": str(bsheet.cell(row=r, column=5).value or "").strip(),
+                    "pilot": str(bsheet.cell(row=r, column=6).value or "").strip(),
+                    "specialization": str(bsheet.cell(row=r, column=7).value or "").strip(),
+                    "explanation": str(bsheet.cell(row=r, column=8).value or "").strip(),
+                    "is_ultimate": is_ultimate
+                })
+
+    # Parse UE Weapon Index (check builds workbook Intro or builds sheets)
+    sheets_for_index = []
+    if "Intro" in builds_wb.sheetnames:
+        sheets_for_index.append(builds_wb["Intro"])
+    sheets_for_index.extend(builds_sheets)
+
+    for bsheet in sheets_for_index:
+        for r in range(1, bsheet.max_row + 1):
+            for c in range(1, bsheet.max_column + 1):
+                val = str(bsheet.cell(row=r, column=c).value or "").strip()
+                if not val:
+                    continue
+                for line in val.split("\n"):
+                    if "->" in line:
+                        left, right = line.split("->", 1)
+                        clean_left = left.strip().strip('"')
+                        for key in ["Midrange", "Burst", "Close Range", "Any"]:
+                            if key.lower() in clean_left.lower():
+                                ue_weapon_index[key] = right.strip()
+                    elif line.startswith('"') and line.endswith('"') and c + 1 <= bsheet.max_column:
+                        c2_val = str(bsheet.cell(row=r, column=c+1).value or "").strip()
+                        if c2_val:
+                            cat = line.strip('"')
+                            ue_weapon_index[cat] = c2_val
 
     # 5.3 Parse Roles with fill colors
     roles_sheet = wb["Bot Roles"]
