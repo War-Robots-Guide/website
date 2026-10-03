@@ -1,0 +1,33 @@
+# War Robots Guide Database
+
+A structured static database and guide for the mobile game *War Robots* (WR), compiled by the r/WarRobotsGuide community (Adazahi, Spiritings, Tropical, mistermaths, and Running Riot). It features meta tier lists, weapon DPS data, robot value ratings, pilot skills, module specializations, and hangar analysis tools.
+
+## Core Data Assets
+
+All data on this site is dynamically parsed from community spreadsheets and Word documents, and exposed as public JSON endpoints:
+
+* **Robots & Titans Value Ratings:** [/src/data/robot_guide.json](https://warrobotsguide.com/src/data/robot_guide.json)
+  * Detailed numeric scores (1-10) for longevity, lethality, mobility, utility, accessibility, and overall rating.
+  * Role classifications (primary/secondary roles like Brawler, Saboteur, Beacon Runner, Assassin, Support, Tank-buster, Sniper, Midrange).
+  * Build recommendations (f2p and best weapons, drones, pilots, specializations, and textual explanations).
+  * Camelot retro robot database and recent changelog updates.
+* **Tier Lists:** [/src/data/tiers.json](https://warrobotsguide.com/src/data/tiers.json)
+  * Meta tiers (X, S, A, B, C, D, E, F, Z) for Robots, Titans, Drones, Motherships, Mothership Turrets, Robot Weapons, and Titan Weapons. Includes community rationales for each placement.
+* **Weapon DPS Statistics:** [/src/data/weapons_dps.json](https://warrobotsguide.com/src/data/weapons_dps.json)
+  * Bullet-by-bullet stats of Light, Medium, Heavy, Alpha, and Beta weapons.
+  * Lists Burst DPS, Cycle DPS, Range, and mechanical attributes/notes.
+* **Module Specializations:** [/src/data/specializations.json](https://warrobotsguide.com/src/data/specializations.json)
+  * Class-based module slot layouts (Damage Dealer/Raider, Brawler/Tank, Support, Saboteur, Attack/Defense) for robots and titans.
+* **Pilot Skills Guide:** [/src/data/pilots.json](https://warrobotsguide.com/src/data/pilots.json)
+  * Recommended pilot skills categorized by tier efficiency (Must Use, Usually Use, Sometimes Use, Don't Use) for robots and titans.
+
+## Site Structure (Logical Paths)
+
+* **Home / Dashboard (`/`):** Quick stats overview, featured F2P and meta robots, and the latest database changelog.
+* **Tier Lists (`/tiers`):** Meta tier lists with rationales explaining placements.
+* **Value Ratings (`/robots`):** Direct table comparison of robot stats, scores, roles, and community comments.
+* **Build Guides (`/builds`):** Curated setups for every major robot, showcasing optimal drone, pilot, module, and weapon configurations.
+* **Specializations (`/specializations`):** Guide for module slots and passive upgrade priorities.
+* **Pilot Skills (`/pilots`):** Reference guide for selecting the best pilot skills for both standard robots and titans.
+* **Weapon DPS (`/weapons`):** Graph and table visualizing and sorting all game weapons by range, burst DPS, and cycle DPS.
+* **Hangar Analyzer (`/hangar`):** Interactive utility allowing users to input their active hangar configuration and receive specialized feedback on role balance, upgrade paths, and optimal loadouts.
