@@ -2,9 +2,10 @@
 import { getRatingColor } from '../../utils/ratingColors';
 
 export function ScoreMeter({ label, score, options = {} }) {
+  const defaultMax = label === 'Overall Score' ? 50 : 10;
   const {
     min = 0,
-    max = 10,
+    max = defaultMax,
     customValueLabel = null,
     customPercentage = null,
     customFillColor = null,

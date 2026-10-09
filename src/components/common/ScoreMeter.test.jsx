@@ -122,5 +122,13 @@ describe('ScoreMeter Component', () => {
       // Should be '2' instead of '+2'
       expect(screen.getByText('2')).toBeInTheDocument();
     });
+
+    it('defaults max to 50 when label is Overall Score', () => {
+      const { container } = render(<ScoreMeter label="Overall Score" score={25} />);
+
+      // Score 25 out of 50 should be exactly 50% width
+      const fillElement = container.querySelector('.score-fill');
+      expect(fillElement).toHaveStyle({ width: '50%' });
+    });
   });
 });

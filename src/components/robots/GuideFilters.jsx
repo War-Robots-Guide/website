@@ -1,4 +1,5 @@
 import { SearchInput } from '../common/SearchInput';
+import { VALUE_RATING_RANGES, OVERALL_SCORE_RANGES, STAT_SCORE_RANGES } from './constants';
 
 export function GuideFilters({
   guideSubTab,
@@ -16,8 +17,7 @@ export function GuideFilters({
   minScoreFilter,
   setMinScoreFilter,
   sortBy,
-  setSortBy,
-  availableRatings = []
+  setSortBy
 }) {
   return (
     <div className="search-container">
@@ -50,9 +50,9 @@ export function GuideFilters({
         onChange={(e) => setRobotValueFilter(e.target.value)}
       >
         <option value="All">All Value Ratings</option>
-        {availableRatings.map(rating => (
-          <option key={rating} value={rating}>
-            Value Rating {rating}
+        {VALUE_RATING_RANGES.map(range => (
+          <option key={range.value} value={range.value}>
+            {range.label}
           </option>
         ))}
       </select>
@@ -82,11 +82,7 @@ export function GuideFilters({
         onChange={(e) => {
           const val = e.target.value;
           setStatFilter(val);
-          if (val === 'All') {
-            setMinScoreFilter('All');
-          } else if (minScoreFilter === 'All') {
-            setMinScoreFilter('1'); // Default to +1 minimum when selecting a stat
-          }
+          setMinScoreFilter('All');
         }}
       >
         <option value="All">All Stats</option>
@@ -98,7 +94,7 @@ export function GuideFilters({
         <option value="overall">Overall Score</option>
       </select>
 
-      {/* Minimum Score filter */}
+      {/* Score filter */}
       {statFilter !== 'All' && (
         <select
           className="select-filter"
@@ -106,8 +102,8 @@ export function GuideFilters({
           onChange={(e) => setMinScoreFilter(e.target.value)}
         >
           <option value="All">Any Score</option>
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(score => (
-            <option key={score} value={score}>{score} or better</option>
+          {(statFilter === 'overall' ? OVERALL_SCORE_RANGES : STAT_SCORE_RANGES).map(range => (
+            <option key={range.value} value={range.value}>{range.label}</option>
           ))}
         </select>
       )}

@@ -89,7 +89,15 @@ export function RobotsGuideTab({ onItemClick }) {
       
       const matchCategory = categoryFilter === 'All' || robot.sheet === categoryFilter;
 
-      const matchValue = robotValueFilter === 'All' || robot.value_rating === parseInt(robotValueFilter);
+      let matchValue = true;
+      if (robotValueFilter !== 'All') {
+        if (typeof robotValueFilter === 'string' && robotValueFilter.includes('-')) {
+          const [min, max] = robotValueFilter.split('-').map(Number);
+          matchValue = robot.value_rating >= min && robot.value_rating <= max;
+        } else {
+          matchValue = robot.value_rating === parseInt(robotValueFilter, 10);
+        }
+      }
       
       const matchRole = robotRoleFilter === 'All' || 
                         robot.roles.some(r => r.role === robotRoleFilter && r.type !== 'none');
@@ -97,7 +105,14 @@ export function RobotsGuideTab({ onItemClick }) {
       let matchStat = true;
       if (statFilter !== 'All' && minScoreFilter !== 'All') {
         const score = robot.scores?.[statFilter];
-        matchStat = score !== undefined && score >= parseInt(minScoreFilter);
+        if (score === undefined) {
+          matchStat = false;
+        } else if (typeof minScoreFilter === 'string' && minScoreFilter.includes('-')) {
+          const [min, max] = minScoreFilter.split('-').map(Number);
+          matchStat = score >= min && score <= max;
+        } else {
+          matchStat = score >= parseInt(minScoreFilter, 10);
+        }
       }
       
       return matchSearch && matchCategory && matchValue && matchRole && matchStat;
@@ -135,12 +150,27 @@ export function RobotsGuideTab({ onItemClick }) {
       const matchSearch = titan.name.toLowerCase().includes(query) || 
                           titan.comments.toLowerCase().includes(query);
       
-      const matchValue = robotValueFilter === 'All' || titan.value_rating === parseInt(robotValueFilter);
+      let matchValue = true;
+      if (robotValueFilter !== 'All') {
+        if (typeof robotValueFilter === 'string' && robotValueFilter.includes('-')) {
+          const [min, max] = robotValueFilter.split('-').map(Number);
+          matchValue = titan.value_rating >= min && titan.value_rating <= max;
+        } else {
+          matchValue = titan.value_rating === parseInt(robotValueFilter, 10);
+        }
+      }
       
       let matchStat = true;
       if (statFilter !== 'All' && minScoreFilter !== 'All') {
         const score = titan.scores?.[statFilter];
-        matchStat = score !== undefined && score >= parseInt(minScoreFilter);
+        if (score === undefined) {
+          matchStat = false;
+        } else if (typeof minScoreFilter === 'string' && minScoreFilter.includes('-')) {
+          const [min, max] = minScoreFilter.split('-').map(Number);
+          matchStat = score >= min && score <= max;
+        } else {
+          matchStat = score >= parseInt(minScoreFilter, 10);
+        }
       }
       
       return matchSearch && matchValue && matchStat;
@@ -202,13 +232,6 @@ export function RobotsGuideTab({ onItemClick }) {
     };
   }, []);
 
-  const availableRatings = useMemo(() => {
-    const items = guideSubTab === 'robots' ? robotGuideData?.robots : robotGuideData?.titans;
-    if (!items) return [];
-    const ratings = items.map(item => item.value_rating);
-    return Array.from(new Set(ratings)).sort((a, b) => b - a);
-  }, [guideSubTab]);
-
   return (
     <div className="animate-fade-in text-left">
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
@@ -256,7 +279,6 @@ export function RobotsGuideTab({ onItemClick }) {
         setMinScoreFilter={setMinScoreFilter}
         sortBy={sortBy}
         setSortBy={setSortBy}
-        availableRatings={availableRatings}
       />
 
 

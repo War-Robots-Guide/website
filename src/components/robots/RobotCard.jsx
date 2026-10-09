@@ -68,7 +68,7 @@ export function RobotCard({ robot, onClick, robotGuideData }) {
         <ScoreMeter label="Mobility" score={robot.scores.mobility} />
         <ScoreMeter label="Utility" score={robot.scores.utility} />
         <ScoreMeter label="Accessibility" score={robot.scores.accessibility} />
-        <ScoreMeter label="Overall Score" score={robot.scores.overall} />
+        <ScoreMeter label="Overall Score" score={robot.scores.overall} options={{ min: 0, max: 50 }} />
       </div>
 
       {/* Roles Badges */}

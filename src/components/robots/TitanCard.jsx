@@ -69,7 +69,7 @@ export function TitanCard({ titan, onClick }) {
         <ScoreMeter label="Mobility" score={titan.scores.mobility} />
         <ScoreMeter label="Utility" score={titan.scores.utility} />
         <ScoreMeter label="Accessibility" score={titan.scores.accessibility} />
-        <ScoreMeter label="Overall Score" score={titan.scores.overall} />
+        <ScoreMeter label="Overall Score" score={titan.scores.overall} options={{ min: 0, max: 50 }} />
       </div>
 
       {/* Roles Badges */}

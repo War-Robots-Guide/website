@@ -98,4 +98,63 @@ describe('RobotsGuideTab Search Prioritization', () => {
     const ultimateBadges = screen.getAllByText('Ultimate');
     expect(ultimateBadges.length).toBeGreaterThanOrEqual(1);
   });
+
+  it('filters robots by subsectioned Value Rating range', () => {
+    render(<RobotsGuideTab />);
+    const valueRatingSelect = screen.getByDisplayValue('All Value Ratings');
+
+    // Filter to 30 - 40 (UE Raven has value_rating: 30)
+    fireEvent.change(valueRatingSelect, { target: { value: '30-40' } });
+    expect(screen.getByText('UE Raven')).toBeInTheDocument();
+    expect(screen.queryByText('Ravana')).not.toBeInTheDocument();
+    expect(screen.queryByText('Destrier')).not.toBeInTheDocument();
+
+    // Filter to 0 - 10 (Ravana has 4, Destrier has 1)
+    fireEvent.change(valueRatingSelect, { target: { value: '0-10' } });
+    expect(screen.getByText('Ravana')).toBeInTheDocument();
+    expect(screen.getByText('Destrier')).toBeInTheDocument();
+    expect(screen.queryByText('UE Raven')).not.toBeInTheDocument();
+  });
+
+  it('filters robots by Overall Score subsection range', () => {
+    render(<RobotsGuideTab />);
+    const statSelect = screen.getByDisplayValue('All Stats');
+
+    // Select Overall Score
+    fireEvent.change(statSelect, { target: { value: 'overall' } });
+    const scoreSelect = screen.getByDisplayValue('Any Score');
+
+    // Filter to 30 - 40 (UE Raven has overall: 30)
+    fireEvent.change(scoreSelect, { target: { value: '30-40' } });
+    expect(screen.getByText('UE Raven')).toBeInTheDocument();
+    expect(screen.queryByText('Ravana')).not.toBeInTheDocument();
+    expect(screen.queryByText('Destrier')).not.toBeInTheDocument();
+
+    // Filter to 0 - 10 (Ravana has overall: 4, Destrier has overall: 1)
+    fireEvent.change(scoreSelect, { target: { value: '0-10' } });
+    expect(screen.getByText('Ravana')).toBeInTheDocument();
+    expect(screen.getByText('Destrier')).toBeInTheDocument();
+    expect(screen.queryByText('UE Raven')).not.toBeInTheDocument();
+  });
+
+  it('filters robots by individual stat subsection range (e.g. Longevity)', () => {
+    render(<RobotsGuideTab />);
+    const statSelect = screen.getByDisplayValue('All Stats');
+
+    // Select Longevity
+    fireEvent.change(statSelect, { target: { value: 'longevity' } });
+    const scoreSelect = screen.getByDisplayValue('Any Score');
+
+    // Filter to 9 - 10 (UE Raven has longevity: 10)
+    fireEvent.change(scoreSelect, { target: { value: '9-10' } });
+    expect(screen.getByText('UE Raven')).toBeInTheDocument();
+    expect(screen.queryByText('Ravana')).not.toBeInTheDocument();
+    expect(screen.queryByText('Destrier')).not.toBeInTheDocument();
+
+    // Filter to 0 - 2 (Ravana has longevity: 2, Destrier has longevity: 0)
+    fireEvent.change(scoreSelect, { target: { value: '0-2' } });
+    expect(screen.getByText('Ravana')).toBeInTheDocument();
+    expect(screen.getByText('Destrier')).toBeInTheDocument();
+    expect(screen.queryByText('UE Raven')).not.toBeInTheDocument();
+  });
 });

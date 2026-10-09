@@ -122,4 +122,16 @@ describe('RobotCard', () => {
 
     expect(screen.getByText('*** Only with Lock-down Ammo module or Paralysis drone')).toBeInTheDocument();
   });
+
+  it('renders Overall Score bar scaled out of 50', () => {
+    const { container } = render(<RobotCard robot={mockRobot} onClick={vi.fn()} />);
+
+    // mockRobot.scores.overall is 4, so out of 50 it should be (4/50)*100 = 8%
+    const scoreWrappers = container.querySelectorAll('.score-bar-wrapper');
+    const overallWrapper = Array.from(scoreWrappers).find(w => w.textContent.includes('Overall Score'));
+    expect(overallWrapper).toBeDefined();
+
+    const fillElement = overallWrapper.querySelector('.score-fill');
+    expect(fillElement).toHaveStyle({ width: '8%' });
+  });
 });
