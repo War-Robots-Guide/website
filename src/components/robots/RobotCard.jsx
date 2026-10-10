@@ -22,7 +22,7 @@ export function RobotCard({ robot, onClick }) {
         justifyContent: 'space-between',
         padding: '16px',
         border: isUltimate ? '1px solid rgba(234, 179, 8, 0.35)' : '1px solid var(--border-light)',
-        background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(10, 14, 23, 0.95) 100%)',
+        background: 'linear-gradient(180deg, rgba(24, 38, 58, 0.5) 0%, rgba(14, 22, 35, 0.65) 100%)',
       }}
       onClick={() => onClick(robot, 'Robots')}
       onKeyDown={(e) => {
@@ -50,6 +50,7 @@ export function RobotCard({ robot, onClick }) {
             objectFit: 'cover',
             objectPosition: 'center 25%',
             zIndex: 0,
+            filter: 'brightness(1.15) contrast(1.05)',
             transition: 'transform 0.3s ease',
           }}
           className="robot-card-bg-img"
@@ -59,12 +60,12 @@ export function RobotCard({ robot, onClick }) {
         />
       ) : null}
 
-      {/* Scrim Overlay */}
+      {/* Subtle Scrim Overlay */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(180deg, rgba(10, 14, 23, 0.78) 0%, rgba(10, 14, 23, 0.15) 45%, rgba(10, 14, 23, 0.92) 100%)',
+          background: 'linear-gradient(180deg, rgba(8, 14, 24, 0.5) 0%, rgba(8, 14, 24, 0.05) 45%, rgba(8, 14, 24, 0.6) 100%)',
           zIndex: 1,
           pointerEvents: 'none',
         }}

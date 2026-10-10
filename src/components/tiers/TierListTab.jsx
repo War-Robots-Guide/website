@@ -197,130 +197,144 @@ export function TierListTab({ onItemClick }) {
                         transition: 'transform 0.2s ease',
                       }}
                     >
-                      {/* Square Portrait Container */}
+                      {/* Portrait Wrapper allowing tags to bubble out */}
                       <div
-                        className="prydwen-portrait-container"
+                        className="prydwen-portrait-wrapper"
                         style={{
                           position: 'relative',
                           width: '105px',
                           height: '105px',
-                          borderRadius: '10px',
-                          overflow: 'hidden',
-                          background: cardBgGradient,
-                          border: `1px solid ${tierBorder}`,
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
                         }}
                       >
-                        {/* Item Artwork Image or Fallback */}
-                        {imageUrl ? (
-                          <img
-                            src={imageUrl}
-                            alt={cleanName}
-                            loading="lazy"
-                            style={{
-                              width: '100%',
-                              height: '100%',
-                              objectFit: 'contain',
-                              transition: 'transform 0.2s ease',
-                            }}
-                            className="prydwen-portrait-img"
-                            onError={(e) => {
-                              e.currentTarget.style.display = 'none';
-                            }}
-                          />
-                        ) : (
-                          <div style={{
-                            fontSize: '24px',
-                            opacity: 0.6,
-                            textAlign: 'center',
-                          }} aria-hidden="true">
-                            🤖
-                          </div>
-                        )}
+                        {/* Square Portrait Container */}
+                        <div
+                          className="prydwen-portrait-container"
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            borderRadius: '10px',
+                            overflow: 'hidden',
+                            background: cardBgGradient,
+                            border: `1.5px solid ${tierBorder}`,
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.35)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'relative',
+                          }}
+                        >
+                          {/* Item Artwork Image or Fallback */}
+                          {imageUrl ? (
+                            <img
+                              src={imageUrl}
+                              alt={cleanName}
+                              loading="lazy"
+                              style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                                transition: 'transform 0.2s ease',
+                              }}
+                              className="prydwen-portrait-img"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                              }}
+                            />
+                          ) : (
+                            <div style={{
+                              fontSize: '24px',
+                              opacity: 0.6,
+                              textAlign: 'center',
+                            }} aria-hidden="true">
+                              🤖
+                            </div>
+                          )}
 
-                        {/* Top-Left Corner: Specialization Icon / Role Badge */}
-                        {(specIconUrl || role) && (
-                          <div
-                            style={{
-                              position: 'absolute',
-                              top: '4px',
-                              left: '4px',
-                              zIndex: 2,
-                              background: 'rgba(10, 14, 23, 0.75)',
-                              borderRadius: '4px',
-                              padding: '2px 4px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              backdropFilter: 'blur(4px)',
-                              border: '1px solid rgba(255,255,255,0.1)',
-                            }}
-                            title={role ? `Specialization: ${role}` : ''}
-                          >
-                            {specIconUrl ? (
-                              <img src={specIconUrl} alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
-                            ) : (
-                              <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--cyan)', lineHeight: 1 }}>
-                                {role.slice(0, 3).toUpperCase()}
-                              </span>
-                            )}
-                          </div>
-                        )}
+                          {/* Top-Left Corner: Specialization Icon / Role Badge */}
+                          {(specIconUrl || role) && (
+                            <div
+                              style={{
+                                position: 'absolute',
+                                top: '4px',
+                                left: '4px',
+                                zIndex: 2,
+                                background: 'rgba(13, 20, 31, 0.9)',
+                                borderRadius: '4px',
+                                padding: '2px 5px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                backdropFilter: 'blur(4px)',
+                                border: '1px solid rgba(255, 255, 255, 0.2)',
+                                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.4)',
+                              }}
+                              title={role ? `Specialization: ${role}` : ''}
+                            >
+                              {specIconUrl ? (
+                                <img src={specIconUrl} alt="" style={{ width: '14px', height: '14px', objectFit: 'contain' }} />
+                              ) : (
+                                <span style={{ fontSize: '9px', fontWeight: 800, color: 'var(--cyan)', lineHeight: 1 }}>
+                                  {role.slice(0, 3).toUpperCase()}
+                                </span>
+                              )}
+                            </div>
+                          )}
 
-                        {/* Top-Right Corner: Tags (Up, Down, Eye, Squad, Warning) */}
+                          {/* Bottom-Right Corner: "New" Badge */}
+                          {isNew && (
+                            <div
+                              style={{
+                                position: 'absolute',
+                                bottom: '4px',
+                                right: '4px',
+                                zIndex: 2,
+                                background: '#ef4444',
+                                color: '#fff',
+                                fontSize: '9px',
+                                fontWeight: 900,
+                                padding: '1px 5px',
+                                borderRadius: '4px',
+                                boxShadow: '0 2px 4px rgba(239, 68, 68, 0.5)',
+                                letterSpacing: '0.5px',
+                                textTransform: 'uppercase',
+                                lineHeight: 1.2,
+                              }}
+                            >
+                              NEW
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Top-Right Corner: Tags bubbling out from the border with solid border */}
                         {tags.length > 0 && (
                           <div
                             style={{
                               position: 'absolute',
-                              top: '4px',
-                              right: '4px',
-                              zIndex: 2,
+                              top: '-8px',
+                              right: '-8px',
+                              zIndex: 10,
                               display: 'flex',
-                              gap: '2px',
+                              gap: '4px',
                             }}
                           >
                             {tags.map((tag, tidx) => (
                               <span
                                 key={tidx}
                                 style={{
-                                  fontSize: '11px',
+                                  fontSize: '12px',
                                   lineHeight: 1,
-                                  background: 'rgba(10, 14, 23, 0.75)',
-                                  borderRadius: '4px',
-                                  padding: '2px 3px',
-                                  backdropFilter: 'blur(4px)',
-                                  border: '1px solid rgba(255,255,255,0.1)',
+                                  background: '#0d131f',
+                                  border: `2px solid ${tierBorder}`,
+                                  borderRadius: '9999px',
+                                  padding: '3px 5px',
+                                  boxShadow: '0 3px 8px rgba(0, 0, 0, 0.7)',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
                                 }}
                               >
                                 {tag}
                               </span>
                             ))}
-                          </div>
-                        )}
-
-                        {/* Bottom-Right Corner: "New" Badge */}
-                        {isNew && (
-                          <div
-                            style={{
-                              position: 'absolute',
-                              bottom: '4px',
-                              right: '4px',
-                              zIndex: 2,
-                              background: '#ef4444',
-                              color: '#fff',
-                              fontSize: '9px',
-                              fontWeight: 900,
-                              padding: '1px 5px',
-                              borderRadius: '4px',
-                              boxShadow: '0 2px 4px rgba(239, 68, 68, 0.5)',
-                              letterSpacing: '0.5px',
-                              textTransform: 'uppercase',
-                              lineHeight: 1.2,
-                            }}
-                          >
-                            NEW
                           </div>
                         )}
                       </div>

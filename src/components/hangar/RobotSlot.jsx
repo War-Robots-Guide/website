@@ -13,7 +13,7 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
           display: 'flex',
           flexDirection: 'column',
           padding: '16px',
-          minHeight: '180px',
+          minHeight: '260px',
           borderRadius: '16px',
           position: 'relative',
           border: '1px solid var(--border-light)',
@@ -52,8 +52,19 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
           return (
             <>
               {imageUrl && (
-                <div style={{ width: '100%', height: '76px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px', overflow: 'hidden' }}>
-                  <img src={imageUrl} alt={item.name} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+                <div style={{ width: '100%', height: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '4px 0 12px 0', overflow: 'hidden' }}>
+                  <img
+                    src={imageUrl}
+                    alt={item.name}
+                    style={{
+                      maxHeight: '100%',
+                      maxWidth: '100%',
+                      width: 'auto',
+                      height: '100%',
+                      objectFit: 'contain',
+                      filter: 'drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5))'
+                    }}
+                  />
                 </div>
               )}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px', gap: '8px' }}>
