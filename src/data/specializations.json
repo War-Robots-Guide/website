@@ -1,0 +1,128 @@
+{
+  "intro": "### Intro\nSpecializations are probably one of the single biggest newbie account bricking features that this game has to offer. Modules are not a cheap currency, and it is so easy to waste them on completely useless specializations if you don't pay close enough attention.\nThe aim of this guide is to make picking the right specialization on your robot/titan as easy as possible. Let's get started.\n\n### What specialization class does my robot use?\nIn order to actually know what specialization to pick on your robot, you need to know what specializations are available. Every robot in the game has a base specialization with a passive and active module, but this guide is targeted towards the main power of specializations, which comes from the \"unique\" additional specialization.\nTo keep things simple, if there is anything you get out of this guide, it should be this: Most of the time, you don't take the basic \"attack\" or \"defense\" specialization. The class-specific specialization is almost always better. But there are exceptions, so keep reading.\n\n### Passive upgrades\nTechnically, to \"fully max\" a bot, you need to unlock all specializations. You do not need to level all the modules to 3/3, you just need to unlock every node. For f2p players, this is absolutely never worth doing, but for whales, this will net you a bit of extra juice.",
+  "sections": [
+    {
+      "title": "Damage Dealer/Raider (Robot)",
+      "description": "These specializations are the strongest in the game thanks to their first module, which is the undisputed king of modules without contest.",
+      "slots": [
+        {
+          "name": "First module slot",
+          "content": "For the purposes of this guide, we will be pretending that the other module competing with Nuclear Amplifier in the first slot does not exist. If your robot is a Damage Dealer or Raider class, you will take this module no matter what. No other specialization class can compete, and neither can assault unit/onslaught unit. A whopping 76% damage bonus would be enough to cement it in god tier alone, but Pixonic also had the gall to make this module heal you and give resistance penetration too when maxxed. Nasty."
+        },
+        {
+          "name": "Second module slot",
+          "content": "This can change depending on the build.\nFor damage dealers, if you are using weapons with 800m range or more, Rangefinder is ideal, but on everyone else, just take the overdrive unit and probably don't even bother leveling it up, as it isn't all too impactful.\nFor Raiders, it depends on the bot. For something like UE Sword or UE Hawk, you'll definitely want integrated power unit, but for something like UE Ao Jun, might as well just take Titan Slayer."
+        }
+      ]
+    },
+    {
+      "title": "Brawler/Tank (Robot)",
+      "description": "These specializations come second to damage dealer, but unfortunately, they come second by a pretty wide margin.",
+      "slots": [
+        {
+          "name": "First module slot",
+          "content": "On brawlers, take Repair Amplifier\nOn tanks, take Heavy Armor Kit.\nSelf fix unit (the other option in both paths) heals a small amount of flat HP per second, and on fat robots that reach 1,000,000 HP, 1,100 healing per second isn't all too significant."
+        },
+        {
+          "name": "Second module slot",
+          "content": "Brawlers can go either way. Take Immune amplifier if you plan on keeping your brawler alive for as long as possible, and Last Stand if you're suiciding into center beacon and want to stall for a couple extra seconds in hope of gaining some titan charge.\nFor tanks, it is a lot simpler. Take repair amplifier over defense unit. Repair amplifier heals you and grants 20 defense points when stacked up, and you most likely will stack it up. Defense unit just gives 25 defense points and doesn't do anything else."
+        }
+      ]
+    },
+    {
+      "title": "Support (Robot)",
+      "description": "While this specialization is on the weaker end, most support bots really appreciate what it does, so you end up taking it anyways.",
+      "slots": [
+        {
+          "name": "First module slot",
+          "content": "On just about every support bot, you'll want to take Accelerator. Repair amplifier is tempting, but most support bots struggle to max it out, and even those that can max it out would prefer the extra speed anyways."
+        },
+        {
+          "name": "Second module slot",
+          "content": "This one is easy: take last stand over cloaking unit. Cloaking unit is easily triggered and wasted early on when it isn't needed, and it can be countered with QR/QS, unlike last stand, which can only be countered with 100% defense mitigation."
+        }
+      ]
+    },
+    {
+      "title": "Saboteur (Robot)",
+      "description": "This is probably the weakest and most frequently replaced specialization in the game, however, it has the strongest passive boosts, so you should level it up anyways. 9kph extra base speed on speedy bots really adds up. Most attacker-type Sabotuers such as UE scorpion really don't care much about what Saboteur has to offer, so they'd rather use defense or attack. Beacon cappers however, like Skryos and Loki, should definitely take Saboteur.",
+      "slots": [
+        {
+          "name": "First module slot",
+          "content": "Since the only types of Sabotuers that actually use the Saboteur specialization are beacon cappers, you'll probably want to take beacon operator here."
+        },
+        {
+          "name": "Second module slot",
+          "content": "For the same reasons as the first, you'll want accelerator unit here."
+        }
+      ]
+    },
+    {
+      "title": "Attack/Defense (Robot)",
+      "description": "These specializations are present on almost every robot in the game. They are weak and should pretty much only be used on Sabotuers. Either is viable, so you can pick whatever suits you best.",
+      "slots": [
+        {
+          "name": "First module slot",
+          "content": "For attack, you can take whichever you like. Piercer units are better if you're fighting enemies with defense points, thermonukes are better otherwise. I prefer thermonukes for consistency.\nFor defense, you should probably just take anticontrol, even if you have a shield that benefits from fortifier."
+        },
+        {
+          "name": "Second module slot",
+          "content": "For attack, same as first slot.\nFor defense, you take heavy armor kit. Fortifier is probably okay if you have a really strong shield, but I can't think of many Sabotuers with a really strong shield that wouldn't prefer more HP instead."
+        }
+      ]
+    },
+    {
+      "title": "Damage Dealer (Titan)",
+      "description": "Things start to get interesting with titans. Most damage dealers would like to take damage dealer, but depending on the presence of stealth in the meta, they often take Attack for Quantum Sensor. In general though, Damage dealer is the best.",
+      "slots": [
+        {
+          "name": "First module slot",
+          "content": "Just like with robots, you want titan nuclear amplifier here."
+        },
+        {
+          "name": "Second module slot",
+          "content": "Most of the time, you should take overdrive, but some long ranged sniper builds that don't really deal with chip damage much can justify taking cannibal."
+        }
+      ]
+    },
+    {
+      "title": "Brawler/Tank (Titan)",
+      "description": "If your titan has Brawler or Tank specialization, you take it. The only exception is if your titan also has Ultimate specialization.",
+      "slots": [
+        {
+          "name": "First module slot",
+          "content": "You use titan repair amplifier here, with almost no exceptions. Damage controller can be justified by advanced Indra players on builds with plenty of healing, but 99% of the player base should always take titan repair amplifier."
+        },
+        {
+          "name": "Second module slot",
+          "content": "For brawlers, you should simply take titan anticontrol. It is generally better than self fix, even if you already have some way to mitigate effects, simply due to the increased durability it gives.\nFor tanks, you usually want titan last stand. Titan immune amplifier is not a brick or anything, but titan last stand can be thought of as a 10 second extension for titan repair amplifier, which is absolutely worth it."
+        }
+      ]
+    },
+    {
+      "title": "Attack (Titan)",
+      "description": "Like I said previously, some damage dealers (namely Waymaker) want to run this specialization during stealth-heavy metas.",
+      "slots": [
+        {
+          "name": "First module slot",
+          "content": "Take onslaught. There is no good reason to take antimatter here."
+        },
+        {
+          "name": "Second module slot",
+          "content": "Well, you're here for quantum sensor (I hope!) so take quantum sensor!"
+        }
+      ]
+    },
+    {
+      "title": "Defense (Titan)",
+      "description": "There does not exist a titan that wants to use this specialization. You can level it up for the passive boosts, but never ever equip it.",
+      "slots": []
+    },
+    {
+      "title": "Ultimate (Titan)",
+      "description": "The only wrong choice here is ultimate grand balanced reactor in the second slot. You should always be picking between ultimate titan nuclear or repair amplifier. Otherwise, go nuts! This is the most modular specialization in the game and a good enough player can justify any combination of ultimate modules on any ultimate titan (save for ultimate grand balanced reactor in the second slot).",
+      "slots": []
+    }
+  ],
+  "conclusion": "Okay, I think that covers everything. Let me know in the comments if I missed anything or if you still have questions! As always, USE CODE ADAZAHI RIGHT NOW RAHHHHH!"
+}

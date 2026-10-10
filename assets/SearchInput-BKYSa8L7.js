@@ -1,0 +1,1 @@
+import{c as e,r as t}from"./vendor-react-DFcP-Ahk.js";var n=e();function r({value:e,onChange:r,placeholder:i,...a}){return(0,n.jsxs)(`div`,{className:`search-input-wrapper`,children:[(0,n.jsx)(t,{size:18,className:`search-input-icon`}),(0,n.jsx)(`input`,{type:`text`,className:`search-input`,placeholder:i,value:e,onChange:r,...a})]})}export{r as t};
