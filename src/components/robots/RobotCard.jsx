@@ -1,112 +1,154 @@
 import { RatingBar } from '../common/RatingBar';
-import { ScoreMeter } from '../common/ScoreMeter';
-import { getTierForName, getFootnoteText } from '../../utils/tierLookup';
+import { getTierForName } from '../../utils/tierLookup';
+import { getRobotImage } from '../../utils/imageUtils';
 
-export function RobotCard({ robot, onClick, robotGuideData }) {
+export function RobotCard({ robot, onClick }) {
   const tier = getTierForName(robot.name, 'Robots');
   const isUltimate = robot.sheet === 'Ultimate Robots' || robot.name.toLowerCase().startsWith('ue ');
+  const imageUrl = getRobotImage(robot.name);
+  const tierKey = tier ? tier.toLowerCase() : 'z';
 
   return (
     <div
-      className={`glass-panel glass-panel-hover robot-card ${isUltimate ? 'ultimate-robot-card' : ''}`}
-      style={{ overflow: 'visible', ...(isUltimate ? { borderColor: 'rgba(234, 179, 8, 0.25)' } : {}) }}
+      className={`glass-panel glass-panel-hover robot-image-card ${isUltimate ? 'ultimate-robot-card' : ''}`}
+      style={{
+        position: 'relative',
+        height: '240px',
+        borderRadius: '14px',
+        overflow: 'hidden',
+        cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: '16px',
+        border: isUltimate ? '1px solid rgba(234, 179, 8, 0.35)' : '1px solid var(--border-light)',
+        background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(10, 14, 23, 0.95) 100%)',
+      }}
       onClick={() => onClick(robot, 'Robots')}
-      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick(robot, 'Robots'); } }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick(robot, 'Robots');
+        }
+      }}
       tabIndex={0}
       role="button"
       aria-label={`View details for ${robot.name}`}
     >
-      <div className="robot-card-header">
+      {/* Robot Image */}
+      {imageUrl ? (
+        <img
+          src={imageUrl}
+          alt={robot.name}
+          loading="lazy"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center 25%',
+            zIndex: 0,
+            transition: 'transform 0.3s ease',
+          }}
+          className="robot-card-bg-img"
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+      ) : null}
+
+      {/* Scrim Overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(180deg, rgba(10, 14, 23, 0.78) 0%, rgba(10, 14, 23, 0.15) 45%, rgba(10, 14, 23, 0.92) 100%)',
+          zIndex: 1,
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Top Header: Name and Tier on left, Value Rating Bar on right */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          gap: '12px',
+          width: '100%',
+        }}
+      >
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '2px' }}>
-            <h3 style={{ fontSize: '20px', color: isUltimate ? '#fef08a' : 'var(--cyan)', margin: 0 }}>{robot.name}</h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
+            <h3
+              style={{
+                fontSize: '19px',
+                fontWeight: 700,
+                color: isUltimate ? '#fef08a' : '#fff',
+                margin: 0,
+                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+              }}
+            >
+              {robot.name}
+            </h3>
             {tier && (
-              <span className={`tier-badge-${tier.toLowerCase()}`} style={{
-                fontSize: '11px',
-                fontWeight: 'bold',
-                padding: '1px 6px',
-                borderRadius: '4px',
-                background: `var(--tier-${tier.toLowerCase()}-bg)`,
-                color: `var(--tier-${tier.toLowerCase()})`,
-                border: `1px solid var(--tier-${tier.toLowerCase()}-border)`,
-                textTransform: 'uppercase'
-              }}>
+              <span
+                className={`tier-badge-${tierKey}`}
+                style={{
+                  fontSize: '10px',
+                  fontWeight: 800,
+                  padding: '2px 7px',
+                  borderRadius: '4px',
+                  background: `var(--tier-${tierKey}-bg)`,
+                  color: `var(--tier-${tierKey})`,
+                  border: `1px solid var(--tier-${tierKey}-border)`,
+                  textTransform: 'uppercase',
+                  lineHeight: 1,
+                }}
+              >
                 {tier} Tier
               </span>
             )}
             {isUltimate && (
-              <span style={{
-                fontSize: '11px',
-                fontWeight: 'bold',
-                padding: '1px 6px',
-                borderRadius: '4px',
-                background: 'rgba(234, 179, 8, 0.15)',
-                color: '#fbbf24',
-                border: '1px solid rgba(234, 179, 8, 0.35)',
-                textTransform: 'uppercase'
-              }}>
+              <span
+                style={{
+                  fontSize: '10px',
+                  fontWeight: 800,
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                  background: 'rgba(234, 179, 8, 0.2)',
+                  color: '#fbbf24',
+                  border: '1px solid rgba(234, 179, 8, 0.4)',
+                  textTransform: 'uppercase',
+                  lineHeight: 1,
+                }}
+              >
                 Ultimate
               </span>
             )}
           </div>
-          <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{robot.sheet}</span>
+          {robot.sheet && (
+            <span style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.65)' }}>{robot.sheet}</span>
+          )}
         </div>
-        <div style={{ textAlign: 'right', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-          <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block', marginBottom: '2px', fontWeight: 600 }}>VALUE RATING</span>
+
+        {/* Top Right: Value Rating Bar without big box */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
+          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '2px' }}>
+            VALUE RATING
+          </span>
           <RatingBar rating={robot.value_rating} unitType="robot" align="right" />
         </div>
       </div>
 
-      <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: '8px 0' }}>
+      {/* Screen-reader hidden details */}
+      <div className="sr-only">
         {robot.comments}
-      </p>
-
-      {/* Scores bars */}
-      <div className="robot-scores">
-        <ScoreMeter label="Longevity" score={robot.scores.longevity} />
-        <ScoreMeter label="Lethality" score={robot.scores.lethality} />
-        <ScoreMeter label="Mobility" score={robot.scores.mobility} />
-        <ScoreMeter label="Utility" score={robot.scores.utility} />
-        <ScoreMeter label="Accessibility" score={robot.scores.accessibility} />
-        <ScoreMeter label="Overall Score" score={robot.scores.overall} options={{ min: 0, max: 50 }} />
       </div>
-
-      {/* Roles Badges */}
-      {robot.roles && robot.roles.length > 0 && (
-        <div className="robot-roles" style={{ display: 'block' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-            {robot.roles.map(role => {
-              const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
-              return (
-                <span
-                  className={`role-badge ${role.type}`}
-                  key={role.role}
-                  title={tooltipText}
-                  style={{ display: 'inline-flex', alignItems: 'center' }}
-                >
-                  {role.role}
-                  {role.type === 'primary' && ' (Primary)'}
-                  {role.type === 'secondary' && ' (Secondary)'}
-                  {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>{role.footnote}</sup>}
-                </span>
-              );
-            })}
-          </div>
-          {robot.roles.some(r => r.footnote) && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '8px' }}>
-              {Array.from(new Set(robot.roles.filter(r => r.footnote).map(r => r.footnote))).map(fn => {
-                const fText = getFootnoteText(fn, robotGuideData?.footnotes);
-                const cleanedText = fText ? fText.replace(/^\*+/, '').trim() : '';
-                return (
-                  <span key={fn} style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.3 }}>
-                    {fn}{cleanedText ? ` ${cleanedText}` : ''}
-                  </span>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 }

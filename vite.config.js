@@ -53,8 +53,23 @@ export default defineConfig({
         // dynamic imports remain genuinely on-demand. Requested chunks are
         // cached below for subsequent visits.
         globPatterns: ['**/*.{css,html,ico,png,svg,webmanifest}'],
+        globIgnores: ['images/**'],
         dontCacheBustURLsMatching: /\.[0-9a-f]{8}\./,
         runtimeCaching: [
+          {
+            urlPattern: /\/images\/.*\.(?:png|webp|svg)$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'item-images-v1',
+              expiration: {
+                maxEntries: 256,
+                maxAgeSeconds: 60 * 60 * 24 * 30,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
           {
             urlPattern: /\/assets\/.*\.js$/,
             handler: 'CacheFirst',

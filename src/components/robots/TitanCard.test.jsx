@@ -30,7 +30,7 @@ describe('TitanCard', () => {
     expect(card).toHaveClass('ultimate-robot-card');
   });
 
-  it('renders Overall Score bar scaled out of 50', () => {
+  it('renders Titan name and value rating correctly', () => {
     const mockTitan = {
       name: 'Luchador',
       sheet: 'Titans',
@@ -47,14 +47,10 @@ describe('TitanCard', () => {
       roles: []
     };
 
-    const { container } = render(<TitanCard titan={mockTitan} onClick={vi.fn()} />);
+    render(<TitanCard titan={mockTitan} onClick={vi.fn()} />);
 
-    // overall score is 30, so out of 50 it should be (30/50)*100 = 60%
-    const scoreWrappers = container.querySelectorAll('.score-bar-wrapper');
-    const overallWrapper = Array.from(scoreWrappers).find(w => w.textContent.includes('Overall Score'));
-    expect(overallWrapper).toBeDefined();
-
-    const fillElement = overallWrapper.querySelector('.score-fill');
-    expect(fillElement).toHaveStyle({ width: '60%' });
+    expect(screen.getByText('Luchador')).toBeInTheDocument();
+    expect(screen.getByText('VALUE RATING')).toBeInTheDocument();
+    expect(screen.getByText(/30/)).toBeInTheDocument();
   });
 });

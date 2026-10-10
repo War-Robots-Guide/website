@@ -5,6 +5,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
 import { getTierForName } from '../../utils/tierLookup';
+import { getRobotImage } from '../../utils/imageUtils';
 
 const precomputedTitans = (robotGuideData?.titans || []).map(t => ({
   ...t,
@@ -91,8 +92,14 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                   {(() => {
                     const tier = getTierForName(titan.name, 'Titans') || 'Z';
                     const tierLower = tier.toLowerCase();
+                    const itemImg = getRobotImage(titan.name);
                     return (
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        {itemImg ? (
+                          <img src={itemImg} alt="" style={{ width: '36px', height: '36px', objectFit: 'contain', flexShrink: 0 }} />
+                        ) : (
+                          <img src="/icons/robot_gold.png" alt="" style={{ width: '28px', height: '28px', objectFit: 'contain', flexShrink: 0 }} />
+                        )}
                         <span style={{ fontWeight: 700, color: '#fff' }}>{titan.name}</span>
                         <span style={{ fontSize: '11px', color: 'var(--purple)', fontWeight: 600, textTransform: 'uppercase' }}>Titan</span>
                         <span 
@@ -136,9 +143,15 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                   {(() => {
                     const tier = getTierForName(robot.name, 'Robots') || 'Z';
                     const tierLower = tier.toLowerCase();
+                    const itemImg = getRobotImage(robot.name);
                     return (
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                          {itemImg ? (
+                            <img src={itemImg} alt="" style={{ width: '36px', height: '36px', objectFit: 'contain', flexShrink: 0 }} />
+                          ) : (
+                            <img src="/icons/robot_gold.png" alt="" style={{ width: '28px', height: '28px', objectFit: 'contain', flexShrink: 0 }} />
+                          )}
                           <span style={{ fontWeight: 700, color: '#fff' }}>{robot.name}</span>
                           <span 
                             className={`tier-badge-${tierLower}`} 

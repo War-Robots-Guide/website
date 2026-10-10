@@ -6,6 +6,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
 import { getTierForName, getFootnoteText, stripTagsAndAsterisks } from '../../utils/tierLookup';
+import { getItemImage } from '../../utils/imageUtils';
 
 // Pre-compute lookup data outside the component to avoid recreating it on every render.
 const weaponsList = weaponsDpsData ? Object.values(weaponsDpsData).flat() : [];
@@ -86,6 +87,11 @@ export function DetailModal({ selectedItem, onClose }) {
     });
   }, [selectedItem]);
 
+  const bgImage = useMemo(() => {
+    if (!selectedItem) return null;
+    return getItemImage(selectedItem.name, selectedItem.type);
+  }, [selectedItem]);
+
   useEffect(() => {
     if (!selectedItem) return;
     const handleKeyDown = (e) => {
@@ -106,6 +112,17 @@ export function DetailModal({ selectedItem, onClose }) {
       aria-labelledby="modal-title"
     >
       <div className="modal-content text-left" onClick={(e) => e.stopPropagation()}>
+        {bgImage && (
+          <div className="modal-faded-bg" aria-hidden="true">
+            <img
+              src={bgImage}
+              alt=""
+              className="modal-faded-img"
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+            />
+            <div className="modal-faded-gradient" />
+          </div>
+        )}
         <div className="modal-header">
           <div>
             <span 

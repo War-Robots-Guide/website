@@ -1,6 +1,9 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { sortBySearchQuery } from '../../utils/sortUtils';
+import { getTierForName } from '../../utils/tierLookup';
+import { getRobotImage, cleanKey } from '../../utils/imageUtils';
+import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
 import { BuildDetailModal } from './BuildDetailModal';
 
@@ -21,28 +24,6 @@ const precomputedBuilds = (robotGuideData?.builds || []).map(build => {
   };
 });
 
-function renderDroneOptions(options, fontSize = '12.5px') {
-  if (!options || options === 'N/A') return 'N/A';
-  const lines = options.split('\n').map(l => l.trim()).filter(Boolean);
-  if (lines.length === 0) return 'N/A';
-  return (
-    <div style={{ fontSize, lineHeight: 1.4 }}>
-      {lines.map((line, idx) => (
-        <span
-          key={idx}
-          style={{
-            display: 'block',
-            fontWeight: idx === 0 ? 700 : 'normal',
-            color: idx === 0 ? 'var(--text-primary)' : 'var(--text-secondary)'
-          }}
-        >
-          {line}
-        </span>
-      ))}
-    </div>
-  );
-}
-
 export function BuildGuidesTab() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedBuild, setSelectedBuild] = useState(null);
@@ -56,6 +37,22 @@ export function BuildGuidesTab() {
     setVisibleCount(12);
   }
 
+  // Pre-calculate robot value ratings for fast display on build cards
+  const robotValueMap = useMemo(() => {
+    const map = {};
+    if (robotGuideData?.robots) {
+      robotGuideData.robots.forEach(r => {
+        map[cleanKey(r.name)] = r.value_rating;
+      });
+    }
+    if (robotGuideData?.titans) {
+      robotGuideData.titans.forEach(t => {
+        map[cleanKey(t.name)] = t.value_rating;
+      });
+    }
+    return map;
+  }, []);
+
   const filteredBuilds = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
     if (!query) {
@@ -64,11 +61,6 @@ export function BuildGuidesTab() {
 
     let filtered = precomputedBuilds.filter(build => build._searchString.includes(query));
 
-    // Prioritize robot name matches:
-    // 1. Exact match on robot name
-    // 2. Starts with robot name
-    // 3. Substring match on robot name
-    // 4. Other matches (non-robot)
     return sortBySearchQuery(filtered, query, (build) => build.robot);
   }, [searchQuery]);
 
@@ -91,7 +83,6 @@ export function BuildGuidesTab() {
     if (node) observerRef.current.observe(node);
   }, []);
 
-  // Cleanup observer on unmount
   useEffect(() => {
     return () => {
       if (observerRef.current) {
@@ -103,12 +94,9 @@ export function BuildGuidesTab() {
   return (
     <div className="animate-fade-in text-left">
       <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Robot build guides</h2>
+        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Robot Build Guides</h2>
         <p style={{ margin: '0 auto' }}>
-          Learn the best weapon, specialization, pilot, and drone configurations for your robots.
-          <span style={{ display: 'block', marginTop: '8px', fontSize: '13px', color: 'var(--text-secondary)', opacity: 0.85 }}>
-            <em>Build guides are only provided for recommended robots.</em>
-          </span>
+          Explore optimal weapons, specializations, pilots, and drones for top robots. Click any build to view detailed visual setups.
         </p>
       </div>
 
@@ -123,91 +111,186 @@ export function BuildGuidesTab() {
 
       {/* Builds Grid */}
       <div className="dashboard-grid">
-        {visibleBuilds.map((build, index) => (
-          <div 
-            className={`glass-panel glass-panel-hover build-card ${build.is_ultimate ? 'ultimate-build-card' : ''}`}
-            style={build.is_ultimate ? { borderColor: 'rgba(234, 179, 8, 0.25)' } : {}}
-            key={`${build.robot}-${build.build_name}-${index}`}
-            onClick={() => setSelectedBuild(build)}
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedBuild(build); } }}
-            tabIndex={0}
-            role="button"
-            aria-label={`View details for build ${build.parsed_build_name} on ${build.robot}`}
-          >
-            <div className="build-title-row">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', marginBottom: '4px' }}>
-                  <span className="spec-class-tag" style={{ background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)', display: 'inline-block' }}>
-                    {build.robot}
-                  </span>
-                  {build.is_ultimate && (
-                    <span style={{
-                      fontSize: '10px',
-                      fontWeight: 800,
-                      letterSpacing: '0.06em',
-                      padding: '1px 6px',
+        {visibleBuilds.map((build, index) => {
+          const tier = getTierForName(build.robot, 'Robots');
+          const imageUrl = getRobotImage(build.robot);
+          const valueRating = robotValueMap[cleanKey(build.robot)] ?? 0;
+          const tierKey = tier ? tier.toLowerCase() : 'z';
+
+          return (
+            <div 
+              className={`glass-panel glass-panel-hover build-card ${build.is_ultimate ? 'ultimate-build-card' : ''}`}
+              style={{
+                position: 'relative',
+                height: '240px',
+                borderRadius: '14px',
+                overflow: 'hidden',
+                cursor: 'pointer',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                padding: '16px',
+                border: build.is_ultimate ? '1px solid rgba(234, 179, 8, 0.35)' : '1px solid var(--border-light)',
+                background: 'linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(10, 14, 23, 0.95) 100%)',
+              }}
+              key={`${build.robot}-${build.build_name}-${index}`}
+              onClick={() => setSelectedBuild(build)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedBuild(build);
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`View details for build ${build.parsed_build_name} on ${build.robot}`}
+            >
+              {/* Background Robot Image */}
+              {imageUrl ? (
+                <img
+                  src={imageUrl}
+                  alt={build.robot}
+                  loading="lazy"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center 25%',
+                    zIndex: 0,
+                    transition: 'transform 0.3s ease',
+                  }}
+                  className="robot-card-bg-img"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              ) : null}
+
+              {/* Scrim Overlay */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(180deg, rgba(10, 14, 23, 0.8) 0%, rgba(10, 14, 23, 0.2) 45%, rgba(10, 14, 23, 0.92) 100%)',
+                  zIndex: 1,
+                  pointerEvents: 'none',
+                }}
+              />
+
+              {/* Top Header: Inverted Hierarchy - Robot Name is the prominent name, Build name is the tag, RatingBar in top right */}
+              <div
+                style={{
+                  position: 'relative',
+                  zIndex: 2,
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  gap: '12px',
+                  width: '100%',
+                }}
+              >
+                <div>
+                  {/* Robot Name (Prominent Header) */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                    <h3
+                      className="spec-class-tag"
+                      style={{
+                        margin: 0,
+                        fontSize: '20px',
+                        fontWeight: 800,
+                        color: build.is_ultimate ? '#fef08a' : '#fff',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                      }}
+                    >
+                      {build.robot}
+                    </h3>
+
+                    {tier && (
+                      <span
+                        className={`tier-badge-${tierKey}`}
+                        style={{
+                          fontSize: '10px',
+                          fontWeight: 800,
+                          padding: '2px 7px',
+                          borderRadius: '4px',
+                          background: `var(--tier-${tierKey}-bg)`,
+                          color: `var(--tier-${tierKey})`,
+                          border: `1px solid var(--tier-${tierKey}-border)`,
+                          textTransform: 'uppercase',
+                          lineHeight: 1,
+                        }}
+                      >
+                        {tier} Tier
+                      </span>
+                    )}
+
+                    {build.is_ultimate && (
+                      <span
+                        style={{
+                          fontSize: '10px',
+                          fontWeight: 800,
+                          padding: '2px 6px',
+                          borderRadius: '4px',
+                          background: 'rgba(234, 179, 8, 0.2)',
+                          color: '#fbbf24',
+                          border: '1px solid rgba(234, 179, 8, 0.4)',
+                          textTransform: 'uppercase',
+                          lineHeight: 1,
+                        }}
+                      >
+                        Ultimate
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Build Name (Styled like a subtitle tag) */}
+                  <span
+                    className="build-name-tag"
+                    style={{
+                      fontSize: '11.5px',
+                      fontWeight: 600,
+                      color: 'var(--cyan)',
+                      background: 'rgba(6, 182, 212, 0.15)',
+                      padding: '2px 8px',
                       borderRadius: '4px',
-                      background: 'rgba(234, 179, 8, 0.15)',
-                      color: '#fbbf24',
-                      border: '1px solid rgba(234, 179, 8, 0.35)',
-                      textTransform: 'uppercase'
-                    }}>
-                      Ultimate
-                    </span>
-                  )}
+                      border: '1px solid rgba(6, 182, 212, 0.3)',
+                      display: 'inline-block',
+                    }}
+                  >
+                    {build.parsed_build_name}
+                  </span>
                 </div>
-                <h3 className="build-name">{build.parsed_build_name}</h3>
-              </div>
-            </div>
 
-            <div className="build-meta-grid">
-              <div className="build-meta-item">
-                <span className="build-meta-label">Pilot options</span>
-                <span className="build-meta-value">{build.parsed_pilot}</span>
-              </div>
-              <div className="build-meta-item">
-                <span className="build-meta-label">specializations & modules</span>
-                <div className="build-meta-value" style={{ fontSize: '11.5px', lineHeight: 1.4 }}>
-                  {build.parsed_specialization.map((line, lidx) => (
-                    <div key={lidx}>{line}</div>
-                  ))}
+                {/* Top Right: Value Rating Bar without big box */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
+                  <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '2px' }}>
+                    VALUE RATING
+                  </span>
+                  <RatingBar rating={valueRating} unitType="robot" align="right" />
                 </div>
               </div>
-              <div className="build-meta-item" style={{ gridColumn: 'span 2', borderTop: '1px solid var(--border-light)', paddingTop: '10px' }}>
-                <span className="build-meta-label">Weapon Options</span>
-                <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
-                  <div style={{ flex: 1 }}>
-                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '3px' }}>F2P SETUPS</span>
-                    <div style={{ fontSize: '12px', color: 'var(--text-secondary)', whiteSpace: 'pre-line', lineHeight: 1.4 }}>{build.f2p_weapons || 'N/A'}</div>
-                  </div>
-                  <div style={{ flex: 1, borderLeft: '1px solid var(--border-light)', paddingLeft: '10px' }}>
-                    <span style={{ fontSize: '10px', color: '#fbbf24', fontWeight: 600, display: 'block', marginBottom: '3px' }}>META SETUPS</span>
-                    <div style={{ fontSize: '12px', color: '#fbbf24', whiteSpace: 'pre-line', lineHeight: 1.4 }}>{build.best_weapons || 'N/A'}</div>
-                  </div>
-                </div>
-              </div>
-              <div className="build-meta-item" style={{ gridColumn: 'span 2', borderTop: '1px solid var(--border-light)', paddingTop: '10px' }}>
-                <span className="build-meta-label">Drone Options</span>
-                <div style={{ marginTop: '4px' }}>
-                  {renderDroneOptions(build.drone_options, '12.5px')}
-                </div>
-              </div>
-            </div>
 
-            <div className="build-explanation">
-              <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '4px' }}>EXPLANATION</span>
-              {build.explanation}
+              {/* Screen reader content for testing and accessibility */}
+              <div className="sr-only">
+                <span>{build.parsed_pilot}</span>
+                <span style={{ whiteSpace: 'pre-line' }}>{build.best_weapons}</span>
+                <span style={{ whiteSpace: 'pre-line' }}>{build.f2p_weapons}</span>
+                <span>{build.explanation}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
-      {/* Sentinel element for infinite scroll */}
-      {visibleCount < filteredBuilds.length && (
-        <div 
-          ref={sentinelRef} 
-          style={{ height: '20px', margin: '20px 0' }} 
-        />
+      {/* Sentinel for infinite scroll */}
+      {visibleBuilds.length < filteredBuilds.length && (
+        <div ref={sentinelRef} style={{ height: '40px', margin: '20px 0' }} />
       )}
 
       {/* UE Weapon Index Reference Legend */}
@@ -231,14 +314,15 @@ export function BuildGuidesTab() {
               </div>
             ))}
           </div>
-          <div style={{ fontSize: '11.5px', color: 'var(--text-muted)', fontStyle: 'italic', marginTop: '12px' }}>
-            * F2P weapons are obtainable through workshop or black market. ARM-M and ARM-L are collab items.
-          </div>
         </div>
       )}
 
+      {/* Build Detail Modal */}
       {selectedBuild && (
-        <BuildDetailModal build={selectedBuild} onClose={() => setSelectedBuild(null)} />
+        <BuildDetailModal
+          build={selectedBuild}
+          onClose={() => setSelectedBuild(null)}
+        />
       )}
     </div>
   );

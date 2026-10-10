@@ -1,61 +1,6 @@
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent, act, within } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { WeaponsDpsTab } from './WeaponsDpsTab';
-
-// Mock weapons data (including legacy/expected weapons.json for code review purposes)
-vi.mock('../../data/weapons.json', () => ({
-  default: {
-    'Heavy Weapons': [
-      {
-        name: 'Heavy Puncher',
-        burst_dps: 50000.0,
-        cycle_dps: 20000.0,
-        range: '500m',
-        notes: 'High burst damage'
-      },
-      {
-        name: 'Heavy Smuta',
-        burst_dps: 45000.0,
-        cycle_dps: 25000.0,
-        range: '600m',
-        notes: 'Homing bullets'
-      },
-      {
-        name: 'Heavy Devastator',
-        burst_dps: 60000.0,
-        cycle_dps: 15000.0,
-        range: '200m',
-        notes: 'Sonic weapon'
-      },
-      {
-        name: 'Heavy Bane',
-        burst_dps: 40000.0,
-        cycle_dps: 30000.0,
-        range: '300m',
-        notes: 'Acid damage'
-      },
-      {
-        name: 'Heavy Ember',
-        burst_dps: 35000.0,
-        cycle_dps: 35000.0,
-        range: '350m',
-        notes: 'Flamethrower'
-      }
-    ],
-    'Medium Weapons': [
-      {
-        name: 'Medium Mace',
-        burst_dps: 30000.0,
-        cycle_dps: 15000.0,
-        range: '500m',
-        notes: 'Blast shotgun'
-      }
-    ],
-    'Light Weapons': [],
-    'Alpha Weapons': [],
-    'Beta Weapons': []
-  }
-}));
 
 vi.mock('../../data/weapons_dps.json', () => ({
   default: {
@@ -80,20 +25,6 @@ vi.mock('../../data/weapons_dps.json', () => ({
         cycle_dps: 15000.0,
         range: '200m',
         notes: 'Sonic weapon'
-      },
-      {
-        name: 'Heavy Bane',
-        burst_dps: 40000.0,
-        cycle_dps: 30000.0,
-        range: '300m',
-        notes: 'Acid damage'
-      },
-      {
-        name: 'Heavy Ember',
-        burst_dps: 35000.0,
-        cycle_dps: 35000.0,
-        range: '350m',
-        notes: 'Flamethrower'
       }
     ],
     'Medium Weapons': [
@@ -112,22 +43,18 @@ vi.mock('../../data/weapons_dps.json', () => ({
 }));
 
 describe('WeaponsDpsTab', () => {
-  let alertMock;
-
   beforeEach(() => {
-    alertMock = vi.spyOn(window, 'alert').mockImplementation(() => {});
     vi.useFakeTimers();
   });
 
   afterEach(() => {
-    alertMock.mockRestore();
     vi.useRealTimers();
   });
 
-  it('renders initial state correctly with Heavy Weapons', () => {
+  it('renders initial state correctly with Heavy Weapons image cards', () => {
     render(<WeaponsDpsTab />);
 
-    expect(screen.getByText('Weapon DPS Calculator & Comparison')).toBeInTheDocument();
+    expect(screen.getByText('Weapon DPS Visualizer')).toBeInTheDocument();
 
     // Check if Heavy Weapons is active
     const heavyPill = screen.getByText('Heavy');
@@ -156,17 +83,13 @@ describe('WeaponsDpsTab', () => {
 
     const searchInput = screen.getByPlaceholderText('Search heavy weapons...');
 
-    // Initially all 5 heavy weapons are visible
     expect(screen.getByText('Heavy Puncher')).toBeInTheDocument();
     expect(screen.getByText('Heavy Smuta')).toBeInTheDocument();
 
-    // Type in the search box
     fireEvent.change(searchInput, { target: { value: 'Smuta' } });
 
-    // Before timer advances, all should still be visible
     expect(screen.getByText('Heavy Puncher')).toBeInTheDocument();
 
-    // Advance timers
     act(() => {
       vi.advanceTimersByTime(250);
     });
@@ -175,52 +98,37 @@ describe('WeaponsDpsTab', () => {
     expect(screen.queryByText('Heavy Puncher')).not.toBeInTheDocument();
   });
 
-  it('adds and removes a weapon to the comparison list', () => {
-    const { container } = render(<WeaponsDpsTab />);
-
-    // Find checkboxes
-    const checkboxes = screen.getAllByRole('checkbox');
-    expect(checkboxes.length).toBeGreaterThan(0);
-
-    // Add first weapon to comparison
-    fireEvent.click(checkboxes[0]);
-
-    // Comparison bar should appear
-    expect(screen.getByText('WEAPON COMPARISON (1/4)')).toBeInTheDocument();
-
-    // Chart should appear
-    expect(screen.getByText('Weapon DPS visualizer')).toBeInTheDocument();
-
-    // Remove the weapon using the remove button in the comparison bar
-    const removeBtn = container.querySelector('.remove-weapon-btn');
-    expect(removeBtn).not.toBeNull();
-
-    fireEvent.click(removeBtn);
-
-    // Comparison bar and chart should disappear
-    expect(screen.queryByText('WEAPON COMPARISON (1/4)')).not.toBeInTheDocument();
-    expect(screen.queryByText('Weapon DPS visualizer')).not.toBeInTheDocument();
-  });
-
-  it('limits weapon comparison to 4 weapons and alerts on 5th', () => {
+  it('sorts weapons by Burst DPS by default and allows sorting by Cycle DPS', () => {
     render(<WeaponsDpsTab />);
 
-    const checkboxes = screen.getAllByRole('checkbox');
-    expect(checkboxes.length).toBe(5); // 5 heavy weapons
+    // By default sorted by Burst DPS: Heavy Devastator (60k), Heavy Puncher (50k), Heavy Smuta (45k)
+    const headings = screen.getAllByRole('heading', { level: 4 }).map(h => h.textContent);
+    expect(headings).toEqual(['Heavy Devastator', 'Heavy Puncher', 'Heavy Smuta']);
 
-    // Add 4 weapons
-    for (let i = 0; i < 4; i++) {
-      fireEvent.click(checkboxes[i]);
-    }
+    // Switch sort to Cycle DPS
+    const sortSelect = screen.getByDisplayValue('Sort by Burst DPS (Default)');
+    fireEvent.change(sortSelect, { target: { value: 'cycle_dps' } });
 
-    expect(screen.getByText('WEAPON COMPARISON (4/4)')).toBeInTheDocument();
+    // Sorted by Cycle DPS: Heavy Smuta (25k), Heavy Puncher (20k), Heavy Devastator (15k)
+    const cycleHeadings = screen.getAllByRole('heading', { level: 4 }).map(h => h.textContent);
+    expect(cycleHeadings).toEqual(['Heavy Smuta', 'Heavy Puncher', 'Heavy Devastator']);
+  });
 
-    // Attempt to add 5th weapon
-    fireEvent.click(checkboxes[4]);
+  it('opens weapon detail modal with relative DPS bar when clicked', () => {
+    render(<WeaponsDpsTab />);
 
-    expect(alertMock).toHaveBeenCalledWith('You can compare up to 4 weapons at a time.');
+    const card = screen.getByRole('button', { name: 'View DPS details for Heavy Puncher' });
+    fireEvent.click(card);
 
-    // Still at 4/4
-    expect(screen.getByText('WEAPON COMPARISON (4/4)')).toBeInTheDocument();
+    // Modal opens showing title, range, notes
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toBeInTheDocument();
+    expect(within(dialog).getByText('High burst damage')).toBeInTheDocument();
+    expect(within(dialog).getAllByText(/of class max/i)).toHaveLength(2);
+
+    // Close modal
+    const closeBtn = screen.getByLabelText('Close modal');
+    fireEvent.click(closeBtn);
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 });

@@ -14,8 +14,6 @@ export function RobotsGuideTab({ onItemClick }) {
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [robotValueFilter, setRobotValueFilter] = useState('All');
   const [robotRoleFilter, setRobotRoleFilter] = useState('All');
-  const [statFilter, setStatFilter] = useState('All');
-  const [minScoreFilter, setMinScoreFilter] = useState('All');
   const [sortBy, setSortBy] = useState('Default');
 
   // Lazy loading state
@@ -45,8 +43,6 @@ export function RobotsGuideTab({ onItemClick }) {
     categoryFilter,
     robotValueFilter,
     robotRoleFilter,
-    statFilter,
-    minScoreFilter,
     sortBy,
   });
 
@@ -56,8 +52,6 @@ export function RobotsGuideTab({ onItemClick }) {
     categoryFilter !== prevFilterState.categoryFilter ||
     robotValueFilter !== prevFilterState.robotValueFilter ||
     robotRoleFilter !== prevFilterState.robotRoleFilter ||
-    statFilter !== prevFilterState.statFilter ||
-    minScoreFilter !== prevFilterState.minScoreFilter ||
     sortBy !== prevFilterState.sortBy
   ) {
     setPrevFilterState({
@@ -66,8 +60,6 @@ export function RobotsGuideTab({ onItemClick }) {
       categoryFilter,
       robotValueFilter,
       robotRoleFilter,
-      statFilter,
-      minScoreFilter,
       sortBy,
     });
     setVisibleCount(12);
@@ -102,28 +94,11 @@ export function RobotsGuideTab({ onItemClick }) {
       const matchRole = robotRoleFilter === 'All' || 
                         robot.roles.some(r => r.role === robotRoleFilter && r.type !== 'none');
       
-      let matchStat = true;
-      if (statFilter !== 'All' && minScoreFilter !== 'All') {
-        const score = robot.scores?.[statFilter];
-        if (score === undefined) {
-          matchStat = false;
-        } else if (typeof minScoreFilter === 'string' && minScoreFilter.includes('-')) {
-          const [min, max] = minScoreFilter.split('-').map(Number);
-          matchStat = score >= min && score <= max;
-        } else {
-          matchStat = score >= parseInt(minScoreFilter, 10);
-        }
-      }
-      
-      return matchSearch && matchCategory && matchValue && matchRole && matchStat;
+      return matchSearch && matchCategory && matchValue && matchRole;
     });
 
-    if (sortBy !== 'Default') {
-      filtered = [...filtered].sort((a, b) => {
-        const valA = sortBy === 'value_rating' ? a.value_rating : (a.scores?.[sortBy] ?? -999);
-        const valB = sortBy === 'value_rating' ? b.value_rating : (b.scores?.[sortBy] ?? -999);
-        return valB - valA;
-      });
+    if (sortBy === 'value_rating') {
+      filtered = [...filtered].sort((a, b) => b.value_rating - a.value_rating);
     } else {
       // Default Sort: Sort by Tiers (highest to lowest)
       const getTierWeight = (item, category) => {
@@ -140,7 +115,7 @@ export function RobotsGuideTab({ onItemClick }) {
     }
 
     return filtered;
-  }, [searchQuery, categoryFilter, robotValueFilter, robotRoleFilter, statFilter, minScoreFilter, sortBy]);
+  }, [searchQuery, categoryFilter, robotValueFilter, robotRoleFilter, sortBy]);
 
   const filteredTitans = useMemo(() => {
     if (!robotGuideData?.titans) return [];
@@ -160,28 +135,11 @@ export function RobotsGuideTab({ onItemClick }) {
         }
       }
       
-      let matchStat = true;
-      if (statFilter !== 'All' && minScoreFilter !== 'All') {
-        const score = titan.scores?.[statFilter];
-        if (score === undefined) {
-          matchStat = false;
-        } else if (typeof minScoreFilter === 'string' && minScoreFilter.includes('-')) {
-          const [min, max] = minScoreFilter.split('-').map(Number);
-          matchStat = score >= min && score <= max;
-        } else {
-          matchStat = score >= parseInt(minScoreFilter, 10);
-        }
-      }
-      
-      return matchSearch && matchValue && matchStat;
+      return matchSearch && matchValue;
     });
 
-    if (sortBy !== 'Default') {
-      filtered = [...filtered].sort((a, b) => {
-        const valA = sortBy === 'value_rating' ? a.value_rating : (a.scores?.[sortBy] ?? -999);
-        const valB = sortBy === 'value_rating' ? b.value_rating : (b.scores?.[sortBy] ?? -999);
-        return valB - valA;
-      });
+    if (sortBy === 'value_rating') {
+      filtered = [...filtered].sort((a, b) => b.value_rating - a.value_rating);
     } else {
       // Default Sort: Sort by Tiers (highest to lowest)
       const getTierWeight = (item, category) => {
@@ -198,7 +156,7 @@ export function RobotsGuideTab({ onItemClick }) {
     }
 
     return filtered;
-  }, [searchQuery, robotValueFilter, statFilter, minScoreFilter, sortBy]);
+  }, [searchQuery, robotValueFilter, sortBy]);
 
   // Paginated visible items lists
   const visibleRobots = useMemo(() => {
@@ -253,8 +211,6 @@ export function RobotsGuideTab({ onItemClick }) {
           setCategoryFilter('All');
           setRobotRoleFilter('All');
           setRobotValueFilter('All');
-          setStatFilter('All');
-          setMinScoreFilter('All');
           setSortBy('Default');
           setSearchInput('');
           setSearchQuery('');
@@ -273,10 +229,6 @@ export function RobotsGuideTab({ onItemClick }) {
         setRobotValueFilter={setRobotValueFilter}
         robotRoleFilter={robotRoleFilter}
         setRobotRoleFilter={setRobotRoleFilter}
-        statFilter={statFilter}
-        setStatFilter={setStatFilter}
-        minScoreFilter={minScoreFilter}
-        setMinScoreFilter={setMinScoreFilter}
         sortBy={sortBy}
         setSortBy={setSortBy}
       />

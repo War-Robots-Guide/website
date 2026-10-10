@@ -8,8 +8,9 @@ import { QuickStats } from './QuickStats';
 import { FeaturedRobots } from './FeaturedRobots';
 import { CommunityLinks } from './CommunityLinks';
 import { Changelog } from './Changelog';
+import { ResourcesLinks } from './ResourcesLinks';
 
-export function DashboardTab({ onItemClick }) {
+export function DashboardTab({ onTabChange, onItemClick }) {
   // Memoize featured robots to avoid inline filtering and sorting on every render
   const featuredRobots = useMemo(() => {
     if (!robotGuideData?.robots) return [];
@@ -73,12 +74,12 @@ export function DashboardTab({ onItemClick }) {
   }, [sortedChangelog]);
 
   const handleCardClick = (item) => {
-    if (!onItemClick) return;
-
-    const category = 'Robots';
-    const description = item.comments;
-
-    onItemClick(item.name, category, { description });
+    if (onTabChange) {
+      onTabChange('tiers');
+    }
+    if (onItemClick) {
+      onItemClick(item.name, 'Robots', { description: item.comments });
+    }
   };
 
   return (
@@ -97,6 +98,7 @@ export function DashboardTab({ onItemClick }) {
           <div className="changelog-wrapper">
             <Changelog recentChangelog={recentChangelog} />
           </div>
+          <ResourcesLinks />
         </div>
       </div>
     </div>

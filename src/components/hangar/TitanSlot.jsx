@@ -2,6 +2,7 @@ import { X } from 'lucide-react';
 import { RatingBar } from '../common/RatingBar';
 import robotGuideData from '../../data/robot_guide.json';
 import { getTierForName } from '../../utils/tierLookup';
+import { getRobotImage } from '../../utils/imageUtils';
 
 export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
   if (item) {
@@ -47,26 +48,34 @@ export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
         {(() => {
           const tier = getTierForName(item.name, 'Titans') || 'Z';
           const tierLower = tier.toLowerCase();
+          const imageUrl = getRobotImage(item.name);
           return (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px', gap: '8px' }}>
-              <h4 style={{ fontSize: '16px', color: 'var(--purple)', margin: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: '110px' }} title={item.name}>
-                {item.name}
-              </h4>
-              <span 
-                className={`tier-badge-${tierLower}`} 
-                style={{ 
-                  fontSize: '11px', 
-                  fontWeight: 700, 
-                  background: `var(--tier-${tierLower}-bg)`, 
-                  color: `var(--tier-${tierLower})`, 
-                  border: `1px solid var(--tier-${tierLower}-border)`, 
-                  padding: '2px 6px', 
-                  borderRadius: '4px' 
-                }}
-              >
-                {tier} Tier
-              </span>
-            </div>
+            <>
+              {imageUrl && (
+                <div style={{ width: '100%', height: '76px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px', overflow: 'hidden' }}>
+                  <img src={imageUrl} alt={item.name} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+                </div>
+              )}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px', gap: '8px' }}>
+                <h4 style={{ fontSize: '16px', color: 'var(--purple)', margin: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: '110px' }} title={item.name}>
+                  {item.name}
+                </h4>
+                <span 
+                  className={`tier-badge-${tierLower}`} 
+                  style={{ 
+                    fontSize: '11px', 
+                    fontWeight: 700, 
+                    background: `var(--tier-${tierLower}-bg)`, 
+                    color: `var(--tier-${tierLower})`, 
+                    border: `1px solid var(--tier-${tierLower}-border)`, 
+                    padding: '2px 6px', 
+                    borderRadius: '4px' 
+                  }}
+                >
+                  {tier} Tier
+                </span>
+              </div>
+            </>
           );
         })()}
 

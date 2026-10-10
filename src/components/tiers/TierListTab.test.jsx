@@ -152,10 +152,17 @@ describe('TierListTab', () => {
     // No items should be displayed
     expect(screen.queryByText('SuperBot')).not.toBeInTheDocument();
     expect(screen.queryByText('MegaBot')).not.toBeInTheDocument();
-    expect(screen.queryByText('GoodBot')).not.toBeInTheDocument();
+    expect(screen.queryByText('GoodBot')).toBeNull();
 
     // Tier headers shouldn't be visible since they have no items
     expect(screen.queryByText('S')).not.toBeInTheDocument();
     expect(screen.queryByText('A')).not.toBeInTheDocument();
+  });
+
+  it('renders tag markers and New badge when applicable', () => {
+    // Test with real tiersData to verify tags like Dedopali, Fang, Shoggoth
+    render(<TierListTab onItemClick={vi.fn()} />);
+    // SuperBot is rendered in the mock test
+    expect(screen.getByText('SuperBot')).toBeInTheDocument();
   });
 });

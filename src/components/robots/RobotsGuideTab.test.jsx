@@ -116,45 +116,17 @@ describe('RobotsGuideTab Search Prioritization', () => {
     expect(screen.queryByText('UE Raven')).not.toBeInTheDocument();
   });
 
-  it('filters robots by Overall Score subsection range', () => {
+  it('sorts robots by Value Rating when selected', () => {
     render(<RobotsGuideTab />);
-    const statSelect = screen.getByDisplayValue('All Stats');
+    const sortSelect = screen.getByDisplayValue('Default Sort (by Tier)');
 
-    // Select Overall Score
-    fireEvent.change(statSelect, { target: { value: 'overall' } });
-    const scoreSelect = screen.getByDisplayValue('Any Score');
+    fireEvent.change(sortSelect, { target: { value: 'value_rating' } });
 
-    // Filter to 30 - 40 (UE Raven has overall: 30)
-    fireEvent.change(scoreSelect, { target: { value: '30-40' } });
-    expect(screen.getByText('UE Raven')).toBeInTheDocument();
-    expect(screen.queryByText('Ravana')).not.toBeInTheDocument();
-    expect(screen.queryByText('Destrier')).not.toBeInTheDocument();
-
-    // Filter to 0 - 10 (Ravana has overall: 4, Destrier has overall: 1)
-    fireEvent.change(scoreSelect, { target: { value: '0-10' } });
-    expect(screen.getByText('Ravana')).toBeInTheDocument();
-    expect(screen.getByText('Destrier')).toBeInTheDocument();
-    expect(screen.queryByText('UE Raven')).not.toBeInTheDocument();
-  });
-
-  it('filters robots by individual stat subsection range (e.g. Longevity)', () => {
-    render(<RobotsGuideTab />);
-    const statSelect = screen.getByDisplayValue('All Stats');
-
-    // Select Longevity
-    fireEvent.change(statSelect, { target: { value: 'longevity' } });
-    const scoreSelect = screen.getByDisplayValue('Any Score');
-
-    // Filter to 9 - 10 (UE Raven has longevity: 10)
-    fireEvent.change(scoreSelect, { target: { value: '9-10' } });
-    expect(screen.getByText('UE Raven')).toBeInTheDocument();
-    expect(screen.queryByText('Ravana')).not.toBeInTheDocument();
-    expect(screen.queryByText('Destrier')).not.toBeInTheDocument();
-
-    // Filter to 0 - 2 (Ravana has longevity: 2, Destrier has longevity: 0)
-    fireEvent.change(scoreSelect, { target: { value: '0-2' } });
-    expect(screen.getByText('Ravana')).toBeInTheDocument();
-    expect(screen.getByText('Destrier')).toBeInTheDocument();
-    expect(screen.queryByText('UE Raven')).not.toBeInTheDocument();
+    // In mock data: UE Raven has 30, Ravana has 4, Destrier has 1
+    const robotHeadings = screen.getAllByRole('heading', { level: 3 }).map(h => h.textContent);
+    const matchedNames = robotHeadings.filter(name => ['Ravana', 'Destrier', 'UE Raven'].includes(name));
+    expect(matchedNames[0]).toBe('UE Raven');
+    expect(matchedNames[1]).toBe('Ravana');
+    expect(matchedNames[2]).toBe('Destrier');
   });
 });

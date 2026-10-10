@@ -22,9 +22,13 @@ dist-ssr
 
 # Python virtual environment
 venv/
+__pycache__/
+*.pyc
 
 # Local scratch files
 scratch/
 
 # Google Drive raw files
 sample data/
+sample images/
+public/images/

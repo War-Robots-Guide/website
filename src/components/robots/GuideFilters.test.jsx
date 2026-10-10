@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, within } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { GuideFilters } from './GuideFilters';
-import { VALUE_RATING_RANGES, OVERALL_SCORE_RANGES, STAT_SCORE_RANGES } from './constants';
+import { VALUE_RATING_RANGES } from './constants';
 
 describe('GuideFilters Component', () => {
   const defaultProps = {
@@ -15,10 +15,6 @@ describe('GuideFilters Component', () => {
     setRobotValueFilter: vi.fn(),
     robotRoleFilter: 'All',
     setRobotRoleFilter: vi.fn(),
-    statFilter: 'All',
-    setStatFilter: vi.fn(),
-    minScoreFilter: 'All',
-    setMinScoreFilter: vi.fn(),
     sortBy: 'Default',
     setSortBy: vi.fn()
   };
@@ -42,47 +38,20 @@ describe('GuideFilters Component', () => {
     expect(setRobotValueFilter).toHaveBeenCalledWith('30-40');
   });
 
-  it('does not render score filter when statFilter is All', () => {
-    render(<GuideFilters {...defaultProps} statFilter="All" />);
-    expect(screen.queryByDisplayValue('Any Score')).not.toBeInTheDocument();
+  it('renders streamlined sort options (Default and Value Rating)', () => {
+    render(<GuideFilters {...defaultProps} />);
+    const sortSelect = screen.getByDisplayValue('Default Sort (by Tier)');
+    expect(sortSelect).toBeInTheDocument();
+    expect(within(sortSelect).getByRole('option', { name: 'Default Sort (by Tier)' })).toBeInTheDocument();
+    expect(within(sortSelect).getByRole('option', { name: 'Sort by Value Rating' })).toBeInTheDocument();
   });
 
-  it('renders Overall Score ranges when statFilter is overall', () => {
-    render(<GuideFilters {...defaultProps} statFilter="overall" />);
-    const scoreSelect = screen.getByDisplayValue('Any Score');
-    expect(scoreSelect).toBeInTheDocument();
+  it('calls setSortBy when sort is changed', () => {
+    const setSortBy = vi.fn();
+    render(<GuideFilters {...defaultProps} setSortBy={setSortBy} />);
+    const sortSelect = screen.getByDisplayValue('Default Sort (by Tier)');
 
-    OVERALL_SCORE_RANGES.forEach(range => {
-      expect(within(scoreSelect).getByRole('option', { name: range.label })).toBeInTheDocument();
-    });
-  });
-
-  it('renders 0-10 stat score ranges when statFilter is a specific stat like longevity', () => {
-    render(<GuideFilters {...defaultProps} statFilter="longevity" />);
-    const scoreSelect = screen.getByDisplayValue('Any Score');
-    expect(scoreSelect).toBeInTheDocument();
-
-    STAT_SCORE_RANGES.forEach(range => {
-      expect(within(scoreSelect).getByRole('option', { name: range.label })).toBeInTheDocument();
-    });
-  });
-
-  it('resets minScoreFilter to All when statFilter changes', () => {
-    const setStatFilter = vi.fn();
-    const setMinScoreFilter = vi.fn();
-    render(
-      <GuideFilters
-        {...defaultProps}
-        statFilter="All"
-        setStatFilter={setStatFilter}
-        setMinScoreFilter={setMinScoreFilter}
-      />
-    );
-
-    const statSelect = screen.getByDisplayValue('All Stats');
-    fireEvent.change(statSelect, { target: { value: 'overall' } });
-
-    expect(setStatFilter).toHaveBeenCalledWith('overall');
-    expect(setMinScoreFilter).toHaveBeenCalledWith('All');
+    fireEvent.change(sortSelect, { target: { value: 'value_rating' } });
+    expect(setSortBy).toHaveBeenCalledWith('value_rating');
   });
 });

@@ -1071,3 +1071,8 @@ if __name__ == "__main__":
     parse_tiers()
     parse_robot_guide()
     print("All parsing completed successfully. Output JSONs saved to src/data/")
+    try:
+        from sync_images import sync_images
+        sync_images()
+    except Exception as e:
+        print(f"Image sync notice: {e}")

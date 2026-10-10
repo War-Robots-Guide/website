@@ -44,6 +44,7 @@ jobs:
       - name: Fetch Google Drive Content
         env:
           GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
+          GDRIVE_IMAGES_FOLDER_ID: ${{ secrets.GDRIVE_IMAGES_FOLDER_ID }}
           GDRIVE_CREDENTIALS_JSON: ${{ secrets.GDRIVE_CREDENTIALS_JSON }}
         run: |
           python scripts/fetch_gdrive.py
