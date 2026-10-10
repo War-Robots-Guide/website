@@ -150,8 +150,8 @@ export function TierListTab({ onItemClick }) {
                 }}
               >
                 <span>{tierLetter}</span>
-                <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', marginTop: '2px', letterSpacing: '0.5px' }}>
-                  {tierInfo.casual_name || 'Tier'}
+                <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', marginTop: '2px', textTransform: 'uppercase' }}>
+                  Tier
                 </span>
               </div>
               
@@ -225,6 +225,8 @@ export function TierListTab({ onItemClick }) {
                               width: '100%',
                               height: '100%',
                               objectFit: 'contain',
+                              padding: '6px',
+                              boxSizing: 'border-box',
                               transition: 'transform 0.2s ease',
                             }}
                             className="prydwen-portrait-img"

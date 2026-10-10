@@ -24,12 +24,15 @@ describe('imageUtils', () => {
     expect(extractTierTags('Pathfinder')).toEqual({ cleanName: 'Pathfinder', tags: [] });
   });
 
-  it('maps robot images to their exact files', () => {
+  it('maps robot images to their exact files and prevents non-ultimates from using ultimate artwork', () => {
     expect(getRobotImage('Pathfinder')).toBe('/images/items/Pathfinder.png');
     expect(getRobotImage('Ammit')).toBe('/images/items/Ammit.png');
     expect(getRobotImage('Curie')).toBe('/images/items/Curie.png');
     expect(getRobotImage('UE Raven')).toBe('/images/items/Ultimate Raven.png');
     expect(getRobotImage('SWORD Unit')).toBe('/images/items/SWORD Unit.png');
+    expect(getRobotImage('UE Bulgasari')).toBe('/images/items/Ultimate Bulgasari.png');
+    // Non-ultimate Bulgasari has no non-ultimate image in ALL ITEMS, must NEVER use Ultimate Bulgasari!
+    expect(getRobotImage('Bulgasari')).toBeNull();
   });
 
   it('identifies newest tier items', () => {
@@ -48,9 +51,13 @@ describe('imageUtils', () => {
     expect(getModuleImage('Phase Shift')).toBe('/images/items/Module_Active Phase Shift.png');
   });
 
-  it('maps weapons', () => {
+  it('maps weapons and resolves multi-weapon family entries', () => {
     expect(getWeaponImage('Harmattan', 'Heavy Weapons')).toBe('/images/items/HarmattanH.png');
     expect(getWeaponImage('Harmattan', 'Medium Weapons')).toBe('/images/items/HarmattanM.png');
     expect(getWeaponImage('Harmattan', 'Light Weapons')).toBe('/images/items/HarmattanL.png');
+    // Tier list weapon families
+    expect(getWeaponImage('Lumen L, Lumen M, Lumen H')).toBe('/images/items/LumenL.png');
+    expect(getWeaponImage('👁️Iaraghi L, 👁️Iaraghi M, 👁️Iaraghi H')).toBe('/images/items/IaraghL.png');
+    expect(getWeaponImage('Barq-a. Barq-b')).toBe('/images/items/BarqA.png');
   });
 });

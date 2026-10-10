@@ -33,21 +33,32 @@ export function extractTierTags(name) {
 export function getRobotImage(name) {
   if (!name) return null;
   const { cleanName } = extractTierTags(name);
+  const isUe = cleanName.toLowerCase().startsWith('ue ') || cleanName.toLowerCase().startsWith('ultimate ');
+  const baseName = isUe ? cleanName.replace(/^ue\s+/i, '').replace(/^ultimate\s+/i, '').trim() : cleanName;
   const k = cleanKey(cleanName);
+  const baseK = cleanKey(baseName);
 
-  if (imageManifest.items?.[k]) {
-    return imageManifest.items[k];
-  }
-
-  // Handle UE / Ultimate prefix
-  if (k.startsWith('ue')) {
-    const baseK = k.slice(2);
+  if (isUe) {
     if (imageManifest.items?.[`ultimate${baseK}`]) {
       return imageManifest.items[`ultimate${baseK}`];
     }
-    if (imageManifest.items?.[baseK]) {
-      return imageManifest.items[baseK];
+    if (imageManifest.items?.[`ue${baseK}`]) {
+      return imageManifest.items[`ue${baseK}`];
     }
+    if (imageManifest.items?.[k]) {
+      return imageManifest.items[k];
+    }
+    return null;
+  }
+
+  // Non-Ultimate Robot: MUST NOT return an Ultimate image!
+  const img = imageManifest.items?.[k];
+  if (img) {
+    const filename = img.split('/').pop().toLowerCase();
+    if (filename.startsWith('ultimate')) {
+      return null;
+    }
+    return img;
   }
 
   return null;
@@ -56,30 +67,58 @@ export function getRobotImage(name) {
 export function getWeaponImage(name, weightClass = '') {
   if (!name) return null;
   const { cleanName } = extractTierTags(name);
-  const baseName = cleanName.replace(/\s*\(.*?\)/g, '').trim();
-  const k = cleanKey(baseName);
 
-  let suffix = '';
-  if (weightClass.includes('Heavy')) suffix = 'h';
-  else if (weightClass.includes('Medium')) suffix = 'm';
-  else if (weightClass.includes('Light')) suffix = 'l';
-  else if (weightClass.includes('Alpha')) suffix = 'a';
-  else if (weightClass.includes('Beta')) suffix = 'b';
+  // In tier lists and builds, weapon entries may be families, e.g. "Lumen L, Lumen M, Lumen H"
+  const rawParts = cleanName.split(/[,/.]/).map(p => p.trim()).filter(Boolean);
+  const parts = rawParts.length > 0 ? rawParts : [cleanName];
 
-  if (suffix && imageManifest.weapons?.[`${k}_${suffix}`]) {
-    return imageManifest.weapons[`${k}_${suffix}`];
-  }
+  for (const part of parts) {
+    const isUe = part.toLowerCase().startsWith('ue ') || part.toLowerCase().startsWith('ultimate ');
+    const baseName = isUe ? part.replace(/^ue\s+/i, '').replace(/^ultimate\s+/i, '').replace(/\s*\(.*?\)/g, '').trim() : part.replace(/\s*\(.*?\)/g, '').trim();
+    const pk = cleanKey(part);
+    const bk = cleanKey(baseName);
 
-  if (imageManifest.weapons?.[k]) {
-    return imageManifest.weapons[k];
-  }
+    let suffix = '';
+    if (weightClass.includes('Heavy')) suffix = 'h';
+    else if (weightClass.includes('Medium')) suffix = 'm';
+    else if (weightClass.includes('Light')) suffix = 'l';
+    else if (weightClass.includes('Alpha')) suffix = 'a';
+    else if (weightClass.includes('Beta')) suffix = 'b';
 
-  // Check items general
-  if (suffix && imageManifest.items?.[`${k}${suffix}`]) {
-    return imageManifest.items[`${k}${suffix}`];
-  }
-  if (imageManifest.items?.[k]) {
-    return imageManifest.items[k];
+    const candidates = [];
+    if (isUe) {
+      candidates.push(`ultimate${bk}`);
+      candidates.push(`ue${bk}`);
+      candidates.push(`ultimate${pk}`);
+      candidates.push(pk);
+    } else {
+      if (suffix) {
+        candidates.push(`${bk}_${suffix}`);
+        candidates.push(`${bk}${suffix}`);
+        candidates.push(`${pk}_${suffix}`);
+        candidates.push(`${pk}${suffix}`);
+      }
+      candidates.push(pk);
+      candidates.push(bk);
+      // Try with all suffixes if in tier list
+      candidates.push(`${bk}h`);
+      candidates.push(`${bk}m`);
+      candidates.push(`${bk}l`);
+      candidates.push(`${bk}a`);
+      candidates.push(`${bk}b`);
+    }
+
+    for (const c of candidates) {
+      const match = imageManifest.weapons?.[c] || imageManifest.all_files?.[c];
+      if (match) {
+        const fn = match.split('/').pop().toLowerCase();
+        // Enforce UE consistency
+        if (!isUe && fn.startsWith('ultimate')) {
+          continue;
+        }
+        return match;
+      }
+    }
   }
 
   return null;
@@ -91,7 +130,6 @@ export function getPilotImage(name) {
   if (imageManifest.pilots?.[k]) {
     return imageManifest.pilots[k];
   }
-  // Search partial matches
   for (const [pk, path] of Object.entries(imageManifest.pilots || {})) {
     if (k.includes(pk) || pk.includes(k)) {
       return path;
@@ -122,7 +160,6 @@ export function getModuleImage(name) {
   if (imageManifest.modules?.[k]) {
     return imageManifest.modules[k];
   }
-  // Try matching words in name
   for (const [mk, path] of Object.entries(imageManifest.modules || {})) {
     if (k.includes(mk) || mk.includes(k)) {
       return path;
@@ -134,16 +171,15 @@ export function getModuleImage(name) {
 export function getItemImage(name, category = '') {
   if (!name) return null;
   const catLower = category.toLowerCase();
-  if (catLower.includes('robot') || catLower.includes('titan')) {
-    return getRobotImage(name);
-  }
   if (catLower.includes('weapon')) {
     return getWeaponImage(name, category);
+  }
+  if (catLower.includes('robot') || catLower.includes('titan')) {
+    return getRobotImage(name);
   }
   if (catLower.includes('drone')) {
     return getDroneImage(name);
   }
-  // Fallback to checking robot/titan, then weapon, then module
   return getRobotImage(name) || getWeaponImage(name, category) || getDroneImage(name) || getModuleImage(name);
 }
 

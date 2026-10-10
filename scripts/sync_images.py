@@ -24,7 +24,7 @@ def sync_images():
     os.makedirs(icons_dest, exist_ok=True)
 
     copied_count = 0
-    # Copy from sample images if present
+    # Copy from sample images if present, trimming transparent borders with PIL
     all_items_src = os.path.join(sample_images_dir, "ALL ITEMS")
     if os.path.exists(all_items_src):
         for f in os.listdir(all_items_src):
@@ -32,7 +32,25 @@ def sync_images():
             if os.path.isfile(src_f):
                 dst_f = os.path.join(items_dest, f)
                 if not os.path.exists(dst_f) or os.path.getsize(dst_f) != os.path.getsize(src_f):
-                    shutil.copy2(src_f, dst_f)
+                    try:
+                        from PIL import Image
+                        im = Image.open(src_f)
+                        bbox = im.getbbox()
+                        if bbox:
+                            w, h = im.size
+                            pad = 4
+                            padded_bbox = (
+                                max(0, bbox[0] - pad),
+                                max(0, bbox[1] - pad),
+                                min(w, bbox[2] + pad),
+                                min(h, bbox[3] + pad)
+                            )
+                            cropped = im.crop(padded_bbox)
+                            cropped.save(dst_f, optimize=True)
+                        else:
+                            shutil.copy2(src_f, dst_f)
+                    except Exception:
+                        shutil.copy2(src_f, dst_f)
                     copied_count += 1
 
     icons_src = os.path.join(sample_images_dir, "Icons")
@@ -60,6 +78,7 @@ def sync_images():
         "drones": {},
         "modules": {},
         "icons": {},
+        "all_files": {},
         "new_tier_items": []
     }
 
@@ -79,27 +98,34 @@ def sync_images():
             weapons_dps = json.load(f)
 
     # 1. Match Robots and Titans
+    # CRITICAL: Non-Ultimate robots must NEVER match Ultimate images (e.g. Bulgasari -> Ultimate Bulgasari)!
     all_units = robot_guide.get('robots', []) + robot_guide.get('titans', [])
     for u in all_units:
         name = u.get('name', '')
         if not name:
             continue
         clean_name = re.sub(r'[\u2b06\u2b07\ud83d\udc41\ufe0f\*]', '', name).strip()
-        candidates = [
-            f"{clean_name}.png".lower(),
-            f"{clean_name.replace(' ', '')}.png".lower(),
-            f"ultimate {clean_name}.png".lower(),
-        ]
-        if clean_name.lower().startswith('ue '):
-            ue_base = clean_name[3:].strip()
-            candidates.extend([
+        is_ue = clean_name.lower().startswith('ue ') or clean_name.lower().startswith('ultimate ')
+
+        if is_ue:
+            ue_base = clean_name[3:].strip() if clean_name.lower().startswith('ue ') else clean_name[9:].strip()
+            candidates = [
                 f"ultimate {ue_base}.png".lower(),
-                f"{ue_base}.png".lower()
-            ])
-        if clean_name.lower() == 'omen vulcan':
-            candidates.append('vulcan.png')
-        if clean_name.lower() == 'ue sword unit' or clean_name.lower() == 'sword unit':
-            candidates.extend(['ultimate sword.png', 'sword unit.png'])
+                f"ue {ue_base}.png".lower(),
+                f"{clean_name}.png".lower()
+            ]
+            if clean_name.lower() == 'ue sword unit':
+                candidates.extend(['ultimate sword.png', 'ultimate sword unit.png'])
+        else:
+            # Non-Ultimate: ONLY match standard robot image! Never match "ultimate <name>.png"
+            candidates = [
+                f"{clean_name}.png".lower(),
+                f"{clean_name.replace(' ', '')}.png".lower(),
+            ]
+            if clean_name.lower() == 'omen vulcan':
+                candidates.append('vulcan.png')
+            if clean_name.lower() == 'sword unit':
+                candidates.append('sword unit.png')
 
         matched_file = None
         for c in candidates:
@@ -112,48 +138,7 @@ def sync_images():
             manifest["items"][clean_key(name)] = path
             manifest["items"][clean_key(clean_name)] = path
 
-    # 2. Match Weapons
-    for cat, wlist in weapons_dps.items():
-        suffix = 'H' if 'Heavy' in cat else ('M' if 'Medium' in cat else ('L' if 'Light' in cat else ('A' if 'Alpha' in cat else 'B')))
-        for w in wlist:
-            name = w.get('name', '')
-            if not name:
-                continue
-            clean_w_name = re.sub(r'\s*\(.*?\)', '', name).strip()
-            clean_w_name = re.sub(r'[\u2b06\u2b07\ud83d\udc41\ufe0f]', '', clean_w_name).strip()
-            no_dash = clean_w_name.replace('-', '').replace(' ', '')
-            base_w = re.sub(r'-[HMLAB]$', '', clean_w_name, flags=re.IGNORECASE).strip()
-            candidates = [
-                f"{clean_w_name}.png".lower(),
-                f"{no_dash}.png".lower(),
-                f"{clean_w_name}{suffix}.png".lower(),
-                f"{base_w}{suffix}.png".lower(),
-                f"{clean_w_name} {suffix}.png".lower(),
-                f"{base_w} {suffix}.png".lower(),
-                f"ultimate {clean_w_name}.png".lower(),
-                f"ultimate {base_w}.png".lower(),
-            ]
-            if clean_w_name.lower().startswith('ue '):
-                ue_base = clean_w_name[3:].strip()
-                candidates.extend([
-                    f"ultimate {ue_base}.png".lower(),
-                    f"ultimate {ue_base}{suffix}.png".lower()
-                ])
-            
-            matched_file = None
-            for c in candidates:
-                if c in file_lookup:
-                    matched_file = file_lookup[c]
-                    break
-            if matched_file:
-                path = f"/images/items/{matched_file}"
-                manifest["weapons"][clean_key(name)] = path
-                manifest["weapons"][clean_key(clean_w_name)] = path
-                manifest["weapons"][f"{clean_key(clean_w_name)}_{suffix.lower()}"] = path
-                manifest["weapons"][clean_key(base_w)] = path
-                manifest["weapons"][f"{clean_key(base_w)}_{suffix.lower()}"] = path
-
-    # 3. Match Pilots, Drones, Modules from all item files
+    # 2. Index all weapon and item files directly from disk into manifest
     for f in item_files:
         stem = os.path.splitext(f)[0]
         fpath = f"/images/items/{f}"
@@ -174,8 +159,49 @@ def sync_images():
         elif lower_f.startswith("pilot_titan_"):
             p_name = stem[12:].replace("_mini", "").replace("_", " ").strip()
             manifest["pilots"][clean_key(p_name)] = fpath
+        else:
+            # Standalone weapon / gear / ship file
+            clean_stem = clean_key(stem)
+            manifest["all_files"][clean_stem] = fpath
+            manifest["weapons"][clean_stem] = fpath
 
-    # Special module aliases (e.g. Accelerator, Overdrive, Last Stand, Repair, Anticontrol, etc.)
+            # Also index with UE alias if starts with Ultimate
+            if lower_f.startswith("ultimate "):
+                base_stem = clean_key(stem[9:])
+                manifest["weapons"][f"ue{base_stem}"] = fpath
+                manifest["weapons"][f"ultimate{base_stem}"] = fpath
+
+            # If weapon ends with H/M/L/A/B suffix (e.g. HarmattanH, LumenM, ArmL, BarqA)
+            m = re.match(r'^(.+?)([hmlab])$', clean_stem, re.IGNORECASE)
+            if m:
+                base_w, sfx = m.groups()
+                manifest["weapons"][f"{base_w}_{sfx.lower()}"] = fpath
+                manifest["weapons"][base_w] = fpath
+
+    # Special weapon name mappings
+    special_weapons = {
+        "iaraghil": "/images/items/IaraghL.png",
+        "iaraghl": "/images/items/IaraghL.png",
+        "iaraghim": "/images/items/IaraghiM.png",
+        "iaraghih": "/images/items/IaraghiH.png",
+        "lumenl": "/images/items/LumenL.png",
+        "lumenm": "/images/items/LumenM.png",
+        "lumenh": "/images/items/LumenH.png",
+        "harmattanl": "/images/items/HarmattanL.png",
+        "harmattanm": "/images/items/HarmattanM.png",
+        "harmattanh": "/images/items/HarmattanH.png",
+        "arml": "/images/items/ArmL.png",
+        "armm": "/images/items/ArmM.png",
+        "barqa": "/images/items/BarqA.png",
+        "barqb": "/images/items/BarqB.png",
+        "farenheit": "/images/items/Fahrenheit.png",
+        "fahrenheit": "/images/items/Fahrenheit.png",
+    }
+    for k, p in special_weapons.items():
+        if os.path.exists(os.path.join(workspace_dir, "public", p.lstrip('/'))):
+            manifest["weapons"][k] = p
+
+    # Special module aliases
     module_aliases = {
         "accelerator": "robot accelerator",
         "robot accelerator": "robot accelerator",
@@ -240,7 +266,6 @@ def sync_images():
     all_unit_names = {u.get('name', '').lower() for u in all_units}
     newest_items = []
     
-    # Search backwards for recent 'added <item>' entries matching actual robots/titans
     added_pattern = re.compile(r'added\s+([A-Za-z0-9\s,\/&]+?)(?:\s*(?:at|to|in|\bfor\b|-|\.|\n)|$)', re.IGNORECASE)
     for entry in reversed(changelog):
         text = entry.get('text', '')
