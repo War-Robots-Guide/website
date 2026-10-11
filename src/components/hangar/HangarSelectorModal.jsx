@@ -5,7 +5,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
 import { getTierForName } from '../../utils/tierLookup';
-import { getRobotImage } from '../../utils/imageUtils';
+import { getRobotImage, getRoleIcon } from '../../utils/imageUtils';
 
 const precomputedTitans = (robotGuideData?.titans || []).map(t => ({
   ...t,
@@ -179,15 +179,19 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                   })()}
                   {robot.roles && robot.roles.length > 0 && (
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
-                      {robot.roles.map(role => (
-                        <span 
-                          key={role.role} 
-                          className={`role-badge ${role.type}`} 
-                          style={{ fontSize: '10px', padding: '1px 6px' }}
-                        >
-                          {role.role}
-                        </span>
-                      ))}
+                      {robot.roles.map(role => {
+                        const roleIcon = role.type === 'main' ? getRoleIcon(role.role) : null;
+                        return (
+                          <span 
+                            key={role.role} 
+                            className={`role-badge ${role.type}`} 
+                            style={{ fontSize: '10px', padding: '1px 6px', display: 'inline-flex', alignItems: 'center', gap: '3px' }}
+                          >
+                            {roleIcon && <img src={roleIcon} alt="" style={{ width: '11px', height: '11px', objectFit: 'contain' }} />}
+                            {role.role}
+                          </span>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

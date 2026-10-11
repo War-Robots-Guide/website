@@ -20,7 +20,7 @@ vi.mock('../../data/robot_guide.json', () => ({
       {
         name: 'MockBrawler',
         value_rating: 4,
-        roles: [{ role: 'Brawler', type: 'primary' }, { role: 'Tank-buster', type: 'secondary' }]
+        roles: [{ role: 'Brawler', type: 'main' }, { role: 'Tank-buster', type: 'secondary' }]
       },
       {
         name: 'MockSupport',

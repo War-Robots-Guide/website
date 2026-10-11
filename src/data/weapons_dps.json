@@ -418,6 +418,27 @@
       "notes": "A full charge requires enemies to deal about 400k damage to you. Shields count.\nBurst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion."
     },
     {
+      "name": "IaraghiH",
+      "burst_dps": 85716.0,
+      "cycle_dps": 8570.0,
+      "range": "600m",
+      "notes": "NO Powerman or Dedopali pilot"
+    },
+    {
+      "name": "UE Glacier (Frozen)",
+      "burst_dps": 81895.938,
+      "cycle_dps": 17410.436,
+      "range": "25m",
+      "notes": "Range is 350m but projectile travel time signficiantly lowers DPS so point blank is assumed. Cryo weapons rarely actually hit their full DPS potential. Freeze damage boost accounted for."
+    },
+    {
+      "name": "UE Glacier (No Freeze)",
+      "burst_dps": 72170.804,
+      "cycle_dps": 15342.964,
+      "range": "25m",
+      "notes": "Range is 350m but projectile travel time signficiantly lowers DPS so point blank is assumed. Cryo weapons rarely actually hit their full DPS potential. Freeze damage boost NOT accounted for."
+    },
+    {
       "name": "UE Glory (25m)",
       "burst_dps": 67555.0,
       "cycle_dps": 28147.0,
@@ -451,6 +472,13 @@
       "cycle_dps": 12026.88,
       "range": "350m",
       "notes": "Note: Cryo rockets need to be almost maxxed to deal damage because they have ultimate mk2 upgrade scaling for some reason. Enemy frozen."
+    },
+    {
+      "name": "Glory (25m)",
+      "burst_dps": 52800.0,
+      "cycle_dps": 12267.0,
+      "range": "25m",
+      "notes": ""
     },
     {
       "name": "Glacier (No Freeze)",
@@ -625,7 +653,7 @@
       "burst_dps": 29142.0,
       "cycle_dps": 10523.0,
       "range": "1100m",
-      "notes": "Assumes you're already at max fatigue stacks (5 stacks)"
+      "notes": "Assumes you're already at max fatigue stacks (5 stacks). In real matches, the burst DPS is technically less than this since it will take you a few shots to stack fatigue, though the more heavy slots your bot\nhas the less it matters."
     },
     {
       "name": "UE Calamity (150m)",
@@ -966,6 +994,13 @@
       "notes": "Includes DoT damage, much of which is dealt while reloading. You'll only get this much damage at point blank. Reload starts 0.3s after mag empties, for some reason."
     },
     {
+      "name": "IaraghiM",
+      "burst_dps": 64287.0,
+      "cycle_dps": 6427.5,
+      "range": "600m",
+      "notes": "NO Powerman or Dedopali pilot"
+    },
+    {
       "name": "UE Storm (25m)",
       "burst_dps": 62503.0,
       "cycle_dps": 20589.0,
@@ -1088,6 +1123,13 @@
       "name": "UE Orkan (25m)",
       "burst_dps": 33846.0,
       "cycle_dps": 15714.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "Corona (25m)",
+      "burst_dps": 33000.0,
+      "cycle_dps": 7667.0,
       "range": "25m",
       "notes": ""
     },
@@ -1591,6 +1633,13 @@
       "notes": "A full charge requires enemies to deal about 400k damage to you. Shields count.\nBurst DPS for weapons that unload in under 1 second is simply replaced with damage per burst to avoid confusion."
     },
     {
+      "name": "UE Rime (Frozen)",
+      "burst_dps": 44793.8781,
+      "cycle_dps": 9522.8282,
+      "range": "25m",
+      "notes": "Range is 350m but projectile travel time signficiantly lowers DPS so point blank is assumed. Cryo weapons rarely actually hit their full DPS potential. Freeze damage boost accounted for."
+    },
+    {
       "name": "UE Shredder (25m)",
       "burst_dps": 43934.0,
       "cycle_dps": 24144.0,
@@ -1598,11 +1647,32 @@
       "notes": "\"Light Weapon\""
     },
     {
+      "name": "Halo (25m)",
+      "burst_dps": 43500.0,
+      "cycle_dps": 4854.0,
+      "range": "25m",
+      "notes": ""
+    },
+    {
+      "name": "IaraghiL",
+      "burst_dps": 42858.0,
+      "cycle_dps": 4285.0,
+      "range": "600m",
+      "notes": "NO Powerman or Dedopali pilot"
+    },
+    {
       "name": "UE Halo (25m)",
       "burst_dps": 40946.0,
       "cycle_dps": 14491.0,
       "range": "25m",
       "notes": "UE Halo has a weird reload mechanic that puts 2 shots at a time into a mag of 5. Since it is a RWF weapon, you don't need to wait on the last shot to reload, so the cycle DPS was calculated differently\nfrom how we usually would in order to give a more accurate value."
+    },
+    {
+      "name": "UE Rime (No Freeze)",
+      "burst_dps": 39474.6098,
+      "cycle_dps": 8392.0018,
+      "range": "25m",
+      "notes": "Range is 350m but projectile travel time signficiantly lowers DPS so point blank is assumed. Cryo weapons rarely actually hit their full DPS potential. Freeze damage boost NOT accounted for."
     },
     {
       "name": "Elox (25m)",

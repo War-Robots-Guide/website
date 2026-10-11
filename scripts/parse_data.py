@@ -798,7 +798,9 @@ def parse_robot_guide():
             role_type = "none"
             if color_hex:
                 clean_hex = color_hex[-6:].upper() if isinstance(color_hex, str) else ""
-                if clean_hex == "00FF00": # Green
+                if clean_hex in ["00FFFF", "4A86E8", "0000FF", "29B6F6"]: # Blue / Cyan (Main role)
+                    role_type = "main"
+                elif clean_hex == "00FF00": # Green
                     role_type = "primary"
                 elif clean_hex == "FFFF00": # Yellow
                     role_type = "secondary"
@@ -900,7 +902,9 @@ def parse_robot_guide():
             role_type = "none"
             if color_hex:
                 clean_hex = color_hex[-6:].upper() if isinstance(color_hex, str) else ""
-                if clean_hex == "00FF00": # Green
+                if clean_hex in ["00FFFF", "4A86E8", "0000FF", "29B6F6"]: # Blue / Cyan (Main role)
+                    role_type = "main"
+                elif clean_hex == "00FF00": # Green
                     role_type = "primary"
                 elif clean_hex == "FFFF00": # Yellow
                     role_type = "secondary"

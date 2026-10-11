@@ -86,6 +86,18 @@ def sync_images():
         stem = os.path.splitext(f)[0]
         manifest["icons"][clean_key(stem)] = f"/images/icons/{f}"
 
+    # Explicit role icon aliases to match spreadsheet role names
+    role_icon_aliases = {
+        "midrange": "midranger",
+        "tankbuster": "tankbuster",
+        "tank-buster": "tankbuster",
+        "beaconrunner": "beaconrunner",
+    }
+    for alias, target in role_icon_aliases.items():
+        target_key = clean_key(target)
+        if target_key in manifest["icons"]:
+            manifest["icons"][clean_key(alias)] = manifest["icons"][target_key]
+
     # Load data for intelligent matching
     robot_guide = {}
     if os.path.exists(robot_guide_path):

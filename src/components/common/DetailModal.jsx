@@ -6,7 +6,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
 import { getTierForName, getFootnoteText, stripTagsAndAsterisks } from '../../utils/tierLookup';
-import { getItemImage } from '../../utils/imageUtils';
+import { getItemImage, getRoleIcon } from '../../utils/imageUtils';
 
 // Pre-compute lookup data outside the component to avoid recreating it on every render.
 const weaponsList = weaponsDpsData ? Object.values(weaponsDpsData).flat() : [];
@@ -231,13 +231,15 @@ export function DetailModal({ selectedItem, onClose }) {
                         {rob.roles.map(role => {
                           if (role.type === 'none') return null;
                           const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
+                          const roleIcon = role.type === 'main' ? getRoleIcon(role.role) : null;
                           return (
                             <span
                               key={role.role}
                               className={`role-badge ${role.type}`}
-                              style={{ display: 'inline-flex', padding: '2px 8px', alignItems: 'center' }}
+                              style={{ display: 'inline-flex', padding: '2px 8px', alignItems: 'center', gap: '5px' }}
                               title={tooltipText}
                             >
+                              {roleIcon && <img src={roleIcon} alt="" style={{ width: '13px', height: '13px', objectFit: 'contain' }} />}
                               {role.role}
                               {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>{role.footnote}</sup>}
                             </span>
@@ -313,13 +315,15 @@ export function DetailModal({ selectedItem, onClose }) {
                         {titan.roles.map(role => {
                           if (role.type === 'none') return null;
                           const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
+                          const roleIcon = role.type === 'main' ? getRoleIcon(role.role) : null;
                           return (
                             <span
                               key={role.role}
                               className={`role-badge ${role.type}`}
-                              style={{ display: 'inline-flex', padding: '2px 8px', alignItems: 'center' }}
+                              style={{ display: 'inline-flex', padding: '2px 8px', alignItems: 'center', gap: '5px' }}
                               title={tooltipText}
                             >
+                              {roleIcon && <img src={roleIcon} alt="" style={{ width: '13px', height: '13px', objectFit: 'contain' }} />}
                               {role.role}
                               {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>{role.footnote}</sup>}
                             </span>

@@ -3,7 +3,7 @@ import tiersData from '../../data/tiers.json';
 import robotGuideData from '../../data/robot_guide.json';
 import { SearchInput } from '../common/SearchInput';
 import { SlidingTabPills } from '../common/SlidingTabPills';
-import { getItemImage, extractTierTags, isNewTierItem, getSpecializationIcon, cleanKey } from '../../utils/imageUtils';
+import { getItemImage, extractTierTags, isNewTierItem, getRoleIcon, cleanKey } from '../../utils/imageUtils';
 
 // Pre-compute lowercased names and descriptions once outside the component
 const optimizedTiersData = tiersData ? JSON.parse(JSON.stringify(tiersData)) : {};
@@ -39,14 +39,14 @@ export function TierListTab({ onItemClick }) {
     const map = {};
     if (robotGuideData?.robots) {
       robotGuideData.robots.forEach(r => {
-        const primaryRole = r.roles?.find(role => role.type === 'primary')?.role;
-        if (primaryRole) map[cleanKey(r.name)] = primaryRole;
+        const mainRole = r.roles?.find(role => role.type === 'main')?.role;
+        if (mainRole) map[cleanKey(r.name)] = mainRole;
       });
     }
     if (robotGuideData?.titans) {
       robotGuideData.titans.forEach(t => {
-        const primaryRole = t.roles?.find(role => role.type === 'primary')?.role;
-        if (primaryRole) map[cleanKey(t.name)] = primaryRole;
+        const mainRole = t.roles?.find(role => role.type === 'main')?.role;
+        if (mainRole) map[cleanKey(t.name)] = mainRole;
       });
     }
     return map;
@@ -170,8 +170,8 @@ export function TierListTab({ onItemClick }) {
                   const { cleanName, tags } = extractTierTags(item.name);
                   const imageUrl = getItemImage(item.name, selectedCategory);
                   const isNew = isNewTierItem(item.name);
-                  const role = robotRolesMap[cleanKey(cleanName)] || '';
-                  const specIconUrl = getSpecializationIcon(role);
+                  const mainRole = robotRolesMap[cleanKey(cleanName)] || '';
+                  const roleIconUrl = getRoleIcon(mainRole);
 
                   return (
                     <div
@@ -244,8 +244,8 @@ export function TierListTab({ onItemClick }) {
                           </div>
                         )}
 
-                        {/* Top-Left Corner: Flush directly at the edge */}
-                        {(specIconUrl || role) && (
+                        {/* Top-Left Corner: Main Role Icon */}
+                        {roleIconUrl && (
                           <div
                             style={{
                               position: 'absolute',
@@ -254,23 +254,21 @@ export function TierListTab({ onItemClick }) {
                               zIndex: 2,
                               background: '#11141a',
                               borderBottomRightRadius: '6px',
-                              padding: '3px 6px',
-                              minWidth: '24px',
+                              padding: '3px 5px',
+                              minWidth: '22px',
                               height: '22px',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
                               boxShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
                             }}
-                            title={role ? `Specialization: ${role}` : ''}
+                            title={mainRole ? `Main Role: ${mainRole}` : ''}
                           >
-                            {specIconUrl ? (
-                              <img src={specIconUrl} alt="" style={{ width: '15px', height: '15px', objectFit: 'contain' }} />
-                            ) : (
-                              <span style={{ fontSize: '9.5px', fontWeight: 800, color: 'var(--cyan)', lineHeight: 1 }}>
-                                {role.slice(0, 3).toUpperCase()}
-                              </span>
-                            )}
+                            <img
+                              src={roleIconUrl}
+                              alt={mainRole}
+                              style={{ width: '16px', height: '16px', objectFit: 'contain' }}
+                            />
                           </div>
                         )}
 

@@ -136,11 +136,16 @@ function validateRobotGuide(data) {
     validateScores(robot.scores, `${path}.scores`, 'robot');
     expectArray(robot.roles, `${path}.roles`).forEach((role, roleIndex) => {
       expectNonEmptyString(role.role, `${path}.roles[${roleIndex}].role`);
-      if (!['primary', 'secondary', 'none'].includes(role.type)) {
-        addError(`${path}.roles[${roleIndex}].type`, 'expected primary, secondary, or none');
+      if (!['main', 'primary', 'secondary', 'none'].includes(role.type)) {
+        addError(`${path}.roles[${roleIndex}].type`, 'expected main, primary, secondary, or none');
       }
       expectString(role.footnote, `${path}.roles[${roleIndex}].footnote`);
     });
+
+    const mainRoles = (robot.roles || []).filter(r => r.type === 'main');
+    if (mainRoles.length > 1) {
+      addError(`${path}.roles`, `expected at most one main role, found ${mainRoles.length}`);
+    }
 
     // Track uniqueness (Warning only)
     const normName = robot.name.toLowerCase().trim();
@@ -157,6 +162,20 @@ function validateRobotGuide(data) {
     expectString(titan.comments, `${path}.comments`);
     expectNumberInRange(titan.value_rating, `${path}.value_rating`, 0, 50);
     validateScores(titan.scores, `${path}.scores`, 'titan');
+    if (titan.roles) {
+      expectArray(titan.roles, `${path}.roles`).forEach((role, roleIndex) => {
+        expectNonEmptyString(role.role, `${path}.roles[${roleIndex}].role`);
+        if (!['main', 'primary', 'secondary', 'none'].includes(role.type)) {
+          addError(`${path}.roles[${roleIndex}].type`, 'expected main, primary, secondary, or none');
+        }
+        expectString(role.footnote, `${path}.roles[${roleIndex}].footnote`);
+      });
+
+      const mainRoles = titan.roles.filter(r => r.type === 'main');
+      if (mainRoles.length > 1) {
+        addError(`${path}.roles`, `expected at most one main role, found ${mainRoles.length}`);
+      }
+    }
 
     // Track uniqueness (Warning only)
     const normName = titan.name.toLowerCase().trim();

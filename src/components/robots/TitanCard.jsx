@@ -1,12 +1,14 @@
 import { RatingBar } from '../common/RatingBar';
 import { getTierForName } from '../../utils/tierLookup';
-import { getRobotImage } from '../../utils/imageUtils';
+import { getRobotImage, getRoleIcon } from '../../utils/imageUtils';
 
 export function TitanCard({ titan, onClick }) {
   const tier = getTierForName(titan.name, 'Titans');
   const isUltimate = titan.sheet === 'Ultimate Titans' || titan.name.toLowerCase().startsWith('ue ');
   const imageUrl = getRobotImage(titan.name);
   const tierKey = tier ? tier.toLowerCase() : 'z';
+  const mainRoleObj = titan.roles?.find(r => r.type === 'main');
+  const mainRoleIcon = mainRoleObj ? getRoleIcon(mainRoleObj.role) : null;
 
   return (
     <div
@@ -112,6 +114,25 @@ export function TitanCard({ titan, onClick }) {
                 }}
               >
                 {tier} Tier
+              </span>
+            )}
+            {mainRoleObj && (
+              <span
+                className="role-badge main"
+                style={{
+                  fontSize: '10px',
+                  fontWeight: 800,
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  lineHeight: 1,
+                }}
+                title={`Main Role: ${mainRoleObj.role}`}
+              >
+                {mainRoleIcon && <img src={mainRoleIcon} alt="" style={{ width: '12px', height: '12px', objectFit: 'contain' }} />}
+                {mainRoleObj.role}
               </span>
             )}
             {isUltimate && (

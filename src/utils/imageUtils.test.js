@@ -7,6 +7,7 @@ import {
   getPilotImage,
   getDroneImage,
   getModuleImage,
+  getRoleIcon,
   isNewTierItem,
 } from './imageUtils';
 
@@ -59,5 +60,16 @@ describe('imageUtils', () => {
     expect(getWeaponImage('Lumen L, Lumen M, Lumen H')).toBe('/images/items/LumenL.png');
     expect(getWeaponImage('👁️Iaraghi L, 👁️Iaraghi M, 👁️Iaraghi H')).toBe('/images/items/IaraghL.png');
     expect(getWeaponImage('Barq-a. Barq-b')).toBe('/images/items/BarqA.png');
+  });
+
+  it('maps role icons correctly and resolves aliases', () => {
+    expect(getRoleIcon('Support')).toBe('/images/icons/Support.png');
+    expect(getRoleIcon('Tank-buster')).toBe('/images/icons/Tank Buster.png');
+    expect(getRoleIcon('Sniper')).toBe('/images/icons/Sniper.png');
+    expect(getRoleIcon('Midrange')).toBe('/images/icons/Midranger.png');
+    expect(getRoleIcon('Midranger')).toBe('/images/icons/Midranger.png');
+    expect(getRoleIcon('Brawler')).toBe('/images/icons/Brawler.png');
+    expect(getRoleIcon('Beacon Runner')).toBe('/images/icons/Beacon Runner.png');
+    expect(getRoleIcon('Assassin')).toBe('/images/icons/Assassin.png');
   });
 });

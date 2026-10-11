@@ -2,7 +2,7 @@ import { X } from 'lucide-react';
 import { RatingBar } from '../common/RatingBar';
 import robotGuideData from '../../data/robot_guide.json';
 import { getTierForName } from '../../utils/tierLookup';
-import { getRobotImage } from '../../utils/imageUtils';
+import { getRobotImage, getRoleIcon } from '../../utils/imageUtils';
 
 export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
   if (item) {
@@ -101,14 +101,16 @@ export function TitanSlot({ item, onOpenSelector, onClearSlot }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: 'auto' }}>
             {item.roles.map(r => {
               const tooltipText = r.footnote ? robotGuideData?.footnotes?.[parseInt(r.footnote) - 1] || r.footnote : '';
+              const roleIcon = r.type === 'main' ? getRoleIcon(r.role) : null;
               return (
                 <span
                   key={r.role}
                   className={`role-badge ${r.type}`}
-                  style={{ fontSize: '10px', padding: '1px 6px', display: 'inline-block', width: 'fit-content' }}
+                  style={{ fontSize: '10px', padding: '1px 6px', display: 'inline-flex', alignItems: 'center', gap: '4px', width: 'fit-content' }}
                   title={tooltipText}
                 >
-                  {r.role}{r.footnote && <sup style={{ marginLeft: '2px' }}>*</sup>} {r.type === 'primary' ? '★' : '☆'}
+                  {roleIcon && <img src={roleIcon} alt="" style={{ width: '12px', height: '12px', objectFit: 'contain' }} />}
+                  {r.role}{r.footnote && <sup style={{ marginLeft: '2px' }}>*</sup>} {r.type === 'main' ? '✦' : (r.type === 'primary' ? '★' : '☆')}
                 </span>
               );
             })}

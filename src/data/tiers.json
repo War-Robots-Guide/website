@@ -93,7 +93,7 @@
           "description": "A top tier tank, similar to Ammit, but slightly worse, as it doesn\u2019t have the whole built in weapon and insane uptime purple shield. Can become nearly immortal with certain support robots helping it however, like a Nuo/Lio link. \u2b07\ufe0fFenrir\u2019s DMI and resistance is completely ignored by Iaraghi."
         },
         {
-          "name": "UE Sword",
+          "name": "UE SWORD",
           "description": "While UE Sword doesn\u2019t tickle quite like regular Sword, it will be much rarer than it was before to get charged up enough to actually do hugely significant damage with the slashes. When it does happen, however, it can be match-deciding."
         }
       ]
@@ -260,7 +260,7 @@
           "description": "Can theoretically become a menace if it gets charged up, but lacks any protection after the absorber drops, so it\u2019s really hard to extract value out of."
         },
         {
-          "name": "Sword",
+          "name": "SWORD Unit",
           "description": "You shouldn\u2019t dash with the sword, it does NO damage and just puts you in danger. Treat it like a Siren and just teleport back to your translocator when the ability ends. The built in gun does respectable damage."
         },
         {
@@ -357,8 +357,8 @@
           "description": "Only in this tier for its mediocre grey healing, which isn't enough to keep up with modern health pools but still somewhat helpful."
         },
         {
-          "name": "\u2b07\ufe0fWeyland",
-          "description": "Comparable tank to Fenrir that trades a bit of tankiness for additional supportive utility via healing. The pilot provides a very frail shield that can be rapidly activated and deactivated, useful for blocking high damage single shot attacks. \u2b07\ufe0fWeyland\u2019s defense points are completely ignored by Iaraghi."
+          "name": "\u2b06\ufe0fWeyland",
+          "description": "Comparable tank to Fenrir that trades a bit of tankiness for additional supportive utility via healing. The pilot provides a very frail shield that can be rapidly activated and deactivated, useful for blocking high damage single shot attacks. \u2b06\ufe0fWeyland\u2019s pilot shield can be used to absorb Iaraghi shots."
         }
       ]
     },
@@ -596,7 +596,7 @@
           "description": "Its incredible mobility and firepower allow it to be where it wants when it wants, making it one of few titans that can fight Princeps on its own terms. Shieldbreaker is a cherry on top. Tropical and Running Riot\u2019s personal favorite."
         },
         {
-          "name": "UE Ming",
+          "name": "UE Ao Ming",
           "description": "4 Alphas enable powerful hybrid builds with long reload burst weapons on the back and sustained weapons on top. Otherwise, you can go all in with 4 sustained weapons or 4 burst weapons for a statchecking monster. Can fight Princeps on its own terms only if cover that it can fly over and land behind is present. Tanky and relatively resilient to fire from robots while on the ground. Both TRA and TNA are good choices. Adazahi\u2019s personal favorite."
         },
         {
@@ -845,8 +845,8 @@
           "description": "Had a far fall from grace after getting nerfed pretty badly. Still usable if you have a maxed one from back in the day, but not worth investing in."
         },
         {
-          "name": "Reviver",
-          "description": "Cheap drone that can save your ass even without much investment. Unfortunately it doesn\u2019t do anything for you before or after its single activation."
+          "name": "\u2b06\ufe0fReviver",
+          "description": "Cheap drone that can save your ass even without much investment. Unfortunately it doesn\u2019t do anything for you before or after its single activation. \u2b06\ufe0fProvides two sources of one time protection from Iaraghi"
         },
         {
           "name": "Whiteout",
@@ -1032,7 +1032,7 @@
           "description": "One of the better attack ships that do no grey damage. Only really useful for finishing off low health targets that got to cover or harassing low HP bots like Crisis. Hard to justify taking over a defense ship."
         },
         {
-          "name": "Ozempic (R\u2019lyeh)",
+          "name": "R\u2019lyeh",
           "description": "Fairly good attack ship that functions as the opposite of keel, targeting high HP targets rather than low HP targets. Still, it's hard to justify taking over defense ships."
         }
       ]

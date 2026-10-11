@@ -189,6 +189,24 @@ export function getSpecializationIcon(name) {
   return imageManifest.icons?.[k] || null;
 }
 
+const ROLE_ICON_MAP = {
+  support: 'support',
+  tankbuster: 'tankbuster',
+  sniper: 'sniper',
+  midrange: 'midranger',
+  midranger: 'midranger',
+  brawler: 'brawler',
+  beaconrunner: 'beaconrunner',
+  assassin: 'assassin',
+};
+
+export function getRoleIcon(roleName) {
+  if (!roleName) return null;
+  const k = cleanKey(roleName);
+  const targetKey = ROLE_ICON_MAP[k] || k;
+  return imageManifest.icons?.[targetKey] || imageManifest.icons?.[k] || null;
+}
+
 export function isNewTierItem(name) {
   if (!name || !imageManifest.new_tier_items?.length) return false;
   const { cleanName } = extractTierTags(name);

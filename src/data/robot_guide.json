@@ -407,6 +407,14 @@
     {
       "date": "2026-09-29",
       "text": "Moved build guides to https://docs.google.com/spreadsheets/d/1YWA__vUbC3Go9dHwLorLNp0Tiqpi0Nopor2v8EVE0u8/edit?gid=434493644#gid=434493644 -Adazahi"
+    },
+    {
+      "date": "2026-10-06",
+      "text": "Rex accessibility 2->4, Ammit 3->5, reflecting improved accessibility via the black market. -Mistermath"
+    },
+    {
+      "date": "2026-10-10",
+      "text": "Did a broad review of bot and titan roles. Added blue colors to signify the singular 'main' role. Added assassin role for titans.-Mistermath"
     }
   ],
   "builds": [
@@ -414,7 +422,7 @@
       "build_name": "Anti-Brawler\nSupport",
       "robot": "Pathfinder",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Fahrenheit\nUE Cryo\nclose range UE setups\nHarmattans",
+      "best_weapons": "Fahrenheit\nUE Cryo\nclose range UE setups\nHarmattanM",
       "drone_options": "Freezo",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nRepair or Phase Shift",
@@ -425,7 +433,7 @@
       "build_name": "Midrange\nSupport",
       "robot": "Pathfinder",
       "f2p_weapons": "Hazard\nAtomizer\nDamper\nPulsar",
-      "best_weapons": "Midrange UE setups\nMachiara\nUE Vortex\nUrhag\nLumens",
+      "best_weapons": "Midrange UE setups\nMachiara\nUE Vortex\nUrhag\nLumenM",
       "drone_options": "Freezo\nFtaghn",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -436,7 +444,7 @@
       "build_name": "Lockdown\nSupport",
       "robot": "Pathfinder",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Midrange UE setups\nMachiara\nUE Vortex\nLumens\nUrhag",
+      "best_weapons": "Midrange UE setups\nMachiara\nUE Vortex\nLumenM\nUrhag",
       "drone_options": "Qingting",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -447,7 +455,7 @@
       "build_name": "Debuffer\nSupport",
       "robot": "Imugi",
       "f2p_weapons": "Howler+Growler\nAtomizer+Quarker \nMace+Cudgel",
-      "best_weapons": "Lumens\nUE Arms\nMachiara+Velos\nFahrenheit+Celsius\nUE Venoms",
+      "best_weapons": "LumenM+LumenL\nUE ArmM+UE ArmL\nMachiara+Velos\nFahrenheit+Celsius\nUE Venom+UE Toxin",
       "drone_options": "Webby",
       "pilot": "Monique\nLenormond",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift or Repair",
@@ -458,7 +466,7 @@
       "build_name": "Hybrid\nBrawler",
       "robot": "Imugi",
       "f2p_weapons": "Howler+Growler\nElox+Murix\nKroko+Hippo",
-      "best_weapons": "Close range UE setups\nFahrenheit+Celsius\nHarmattans",
+      "best_weapons": "Close range UE setups\nFahrenheit+Celsius\nHarmattanM+HarmattanL",
       "drone_options": "Scourveil\nKestrel\nShowdown",
       "pilot": "Mao Ling",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -469,7 +477,7 @@
       "build_name": "Offensive\nSupport",
       "robot": "Nuo",
       "f2p_weapons": "Hazard+Decay\nSubduer+Damper\nNucleon+Atomizer\nPulsar+Decay",
-      "best_weapons": "Machiara+Basilius\nLumens",
+      "best_weapons": "Machiara+Basilius\nLumenM+LumenH",
       "drone_options": "Aopo\nShowdown",
       "pilot": "Walter Trommel",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nRepair, UC, or\nPhase Shift",
@@ -480,7 +488,7 @@
       "build_name": "Sniper\nSupport\nHybrid",
       "robot": "Nuo",
       "f2p_weapons": "Gauss+Weber\nYeoje+Hwangje",
-      "best_weapons": "Shantak + Urhag",
+      "best_weapons": "Shantak+Urhag",
       "drone_options": "Solar\nAopo\n(Use Aopo for\nGauss+Weber)",
       "pilot": "Walter Trommel\nBasil Lapatte\nHarold Han\n(With K-lasers)",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nRepair, UC, or\nPhase Shift",
@@ -491,7 +499,7 @@
       "build_name": "Defensive\nSupport",
       "robot": "Lio",
       "f2p_weapons": "Growler\nKroko",
-      "best_weapons": "Any UE weapons\nFahrenheit\nLumens\nMachiara\nHarmattans",
+      "best_weapons": "Any UE weapons\nFahrenheit\nLumenM\nMachiara\nHarmattanM",
       "drone_options": "Showdown",
       "pilot": "Walter Trommel",
       "specialization": "Support (Accelerator +\nLast Stand)\nBrawler (Repair Amp +\nImmune Amp)\nRepair or UC",
@@ -502,7 +510,7 @@
       "build_name": "Rescue\nSupport",
       "robot": "Demeter",
       "f2p_weapons": "Mogwan",
-      "best_weapons": "UE Corona\nMachiara\nHarmattans",
+      "best_weapons": "UE Corona\nMachiara\nHarmattanM",
       "drone_options": "Seeker\nWhiteout\nUE Glider\nGlider",
       "pilot": "APPM-3TR",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -513,7 +521,7 @@
       "build_name": "Evasive\nBrawler",
       "robot": "Ravana",
       "f2p_weapons": "Havoc \nGrowler\nMogwan \nMace\nMurix\nKroko",
-      "best_weapons": "UE Burst weapons\nHarmattans",
+      "best_weapons": "UE Burst weapons\nHarmattanM",
       "drone_options": "Seeker\nShowdown\nWhiteout\nArmadillo\nUE Glider",
       "pilot": "Arnav Poe",
       "specialization": "Brawler (Repair Amp +\nLast stand)\nRepair or Phase Shift",
@@ -535,7 +543,7 @@
       "build_name": "Opportunist",
       "robot": "Skyros",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "UE Burst Weapons\nElox+Murix+UE Burst\nHarmattans",
+      "best_weapons": "UE Burst Weapons\nElox+Murix+UE Burst\nHarmattanL+HarmattanM+\nHarmattanH",
       "drone_options": "Scales\nWhiteout\nArmadillo",
       "pilot": "Roberto Baros",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nDefense (Anticontrol +\nHeavy Armor Kit)\nRepair or Phase Shift",
@@ -546,7 +554,7 @@
       "build_name": "Assassin",
       "robot": "Lynx",
       "f2p_weapons": "Nucleon\nSubduer\nScreamer\nTalon\nPshent\nBrisant\nLiodari",
-      "best_weapons": "Harmattans",
+      "best_weapons": "HarmattanH",
       "drone_options": "Scourveil\nKestrel\nUE Glider\nShowdown\nWhiteout\nArmadillo\nSeeker",
       "pilot": "Sati \"Cat\" \nFelidae",
       "specialization": "Any Specialization\nPhase Shift",
@@ -561,14 +569,14 @@
       "drone_options": "Hawkeye\nShowdown\nSeeker\nUE Glider\nArmadillo",
       "pilot": "Twins",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
-      "explanation": "With the nerf to electric titan charge, Siren is now one of the best chargers, but it only\nworks if you fire at an enemy with a reflector (so, no Raptors = no charge). It's also signficantly\nenhanced when they fire at you. While this build can charge faster than prime electric builds,\nit's hindered by the fact that it relies on the enemies using reflectors in order to work.",
+      "explanation": "With the nerf to electric titan charge, Siren is now one of the best chargers, but it only\nworks if you fire at an enemy with a reflector (so, no Reflectors = no charge). It's also signficantly\nenhanced when they fire at you. While this build can charge faster than prime electric builds,\nit's hindered by the fact that it relies on the enemies using reflectors in order to work.",
       "is_ultimate": false
     },
     {
       "build_name": "Midrange",
       "robot": "Siren",
       "f2p_weapons": "Nucleon+Quarker\nSubduer+Tamer\nDecay+Blight",
-      "best_weapons": "Basilieus+Velos \nPilum+Gladius\nShantak+Voonith \nLumens",
+      "best_weapons": "Basilieus+Velos \nPilum+Gladius\nShantak+Voonith \nLumenM+LumenH",
       "drone_options": "Hawkeye\nShowdown\nSeeker\nUE Glider\nArmadillo",
       "pilot": "Twins",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
@@ -579,7 +587,7 @@
       "build_name": "Brawler",
       "robot": "Raptor",
       "f2p_weapons": "Kirin+Gangil\nKirin+Elox\nHippo+Liodari",
-      "best_weapons": "Kelvin+Celsius\nBasileus+Velos\nClose range UE setups\nAny+Velos\nHarmattans",
+      "best_weapons": "Kelvin+Celsius\nBasileus+Velos\nClose range UE setups\nAny+Velos\nHarmattanL+HarmattanH",
       "drone_options": "Showdown",
       "pilot": "Gloria Earhart",
       "specialization": "Brawler (Repair Amp +\nLast Stand)\nJump Unit or Repair",
@@ -590,7 +598,7 @@
       "build_name": "Flex\nSupport",
       "robot": "Nightingale",
       "f2p_weapons": "Havoc+Scatter\nDeshret+Hedjet\nMogwan+Gangil\nElox+Murix\nKroko+Hippo",
-      "best_weapons": "UE burst weapons\nHarmattans",
+      "best_weapons": "UE burst weapons\nHarmattanM+HarmattanL",
       "drone_options": "Scourveil\nKestrel\nMyia",
       "pilot": "Virginia Walker",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
@@ -601,7 +609,7 @@
       "build_name": "Tank\nBuster",
       "robot": "Dux",
       "f2p_weapons": "Atomizer+Quarker\nMace+Quarker\nPulsar+Quarker\nAnything+Quarker",
-      "best_weapons": "Lumens\nVelos+Machiara\nFahrenheit+Celsius\nClose range UE setups\nQuarker+Harmattans\nAnything+Quarker",
+      "best_weapons": "LumenM+LumenL\nVelos+Machiara\nFahrenheit+Celsius\nClose range UE setups\nQuarker+HarmattanM\nAnything+Quarker",
       "drone_options": "Webby\nScourveil\nKestrel\nUE Glider\nSeeker",
       "pilot": "Willa Owe",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -612,7 +620,7 @@
       "build_name": "Assassin",
       "robot": "Scorpion",
       "f2p_weapons": "Havoc+Scatter \nMogwan+Gangil\nDeshret+Hedjet\nElox+Murix\nKroko+Hippo",
-      "best_weapons": "UE Burst weapons\nHarmattans",
+      "best_weapons": "UE Burst weapons\nHarmattanM+HarmattanL",
       "drone_options": "Seeker\nKestrel\nShowdown\nArmadilllo\nWhiteout\nUE Glider",
       "pilot": "Ash Skarsgard",
       "specialization": "Any Specialization\nPhase Shift",
@@ -623,7 +631,7 @@
       "build_name": "Minelayer",
       "robot": "Kaji",
       "f2p_weapons": "Decay+Blight+Hazard\nKroko+Hippo+Liodari",
-      "best_weapons": "Lumens\nMachiara+Velos+Basileus\nUE burst setups\nBoom+Bash+Pow\nHarmattans",
+      "best_weapons": "LumenL+LumenM+LumenH\nMachiara+Velos+Basileus\nUE burst setups\nBoom+Bash+Pow\nHarmattanM+HarmattanL+\nHarmattanH",
       "drone_options": "Myia\nKocho\nSeeker",
       "pilot": "Kevin O'Reilly",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift",
@@ -638,25 +646,25 @@
       "drone_options": "Solar",
       "pilot": "Gintaire\nKaityre",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift",
-      "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper, though with Piercer as a f2p alternative, you can justify\nusing that with solar if you have it.",
+      "explanation": "Being designed as a sniper, Crisis is no doubt pretty good at it. Piercer is a fairly strong f2p sniper that can even\noutdamage f2p midrange options, so if you have those, use them!",
       "is_ultimate": false
     },
     {
       "build_name": "Midranger",
       "robot": "Crisis",
       "f2p_weapons": "Decay",
-      "best_weapons": "Basilieus\nLumens\nUE Incinerators",
+      "best_weapons": "Basilieus\nLumenH\nUE Incinerators",
       "drone_options": "Scourveil\nShowdown\nKestrel",
       "pilot": "Gintaire\nKaityre",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
-      "explanation": "Most gunboats are better relegated to being midrangers at f2p level investment. If you have\nShantak/Piercer and Solar, however, you should just use that instead.",
+      "explanation": "If you don't have piercers, midrange Crisis is just as servicable as sniper Crisis while having slightly more\naccessible weapon options.",
       "is_ultimate": false
     },
     {
       "build_name": "Brawler",
       "robot": "Teth",
       "f2p_weapons": "Devasator+Havoc+Scatter\nKirin+Mogwan+Gangil\nDeshret+Hedjet+Pshent\nCudgel+Mace+Hammer\nMurix+Elox+Any\nKroko+Hippo+Liodari",
-      "best_weapons": "Lumens\nClose range UE setups\nFahrenheit+Celsius+Kelvin\nBasileus+Machiara+Velos\nAny+Velos\nHarmattans",
+      "best_weapons": "LumenH+LumenM+LumenL\nClose range UE setups\nFahrenheit+Celsius+Kelvin\nBasileus+Machiara+Velos\nAny+Velos\nHarmattanH+HarmattanM+\nHarmattanL",
       "drone_options": "Seeker\nScarebeus\nShowdown\nArmadillo",
       "pilot": "Bast Neferu",
       "specialization": "Brawler (Repair Amp +\nLast Stand)\nRepair or Phase Shift",
@@ -667,7 +675,7 @@
       "build_name": "Tank",
       "robot": "Ammit",
       "f2p_weapons": "Claw+Jaw\nHowler+Growler\nMace+Cudgel\nAtomizer+Quarker\nKroko+Hippo",
-      "best_weapons": "Lumens\nClose range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nAny+Velos\nKroko+Hippo\nHarmattans",
+      "best_weapons": "LumenM+LumenL\nClose range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nAny+Velos\nKroko+Hippo\nHarmattanM+HarmattanL",
       "drone_options": "Scales\nShowdown",
       "pilot": "Mei Lan",
       "specialization": "Tank (Repair Amp +\nHeavy Armor Kit)\nRepair or Phase Shift",
@@ -678,7 +686,7 @@
       "build_name": "Midranger",
       "robot": "Raven",
       "f2p_weapons": "Hazard+Blight\nPulsar+Blight\nDamper+Tamer\nAtomizer+Quarker",
-      "best_weapons": "Machiara+Velos\nMidrange UE Setups\nVoonith+Urhag\nLumens",
+      "best_weapons": "Machiara+Velos\nMidrange UE Setups\nVoonith+Urhag\nLumenM+LumenL",
       "drone_options": "Scourveil\nKestrel\nShowdown\nSeeker",
       "pilot": "Nessa Riggs",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or\nJump Unit",
@@ -700,7 +708,7 @@
       "build_name": "Opportunist",
       "robot": "Loki",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Elox\nUE Halo\nHippo\nHarmattans",
+      "best_weapons": "Elox\nUE Halo\nHippo\nHarmattanL",
       "drone_options": "Scourveil\nKestrel\nArmadillo\nSeeker",
       "pilot": "Chester Coen",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nPhase Shift",
@@ -711,7 +719,7 @@
       "build_name": "Assault",
       "robot": "Leech",
       "f2p_weapons": "Growler\nPorthos\nMace\nMurix\nKroko",
-      "best_weapons": "Fahrenheit\nHarmattans\nClose range UE setups",
+      "best_weapons": "Fahrenheit\nHarmattanM\nClose range UE setups",
       "drone_options": "Seeker\nScales\nUE Glider\nGlider",
       "pilot": "Thomas\nMindread\n(With Engine\nExpert skill)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -722,7 +730,7 @@
       "build_name": "Midranger",
       "robot": "Leech",
       "f2p_weapons": "Hazard\nDamper\nAtomizer\nPulsar",
-      "best_weapons": "Midrange UE setups\nMachiara\nLumen\nUrhag",
+      "best_weapons": "Midrange UE setups\nMachiara\nLumenM\nUrhag",
       "drone_options": "Seeker\nScales\nUE Glider\nGlider",
       "pilot": "Thomas\nMindread\n(With Engine\nExpert skill)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -737,25 +745,25 @@
       "drone_options": "Solar",
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift, QR, SB",
-      "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper, though with Piercer as a f2p alternative, you can justify\nusing that with solar if you have it.",
+      "explanation": "Being designed as a sniper, Bagliore is no doubt pretty good at it. Piercer is a fairly strong f2p sniper that can even\noutdamage f2p midrange options, so if you have those, use them!",
       "is_ultimate": false
     },
     {
       "build_name": "Midranger",
       "robot": "Bagliore",
       "f2p_weapons": "Decay\nNucleon\nSubduer",
-      "best_weapons": "Basilieus\nLumen\nUE Incinerator",
+      "best_weapons": "Basilieus\nLumenH\nUE Incinerator",
       "drone_options": "Seeker\nScales\nArmadillo\nShowdown\nUE Glider",
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift, Repair, or\nSB",
-      "explanation": "Most gunboats are better relegated to being midrangers at f2p level investment. At non f2p investment,\nIf you don't have Basilieus but you do have Shantak/Piercer, use that instead. Unfortunately, even as\na midranger, Bagliore is a mk3 merchant since it's passive gets MUCH stronger at mk3, but it is still\nservicable at mk2. Just know that mk3 bagliore is a priority.",
+      "explanation": "If you don't have piercers, midrange Bagliore is just as servicable as sniper Bagliore while having slightly more\naccessible weapon options.",
       "is_ultimate": false
     },
     {
       "build_name": "Brawler",
       "robot": "Bagliore",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Harmattans\nUE Redeemer\nLiodari",
+      "best_weapons": "HarmattanH\nUE Redeemer\nLiodari",
       "drone_options": "Seeker\nScales\nArmadillo\nShowdown\nUE Glider",
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
@@ -766,7 +774,7 @@
       "build_name": "Brawler",
       "robot": "Ochokochi",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Harmattans\nClose range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nElox+Murix\nAny+Velos\nKroko+Hippo",
+      "best_weapons": "HarmattanM+HarmattanL\nClose range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nElox+Murix\nAny+Velos\nKroko+Hippo",
       "drone_options": "Bull \nHiruko \nShowdown",
       "pilot": "Vepkho\nLovidze",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or Phase Shift",
@@ -777,7 +785,7 @@
       "build_name": "Tank Buster",
       "robot": "Sword Unit",
       "f2p_weapons": "Damper+Tamer\nAtomizer+Quarker\nDeshret+Hedjet\nKroko+Hippo",
-      "best_weapons": "Midrange UE setups\nUE Arms\nMachiara+Velos\nLumens\nKroko+Hippo\nHarmattans",
+      "best_weapons": "Midrange UE setups\nUE ArmM+UE ArmL\nMachiara+Velos\nLumenM+LumenL\nKroko+Hippo\nHarmattanM+HarmattanL",
       "drone_options": "Seeker\nShowdown\nArmadillo\nWhiteout\nUE Glider\nWARD",
       "pilot": "Weapon Pilot\nShani Kyne\nMiharu Sharpe",
       "specialization": "Raider (Nuke Amp + Any)\nPhase Shift or Lockdown\nAmmo",
@@ -788,7 +796,7 @@
       "build_name": "Assassin",
       "robot": "Rex",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Harmattans\nClose range UE setups\nFahrenheit+Celsius\nElox+Murix\nMachiara+Velos\nAny+Velos",
+      "best_weapons": "HarmattanM+HarmattanL\nClose range UE setups\nFahrenheit+Celsius\nElox+Murix\nMachiara+Velos\nAny+Velos",
       "drone_options": "Bull\nHiruko\nShowdown",
       "pilot": "Danny Kiberia",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or Phase Shift",
@@ -799,22 +807,11 @@
       "build_name": "Midranger",
       "robot": "Hastatus",
       "f2p_weapons": "Decay+Blight\nTamer+Subduer\nNucleon+Quarker",
-      "best_weapons": "Basileus+Velos\nLumens\nShantak+Voonith\nUE Incinerator+UE Scald",
+      "best_weapons": "Basileus+Velos\nLumenH+LumenL\nShantak+Voonith\nUE Incinerator+UE Scald",
       "drone_options": "Seeker\nShowdown\nArmadillo\nUE Glider",
-      "pilot": "Lucius Palma,\nLian Xin Bai\nis competitive",
+      "pilot": "Lian Xin Bai\nLucius Palma",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift, Repair, or\nSB (if using Lian Xin Bai)",
       "explanation": "Hastatus is a solid midranger with a very powerful defensive ability. It's best played at a medium\nrange, and both of its legendary pilots are quite strong. Webby does not work on Hastatus.",
-      "is_ultimate": false
-    },
-    {
-      "build_name": "Midranger",
-      "robot": "Stryx",
-      "f2p_weapons": "Decay\nNucleon\nSubduer",
-      "best_weapons": "Basilieus\nLumen\nUE Incinerator",
-      "drone_options": "Seeker\nShowdown\nArmadillo\nUE Glider\nLar",
-      "pilot": "Ryder Mourn",
-      "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
-      "explanation": "Most gunboats are better relegated to being midrangers at f2p level investment. At non f2p investment,\nIf you don't have Basilieus but you do have Shantak/Piercer, use that instead.",
       "is_ultimate": false
     },
     {
@@ -825,14 +822,25 @@
       "drone_options": "Solar",
       "pilot": "Ryder Mourn",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift, Repair,\nor Jump Unit",
-      "explanation": "Snipers are only good due to how OP Shantak + Solar is. If you don't have both of Shantak and\nthe Solar drone, it's hardly worth running a sniper, though with Piercer as a f2p alternative, you can justify\nusing that with solar if you have it.",
+      "explanation": "Being designed as a sniper, Stryx is no doubt pretty good at it. Piercer is a fairly strong f2p sniper that can even\noutdamage f2p midrange options, so if you have those, use them!",
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Midranger",
+      "robot": "Stryx",
+      "f2p_weapons": "Decay\nNucleon\nSubduer",
+      "best_weapons": "Basilieus\nLumenH\nUE Incinerator",
+      "drone_options": "Seeker\nShowdown\nArmadillo\nUE Glider\nLar",
+      "pilot": "Ryder Mourn",
+      "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
+      "explanation": "If you don't have piercers, midrange Stryx is just as servicable as sniper Stryx while having slightly more\naccessible weapon options.",
       "is_ultimate": false
     },
     {
       "build_name": "Titan Slayer",
       "robot": "Anaksor",
       "f2p_weapons": "Damper+Subduer\nScreamer+Growler\nNucleon+Atomizer",
-      "best_weapons": "Machiara+Basilius\nLumens\nHarmattans\nFahrenheit+Kelvin\nUE Avenger+UE Punisher",
+      "best_weapons": "Machiara+Basilius\nLumenM+LumenH\nHarmattanM+HarmattanH\nFahrenheit+Kelvin\nUE Avenger+UE Punisher",
       "drone_options": "Myia\nAopo\nSeeker",
       "pilot": "Single Malt",
       "specialization": "Raider\n(Nuke Amp + Integrated)\nPhase Shift, SB, or QS",
@@ -854,7 +862,7 @@
       "build_name": "Brawler",
       "robot": "Vector",
       "f2p_weapons": "Howler+Growler\nHavoc+Scatter\nMurix+Elox\nDeshret+Hedjet\nKroko+Hippo",
-      "best_weapons": "Close range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nAny+Velos\nHarmattans",
+      "best_weapons": "Close range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nAny+Velos\nHarmattanM+HarmattanL",
       "drone_options": "Tensor\nHawkeye",
       "pilot": "Nika Schum",
       "specialization": "Brawler (Repair Amp +\nLast Stand)\nPhase Shift or Adv. Repair",
@@ -887,7 +895,7 @@
       "build_name": "Midrange\nSupport",
       "robot": "Shoggoth",
       "f2p_weapons": "Decay+Hazard\nNucleon+Atomizer\nSubduer+Damper",
-      "best_weapons": "Machiara+Basileus\nLumens\nBoom+Bash",
+      "best_weapons": "Machiara+Basileus\nLumenM+LumenH\nBoom+Bash",
       "drone_options": "Fhtagn\nFreezo",
       "pilot": "Baek Taejun",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift or SB",
@@ -898,7 +906,7 @@
       "build_name": "Assault",
       "robot": "Vulcan",
       "f2p_weapons": "Growler+Howler\nAtomizer+Quarker\nHazard+Blight\nPorthos+Aramis\nKroko+Hippo",
-      "best_weapons": "Lumens\nMachiara+Velos \nUE Arms\nFahrenheit+Celsius\nBash+Pow",
+      "best_weapons": "LumenM+LumenL\nMachiara+Velos \nUE Arms\nFahrenheit+Celsius\nBash+Pow",
       "drone_options": "Lar\nSeeker",
       "pilot": "Ines Diaz\nWeapon Pilot",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift",
@@ -909,7 +917,7 @@
       "build_name": "Debuffer\nAssault",
       "robot": "Omen Vulcan",
       "f2p_weapons": "Growler+Howler\nAtomizer+Quarker\nHazard+Blight\nPorthos+Aramis",
-      "best_weapons": "Lumens\nMachiara+Velos \nUE Arms\nFahrenheit+Celsius\nFahrenheit+UE Toxin\nUE Arm+UE Toxin\nLumen+UE Toxin",
+      "best_weapons": "LumenM+LumenL\nMachiara+Velos \nUE ArmM+UE ArmL\nFahrenheit+Celsius\nFahrenheit+UE Toxin\nUE Arm+UE Toxin\nLumen+UE Toxin",
       "drone_options": "Webby",
       "pilot": "Ines Diaz\nWeapon Pilot",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase Shift or Adv. Repair",
@@ -920,7 +928,7 @@
       "build_name": "Debuffer\nAssault",
       "robot": "Fafnir",
       "f2p_weapons": "Spikes on top slots\nGrowler \nHazard\nPulsar",
-      "best_weapons": "Spikes on top slots\nLumens\nMachiara\nHarmattans\nFahrenheit\nAny UE setups",
+      "best_weapons": "Spikes on top slots\nLumenM\nMachiara\nHarmattanM\nFahrenheit\nAny UE setups",
       "drone_options": "Webby",
       "pilot": "Noa Minax",
       "specialization": "Raider\n(Nuke amp + Integrated)\nPhase Shift or\nAdvanced repair",
@@ -931,7 +939,7 @@
       "build_name": "Saboteur",
       "robot": "Samjok",
       "f2p_weapons": "Pshent+Hedjet\nSmuta+Kramola\nLiodari+Hippo",
-      "best_weapons": "Boom+Pow\nLumens\nHarmattans\nLiodari+Hippo",
+      "best_weapons": "Boom+Pow\nLumenL+LumenH\nHarmattanL+HarmattanH\nLiodari+Hippo",
       "drone_options": "Seeker\nChongue\nUE Glider\nGlider\nWARD/Bull/Myia",
       "pilot": "Sim Yo-Han",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nPhase Shift",
@@ -942,7 +950,7 @@
       "build_name": "Saboteur",
       "robot": "Fang",
       "f2p_weapons": "Havoc\nMurix\nMogwan\nMace\nDeshret\nKroko",
-      "best_weapons": "Harmattans\nClose range UE setups\nHarmattan+UE Storm",
+      "best_weapons": "HarmattanM\nClose range UE setups\nHarmattan+UE Storm",
       "drone_options": "Scourveil\nSeeker\nKestrel",
       "pilot": "Nadir Rakhim",
       "specialization": "Any Specialization\nPhase Shift or QR",
@@ -953,11 +961,11 @@
       "build_name": "Midranger",
       "robot": "Dedopali",
       "f2p_weapons": "Decay+Blight",
-      "best_weapons": "Basileus+Velos\nLumens\nUE Incinerator+UE Scald\nIaraghis",
+      "best_weapons": "Basileus+Velos\nLumenH+LumenL\nUE Incinerator+UE Scald",
       "drone_options": "Prena\nMyia",
       "pilot": "Donnie Woo",
       "specialization": "Engineer (Integrated Power\nUnit + Last Stand)\nShieldbreaker or Phase",
-      "explanation": "Dedopali is able to play as a competitive endgame midranger, and at f2p investment, it mainly just relies on its gravity\nlift to bring value to the team. At higher investment, it can become a capable damage dealer of its own, though its\ndrones and gravity rocket are fairly inconsistent.",
+      "explanation": "Dedopali is able to play as a competitive endgame midranger, and at f2p investment, it mainly just relies on its gravity\nlift to bring value to the team. At higher investment, it can become a capable damage dealer of its own, though its\ngravity rocket is fairly inconsistent.",
       "is_ultimate": false
     },
     {
@@ -986,7 +994,7 @@
       "build_name": "Ultimate",
       "robot": "UE Raven",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Machiara\nAny UE Setups\nUrhag\nLumens\nUE Storm+Harmattan",
+      "best_weapons": "Machiara\nAny UE Setups\nUrhag\nLumenM\nUE Storm+Harmattan",
       "drone_options": "Scourveil\nKestrel\nShowdown\nSeeker",
       "pilot": "Nessa Riggs\nErika Storm\n(If using seeker)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Shieldbreak",
@@ -997,7 +1005,7 @@
       "build_name": "Ultimate",
       "robot": "UE Blitz",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Close range UE setups\nHarmattans\nLumens\nVelos\nUE Shredder+Harmattan",
+      "best_weapons": "Close range UE setups\nHarmattanL\nLumenL\nVelos\nUE Shredder+Harmattan",
       "drone_options": "Seeker\nArmadillo",
       "pilot": "Clive Vicious",
       "specialization": "Saboteur (Accelerator +\nBeacon Operator)\nPhase Shift",
@@ -1008,7 +1016,7 @@
       "build_name": "Ultimate",
       "robot": "UE Haechi",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Close range UE setups\nHarmattans\nLumens\nMachiara\nFahrenheit",
+      "best_weapons": "Close range UE setups\nHarmattanM\nLumenM\nMachiara\nFahrenheit",
       "drone_options": "Seeker",
       "pilot": "Sergeius\nHayward",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -1019,7 +1027,7 @@
       "build_name": "Ultimate",
       "robot": "UE Griffin",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Close range UE setups\nHarmattans\nLumens\nMachiara\nUE Storm+Harmattan",
+      "best_weapons": "Close range UE setups\nHarmattanM\nLumenM\nMachiara\nUE Storm+Harmattan",
       "drone_options": "Seeker\nUE Glider\nArmadillo\nAopo",
       "pilot": "Adam O'Leary",
       "specialization": "Brawler (Repair Amp +\nLast stand)\nPhase Shift or Adv. Repair",
@@ -1030,18 +1038,18 @@
       "build_name": "Ultimate",
       "robot": "UE Ravana",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Close range UE setups\nHarmattans",
+      "best_weapons": "Close range UE setups\nHarmattanM",
       "drone_options": "Seeker\nUE Glider",
       "pilot": "Thomas Pear",
       "specialization": "Brawler (Repair Amp +\nLS/IA)\nPhase Shift or Adv. Repair",
-      "explanation": "UE Ravana is a dangerous brawler up close that can stall for an incredibly long time with how many phase charges it \nhas. While Arnav Poe can be used, Thomas Pear is preferred as he increases Ravana's brawling potential rath than its\nstalling potential.",
+      "explanation": "UE Ravana is a dangerous brawler up close that can stall for an incredibly long time with how many phase charges it \nhas. While Arnav Poe can be used, Thomas Pear is preferred as he increases Ravana's brawling potential rather than \nits stalling potential.",
       "is_ultimate": true
     },
     {
       "build_name": "Ultimate",
       "robot": "UE Typhon",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Any UE setups\nUE Storm+Harmattan\nMachiara\nLumens\nFahrenheit\nUrhag",
+      "best_weapons": "Any UE setups\nUE Storm+HarmattanM\nMachiara\nLumenM\nFahrenheit\nUrhag",
       "drone_options": "Seeker\nUE Glider",
       "pilot": "Gloria Putnam",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -1052,7 +1060,7 @@
       "build_name": "Ultimate",
       "robot": "UE Hawk",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "UE Incinerator+UE Scald\nLumens\nVoonith+Shantak\nVelos+Basileus",
+      "best_weapons": "UE Incinerator+UE Scald\nLumenH+LumenL\nVoonith+Shantak\nVelos+Basileus",
       "drone_options": "Hawkeye\nTensor",
       "pilot": "Kyle Rogers",
       "specialization": "Raider (Nuke Amp + IPU)\nPhase Shift or Repair",
@@ -1063,7 +1071,7 @@
       "build_name": "Ultimate",
       "robot": "UE Mender",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Velos+Machiara\nAny UE setups\nHarmattans\nLumens",
+      "best_weapons": "Velos+Machiara\nAny UE setups\nHarmattanM+HarmattanL\nLumenM+LumenL",
       "drone_options": "Seeker\nUE Glider",
       "pilot": "Marie Leclair",
       "specialization": "Support (Accelerator +\nLast stand)\nPhase Shift",
@@ -1074,7 +1082,7 @@
       "build_name": "Ultimate",
       "robot": "UE Leech",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Any UE setups\nUE Storm+Harmattan\nLumens\nMachiaras",
+      "best_weapons": "Any UE setups\nUE Storm+HarmattanM\nLumenM\nMachiaras",
       "drone_options": "Seeker\nArmadillo\nUE Glider",
       "pilot": "Thomas\nMindread",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -1085,7 +1093,7 @@
       "build_name": "Ultimate",
       "robot": "UE Rayker",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Midrange UE setups\nShantak+Urhag\nBasileus+Machiara\nLumens\nHarmattans",
+      "best_weapons": "Midrange UE setups\nShantak+Urhag\nBasileus+Machiara\nLumenH+LumenL\nHarmattanH+HarmattanM",
       "drone_options": "Freezo\nSeeker\nSolar",
       "pilot": "Dexter Crow",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -1096,7 +1104,7 @@
       "build_name": "Ultimate",
       "robot": "UE Rhino",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Harmattans+UE Shredder\nHarmattans\nClose range UE setups\nMurix+UE Shredder\nMurix+Harmattans\nUE Cryo+UE Shredder\nUE Cryo+Harmattans",
+      "best_weapons": "Harmattans+UE Shredder\nHarmattanM+HarmattanL\nClose range UE setups\nMurix+UE Shredder\nMurix+HarmattanM\nUE Cryo+UE Shredder\nUE Cryo+HarmattanM",
       "drone_options": "Seeker\nHiruko\nBull",
       "pilot": "Weapon Pilot\nMicheal Dupoint",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or Adv. Repair",
@@ -1107,7 +1115,7 @@
       "build_name": "Ultimate",
       "robot": "UE Scorpion",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Harmattans\nClose range UE setups\nMurix",
+      "best_weapons": "HarmattanM\nClose range UE setups\nMurix",
       "drone_options": "Seeker\nScourveil\nKestrel",
       "pilot": "A5H-5K4R\nAsh Skarsgard",
       "specialization": "Any specialization\nPhase Shift",
@@ -1118,7 +1126,7 @@
       "build_name": "Ultimate",
       "robot": "UE Bulgasari",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Harmattans\nAny UE setups\nMachiara\nLumens\nKroko",
+      "best_weapons": "HarmattaM\nAny UE setups\nMachiara\nLumenM\nKroko",
       "drone_options": "Seeker\nUE Glider",
       "pilot": "Reana Medaro\nWeapon Pilot",
       "specialization": "Brawler (Repair Amp +\nLast stand)\nPhase Shift or Adv. Repair",
@@ -1129,7 +1137,7 @@
       "build_name": "Ultimate",
       "robot": "UE Phantom",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Close range UE setups\nKroko\nMurix\nHarmattans",
+      "best_weapons": "Close range UE setups\nKroko\nMurix\nHarmattanM",
       "drone_options": "Seeker\nArmadillo\nUE Glider",
       "pilot": "Olga Minima",
       "specialization": "Sabotuer (Accelerator +\nBeacon Operator)\nPhase Shift",
@@ -1140,7 +1148,7 @@
       "build_name": "Ultimate",
       "robot": "UE Revenant",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Harmattan+UE Shredder\nBasileus+Harmattan\nHarmattans\nClose range UE setups",
+      "best_weapons": "HarmattanH+UE Shredder\nBasileus+HarmattanL\nHarmattanH+HarmattanL\nClose range UE setups",
       "drone_options": "UE Glider\nSeeker\nShowdown",
       "pilot": "Ricardo\nGonzales",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or Adv. Repair",
@@ -1151,7 +1159,7 @@
       "build_name": "Ultimate",
       "robot": "UE Lancelot",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Liodari+Kroko\nFahrenheit+Kelvin\nAny UE setups",
+      "best_weapons": "Liodari+Kroko\nFahrenheit+Kelvin\nHarmattanH+HarmattanM\nAny UE setups",
       "drone_options": "Seeker\nUE Glider\nArmadillo",
       "pilot": "Weapon Pilot\nIji Rime",
       "specialization": "Brawler (Repair Amp +\nIA/LS)\nPhase Shift or Adv. Repair",
@@ -1162,7 +1170,7 @@
       "build_name": "Ultimate",
       "robot": "UE Ao Jun",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Harmattans\nBasileus\nLumens\nUE Avenger",
+      "best_weapons": "HarmattanH\nBasileus\nLumenH\nUE Avenger",
       "drone_options": "Scourveil\nKestrel",
       "pilot": "Yang Lee",
       "specialization": "Raider (Nuke Amp + Any)\nPhase Shift or Lockdown\nAmmo",
@@ -1173,7 +1181,7 @@
       "build_name": "Ultimate",
       "robot": "UE Ares",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Midrange UE setups\nLumens\nMachiara\nUrhag",
+      "best_weapons": "Midrange UE setups\nLumenM\nMachiara\nUrhag",
       "drone_options": "Seeker",
       "pilot": "Warren Ozu",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -1184,7 +1192,7 @@
       "build_name": "Ultimate",
       "robot": "UE Leo",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Lumens\nBasileus+Machiara\nAny UE setups",
+      "best_weapons": "LumenH+LumenM\nBasileus+Machiara\nAny UE setups",
       "drone_options": "Hawkeye\nTensor",
       "pilot": "Egorus Gafidos",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
@@ -1195,7 +1203,7 @@
       "build_name": "Ultimate",
       "robot": "UE Sword Unit",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "UE Arms\nLumens\nMachiara+Velos\nHarmattans",
+      "best_weapons": "UE ArmM+UE ArmL\nLumenM+LumenL\nMachiara+Velos\nHarmattanM+HarmattanL",
       "drone_options": "UE Glider\nSeeker\nWARD",
       "pilot": "Otto Schreyer\n(With Arms)\nWeapon Pilot\n(other weapons)\nShani Kyne\n(if you have)\nMiharu Sharpe\n(Otherwise)",
       "specialization": "Raider (Nuke Amp + IPU)\nPhase Shift",
@@ -1206,7 +1214,7 @@
       "build_name": "Ultimate",
       "robot": "UE Spectre",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Midrange UE setups\nLumens\nMachiara\nUrhag",
+      "best_weapons": "Midrange UE setups\nLumenM\nMachiara\nUrhag",
       "drone_options": "Seeker\nScourveil\nKestrel",
       "pilot": "Weapon Pilot\nTal Mokri",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
@@ -1217,7 +1225,7 @@
       "build_name": "Ultimate",
       "robot": "UE Fenrir",
       "f2p_weapons": "Not recommended for F2P",
-      "best_weapons": "Any UE setups\nHarmattans\nMachiara+Basileus\nLumens\nKelvin+Fahrenheit",
+      "best_weapons": "Any UE setups\nHarmattanH+HarmattanM\nMachiara+Basileus\nLumenH+LumenM\nKelvin+Fahrenheit",
       "drone_options": "Showdown\nSeeker\nScales (with \nBernadette)",
       "pilot": "Lisel and\nB4R0N3T\nBernadette\nWolff",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or Adv. Repair",
@@ -1251,17 +1259,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1292,17 +1290,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1333,12 +1321,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1364,17 +1347,7 @@
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1395,22 +1368,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1446,17 +1404,7 @@
       "roles": [
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1482,21 +1430,11 @@
         },
         {
           "role": "Sniper",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
           "type": "primary",
           "footnote": ""
         }
@@ -1528,18 +1466,13 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Brawler",
           "type": "secondary",
           "footnote": "*"
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
         }
       ],
       "comments": "While half-reliance on defense points and half reliance on absorber to stay alive is unappealing, Fafnir's damage potential and webby synergy make up for it."
@@ -1574,7 +1507,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -1585,16 +1518,6 @@
         {
           "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -1620,22 +1543,7 @@
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1661,17 +1569,7 @@
         },
         {
           "role": "Beacon Runner",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1692,7 +1590,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -1702,21 +1600,6 @@
         },
         {
           "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "secondary",
           "footnote": ""
         }
@@ -1743,12 +1626,7 @@
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1769,22 +1647,12 @@
       "roles": [
         {
           "role": "Beacon Runner",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -1835,17 +1703,7 @@
       "roles": [
         {
           "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1866,17 +1724,7 @@
       "roles": [
         {
           "role": "Beacon Runner",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -1897,7 +1745,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -1924,21 +1772,6 @@
           "role": "Assassin",
           "type": "secondary",
           "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
-          "footnote": ""
         }
       ],
       "comments": "The cycle of stealth, healing, teleport+healing, repeat makes Imugi extremely powerful. With its availability in the workshop, it's one of the best F2P bots in the game."
@@ -1958,7 +1791,7 @@
       "roles": [
         {
           "role": "Tank-buster",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -1968,21 +1801,6 @@
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "primary",
           "footnote": ""
         }
@@ -2009,22 +1827,12 @@
         },
         {
           "role": "Sniper",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -2045,17 +1853,12 @@
       "roles": [
         {
           "role": "Tank-buster",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -2076,22 +1879,7 @@
       "roles": [
         {
           "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -2137,12 +1925,7 @@
         },
         {
           "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -2163,17 +1946,7 @@
       "roles": [
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -2194,7 +1967,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -2216,21 +1989,6 @@
           "role": "Brawler",
           "type": "primary",
           "footnote": "**"
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
-          "footnote": ""
         }
       ],
       "comments": "Pathfinder's performance remains incredible across all investment levels; between speed boosts, damage boosts, lockdown, shieldbreak, healing, and more, it can truly do it all."
@@ -2250,7 +2008,7 @@
       "roles": [
         {
           "role": "Brawler",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -2260,21 +2018,6 @@
         },
         {
           "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "secondary",
           "footnote": ""
         }
@@ -2296,7 +2039,7 @@
       "roles": [
         {
           "role": "Tank-buster",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -2312,21 +2055,6 @@
         {
           "role": "Brawler",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -2367,22 +2095,12 @@
         },
         {
           "role": "Tank-buster",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -2413,7 +2131,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -2423,21 +2141,6 @@
         },
         {
           "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "secondary",
           "footnote": ""
         }
@@ -2469,22 +2172,12 @@
         },
         {
           "role": "Beacon Runner",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -2505,7 +2198,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -2520,16 +2213,6 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "primary",
           "footnote": ""
         }
@@ -2551,16 +2234,11 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
           "type": "primary",
           "footnote": ""
         }
@@ -2568,7 +2246,7 @@
       "comments": "Lio's bulk and teammate-buffing abilities are strong."
     },
     {
-      "name": "Sword Unit",
+      "name": "SWORD Unit",
       "sheet": "Tier 4 Robots",
       "value_rating": 32,
       "scores": {
@@ -2582,16 +2260,11 @@
       "roles": [
         {
           "role": "Tank-buster",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
           "type": "primary",
           "footnote": ""
         }
@@ -2612,13 +2285,13 @@
       },
       "roles": [
         {
-          "role": "Brawler",
-          "type": "primary",
+          "role": "Support",
+          "type": "secondary",
           "footnote": ""
         },
         {
-          "role": "Opener",
-          "type": "primary",
+          "role": "Brawler",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -2644,22 +2317,12 @@
         },
         {
           "role": "Sniper",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -2685,7 +2348,7 @@
         },
         {
           "role": "Tank-buster",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -2697,21 +2360,6 @@
           "role": "Beacon Runner",
           "type": "secondary",
           "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
-          "footnote": ""
         }
       ],
       "comments": "Kaji is a strategic minelayer with the potential to tear high health & slower enemies apart. It doesn't rely on its weapons much, having high damage potential with the mines alone in most cases."
@@ -2719,14 +2367,14 @@
     {
       "name": "Rex",
       "sheet": "Tier 4 Robots",
-      "value_rating": 25,
+      "value_rating": 27,
       "scores": {
         "longevity": 7.0,
         "lethality": 7.0,
         "mobility": 7.0,
         "utility": 2.0,
-        "accessibility": 2.0,
-        "overall": 25.0
+        "accessibility": 4.0,
+        "overall": 27.0
       },
       "roles": [
         {
@@ -2746,22 +2394,7 @@
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -2787,12 +2420,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -2801,14 +2429,14 @@
     {
       "name": "Ammit",
       "sheet": "Tier 4 Robots",
-      "value_rating": 26,
+      "value_rating": 28,
       "scores": {
         "longevity": 10.0,
         "lethality": 5.0,
         "mobility": 2.0,
         "utility": 6.0,
-        "accessibility": 3.0,
-        "overall": 26.0
+        "accessibility": 5.0,
+        "overall": 28.0
       },
       "roles": [
         {
@@ -2818,22 +2446,7 @@
         },
         {
           "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -2859,7 +2472,7 @@
         },
         {
           "role": "Tank-buster",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -2874,21 +2487,6 @@
         },
         {
           "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "secondary",
           "footnote": ""
         }
@@ -2910,7 +2508,7 @@
       "roles": [
         {
           "role": "Brawler",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -2921,21 +2519,6 @@
         {
           "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -2956,7 +2539,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -2972,21 +2555,6 @@
         {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -3017,27 +2585,12 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Brawler",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -3063,7 +2616,7 @@
         },
         {
           "role": "Tank-buster",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -3079,21 +2632,6 @@
         {
           "role": "Brawler",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -3134,22 +2672,7 @@
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -3170,7 +2693,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -3185,21 +2708,6 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "primary",
           "footnote": ""
         }
@@ -3221,16 +2729,11 @@
       "roles": [
         {
           "role": "Sniper",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
           "type": "secondary",
           "footnote": ""
         }
@@ -3272,7 +2775,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -3283,16 +2786,6 @@
         {
           "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -3313,17 +2806,12 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -3379,22 +2867,12 @@
         },
         {
           "role": "Beacon Runner",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Assassin",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -3445,12 +2923,7 @@
       "roles": [
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -3471,13 +2944,8 @@
       "roles": [
         {
           "role": "Brawler",
-          "type": "primary",
+          "type": "main",
           "footnote": "*"
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
         }
       ],
       "comments": "T-falcon is very cheap and tanky, but not nearly as good as modern brawlers. Regular Falcon isn't worth playing."
@@ -3502,12 +2970,7 @@
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -3528,12 +2991,7 @@
       "roles": [
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -3644,17 +3102,12 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Brawler",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -3675,21 +3128,11 @@
       "roles": [
         {
           "role": "Beacon Runner",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "primary",
           "footnote": ""
         }
@@ -3736,12 +3179,7 @@
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -3807,12 +3245,7 @@
       "roles": [
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -3833,17 +3266,12 @@
       "roles": [
         {
           "role": "Midrange",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -3864,7 +3292,7 @@
       "roles": [
         {
           "role": "Brawler",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -3875,16 +3303,6 @@
         {
           "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -3904,11 +3322,6 @@
       },
       "roles": [
         {
-          "role": "Tank-buster",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
           "footnote": ""
@@ -3916,16 +3329,6 @@
         {
           "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -3951,26 +3354,6 @@
         },
         {
           "role": "Sniper",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "secondary",
           "footnote": ""
         }
@@ -4004,26 +3387,6 @@
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
-          "footnote": ""
         }
       ],
       "comments": "UE Blitz is an exceptionally fast saboteur with some added utility in the form of suppression that can aid it in making aggressive plays."
@@ -4047,22 +3410,7 @@
           "footnote": ""
         },
         {
-          "role": "Beacon Runner",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "secondary",
           "footnote": ""
         }
@@ -4083,18 +3431,8 @@
       },
       "roles": [
         {
-          "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Beacon Runner",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -4112,28 +3450,7 @@
         "accessibility": 0.0,
         "overall": 18.0
       },
-      "roles": [
-        {
-          "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
-          "footnote": ""
-        }
-      ],
+      "roles": [],
       "comments": "UE Fenrir is incredibly tanky but practically immobile and offers no utility."
     },
     {
@@ -4155,12 +3472,7 @@
           "footnote": ""
         },
         {
-          "role": "Midrange",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
+          "role": "Brawler",
           "type": "secondary",
           "footnote": ""
         }
@@ -4191,32 +3503,12 @@
           "footnote": ""
         },
         {
-          "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
         },
         {
           "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "secondary",
           "footnote": ""
         }
@@ -4242,11 +3534,6 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Sniper",
           "type": "secondary",
           "footnote": ""
@@ -4270,21 +3557,6 @@
           "role": "Assassin",
           "type": "secondary",
           "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
-          "footnote": ""
         }
       ],
       "comments": "UE Haechi is notoriously difficult to kill without shieldbreaker, as it can have incredibly high uptime on its flexible absorber charges."
@@ -4303,11 +3575,6 @@
       },
       "roles": [
         {
-          "role": "Tank-buster",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
           "footnote": ""
@@ -4320,21 +3587,6 @@
         {
           "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -4354,17 +3606,7 @@
       },
       "roles": [
         {
-          "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
           "type": "secondary",
           "footnote": ""
         }
@@ -4385,17 +3627,7 @@
       },
       "roles": [
         {
-          "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Beacon Runner",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
           "type": "primary",
           "footnote": ""
         }
@@ -4421,11 +3653,6 @@
           "footnote": ""
         },
         {
-          "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Beacon Runner",
           "type": "secondary",
           "footnote": ""
@@ -4433,21 +3660,6 @@
         {
           "role": "Assassin",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -4467,11 +3679,6 @@
       },
       "roles": [
         {
-          "role": "Tank-buster",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Sniper",
           "type": "primary",
           "footnote": ""
@@ -4484,21 +3691,6 @@
         {
           "role": "Brawler",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -4518,32 +3710,12 @@
       },
       "roles": [
         {
-          "role": "Support",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Brawler",
           "type": "secondary",
           "footnote": ""
         },
         {
           "role": "Beacon Runner",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "secondary",
           "footnote": ""
         }
@@ -4564,11 +3736,6 @@
       },
       "roles": [
         {
-          "role": "Brawler",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
@@ -4576,21 +3743,6 @@
         {
           "role": "Assassin",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -4613,26 +3765,6 @@
           "role": "Brawler",
           "type": "primary",
           "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
-          "footnote": ""
         }
       ],
       "comments": "UE Ravana leans into all the things that made the original Ravana good and improves on them, making for a very powerful ultimate brawler."
@@ -4650,11 +3782,6 @@
         "overall": 30.0
       },
       "roles": [
-        {
-          "role": "Tank-buster",
-          "type": "primary",
-          "footnote": ""
-        },
         {
           "role": "Sniper",
           "type": "primary",
@@ -4677,21 +3804,6 @@
         },
         {
           "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "primary",
           "footnote": ""
         }
@@ -4717,11 +3829,6 @@
           "footnote": ""
         },
         {
-          "role": "Tank-buster",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Midrange",
           "type": "primary",
           "footnote": ""
@@ -4733,21 +3840,6 @@
         },
         {
           "role": "Assassin",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "secondary",
           "footnote": ""
         }
@@ -4776,16 +3868,6 @@
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
         }
       ],
       "comments": "UE Revenant is an incredibly powerful self sustaining brawler with two unbreakable shields and a long distance teleport. Ricardo makes UE Revenant incredibly mobile when used with Engine Expert, though Revenant gives up a lot of firepower for its tankieness."
@@ -4804,11 +3886,6 @@
       },
       "roles": [
         {
-          "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
@@ -4817,27 +3894,12 @@
           "role": "Assassin",
           "type": "primary",
           "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
-          "footnote": ""
         }
       ],
       "comments": "UE Rhino is potentially the tankiest bot in the game, becoming virtually unkillable while in ability. Unfortunately, it gives up on a lot of firepower to accomplish this."
     },
     {
-      "name": "UE Sword Unit",
+      "name": "UE SWORD",
       "sheet": "Ultimate Robots",
       "value_rating": 22,
       "scores": {
@@ -4848,33 +3910,7 @@
         "accessibility": 0.0,
         "overall": 22.0
       },
-      "roles": [
-        {
-          "role": "Tank-buster",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "primary",
-          "footnote": ""
-        }
-      ],
+      "roles": [],
       "comments": "UE Sword has massive damage potential with its sword, assuming you can fool an enemy into charging you up. Aside from that, it is not all too different from regular sword."
     },
     {
@@ -4897,26 +3933,6 @@
         },
         {
           "role": "Beacon Runner",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Assassin",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "primary",
           "footnote": ""
         }
@@ -4945,26 +3961,6 @@
           "role": "Sniper",
           "type": "primary",
           "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
-          "type": "secondary",
-          "footnote": ""
         }
       ],
       "comments": "UE Spectre is a sidegrade to regular edition raven, having better firepower but worse everything else."
@@ -4989,26 +3985,6 @@
         },
         {
           "role": "Tank-buster",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Opener",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Midgame",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Endgame",
           "type": "primary",
           "footnote": ""
         }
@@ -5077,7 +4053,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -5087,16 +4063,6 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
           "type": "primary",
           "footnote": ""
         }
@@ -5118,7 +4084,7 @@
       "roles": [
         {
           "role": "Brawler",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -5127,17 +4093,12 @@
           "footnote": ""
         },
         {
-          "role": "Early Drop",
+          "role": "Assassin",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
           "footnote": ""
         }
       ],
-      "comments": "Minos is a fast, safe, and cheap beacon runner and brawler, though it's less effective at killing enemy titans then most due to its lack of Alpha hardpoints."
+      "comments": "Minos is a fast, safe, and cheap beacon runner and brawler, though it's less effective at killing enemy titans than most due to its lack of Alpha hardpoints."
     },
     {
       "name": "Sharanga",
@@ -5154,17 +4115,12 @@
       "roles": [
         {
           "role": "Sniper",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -5184,18 +4140,18 @@
       },
       "roles": [
         {
-          "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
+          "role": "Support",
           "type": "secondary",
           "footnote": ""
         },
         {
-          "role": "Late Drop",
-          "type": "primary",
+          "role": "Midrange",
+          "type": "main",
+          "footnote": ""
+        },
+        {
+          "role": "Assassin",
+          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -5216,17 +4172,7 @@
       "roles": [
         {
           "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -5257,12 +4203,7 @@
         },
         {
           "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -5292,13 +4233,8 @@
           "footnote": ""
         },
         {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
+          "role": "Assassin",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -5324,12 +4260,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -5350,21 +4281,11 @@
       "roles": [
         {
           "role": "Support",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
           "type": "secondary",
           "footnote": ""
         }
@@ -5391,11 +4312,11 @@
         },
         {
           "role": "Beacon Runner",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
-          "role": "Early Drop",
+          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -5417,27 +4338,17 @@
       "roles": [
         {
           "role": "Support",
-          "type": "secondary",
+          "type": "primary",
           "footnote": ""
         },
         {
           "role": "Sniper",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Midrange",
           "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -5463,7 +4374,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -5472,7 +4383,7 @@
           "footnote": ""
         },
         {
-          "role": "Early Drop",
+          "role": "Assassin",
           "type": "primary",
           "footnote": ""
         }
@@ -5499,17 +4410,7 @@
         },
         {
           "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -5535,22 +4436,12 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Beacon Runner",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -5585,8 +4476,8 @@
           "footnote": ""
         },
         {
-          "role": "Late Drop",
-          "type": "primary",
+          "role": "Assassin",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -5607,7 +4498,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -5621,12 +4512,7 @@
           "footnote": ""
         },
         {
-          "role": "Early Drop",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
+          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -5648,22 +4534,12 @@
       "roles": [
         {
           "role": "Brawler",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Beacon Runner",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -5684,12 +4560,12 @@
       "roles": [
         {
           "role": "Support",
-          "type": "secondary",
+          "type": "primary",
           "footnote": ""
         },
         {
           "role": "Brawler",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -5698,13 +4574,8 @@
           "footnote": ""
         },
         {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
+          "role": "Assassin",
+          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -5725,7 +4596,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "secondary",
+          "type": "primary",
           "footnote": ""
         },
         {
@@ -5735,22 +4606,12 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
           "role": "Brawler",
           "type": "secondary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
           "footnote": ""
         }
       ],
@@ -5771,7 +4632,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -5781,16 +4642,6 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
           "type": "primary",
           "footnote": ""
         }
@@ -5817,7 +4668,7 @@
         },
         {
           "role": "Brawler",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -5826,13 +4677,8 @@
           "footnote": ""
         },
         {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
+          "role": "Assassin",
+          "type": "secondary",
           "footnote": ""
         }
       ],
@@ -5858,17 +4704,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "secondary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -5894,12 +4730,7 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         }
       ],
@@ -5930,16 +4761,11 @@
         },
         {
           "role": "Midrange",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
+          "role": "Assassin",
           "type": "secondary",
           "footnote": ""
         }
@@ -5961,7 +4787,7 @@
       "roles": [
         {
           "role": "Support",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -5971,16 +4797,6 @@
         },
         {
           "role": "Brawler",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
           "type": "primary",
           "footnote": ""
         }
@@ -6007,7 +4823,7 @@
         },
         {
           "role": "Brawler",
-          "type": "primary",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -6016,13 +4832,8 @@
           "footnote": ""
         },
         {
-          "role": "Early Drop",
-          "type": "primary",
-          "footnote": ""
-        },
-        {
-          "role": "Late Drop",
-          "type": "primary",
+          "role": "Assassin",
+          "type": "secondary",
           "footnote": ""
         }
       ],
