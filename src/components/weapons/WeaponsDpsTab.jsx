@@ -27,11 +27,17 @@ if (weaponsDpsData) {
 
 function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
   useEffect(() => {
+    const origOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = origOverflow;
+    };
   }, [onClose]);
 
   if (!weapon) return null;
@@ -47,7 +53,6 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
         style={{
           maxWidth: '560px',
           position: 'relative',
-          overflow: 'hidden',
           background: 'var(--bg-surface)'
         }}
         onClick={(e) => e.stopPropagation()}
@@ -69,20 +74,6 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
               >
                 {weaponClass.replace(' Weapons', '')} Class
               </span>
-              {weapon.range && (
-                <span
-                  style={{
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    padding: '2px 8px',
-                    borderRadius: '4px',
-                    background: 'rgba(255, 255, 255, 0.06)',
-                    color: 'var(--text-muted)',
-                  }}
-                >
-                  Range: {weapon.range}
-                </span>
-              )}
             </div>
             <h3 id="weapon-modal-title" style={{ fontSize: '22px', fontWeight: 800, color: '#fff', margin: 0 }}>
               {weapon.name}
@@ -121,6 +112,45 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
             ) : (
               <img src="/icons/weapon_gold.png" alt="" style={{ width: '64px', height: '64px', objectFit: 'contain' }} />
             )}
+          </div>
+
+          {/* Operational Specifications: Range, Unload Time, Reload Time */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '10px',
+              padding: '12px 14px',
+              borderRadius: '12px',
+              background: 'rgba(10, 14, 23, 0.65)',
+              border: '1px solid var(--border-light)',
+              textAlign: 'center',
+            }}
+          >
+            <div>
+              <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>
+                Range
+              </span>
+              <span style={{ fontSize: '14px', fontWeight: 800, color: '#fff' }}>
+                {weapon.range || '—'}
+              </span>
+            </div>
+            <div>
+              <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>
+                Unload
+              </span>
+              <span style={{ fontSize: '14px', fontWeight: 800, color: '#fff' }}>
+                {weapon.unload || '—'}
+              </span>
+            </div>
+            <div>
+              <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>
+                Reload
+              </span>
+              <span style={{ fontSize: '14px', fontWeight: 800, color: '#fff' }}>
+                {weapon.reload || '—'}
+              </span>
+            </div>
           </div>
 
           {/* DPS Bars Scaled against highest in Weight Class */}
@@ -335,7 +365,7 @@ export function WeaponsDpsTab() {
                 aria-label={`View DPS details for ${weapon.name}`}
                 style={{
                   position: 'relative',
-                  height: '220px',
+                  height: '230px',
                   borderRadius: '12px',
                   overflow: 'hidden',
                   cursor: 'pointer',
@@ -384,7 +414,7 @@ export function WeaponsDpsTab() {
                   }}
                 />
 
-                {/* Top Overlay: Name & Range */}
+                {/* Top Overlay: Name */}
                 <div
                   style={{
                     position: 'relative',
@@ -395,10 +425,10 @@ export function WeaponsDpsTab() {
                     gap: '8px',
                   }}
                 >
-                  <div style={{ minWidth: 0 }}>
+                  <div style={{ minWidth: 0, width: '100%' }}>
                     <h4
                       style={{
-                        margin: '0 0 4px 0',
+                        margin: 0,
                         fontSize: '16px',
                         fontWeight: 700,
                         color: '#fff',
@@ -411,49 +441,62 @@ export function WeaponsDpsTab() {
                     >
                       {weapon.name}
                     </h4>
-                    {weapon.range && (
-                      <span
-                        style={{
-                          fontSize: '10.5px',
-                          fontWeight: 600,
-                          color: 'var(--text-muted)',
-                          background: 'rgba(255, 255, 255, 0.08)',
-                          padding: '1px 6px',
-                          borderRadius: '4px',
-                        }}
-                      >
-                        {weapon.range}
-                      </span>
-                    )}
                   </div>
                 </div>
 
-                {/* Bottom Overlay: Burst & Cycle DPS */}
+                {/* Bottom Overlay: Burst & Cycle DPS + Range, Unload, Reload */}
                 <div
                   style={{
                     position: 'relative',
                     zIndex: 2,
-                    background: 'rgba(10, 14, 23, 0.7)',
+                    background: 'rgba(10, 14, 23, 0.75)',
                     backdropFilter: 'blur(6px)',
                     padding: '8px 10px',
                     borderRadius: '8px',
                     border: '1px solid rgba(255, 255, 255, 0.08)',
                     display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
+                    flexDirection: 'column',
+                    gap: '6px',
                   }}
                 >
-                  <div>
-                    <span style={{ fontSize: '9.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>BURST</span>
-                    <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cyan)' }}>
-                      {weapon.burstNum > 0 ? Math.round(weapon.burstNum).toLocaleString() : weapon.burst_dps}
-                    </span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div>
+                      <span style={{ fontSize: '9.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>BURST</span>
+                      <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cyan)' }}>
+                        {weapon.burstNum > 0 ? Math.round(weapon.burstNum).toLocaleString() : weapon.burst_dps}
+                      </span>
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <span style={{ fontSize: '9.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>CYCLE</span>
+                      <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--purple)' }}>
+                        {weapon.cycleNum > 0 ? Math.round(weapon.cycleNum).toLocaleString() : weapon.cycle_dps}
+                      </span>
+                    </div>
                   </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <span style={{ fontSize: '9.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>CYCLE</span>
-                    <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--purple)' }}>
-                      {weapon.cycleNum > 0 ? Math.round(weapon.cycleNum).toLocaleString() : weapon.cycle_dps}
-                    </span>
+
+                  {/* Operational stats row at bottom */}
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(3, 1fr)',
+                      gap: '4px',
+                      paddingTop: '6px',
+                      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                      textAlign: 'center',
+                    }}
+                  >
+                    <div>
+                      <span style={{ fontSize: '8.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>RANGE</span>
+                      <span style={{ fontSize: '10.5px', fontWeight: 700, color: '#fff' }}>{weapon.range || '—'}</span>
+                    </div>
+                    <div>
+                      <span style={{ fontSize: '8.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>UNLOAD</span>
+                      <span style={{ fontSize: '10.5px', fontWeight: 700, color: '#fff' }}>{weapon.unload || '—'}</span>
+                    </div>
+                    <div>
+                      <span style={{ fontSize: '8.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>RELOAD</span>
+                      <span style={{ fontSize: '10.5px', fontWeight: 700, color: '#fff' }}>{weapon.reload || '—'}</span>
+                    </div>
                   </div>
                 </div>
 

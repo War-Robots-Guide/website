@@ -33,6 +33,47 @@ const precomputedTitans = robotGuideData?.titans ? robotGuideData.titans.map(t =
   };
 }) : [];
 
+const TAG_EMOJIS = ['👥', '‼️', '⬆️', '⬇️', '👁️', '⬆', '⬇', '👁'];
+const TAG_REGEX = /(👥|‼️|⬆️|⬇️|👁️|⬆|⬇|👁)\s*([\s\S]*?)(?=(?:👥|‼️|⬆️|⬇️|👁️|⬆|⬇|👁|$))/gu;
+
+function parseRationaleAndTags(rawDescription) {
+  if (!rawDescription) {
+    return { mainRationale: '', tagNotes: [] };
+  }
+
+  // Find the first index where any of the tag emojis appear
+  let firstTagIndex = -1;
+  for (let i = 0; i < rawDescription.length; i++) {
+    for (const tag of TAG_EMOJIS) {
+      if (rawDescription.startsWith(tag, i)) {
+        firstTagIndex = i;
+        break;
+      }
+    }
+    if (firstTagIndex !== -1) break;
+  }
+
+  if (firstTagIndex === -1) {
+    return { mainRationale: rawDescription.trim(), tagNotes: [] };
+  }
+
+  const mainRationale = rawDescription.slice(0, firstTagIndex).trim();
+  const tagsSegment = rawDescription.slice(firstTagIndex);
+
+  const tagNotes = [];
+  TAG_REGEX.lastIndex = 0;
+  let match;
+  while ((match = TAG_REGEX.exec(tagsSegment)) !== null) {
+    const tagEmoji = match[1];
+    const text = match[2].trim();
+    if (text || tagEmoji) {
+      tagNotes.push({ tag: tagEmoji, text });
+    }
+  }
+
+  return { mainRationale: mainRationale || rawDescription.trim(), tagNotes };
+}
+
 export function DetailModal({ selectedItem, onClose }) {
   const tier = useMemo(() => {
     if (!selectedItem) return null;
@@ -92,13 +133,23 @@ export function DetailModal({ selectedItem, onClose }) {
     return getItemImage(selectedItem.name, selectedItem.type);
   }, [selectedItem]);
 
+  const { mainRationale, tagNotes } = useMemo(() => {
+    return parseRationaleAndTags(selectedItem?.data?.description);
+  }, [selectedItem?.data?.description]);
+
   useEffect(() => {
     if (!selectedItem) return;
+    const origOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = origOverflow;
+    };
   }, [selectedItem, onClose]);
 
   if (!selectedItem) return null;
@@ -150,9 +201,39 @@ export function DetailModal({ selectedItem, onClose }) {
             <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>
               Rationale:
             </span>
-            <p style={{ color: 'var(--text-primary)', fontSize: '14.5px', lineHeight: 1.6 }}>
-              {selectedItem.data.description}
+            <p style={{ color: 'var(--text-primary)', fontSize: '14.5px', lineHeight: 1.6, margin: 0 }}>
+              {mainRationale}
             </p>
+
+            {/* Tag explanations listed below rationale */}
+            {tagNotes.length > 0 && (
+              <div style={{ marginTop: '14px' }}>
+                <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px', textTransform: 'uppercase' }}>
+                  Meta Tag Notes:
+                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  {tagNotes.map((note, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        display: 'flex',
+                        gap: '10px',
+                        padding: '10px 12px',
+                        borderRadius: '8px',
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        border: '1px solid var(--border-light)',
+                        alignItems: 'flex-start'
+                      }}
+                    >
+                      <span style={{ fontSize: '18px', lineHeight: 1, flexShrink: 0 }}>{note.tag}</span>
+                      <span style={{ fontSize: '13.5px', color: 'var(--text-primary)', lineHeight: 1.5 }}>
+                        {note.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Extra context if available */}

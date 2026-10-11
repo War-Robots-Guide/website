@@ -323,7 +323,9 @@ def parse_weapons_dps():
                 "name": str(row["Weapon"]).strip(),
                 "burst_dps": row["Burst DPS"],
                 "cycle_dps": row["Cycle DPS"],
-                "range": str(row["Range"]).strip(),
+                "range": str(row["Range"]).strip() if "Range" in row and pd.notna(row["Range"]) else "",
+                "unload": str(row["Unload"]).strip() if "Unload" in row and pd.notna(row["Unload"]) else "",
+                "reload": str(row["Reload"]).strip() if "Reload" in row and pd.notna(row["Reload"]) else "",
                 "notes": str(row["Notes"]).strip()
             })
             

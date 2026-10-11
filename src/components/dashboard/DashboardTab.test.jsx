@@ -68,9 +68,10 @@ describe('DashboardTab Changelog Sorting', () => {
 });
 
 describe('DashboardTab Interactivity', () => {
-  it('calls onItemClick when a robot card is clicked', () => {
+  it('calls onTabChange and onItemClick with target route when a robot card is clicked', () => {
+    const mockOnTabChange = vi.fn();
     const mockOnItemClick = vi.fn();
-    render(<DashboardTab onTabChange={() => {}} onItemClick={mockOnItemClick} />);
+    render(<DashboardTab onTabChange={mockOnTabChange} onItemClick={mockOnItemClick} />);
     
     // Find the robot card (by role and name)
     const card = screen.getByRole('button', { name: /View details for Destrier/i });
@@ -79,10 +80,12 @@ describe('DashboardTab Interactivity', () => {
     // Click the card
     card.click();
     
+    expect(mockOnTabChange).toHaveBeenCalledWith('tiers');
     expect(mockOnItemClick).toHaveBeenCalledWith(
       'Destrier',
       'Robots',
-      { description: 'Classic starter robot with decent speed.' }
+      { description: 'Destrier description from tiers data' },
+      'tiers'
     );
   });
 });

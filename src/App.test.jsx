@@ -8,7 +8,9 @@ vi.mock('./components/common/Header', () => ({
   Header: ({ activeTab, onTabChange, isEasterEggActive }) => (
     <header data-testid="header">
       <span data-testid="active-tab">{activeTab}</span>
+      <button onClick={() => onTabChange('dashboard')}>Go to Dashboard</button>
       <button onClick={() => onTabChange('robots')}>Go to Robots</button>
+      <button onClick={() => onTabChange('tiers')}>Go to Tiers</button>
       <span data-testid="easter-egg-status">{isEasterEggActive ? 'Active' : 'Inactive'}</span>
     </header>
   )
@@ -24,9 +26,13 @@ vi.mock('./components/common/Footer', () => ({
 }));
 
 vi.mock('./components/dashboard/DashboardTab', () => ({
-  DashboardTab: ({ onItemClick }) => (
+  DashboardTab: ({ onTabChange, onItemClick }) => (
     <div data-testid="dashboard-tab">
       <button onClick={() => onItemClick('Item 1', 'robot', { id: 1 })}>Open Item</button>
+      <button onClick={() => {
+        if (onTabChange) onTabChange('tiers');
+        if (onItemClick) onItemClick('Pathfinder', 'Robots', { description: 'Tier rationale' }, 'tiers');
+      }}>Click Featured Robot</button>
     </div>
   )
 }));
@@ -155,6 +161,38 @@ describe('App Component', () => {
     });
 
     // Modal should be gone
+    expect(screen.queryByTestId('detail-modal')).not.toBeInTheDocument();
+  });
+
+  it('opens modal on tier list when clicking featured robot and does not reopen on dashboard', async () => {
+    const user = userEvent.setup();
+    await renderApp();
+
+    // Click featured robot from dashboard
+    await user.click(screen.getByText('Click Featured Robot'));
+    act(() => {
+      window.dispatchEvent(new Event('popstate'));
+    });
+
+    // Should be on tier list tab
+    expect(await screen.findByTestId('tier-list-tab')).toBeInTheDocument();
+    expect(screen.getByTestId('active-tab')).toHaveTextContent('tiers');
+
+    // Modal should be open on tier list
+    expect(await screen.findByTestId('detail-modal')).toBeInTheDocument();
+    expect(screen.getByTestId('modal-item-name')).toHaveTextContent('Pathfinder');
+
+    // Navigate back to Dashboard via header
+    await user.click(screen.getByText('Go to Dashboard'));
+    act(() => {
+      window.dispatchEvent(new Event('popstate'));
+    });
+
+    // Should be on dashboard tab
+    expect(await screen.findByTestId('dashboard-tab')).toBeInTheDocument();
+    expect(screen.getByTestId('active-tab')).toHaveTextContent('dashboard');
+
+    // Modal should NOT be open on dashboard
     expect(screen.queryByTestId('detail-modal')).not.toBeInTheDocument();
   });
 

@@ -153,6 +153,22 @@ describe('DetailModal Component', () => {
     expect(screen.getByText('Jump Module')).toBeInTheDocument();
   });
 
+  it('separates main rationale from meta tag notes and renders tag notes as a list', () => {
+    const selectedItem = {
+      type: 'Robots',
+      name: 'Destrier',
+      data: {
+        description: 'Solid starter robot for early tiers. ⬇️Suffers in modern brawling due to low durability.'
+      }
+    };
+    render(<DetailModal selectedItem={selectedItem} onClose={mockOnClose} />);
+
+    expect(screen.getByText('Solid starter robot for early tiers.')).toBeInTheDocument();
+    expect(screen.getByText('Meta Tag Notes:')).toBeInTheDocument();
+    expect(screen.getByText('⬇️')).toBeInTheDocument();
+    expect(screen.getByText('Suffers in modern brawling due to low durability.')).toBeInTheDocument();
+  });
+
   it('calls onClose when close button is clicked', () => {
     const selectedItem = { type: 'Robots', name: 'Destrier', data: { description: 'test' } };
     render(<DetailModal selectedItem={selectedItem} onClose={mockOnClose} />);

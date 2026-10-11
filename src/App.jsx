@@ -84,13 +84,28 @@ function App() {
     return () => clearTimeout(timer);
   }, [activeTab]);
 
-  const openItemDetails = (name, type, data) => {
-    setSelectedItem({ name, type, data, routeId: activeTab });
+  const [prevActiveTab, setPrevActiveTab] = useState(activeTab);
+  if (activeTab !== prevActiveTab) {
+    setPrevActiveTab(activeTab);
+    if (selectedItem && selectedItem.routeId !== activeTab) {
+      setSelectedItem(null);
+    }
+  }
+
+  const openItemDetails = (name, type, data, targetRoute) => {
+    setSelectedItem({ name, type, data, routeId: targetRoute || activeTab });
+  };
+
+  const handleTabChange = (tab) => {
+    if (selectedItem) {
+      setSelectedItem(null);
+    }
+    setActiveTab(tab);
   };
 
   const ActiveTabComponent = TAB_COMPONENTS[activeTab] || TAB_COMPONENTS[DEFAULT_ROUTE_ID];
   const activeTabProps = activeTab === 'dashboard'
-    ? { onTabChange: setActiveTab, onItemClick: openItemDetails }
+    ? { onTabChange: handleTabChange, onItemClick: openItemDetails }
     : ['tiers', 'robots', 'specializations'].includes(activeTab)
       ? { onItemClick: openItemDetails }
       : {};
@@ -100,7 +115,7 @@ function App() {
       <RouteBackgrounds activeTab={activeTab} isEasterEggActive={isEasterEggActive} />
 
       <SupportBanner />
-      <Header activeTab={activeTab} onTabChange={setActiveTab} isEasterEggActive={isEasterEggActive} />
+      <Header activeTab={activeTab} onTabChange={handleTabChange} isEasterEggActive={isEasterEggActive} />
 
       <main className={`main-content bg-theme-${activeTab}`}>
         <Suspense fallback={<div className="route-loading" role="status">Loading guide…</div>}>

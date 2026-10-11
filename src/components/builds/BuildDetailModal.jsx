@@ -21,11 +21,17 @@ function parseCommaOrNewlineItems(text) {
 export function BuildDetailModal({ build, onClose }) {
   useEffect(() => {
     if (!build) return;
+    const origOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = origOverflow;
+    };
   }, [build, onClose]);
 
   const bgImage = useMemo(() => {
@@ -110,7 +116,6 @@ export function BuildDetailModal({ build, onClose }) {
         style={{
           maxWidth: '720px',
           position: 'relative',
-          overflow: 'hidden',
           background: 'var(--bg-surface)',
         }}
         onClick={(e) => e.stopPropagation()}

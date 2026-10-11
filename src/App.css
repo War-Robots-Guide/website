@@ -418,8 +418,10 @@
   border-radius: 16px;
   max-width: 600px;
   width: 100%;
-  max-height: 80vh;
+  max-height: 85vh;
+  position: relative;
   overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
   animation: modalContentEnter 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity;
@@ -1377,6 +1379,12 @@
   align-items: stretch;
 }
 
+@media (max-width: 900px) {
+  .dashboard-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .dashboard-main-col {
   display: flex;
   flex-direction: column;
@@ -1459,17 +1467,13 @@
 }
 
 /* Modal Faded Background Art */
-.modal-content {
-  position: relative;
-  overflow: hidden;
-}
-
 .modal-faded-bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  border-radius: inherit;
 }
 
 .modal-faded-img {

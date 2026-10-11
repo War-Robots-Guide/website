@@ -63,6 +63,48 @@ def sync_images():
                     shutil.copy2(src_f, dst_f)
                     copied_count += 1
 
+    # Copy Higher Quality Renders (takes precedence over ALL ITEMS)
+    hq_lookup = {}
+    hq_src = None
+    if os.path.exists(sample_images_dir):
+        for d in os.listdir(sample_images_dir):
+            if "higher quality" in d.lower():
+                hq_src = os.path.join(sample_images_dir, d)
+                break
+
+    if hq_src and os.path.exists(hq_src):
+        for root, _, files in os.walk(hq_src):
+            for f in files:
+                if not f.lower().endswith(('.png', '.webp', '.jpg', '.jpeg')):
+                    continue
+                src_f = os.path.join(root, f)
+                dst_f = os.path.join(items_dest, f)
+                try:
+                    from PIL import Image
+                    im = Image.open(src_f)
+                    bbox = im.getbbox()
+                    if bbox:
+                        w, h = im.size
+                        pad = 4
+                        padded_bbox = (
+                            max(0, bbox[0] - pad),
+                            max(0, bbox[1] - pad),
+                            min(w, bbox[2] + pad),
+                            min(h, bbox[3] + pad)
+                        )
+                        cropped = im.crop(padded_bbox)
+                        cropped.save(dst_f, optimize=True)
+                    else:
+                        shutil.copy2(src_f, dst_f)
+                except Exception:
+                    shutil.copy2(src_f, dst_f)
+                copied_count += 1
+                hq_lookup[f.lower()] = f
+                # Also index stem without extension
+                stem = os.path.splitext(f)[0].lower()
+                hq_lookup[stem] = f
+                hq_lookup[clean_key(stem)] = f
+
     print(f"Synced {copied_count} new/updated images to public/images/")
 
     # Build index of available items
@@ -140,10 +182,25 @@ def sync_images():
                 candidates.append('sword unit.png')
 
         matched_file = None
+        # 1. Check Higher Quality renders first
         for c in candidates:
-            if c in file_lookup:
-                matched_file = file_lookup[c]
+            if c in hq_lookup:
+                matched_file = hq_lookup[c]
                 break
+            stem_c = os.path.splitext(c)[0]
+            if stem_c in hq_lookup:
+                matched_file = hq_lookup[stem_c]
+                break
+            if clean_key(stem_c) in hq_lookup:
+                matched_file = hq_lookup[clean_key(stem_c)]
+                break
+
+        # 2. Fall back to standard ALL ITEMS renders
+        if not matched_file:
+            for c in candidates:
+                if c in file_lookup:
+                    matched_file = file_lookup[c]
+                    break
 
         if matched_file:
             path = f"/images/items/{matched_file}"

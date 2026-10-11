@@ -74,11 +74,24 @@ export function DashboardTab({ onTabChange, onItemClick }) {
   }, [sortedChangelog]);
 
   const handleCardClick = (item) => {
+    let description = item.comments;
+    if (tiersData?.Robots) {
+      for (const tierKey of Object.keys(tiersData.Robots)) {
+        const found = tiersData.Robots[tierKey]?.items?.find(
+          tItem => tItem.name.toLowerCase() === item.name.toLowerCase()
+        );
+        if (found && found.description) {
+          description = found.description;
+          break;
+        }
+      }
+    }
+
     if (onTabChange) {
       onTabChange('tiers');
     }
     if (onItemClick) {
-      onItemClick(item.name, 'Robots', { description: item.comments });
+      onItemClick(item.name, 'Robots', { description }, 'tiers');
     }
   };
 

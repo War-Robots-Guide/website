@@ -45,11 +45,17 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
   }, [isTitanSlot, lowerCaseQuery]);
 
   useEffect(() => {
+    const origOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = origOverflow;
+    };
   }, [onClose]);
 
   return createPortal(

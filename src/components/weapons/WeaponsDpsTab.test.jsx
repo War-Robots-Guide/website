@@ -10,6 +10,8 @@ vi.mock('../../data/weapons_dps.json', () => ({
         burst_dps: 50000.0,
         cycle_dps: 20000.0,
         range: '500m',
+        unload: '5s',
+        reload: '5s',
         notes: 'High burst damage'
       },
       {
@@ -17,6 +19,8 @@ vi.mock('../../data/weapons_dps.json', () => ({
         burst_dps: 45000.0,
         cycle_dps: 25000.0,
         range: '600m',
+        unload: '12s',
+        reload: '6s',
         notes: 'Homing bullets'
       },
       {
@@ -24,6 +28,8 @@ vi.mock('../../data/weapons_dps.json', () => ({
         burst_dps: 60000.0,
         cycle_dps: 15000.0,
         range: '200m',
+        unload: '4s',
+        reload: '10s',
         notes: 'Sonic weapon'
       }
     ],
@@ -120,10 +126,14 @@ describe('WeaponsDpsTab', () => {
     const card = screen.getByRole('button', { name: 'View DPS details for Heavy Puncher' });
     fireEvent.click(card);
 
-    // Modal opens showing title, range, notes
+    // Modal opens showing title, range, unload, reload, notes
     const dialog = screen.getByRole('dialog');
     expect(dialog).toBeInTheDocument();
     expect(within(dialog).getByText('High burst damage')).toBeInTheDocument();
+    expect(within(dialog).getByText('500m')).toBeInTheDocument();
+    expect(within(dialog).getByText('Range')).toBeInTheDocument();
+    expect(within(dialog).getByText('Unload')).toBeInTheDocument();
+    expect(within(dialog).getByText('Reload')).toBeInTheDocument();
     expect(within(dialog).getAllByText(/of class max/i)).toHaveLength(2);
 
     // Close modal
