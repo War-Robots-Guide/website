@@ -43,19 +43,7 @@ export function TitanCard({ titan, onClick }) {
           src={imageUrl}
           alt={titan.name}
           loading="lazy"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center 25%',
-            zIndex: 0,
-            filter: 'brightness(1.15) contrast(1.05)',
-            transition: 'transform 0.3s ease',
-          }}
-          className="robot-card-bg-img"
+          className="robot-card-bg-img unit-card-image"
           onError={(e) => {
             e.currentTarget.style.display = 'none';
           }}
@@ -64,29 +52,15 @@ export function TitanCard({ titan, onClick }) {
 
       {/* Subtle Scrim Overlay */}
       <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(180deg, rgba(8, 14, 24, 0.5) 0%, rgba(8, 14, 24, 0.05) 45%, rgba(8, 14, 24, 0.6) 100%)',
-          zIndex: 1,
-          pointerEvents: 'none',
-        }}
+        className="unit-card-scrim"
       />
 
       {/* Top Header: Name and Tier on left, Value Rating Bar on right */}
       <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'flex-start',
-          gap: '12px',
-          width: '100%',
-        }}
+        className="image-card-header"
       >
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '4px' }}>
+          <div className="unit-card-title-row">
             <h3
               style={{
                 fontSize: '19px',
@@ -118,47 +92,27 @@ export function TitanCard({ titan, onClick }) {
             )}
             {mainRoleObj && (
               <span
-                className="role-badge main"
-                style={{
-                  fontSize: '10px',
-                  fontWeight: 800,
-                  padding: '2px 6px',
-                  borderRadius: '4px',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                  lineHeight: 1,
-                }}
+                className="role-badge main unit-card-role-badge"
                 title={`Main Role: ${mainRoleObj.role}`}
               >
-                {mainRoleIcon && <img src={mainRoleIcon} alt="" style={{ width: '12px', height: '12px', objectFit: 'contain' }} />}
+                {mainRoleIcon && <img src={mainRoleIcon} alt="" className="icon-12" />}
                 {mainRoleObj.role}
               </span>
             )}
             {isUltimate && (
               <span
-                style={{
-                  fontSize: '10px',
-                  fontWeight: 800,
-                  padding: '2px 6px',
-                  borderRadius: '4px',
-                  background: 'rgba(234, 179, 8, 0.2)',
-                  color: '#fbbf24',
-                  border: '1px solid rgba(234, 179, 8, 0.4)',
-                  textTransform: 'uppercase',
-                  lineHeight: 1,
-                }}
+                className="ultimate-badge"
               >
                 Ultimate
               </span>
             )}
           </div>
-          <span style={{ fontSize: '11px', color: 'rgba(255, 255, 255, 0.65)' }}>Titan Class</span>
+          <span className="unit-card-category">Titan Class</span>
         </div>
 
         {/* Top Right: Value Rating Bar without big box */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
-          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '2px' }}>
+        <div className="image-card-rating">
+          <span className="image-card-rating-label">
             VALUE RATING
           </span>
           <RatingBar rating={titan.value_rating} unitType="titan" align="right" />

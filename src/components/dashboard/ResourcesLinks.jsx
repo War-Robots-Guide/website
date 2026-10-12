@@ -49,14 +49,14 @@ export function ResourcesLinks() {
   return (
     <div className="glass-panel resources-panel" style={{ padding: '20px', marginTop: '20px' }}>
       <h3 style={{ fontSize: '18px', display: 'flex', alignItems: 'center', gap: '8px', margin: '0 0 16px 0', color: '#fff' }}>
-        <img src="/icons/blackmarket_gold.png" alt="" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+        <img src="/icons/blackmarket_gold.png" alt="" className="icon-22" />
         Resources & Guides
       </h3>
       <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', margin: '0 0 16px 0', lineHeight: 1.5 }}>
         Explore the official spreadsheets and documentation powering this site.
       </p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <div className="stack-10">
         {resources.map((res, idx) => {
           const Icon = res.icon;
           return (
@@ -93,7 +93,7 @@ export function ResourcesLinks() {
                 }}>
                   <Icon size={16} />
                 </div>
-                <div style={{ minWidth: 0 }}>
+                <div className="shrinkable">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <span style={{ fontSize: '13px', fontWeight: 600, color: '#fff', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
                       {res.title}

@@ -20,7 +20,7 @@ export function RatingBar({ rating, align = 'left' }) {
       width: '110px',
       marginLeft: align === 'right' ? 'auto' : '0'
     }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="row-between">
         <span style={{ fontSize: '11px', fontWeight: 700, color: getRatingColor(rating) }}>
           {getRatingLabel(rating)}
         </span>

@@ -1,3 +1,4 @@
+import { PageHero } from '../common/PageHero';
 import { useState, useMemo } from 'react';
 import { HangarSelectorModal } from './HangarSelectorModal';
 import { getTierForName } from '../../utils/tierLookup';
@@ -141,12 +142,9 @@ export function HangarAnalyzerTab() {
 
   return (
     <div className="animate-fade-in text-left">
-      <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Hangar Analyzer</h2>
-        <p style={{ margin: '0 auto' }}>
-          Get a general idea of how strong your hangar is.
-        </p>
-      </div>
+      <PageHero title="Hangar Analyzer">
+        Get a general idea of how strong your hangar is.
+      </PageHero>
 
       {/* Slots grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '16px', marginBottom: '24px' }}>

@@ -40,6 +40,6 @@ describe('DashboardHero Component', () => {
     const highlightedText = screen.getByText(/War Robots Guide/i);
     expect(highlightedText).toBeInTheDocument();
     expect(highlightedText.tagName).toBe('SPAN');
-    expect(highlightedText.style.fontWeight).not.toBe('');
+    expect(highlightedText).toHaveStyle({ fontWeight: '600' });
   });
 });

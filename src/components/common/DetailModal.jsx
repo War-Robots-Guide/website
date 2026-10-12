@@ -188,7 +188,7 @@ export function DetailModal({ selectedItem, onClose }) {
             >
               {selectedItem.type === 'Specialization' ? (selectedItem.data?.isTitan ? 'Titan Specialization' : 'Robot Specialization') : selectedItem.type}
             </span>
-            <h3 id="modal-title" style={{ fontSize: '22px' }}>{selectedItem.name}</h3>
+            <h3 id="modal-title" className="modal-title">{selectedItem.name}</h3>
           </div>
           <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
             <X size={20} />
@@ -247,25 +247,25 @@ export function DetailModal({ selectedItem, onClose }) {
                     <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--cyan)' }}>{dpsInfo.name}</span>
                   </div>
                   <div>
-                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>BURST DPS</span>
-                    <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--cyan)' }}>
+                    <span className="detail-field-caption">BURST DPS</span>
+                    <span className="detail-stat-value">
                       {parseFloat(dpsInfo.burst_dps) ? Math.round(parseFloat(dpsInfo.burst_dps)).toLocaleString() : dpsInfo.burst_dps}
                     </span>
                   </div>
                   <div>
-                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>CYCLE DPS</span>
-                    <span style={{ fontSize: '16px', fontWeight: 700, color: 'var(--cyan)' }}>
+                    <span className="detail-field-caption">CYCLE DPS</span>
+                    <span className="detail-stat-value">
                       {parseFloat(dpsInfo.cycle_dps) ? Math.round(parseFloat(dpsInfo.cycle_dps)).toLocaleString() : dpsInfo.cycle_dps}
                     </span>
                   </div>
                   <div>
-                    <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>RANGE</span>
+                    <span className="detail-field-caption">RANGE</span>
                     <span style={{ fontSize: '14px', fontWeight: 600 }}>{dpsInfo.range}</span>
                   </div>
                   {dpsInfo.notes && (
                     <div style={{ gridColumn: 'span 2', marginTop: '8px' }}>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block' }}>DPS CALC NOTES</span>
-                      <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.4 }}>{dpsInfo.notes}</p>
+                      <span className="detail-field-caption">DPS CALC NOTES</span>
+                      <p className="guide-note-text">{dpsInfo.notes}</p>
                     </div>
                   )}
                 </>
@@ -275,17 +275,17 @@ export function DetailModal({ selectedItem, onClose }) {
 
           {/* For robots */}
           {selectedItem.type === 'Robots' && (
-            <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
+            <div className="detail-section">
               {rob ? (
                 <>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <div className="detail-summary-row">
                     <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
+                      <span className="detail-field-label">Value rating</span>
                       <RatingBar rating={rob.value_rating} unitType="robot" />
                     </div>
                     {tier && (
                       <div>
-                        <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Tier</span>
+                        <span className="detail-field-label">Tier</span>
                         <span className={`tier-badge-${tier.toLowerCase()}`} style={{ 
                           display: 'inline-flex', 
                           padding: '2px 8px', 
@@ -301,14 +301,14 @@ export function DetailModal({ selectedItem, onClose }) {
                       </div>
                     )}
                     <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Class:</span>
+                      <span className="detail-field-label">Class:</span>
                       <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(6, 182, 212, 0.1)', color: 'var(--cyan)', borderColor: 'rgba(6, 182, 212, 0.2)', marginTop: '4px' }}>Robot</span>
                     </div>
                   </div>
                   {rob.roles && rob.roles.length > 0 && (
-                    <div style={{ marginBottom: '16px' }}>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Roles</span>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    <div className="space-below-16">
+                      <span className="detail-role-label">Roles</span>
+                      <div className="detail-role-list">
                         {rob.roles.map(role => {
                           if (role.type === 'none') return null;
                           const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
@@ -316,25 +316,24 @@ export function DetailModal({ selectedItem, onClose }) {
                           return (
                             <span
                               key={role.role}
-                              className={`role-badge ${role.type}`}
-                              style={{ display: 'inline-flex', padding: '2px 8px', alignItems: 'center', gap: '5px' }}
+                              className={`detail-role-badge role-badge ${role.type}`}
                               title={tooltipText}
                             >
-                              {roleIcon && <img src={roleIcon} alt="" style={{ width: '13px', height: '13px', objectFit: 'contain' }} />}
+                              {roleIcon && <img src={roleIcon} alt="" className="icon-13" />}
                               {role.role}
-                              {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>{role.footnote}</sup>}
+                              {role.footnote && <sup className="detail-footnote">{role.footnote}</sup>}
                             </span>
                           );
                         })}
                       </div>
                       {rob.roles.some(r => r.footnote) && (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '8px' }}>
+                        <div className="detail-role-notes">
                           {rob.roles
                             .filter(r => r.footnote)
                             .map(r => {
                               const fText = getFootnoteText(r.footnote, robotGuideData?.footnotes);
                               return (
-                                <span key={r.role} style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.3 }}>
+                                <span key={r.role} className="detail-role-note">
                                   {r.footnote} {fText.replace(/^\*+/, '').trim()}
                                 </span>
                               );
@@ -343,8 +342,8 @@ export function DetailModal({ selectedItem, onClose }) {
                       )}
                     </div>
                   )}
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
-                  <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
+                  <span className="detail-ratings-label">Attribute ratings</span>
+                  <div className="robot-scores detail-ratings" >
                     <ScoreMeter label="Longevity" score={rob.scores.longevity} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Lethality" score={rob.scores.lethality} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Mobility" score={rob.scores.mobility} options={{ min: 0, max: 10 }} />
@@ -359,17 +358,17 @@ export function DetailModal({ selectedItem, onClose }) {
 
           {/* For titans */}
           {selectedItem.type === 'Titans' && (
-            <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
+            <div className="detail-section">
               {titan ? (
                 <>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <div className="detail-summary-row">
                     <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Value rating</span>
+                      <span className="detail-field-label">Value rating</span>
                       <RatingBar rating={titan.value_rating} unitType="titan" />
                     </div>
                     {tier && (
                       <div>
-                        <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Tier</span>
+                        <span className="detail-field-label">Tier</span>
                         <span className={`tier-badge-${tier.toLowerCase()}`} style={{ 
                           display: 'inline-flex', 
                           padding: '2px 8px', 
@@ -385,14 +384,14 @@ export function DetailModal({ selectedItem, onClose }) {
                       </div>
                     )}
                     <div>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Class:</span>
+                      <span className="detail-field-label">Class:</span>
                       <span className="role-badge" style={{ display: 'inline-flex', padding: '2px 8px', background: 'rgba(59, 130, 246, 0.1)', color: 'var(--purple)', borderColor: 'rgba(59, 130, 246, 0.2)', marginTop: '4px' }}>Titan</span>
                     </div>
                   </div>
                   {titan.roles && titan.roles.length > 0 && (
-                    <div style={{ marginBottom: '16px' }}>
-                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>Roles</span>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    <div className="space-below-16">
+                      <span className="detail-role-label">Roles</span>
+                      <div className="detail-role-list">
                         {titan.roles.map(role => {
                           if (role.type === 'none') return null;
                           const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
@@ -400,25 +399,24 @@ export function DetailModal({ selectedItem, onClose }) {
                           return (
                             <span
                               key={role.role}
-                              className={`role-badge ${role.type}`}
-                              style={{ display: 'inline-flex', padding: '2px 8px', alignItems: 'center', gap: '5px' }}
+                              className={`detail-role-badge role-badge ${role.type}`}
                               title={tooltipText}
                             >
-                              {roleIcon && <img src={roleIcon} alt="" style={{ width: '13px', height: '13px', objectFit: 'contain' }} />}
+                              {roleIcon && <img src={roleIcon} alt="" className="icon-13" />}
                               {role.role}
-                              {role.footnote && <sup style={{ color: 'var(--text-muted)', marginLeft: '2px' }}>{role.footnote}</sup>}
+                              {role.footnote && <sup className="detail-footnote">{role.footnote}</sup>}
                             </span>
                           );
                         })}
                       </div>
                       {titan.roles.some(r => r.footnote) && (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '8px' }}>
+                        <div className="detail-role-notes">
                           {titan.roles
                             .filter(r => r.footnote)
                             .map(r => {
                               const fText = getFootnoteText(r.footnote, robotGuideData?.footnotes);
                               return (
-                                <span key={r.role} style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontStyle: 'italic', lineHeight: 1.3 }}>
+                                <span key={r.role} className="detail-role-note">
                                   {r.footnote} {fText.replace(/^\*+/, '').trim()}
                                 </span>
                               );
@@ -427,8 +425,8 @@ export function DetailModal({ selectedItem, onClose }) {
                       )}
                     </div>
                   )}
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '8px' }}>Attribute ratings</span>
-                  <div className="robot-scores" style={{ border: 'none', padding: 0, margin: 0 }}>
+                  <span className="detail-ratings-label">Attribute ratings</span>
+                  <div className="robot-scores detail-ratings" >
                     <ScoreMeter label="Longevity" score={titan.scores.longevity} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Lethality" score={titan.scores.lethality} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Mobility" score={titan.scores.mobility} options={{ min: 0, max: 10 }} />
@@ -443,15 +441,15 @@ export function DetailModal({ selectedItem, onClose }) {
 
           {/* For specializations */}
           {selectedItem.type === 'Specialization' && selectedItem.data?.slots && (
-            <div style={{ borderTop: '1px solid var(--border-light)', paddingTop: '16px' }}>
+            <div className="detail-section">
               <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '12px', textTransform: 'uppercase' }}>
                 Recommended Slots:
               </span>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div className="stack-12">
                 {selectedItem.data.slots.map((slot, slidx) => (
                   <div className="spec-slot-box" key={slidx} style={{ marginTop: '0px' }}>
                     <div className="spec-slot-title" style={{ color: selectedItem.data.isTitan ? 'var(--purple)' : 'var(--cyan)' }}>
-                      <img src="/icons/module_old_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+                      <img src="/icons/module_old_gold.png" alt="" className="icon-18" />
                       {slot.name}
                     </div>
                     <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: '4px 0 0 0' }}>

@@ -1,3 +1,4 @@
+import { PageHero } from '../common/PageHero';
 import { useState, useMemo } from 'react';
 import specializationsData from '../../data/specializations.json';
 import { specTree } from './specTree';
@@ -55,12 +56,9 @@ export function SpecializationsTab({ onItemClick }) {
 
   return (
     <div className="animate-fade-in text-left">
-      <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Specializations Guide</h2>
-        <p style={{ margin: '0 auto' }}>
-          Find optimal module specializations and synergies for your robots and titans.
-        </p>
-      </div>
+      <PageHero title="Specializations Guide">
+        Find optimal module specializations and synergies for your robots and titans.
+      </PageHero>
 
       {/* View Switcher Pills */}
       <SlidingTabPills
@@ -97,7 +95,7 @@ export function SpecializationsTab({ onItemClick }) {
                 Start
               </button>
               {specPath.map((step, idx) => (
-                <span key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span key={idx} className="row-center-8">
                   <span style={{ color: 'var(--text-muted)' }}>&gt;</span>
                   <button 
                     style={{ 
@@ -121,7 +119,7 @@ export function SpecializationsTab({ onItemClick }) {
               /* Render Result with Module Images */
               <div className={`spec-finder-result ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
                 <div className={`spec-result-title ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`}>
-                  <img src="/icons/role_sniper_top.png" alt="" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
+                  <img src="/icons/role_sniper_top.png" alt="" className="icon-26" />
                   Recommended Specialization: {currentSpecNode.result.specialization}
                 </div>
                 <div className="spec-result-path">
@@ -147,7 +145,7 @@ export function SpecializationsTab({ onItemClick }) {
                           {modImg ? (
                             <img src={modImg} alt="" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
                           ) : (
-                            <img src="/icons/module_old_gold.png" alt="" style={{ width: '22px', height: '22px', objectFit: 'contain' }} />
+                            <img src="/icons/module_old_gold.png" alt="" className="icon-22" />
                           )}
                         </div>
                         <div className={`spec-result-slot-title ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`} style={{ margin: 0, fontSize: '13px' }}>
@@ -160,7 +158,7 @@ export function SpecializationsTab({ onItemClick }) {
 
                 <div style={{ display: 'flex', gap: '10px', marginTop: '16px' }}>
                   <button className="spec-reset-btn" onClick={() => setSpecPath([])}>
-                    <img src="/icons/time_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+                    <img src="/icons/time_gold.png" alt="" className="icon-18" />
                     Reset
                   </button>
                   <button
@@ -259,7 +257,7 @@ export function SpecializationsTab({ onItemClick }) {
                       return (
                         <div className="spec-slot-box" key={slidx} style={{ padding: '12px' }}>
                           <div className="spec-slot-title" style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
-                            <img src="/icons/module_old_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+                            <img src="/icons/module_old_gold.png" alt="" className="icon-18" />
                             <span>{slot.name}</span>
                           </div>
 
@@ -282,7 +280,7 @@ export function SpecializationsTab({ onItemClick }) {
                                     }}
                                   >
                                     {mImg && (
-                                      <img src={mImg} alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+                                      <img src={mImg} alt="" className="icon-18" />
                                     )}
                                     <span style={{ fontSize: '11px', fontWeight: 600, color: '#fff' }}>
                                       {mName}

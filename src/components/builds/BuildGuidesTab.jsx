@@ -1,3 +1,4 @@
+import { PageHero } from '../common/PageHero';
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { sortBySearchQuery } from '../../utils/sortUtils';
@@ -93,12 +94,9 @@ export function BuildGuidesTab() {
 
   return (
     <div className="animate-fade-in text-left">
-      <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Robot Build Guides</h2>
-        <p style={{ margin: '0 auto' }}>
-          Explore optimal weapons, specializations, pilots, and drones for top robots. Click any build to view detailed visual setups.
-        </p>
-      </div>
+      <PageHero title="Robot Build Guides">
+        Explore optimal weapons, specializations, pilots, and drones for top robots. Click any build to view detailed visual setups.
+      </PageHero>
 
       {/* Search builds */}
       <div className="search-container">
@@ -182,19 +180,11 @@ export function BuildGuidesTab() {
 
               {/* Top Header: Inverted Hierarchy - Robot Name is the prominent name, Build name is the tag, RatingBar in top right */}
               <div
-                style={{
-                  position: 'relative',
-                  zIndex: 2,
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                  gap: '12px',
-                  width: '100%',
-                }}
+                className="image-card-header"
               >
                 <div>
                   {/* Robot Name (Prominent Header) */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                  <div className="card-title-row">
                     <h3
                       className="spec-class-tag"
                       style={{
@@ -232,17 +222,7 @@ export function BuildGuidesTab() {
 
                     {build.is_ultimate && (
                       <span
-                        style={{
-                          fontSize: '10px',
-                          fontWeight: 800,
-                          padding: '2px 6px',
-                          borderRadius: '4px',
-                          background: 'rgba(234, 179, 8, 0.2)',
-                          color: '#fbbf24',
-                          border: '1px solid rgba(234, 179, 8, 0.4)',
-                          textTransform: 'uppercase',
-                          lineHeight: 1,
-                        }}
+                        className="ultimate-badge"
                       >
                         Ultimate
                       </span>
@@ -268,8 +248,8 @@ export function BuildGuidesTab() {
                 </div>
 
                 {/* Top Right: Value Rating Bar without big box */}
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
-                  <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '2px' }}>
+                <div className="image-card-rating">
+                  <span className="image-card-rating-label">
                     VALUE RATING
                   </span>
                   <RatingBar rating={valueRating} unitType="robot" align="right" />
@@ -279,8 +259,8 @@ export function BuildGuidesTab() {
               {/* Screen reader content for testing and accessibility */}
               <div className="sr-only">
                 <span>{build.parsed_pilot}</span>
-                <span style={{ whiteSpace: 'pre-line' }}>{build.best_weapons}</span>
-                <span style={{ whiteSpace: 'pre-line' }}>{build.f2p_weapons}</span>
+                <span className="multiline-text">{build.best_weapons}</span>
+                <span className="multiline-text">{build.f2p_weapons}</span>
                 <span>{build.explanation}</span>
               </div>
             </div>
@@ -295,7 +275,7 @@ export function BuildGuidesTab() {
 
       {/* UE Weapon Index Reference Legend */}
       {robotGuideData?.ue_weapon_index && Object.keys(robotGuideData.ue_weapon_index).length > 0 && (
-        <div className="glass-panel" style={{ marginTop: '28px', padding: '18px 22px' }}>
+        <div className="glass-panel guide-note" >
           <h4 style={{ fontSize: '13px', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '8px', fontWeight: 600, letterSpacing: '0.05em' }}>
             UE (Ultimate Edition) Weapon Index
           </h4>

@@ -1,0 +1,651 @@
+/* Shared presentation for pages, cards, modals, and repeated layout patterns.
+ * Keep data-dependent values inline; reuse these classes for static styling.
+ * Selectors include existing component classes where needed to preserve overrides.
+ */
+
+.javascript-required {
+  padding: 24px;
+  text-align: center;
+  color: #fff;
+  background: #0a0e17;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-hero.hero-banner {
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.page-hero > h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.page-hero > p {
+  margin: 0 auto;
+}
+
+.icon-18 {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.icon-26 {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.icon-36 {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.detail-field-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.tier-tag-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.tier-tag-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.build-detail-panel {
+  background: rgba(10, 14, 23, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.image-card-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.image-card-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.detail-field-caption {
+  font-size: 10px;
+  color: var(--text-muted);
+  display: block;
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating-caption {
+  font-size: 9px;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.icon-12 {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+}
+
+.row-center-8 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.build-equipment-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ultimate-badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(234, 179, 8, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(234, 179, 8, 0.4);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.image-card-rating-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.detail-section {
+  border-top: 1px solid var(--border-light);
+  padding-top: 16px;
+}
+
+.space-below-16 {
+  margin-bottom: 16px;
+}
+
+.stack-12 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.text-semibold {
+  font-weight: 600;
+}
+
+.stack-16,
+.modal-body.stack-16 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.weapon-stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.weapon-stat-value {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.weapon-card-stat-label {
+  font-size: 8.5px;
+  color: var(--text-muted);
+  display: block;
+  font-weight: 600;
+}
+
+.weapon-card-stat-value {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.modal-header.modal-layer-header {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 16px;
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.modal-body.modal-layer-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.build-equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.build-equipment-panel {
+  background: rgba(10, 14, 23, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.build-equipment-heading {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.row-center-14 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.shrinkable {
+  min-width: 0;
+}
+
+.stack-10 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.equipment-image-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.panel-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.equipment-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.icon-20 {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.multiline-text {
+  white-space: pre-line;
+}
+
+.glass-panel.guide-note {
+  margin-top: 28px;
+  padding: 18px 22px;
+}
+
+.modal-title {
+  font-size: 22px;
+}
+
+.detail-stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.guide-note-text {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.detail-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.detail-role-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.detail-role-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.role-badge.detail-role-badge {
+  display: inline-flex;
+  padding: 2px 8px;
+  align-items: center;
+  gap: 5px;
+}
+
+.icon-13 {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+}
+
+.detail-footnote {
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+.detail-role-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+.detail-role-note {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.detail-ratings-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.robot-scores.detail-ratings {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-credit-link {
+  cursor: pointer;
+  user-select: none;
+}
+
+.row-center-12 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.community-card-icon.reddit.community-icon-box,
+.community-card-icon.discord.community-icon-box {
+  background: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.community-avatar {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+}
+
+.icon-22 {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.stack-6 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.glass-panel.stack-20,
+.stack-20 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.analysis-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  display: block;
+}
+
+.analysis-copy {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.analysis-section-heading {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 6px;
+}
+
+.row-center-10 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.selector-icon-36 {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.selector-icon-28 {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.selector-name {
+  font-weight: 700;
+  color: #fff;
+}
+
+.selector-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.slot-remove-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot-image-frame {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0 12px 0;
+  overflow: hidden;
+}
+
+.slot-image {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+}
+
+.slot-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  gap: 8px;
+}
+
+.slot-rating {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+  gap: 2px;
+}
+
+.slot-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.role-badge.slot-role-badge {
+  font-size: 10px;
+  padding: 1px 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+}
+
+.slot-role-name {
+  margin-left: 2px;
+}
+
+.slot-empty-roles {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+.slot-empty-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.robot-card-bg-img.unit-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  z-index: 0;
+  filter: brightness(1.15) contrast(1.05);
+  transition: transform 0.3s ease;
+}
+
+.unit-card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 14, 24, 0.5) 0%, rgba(8, 14, 24, 0.05) 45%, rgba(8, 14, 24, 0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.unit-card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.role-badge.main.unit-card-role-badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1;
+}
+
+.unit-card-category {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.weapon-meter-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.weapon-meter-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.weapon-meter-caption {
+  font-size: 10px;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 3px;
+}
+
+.weapon-card-dps-label {
+  font-size: 9.5px;
+  color: var(--text-muted);
+  display: block;
+  font-weight: 600;
+}

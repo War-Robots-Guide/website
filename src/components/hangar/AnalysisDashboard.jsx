@@ -21,15 +21,15 @@ export function AnalysisDashboard({
       {/* Left Panel: Role Strength Profiles */}
       <div className="glass-panel">
         <h3 style={{ fontSize: '20px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cyan)' }}>
-          <img src="/icons/robot_gold.png" alt="" style={{ width: '26px', height: '26px', objectFit: 'contain' }} /> Hangar Roles Profile
+          <img src="/icons/robot_gold.png" alt="" className="icon-26" /> Hangar Roles Profile
         </h3>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div className="stack-16">
           {Object.keys(hangarAnalysis.scores).map(role => {
             const score = hangarAnalysis.scores[role];
             const percentage = Math.min(100, (score / 3.0) * 100);
             const barColor = score >= 1.5 ? 'var(--cyan)' : score >= 0.5 ? '#3b82f6' : 'rgba(255,255,255,0.1)';
             return (
-              <div key={role} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              <div key={role} className="stack-6">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px' }}>
                   <span style={{ fontWeight: 600, color: score > 0 ? '#fff' : 'var(--text-muted)' }}>{role}</span>
                   <span style={{
@@ -59,9 +59,9 @@ export function AnalysisDashboard({
       </div>
 
       {/* Right Panel: Synergy Evaluation & Advice */}
-      <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div className="glass-panel stack-20" >
         <h3 style={{ fontSize: '20px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--purple)' }}>
-          <img src="/icons/hint_operation.png" alt="" style={{ width: '26px', height: '26px', objectFit: 'contain' }} /> Hangar Rating
+          <img src="/icons/hint_operation.png" alt="" className="icon-26" /> Hangar Rating
         </h3>
 
         {/* Alignment Score Badge */}
@@ -92,8 +92,8 @@ export function AnalysisDashboard({
             {hangarAnalysis.corePercent}%
           </div>
           <div>
-            <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', display: 'block' }}>Role Alignment</span>
-            <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#fff', lineHeight: 1.4 }}>
+            <span className="analysis-label">Role Alignment</span>
+            <p className="analysis-copy">
               Core Hangar Role coverage compared to recommended target values.
             </p>
           </div>
@@ -128,8 +128,8 @@ export function AnalysisDashboard({
               {averageTier}
             </div>
             <div>
-              <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', display: 'block' }}>Average Hangar Tier</span>
-              <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: '#fff', lineHeight: 1.4 }}>
+              <span className="analysis-label">Average Hangar Tier</span>
+              <p className="analysis-copy">
                 The average strength tier of active robots and titans in your hangar.
               </p>
             </div>
@@ -137,8 +137,8 @@ export function AnalysisDashboard({
         )}
 
         {/* Core Hangar Roles Profile */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
+        <div className="stack-16">
+          <div className="analysis-section-heading">
             Core Hangar Roles
           </div>
 
@@ -184,7 +184,7 @@ export function AnalysisDashboard({
 
         {/* Additional Hangar Roles */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
-          <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--border-light)', paddingBottom: '6px' }}>
+          <div className="analysis-section-heading">
             Additional Hangar Roles
           </div>
 

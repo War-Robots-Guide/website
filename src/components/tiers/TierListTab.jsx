@@ -1,3 +1,4 @@
+import { PageHero } from '../common/PageHero';
 import { useState, useMemo } from 'react';
 import tiersData from '../../data/tiers.json';
 import robotGuideData from '../../data/robot_guide.json';
@@ -80,12 +81,9 @@ export function TierListTab({ onItemClick }) {
 
   return (
     <div className="animate-fade-in text-left">
-      <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Tier Lists</h2>
-        <p style={{ margin: '0 auto' }}>
-          A power based tier list ranking every unit and item in the game. Click any card to inspect full ratings and rationales.
-        </p>
-      </div>
+      <PageHero title="Tier Lists">
+        A power based tier list ranking every unit and item in the game. Click any card to inspect full ratings and rationales.
+      </PageHero>
 
       {/* Category Select Tab Pills */}
       <SlidingTabPills
@@ -112,7 +110,7 @@ export function TierListTab({ onItemClick }) {
       </div>
 
       {/* Collapsible Tag Descriptions View Above Tier List */}
-      <div style={{ marginBottom: '16px' }}>
+      <div className="space-below-16">
         <button
           type="button"
           onClick={() => setIsTagLegendOpen(prev => !prev)}
@@ -162,24 +160,24 @@ export function TierListTab({ onItemClick }) {
               lineHeight: 1.5,
             }}
           >
-            <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-              <span style={{ fontSize: '16px', flexShrink: 0 }}>👥</span>
+            <div className="tier-tag-row">
+              <span className="tier-tag-icon">👥</span>
               <span><strong>[👥] Squad Play:</strong> Items that are being ranked due to their potential in squad play. For solo matches, they go down one.</span>
             </div>
-            <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-              <span style={{ fontSize: '16px', flexShrink: 0 }}>‼️</span>
+            <div className="tier-tag-row">
+              <span className="tier-tag-icon">‼️</span>
               <span><strong>[‼️] Specific Build:</strong> Items that require an incredibly specific build in order to perform at the tier they are ranked at. Read the rationale for these items to learn what build is high tier. Generally, these items are much lower tier than shown if not used with that specific build.</span>
             </div>
-            <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-              <span style={{ fontSize: '16px', flexShrink: 0 }}>⬆️</span>
+            <div className="tier-tag-row">
+              <span className="tier-tag-icon">⬆️</span>
               <span><strong>[⬆️] Meta Overperformer:</strong> Items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances. Read the rationale for these items for more info.</span>
             </div>
-            <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-              <span style={{ fontSize: '16px', flexShrink: 0 }}>⬇️</span>
+            <div className="tier-tag-row">
+              <span className="tier-tag-icon">⬇️</span>
               <span><strong>[⬇️] Meta Underperformer:</strong> Items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances. Read the rationale for these items for more info.</span>
             </div>
-            <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-              <span style={{ fontSize: '16px', flexShrink: 0 }}>👁️</span>
+            <div className="tier-tag-row">
+              <span className="tier-tag-icon">👁️</span>
               <span><strong>[👁️] Meta Definer:</strong> Items so powerful that the meta is being bent around them. [⬆️] and [⬇️] tags are based on these.</span>
             </div>
           </div>

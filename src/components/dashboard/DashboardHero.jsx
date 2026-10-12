@@ -11,7 +11,7 @@ export function DashboardHero() {
           Welcome to the WRG Database!
         </h1>
         <p className="dashboard-hero-desc">
-          Welcome to the database compiled by the expert community at <span style={{ fontWeight: 600 }}>War Robots Guide</span>.
+          Welcome to the database compiled by the expert community at <span className="text-semibold">War Robots Guide</span>.
           Navigate to the top of the site to browse our extensive collection of helpful resources!
         </p>
       </div>

@@ -15,14 +15,14 @@ export function Footer({ onDeveloperClick, onAdazahiClick }) {
         War Robots Guide Website. Compiled by{' '}
         <span 
           onClick={onAdazahiClick} 
-          style={{ cursor: 'pointer', userSelect: 'none' }}
+          className="footer-credit-link"
         >
           Adazahi
         </span>
         , Spiritings, Tropical, Mistermath314, and Running Riot. Developed by{' '}
         <span 
           onClick={onDeveloperClick} 
-          style={{ cursor: 'pointer', userSelect: 'none' }}
+          className="footer-credit-link"
         >
           CrimsonHawk
         </span>

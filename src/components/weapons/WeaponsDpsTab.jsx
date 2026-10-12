@@ -1,3 +1,4 @@
+import { PageHero } from '../common/PageHero';
 import { useState, useMemo, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Zap, RotateCw } from 'lucide-react';
@@ -57,7 +58,7 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="modal-header" style={{ position: 'relative', zIndex: 1, paddingBottom: '16px' }}>
+        <div className="modal-header modal-layer-header" >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
               <span
@@ -84,7 +85,7 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
           </button>
         </div>
 
-        <div className="modal-body" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div className="modal-body modal-layer-body" >
           
           {/* Centered Large Weapon Image */}
           <div
@@ -128,26 +129,26 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
             }}
           >
             <div>
-              <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>
+              <span className="weapon-stat-label">
                 Range
               </span>
-              <span style={{ fontSize: '14px', fontWeight: 800, color: '#fff' }}>
+              <span className="weapon-stat-value">
                 {weapon.range || '—'}
               </span>
             </div>
             <div>
-              <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>
+              <span className="weapon-stat-label">
                 Unload
               </span>
-              <span style={{ fontSize: '14px', fontWeight: 800, color: '#fff' }}>
+              <span className="weapon-stat-value">
                 {weapon.unload || '—'}
               </span>
             </div>
             <div>
-              <span style={{ fontSize: '10px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', display: 'block', marginBottom: '2px' }}>
+              <span className="weapon-stat-label">
                 Reload
               </span>
-              <span style={{ fontSize: '14px', fontWeight: 800, color: '#fff' }}>
+              <span className="weapon-stat-value">
                 {weapon.reload || '—'}
               </span>
             </div>
@@ -167,7 +168,7 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
           >
             {/* Burst DPS */}
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+              <div className="weapon-meter-heading">
                 <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--cyan)', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Zap size={14} /> Burst DPS
                 </span>
@@ -175,7 +176,7 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
                   {weapon.burstNum > 0 ? Math.round(weapon.burstNum).toLocaleString() : weapon.burst_dps}
                 </span>
               </div>
-              <div style={{ height: '8px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '4px', overflow: 'hidden' }}>
+              <div className="weapon-meter-track">
                 <div
                   style={{
                     height: '100%',
@@ -186,14 +187,14 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
                   }}
                 />
               </div>
-              <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginTop: '3px' }}>
+              <span className="weapon-meter-caption">
                 {Math.round(burstPercent)}% of class max ({Math.round(maxStats.maxBurst).toLocaleString()})
               </span>
             </div>
 
             {/* Cycle DPS */}
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+              <div className="weapon-meter-heading">
                 <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--purple)', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <RotateCw size={14} /> Cycle DPS
                 </span>
@@ -201,7 +202,7 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
                   {weapon.cycleNum > 0 ? Math.round(weapon.cycleNum).toLocaleString() : weapon.cycle_dps}
                 </span>
               </div>
-              <div style={{ height: '8px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '4px', overflow: 'hidden' }}>
+              <div className="weapon-meter-track">
                 <div
                   style={{
                     height: '100%',
@@ -212,7 +213,7 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
                   }}
                 />
               </div>
-              <span style={{ fontSize: '10px', color: 'var(--text-muted)', display: 'block', marginTop: '3px' }}>
+              <span className="weapon-meter-caption">
                 {Math.round(cyclePercent)}% of class max ({Math.round(maxStats.maxCycle).toLocaleString()})
               </span>
             </div>
@@ -294,12 +295,9 @@ export function WeaponsDpsTab() {
 
   return (
     <div className="animate-fade-in text-left">
-      <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Weapon DPS Visualizer</h2>
-        <p style={{ margin: '0 auto' }}>
-          Explore damage output and engagement stats for weapons across all weight classes. Click any weapon card to view DPS analytics and notes.
-        </p>
-      </div>
+      <PageHero title="Weapon DPS Visualizer">
+        Explore damage output and engagement stats for weapons across all weight classes. Click any weapon card to view DPS analytics and notes.
+      </PageHero>
 
       <div className="weapons-tab-container">
         {/* Weapon Class Pills */}
@@ -459,15 +457,15 @@ export function WeaponsDpsTab() {
                     gap: '6px',
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div className="row-between">
                     <div>
-                      <span style={{ fontSize: '9.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>BURST</span>
+                      <span className="weapon-card-dps-label">BURST</span>
                       <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cyan)' }}>
                         {weapon.burstNum > 0 ? Math.round(weapon.burstNum).toLocaleString() : weapon.burst_dps}
                       </span>
                     </div>
                     <div style={{ textAlign: 'right' }}>
-                      <span style={{ fontSize: '9.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>CYCLE</span>
+                      <span className="weapon-card-dps-label">CYCLE</span>
                       <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--purple)' }}>
                         {weapon.cycleNum > 0 ? Math.round(weapon.cycleNum).toLocaleString() : weapon.cycle_dps}
                       </span>
@@ -486,16 +484,16 @@ export function WeaponsDpsTab() {
                     }}
                   >
                     <div>
-                      <span style={{ fontSize: '8.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>RANGE</span>
-                      <span style={{ fontSize: '10.5px', fontWeight: 700, color: '#fff' }}>{weapon.range || '—'}</span>
+                      <span className="weapon-card-stat-label">RANGE</span>
+                      <span className="weapon-card-stat-value">{weapon.range || '—'}</span>
                     </div>
                     <div>
-                      <span style={{ fontSize: '8.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>UNLOAD</span>
-                      <span style={{ fontSize: '10.5px', fontWeight: 700, color: '#fff' }}>{weapon.unload || '—'}</span>
+                      <span className="weapon-card-stat-label">UNLOAD</span>
+                      <span className="weapon-card-stat-value">{weapon.unload || '—'}</span>
                     </div>
                     <div>
-                      <span style={{ fontSize: '8.5px', color: 'var(--text-muted)', display: 'block', fontWeight: 600 }}>RELOAD</span>
-                      <span style={{ fontSize: '10.5px', fontWeight: 700, color: '#fff' }}>{weapon.reload || '—'}</span>
+                      <span className="weapon-card-stat-label">RELOAD</span>
+                      <span className="weapon-card-stat-value">{weapon.reload || '—'}</span>
                     </div>
                   </div>
                 </div>

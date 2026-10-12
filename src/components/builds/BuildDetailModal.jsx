@@ -134,9 +134,9 @@ export function BuildDetailModal({ build, onClose }) {
         )}
 
         {/* Modal Header */}
-        <div className="modal-header" style={{ position: 'relative', zIndex: 1, paddingBottom: '16px' }}>
+        <div className="modal-header modal-layer-header" >
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
+            <div className="card-title-row">
               <h2 id="modal-title" style={{ fontSize: '24px', fontWeight: 800, color: '#fff', margin: 0 }}>
                 {build.robot}
               </h2>
@@ -175,7 +175,7 @@ export function BuildDetailModal({ build, onClose }) {
               )}
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div className="row-center-8">
               <span
                 style={{
                   fontSize: '13px',
@@ -197,48 +197,28 @@ export function BuildDetailModal({ build, onClose }) {
         </div>
 
         {/* Modal Body */}
-        <div className="modal-body" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div className="modal-body modal-layer-body" >
           
           {/* Top Gear Cards Grid (Pilot, Drone, Specialization) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '14px' }}>
+          <div className="build-equipment-grid">
             
             {/* Pilot Card */}
             <div
-              style={{
-                background: 'rgba(10, 14, 23, 0.65)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid var(--border-light)',
-                borderRadius: '12px',
-                padding: '16px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '12px',
-              }}
+              className="build-equipment-panel"
             >
-              <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <img src="/icons/pilot_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+              <span className="build-equipment-heading">
+                <img src="/icons/pilot_gold.png" alt="" className="icon-18" />
                 Pilot Option
               </span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                <div style={{
-                  width: '64px',
-                  height: '64px',
-                  borderRadius: '10px',
-                  overflow: 'hidden',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid var(--border-light)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}>
+              <div className="row-center-14">
+                <div className="build-equipment-image">
                   {pilotImage ? (
                     <img src={pilotImage} alt={build.parsed_pilot} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   ) : (
-                    <img src="/icons/pilot_gold.png" alt="" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
+                    <img src="/icons/pilot_gold.png" alt="" className="icon-36" />
                   )}
                 </div>
-                <div style={{ minWidth: 0 }}>
+                <div className="shrinkable">
                   <div style={{ fontSize: '14px', fontWeight: 700, color: '#fff', lineHeight: 1.3 }}>
                     {build.parsed_pilot || 'Standard / Any'}
                   </div>
@@ -248,43 +228,23 @@ export function BuildDetailModal({ build, onClose }) {
 
             {/* Drone Card */}
             <div
-              style={{
-                background: 'rgba(10, 14, 23, 0.65)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid var(--border-light)',
-                borderRadius: '12px',
-                padding: '16px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '12px',
-              }}
+              className="build-equipment-panel"
             >
-              <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <img src="/icons/drone_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+              <span className="build-equipment-heading">
+                <img src="/icons/drone_gold.png" alt="" className="icon-18" />
                 Drone Options
               </span>
               {droneList.length > 0 ? (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div className="stack-10">
                   {droneList.map((dLine, idx) => {
                     const droneImg = getDroneImage(dLine);
                     return (
-                      <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                        <div style={{
-                          width: '64px',
-                          height: '64px',
-                          borderRadius: '10px',
-                          overflow: 'hidden',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          border: '1px solid var(--border-light)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0,
-                        }}>
+                      <div key={idx} className="row-center-14">
+                        <div className="build-equipment-image">
                           {droneImg ? (
-                            <img src={droneImg} alt={dLine} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                            <img src={droneImg} alt={dLine} className="equipment-image-fit" />
                           ) : (
-                            <img src="/icons/drone_gold.png" alt="" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
+                            <img src="/icons/drone_gold.png" alt="" className="icon-36" />
                           )}
                         </div>
                         <span style={{ fontSize: '13.5px', color: '#fff', fontWeight: 700 }}>
@@ -303,16 +263,10 @@ export function BuildDetailModal({ build, onClose }) {
 
           {/* Specializations & Modules Section */}
           <div
-            style={{
-              background: 'rgba(10, 14, 23, 0.65)',
-              backdropFilter: 'blur(8px)',
-              border: '1px solid var(--border-light)',
-              borderRadius: '12px',
-              padding: '16px',
-            }}
+            className="build-detail-panel"
           >
             <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-              <img src="/icons/module_old_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+              <img src="/icons/module_old_gold.png" alt="" className="icon-18" />
               Specialization & Recommended Modules
             </span>
 
@@ -335,23 +289,12 @@ export function BuildDetailModal({ build, onClose }) {
                       }}
                     >
                       <div
-                        style={{
-                          width: '64px',
-                          height: '64px',
-                          borderRadius: '10px',
-                          overflow: 'hidden',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          border: '1px solid var(--border-light)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0,
-                        }}
+                        className="build-equipment-image"
                       >
                         {modImg ? (
-                          <img src={modImg} alt={modName} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                          <img src={modImg} alt={modName} className="equipment-image-fit" />
                         ) : (
-                          <img src="/icons/module_old_gold.png" alt="" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
+                          <img src="/icons/module_old_gold.png" alt="" className="icon-36" />
                         )}
                       </div>
                       <span style={{ fontSize: '13px', fontWeight: 700, color: '#fff' }}>
@@ -369,20 +312,14 @@ export function BuildDetailModal({ build, onClose }) {
           </div>
 
           {/* Weapon Options (F2P and Meta Setups) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '14px' }}>
+          <div className="build-equipment-grid">
             
             {/* F2P Setups */}
             <div
-              style={{
-                background: 'rgba(10, 14, 23, 0.65)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid var(--border-light)',
-                borderRadius: '12px',
-                padding: '16px',
-              }}
+              className="build-detail-panel"
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                <img src="/icons/weapon_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+              <div className="panel-heading-row">
+                <img src="/icons/weapon_gold.png" alt="" className="icon-18" />
                 <span style={{ fontSize: '11px', fontWeight: 700, color: '#22c55e', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   F2P Setups
                 </span>
@@ -401,7 +338,7 @@ export function BuildDetailModal({ build, onClose }) {
                   {build.f2p_weapons}
                 </div>
               ) : (
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                <div className="equipment-tags">
                   {f2pWeaponList.map((w, idx) => {
                     const wImg = getWeaponImage(w);
                     return (
@@ -418,9 +355,9 @@ export function BuildDetailModal({ build, onClose }) {
                         }}
                       >
                         {wImg ? (
-                          <img src={wImg} alt={w} style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
+                          <img src={wImg} alt={w} className="icon-26" />
                         ) : (
-                          <img src="/icons/weapon_gold.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+                          <img src="/icons/weapon_gold.png" alt="" className="icon-20" />
                         )}
                         <span style={{ fontSize: '12px', fontWeight: 600, color: '#fff' }}>
                           {w}
@@ -434,22 +371,16 @@ export function BuildDetailModal({ build, onClose }) {
 
             {/* Meta Setups */}
             <div
-              style={{
-                background: 'rgba(10, 14, 23, 0.65)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid var(--border-light)',
-                borderRadius: '12px',
-                padding: '16px',
-              }}
+              className="build-detail-panel"
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                <img src="/icons/weapon_gold.png" alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+              <div className="panel-heading-row">
+                <img src="/icons/weapon_gold.png" alt="" className="icon-18" />
                 <span style={{ fontSize: '11px', fontWeight: 700, color: '#fbbf24', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Meta Setups
                 </span>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+              <div className="equipment-tags">
                 {metaWeaponList.map((w, idx) => {
                   const wImg = getWeaponImage(w);
                   return (
@@ -466,9 +397,9 @@ export function BuildDetailModal({ build, onClose }) {
                       }}
                     >
                       {wImg ? (
-                        <img src={wImg} alt={w} style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
+                        <img src={wImg} alt={w} className="icon-26" />
                       ) : (
-                        <img src="/icons/weapon_gold.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />
+                        <img src="/icons/weapon_gold.png" alt="" className="icon-20" />
                       )}
                       <span style={{ fontSize: '12px', fontWeight: 600, color: '#fbbf24' }}>
                         {w}
@@ -484,13 +415,7 @@ export function BuildDetailModal({ build, onClose }) {
           {/* Description */}
           {build.explanation && (
             <div
-              style={{
-                background: 'rgba(10, 14, 23, 0.65)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid var(--border-light)',
-                borderRadius: '12px',
-                padding: '16px',
-              }}
+              className="build-detail-panel"
             >
               <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '8px' }}>
                 Build Strategy & Notes

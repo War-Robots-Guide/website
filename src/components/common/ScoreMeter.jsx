@@ -26,7 +26,7 @@ export function ScoreMeter({ label, score, options = {} }) {
       <div className="score-label">
         <span>{label}</span>
         {customValueLabel !== null ? (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div className="row-center-8">
             <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
               {customValueLabel}
             </span>

@@ -6,7 +6,7 @@ export function FeaturedRobots({ featuredRobots, handleCardClick }) {
   return (
     <div className="glass-panel" style={{ padding: '24px' }}>
       <h3 style={{ fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
-        <img src="/icons/role_sniper_top.png" alt="" style={{ width: '26px', height: '26px', objectFit: 'contain' }} /> Featured Robots
+        <img src="/icons/role_sniper_top.png" alt="" className="icon-26" /> Featured Robots
       </h3>
       <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '20px' }}>
         Top-rated meta powerhouses and premier F2P robots. Click any robot to view it in the Tier List.
@@ -83,15 +83,7 @@ export function FeaturedRobots({ featuredRobots, handleCardClick }) {
 
               {/* Overlaid Elements on Image: Top Row with Name/Badges on Left, RatingBar on Right */}
               <div
-                style={{
-                  position: 'relative',
-                  zIndex: 2,
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                  gap: '12px',
-                  width: '100%',
-                }}
+                className="image-card-header"
               >
                 <div>
                   <h4
@@ -146,7 +138,7 @@ export function FeaturedRobots({ featuredRobots, handleCardClick }) {
                 </div>
 
                 {/* Top Right: Value Rating Bar without big box */}
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexShrink: 0 }}>
+                <div className="image-card-rating">
                   <RatingBar rating={robot.value_rating} unitType="robot" align="right" />
                 </div>
               </div>

@@ -80,6 +80,24 @@ npm run preview
 
 ---
 
+## Shared page styling
+
+React components generate the page content. `scripts/prerender.js` copies the built
+HTML shell and sets route metadata; Vite supplies the shared stylesheet link.
+
+- Use `PageHero` for the heading and description on guide pages.
+- Reuse `src/shared.css` for common card, modal, icon, and layout styles. It loads
+  after `src/App.css` so the extracted styles retain their existing overrides.
+- Put new static presentation in CSS with descriptive classes. Keep inline styles
+  for values calculated from data or measurements, such as rating colors, score
+  widths, and the sliding tab indicator position.
+- When extracting styles from an element with existing classes, check selector
+  specificity, hover states, and responsive rules. Some unique static styles still
+  live inline and can be migrated as their components are refactored.
+
+`npm run build` checks that every generated route references the same stylesheet
+assets and that the HTML shell contains no embedded styles.
+
 ## 🔗 Automated CI/CD Setup
 
 To enable the automated synchronization from Google Drive:

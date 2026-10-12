@@ -63,7 +63,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
       <div className="modal-content text-left" style={{ maxWidth: '600px' }} onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div>
-            <h3 style={{ fontSize: '22px' }}>
+            <h3 className="modal-title">
               {isTitanSlot ? 'Select Titan' : `Select Robot for Slot ${activeSlot + 1}`}
             </h3>
           </div>
@@ -72,7 +72,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
           </button>
         </div>
         
-        <div className="modal-body" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div className="modal-body stack-16" >
           <SearchInput
             placeholder={isTitanSlot ? "Search Titans..." : "Search Robots..."}
             value={selectorSearchQuery}
@@ -100,13 +100,13 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                     const tierLower = tier.toLowerCase();
                     const itemImg = getRobotImage(titan.name);
                     return (
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <div className="row-center-10">
                         {itemImg ? (
-                          <img src={itemImg} alt="" style={{ width: '36px', height: '36px', objectFit: 'contain', flexShrink: 0 }} />
+                          <img src={itemImg} alt="" className="selector-icon-36" />
                         ) : (
-                          <img src="/icons/robot_gold.png" alt="" style={{ width: '28px', height: '28px', objectFit: 'contain', flexShrink: 0 }} />
+                          <img src="/icons/robot_gold.png" alt="" className="selector-icon-28" />
                         )}
-                        <span style={{ fontWeight: 700, color: '#fff' }}>{titan.name}</span>
+                        <span className="selector-name">{titan.name}</span>
                         <span style={{ fontSize: '11px', color: 'var(--purple)', fontWeight: 600, textTransform: 'uppercase' }}>Titan</span>
                         <span 
                           className={`tier-badge-${tierLower}`} 
@@ -125,8 +125,8 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                       </div>
                     );
                   })()}
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '2px' }}>
-                    <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  <div className="selector-rating">
+                    <span className="rating-caption">
                       Value Rating
                     </span>
                     <RatingBar rating={titan.value_rating} unitType="titan" align="right" />
@@ -151,14 +151,14 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                     const tierLower = tier.toLowerCase();
                     const itemImg = getRobotImage(robot.name);
                     return (
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <div className="row-between">
+                        <div className="row-center-10">
                           {itemImg ? (
-                            <img src={itemImg} alt="" style={{ width: '36px', height: '36px', objectFit: 'contain', flexShrink: 0 }} />
+                            <img src={itemImg} alt="" className="selector-icon-36" />
                           ) : (
-                            <img src="/icons/robot_gold.png" alt="" style={{ width: '28px', height: '28px', objectFit: 'contain', flexShrink: 0 }} />
+                            <img src="/icons/robot_gold.png" alt="" className="selector-icon-28" />
                           )}
-                          <span style={{ fontWeight: 700, color: '#fff' }}>{robot.name}</span>
+                          <span className="selector-name">{robot.name}</span>
                           <span 
                             className={`tier-badge-${tierLower}`} 
                             style={{ 
@@ -174,8 +174,8 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                             {tier} Tier
                           </span>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '2px' }}>
-                          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        <div className="selector-rating">
+                          <span className="rating-caption">
                             Value Rating
                           </span>
                           <RatingBar rating={robot.value_rating} unitType="robot" align="right" />

@@ -1,5 +1,6 @@
 import { lazy, Suspense, useState, useEffect } from 'react';
 import './App.css';
+import './shared.css';
 import { usePathRouting } from './hooks/usePathRouting';
 import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';

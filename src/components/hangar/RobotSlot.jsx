@@ -22,19 +22,7 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
         }}
       >
         <button
-          style={{
-            position: 'absolute',
-            top: '8px',
-            right: '8px',
-            background: 'none',
-            border: 'none',
-            color: 'var(--text-muted)',
-            cursor: 'pointer',
-            padding: '4px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
+          className="slot-remove-button"
           onClick={(e) => onClearSlot(index, e)}
           title="Clear slot"
         >
@@ -52,22 +40,15 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
           return (
             <>
               {imageUrl && (
-                <div style={{ width: '100%', height: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '4px 0 12px 0', overflow: 'hidden' }}>
+                <div className="slot-image-frame">
                   <img
                     src={imageUrl}
                     alt={item.name}
-                    style={{
-                      maxHeight: '100%',
-                      maxWidth: '100%',
-                      width: 'auto',
-                      height: '100%',
-                      objectFit: 'contain',
-                      filter: 'drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5))'
-                    }}
+                    className="slot-image"
                   />
                 </div>
               )}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px', gap: '8px' }}>
+              <div className="slot-title-row">
                 <h4 style={{ fontSize: '16px', color: 'var(--cyan)', margin: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden', maxWidth: '110px' }} title={item.name}>
                   {item.name}
                 </h4>
@@ -90,33 +71,32 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
           );
         })()}
 
-        <div style={{ display: 'flex', flexDirection: 'column', width: '100%', marginBottom: '10px', gap: '2px' }}>
-          <span style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+        <div className="slot-rating">
+          <span className="rating-caption">
             Value Rating
           </span>
           <RatingBar rating={item.value_rating} unitType="robot" />
         </div>
 
         {item.roles && item.roles.length > 0 ? (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: 'auto' }}>
+          <div className="slot-roles">
             {item.roles.map(r => {
               const tooltipText = r.footnote ? robotGuideData?.footnotes?.[parseInt(r.footnote) - 1] || r.footnote : '';
               const roleIcon = r.type === 'main' ? getRoleIcon(r.role) : null;
               return (
                 <span
                   key={r.role}
-                  className={`role-badge ${r.type}`}
-                  style={{ fontSize: '10px', padding: '1px 6px', display: 'inline-flex', alignItems: 'center', gap: '4px', width: 'fit-content' }}
+                  className={`slot-role-badge role-badge ${r.type}`}
                   title={tooltipText}
                 >
-                  {roleIcon && <img src={roleIcon} alt="" style={{ width: '12px', height: '12px', objectFit: 'contain' }} />}
-                  {r.role}{r.footnote && <sup style={{ marginLeft: '2px' }}>*</sup>} {r.type === 'main' ? '✦' : (r.type === 'primary' ? '★' : '☆')}
+                  {roleIcon && <img src={roleIcon} alt="" className="icon-12" />}
+                  {r.role}{r.footnote && <sup className="slot-role-name">*</sup>} {r.type === 'main' ? '✦' : (r.type === 'primary' ? '★' : '☆')}
                 </span>
               );
             })}
           </div>
         ) : (
-          <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: 'auto' }}>No specific roles</span>
+          <span className="slot-empty-roles">No specific roles</span>
         )}
       </div>
     );
@@ -150,7 +130,7 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
     >
       <div style={{ fontSize: '32px', color: 'var(--text-muted)', marginBottom: '8px' }}>+</div>
       <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: 600 }}>ROBOT SLOT {index + 1}</span>
-      <span style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '4px' }}>Click to select</span>
+      <span className="slot-empty-hint">Click to select</span>
     </div>
   );
 }

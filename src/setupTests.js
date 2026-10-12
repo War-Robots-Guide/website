@@ -1,4 +1,10 @@
 import '@testing-library/jest-dom';
+import { readFileSync } from 'node:fs';
+
+// jsdom needs the shared stylesheet to verify styles moved out of JSX.
+const sharedStyleElement = document.createElement('style');
+sharedStyleElement.textContent = readFileSync(`${import.meta.dirname}/shared.css`, 'utf8');
+document.head.appendChild(sharedStyleElement);
 
 // Ensure localStorage mock is available in jsdom / Node 22+ test environment
 if (typeof window !== 'undefined') {

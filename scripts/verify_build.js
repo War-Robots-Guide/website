@@ -7,6 +7,7 @@ import { ROUTES, SITE_URL, getCanonicalUrl } from '../src/config/routes.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, '../dist');
 const errors = [];
+let sharedStylesheetReferences;
 
 function fail(message) {
   errors.push(message);
@@ -53,6 +54,24 @@ function verifyHtmlFile(htmlFile, route, context) {
   expectContent(html, `<link rel="canonical" href="${getCanonicalUrl(route)}" />`, context);
   expectContent(html, 'content="https://warrobotsguide.com/banner.webp"', context);
   expectContent(html, 'href="/WRGICON.png?v=1"', context);
+
+  const stylesheets = [...html.matchAll(/<link\b[^>]*>/g)]
+    .map((match) => match[0])
+    .filter((tag) => /\brel="stylesheet"/.test(tag))
+    .map((tag) => tag.match(/\bhref="([^"]+)"/)?.[1])
+    .filter(Boolean)
+    .sort();
+  if (stylesheets.length === 0) {
+    fail(`${context}: missing shared stylesheet`);
+  }
+  if (/<style\b|\bstyle\s*=/i.test(html)) {
+    fail(`${context}: generated HTML must reference shared CSS rather than embed styles`);
+  }
+  if (sharedStylesheetReferences === undefined) {
+    sharedStylesheetReferences = JSON.stringify(stylesheets);
+  } else if (JSON.stringify(stylesheets) !== sharedStylesheetReferences) {
+    fail(`${context}: stylesheet references differ from the root page`);
+  }
 
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const reference = match[1];

@@ -1,3 +1,4 @@
+import { PageHero } from '../common/PageHero';
 import { useState } from 'react';
 import pilotsData from '../../data/pilots.json';
 
@@ -17,11 +18,7 @@ function PilotSkillCategory({ cat, skills }) {
       <img 
         src={`/icons/${iconName}`} 
         alt="" 
-        style={{ 
-          width: '26px', 
-          height: '26px', 
-          objectFit: 'contain'
-        }} 
+        className="icon-26"
       />
     );
   };
@@ -35,7 +32,7 @@ function PilotSkillCategory({ cat, skills }) {
       <h3 style={{ color: catColor, fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
         {getCategoryIcon(cat)} {cat}
       </h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div className="stack-12">
         {skills.map((skill, sidx) => (
           <div key={skill.name || sidx} style={{ background: 'rgba(0,0,0,0.15)', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
             <span style={{ fontWeight: 700, color: '#fff', fontSize: '14px', display: 'inline-block', marginBottom: '4px' }}>
@@ -56,12 +53,9 @@ export function PilotSkillsTab() {
 
   return (
     <div className="animate-fade-in text-left">
-      <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Pilot Skills Directory</h2>
-        <p style={{ margin: '0 auto' }}>
-          Learn what pilot skills are the strongest and which skills should be avoided.
-        </p>
-      </div>
+      <PageHero title="Pilot Skills Directory">
+        Learn what pilot skills are the strongest and which skills should be avoided.
+      </PageHero>
 
       {/* Sub Tabs: Robots vs Titans */}
       <SlidingTabPills
@@ -74,7 +68,7 @@ export function PilotSkillsTab() {
       />
 
       {/* Skills sections by category */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div className="stack-20">
         {['Must Use', 'Usually Use', 'Sometimes Use', "Don't Use"].map(cat => {
           const skills = pilotsData[pilotSubTab]?.[cat] || [];
           if (skills.length === 0) return null;

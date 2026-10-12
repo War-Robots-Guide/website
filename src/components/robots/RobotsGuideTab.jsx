@@ -1,3 +1,4 @@
+import { PageHero } from '../common/PageHero';
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { sortBySearchQuery } from '../../utils/sortUtils';
@@ -192,12 +193,9 @@ export function RobotsGuideTab({ onItemClick }) {
 
   return (
     <div className="animate-fade-in text-left">
-      <div className="hero-banner" style={{ padding: '24px', marginBottom: '24px' }}>
-        <h2 style={{ fontSize: '28px', marginBottom: '8px' }}>Value Ratings</h2>
-        <p style={{ margin: '0 auto' }}>
-          Value rating represents F2P friendliness and return on investment.
-        </p>
-      </div>
+      <PageHero title="Value Ratings">
+        Value rating represents F2P friendliness and return on investment.
+      </PageHero>
 
       {/* Sub Tabs: Robots vs Titans */}
       <SlidingTabPills
@@ -266,13 +264,13 @@ export function RobotsGuideTab({ onItemClick }) {
 
       {/* Role Notes & Conditional Requirements Legend */}
       {robotGuideData?.footnotes && robotGuideData.footnotes.length > 0 && (
-        <div className="glass-panel" style={{ marginTop: '28px', padding: '18px 22px' }}>
+        <div className="glass-panel guide-note" >
           <h4 style={{ fontSize: '13px', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 600, letterSpacing: '0.05em' }}>
             Role Notes & Conditional Requirements
           </h4>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          <div className="stack-6">
             {robotGuideData.footnotes.map((fn, idx) => (
-              <div key={idx} style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+              <div key={idx} className="guide-note-text">
                 <strong style={{ color: 'var(--cyan)' }}>{fn.match(/^\*+/)?.[0]}</strong> {fn.replace(/^\*+/, '').trim()}
               </div>
             ))}
