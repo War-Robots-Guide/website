@@ -3,6 +3,8 @@ import sys
 import json
 import shutil
 import re
+import tempfile
+from pathlib import Path
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 workspace_dir = os.path.dirname(script_dir)
@@ -16,96 +18,90 @@ tiers_path = os.path.join(workspace_dir, "src", "data", "tiers.json")
 def clean_key(s):
     return re.sub(r'[^a-z0-9]', '', s.lower())
 
+def copy_image(source, destination, crop=False):
+    if crop:
+        try:
+            from PIL import Image
+            with Image.open(source) as image:
+                bbox = image.getbbox()
+                if bbox:
+                    width, height = image.size
+                    left, top, right, bottom = bbox
+                    image.crop((max(0, left - 4), max(0, top - 4),
+                                min(width, right + 4), min(height, bottom + 4))).save(
+                                    destination, optimize=True)
+                    return
+        except (OSError, ValueError):
+            # Preserve the original if Pillow can't decode this image format.
+            pass
+    shutil.copy2(source, destination)
+
+
+def rebuild_image_directories(source_dir, output_dir):
+    """Prepare the complete output before replacing the two managed directories."""
+    source = Path(source_dir)
+    output = Path(output_dir)
+    output.mkdir(parents=True, exist_ok=True)
+    hq_lookup = {}
+    count = 0
+    with tempfile.TemporaryDirectory(prefix=".image-build-", dir=output) as temporary:
+        stage = Path(temporary)
+        for name in ("items", "icons"):
+            (stage / name).mkdir()
+            destination = output / name
+            if destination.is_symlink() or (destination.exists() and not destination.is_dir()):
+                raise ValueError(f"Invalid generated image directory: {destination}")
+
+        for folder, target, crop in (("ALL ITEMS", "items", True), ("Icons", "icons", False)):
+            original = source / folder
+            if original.is_dir():
+                for path in sorted(original.iterdir()):
+                    if path.is_file():
+                        copy_image(path, stage / target / path.name, crop=crop)
+                        count += 1
+
+        # Higher quality renders override the standard image of the same name.
+        hq_folders = sorted(path for path in source.iterdir()
+                            if path.is_dir() and "higher quality" in path.name.lower())
+        if hq_folders:
+            for path in sorted(hq_folders[0].rglob("*")):
+                if not path.is_file() or path.suffix.lower() not in (".png", ".webp", ".jpg", ".jpeg"):
+                    continue
+                copy_image(path, stage / "items" / path.name, crop=True)
+                count += 1
+                stem = path.stem.lower()
+                hq_lookup[path.name.lower()] = path.name
+                hq_lookup[stem] = path.name
+                hq_lookup[clean_key(stem)] = path.name
+
+        # Roll back directory replacements if either one fails.
+        replaced = []
+        backed_up = []
+        try:
+            for name in ("items", "icons"):
+                destination = output / name
+                if destination.exists():
+                    os.replace(destination, stage / (name + ".old"))
+                    backed_up.append(name)
+                os.replace(stage / name, destination)
+                replaced.append(name)
+        except Exception:
+            for name in reversed(replaced):
+                shutil.rmtree(output / name)
+            for name in reversed(backed_up):
+                os.replace(stage / (name + ".old"), output / name)
+            raise
+    return hq_lookup, count
+
+
 def sync_images():
-    os.makedirs(public_images_dir, exist_ok=True)
+    if not os.path.isdir(sample_images_dir):
+        print("No sample images directory; keeping existing generated images.")
+        return True
+    hq_lookup, copied_count = rebuild_image_directories(sample_images_dir, public_images_dir)
     items_dest = os.path.join(public_images_dir, "items")
     icons_dest = os.path.join(public_images_dir, "icons")
-    os.makedirs(items_dest, exist_ok=True)
-    os.makedirs(icons_dest, exist_ok=True)
-
-    copied_count = 0
-    # Copy from sample images if present, trimming transparent borders with PIL
-    all_items_src = os.path.join(sample_images_dir, "ALL ITEMS")
-    if os.path.exists(all_items_src):
-        for f in os.listdir(all_items_src):
-            src_f = os.path.join(all_items_src, f)
-            if os.path.isfile(src_f):
-                dst_f = os.path.join(items_dest, f)
-                if not os.path.exists(dst_f) or os.path.getsize(dst_f) != os.path.getsize(src_f):
-                    try:
-                        from PIL import Image
-                        im = Image.open(src_f)
-                        bbox = im.getbbox()
-                        if bbox:
-                            w, h = im.size
-                            pad = 4
-                            padded_bbox = (
-                                max(0, bbox[0] - pad),
-                                max(0, bbox[1] - pad),
-                                min(w, bbox[2] + pad),
-                                min(h, bbox[3] + pad)
-                            )
-                            cropped = im.crop(padded_bbox)
-                            cropped.save(dst_f, optimize=True)
-                        else:
-                            shutil.copy2(src_f, dst_f)
-                    except Exception:
-                        shutil.copy2(src_f, dst_f)
-                    copied_count += 1
-
-    icons_src = os.path.join(sample_images_dir, "Icons")
-    if os.path.exists(icons_src):
-        for f in os.listdir(icons_src):
-            src_f = os.path.join(icons_src, f)
-            if os.path.isfile(src_f):
-                dst_f = os.path.join(icons_dest, f)
-                if not os.path.exists(dst_f) or os.path.getsize(dst_f) != os.path.getsize(src_f):
-                    shutil.copy2(src_f, dst_f)
-                    copied_count += 1
-
-    # Copy Higher Quality Renders (takes precedence over ALL ITEMS)
-    hq_lookup = {}
-    hq_src = None
-    if os.path.exists(sample_images_dir):
-        for d in os.listdir(sample_images_dir):
-            if "higher quality" in d.lower():
-                hq_src = os.path.join(sample_images_dir, d)
-                break
-
-    if hq_src and os.path.exists(hq_src):
-        for root, _, files in os.walk(hq_src):
-            for f in files:
-                if not f.lower().endswith(('.png', '.webp', '.jpg', '.jpeg')):
-                    continue
-                src_f = os.path.join(root, f)
-                dst_f = os.path.join(items_dest, f)
-                try:
-                    from PIL import Image
-                    im = Image.open(src_f)
-                    bbox = im.getbbox()
-                    if bbox:
-                        w, h = im.size
-                        pad = 4
-                        padded_bbox = (
-                            max(0, bbox[0] - pad),
-                            max(0, bbox[1] - pad),
-                            min(w, bbox[2] + pad),
-                            min(h, bbox[3] + pad)
-                        )
-                        cropped = im.crop(padded_bbox)
-                        cropped.save(dst_f, optimize=True)
-                    else:
-                        shutil.copy2(src_f, dst_f)
-                except Exception:
-                    shutil.copy2(src_f, dst_f)
-                copied_count += 1
-                hq_lookup[f.lower()] = f
-                # Also index stem without extension
-                stem = os.path.splitext(f)[0].lower()
-                hq_lookup[stem] = f
-                hq_lookup[clean_key(stem)] = f
-
-    print(f"Synced {copied_count} new/updated images to public/images/")
+    print(f"Rebuilt {copied_count} images in public/images/; stale images removed.")
 
     # Build index of available items
     item_files = os.listdir(items_dest) if os.path.exists(items_dest) else []

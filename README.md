@@ -100,6 +100,37 @@ assets and that the HTML shell contains no embedded styles.
 
 ## 🔗 Automated CI/CD Setup
 
+The deploy workflow restores a cache of `sample images/`, then mirrors the complete
+Google Drive image folder with four parallel download workers. Each worker owns its
+own Drive client. Set `GDRIVE_DOWNLOAD_WORKERS` to a value from 1 to 8 to tune this.
+
+The cache manifest records Drive file IDs, checksums, modification metadata, and
+local content hashes. New, changed, renamed, or locally corrupted files download
+again; unchanged files reuse the cache. Deleted files and folders are removed only
+after all folder pages have been listed and all required downloads succeed. A
+missing/inaccessible folder, incomplete listing, duplicate destination, invalid
+path, failed download, or checksum mismatch stops the deploy instead of pruning.
+The old mirror is kept until the verified replacement is ready to publish.
+Rate-limit and transient network/server failures retry with exponential backoff,
+random jitter, and `Retry-After` support.
+
+`sample images/` is a dedicated mirror: don't store unrelated local files there.
+The cache is saved after a successful sync, with a key based on the manifest's
+contents so unchanged snapshots aren't uploaded again. Cache eviction simply
+causes a fresh download on the next run. No Drive credentials are stored in it.
+
+The generated `public/images/items/` and `public/images/icons/` directories are
+rebuilt before creating the image manifest. This removes stale website images and
+restores the standard render when a high-quality override is deleted. Image
+generation errors fail the build; an absent local `sample images/` directory keeps
+existing generated assets for local development.
+
+Run the offline sync regression tests (no credentials or Drive requests):
+
+```bash
+python -m unittest discover -s scripts/tests -v
+```
+
 To enable the automated synchronization from Google Drive:
 
 ### 1. Create a Google Service Account

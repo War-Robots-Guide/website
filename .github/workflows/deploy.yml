@@ -19,6 +19,8 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-24.04
+    env:
+      GDRIVE_IMAGES_FOLDER_ID: ${{ secrets.GDRIVE_IMAGES_FOLDER_ID }}
     permissions:
       contents: write # Required for peaceiris/actions-gh-pages to deploy
 
@@ -40,14 +42,35 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Test Drive image sync
+        run: python -m unittest discover -s scripts/tests -v
+
+      - name: Restore Google Drive image cache
+        if: env.GDRIVE_IMAGES_FOLDER_ID != ''
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: sample images/
+          key: ${{ runner.os }}-drive-images-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-drive-images-v1-
+
       # 4. Fetch the latest files from Google Drive (Optional if secrets are set)
       - name: Fetch Google Drive Content
         env:
           GDRIVE_FOLDER_ID: ${{ secrets.GDRIVE_FOLDER_ID }}
-          GDRIVE_IMAGES_FOLDER_ID: ${{ secrets.GDRIVE_IMAGES_FOLDER_ID }}
           GDRIVE_CREDENTIALS_JSON: ${{ secrets.GDRIVE_CREDENTIALS_JSON }}
+          GDRIVE_DOWNLOAD_WORKERS: '4'
         run: |
           python scripts/fetch_gdrive.py
+
+      # Content-addressed snapshots avoid uploading unchanged images each run.
+      # This step runs only after a fully successful listing and image sync.
+      - name: Save Google Drive image cache
+        if: env.GDRIVE_IMAGES_FOLDER_ID != ''
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: sample images/
+          key: ${{ runner.os }}-drive-images-v1-${{ hashFiles('sample images/.drive-image-manifest.json') }}
 
       # 5. Parse raw spreadsheets and word guides into structured JSON
       - name: Parse Data Files
