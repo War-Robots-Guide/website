@@ -112,12 +112,16 @@ describe('WeaponsDpsTab', () => {
     expect(headings).toEqual(['Heavy Devastator', 'Heavy Puncher', 'Heavy Smuta']);
 
     // Switch sort to Cycle DPS
-    const sortSelect = screen.getByDisplayValue('Sort by Burst DPS (Default)');
-    fireEvent.change(sortSelect, { target: { value: 'cycle_dps' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Cycle DPS', exact: true }));
+    expect(screen.getByRole('button', { name: 'Cycle DPS', exact: true })).toHaveAttribute('aria-pressed', 'true');
 
     // Sorted by Cycle DPS: Heavy Smuta (25k), Heavy Puncher (20k), Heavy Devastator (15k)
     const cycleHeadings = screen.getAllByRole('heading', { level: 4 }).map(h => h.textContent);
     expect(cycleHeadings).toEqual(['Heavy Smuta', 'Heavy Puncher', 'Heavy Devastator']);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Burst DPS', exact: true }));
+    expect(screen.getByRole('button', { name: 'Burst DPS', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getAllByRole('heading', { level: 4 }).map(h => h.textContent)).toEqual(headings);
   });
 
   it('opens weapon detail modal with relative DPS bar when clicked', () => {

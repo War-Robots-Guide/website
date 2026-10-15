@@ -1,3 +1,4 @@
+import { stripTagsAndAsterisks } from '../../utils/tierLookup';
 import { useMemo } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import weaponsDpsData from '../../data/weapons_dps.json';
@@ -78,7 +79,7 @@ export function DashboardTab({ onTabChange, onItemClick }) {
     if (tiersData?.Robots) {
       for (const tierKey of Object.keys(tiersData.Robots)) {
         const found = tiersData.Robots[tierKey]?.items?.find(
-          tItem => tItem.name.toLowerCase() === item.name.toLowerCase()
+          tItem => stripTagsAndAsterisks(tItem.name).toLowerCase() === stripTagsAndAsterisks(item.name).toLowerCase()
         );
         if (found && found.description) {
           description = found.description;

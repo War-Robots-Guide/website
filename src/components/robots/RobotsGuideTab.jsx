@@ -1,283 +1,80 @@
+import { useMemo, useState } from 'react';
 import { PageHero } from '../common/PageHero';
-import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
-import robotGuideData from '../../data/robot_guide.json';
-import { sortBySearchQuery } from '../../utils/sortUtils';
-import { RobotCard } from './RobotCard';
-import { TitanCard } from './TitanCard';
-import { GuideFilters } from './GuideFilters';
+import { SearchInput } from '../common/SearchInput';
 import { SlidingTabPills } from '../common/SlidingTabPills';
-import { getTierForName } from '../../utils/tierLookup';
+import guide from '../../data/robot_guide.json';
+import { getRobotImage, getRoleIcon } from '../../utils/imageUtils';
+import { getRatingTierIndex } from '../../utils/ratingColors';
+
+const bands = [
+  { label: 'Best', range: '35+', color: '#38bdf8', index: 4 },
+  { label: 'Good', range: '31–34', color: '#22c55e', index: 3 },
+  { label: 'Fair', range: '26–30', color: '#eab308', index: 2 },
+  { label: 'Poor', range: '21–25', color: '#f97316', index: 1 },
+  { label: 'Bad', range: '0–20', color: '#ef4444', index: 0 },
+];
 
 export function RobotsGuideTab({ onItemClick }) {
-  const [guideSubTab, setGuideSubTab] = useState('robots');
-  const [searchInput, setSearchInput] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState('All');
-  const [robotValueFilter, setRobotValueFilter] = useState('All');
-  const [robotRoleFilter, setRobotRoleFilter] = useState('All');
-  const [sortBy, setSortBy] = useState('Default');
+  const [category, setCategory] = useState('robots');
+  const [query, setQuery] = useState('');
+  const [roleFilter, setRoleFilter] = useState('All');
+  const [typeFilter, setTypeFilter] = useState('All');
+  const [valueFilter, setValueFilter] = useState('All');
+  const units = useMemo(() => (guide[category] || []).filter(unit =>
+    `${unit.name} ${unit.comments}`.toLowerCase().includes(query.toLowerCase()) &&
+    (roleFilter === 'All' || unit.roles?.some(role => role.type !== 'none' && role.role === roleFilter)) &&
+    (typeFilter === 'All' || unit.sheet === typeFilter) &&
+    (valueFilter === 'All' || getRatingTierIndex(unit.value_rating) === Number(valueFilter))
+  ).sort((a, b) => b.value_rating - a.value_rating), [category, query, roleFilter, typeFilter, valueFilter]);
+  const roles = [...new Set((guide[category] || []).flatMap(unit => (unit.roles || []).filter(role => role.type !== 'none').map(role => role.role)))];
 
-  // Lazy loading state
-  const [visibleCount, setVisibleCount] = useState(12);
-
-  const handleCardClick = (item, category) => {
-    if (!onItemClick) return;
-
-    const description = item.comments;
-
-    onItemClick(item.name, category, { description });
-  };
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setSearchQuery(searchInput);
-    }, 250);
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [searchInput]);
-
-  // Reset lazy loading count when any filters or active tab change without useEffect
-  const [prevFilterState, setPrevFilterState] = useState({
-    guideSubTab,
-    searchQuery,
-    categoryFilter,
-    robotValueFilter,
-    robotRoleFilter,
-    sortBy,
-  });
-
-  if (
-    guideSubTab !== prevFilterState.guideSubTab ||
-    searchQuery !== prevFilterState.searchQuery ||
-    categoryFilter !== prevFilterState.categoryFilter ||
-    robotValueFilter !== prevFilterState.robotValueFilter ||
-    robotRoleFilter !== prevFilterState.robotRoleFilter ||
-    sortBy !== prevFilterState.sortBy
-  ) {
-    setPrevFilterState({
-      guideSubTab,
-      searchQuery,
-      categoryFilter,
-      robotValueFilter,
-      robotRoleFilter,
-      sortBy,
-    });
-    setVisibleCount(12);
-  }
-
-  const availableCategories = useMemo(() => {
-    if (!robotGuideData?.robots) return [];
-    const sheets = robotGuideData.robots.map(r => r.sheet);
-    return Array.from(new Set(sheets));
-  }, []);
-
-  const filteredRobots = useMemo(() => {
-    if (!robotGuideData?.robots) return [];
-    const query = searchQuery.toLowerCase().trim();
-    
-    let filtered = robotGuideData.robots.filter(robot => {
-      const matchSearch = robot.name.toLowerCase().includes(query) || 
-                          robot.comments.toLowerCase().includes(query);
-      
-      const matchCategory = categoryFilter === 'All' || robot.sheet === categoryFilter;
-
-      let matchValue = true;
-      if (robotValueFilter !== 'All') {
-        if (typeof robotValueFilter === 'string' && robotValueFilter.includes('-')) {
-          const [min, max] = robotValueFilter.split('-').map(Number);
-          matchValue = robot.value_rating >= min && robot.value_rating <= max;
-        } else {
-          matchValue = robot.value_rating === parseInt(robotValueFilter, 10);
-        }
-      }
-      
-      const matchRole = robotRoleFilter === 'All' || 
-                        robot.roles.some(r => r.role === robotRoleFilter && r.type !== 'none');
-      
-      return matchSearch && matchCategory && matchValue && matchRole;
-    });
-
-    if (sortBy === 'value_rating') {
-      filtered = [...filtered].sort((a, b) => b.value_rating - a.value_rating);
-    } else {
-      // Default Sort: Sort by Tiers (highest to lowest)
-      const getTierWeight = (item, category) => {
-        const tier = getTierForName(item.name, category);
-        const TIER_ORDER = { 'X': 9, 'S': 8, 'A': 7, 'B': 6, 'C': 5, 'D': 4, 'E': 3, 'F': 2, 'Z': 1 };
-        return TIER_ORDER[tier] ?? 0;
-      };
-      filtered = [...filtered].sort((a, b) => {
-        return getTierWeight(b, 'Robots') - getTierWeight(a, 'Robots');
-      });
-      if (query) {
-        filtered = sortBySearchQuery(filtered, query, (robot) => robot.name);
-      }
-    }
-
-    return filtered;
-  }, [searchQuery, categoryFilter, robotValueFilter, robotRoleFilter, sortBy]);
-
-  const filteredTitans = useMemo(() => {
-    if (!robotGuideData?.titans) return [];
-    const query = searchQuery.toLowerCase().trim();
-    
-    let filtered = robotGuideData.titans.filter(titan => {
-      const matchSearch = titan.name.toLowerCase().includes(query) || 
-                          titan.comments.toLowerCase().includes(query);
-      
-      let matchValue = true;
-      if (robotValueFilter !== 'All') {
-        if (typeof robotValueFilter === 'string' && robotValueFilter.includes('-')) {
-          const [min, max] = robotValueFilter.split('-').map(Number);
-          matchValue = titan.value_rating >= min && titan.value_rating <= max;
-        } else {
-          matchValue = titan.value_rating === parseInt(robotValueFilter, 10);
-        }
-      }
-      
-      return matchSearch && matchValue;
-    });
-
-    if (sortBy === 'value_rating') {
-      filtered = [...filtered].sort((a, b) => b.value_rating - a.value_rating);
-    } else {
-      // Default Sort: Sort by Tiers (highest to lowest)
-      const getTierWeight = (item, category) => {
-        const tier = getTierForName(item.name, category);
-        const TIER_ORDER = { 'X': 9, 'S': 8, 'A': 7, 'B': 6, 'C': 5, 'D': 4, 'E': 3, 'F': 2, 'Z': 1 };
-        return TIER_ORDER[tier] ?? 0;
-      };
-      filtered = [...filtered].sort((a, b) => {
-        return getTierWeight(b, 'Titans') - getTierWeight(a, 'Titans');
-      });
-      if (query) {
-        filtered = sortBySearchQuery(filtered, query, (titan) => titan.name);
-      }
-    }
-
-    return filtered;
-  }, [searchQuery, robotValueFilter, sortBy]);
-
-  // Paginated visible items lists
-  const visibleRobots = useMemo(() => {
-    return filteredRobots.slice(0, visibleCount);
-  }, [filteredRobots, visibleCount]);
-
-  const visibleTitans = useMemo(() => {
-    return filteredTitans.slice(0, visibleCount);
-  }, [filteredTitans, visibleCount]);
-
-  // IntersectionObserver callback ref for infinite scrolling
-  const observerRef = useRef(null);
-  const sentinelRef = useCallback((node) => {
-    if (observerRef.current) observerRef.current.disconnect();
-
-    observerRef.current = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        setVisibleCount((prev) => prev + 12);
-      }
-    }, { rootMargin: '200px' });
-
-    if (node) observerRef.current.observe(node);
-  }, []);
-
-  // Cleanup observer on unmount
-  useEffect(() => {
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, []);
-
-  return (
-    <div className="animate-fade-in text-left">
-      <PageHero title="Value Ratings">
-        Value rating represents F2P friendliness and return on investment.
-      </PageHero>
-
-      {/* Sub Tabs: Robots vs Titans */}
-      <SlidingTabPills
-        tabs={[
-          { label: 'Robots', value: 'robots' },
-          { label: 'Titans', value: 'titans' }
-        ]}
-        activeTab={guideSubTab}
-        onChange={(val) => {
-          setGuideSubTab(val);
-          setCategoryFilter('All');
-          setRobotRoleFilter('All');
-          setRobotValueFilter('All');
-          setSortBy('Default');
-          setSearchInput('');
-          setSearchQuery('');
-        }}
-      />
-
-      {/* Filter controls */}
-      <GuideFilters
-        guideSubTab={guideSubTab}
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-        categoryFilter={categoryFilter}
-        setCategoryFilter={setCategoryFilter}
-        availableCategories={availableCategories}
-        robotValueFilter={robotValueFilter}
-        setRobotValueFilter={setRobotValueFilter}
-        robotRoleFilter={robotRoleFilter}
-        setRobotRoleFilter={setRobotRoleFilter}
-        sortBy={sortBy}
-        setSortBy={setSortBy}
-      />
-
-
-      {/* Robots/Titans Grid */}
-      <div className="dashboard-grid">
-        {guideSubTab === 'robots'
-          ? visibleRobots.map(robot => (
-              <RobotCard
-                key={robot.name}
-                robot={robot}
-                onClick={handleCardClick}
-                robotGuideData={robotGuideData}
-              />
-            ))
-          : visibleTitans.map(titan => (
-              <TitanCard
-                key={titan.name}
-                titan={titan}
-                onClick={handleCardClick}
-              />
-            ))
-        }
+  return <div className="animate-fade-in text-left">
+    <PageHero title="Value Ratings">Value rating represents F2P friendliness and return on investment.</PageHero>
+    <details className="guide-dropdown">
+      <summary>Methodology</summary>
+      <div className="guide-dropdown-content">
+        {(guide.methodology || []).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
       </div>
-
-      {/* Sentinel element for infinite scroll */}
-      {((guideSubTab === 'robots' && visibleCount < filteredRobots.length) ||
-        (guideSubTab === 'titans' && visibleCount < filteredTitans.length)) && (
-        <div 
-          ref={sentinelRef} 
-          style={{ height: '20px', margin: '20px 0' }} 
-        />
-      )}
-
-      {/* Role Notes & Conditional Requirements Legend */}
-      {robotGuideData?.footnotes && robotGuideData.footnotes.length > 0 && (
-        <div className="glass-panel guide-note" >
-          <h4 style={{ fontSize: '13px', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '10px', fontWeight: 600, letterSpacing: '0.05em' }}>
-            Role Notes & Conditional Requirements
-          </h4>
-          <div className="stack-6">
-            {robotGuideData.footnotes.map((fn, idx) => (
-              <div key={idx} className="guide-note-text">
-                <strong style={{ color: 'var(--cyan)' }}>{fn.match(/^\*+/)?.[0]}</strong> {fn.replace(/^\*+/, '').trim()}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
+    </details>
+    <SlidingTabPills tabs={[{ label: 'Robots', value: 'robots' }, { label: 'Titans', value: 'titans' }]} activeTab={category}
+      onChange={value => { setCategory(value); setQuery(''); setRoleFilter('All'); setTypeFilter('All'); setValueFilter('All'); }} />
+    <div className="search-container">
+      <SearchInput placeholder={`Search ${category}...`} value={query} onChange={event => setQuery(event.target.value)} />
+      {category === 'robots' && <select className="select-filter" aria-label="Filter by robot type" value={typeFilter} onChange={event => setTypeFilter(event.target.value)}>
+        <option value="All">All Robot Types</option>
+        {[...new Set(guide.robots.map(unit => unit.sheet))].map(sheet => <option key={sheet}>{sheet}</option>)}
+      </select>}
+      <select className="select-filter" aria-label="Filter by value rating" value={valueFilter} onChange={event => setValueFilter(event.target.value)}>
+        <option value="All">All Value Ratings</option>
+        {bands.map(band => <option key={band.index} value={band.index}>{band.label} ({band.range})</option>)}
+      </select>
+      <select className="select-filter" aria-label="Filter by role" value={roleFilter} onChange={event => setRoleFilter(event.target.value)}>
+        <option value="All">All Hangar Roles</option>
+        {roles.map(role => <option key={role}>{role}</option>)}
+      </select>
     </div>
-  );
+    <div className="rating-tier-list">
+      {bands.map(band => {
+        const items = units.filter(unit => getRatingTierIndex(unit.value_rating) === band.index);
+        if (!items.length) return null;
+        return <section className="rating-tier-row" key={band.label} style={{ '--band-color': band.color }} aria-label={`${band.label} value ratings`}>
+          <div className="rating-tier-header"><strong>{band.label}</strong><span>{band.range}</span></div>
+          <div className="rating-tier-grid">{items.map(unit => {
+            const mainRole = unit.roles?.find(role => role.type === 'main')?.role;
+            const roleIcon = getRoleIcon(mainRole);
+            const image = getRobotImage(unit.name);
+            return <button className="rating-unit" key={unit.name} onClick={() => onItemClick?.(unit.name, category === 'robots' ? 'Robots' : 'Titans', { description: unit.comments })} aria-label={`View details for ${unit.name}`}>
+              <div className="rating-unit-portrait">
+                <img src={image || '/icons/robot_gold.png'} alt={unit.name} loading="lazy" />
+                {mainRole && <span className="rating-role" title={`Main role: ${mainRole}`}>{roleIcon ? <img src={roleIcon} alt={mainRole} /> : mainRole}</span>}
+                <span className="rating-number" aria-label={`Value rating ${unit.value_rating}`}>{unit.value_rating}</span>
+              </div>
+              <span>{unit.name}</span>
+            </button>;
+          })}</div>
+        </section>;
+      })}
+    </div>
+    {!units.length && <p>No matching units.</p>}
+  </div>;
 }

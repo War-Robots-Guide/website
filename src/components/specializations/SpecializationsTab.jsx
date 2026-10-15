@@ -1,38 +1,10 @@
+import { extractModules } from '../../utils/moduleUtils';
 import { PageHero } from '../common/PageHero';
 import { useState, useMemo } from 'react';
 import specializationsData from '../../data/specializations.json';
 import { specTree } from './specTree';
 import { SlidingTabPills } from '../common/SlidingTabPills';
 import { getModuleImage } from '../../utils/imageUtils';
-
-const KNOWN_MODULE_NAMES = [
-  'Titan Nuclear Amplifier', 'Nuclear Amplifier',
-  'Titan Repair Amplifier', 'Repair Amplifier',
-  'Titan Immune Amplifier', 'Immune Amplifier',
-  'Titan Last Stand', 'Last Stand',
-  'Titan Anticontrol', 'Anticontrol',
-  'Titan Accelerator', 'Robot Accelerator', 'Accelerator',
-  'Titan Overdrive Unit', 'Titan Overdrive', 'Overdrive Unit', 'Overdrive',
-  'Heavy Armor Kit', 'Cannibal Reactor', 'Quantum Sensor',
-  'Integrated Power Unit', 'Titan Slayer', 'Rangefinder',
-  'Beacon Operator', 'Cloaking Unit', 'Damage Controller',
-  'Self Fix Unit', 'Titan Self Fix Unit', 'Fortifier',
-  'Phase Shift', 'Repair Unit', 'Advanced Repair Unit', 'Onslaught Unit'
-];
-
-function extractModulesFromContent(text) {
-  if (!text) return [];
-  const found = [];
-  const textLower = text.toLowerCase();
-  for (const mod of KNOWN_MODULE_NAMES) {
-    if (textLower.includes(mod.toLowerCase())) {
-      if (!found.some(f => f.toLowerCase() === mod.toLowerCase() || mod.toLowerCase().includes(f.toLowerCase()))) {
-        found.push(mod);
-      }
-    }
-  }
-  return found;
-}
 
 export function SpecializationsTab({ onItemClick }) {
   const [activeSubTab, setActiveSubTab] = useState('picker');
@@ -128,7 +100,7 @@ export function SpecializationsTab({ onItemClick }) {
                 
                 <div className="spec-result-slots" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
                   {currentSpecNode.result.slots.map((slot, sIdx) => {
-                    const modImg = getModuleImage(slot.name);
+                    const modImg = getModuleImage(extractModules(slot.name, specPath[0]?.value === 'titan')[0] || slot.name);
                     return (
                       <div className="spec-result-slot-box" key={sIdx} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 14px' }}>
                         <div style={{
@@ -246,17 +218,17 @@ export function SpecializationsTab({ onItemClick }) {
                     <h3 style={{ fontSize: '18px' }}>{cleanTitle}</h3>
                   </div>
 
-                  <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '16px' }}>
+                  <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: '16px', whiteSpace: 'pre-line' }}>
                     {sec.description}
                   </p>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: 'auto' }}>
                     {sec.slots.map((slot, slidx) => {
-                      const mentionedModules = extractModulesFromContent(slot.content);
+                      const mentionedModules = extractModules(slot.content, isTitan);
 
                       return (
                         <div className="spec-slot-box" key={slidx} style={{ padding: '12px' }}>
-                          <div className="spec-slot-title" style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
+                          <div className="spec-slot-title" style={{ color: isTitan ? 'var(--purple)' : 'var(--cyan)', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
                             <img src="/icons/module_old_gold.png" alt="" className="icon-18" />
                             <span>{slot.name}</span>
                           </div>
@@ -291,7 +263,7 @@ export function SpecializationsTab({ onItemClick }) {
                             </div>
                           )}
 
-                          <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                          <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0, whiteSpace: 'pre-line' }}>
                             {slot.content}
                           </p>
                         </div>

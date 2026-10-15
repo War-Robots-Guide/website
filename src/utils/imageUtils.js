@@ -30,13 +30,18 @@ export function extractTierTags(name) {
   return { cleanName, tags };
 }
 
+export function getUnitKey(name) {
+  return cleanKey(extractTierTags(name).cleanName)
+    .replace(/^ultimate/, 'ue').replace('fuijin', 'fujin').replace(/swordunit$/, 'sword');
+}
+
 export function getRobotImage(name) {
   if (!name) return null;
   const { cleanName } = extractTierTags(name);
   const isUe = cleanName.toLowerCase().startsWith('ue ') || cleanName.toLowerCase().startsWith('ultimate ');
   const baseName = isUe ? cleanName.replace(/^ue\s+/i, '').replace(/^ultimate\s+/i, '').trim() : cleanName;
   const k = cleanKey(cleanName);
-  const baseK = cleanKey(baseName);
+  const baseK = cleanKey(baseName).replace('fuijin', 'fujin');
 
   if (isUe) {
     if (imageManifest.items?.[`ultimate${baseK}`]) {
@@ -48,11 +53,11 @@ export function getRobotImage(name) {
     if (imageManifest.items?.[k]) {
       return imageManifest.items[k];
     }
-    return null;
+    return imageManifest.all_files?.[`ultimate${baseK}`] || imageManifest.all_files?.[`ue${baseK}`] || null;
   }
 
   // Non-Ultimate Robot: MUST NOT return an Ultimate image!
-  const img = imageManifest.items?.[k];
+  const img = imageManifest.items?.[k] || imageManifest.all_files?.[k] || imageManifest.all_files?.[k.replace('fujin', 'fuijin')];
   if (img) {
     const filename = img.split('/').pop().toLowerCase();
     if (filename.startsWith('ultimate')) {
@@ -157,8 +162,8 @@ export function getModuleImage(name) {
   if (!name) return null;
   const clean = name.replace(/slot \d+:\s*/i, '').replace(/\(.*?\)/g, '').trim();
   const k = cleanKey(clean);
-  if (imageManifest.modules?.[k]) {
-    return imageManifest.modules[k];
+  if (imageManifest.modules?.[k] || imageManifest.all_files?.[k]) {
+    return imageManifest.modules?.[k] || imageManifest.all_files[k];
   }
   for (const [mk, path] of Object.entries(imageManifest.modules || {})) {
     if (k.includes(mk) || mk.includes(k)) {

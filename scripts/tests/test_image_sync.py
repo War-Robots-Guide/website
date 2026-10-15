@@ -355,6 +355,18 @@ class GeneratedImageTests(unittest.TestCase):
         images.rebuild_image_directories(self.source, self.output)
         self.assertFalse((self.output / "items/robot.png").exists())
 
+    def test_root_and_nested_uploads_are_indexed_as_artwork(self):
+        (self.source / "Harpy.png").write_bytes(b"root artwork")
+        nested = self.source / "PNGs/Robots"
+        nested.mkdir(parents=True)
+        (nested / "Siren.webp").write_bytes(b"nested artwork")
+        (self.source / "Icons/role.png").write_bytes(b"role icon")
+        images.rebuild_image_directories(self.source, self.output)
+        self.assertEqual((self.output / "items/Harpy.png").read_bytes(), b"root artwork")
+        self.assertEqual((self.output / "items/Siren.webp").read_bytes(), b"nested artwork")
+        self.assertTrue((self.output / "icons/role.png").exists())
+        self.assertFalse((self.output / "items/role.png").exists())
+
     def test_failed_generation_keeps_previous_outputs(self):
         (self.source / "ALL ITEMS/robot.png").write_bytes(b"old")
         images.rebuild_image_directories(self.source, self.output)

@@ -52,13 +52,18 @@ def rebuild_image_directories(source_dir, output_dir):
             if destination.is_symlink() or (destination.exists() and not destination.is_dir()):
                 raise ValueError(f"Invalid generated image directory: {destination}")
 
-        for folder, target, crop in (("ALL ITEMS", "items", True), ("Icons", "icons", False)):
-            original = source / folder
-            if original.is_dir():
-                for path in sorted(original.iterdir()):
-                    if path.is_file():
-                        copy_image(path, stage / target / path.name, crop=crop)
-                        count += 1
+        # PNGs may be uploaded at the Drive root or in arbitrary subfolders.
+        # Only the Icons tree is treated as UI icons; all other artwork is gear.
+        for path in sorted(source.rglob("*")):
+            if not path.is_file() or path.suffix.lower() not in (".png", ".webp", ".jpg", ".jpeg"):
+                continue
+            parts = path.relative_to(source).parts[:-1]
+            if any("higher quality" in part.lower() for part in parts):
+                continue
+            is_icon = any(part.lower() == "icons" for part in parts)
+            target = "icons" if is_icon else "items"
+            copy_image(path, stage / target / path.name, crop=not is_icon)
+            count += 1
 
         # Higher quality renders override the standard image of the same name.
         hq_folders = sorted(path for path in source.iterdir()
@@ -104,8 +109,8 @@ def sync_images():
     print(f"Rebuilt {copied_count} images in public/images/; stale images removed.")
 
     # Build index of available items
-    item_files = os.listdir(items_dest) if os.path.exists(items_dest) else []
-    icon_files = os.listdir(icons_dest) if os.path.exists(icons_dest) else []
+    item_files = sorted(os.listdir(items_dest)) if os.path.exists(items_dest) else []
+    icon_files = sorted(os.listdir(icons_dest)) if os.path.exists(icons_dest) else []
     
     file_lookup = {f.lower(): f for f in item_files}
 
@@ -203,6 +208,19 @@ def sync_images():
             manifest["items"][clean_key(name)] = path
             manifest["items"][clean_key(clean_name)] = path
 
+    # Include units that only occur in the tier lists (e.g. legacy T1/T2 robots).
+    if os.path.exists(tiers_path):
+        with open(tiers_path, encoding="utf8") as source:
+            tier_data = json.load(source)
+        for category in ("Robots", "Titans", "Motherships", "Mothership Turrets"):
+            for tier in tier_data.get(category, {}).values():
+                for item in tier.get("items", []):
+                    key = clean_key(item["name"])
+                    for filename in item_files:
+                        if clean_key(os.path.splitext(filename)[0]) == key:
+                            manifest["items"][key] = f"/images/items/{filename}"
+                            break
+
     # 2. Index all weapon and item files directly from disk into manifest
     for f in item_files:
         stem = os.path.splitext(f)[0]
@@ -272,8 +290,8 @@ def sync_images():
         "robot accelerator": "robot accelerator",
         "overdrive": "overdrive unit",
         "overdrive unit": "overdrive unit",
-        "titan overdrive": "titan overdrive",
-        "titan overdrive unit": "titan overdrive",
+        "titan overdrive": "titan overdrive unit",
+        "titan overdrive unit": "titan overdrive unit",
         "last stand": "last stand",
         "titan last stand": "titan last stand",
         "repair amplifier": "repair amplifier",
@@ -308,6 +326,8 @@ def sync_images():
     }
     for alias, target in module_aliases.items():
         target_k = clean_key(target)
+        if target_k in manifest["all_files"]:
+            manifest["modules"][target_k] = manifest["all_files"][target_k]
         if target_k in manifest["modules"]:
             manifest["modules"][clean_key(alias)] = manifest["modules"][target_k]
 

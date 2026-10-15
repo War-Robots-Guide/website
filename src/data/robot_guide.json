@@ -1,4 +1,28 @@
 {
+  "methodology": [
+    "READ ME",
+    "The chart on the left is a list of all bots and titans in the game, ordered by their Value Rating. UE bots and titans are included, though their rating is limited by poor accessibility",
+    "The Value Rating is calculated by factoring in each robot's Longevity, Lethality, Mobility, Utility, and Accessibility. The Value Rating is NOT an assessment of the robots performance at max investment.",
+    "Robots with higher Value Ratings are more likely to be useful for F2P players; they are likely to hit notable power spikes while using far fewer resources to do so than bots with lower Value Ratings.",
+    "Bots with lower Value Ratings are not recommended for F2P players; they are likely to require lots of investment to be useful and/or lack the ability to compete as a player progresses.",
+    "After deciding on what bots you'll invest in, check out the Roles section to build a balanced hangar.",
+    "To decide what gear you should equip to your bots/titans, check out the Mini Build Guides document. Note: Only bots/titans with a favorable value rating have build guides.",
+    "METHODOLOGY",
+    "Longevity is a measure of how well a robot is able to survive on the battlefield. This includes not only durability, defense points, and shielding, but also methods of avoiding damage such as stealth.",
+    "Lethality is a measure of how much damage a robot can output. This is most heavily impacted by a robot's hardpoints, but abilities may also provide raw damage or damage amplification.",
+    "Mobility is a measure how of how quickly a robot can maneuver. A robot's speed and access to dashes, jumps, or other methods of transport are considered.",
+    "Utility is a measure of how well a robot can support its teammates via methods other than direct damage. Some examples include crowd control (ex:lockdown), healing, and damage boosts.",
+    "Accessibility is a measure of the time and resources required to use a bot. Bots rated well on accessibility are easy to get, don't rely on difficult-to-obtain equipment, and don't need many upgrades.",
+    "A robot is scored on each factor with a value from 0 to 10. A low score indicates that the bot performs poorly on that measure, and a high score indicates the opposite.",
+    "Put together, the Value Rating is an indicator of the expected return on investment for a bot. Note that this guide is most applicable to beacon modes, as these modes are relatively friendly to F2Ps.",
+    "Value Rating Scores",
+    "35+\nAlmost always worth attempting to obtain. Almost always worth investing in. Almost always worth using as a final bot.",
+    "31-34\nUsually worth attempting to obtain. Usually worth investing in. Usually worth using as a temporary bot. Sometimes worth using as a final bot.",
+    "26-30\nSometimes worth attempting to obtain. Sometimes worth investing in. Usually worth using as a temporary bot. Occasionally worth using as a final bot.",
+    "21-25\nNot worth attempting to obtain. Rarely worth investing in. Sometimes worth using as a temporary bot. Generally not worth using as a final bot.",
+    "0-20\nNot worth attempting to obtain. Not worth investing in. Rarely worth using as a temporary bot. Not worth using as a final bot.",
+    "Contact Mistermath314, Adazahi, or Tropical on discord for any questions or to report any problems!"
+  ],
   "changelog": [
     {
       "date": "2024-09-24",
@@ -427,6 +451,7 @@
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nRepair or Phase Shift",
       "explanation": "A high-powered support build with close ranged weapons for self defense against rushing\nbrawlers. UE Cryo provides more DP through Freezo. Not recommended for f2p.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -438,6 +463,7 @@
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
       "explanation": "A more versatile support build that's a lot more accessible for f2p players. Can't defend itself\nfrom rushing brawlers, requiring friendlies to protect it, but is able to pick off enemies at range.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -449,6 +475,7 @@
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
       "explanation": "An incredibly niche build that makes use of Lv12 Qingting's lockdown extension to displace\nvaluable targets (ie meta titans) for a long time. Very stong in very few rare situations, but\ntrading off Freezo is incredibly hard to justify. Not recommended unless you already have several\nbuilt hangars.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -459,7 +486,8 @@
       "drone_options": "Webby",
       "pilot": "Monique\nLenormond",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift or Repair",
-      "explanation": "Monique's ability allows Imugi to be one of three bots in the game that can trigger Webby's\nRust ability. The rust is strong, but the build won't work without Lv12 Webby.",
+      "explanation": "Monique's ability allows Imugi to be one of the few bots in the game that can trigger Webby's\nRust ability. The rust is strong, but the build won't work without Lv12 Webby.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -471,6 +499,7 @@
       "pilot": "Mao Ling",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
       "explanation": "Mao Ling combined with a defensive drone turn Imugi into an uncharacteristically tanky\nrobot even when on the ground, allowing it to somewhat sustain a fight even out of ability.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -481,7 +510,8 @@
       "drone_options": "Aopo\nShowdown",
       "pilot": "Walter Trommel",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nRepair, UC, or\nPhase Shift",
-      "explanation": "Nuo is able to emulalte Pathfider's OP damage buffs with a bit of a sidegrade. The max\ndamage boost is lower and requires you to stay alive and linked, but it also stacks MUCH\nfaster, provides stacks of counterblind, and provides grey immunity + healing with Walter.",
+      "explanation": "Nuo is able to emulalte Pathfinder's OP damage buffs with a bit of a sidegrade. The max\ndamage boost is lower and requires you to stay alive and linked, but it also stacks MUCH\nfaster, provides stacks of counterblind, and provides grey immunity + healing with Walter.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -493,6 +523,7 @@
       "pilot": "Walter Trommel\nBasil Lapatte\nHarold Han\n(With K-lasers)",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nRepair, UC, or\nPhase Shift",
       "explanation": "Nuo is probably the only bot in the game that can make a f2p friendly sniper build. Since it gives itself\nsuch a large damage boost that stacks multiplicatively with the defense ignore on Gauss + Weber (or K-lasers \nwith solar), their mediocre performance is somewhat alleviated vs bots relying on DP. Playing at a super long\ndistance means you're often not linked, so Basil becomes a competitive pilot choice. For f2p, it's\nnot worth spending memorium on Basil since he's so incredibly niche, and sometimes there\nis a friendly sniper in the backline with you that makes great use of the link. Harold is ideal\nfor K-lasers though. For weapons without built in defense mitigation, Solar becomes the best drone.\nSolar still works with railguns, but its value is questionable.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -504,6 +535,7 @@
       "pilot": "Walter Trommel",
       "specialization": "Support (Accelerator +\nLast Stand)\nBrawler (Repair Amp +\nImmune Amp)\nRepair or UC",
       "explanation": "While Lio is not nearly as tanky as it once was, it can still share a noticable amount of defense points\nwith an ally, heal them, and give them grey resistance + occasional countersuppression charges.\nLio should be played conservatively, hiding from high-damage enemies while staying in range of a \ntanky teammate that it's linked to.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -515,6 +547,7 @@
       "pilot": "APPM-3TR",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
       "explanation": "Demeter with Mogwans, Whiteout, and Appmeter provides not only healing and shielding, but\nalso debuffing to the enemy. At p2w investment, it's better to use OP weapons of your own\nrather than Mogwans.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -526,6 +559,7 @@
       "pilot": "Arnav Poe",
       "specialization": "Brawler (Repair Amp +\nLast stand)\nRepair or Phase Shift",
       "explanation": "Ravana should not attempt to statcheck meta brawlers; rather, its value lies in its ability to\noutlast the protective abilities of meta hit-and-run type bots.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -537,6 +571,7 @@
       "pilot": "Theseus",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nRepair or Phase Shift",
       "explanation": "Skyros played as a beacon capper should not leave ball mode. Just keep on rollin' and know\nwhen to eject into a titan.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -548,6 +583,7 @@
       "pilot": "Roberto Baros",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nDefense (Anticontrol +\nHeavy Armor Kit)\nRepair or Phase Shift",
       "explanation": "The scales drone makes the hit-and-run skyros playstyle kind of real, since it means you don't\nneed theseus for DMI anymore. However, the burst required for this playstyle to be successful\n(and not to mention the OP drone) make this a very exclusive build. Not recommended for f2p.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -559,6 +595,7 @@
       "pilot": "Sati \"Cat\" \nFelidae",
       "specialization": "Any Specialization\nPhase Shift",
       "explanation": "Lynx is currently the only non-UE bot in the game with a reliable execute (Sword's sucks now).\nThis allows it to be competent at killing bots way out of its weight class, especially with the aid\nof a teammate. \n\nCurrently, with Harmattan shotguns being as insane as they are, Lynx has seen a massive glow up thanks to how \nits execute enables it to bypass the only weakness of Harmattans and finish off enemies.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -570,6 +607,7 @@
       "pilot": "Twins",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
       "explanation": "With the nerf to electric titan charge, Siren is now one of the best chargers, but it only\nworks if you fire at an enemy with a reflector (so, no Reflectors = no charge). It's also signficantly\nenhanced when they fire at you. While this build can charge faster than prime electric builds,\nit's hindered by the fact that it relies on the enemies using reflectors in order to work.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -581,6 +619,7 @@
       "pilot": "Twins",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
       "explanation": "Siren is competent at midrange due to it's high battlefield visibility, strong reflector, and good\nuptime. All these benefits come at the cost of firepower when compared to other midrangers,\nbut it's nonetheless worth it. Yang Lee pilot is generally not recommended due to Hawkeye \nbeing able to replace it so that you can have the 4 seconds of extra uptime from twins.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -592,6 +631,7 @@
       "pilot": "Gloria Earhart",
       "specialization": "Brawler (Repair Amp +\nLast Stand)\nJump Unit or Repair",
       "explanation": "Raptor is a decent opening robot, regardless of if it's being used for titan charge or not. Jump unit\nhelps you reach center early in the game, and can even cross maps to contest distant beacons. \nSimilarly to a lot of other new brawlers, it gains way too much from mk3 to be f2p viable unless you \nmanage to save enough to get it there. The ingame stat screen claims it gets 25% grey resist from mk3, \nbut in reality, it gets a massive 50% grey resist. For f2p, it should only be used as a suicide opener bot pre mk3.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -603,6 +643,7 @@
       "pilot": "Virginia Walker",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
       "explanation": "Nightingale is a support/beacon capper hybrid with the potential to reach amazingly fast speeds.\nUnlike Loki and Skyros, it lacks permanent protection, but it makes up for it with supportive utility.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -614,6 +655,7 @@
       "pilot": "Willa Owe",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "Dux weapons don't matter, you can even avoid the Quarker recommendation if you know what\nyou're doing and cycle your weapons such that the BiW fires infinitely. Dux drones' defense\nmitigation allows them to kill tanky targets like Lio surprisingly fast.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -625,6 +667,7 @@
       "pilot": "Ash Skarsgard",
       "specialization": "Any Specialization\nPhase Shift",
       "explanation": "Scorpion should be played like a wuss, teleporting in to try and steal deft survivor triggers and\nkills on squishy bots within its short stealth duration and then immediately running away.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -636,6 +679,7 @@
       "pilot": "Kevin O'Reilly",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift",
       "explanation": "Kaji's tactical gameplay with its mines make its own weapons relatively unimportant in the grand scheme of things.\nWell placed mines can take down incredibly heavy and valuable targets, as well as locking down important objectives.\nRangefinder works regardless of weapons if mines are far. Boom+Bash is a somewhat meme build that can be toxic in\nTDM but is overall worse than the others in beacon modes.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -647,6 +691,7 @@
       "pilot": "Gintaire\nKaityre",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift",
       "explanation": "Being designed as a sniper, Crisis is no doubt pretty good at it. Piercer is a fairly strong f2p sniper that can even\noutdamage f2p midrange options, so if you have those, use them!",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -658,6 +703,7 @@
       "pilot": "Gintaire\nKaityre",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "If you don't have piercers, midrange Crisis is just as servicable as sniper Crisis while having slightly more\naccessible weapon options.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -668,7 +714,8 @@
       "drone_options": "Seeker\nScarebeus\nShowdown\nArmadillo",
       "pilot": "Bast Neferu",
       "specialization": "Brawler (Repair Amp +\nLast Stand)\nRepair or Phase Shift",
-      "explanation": "Teth is an effective brawler regardless of if you use it as a titan charger. It's EMP can interrput\nother Brawlers like Rex and Ammit, and it's forcefield and regenerating physical shield lets it\nsustain close ranged fights.",
+      "explanation": "Teth is an effective brawler regardless of if you use it as a titan charger. Its EMP can interupt\nother Brawlers like Rex and Ammit, and its forcefield and regenerating physical shield allows it to\nsustain close ranged fights.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -678,8 +725,9 @@
       "best_weapons": "LumenM+LumenL\nClose range UE setups\nFahrenheit+Celsius\nMachiara+Velos\nAny+Velos\nKroko+Hippo\nHarmattanM+HarmattanL",
       "drone_options": "Scales\nShowdown",
       "pilot": "Mei Lan",
-      "specialization": "Tank (Repair Amp +\nHeavy Armor Kit)\nRepair or Phase Shift",
+      "specialization": "Tank (Repair Amp +\nHeavy Armor Kit)\nRepair, Phase Shift, or\nJump Unit",
       "explanation": "Not much needs to be said about Ammit. It is a pretty broken robot, you can run almost anything \nand it will probably work decently. Scales and Showdown are about equal on it, with Showdown\nbeing better when fighting robots and Scales being better when fighting titans.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -691,6 +739,7 @@
       "pilot": "Nessa Riggs",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or\nJump Unit",
       "explanation": "Raven needs an optimal balance of range and damage to perform its primary duty, which is\nshutting down enemy snipers and midrangers through massive mobility and extensive stealth.\nAs a result, its best weapons are midrange guns.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -702,6 +751,7 @@
       "pilot": "Chester Coen",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nPhase Shift",
       "explanation": "Similarly to Skyros, beacon capper Loki has pretty much no good reason to exit stealth. Seeker can be useful\nfor the level 9 counter suppression, which may save you from an encounter with an enemy running QR.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -713,6 +763,7 @@
       "pilot": "Chester Coen",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nPhase Shift",
       "explanation": "Loki as an opportunist is just like Skyros as an opportunist, requiring very high burst damage\nweapons and a specific level 12 drone in order to perform.Not recommended for f2p.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -724,6 +775,7 @@
       "pilot": "Thomas\nMindread\n(With Engine\nExpert skill)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "Close ranged leech is a pretty dangerous build in 2026, but it's still viable if played with care. Thomas\nmindread with engine expert is a must in order to get in and out dangerous situations. Scales drone\nat high investment is also a huge upgrade, allowing leech to hold up in titan phase.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -735,6 +787,7 @@
       "pilot": "Thomas\nMindread\n(With Engine\nExpert skill)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "Midrange leech is a much safer leech variant. You should still ideally use Thomas with Engine expert.\nbut it's less important.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -746,6 +799,7 @@
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift, QR, SB",
       "explanation": "Being designed as a sniper, Bagliore is no doubt pretty good at it. Piercer is a fairly strong f2p sniper that can even\noutdamage f2p midrange options, so if you have those, use them!",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -757,6 +811,7 @@
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift, Repair, or\nSB",
       "explanation": "If you don't have piercers, midrange Bagliore is just as servicable as sniper Bagliore while having slightly more\naccessible weapon options.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -768,6 +823,7 @@
       "pilot": "Nova Light \n(My beloved)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
       "explanation": "Bagliore as a Brawler is able to statcheck a surprising amount of enemies, especially if you properly\ntime the Nova Light healing and prepare groundwork in advance. This only works if you have high\nquality weapons and mk3. Not recommended for f2p.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -779,6 +835,7 @@
       "pilot": "Vepkho\nLovidze",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or Phase Shift",
       "explanation": "Ochokochi is a fairly decent brawler that functions as a sidegrade to Rex. It trades burst uptime (only\none ability charge) and damage (no damage boosting pilot) as well as protection from low hit count guns\n(can't cleanse DoT stacks) for a strong CC ability that can launch people off the map. Just like Rex, it \nis a mk3 merchant that struggles to survive without it due to the crucial DoT resistance passive. Unless\nyou are a f2p that managed to get mk3 ocho, it is not recommended for f2p.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -790,6 +847,7 @@
       "pilot": "Weapon Pilot\nShani Kyne\nMiharu Sharpe",
       "specialization": "Raider (Nuke Amp + Any)\nPhase Shift or Lockdown\nAmmo",
       "explanation": "Using Sword's Sword is no longer worth it. Sword should be played as though it were a sidegraded\nSiren, teleporting back to the translocator to refresh the ability after the flight phase ends. It's very\nmuch capable of outputting decent damage to enemies this way, though you may want to try using \nLockdown Unit in order to ensure they can't escape you. While Sword doesn't suffer from Siren's issue\nof getting bursted down by high damage weapons or titans, it is instead susceptable to shieldbreaker.\n\nDeshret+Hedjet build with Miharu Sharpe is the only sword build that can justify dashing in, but you need to ensure\nthat you choose a target that can't kill you (or is near the execution threshold) and then teleport out ASAP.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -801,6 +859,7 @@
       "pilot": "Danny Kiberia",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nRepair or Phase Shift",
       "explanation": "Rex is able to deal unbelievably high damage despite lacking nuclear amp when equipped with the Danny pilot. The\nreduced amount of charges gives it less uptime at the start of the battle, but it shouldn't matter all too much\nsince you can end fights so quickly with the damage boost. That being said, Rex should be played like an assassin\nas it cannot survive brawling for very long when it runs out of charges.\nJust like Ochokochi, it is a mk3 merchant  that struggles to survive without it due to the crucial DoT resistance passive. \nUnless you are a f2p that managed to get mk3 Rex, it is not recommended for f2p.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -812,6 +871,7 @@
       "pilot": "Lian Xin Bai\nLucius Palma",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift, Repair, or\nSB (if using Lian Xin Bai)",
       "explanation": "Hastatus is a solid midranger with a very powerful defensive ability. It's best played at a medium\nrange, and both of its legendary pilots are quite strong. Webby does not work on Hastatus.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -823,6 +883,7 @@
       "pilot": "Ryder Mourn",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nPhase Shift, Repair,\nor Jump Unit",
       "explanation": "Being designed as a sniper, Stryx is no doubt pretty good at it. Piercer is a fairly strong f2p sniper that can even\noutdamage f2p midrange options, so if you have those, use them!",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -834,6 +895,7 @@
       "pilot": "Ryder Mourn",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
       "explanation": "If you don't have piercers, midrange Stryx is just as servicable as sniper Stryx while having slightly more\naccessible weapon options.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -845,6 +907,7 @@
       "pilot": "Single Malt",
       "specialization": "Raider\n(Nuke Amp + Integrated)\nPhase Shift, SB, or QS",
       "explanation": "Ankasor will yield results as long as your screen is turned on while piloting it. This robot can\ncomfortably 1v1 most titans in the game with a bit of patience, though its most recent nerf has made it\nrequire a bit of forethought. If you notice that your cloak just got triggered for the third time, make sure\nto land in order to not get lit up midair with no protection. Also, don't let people get within 150m of you\nwhile you're flying.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -856,6 +919,7 @@
       "pilot": "Single Malt",
       "specialization": "Raider\n(Nuke Amp + Integrated)\nPhase Shift, SB, or QR",
       "explanation": "Sniping with Anaksor is technically a viable strat simply thanks to a combination of how OP eldritch snipers are\nand how much target access it has for free. Not recommended for f2p due to lack of access to eldritch snipers.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -867,6 +931,7 @@
       "pilot": "Nika Schum",
       "specialization": "Brawler (Repair Amp +\nLast Stand)\nPhase Shift or Adv. Repair",
       "explanation": "Vector is an absurdly fast brawler that can skate across the map. Regular brawling builds are very\nstrong on it, but as you might expect, fast brawlers tend to be best used as titan chargers.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -878,6 +943,7 @@
       "pilot": "Nika Schum",
       "specialization": "Brawler (Repair Amp +\nLast Stand)\nPhase Shift or Adv. Repair",
       "explanation": "Vector is probably the single best titan charging bot in the game due to how much time it can stall for\nwith its 3 long duration ability charges.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -889,6 +955,7 @@
       "pilot": "Baek Taejun\nHarold Han\n(With K-lasers)",
       "specialization": "Damage Dealer\n(Nuke amp + Rangefinder)\nPhase shift or SB",
       "explanation": "A pathfinder with a nuclear amp is scary, but a pathfinder that can lock you down and turn you into\nstacks from across the map is scarier. The sniper builds are scuffed at f2p investment due to lack\nof a medium Piercer, though it can still pull it off for a similar reason that Nuo can.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -900,6 +967,7 @@
       "pilot": "Baek Taejun",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift or SB",
       "explanation": "The ideal way to play Shoggoth for f2p players. Still very powerful at p2w investment, though Urhag+Shantak\nis generally the strongest p2w build. Boom+Bash is a somewhat meme build that can be toxic in TDM but is\noverall worse than the others in beacon modes.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -911,6 +979,7 @@
       "pilot": "Ines Diaz\nWeapon Pilot",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase shift",
       "explanation": "The general build if the only Vulcan you have is the regular edition. Vulcan is incredibly oppressive and\ncan statcheck almost anything in the game when scaled, though before it upgrades itself it is relatively\nmediocre and thus requires proper target selection to actually survive past its weak phase.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -922,6 +991,7 @@
       "pilot": "Ines Diaz\nWeapon Pilot",
       "specialization": "Damage Dealer\n(Nuke amp + Overdrive)\nPhase Shift or Adv. Repair",
       "explanation": "The most effective Vulcan build in most situations, able to apply constant rust with 100% uptime. This\nrust application effect alows Vulcan to run UE Toxins in the light slots. It is not reccomended to run\nUE Venom in the medium slots as DoT damage does not charge the ability and you will struggle\nto scale up if you do this.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -933,6 +1003,7 @@
       "pilot": "Noa Minax",
       "specialization": "Raider\n(Nuke amp + Integrated)\nPhase Shift or\nAdvanced repair",
       "explanation": "While extremely fragile and easy to shut down, the ability to wield a rust webby makes a bot \ntechnically viable by default. So long as your teammates take the attention, Fafnir can provide some \nserious debuffing utility with good uptime and has high damage potential if charged.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -944,6 +1015,7 @@
       "pilot": "Sim Yo-Han",
       "specialization": "Saboteur (Beacon Op +\nAccelerator)\nPhase Shift",
       "explanation": "Samjok can be an oppressively annoying saboteur when equipped with weapons that either have the\nmeans to deal damage from around cover, deal damage during phase shift, unload instantly, or a\ncombination of these effects. Samjok should ideally never expose itself to the enemy.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -955,6 +1027,7 @@
       "pilot": "Nadir Rakhim",
       "specialization": "Any Specialization\nPhase Shift or QR",
       "explanation": "Fang is like a Ravager, except it's way faster, applies powerful negative effects, and has multiple charges on its\nability. It lends itself well to weapons that can either hit from behind cover, or unload extremely quickly.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -966,6 +1039,7 @@
       "pilot": "Donnie Woo",
       "specialization": "Engineer (Integrated Power\nUnit + Last Stand)\nShieldbreaker or Phase",
       "explanation": "Dedopali is able to play as a competitive endgame midranger, and at f2p investment, it mainly just relies on its gravity\nlift to bring value to the team. At higher investment, it can become a capable damage dealer of its own, though its\ngravity rocket is fairly inconsistent.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -977,6 +1051,7 @@
       "pilot": "Donnie Woo\nHarold Han",
       "specialization": "Engineer (Integrated Power\nUnit + Last Stand)\nShieldbreaker or Phase",
       "explanation": "Since the drones can only be launched out about 375 meters, Dedopali lends itself to a midrange playstyle. Still, longer\nranged Dedopali builds may be decent options, as the missile that lifts enemies has a 1100 meter range, so you can\nlargely ignore the drone damage and pick people up with the missile.",
+      "is_titan": false,
       "is_ultimate": false
     },
     {
@@ -988,6 +1063,259 @@
       "pilot": "Basil Lapatte\n(w/ Daredevil\nskill)",
       "specialization": "Damage Dealer\n(Nuke Amp + Rangefinder)\nShieldbreaker",
       "explanation": "This is somewhat a troll build but technically functions to counter Shoggoths, mainly in TDM. It especially helps if you\nhave a friendly Shoggoth to lock them down, though they are often immobile enough to kill alone. This build is virtually\nuseless against anything other than Shoggoth.",
+      "is_titan": false,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Assault",
+      "robot": "Princeps",
+      "f2p_weapons": "Arbiter+Equalizer\nDiscordia+Tumultus\nBasilisk+Krait\nGlaive+Lance",
+      "best_weapons": "Venire+Vincere\nUE Bulava+UE Kisten",
+      "drone_options": "",
+      "pilot": "Vorren Kaal",
+      "specialization": "Damage Dealer (TNA+ODU)\nAttack (Onslaught+Quantum)",
+      "explanation": "A powerful frontline attacker that can cycle between its ability and motherships to stay in the fight. \nIts signature weapons are not only great on it, but also on just about every other titan in the game.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Midranger",
+      "robot": "Bersagliere",
+      "f2p_weapons": "Arbiter\nDiscordia\nBasilisk\nGlaive",
+      "best_weapons": "Venire\nUE Bulava",
+      "drone_options": "",
+      "pilot": "Ishikawa Saizou",
+      "specialization": "Damage Dealer (TNA+ODU)\nAttack (Onslaught+Quantum)",
+      "explanation": "The preferred playstyle of Bersagliere. At midrange, Bersa can be a seriously threatening force\nwith its insane mobility allowing it to quickly take unexpected angles.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Sniper",
+      "robot": "Bersagliere",
+      "f2p_weapons": "Tonans\nVendicatoire",
+      "best_weapons": "Furnace\nUE Gendarme",
+      "drone_options": "",
+      "pilot": "Ishikawa Saizou",
+      "specialization": "Damage Dealer (TNA+Cannibal)\nAttack (Onslaught+Quantum)",
+      "explanation": "Generally not the ideal way to play Bersagliere, but the titan is good enough that this works anyways.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Support",
+      "robot": "Waymaker",
+      "f2p_weapons": "Arbiter+Equalizer",
+      "best_weapons": "Venire+Vincere\nUE Bulava+UE Kisten",
+      "drone_options": "",
+      "pilot": "Ethan Caldwell**",
+      "specialization": "Attack (Onslaught+Quantum)",
+      "explanation": "As a fairly brittle support bot with unreliable defense, Waymaker can choose to stay near its allies\nand rely on them for protection. After a few stacks of Hunter, it becomes a frighteningly dangerous\ndamage dealer that can use offense as a form of defense.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Sniper",
+      "robot": "Waymaker",
+      "f2p_weapons": "Tonans+Fulger\nVendicatoire+Fulger",
+      "best_weapons": "UE Gendarme+Torch\nFurnace+Torch",
+      "drone_options": "",
+      "pilot": "Ethan Caldwell**",
+      "specialization": "Damage Dealer (TNA+Cannibal)\nAttack (Onslaught+Quantum)",
+      "explanation": "An alternative way for Waymaker to protect itself is by playing at a long distance, but its supportive\ncapabilities are reduced as it can no longer deal with stealthed enemies nor output nearly as much\ndamage when stacked up.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Assassin",
+      "robot": "Mauler",
+      "f2p_weapons": "Evora+Veyron",
+      "best_weapons": "BarqA+BarqB\nVoid + Chasm",
+      "drone_options": "",
+      "pilot": "Nina Kessler",
+      "specialization": "Brawler (TRA+Anticontrol)",
+      "explanation": "The nerf to Mauler significantly reduced its ability to actually brawl, as it can be melted through its\nfairly weak defense system. That being said, Darklight is so strong that it can gaurantee kills on\nincredibly tanky targets if used at the right time.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Disruptor",
+      "robot": "Atlas",
+      "f2p_weapons": "Evora+Veyron\nVoid + Chasm",
+      "best_weapons": "BarqA+BarqB\nVenire + Vincere",
+      "drone_options": "",
+      "pilot": "Kevin O'Reilly\nChef Broil",
+      "specialization": "Brawler (TRA+Anticontrol)",
+      "explanation": "Atlas' mobility and wide array of crowd control effects allow it to snag high value bots, and its\npermanent side shields make it one of the strongest brawlers in the game.\n\nChef Broil is better for countering other Atlases & Bedwyrs plus a selection of other regular robots,\nwhile Kevin is better as the generalist Atlas pilot as blind immunity is rarer than presence of shielding.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Brawler",
+      "robot": "Bedwyr",
+      "f2p_weapons": "Evora+Veyron",
+      "best_weapons": "Void+Chasm",
+      "drone_options": "",
+      "pilot": "Toshiro Kurosawa",
+      "specialization": "Brawler (TRA+Anticontrol)",
+      "explanation": "Like Bjorn, Bedwyr is an incredibly immobile bot. Aside from that, its kit is very strong, having both \na long duration absorber shield and in incredibly powerful utility ability that can save your teammates\nfrom dangerous foes.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Midrange",
+      "robot": "Bedwyr",
+      "f2p_weapons": "Arbiter+Equalizer",
+      "best_weapons": "Venire+Vincere",
+      "drone_options": "",
+      "pilot": "Toshiro Kurosawa",
+      "specialization": "Brawler (TRA+Anticontrol)",
+      "explanation": "Bedwyr can choose to trade damage for a midrange build which helps solve its mobility issues, though\nit struggles to kill other brawlers up close when using this sort of build.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Burst",
+      "robot": "Devourer",
+      "f2p_weapons": "Tonans+Fulger\nVendicatoire+Fulger\nArbiter + Equalizer",
+      "best_weapons": "Venire+Vincere\nUE Bulava+UE Kisten\nTorch Furnace",
+      "drone_options": "",
+      "pilot": "Liam Craig",
+      "specialization": "Attack (Onslaught+Quantum)",
+      "explanation": "Devourer cannot afford to be in the open for long, so it is best used with safe weapons that unload\na large amount of damage quickly from a distance.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Brawler",
+      "robot": "Sirocco",
+      "f2p_weapons": "Evora+Veyron\nVoid+Chasm",
+      "best_weapons": "BarqA+BarqB",
+      "drone_options": "",
+      "pilot": "Renard Aurel",
+      "specialization": "Brawler (TRA+Anticontrol)",
+      "explanation": "Sirocco is an incredibly powerful brawler that can stall for a very long time between its DMI and phase.\nBuilds that compliment its ability to stall in close quarters are ideal.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Brawler",
+      "robot": "Indra",
+      "f2p_weapons": "Evora+Veyron\nVoid+Chasm",
+      "best_weapons": "BarqA+BarqB\nVenire + Vincere",
+      "drone_options": "",
+      "pilot": "Yang Lee",
+      "specialization": "Brawler (TRA+Anticontrol)",
+      "explanation": "Indra can win fights against a surprising amount of other brawlers thanks to its flexible phase shifts\nand percentage damage lasso. It is best played at a close range.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Midranger",
+      "robot": "Newton",
+      "f2p_weapons": "Arbiter+Equalizer",
+      "best_weapons": "Venire+Vincere\nUE Bulava+UE Kisten",
+      "drone_options": "",
+      "pilot": "Jude Pryce",
+      "specialization": "Damage Dealer (TNA+ODU)\nAttack (Onslaught+Quantum)",
+      "explanation": "Newton can play at a medium range, though it is relatively vulernable as it lacks defensive abilites\nand thus cannot win most shootouts with other midrangers. That being said, this build is especially\ndangerous to close range builds.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Sniper",
+      "robot": "Newton",
+      "f2p_weapons": "Tonans+Fulger\nVendicatoire+Fulger",
+      "best_weapons": "UE Gendarme+Torch\nFurnace+Torch",
+      "drone_options": "",
+      "pilot": "Jude Pryce",
+      "specialization": "Damage Dealer (TNA+ODU)",
+      "explanation": "Newton as a sniper is a bit safer as it can also choose to target midrangers by simply outranging them.\nThis comes at the cost of damage though, meaning it won't be as effective against bulkier targets.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Hybrid Burst",
+      "robot": "Eiffel",
+      "f2p_weapons": "Vendicatoire or Tonans\nin summoned slots\nArbiter+Equalizer\nDiscordia+Tumultus",
+      "best_weapons": "Vendicatoire or UE Bulava\nin summoned slots\nVenire+Vincere\nTorch Furnace",
+      "drone_options": "",
+      "pilot": "Jimmy Hermes**",
+      "specialization": "Damage Dealer (TNA+ODU)",
+      "explanation": "Eiffel can run a build that is comparable to one of UE Ao Mings builds, and arguably better (far less\nbulky, but infinitely more mobile). Eiffel can be thought of as the awkward middle child between a UE\nMing and a Bersagliere. A defensive mothership is strongly suggested as Eiffel's in air protection is\nnot very reliable.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Midranger",
+      "robot": "Murometz",
+      "f2p_weapons": "Arbiter+Equalizer\nBasilisk+Krait",
+      "best_weapons": "Venire+Vincere\nUE Bulava+UE Kisten",
+      "drone_options": "",
+      "pilot": "Marie Aldrich",
+      "specialization": "Damage Dealer (TNA+ODU)\nAttack (Onslaught+Quantum)",
+      "explanation": "Murometz' EMP allows it to effectively kill a lot of targets that are far more powerful than it by catching\nthem off guard and melting them before they can react. That being said, it sometimes dies the moment\nits ability ends as it spends a few seconds exposed in air without stealth active.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Brawler",
+      "robot": "Minos",
+      "f2p_weapons": "Evora\nChasm",
+      "best_weapons": "BarqB",
+      "drone_options": "",
+      "pilot": "Una Glow",
+      "specialization": "Brawler (TRA+Anticontrol)",
+      "explanation": "Minos has very low firepower, so it needs to make up for it by equipping high damage close ranged\nweapons.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Support",
+      "robot": "Nodens",
+      "f2p_weapons": "Equalizer\nTumultus",
+      "best_weapons": "Vincere\nUE Kisten\nTorch",
+      "drone_options": "",
+      "pilot": "Yang Lee",
+      "specialization": "Attack (Onslaught+Quantum)",
+      "explanation": "Nodens would prefer to play at a moderate range as it has little defense and relies on its team's\nfrontline to protect it.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Midranger",
+      "robot": "Aether",
+      "f2p_weapons": "Arbiter+Equalizer\nBasilisk+Krait",
+      "best_weapons": "Venire+Vincere\nUE Bulava+UE Kisten\nTorch + Furnace",
+      "drone_options": "",
+      "pilot": "Yang Lee",
+      "specialization": "Damage Dealer (TNA+ODU)",
+      "explanation": "Aether is a sidegrade to Murometz that has a far less consistent EMP but an ability that lasts much\nlonger and decent speed+healing utility.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Midrange",
+      "robot": "Bjorn",
+      "f2p_weapons": "Arbiter+Equalizer",
+      "best_weapons": "Venire+Vincere",
+      "drone_options": "",
+      "pilot": "Yang Lee\n(SIGRID SUCKS)",
+      "specialization": "Tank (TRA+TLS)",
+      "explanation": "Similarly to Bedwyr, Bjorn can make up for its poor mobility by equipping ranged weapons.",
+      "is_titan": true,
+      "is_ultimate": false
+    },
+    {
+      "build_name": "Brawler",
+      "robot": "Bjorn",
+      "f2p_weapons": "Evora+Veyron",
+      "best_weapons": "Void+Chasm",
+      "drone_options": "",
+      "pilot": "Yang Lee\n(SIGRID SUCKS)",
+      "specialization": "Tank (TRA+TLS)",
+      "explanation": "Siimilarly to Bedwyr, Bjorn's typical ideal playstyle uses close range but not quite point blank weapons.",
+      "is_titan": true,
       "is_ultimate": false
     },
     {
@@ -999,6 +1327,7 @@
       "pilot": "Nessa Riggs\nErika Storm\n(If using seeker)",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Shieldbreak",
       "explanation": "Equipped with Nessa Riggs, UE Raven can chain 5 seconds of stealth with 4 seconds of stasis barrier. Additionally,\nit can trigger Scourveil/Kestrel healing, giving it both insane uptime defenses and self sustain.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1010,6 +1339,7 @@
       "pilot": "Clive Vicious",
       "specialization": "Saboteur (Accelerator +\nBeacon Operator)\nPhase Shift",
       "explanation": "Blitz can make dangerous plays fairly safely thanks to its translocator. Clive helps protect against enemies that\nhave shieldbreaker, as he does not remove the UE blitz slim aegis.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1021,6 +1351,7 @@
       "pilot": "Sergeius\nHayward",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "Haechi can be played with a wide variety of weapons, and as long as the enemy doesn't have shieldbreaker, it is\na total pain to deal with.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1032,6 +1363,7 @@
       "pilot": "Adam O'Leary",
       "specialization": "Brawler (Repair Amp +\nLast stand)\nPhase Shift or Adv. Repair",
       "explanation": "Griffin is fairly flexible and has great mobility. Unfortunately, its low uptime on the blind effect can leave it helpless\na few seconds after its jump.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1043,6 +1375,7 @@
       "pilot": "Thomas Pear",
       "specialization": "Brawler (Repair Amp +\nLS/IA)\nPhase Shift or Adv. Repair",
       "explanation": "UE Ravana is a dangerous brawler up close that can stall for an incredibly long time with how many phase charges it \nhas. While Arnav Poe can be used, Thomas Pear is preferred as he increases Ravana's brawling potential rather than \nits stalling potential.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1054,6 +1387,7 @@
       "pilot": "Gloria Putnam",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "UE Typhon can shut down high value targets with its blackout. It can be played at both close and long range, though\nit is vulnerable to bots surviving its payload with last stand and pushing it if its played at close range.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1065,6 +1399,7 @@
       "pilot": "Kyle Rogers",
       "specialization": "Raider (Nuke Amp + IPU)\nPhase Shift or Repair",
       "explanation": "UE Hawk is dangerous in air and would prefer not to expose itself for long while on the ground, so weapons that\nunload quickly, unload from a range, or can deal damage without line of sight are ideal.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1076,6 +1411,7 @@
       "pilot": "Marie Leclair",
       "specialization": "Support (Accelerator +\nLast stand)\nPhase Shift",
       "explanation": "UE Mender is an acceptable healer that is best equipped with midrange debuffing weapons, though it can serve as a\ntemporary brawler while its ability is active.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1087,6 +1423,7 @@
       "pilot": "Thomas\nMindread",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "Thomas Mindread is ideal on Leech, even over the ultimate pilot that heals grey damage. The ability to get in and out\nwith incredible speed is invaluable. Leech's weapon setups are very flexible, as it can be played at both mid and close\nrange.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1098,6 +1435,7 @@
       "pilot": "Dexter Crow",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "UE Rayker really prefers to be played at a decent range, though the combination of execute, freezo, and suppression\nmay allow it to be played at close range with percentage damage weapons.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1109,6 +1447,7 @@
       "pilot": "Weapon Pilot\nMicheal Dupoint",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or Adv. Repair",
       "explanation": "UE Rhino prefers to have high burst, long reload weapons in its medium slots, with strong sustained damage weapons\nin the light slots. This allows it to maximize its firepower as its light slots are always active but its medium slots can\nonly be used for about 4 seconds every 10 or so seconds.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1120,6 +1459,7 @@
       "pilot": "A5H-5K4R\nAsh Skarsgard",
       "specialization": "Any specialization\nPhase Shift",
       "explanation": "Bursty close range weapons are ideal on UE Scorpion so that it can output massive damage after a teleport and then\nreturn to the translocator before it takes too much return fire.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1131,6 +1471,7 @@
       "pilot": "Reana Medaro\nWeapon Pilot",
       "specialization": "Brawler (Repair Amp +\nLast stand)\nPhase Shift or Adv. Repair",
       "explanation": "UE Bulgasari is a flexible brawler that prefers weapons with quick unloads or the ability to fire without direct line of\nsight so that it can keep its unbreakable physical shield pointed towards the enemy for as long as possible.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1142,6 +1483,7 @@
       "pilot": "Olga Minima",
       "specialization": "Sabotuer (Accelerator +\nBeacon Operator)\nPhase Shift",
       "explanation": "UE Phantom plays much like UE Blitz, though it isn't as well defended, so it really prefers bursty weapons so\nthat it can get out of danger quickly without losing much health.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1153,6 +1495,7 @@
       "pilot": "Ricardo\nGonzales",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or Adv. Repair",
       "explanation": "UE Revenant should be equipped with high damage close range weapons in order to make best use of its close range\nteleport. Ricardo Gonzales is ideal for retreating after teleporting in, though the ultimate pilot which gives 20% more\ndurability can also be used to increase its statchecking capabilities. Healing drones are very much appreciated on\na bot with as much grey healing as UE Revenant.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1164,6 +1507,7 @@
       "pilot": "Weapon Pilot\nIji Rime",
       "specialization": "Brawler (Repair Amp +\nIA/LS)\nPhase Shift or Adv. Repair",
       "explanation": "UE Lancelot is a competent opener bot with plenty of self sustain and charges of speed that can be stacked up for\na quick head on assault. Kroko and Liodari are ideal mostly just for titan charging, as a general brawler, it would output\nmore with weapons that have better sustain.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1175,6 +1519,7 @@
       "pilot": "Yang Lee",
       "specialization": "Raider (Nuke Amp + Any)\nPhase Shift or Lockdown\nAmmo",
       "explanation": "UE Ao Jun can be a decent anti titan robot, though it is showing its age and is largely outperformed in this role\nby many other bots.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1186,6 +1531,7 @@
       "pilot": "Warren Ozu",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "UE Ares can be a decently flexible midranger, though it is extremely vulnerable while its ability is on cooldown, which\nlimits its capabilities at close range.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1197,6 +1543,7 @@
       "pilot": "Egorus Gafidos",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift or Repair",
       "explanation": "Weapons with large reach (ie, Lumens) are ideal on UE Leo as it can stack both antistealth and shieldbreaker easily,\nallowing it to severely control where stealth and shield dependant bots can be on the field.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1208,6 +1555,7 @@
       "pilot": "Otto Schreyer\n(With Arms)\nWeapon Pilot\n(other weapons)\nShani Kyne\n(if you have)\nMiharu Sharpe\n(Otherwise)",
       "specialization": "Raider (Nuke Amp + IPU)\nPhase Shift",
       "explanation": "UE Sword is a raider with some of the highest damage potential in the game given that the enemy charges up its\nsword. Unfortunately, it is very vulnerable to shieldbreaker and won't reach this potential often times as most enemies\nknow to avoid shooting its shield.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1219,6 +1567,7 @@
       "pilot": "Weapon Pilot\nTal Mokri",
       "specialization": "Damage Dealer\n(Nuke Amp + Overdrive)\nPhase Shift",
       "explanation": "UE Spectre is a fairly outdated midranger that can be pretty much played identically to Raven. While its damage\npotential is a bit higher, both its mobility and uptime are worse.",
+      "is_titan": false,
       "is_ultimate": true
     },
     {
@@ -1230,6 +1579,115 @@
       "pilot": "Lisel and\nB4R0N3T\nBernadette\nWolff",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or Adv. Repair",
       "explanation": "UE Fenrir is an incredibly annoying to kill tank that can abuse Showdown's healing due to its grey resistance. It is\nunfortunately hard countered by rust and percentage damage, which can cripple it incredibly quickly.",
+      "is_titan": false,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Brawler",
+      "robot": "UE Murometz",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "Venire+Vincere\nBarqA+BarqB",
+      "drone_options": "",
+      "pilot": "Marie Aldrich",
+      "specialization": "Ultimate (BU+TRA)",
+      "explanation": "UE Murometz can run a safe brawler build with TRA, but its damage ceiling will take a notable hit.",
+      "is_titan": true,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Midranger",
+      "robot": "UE Murometz",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "Venire+Vincere\nUE Bulava+UE Kisten",
+      "drone_options": "",
+      "pilot": "Marie Aldrich",
+      "specialization": "Ultimate (Plated Armor+TNA)",
+      "explanation": "The ideal UE Murometz build. Incredibly dangerous and versatile.",
+      "is_titan": true,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Support",
+      "robot": "UE Nodens",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "Vincere\nUE Kisten",
+      "drone_options": "",
+      "pilot": "Yang Lee",
+      "specialization": "Ultimate (BU+TRA)",
+      "explanation": "While UE Nodens can run either TRA or TNA, TRA is generally preferred as it allows it to temporarily\nplay as a brawler if needed and allows it to poke without being punished too hard.",
+      "is_titan": true,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Brawler",
+      "robot": "UE Ao Ming",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "Void",
+      "drone_options": "",
+      "pilot": "Liu Zhetai",
+      "specialization": "Ultimate (BU+TRA)",
+      "explanation": "UE Ao Ming prefers close range weapons with tight spread in order to hit enemies while flying. Due to\nits lack of horizontal mobility, close range Ao Ming would really like to use Frederick.",
+      "is_titan": true,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Midranger",
+      "robot": "UE Ao Ming",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "Venire\nUE Bulava",
+      "drone_options": "",
+      "pilot": "Liu Zhetai",
+      "specialization": "Ultimate (BU+TNA)",
+      "explanation": "Having the highest firepower in the game, sometimes the simplest solution is the best. Four big guns.",
+      "is_titan": true,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Hybrid Sniper",
+      "robot": "UE Ao Ming",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "Venire (Top slots)\nVendicatoire (Back slots)",
+      "drone_options": "",
+      "pilot": "Liu Zhetai",
+      "specialization": "Ultimate (BU+TNA)",
+      "explanation": "UE Ao Ming, similarly to Eiffel, has enough firepower to run a split build with half sustain weapons and\nhalf burst/utility weapons. This also lines up well with its legendary pilot skill, as it is incentivised to\nrise and land frequently bot to let the back guns reload and to recharge the stealth.",
+      "is_titan": true,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Sniper",
+      "robot": "UE Ao Ming",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "UE Gendarme+Furnace\nFurnace\nUE Gendarme\nVendicatoire\nFurnace+Vendicatoire",
+      "drone_options": "",
+      "pilot": "Liu Zhetai",
+      "specialization": "Ultimate (Antimatter+TNA)",
+      "explanation": "Full sniper builds can be ideal for Ming on ultra long range maps where flying with a midrange build is\ndangerous. That being said, they are pretty niche and only really work on Yamantau, Springfield, \nand Canyon.",
+      "is_titan": true,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Brawler",
+      "robot": "UE Minos",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "BarqB\nEvora\nChasm",
+      "drone_options": "",
+      "pilot": "Una Glow",
+      "specialization": "Ultimate (BU+TRA)",
+      "explanation": "While UE Minos can run either TRA or TNA, its kit really incentivises running TRA as it is a far more\npowerful brawler than it is a damage dealer due to its low firepower 3 beta weapon slots.",
+      "is_titan": true,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Midranger",
+      "robot": "UE Arthur",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "Venire",
+      "drone_options": "",
+      "pilot": "Leonid Kennedy",
+      "specialization": "Ultimate (Any + TNA)",
+      "explanation": "UE Arthur is both fragile behind its shields and lacks mobility, making it hard to justify playing it as\na brawler since you'll instantly die if someone with splash weapons appears.",
+      "is_titan": true,
       "is_ultimate": true
     }
   ],
@@ -3322,6 +3780,11 @@
       },
       "roles": [
         {
+          "role": "Tank-buster",
+          "type": "main",
+          "footnote": ""
+        },
+        {
           "role": "Midrange",
           "type": "primary",
           "footnote": ""
@@ -3356,6 +3819,11 @@
           "role": "Sniper",
           "type": "secondary",
           "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "main",
+          "footnote": ""
         }
       ],
       "comments": "UE Ares is a fairly old UE and it shows, though it still holds up as an acceptable damage dealer if you manage to obtain it."
@@ -3387,6 +3855,11 @@
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
+        },
+        {
+          "role": "Assassin",
+          "type": "main",
+          "footnote": ""
         }
       ],
       "comments": "UE Blitz is an exceptionally fast saboteur with some added utility in the form of suppression that can aid it in making aggressive plays."
@@ -3407,6 +3880,11 @@
         {
           "role": "Brawler",
           "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -3431,6 +3909,11 @@
       },
       "roles": [
         {
+          "role": "Midrange",
+          "type": "main",
+          "footnote": ""
+        },
+        {
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
@@ -3450,7 +3933,13 @@
         "accessibility": 0.0,
         "overall": 18.0
       },
-      "roles": [],
+      "roles": [
+        {
+          "role": "Brawler",
+          "type": "main",
+          "footnote": ""
+        }
+      ],
       "comments": "UE Fenrir is incredibly tanky but practically immobile and offers no utility."
     },
     {
@@ -3469,6 +3958,11 @@
         {
           "role": "Sniper",
           "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -3503,6 +3997,11 @@
           "footnote": ""
         },
         {
+          "role": "Brawler",
+          "type": "main",
+          "footnote": ""
+        },
+        {
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
@@ -3531,6 +4030,11 @@
         {
           "role": "Support",
           "type": "secondary",
+          "footnote": ""
+        },
+        {
+          "role": "Tank-buster",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -3575,6 +4079,11 @@
       },
       "roles": [
         {
+          "role": "Tank-buster",
+          "type": "main",
+          "footnote": ""
+        },
+        {
           "role": "Midrange",
           "type": "primary",
           "footnote": ""
@@ -3606,6 +4115,11 @@
       },
       "roles": [
         {
+          "role": "Brawler",
+          "type": "main",
+          "footnote": ""
+        },
+        {
           "role": "Assassin",
           "type": "secondary",
           "footnote": ""
@@ -3626,6 +4140,11 @@
         "overall": 22.0
       },
       "roles": [
+        {
+          "role": "Brawler",
+          "type": "main",
+          "footnote": ""
+        },
         {
           "role": "Beacon Runner",
           "type": "primary",
@@ -3650,6 +4169,11 @@
         {
           "role": "Tank-buster",
           "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "main",
           "footnote": ""
         },
         {
@@ -3678,6 +4202,11 @@
         "overall": 22.0
       },
       "roles": [
+        {
+          "role": "Tank-buster",
+          "type": "main",
+          "footnote": ""
+        },
         {
           "role": "Sniper",
           "type": "primary",
@@ -3710,6 +4239,11 @@
       },
       "roles": [
         {
+          "role": "Support",
+          "type": "main",
+          "footnote": ""
+        },
+        {
           "role": "Brawler",
           "type": "secondary",
           "footnote": ""
@@ -3735,6 +4269,11 @@
         "overall": 23.0
       },
       "roles": [
+        {
+          "role": "Brawler",
+          "type": "main",
+          "footnote": ""
+        },
         {
           "role": "Beacon Runner",
           "type": "primary",
@@ -3765,6 +4304,11 @@
           "role": "Brawler",
           "type": "primary",
           "footnote": ""
+        },
+        {
+          "role": "Assassin",
+          "type": "main",
+          "footnote": ""
         }
       ],
       "comments": "UE Ravana leans into all the things that made the original Ravana good and improves on them, making for a very powerful ultimate brawler."
@@ -3782,6 +4326,11 @@
         "overall": 30.0
       },
       "roles": [
+        {
+          "role": "Tank-buster",
+          "type": "main",
+          "footnote": ""
+        },
         {
           "role": "Sniper",
           "type": "primary",
@@ -3829,6 +4378,11 @@
           "footnote": ""
         },
         {
+          "role": "Tank-buster",
+          "type": "main",
+          "footnote": ""
+        },
+        {
           "role": "Midrange",
           "type": "primary",
           "footnote": ""
@@ -3868,6 +4422,11 @@
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
+        },
+        {
+          "role": "Assassin",
+          "type": "main",
+          "footnote": ""
         }
       ],
       "comments": "UE Revenant is an incredibly powerful self sustaining brawler with two unbreakable shields and a long distance teleport. Ricardo makes UE Revenant incredibly mobile when used with Engine Expert, though Revenant gives up a lot of firepower for its tankieness."
@@ -3885,6 +4444,11 @@
         "overall": 24.0
       },
       "roles": [
+        {
+          "role": "Brawler",
+          "type": "main",
+          "footnote": ""
+        },
         {
           "role": "Beacon Runner",
           "type": "primary",
@@ -3935,6 +4499,11 @@
           "role": "Beacon Runner",
           "type": "primary",
           "footnote": ""
+        },
+        {
+          "role": "Assassin",
+          "type": "main",
+          "footnote": ""
         }
       ],
       "comments": "UE Scorpion is a cross between a saboteur and a brawler, able to get in, bite the ankles of something way out of its weight class, and then get out just as fast."
@@ -3961,6 +4530,11 @@
           "role": "Sniper",
           "type": "primary",
           "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "main",
+          "footnote": ""
         }
       ],
       "comments": "UE Spectre is a sidegrade to regular edition raven, having better firepower but worse everything else."
@@ -3986,6 +4560,11 @@
         {
           "role": "Tank-buster",
           "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Midrange",
+          "type": "main",
           "footnote": ""
         }
       ],

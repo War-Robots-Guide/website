@@ -40,18 +40,14 @@ describe('GuideFilters Component', () => {
 
   it('renders streamlined sort options (Default and Value Rating)', () => {
     render(<GuideFilters {...defaultProps} />);
-    const sortSelect = screen.getByDisplayValue('Default Sort (by Tier)');
-    expect(sortSelect).toBeInTheDocument();
-    expect(within(sortSelect).getByRole('option', { name: 'Default Sort (by Tier)' })).toBeInTheDocument();
-    expect(within(sortSelect).getByRole('option', { name: 'Sort by Value Rating' })).toBeInTheDocument();
+    expect(screen.getByRole('radio', { name: 'Tier' })).toBeChecked();
+    expect(screen.getByRole('radio', { name: 'Value Rating' })).not.toBeChecked();
   });
 
   it('calls setSortBy when sort is changed', () => {
     const setSortBy = vi.fn();
     render(<GuideFilters {...defaultProps} setSortBy={setSortBy} />);
-    const sortSelect = screen.getByDisplayValue('Default Sort (by Tier)');
-
-    fireEvent.change(sortSelect, { target: { value: 'value_rating' } });
+    fireEvent.click(screen.getByRole('radio', { name: 'Value Rating' }));
     expect(setSortBy).toHaveBeenCalledWith('value_rating');
   });
 });

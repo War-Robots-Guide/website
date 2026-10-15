@@ -212,3 +212,12 @@ describe('DetailModal Component', () => {
     expect(mockOnClose).not.toHaveBeenCalled();
   });
 });
+
+it('keeps value and attribute ratings out of a tier-list modal', () => {
+  render(<DetailModal selectedItem={{ name: 'Destrier', type: 'Robots', routeId: 'tiers', data: { description: 'Power tier rationale.' } }} onClose={() => {}} />);
+  expect(screen.getByText('Power tier rationale.')).toBeInTheDocument();
+  expect(screen.getByText('Main role')).toBeInTheDocument();
+  expect(screen.getByText('Subroles')).toBeInTheDocument();
+  expect(screen.queryByText('Value rating')).not.toBeInTheDocument();
+  expect(screen.queryByText('Attribute ratings')).not.toBeInTheDocument();
+});

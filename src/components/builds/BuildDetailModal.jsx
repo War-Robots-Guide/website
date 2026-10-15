@@ -6,14 +6,13 @@ import {
   getRobotImage,
   getPilotImage,
   getDroneImage,
-  getModuleImage,
   getWeaponImage,
 } from '../../utils/imageUtils';
 
 function parseCommaOrNewlineItems(text) {
   if (!text || text === 'N/A') return [];
   return text
-    .split(/\n|\/|,/)
+    .split(/\n|\/|,|\+/)
     .map(s => s.trim())
     .filter(s => s.length > 0 && !s.toLowerCase().startsWith('not recommended'));
 }
@@ -41,7 +40,7 @@ export function BuildDetailModal({ build, onClose }) {
 
   const tier = useMemo(() => {
     if (!build) return null;
-    return getTierForName(build.robot, 'Robots');
+    return getTierForName(build.robot, build.is_titan ? 'Titans' : 'Robots');
   }, [build]);
 
   const pilotImage = useMemo(() => {
@@ -55,37 +54,6 @@ export function BuildDetailModal({ build, onClose }) {
       .split('\n')
       .map(line => line.trim())
       .filter(Boolean);
-  }, [build]);
-
-  const parsedModules = useMemo(() => {
-    if (!build?.specialization) return [];
-    const text = build.specialization;
-    // Extract potential modules mentioned in text
-    const moduleKeywords = [
-      'Nuclear Amplifier', 'Titan Nuclear Amplifier',
-      'Repair Amplifier', 'Titan Repair Amplifier',
-      'Immune Amplifier', 'Titan Immune Amplifier',
-      'Last Stand', 'Titan Last Stand',
-      'Phase Shift', 'Repair Unit', 'Advanced Repair Unit',
-      'Unstable Conduit', 'Lock Down Ammo', 'Death Mark',
-      'Shieldbreaker', 'Quantum Radar', 'Quantum Sensor',
-      'Robot Accelerator', 'Accelerator', 'Titan Accelerator',
-      'Overdrive Unit', 'Overdrive', 'Titan Overdrive',
-      'Anticontrol', 'Titan Anticontrol', 'Cannibal Reactor',
-      'Heavy Armor Kit', 'Fortifier', 'Integrated Power Unit',
-      'Titan Slayer', 'Rangefinder', 'Beacon Operator',
-      'Cloaking Unit', 'Self Fix Unit'
-    ];
-    const found = [];
-    const textLower = text.toLowerCase();
-    for (const kw of moduleKeywords) {
-      if (textLower.includes(kw.toLowerCase())) {
-        if (!found.some(f => f.toLowerCase() === kw.toLowerCase() || kw.toLowerCase().includes(f.toLowerCase()))) {
-          found.push(kw);
-        }
-      }
-    }
-    return found;
   }, [build]);
 
   const f2pWeaponList = useMemo(() => {
@@ -227,7 +195,7 @@ export function BuildDetailModal({ build, onClose }) {
             </div>
 
             {/* Drone Card */}
-            <div
+            {!build.is_titan && <div
               className="build-equipment-panel"
             >
               <span className="build-equipment-heading">
@@ -257,7 +225,7 @@ export function BuildDetailModal({ build, onClose }) {
               ) : (
                 <span style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>N/A</span>
               )}
-            </div>
+            </div>}
 
           </div>
 
@@ -269,42 +237,6 @@ export function BuildDetailModal({ build, onClose }) {
               <img src="/icons/module_old_gold.png" alt="" className="icon-18" />
               Specialization & Recommended Modules
             </span>
-
-            {/* Visual Module Badges (64px x 64px image size matching pilot) */}
-            {parsedModules.length > 0 && (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginBottom: '14px' }}>
-                {parsedModules.map((modName, idx) => {
-                  const modImg = getModuleImage(modName);
-                  return (
-                    <div
-                      key={idx}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '14px',
-                        background: 'rgba(255, 255, 255, 0.04)',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        borderRadius: '10px',
-                        padding: '10px 12px',
-                      }}
-                    >
-                      <div
-                        className="build-equipment-image"
-                      >
-                        {modImg ? (
-                          <img src={modImg} alt={modName} className="equipment-image-fit" />
-                        ) : (
-                          <img src="/icons/module_old_gold.png" alt="" className="icon-36" />
-                        )}
-                      </div>
-                      <span style={{ fontSize: '13px', fontWeight: 700, color: '#fff' }}>
-                        {modName}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
 
             <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
               {build.specialization}

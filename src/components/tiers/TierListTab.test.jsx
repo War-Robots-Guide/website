@@ -42,11 +42,11 @@ describe('TierListTab', () => {
     expect(screen.getByText('Tier Lists')).toBeInTheDocument();
 
     // Tag legend is collapsed by default
-    expect(screen.getByText(/Tier Tag Guide & Meta Markers/i)).toBeInTheDocument();
+    expect(screen.getByText(/Tier Tag Guide/i)).toBeInTheDocument();
     expect(screen.queryByText(/potential in squad play/)).not.toBeInTheDocument();
 
     // Click to expand
-    fireEvent.click(screen.getByText(/Tier Tag Guide & Meta Markers/i));
+    fireEvent.click(screen.getByText(/Tier Tag Guide/i));
     expect(screen.getByText(/potential in squad play/)).toBeInTheDocument();
     expect(screen.getByText(/require an incredibly specific build/)).toBeInTheDocument();
     expect(screen.getByText(/potential to perform at a much higher tier/)).toBeInTheDocument();

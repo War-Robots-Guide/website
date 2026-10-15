@@ -6,7 +6,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import { RatingBar } from './RatingBar';
 import { ScoreMeter } from './ScoreMeter';
 import { getTierForName, getFootnoteText, stripTagsAndAsterisks } from '../../utils/tierLookup';
-import { getItemImage, getRoleIcon } from '../../utils/imageUtils';
+import { getItemImage, getRoleIcon, getUnitKey } from '../../utils/imageUtils';
 
 // Pre-compute lookup data outside the component to avoid recreating it on every render.
 const weaponsList = weaponsDpsData ? Object.values(weaponsDpsData).flat() : [];
@@ -104,7 +104,7 @@ export function DetailModal({ selectedItem, onClose }) {
     const isSelectedUe = cleanSelected.startsWith('ue ');
 
     // Try exact match first
-    const exact = precomputedRobots.find(r => r.cleanName === cleanSelected);
+    const exact = precomputedRobots.find(r => getUnitKey(r.name) === getUnitKey(selectedItem.name));
     if (exact) return exact;
 
     return precomputedRobots.find(r => {
@@ -119,7 +119,7 @@ export function DetailModal({ selectedItem, onClose }) {
     const isSelectedUe = cleanSelected.startsWith('ue ');
 
     // Try exact match first
-    const exact = precomputedTitans.find(t => t.cleanName === cleanSelected);
+    const exact = precomputedTitans.find(t => getUnitKey(t.name) === getUnitKey(selectedItem.name));
     if (exact) return exact;
 
     return precomputedTitans.find(t => {
@@ -153,6 +153,7 @@ export function DetailModal({ selectedItem, onClose }) {
   }, [selectedItem, onClose]);
 
   if (!selectedItem) return null;
+  const isTierList = selectedItem.routeId === 'tiers';
 
   return (
     <div 
@@ -201,7 +202,7 @@ export function DetailModal({ selectedItem, onClose }) {
             <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, display: 'block', marginBottom: '6px', textTransform: 'uppercase' }}>
               Rationale:
             </span>
-            <p style={{ color: 'var(--text-primary)', fontSize: '14.5px', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ color: 'var(--text-primary)', fontSize: '14.5px', lineHeight: 1.6, margin: 0, whiteSpace: 'pre-line' }}>
               {mainRationale}
             </p>
 
@@ -280,10 +281,10 @@ export function DetailModal({ selectedItem, onClose }) {
                 <>
                   <div className="detail-summary-row">
                     <div>
-                      <span className="detail-field-label">Value rating</span>
-                      <RatingBar rating={rob.value_rating} unitType="robot" />
+                      <span className="detail-field-label">{isTierList ? 'Main role' : 'Value rating'}</span>
+                      {isTierList ? <span>{rob.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span> : <RatingBar rating={rob.value_rating} unitType="robot" />}
                     </div>
-                    {tier && (
+                    {tier && isTierList && (
                       <div>
                         <span className="detail-field-label">Tier</span>
                         <span className={`tier-badge-${tier.toLowerCase()}`} style={{ 
@@ -307,9 +308,9 @@ export function DetailModal({ selectedItem, onClose }) {
                   </div>
                   {rob.roles && rob.roles.length > 0 && (
                     <div className="space-below-16">
-                      <span className="detail-role-label">Roles</span>
+                      <span className="detail-role-label">{isTierList ? 'Subroles' : 'Roles'}</span>
                       <div className="detail-role-list">
-                        {rob.roles.map(role => {
+                        {rob.roles.filter(role => !isTierList || role.type !== 'main').map(role => {
                           if (role.type === 'none') return null;
                           const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
                           const roleIcon = role.type === 'main' ? getRoleIcon(role.role) : null;
@@ -342,6 +343,7 @@ export function DetailModal({ selectedItem, onClose }) {
                       )}
                     </div>
                   )}
+                  {!isTierList && <>
                   <span className="detail-ratings-label">Attribute ratings</span>
                   <div className="robot-scores detail-ratings" >
                     <ScoreMeter label="Longevity" score={rob.scores.longevity} options={{ min: 0, max: 10 }} />
@@ -351,6 +353,7 @@ export function DetailModal({ selectedItem, onClose }) {
                     <ScoreMeter label="Accessibility" score={rob.scores.accessibility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Overall Score" score={rob.scores.overall} options={{ min: 0, max: 50 }} />
                   </div>
+                  </>}
                 </>
               ) : null}
             </div>
@@ -363,10 +366,10 @@ export function DetailModal({ selectedItem, onClose }) {
                 <>
                   <div className="detail-summary-row">
                     <div>
-                      <span className="detail-field-label">Value rating</span>
-                      <RatingBar rating={titan.value_rating} unitType="titan" />
+                      <span className="detail-field-label">{isTierList ? 'Main role' : 'Value rating'}</span>
+                      {isTierList ? <span>{titan.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span> : <RatingBar rating={titan.value_rating} unitType="titan" />}
                     </div>
-                    {tier && (
+                    {tier && isTierList && (
                       <div>
                         <span className="detail-field-label">Tier</span>
                         <span className={`tier-badge-${tier.toLowerCase()}`} style={{ 
@@ -390,9 +393,9 @@ export function DetailModal({ selectedItem, onClose }) {
                   </div>
                   {titan.roles && titan.roles.length > 0 && (
                     <div className="space-below-16">
-                      <span className="detail-role-label">Roles</span>
+                      <span className="detail-role-label">{isTierList ? 'Subroles' : 'Roles'}</span>
                       <div className="detail-role-list">
-                        {titan.roles.map(role => {
+                        {titan.roles.filter(role => !isTierList || role.type !== 'main').map(role => {
                           if (role.type === 'none') return null;
                           const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
                           const roleIcon = role.type === 'main' ? getRoleIcon(role.role) : null;
@@ -425,6 +428,7 @@ export function DetailModal({ selectedItem, onClose }) {
                       )}
                     </div>
                   )}
+                  {!isTierList && <>
                   <span className="detail-ratings-label">Attribute ratings</span>
                   <div className="robot-scores detail-ratings" >
                     <ScoreMeter label="Longevity" score={titan.scores.longevity} options={{ min: 0, max: 10 }} />
@@ -434,6 +438,7 @@ export function DetailModal({ selectedItem, onClose }) {
                     <ScoreMeter label="Accessibility" score={titan.scores.accessibility} options={{ min: 0, max: 10 }} />
                     <ScoreMeter label="Overall Score" score={titan.scores.overall} options={{ min: 0, max: 50 }} />
                   </div>
+                  </>}
                 </>
               ) : null}
             </div>
@@ -452,7 +457,7 @@ export function DetailModal({ selectedItem, onClose }) {
                       <img src="/icons/module_old_gold.png" alt="" className="icon-18" />
                       {slot.name}
                     </div>
-                    <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: '4px 0 0 0' }}>
+                    <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: '4px 0 0 0', whiteSpace: 'pre-line' }}>
                       {slot.content}
                     </p>
                   </div>

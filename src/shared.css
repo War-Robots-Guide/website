@@ -649,3 +649,39 @@
   display: block;
   font-weight: 600;
 }
+
+.guide-dropdown { margin: 16px 0; border: 1px solid var(--border-light); border-radius: 10px; background: rgba(13,20,33,.7); }
+.guide-dropdown summary { padding: 14px 18px; cursor: pointer; font-weight: 600; }
+.guide-dropdown-content { padding: 0 18px 18px; line-height: 1.6; white-space: pre-line; }
+.guide-dropdown-content p { margin: 12px 0; }
+.rating-tier-list { display: grid; gap: 14px; }
+.rating-tier-row { display: flex; border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; background: rgba(13,20,33,.45); }
+.rating-tier-header { width: 90px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--band-color); background: color-mix(in srgb, var(--band-color) 15%, transparent); border-right: 2px solid var(--band-color); }
+.rating-tier-grid { display: flex; flex-wrap: wrap; gap: 12px; padding: 14px; }
+.rating-unit { width: 105px; padding: 0; color: white; background: none; border: 0; cursor: pointer; font: inherit; font-size: 12px; }
+.rating-unit-portrait { width: 105px; height: 105px; position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 6px; background: color-mix(in srgb, var(--band-color) 25%, #0d1421); border-bottom: 4px solid var(--band-color); }
+.rating-unit-portrait > img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+.rating-role, .rating-number { position: absolute; top: 0; padding: 3px 5px; background: #11141a; font-weight: 800; }
+.rating-role { left: 0; border-bottom-right-radius: 6px; max-width: 72px; font-size: 10px; }
+.rating-role img { width: 16px; height: 16px; object-fit: contain; }
+.rating-number { right: 0; border-bottom-left-radius: 6px; color: var(--band-color); }
+.rating-unit:hover { transform: translateY(-2px); }
+.rating-unit:focus-visible { outline: 2px solid var(--band-color); outline-offset: 4px; }
+.binary-choice { display: flex; flex-wrap: wrap; gap: 4px; border: 1px solid var(--border-light); border-radius: 10px; padding: 4px 8px 8px; margin: 0; }
+.binary-choice legend { padding: 0 4px; font-size: 11px; color: var(--text-secondary); }
+.binary-choice label { display: flex; gap: 6px; align-items: center; padding: 8px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+.binary-choice label.active { background: rgba(6,182,212,.18); color: var(--cyan); }
+.binary-choice input { accent-color: var(--cyan); }
+.weapon-sort-control { display: flex; flex-direction: column; gap: 6px; }
+.weapon-sort-label { font-size: 11px; color: var(--text-secondary); }
+.weapon-sort-control .tab-pills { margin-bottom: 0; }
+.weapon-comparison { margin-top: 16px; padding: 20px; }
+.weapon-comparison h3 { margin: 0 0 14px; }
+.comparison-results { list-style: none; padding: 0; max-height: 240px; overflow: auto; }
+.comparison-results button { width: 100%; text-align: left; padding: 10px; border: 1px solid var(--border-light); background: var(--bg-surface); color: var(--text-primary); cursor: pointer; }
+.comparison-graphs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; margin-top: 16px; }
+.comparison-graphs figure { margin: 0; padding: 14px; border: 1px solid var(--border-light); border-radius: 8px; min-width: 0; }
+.comparison-graphs figcaption { display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+.comparison-graphs figcaption button { align-self: flex-start; color: var(--text-primary); background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 4px; padding: 4px 8px; cursor: pointer; }
+.comparison-graphs svg { width: 100%; margin-top: 12px; }
+.comparison-graphs p { font-size: 12px; color: var(--text-secondary); }

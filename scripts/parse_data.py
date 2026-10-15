@@ -689,7 +689,7 @@ def parse_robot_guide():
     builds_wb = wb
     builds_sheets = []
 
-    for s in ["Robot Mini Build Guides", "Ultimate Robot Mini Build Guide", "Mini Build Guides"]:
+    for s in ["Robot Mini Build Guides", "Titan Mini Build Guides", "Ultimate Robot Mini Build Guide", "Ultimate Titan Mini Build Guide", "Mini Build Guides"]:
         if s in wb.sheetnames:
             builds_sheets.append(wb[s])
 
@@ -697,14 +697,14 @@ def parse_robot_guide():
         mini_builds_file = find_file_case_insensitive("Mini Build Guides.xlsx")
         if os.path.exists(mini_builds_file):
             builds_wb = openpyxl.load_workbook(mini_builds_file, data_only=True)
-            for s in ["Robot Mini Build Guides", "Ultimate Robot Mini Build Guide", "Mini Build Guides"]:
+            for s in ["Robot Mini Build Guides", "Titan Mini Build Guides", "Ultimate Robot Mini Build Guide", "Ultimate Titan Mini Build Guide", "Mini Build Guides"]:
                 if s in builds_wb.sheetnames:
                     builds_sheets.append(builds_wb[s])
         else:
             simplified_file = find_file_case_insensitive("The Simplified WR Guide for New Players.xlsx")
             if os.path.exists(simplified_file):
                 builds_wb = openpyxl.load_workbook(simplified_file, data_only=True)
-                for s in ["Robot Mini Build Guides", "Ultimate Robot Mini Build Guide", "Mini Build Guides"]:
+                for s in ["Robot Mini Build Guides", "Titan Mini Build Guides", "Ultimate Robot Mini Build Guide", "Ultimate Titan Mini Build Guide", "Mini Build Guides"]:
                     if s in builds_wb.sheetnames:
                         builds_sheets.append(builds_wb[s])
 
@@ -717,6 +717,7 @@ def parse_robot_guide():
     }
 
     for bsheet in builds_sheets:
+        is_titan = "titan" in bsheet.title.lower()
         for r in range(2, bsheet.max_row + 1):
             bname = bsheet.cell(row=r, column=1).value
             bot = bsheet.cell(row=r, column=2).value
@@ -734,10 +735,11 @@ def parse_robot_guide():
                     "robot": bot_str,
                     "f2p_weapons": str(bsheet.cell(row=r, column=3).value or "").strip(),
                     "best_weapons": str(bsheet.cell(row=r, column=4).value or "").strip(),
-                    "drone_options": str(bsheet.cell(row=r, column=5).value or "").strip(),
-                    "pilot": str(bsheet.cell(row=r, column=6).value or "").strip(),
-                    "specialization": str(bsheet.cell(row=r, column=7).value or "").strip(),
-                    "explanation": str(bsheet.cell(row=r, column=8).value or "").strip(),
+                    "drone_options": "" if is_titan else str(bsheet.cell(row=r, column=5).value or "").strip(),
+                    "pilot": str(bsheet.cell(row=r, column=5 if is_titan else 6).value or "").strip(),
+                    "specialization": str(bsheet.cell(row=r, column=6 if is_titan else 7).value or "").strip(),
+                    "explanation": str(bsheet.cell(row=r, column=7 if is_titan else 8).value or "").strip(),
+                    "is_titan": is_titan,
                     "is_ultimate": is_ultimate
                 })
 
@@ -851,7 +853,9 @@ def parse_robot_guide():
                 role_type = "none"
                 if color_hex:
                     clean_hex = color_hex[-6:].upper() if isinstance(color_hex, str) else ""
-                    if clean_hex == "00FF00":
+                    if clean_hex in ["00FFFF", "4A86E8", "0000FF", "29B6F6"]:
+                        role_type = "main"
+                    elif clean_hex == "00FF00":
                         role_type = "primary"
                     elif clean_hex == "FFFF00":
                         role_type = "secondary"
@@ -1049,8 +1053,15 @@ def parse_robot_guide():
 
     rating_colors = extract_rating_colors(wb)
 
+    intro_sections = []
+    for row in wb["Intro"].iter_rows():
+        values = [str(cell.value).strip() for cell in row[6:] if cell.value is not None]
+        if values:
+            intro_sections.append("\n".join(values))
+
     # Output unified guide JSON
     guide_json = {
+        "methodology": intro_sections,
         "changelog": changelog,
         "builds": builds,
         "robots": robots_data,

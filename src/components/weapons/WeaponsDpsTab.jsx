@@ -1,7 +1,8 @@
+import { WeaponComparison } from './WeaponComparison';
 import { PageHero } from '../common/PageHero';
 import { useState, useMemo, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Zap, RotateCw } from 'lucide-react';
+import { X } from 'lucide-react';
 import weaponsDpsData from '../../data/weapons_dps.json';
 import { SearchInput } from '../common/SearchInput';
 import { SlidingTabPills } from '../common/SlidingTabPills';
@@ -17,6 +18,7 @@ if (weaponsDpsData) {
       return {
         ...weapon,
         id: `${weaponClass}:${index}`,
+        weaponClass,
         burstNum,
         cycleNum,
         nameLower: weapon.name ? weapon.name.toLowerCase() : '',
@@ -170,7 +172,7 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
             <div>
               <div className="weapon-meter-heading">
                 <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--cyan)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Zap size={14} /> Burst DPS
+                  Burst DPS
                 </span>
                 <span style={{ fontSize: '15px', fontWeight: 800, color: 'var(--cyan)' }}>
                   {weapon.burstNum > 0 ? Math.round(weapon.burstNum).toLocaleString() : weapon.burst_dps}
@@ -196,7 +198,7 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
             <div>
               <div className="weapon-meter-heading">
                 <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--purple)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <RotateCw size={14} /> Cycle DPS
+                  Cycle DPS
                 </span>
                 <span style={{ fontSize: '15px', fontWeight: 800, color: 'var(--purple)' }}>
                   {weapon.cycleNum > 0 ? Math.round(weapon.cycleNum).toLocaleString() : weapon.cycle_dps}
@@ -323,16 +325,15 @@ export function WeaponsDpsTab() {
             />
           </div>
 
-          <select
-            className="select-filter"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            style={{ width: 'auto', minWidth: '180px' }}
-          >
-            <option value="burst_dps">Sort by Burst DPS (Default)</option>
-            <option value="cycle_dps">Sort by Cycle DPS</option>
-          </select>
+          <div className="weapon-sort-control" role="group" aria-label="Sort weapons by">
+            <span className="weapon-sort-label">Sort weapons by</span>
+            <SlidingTabPills activeTab={sortBy} onChange={setSortBy} tabs={[
+              { label: 'Burst DPS', value: 'burst_dps' }, { label: 'Cycle DPS', value: 'cycle_dps' }
+            ]} />
+          </div>
         </div>
+
+        <WeaponComparison weapons={Object.values(processedWeaponsData).flat()} />
 
         {/* Weapon Image Cards Grid */}
         <div

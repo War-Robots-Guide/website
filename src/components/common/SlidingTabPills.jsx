@@ -44,6 +44,8 @@ export function SlidingTabPills({ tabs, activeTab, onChange }) {
       {tabs.map((tab) => (
         <button
           key={tab.value}
+          type="button"
+          aria-pressed={activeTab === tab.value}
           className={`tab-pill ${activeTab === tab.value ? 'active' : ''}`}
           onClick={() => onChange(tab.value)}
           style={{ position: 'relative', zIndex: 1 }}

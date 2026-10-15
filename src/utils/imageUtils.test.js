@@ -18,6 +18,12 @@ describe('imageUtils', () => {
     expect(cleanKey('Nuclear Amplifier')).toBe('nuclearamplifier');
   });
 
+  it('resolves tier-only robots and the Fujin spelling variants', () => {
+    expect(getRobotImage('Cossack')).toBe('/images/items/Cossack.png');
+    expect(getRobotImage('Fuijin')).toBe('/images/items/Fuijin.png');
+    expect(getRobotImage('UE Fuijin')).toBe('/images/items/Ultimate Fujin.png');
+  });
+
   it('extracts tier tags and cleans name', () => {
     expect(extractTierTags('⬆️Fang')).toEqual({ cleanName: 'Fang', tags: ['⬆️'] });
     expect(extractTierTags('⬇️Dedopali')).toEqual({ cleanName: 'Dedopali', tags: ['⬇️'] });

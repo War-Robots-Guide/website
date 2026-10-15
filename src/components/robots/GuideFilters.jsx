@@ -1,3 +1,4 @@
+import { BinaryChoice } from '../common/BinaryChoice';
 import { SearchInput } from '../common/SearchInput';
 import { VALUE_RATING_RANGES } from './constants';
 
@@ -71,15 +72,9 @@ export function GuideFilters({
         </select>
       )}
 
-      {/* Sort By selector */}
-      <select
-        className="select-filter"
-        value={sortBy}
-        onChange={(e) => setSortBy(e.target.value)}
-      >
-        <option value="Default">Default Sort (by Tier)</option>
-        <option value="value_rating">Sort by Value Rating</option>
-      </select>
+      <BinaryChoice label="Sort by" value={sortBy} onChange={setSortBy} options={[
+        { label: 'Tier', value: 'Default' }, { label: 'Value Rating', value: 'value_rating' }
+      ]} />
     </div>
   );
 }

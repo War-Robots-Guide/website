@@ -2,9 +2,10 @@ import { PageHero } from '../common/PageHero';
 import { useState, useMemo } from 'react';
 import tiersData from '../../data/tiers.json';
 import robotGuideData from '../../data/robot_guide.json';
+import { getEquipmentAppearance } from '../../utils/equipmentTiers';
 import { SearchInput } from '../common/SearchInput';
 import { SlidingTabPills } from '../common/SlidingTabPills';
-import { getItemImage, extractTierTags, isNewTierItem, getRoleIcon, cleanKey } from '../../utils/imageUtils';
+import { getItemImage, extractTierTags, isNewTierItem, getRoleIcon, getUnitKey } from '../../utils/imageUtils';
 
 // Pre-compute lowercased names and descriptions once outside the component
 const optimizedTiersData = tiersData ? JSON.parse(JSON.stringify(tiersData)) : {};
@@ -20,18 +21,6 @@ if (optimizedTiersData) {
   });
 }
 
-const TIER_BG_GRADIENTS = {
-  x: 'linear-gradient(135deg, rgba(245, 158, 11, 0.4) 0%, rgba(120, 53, 15, 0.75) 100%)',
-  s: 'linear-gradient(135deg, rgba(234, 179, 8, 0.35) 0%, rgba(113, 63, 18, 0.7) 100%)',
-  a: 'linear-gradient(135deg, rgba(168, 85, 247, 0.35) 0%, rgba(88, 28, 135, 0.7) 100%)',
-  b: 'linear-gradient(135deg, rgba(59, 130, 246, 0.35) 0%, rgba(30, 58, 138, 0.7) 100%)',
-  c: 'linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(6, 78, 59, 0.65) 100%)',
-  d: 'linear-gradient(135deg, rgba(100, 116, 139, 0.3) 0%, rgba(30, 41, 59, 0.7) 100%)',
-  e: 'linear-gradient(135deg, rgba(71, 85, 105, 0.3) 0%, rgba(15, 23, 42, 0.7) 100%)',
-  f: 'linear-gradient(135deg, rgba(51, 65, 85, 0.3) 0%, rgba(15, 23, 42, 0.7) 100%)',
-  z: 'linear-gradient(135deg, rgba(30, 41, 59, 0.3) 0%, rgba(10, 14, 23, 0.7) 100%)',
-};
-
 export function TierListTab({ onItemClick }) {
   const [selectedCategory, setSelectedCategory] = useState('Robots');
   const [searchQuery, setSearchQuery] = useState('');
@@ -42,13 +31,13 @@ export function TierListTab({ onItemClick }) {
     if (robotGuideData?.robots) {
       robotGuideData.robots.forEach(r => {
         const mainRole = r.roles?.find(role => role.type === 'main')?.role;
-        if (mainRole) map[cleanKey(r.name)] = mainRole;
+        if (mainRole) map[getUnitKey(r.name)] = mainRole;
       });
     }
     if (robotGuideData?.titans) {
       robotGuideData.titans.forEach(t => {
         const mainRole = t.roles?.find(role => role.type === 'main')?.role;
-        if (mainRole) map[cleanKey(t.name)] = mainRole;
+        if (mainRole) map[getUnitKey(t.name)] = mainRole;
       });
     }
     return map;
@@ -82,7 +71,7 @@ export function TierListTab({ onItemClick }) {
   return (
     <div className="animate-fade-in text-left">
       <PageHero title="Tier Lists">
-        A power based tier list ranking every unit and item in the game. Click any card to inspect full ratings and rationales.
+        A power based tier list ranking every unit and item in the game. Click any card to inspect roles and rationales.
       </PageHero>
 
       {/* Category Select Tab Pills */}
@@ -133,10 +122,8 @@ export function TierListTab({ onItemClick }) {
         >
           <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)' }}>
             <span style={{ fontSize: '15px' }}>ℹ️</span>
-            <span>Tier Tag Guide & Meta Markers</span>
-            <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 500 }}>
-              (Click to {isTagLegendOpen ? 'collapse' : 'expand and view tag meanings'})
-            </span>
+            <span>Tier Tag Guide</span>
+
           </span>
           <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
             {isTagLegendOpen ? '▲ Hide' : '▼ Show'}
@@ -194,7 +181,7 @@ export function TierListTab({ onItemClick }) {
           const tierColor = `var(--tier-${tierKey})`;
           const tierBg = `var(--tier-${tierKey}-bg)`;
           const tierBorder = `var(--tier-${tierKey}-border)`;
-          const cardBgGradient = TIER_BG_GRADIENTS[tierKey] || TIER_BG_GRADIENTS.z;
+
           
           return (
             <div className="prydwen-tier-row" key={tierLetter} style={{
@@ -244,8 +231,9 @@ export function TierListTab({ onItemClick }) {
                   const { cleanName, tags } = extractTierTags(item.name);
                   const imageUrl = getItemImage(item.name, selectedCategory);
                   const isNew = isNewTierItem(item.name);
-                  const mainRole = robotRolesMap[cleanKey(cleanName)] || '';
+                  const mainRole = robotRolesMap[getUnitKey(cleanName)] || '';
                   const roleIconUrl = getRoleIcon(mainRole);
+                  const appearance = getEquipmentAppearance(cleanName, selectedCategory);
 
                   return (
                     <div
@@ -280,9 +268,9 @@ export function TierListTab({ onItemClick }) {
                           height: '105px',
                           borderRadius: '8px',
                           overflow: 'hidden',
-                          background: cardBgGradient,
+                          background: appearance.background,
                           border: '1px solid rgba(255, 255, 255, 0.12)',
-                          borderBottom: `4px solid ${tierColor}`,
+                          borderBottom: `4px solid ${appearance.color}`,
                           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.45)',
                           display: 'flex',
                           alignItems: 'center',

@@ -4,6 +4,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import { sortBySearchQuery } from '../../utils/sortUtils';
 import { getTierForName } from '../../utils/tierLookup';
 import { getRobotImage, cleanKey } from '../../utils/imageUtils';
+import { SlidingTabPills } from '../common/SlidingTabPills';
 import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
 import { BuildDetailModal } from './BuildDetailModal';
@@ -27,6 +28,7 @@ const precomputedBuilds = (robotGuideData?.builds || []).map(build => {
 
 export function BuildGuidesTab() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [category, setCategory] = useState('robots');
   const [selectedBuild, setSelectedBuild] = useState(null);
 
   // Lazy loading state
@@ -56,14 +58,13 @@ export function BuildGuidesTab() {
 
   const filteredBuilds = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
-    if (!query) {
-      return precomputedBuilds;
-    }
+    const builds = precomputedBuilds.filter(build => Boolean(build.is_titan) === (category === 'titans'));
+    if (!query) return builds;
 
-    let filtered = precomputedBuilds.filter(build => build._searchString.includes(query));
+    let filtered = builds.filter(build => build._searchString.includes(query));
 
     return sortBySearchQuery(filtered, query, (build) => build.robot);
-  }, [searchQuery]);
+  }, [searchQuery, category]);
 
   // Paginated visible items list
   const visibleBuilds = useMemo(() => {
@@ -94,9 +95,37 @@ export function BuildGuidesTab() {
 
   return (
     <div className="animate-fade-in text-left">
-      <PageHero title="Robot Build Guides">
-        Explore optimal weapons, specializations, pilots, and drones for top robots. Click any build to view detailed visual setups.
+      <PageHero title="Mini Build Guides">
+        Explore optimal weapons, specializations, pilots, and drones for robots and titans. Click any build to view detailed visual setups.
       </PageHero>
+
+      {/* UE Weapon Index Reference Legend */}
+      {robotGuideData?.ue_weapon_index && Object.keys(robotGuideData.ue_weapon_index).length > 0 && (
+        <details className="guide-dropdown">
+          <summary>
+            UE (Ultimate Edition) Weapon Index
+          </summary>
+          <div className="guide-dropdown-content">
+          <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', margin: '0 0 14px 0', lineHeight: 1.4 }}>
+            When build guides specify <em>&quot;UE Setups&quot;</em>, <em>&quot;Midrange UE setups&quot;</em>, or <em>&quot;Close range UE setups&quot;</em>, refer to these weapon categories:
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
+            {Object.entries(robotGuideData.ue_weapon_index).map(([category, weapons]) => (
+              <div key={category} style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
+                <strong style={{ color: '#fbbf24', fontSize: '12.5px', display: 'block', marginBottom: '3px' }}>
+                  {category} Setups
+                </strong>
+                <div style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                  {weapons}
+                </div>
+              </div>
+            ))}
+          </div>
+          </div>
+        </details>
+      )}
+
+      <SlidingTabPills tabs={[{ label: 'Robots', value: 'robots' }, { label: 'Titans', value: 'titans' }]} activeTab={category} onChange={value => { setCategory(value); setSearchQuery(''); setVisibleCount(12); }} />
 
       {/* Search builds */}
       <div className="search-container">
@@ -110,7 +139,7 @@ export function BuildGuidesTab() {
       {/* Builds Grid */}
       <div className="dashboard-grid">
         {visibleBuilds.map((build, index) => {
-          const tier = getTierForName(build.robot, 'Robots');
+          const tier = getTierForName(build.robot, build.is_titan ? 'Titans' : 'Robots');
           const imageUrl = getRobotImage(build.robot);
           const valueRating = robotValueMap[cleanKey(build.robot)] ?? 0;
           const tierKey = tier ? tier.toLowerCase() : 'z';
@@ -252,7 +281,7 @@ export function BuildGuidesTab() {
                   <span className="image-card-rating-label">
                     VALUE RATING
                   </span>
-                  <RatingBar rating={valueRating} unitType="robot" align="right" />
+                  <RatingBar rating={valueRating} unitType={build.is_titan ? 'titan' : 'robot'} align="right" />
                 </div>
               </div>
 
@@ -271,30 +300,6 @@ export function BuildGuidesTab() {
       {/* Sentinel for infinite scroll */}
       {visibleBuilds.length < filteredBuilds.length && (
         <div ref={sentinelRef} style={{ height: '40px', margin: '20px 0' }} />
-      )}
-
-      {/* UE Weapon Index Reference Legend */}
-      {robotGuideData?.ue_weapon_index && Object.keys(robotGuideData.ue_weapon_index).length > 0 && (
-        <div className="glass-panel guide-note" >
-          <h4 style={{ fontSize: '13px', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '8px', fontWeight: 600, letterSpacing: '0.05em' }}>
-            UE (Ultimate Edition) Weapon Index
-          </h4>
-          <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', margin: '0 0 14px 0', lineHeight: 1.4 }}>
-            When build guides specify <em>&quot;UE Setups&quot;</em>, <em>&quot;Midrange UE setups&quot;</em>, or <em>&quot;Close range UE setups&quot;</em>, refer to these weapon categories:
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
-            {Object.entries(robotGuideData.ue_weapon_index).map(([category, weapons]) => (
-              <div key={category} style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-                <strong style={{ color: '#fbbf24', fontSize: '12.5px', display: 'block', marginBottom: '3px' }}>
-                  {category} Setups
-                </strong>
-                <div style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
-                  {weapons}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       )}
 
       {/* Build Detail Modal */}
