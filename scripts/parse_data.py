@@ -5,6 +5,7 @@ import re
 import pandas as pd
 import openpyxl
 from docx import Document
+from role_guide import extract_role_guide
 
 # Paths
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -1061,6 +1062,10 @@ def parse_robot_guide():
 
     # Output unified guide JSON
     guide_json = {
+        "role_guide": {
+            "robots": extract_role_guide(roles_sheet),
+            "titans": extract_role_guide(titan_roles_sheet),
+        },
         "methodology": intro_sections,
         "changelog": changelog,
         "builds": builds,

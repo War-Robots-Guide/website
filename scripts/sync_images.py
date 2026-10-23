@@ -5,6 +5,7 @@ import shutil
 import re
 import tempfile
 from pathlib import Path
+from equipment_metadata import newest_tier_items
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 workspace_dir = os.path.dirname(script_dir)
@@ -346,25 +347,20 @@ def sync_images():
         if target in manifest["pilots"]:
             manifest["pilots"][clean_key(alias)] = manifest["pilots"][target]
 
-    # 4. Determine newest items added to Tier List based on changelog
-    changelog = robot_guide.get('changelog', [])
-    all_unit_names = {u.get('name', '').lower() for u in all_units}
-    newest_items = []
-    
-    added_pattern = re.compile(r'added\s+([A-Za-z0-9\s,\/&]+?)(?:\s*(?:at|to|in|\bfor\b|-|\.|\n)|$)', re.IGNORECASE)
-    for entry in reversed(changelog):
-        text = entry.get('text', '')
-        matches = added_pattern.findall(text)
-        for m in matches:
-            items = re.split(r'[,&/\n]|(?:\band\b)', m)
-            for item in items:
-                clean_item = item.strip()
-                if clean_item.lower() in all_unit_names:
-                    newest_items.append(clean_item)
-        if newest_items:
-            break
-
-    manifest["new_tier_items"] = list(set([item.strip() for item in newest_items]))
+    # Track latest additions separately for each category, including equipment
+    # releases not recorded in the robot guide's editorial changelog.
+    tier_data = {}
+    if os.path.exists(tiers_path):
+        with open(tiers_path, encoding='utf-8') as source:
+            tier_data = json.load(source)
+    updates_path = os.path.join(workspace_dir, 'src', 'data', 'equipment_updates.json')
+    releases = []
+    if os.path.exists(updates_path):
+        with open(updates_path, encoding='utf-8') as source:
+            releases = json.load(source)
+    by_category = newest_tier_items(robot_guide.get('changelog', []), tier_data, releases)
+    manifest['new_tier_items_by_category'] = by_category
+    manifest['new_tier_items'] = sorted({name for names in by_category.values() for name in names})
     print(f"Identified newest tier list items: {manifest['new_tier_items']}")
 
     # Save manifest

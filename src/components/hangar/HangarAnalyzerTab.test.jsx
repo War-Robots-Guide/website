@@ -165,7 +165,7 @@ describe('HangarAnalyzerTab', () => {
     // Support will have '1.0' badge as well
     // Let's check ScoreMeters to verify core role met count
     const scoreMeters = screen.getAllByTestId('score-meter');
-    expect(scoreMeters.some(el => el.textContent.includes('Support: 1'))).toBe(true);
-    expect(scoreMeters.some(el => el.textContent.includes('Tank-buster: 0.5'))).toBe(true);
+    expect(scoreMeters.some(el => el.textContent.includes('Support: 0.5'))).toBe(true);
+    expect(scoreMeters.some(el => el.textContent.includes('Tank-buster: 0.25'))).toBe(true);
   });
 });

@@ -1,3 +1,4 @@
+import { sortRoles } from '../../utils/roles';
 import { X } from 'lucide-react';
 import { RatingBar } from '../common/RatingBar';
 import { getTierForName } from '../../utils/tierLookup';
@@ -80,7 +81,7 @@ export function RobotSlot({ item, index, onOpenSelector, onClearSlot }) {
 
         {item.roles && item.roles.length > 0 ? (
           <div className="slot-roles">
-            {item.roles.map(r => {
+            {sortRoles(item.roles).map(r => {
               const tooltipText = r.footnote ? robotGuideData?.footnotes?.[parseInt(r.footnote) - 1] || r.footnote : '';
               const roleIcon = r.type === 'main' ? getRoleIcon(r.role) : null;
               return (

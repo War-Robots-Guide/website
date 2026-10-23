@@ -1,3 +1,4 @@
+import { sortRoles } from '../../utils/roles';
 import { useEffect } from 'react';
 import { X } from 'lucide-react';
 import { useMemo } from 'react';
@@ -282,7 +283,7 @@ export function DetailModal({ selectedItem, onClose }) {
                   <div className="detail-summary-row">
                     <div>
                       <span className="detail-field-label">{isTierList ? 'Main role' : 'Value rating'}</span>
-                      {isTierList ? <span>{rob.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span> : <RatingBar rating={rob.value_rating} unitType="robot" />}
+                      {isTierList ? <span className="role-badge main">{rob.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span> : <RatingBar rating={rob.value_rating} unitType="robot" />}
                     </div>
                     {tier && isTierList && (
                       <div>
@@ -310,7 +311,7 @@ export function DetailModal({ selectedItem, onClose }) {
                     <div className="space-below-16">
                       <span className="detail-role-label">{isTierList ? 'Subroles' : 'Roles'}</span>
                       <div className="detail-role-list">
-                        {rob.roles.filter(role => !isTierList || role.type !== 'main').map(role => {
+                        {sortRoles(rob.roles).filter(role => !isTierList || role.type !== 'main').map(role => {
                           if (role.type === 'none') return null;
                           const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
                           const roleIcon = role.type === 'main' ? getRoleIcon(role.role) : null;
@@ -367,7 +368,7 @@ export function DetailModal({ selectedItem, onClose }) {
                   <div className="detail-summary-row">
                     <div>
                       <span className="detail-field-label">{isTierList ? 'Main role' : 'Value rating'}</span>
-                      {isTierList ? <span>{titan.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span> : <RatingBar rating={titan.value_rating} unitType="titan" />}
+                      {isTierList ? <span className="role-badge main">{titan.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span> : <RatingBar rating={titan.value_rating} unitType="titan" />}
                     </div>
                     {tier && isTierList && (
                       <div>
@@ -395,7 +396,7 @@ export function DetailModal({ selectedItem, onClose }) {
                     <div className="space-below-16">
                       <span className="detail-role-label">{isTierList ? 'Subroles' : 'Roles'}</span>
                       <div className="detail-role-list">
-                        {titan.roles.filter(role => !isTierList || role.type !== 'main').map(role => {
+                        {sortRoles(titan.roles).filter(role => !isTierList || role.type !== 'main').map(role => {
                           if (role.type === 'none') return null;
                           const tooltipText = getFootnoteText(role.footnote, robotGuideData?.footnotes);
                           const roleIcon = role.type === 'main' ? getRoleIcon(role.role) : null;

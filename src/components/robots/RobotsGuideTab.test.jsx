@@ -9,7 +9,7 @@ vi.mock('../../data/robot_guide.json', () => ({ default: {
     { name: 'Destrier', sheet: 'Tier 3 Robots', value_rating: 12, comments: 'Ravana-like introductory robot.', roles: [] },
     { name: 'UE Raven', sheet: 'Ultimate Robots', value_rating: 30, comments: 'Ultimate robot.', roles: [{ role: 'Beacon Runner', type: 'main' }] },
   ],
-  titans: [{ name: 'Luchador', value_rating: 19, comments: 'Titan comments.', roles: [{ role: 'Brawler', type: 'main' }] }],
+  titans: [{ name: 'UE Ao Ming', value_rating: 22, comments: 'Ultimate titan.', roles: [] }, { name: 'Kid', value_rating: 14, comments: 'Starter titan.', roles: [] }, { name: 'Luchador', value_rating: 19, comments: 'Titan comments.', roles: [{ role: 'Brawler', type: 'main' }] }],
 } }));
 
 describe('Value rating tier list', () => {
@@ -57,4 +57,17 @@ describe('Value rating tier list', () => {
     expect(screen.getByText('Read me content.')).toBeVisible();
     expect(screen.getByText('All five factors count.')).toBeVisible();
   });
+  it('filters titans by type and resets the filter on category changes', () => {
+    render(<RobotsGuideTab />);
+    fireEvent.click(screen.getByRole('button', { name: 'Titans', exact: true }));
+    fireEvent.change(screen.getByLabelText('Filter by titan type'), { target: { value: 'Ultimate Titans' } });
+    expect(screen.getByText('UE Ao Ming')).toBeInTheDocument();
+    expect(screen.queryByText('Luchador')).not.toBeInTheDocument();
+    fireEvent.change(screen.getByLabelText('Filter by titan type'), { target: { value: 'Tier 1 Titans' } });
+    expect(screen.getByText('Kid')).toBeInTheDocument();
+    expect(screen.queryByText('UE Ao Ming')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Robots', exact: true }));
+    expect(screen.getByText('Ravana')).toBeInTheDocument();
+  });
+
 });

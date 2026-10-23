@@ -212,9 +212,12 @@ export function getRoleIcon(roleName) {
   return imageManifest.icons?.[targetKey] || imageManifest.icons?.[k] || null;
 }
 
-export function isNewTierItem(name) {
-  if (!name || !imageManifest.new_tier_items?.length) return false;
+export function isNewTierItem(name, category) {
+  if (!name) return false;
+  const newest = category && imageManifest.new_tier_items_by_category
+    ? imageManifest.new_tier_items_by_category[category] || []
+    : imageManifest.new_tier_items || [];
   const { cleanName } = extractTierTags(name);
-  const k = cleanKey(cleanName);
-  return imageManifest.new_tier_items.some(item => cleanKey(item) === k);
+  const keys = cleanName.split(/[,/.]/).map(cleanKey);
+  return newest.some(item => keys.includes(cleanKey(item)));
 }

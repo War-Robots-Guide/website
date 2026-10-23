@@ -1556,6 +1556,41 @@
     "pilotpixonicmale2mini": "/images/items/pilot_pixonic_male2_mini.png"
   },
   "new_tier_items": [
-    "dedopali"
-  ]
+    "Barq-a",
+    "Barq-b",
+    "Dedopali",
+    "Defender System",
+    "Iaraghi H",
+    "Iaraghi L",
+    "Iaraghi M",
+    "Prena",
+    "R\u2019lyeh",
+    "Sirocco"
+  ],
+  "new_tier_items_by_category": {
+    "Robots": [
+      "Dedopali"
+    ],
+    "Titans": [
+      "Sirocco"
+    ],
+    "Drones": [
+      "Prena"
+    ],
+    "Motherships": [
+      "R\u2019lyeh"
+    ],
+    "Mothership Turrets": [
+      "Defender System"
+    ],
+    "Robot Weapons": [
+      "Iaraghi L",
+      "Iaraghi M",
+      "Iaraghi H"
+    ],
+    "Titan Weapons": [
+      "Barq-a",
+      "Barq-b"
+    ]
+  }
 }

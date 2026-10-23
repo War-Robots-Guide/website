@@ -1,3 +1,4 @@
+import { getUnitType } from '../../utils/equipmentTiers';
 import { useMemo, useState } from 'react';
 import { PageHero } from '../common/PageHero';
 import { SearchInput } from '../common/SearchInput';
@@ -23,7 +24,7 @@ export function RobotsGuideTab({ onItemClick }) {
   const units = useMemo(() => (guide[category] || []).filter(unit =>
     `${unit.name} ${unit.comments}`.toLowerCase().includes(query.toLowerCase()) &&
     (roleFilter === 'All' || unit.roles?.some(role => role.type !== 'none' && role.role === roleFilter)) &&
-    (typeFilter === 'All' || unit.sheet === typeFilter) &&
+    (typeFilter === 'All' || getUnitType(unit, category) === typeFilter) &&
     (valueFilter === 'All' || getRatingTierIndex(unit.value_rating) === Number(valueFilter))
   ).sort((a, b) => b.value_rating - a.value_rating), [category, query, roleFilter, typeFilter, valueFilter]);
   const roles = [...new Set((guide[category] || []).flatMap(unit => (unit.roles || []).filter(role => role.type !== 'none').map(role => role.role)))];
@@ -40,10 +41,10 @@ export function RobotsGuideTab({ onItemClick }) {
       onChange={value => { setCategory(value); setQuery(''); setRoleFilter('All'); setTypeFilter('All'); setValueFilter('All'); }} />
     <div className="search-container">
       <SearchInput placeholder={`Search ${category}...`} value={query} onChange={event => setQuery(event.target.value)} />
-      {category === 'robots' && <select className="select-filter" aria-label="Filter by robot type" value={typeFilter} onChange={event => setTypeFilter(event.target.value)}>
-        <option value="All">All Robot Types</option>
-        {[...new Set(guide.robots.map(unit => unit.sheet))].map(sheet => <option key={sheet}>{sheet}</option>)}
-      </select>}
+      <select className="select-filter" aria-label={`Filter by ${category === 'robots' ? 'robot' : 'titan'} type`} value={typeFilter} onChange={event => setTypeFilter(event.target.value)}>
+        <option value="All">All {category === 'robots' ? 'Robot' : 'Titan'} Types</option>
+        {[...new Set((guide[category] || []).map(unit => getUnitType(unit, category)))].map(sheet => <option key={sheet}>{sheet}</option>)}
+      </select>
       <select className="select-filter" aria-label="Filter by value rating" value={valueFilter} onChange={event => setValueFilter(event.target.value)}>
         <option value="All">All Value Ratings</option>
         {bands.map(band => <option key={band.index} value={band.index}>{band.label} ({band.range})</option>)}

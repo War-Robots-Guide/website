@@ -10,21 +10,21 @@ describe('CommunityLinks Component', () => {
     expect(screen.getByText(/Join our Official Communities/i)).toBeInTheDocument();
 
     // Check for the description text
-    expect(screen.getByText(/Meet fellow commanders, discuss guides/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Meet fellow commanders, discuss guides/i)).not.toBeInTheDocument();
   });
 
   it('renders the correct links with appropriate attributes', () => {
     render(<CommunityLinks />);
 
     // Reddit link
-    const redditLink = screen.getByRole('link', { name: /Check out our subreddit!/i });
+    const redditLink = screen.getByRole('link', { name: 'Reddit' });
     expect(redditLink).toBeInTheDocument();
     expect(redditLink).toHaveAttribute('href', 'https://www.reddit.com/r/WarRobotsGuide/');
     expect(redditLink).toHaveAttribute('target', '_blank');
     expect(redditLink).toHaveAttribute('rel', 'noopener noreferrer');
 
     // Discord link
-    const discordLink = screen.getByRole('link', { name: /Join our Discord!/i });
+    const discordLink = screen.getByRole('link', { name: 'Discord' });
     expect(discordLink).toBeInTheDocument();
     expect(discordLink).toHaveAttribute('href', 'https://discord.gg/wT7WFzBCTS');
     expect(discordLink).toHaveAttribute('target', '_blank');

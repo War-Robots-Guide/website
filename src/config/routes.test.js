@@ -9,6 +9,14 @@ import {
 } from './routes';
 
 describe('route manifest', () => {
+  it('uses the requested browser titles for initial loads and client navigation', () => {
+    const labels = ['Homepage', 'Tier Lists', 'Value Ratings', 'Build Guides', 'Specializations', 'Pilot Skills', 'Weapon DPS', 'Hangar Analyzer'];
+    ROUTES.forEach((route, index) => {
+      expect(route.title).toBe(`WarRobotsGuide | ${labels[index]}`);
+      expect(route.clientTitle).toBe(route.title);
+    });
+  });
+
   it('contains unique IDs, paths, and slugs', () => {
     expect(new Set(ROUTES.map((route) => route.id)).size).toBe(ROUTES.length);
     expect(new Set(ROUTES.map((route) => route.path)).size).toBe(ROUTES.length);

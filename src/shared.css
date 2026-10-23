@@ -679,9 +679,22 @@
 .weapon-comparison h3 { margin: 0 0 14px; }
 .comparison-results { list-style: none; padding: 0; max-height: 240px; overflow: auto; }
 .comparison-results button { width: 100%; text-align: left; padding: 10px; border: 1px solid var(--border-light); background: var(--bg-surface); color: var(--text-primary); cursor: pointer; }
-.comparison-graphs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; margin-top: 16px; }
+.comparison-graphs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 320px)); justify-content: start; gap: 16px; margin-top: 16px; }
 .comparison-graphs figure { margin: 0; padding: 14px; border: 1px solid var(--border-light); border-radius: 8px; min-width: 0; }
 .comparison-graphs figcaption { display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
 .comparison-graphs figcaption button { align-self: flex-start; color: var(--text-primary); background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 4px; padding: 4px 8px; cursor: pointer; }
-.comparison-graphs svg { width: 100%; margin-top: 12px; }
+.comparison-graphs svg { display: block; width: 100%; max-width: 300px; height: auto; margin-top: 12px; }
 .comparison-graphs p { font-size: 12px; color: var(--text-secondary); }
+
+.weapon-family-list { display: flex; flex-direction: column; gap: 8px; }
+.weapon-family-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 8px; border: 1px solid var(--border-light); border-radius: 8px; }
+.weapon-family-member { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; }
+.role-guide { margin-top: 8px; border-top: 1px solid var(--border-light); padding-top: 16px; }
+.role-guide dl { display: grid; grid-template-columns: minmax(100px, auto) 1fr; gap: 8px 16px; margin-bottom: 0; }
+.role-guide dt { font-weight: 700; }
+.role-guide dd { margin: 0; color: var(--text-secondary); }
+.role-guide-colors { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+@media (max-width: 480px) {
+  .role-guide dl { grid-template-columns: 1fr; gap: 6px; }
+  .role-guide dd { margin-bottom: 8px; }
+}

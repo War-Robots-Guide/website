@@ -1,4 +1,5 @@
 import guide from '../data/robot_guide.json';
+import equipmentRarities from '../data/equipment_rarities.json';
 import { cleanKey, extractTierTags } from './imageUtils';
 
 // Equipment rarity is independent of the power ranking (X–Z).
@@ -13,13 +14,25 @@ for (const [tier, names] of Object.entries(legacyRobots)) {
 }
 const titanRarities = { kid: 1, arthur: 2, aoming: 2, minos: 3, nodens: 3, murometz: 3, sharanga: 3 };
 const colors = { 1: '#94a3b8', 2: '#3b82f6', 3: '#a855f7', 4: '#eab308', ultimate: '#f59e0b' };
+const equipmentTiers = Object.fromEntries(Object.entries(equipmentRarities).map(([category, groups]) => [
+  category, Object.fromEntries(Object.entries(groups).flatMap(([tier, names]) => names.map(name => [cleanKey(name), Number(tier)]))),
+]));
 
 export function getEquipmentAppearance(name, category) {
   const { cleanName } = extractTierTags(name);
   const key = cleanKey(cleanName);
   const ultimate = /^(ue|ultimate)\s/i.test(cleanName);
-  const tier = ultimate ? 'ultimate' : category === 'Robots' ? rarities[key]
-    : category === 'Titans' ? (titanRarities[key] || 4) : null;
+  // Family portraits use the first member, matching getWeaponImage's lookup.
+  const firstMemberKey = cleanKey(cleanName.split(/[,/.]/)[0]);
+  const tier = ultimate ? 'ultimate' : category === 'Robots' ? (rarities[key] ?? null)
+    : category === 'Titans' ? (titanRarities[key] || 4)
+    : (equipmentTiers[category]?.[firstMemberKey] ?? null);
   const color = colors[tier] || '#64748b';
   return { tier, color, background: `linear-gradient(135deg, ${color}66, ${color}22)` };
+}
+
+export function getUnitType(unit, category) {
+  if (category === 'robots') return unit.sheet;
+  const { tier } = getEquipmentAppearance(unit.name, 'Titans');
+  return tier === 'ultimate' ? 'Ultimate Titans' : `Tier ${tier} Titans`;
 }

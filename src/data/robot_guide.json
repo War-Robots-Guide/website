@@ -5440,5 +5440,90 @@
     "+1": "#80ff00",
     "+2": "#00ff00",
     ">= +3": "#00ffff"
+  },
+  "role_guide": {
+    "robots": {
+      "notes": [
+        "This page is a table with all bots that have at some point given either a positive rating on the spreadsheet and their most common roles that they can fill.",
+        "It is suggested that your main hangar fufills the following 6 roles with 5 bots (since some bots can cover multiple roles):",
+        "2x Support",
+        "1x Beacon Runner",
+        "2x Midrange",
+        "1x Tank Buster",
+        "Once you have upgraded ALL of your main hangar's bots and weapons to MK2.1, you will have enough economy that I suggest building bots dedicated",
+        "to filling the following additional roles as silver bullets/tech options:",
+        "1x Assassin",
+        "1x Brawler",
+        "1x Sniper",
+        "Additional 1x Support",
+        "Additional 1x Tank Buster",
+        "Blue indicates that it is a primary role for the bot. Green indicates the bot is very good at filling that role. Yellow means the bot can fill the role only partially. Definitions for roles can be found below."
+      ],
+      "definitions": [
+        {
+          "role": "Support",
+          "description": "Bot that utilizes status effects and buffs/debuffs which augment their teammates and cripple their opponents."
+        },
+        {
+          "role": "Tank-buster",
+          "description": "Bot that can bypass defenses and output extreme damage capable of killing brawlers while staying safe from them."
+        },
+        {
+          "role": "Sniper",
+          "description": "Bot that utilizes range to pick off vulnerable targets and assist from across the map, creating a numbers advantage."
+        },
+        {
+          "role": "Midrange",
+          "description": "Bot that uses flexible weapons, maintaining distance against brawlers and assassins while out-damaging snipers."
+        },
+        {
+          "role": "Brawler",
+          "description": "Bot that can draw firepower away from teammates while staying alive and dishing damage back in close quarters."
+        },
+        {
+          "role": "Beacon Runner",
+          "description": "Bot that utilizes evasion, bulk, and mobility to move from beacon to beacon to make progress and distract enemies."
+        },
+        {
+          "role": "Assassin",
+          "description": "Bot that targets damage dealers, using mobility to prevent retreats and deny enemies value from range advantage."
+        }
+      ]
+    },
+    "titans": {
+      "notes": [
+        "This page is a table with all T3+ titans on the spreadsheet and their most common roles or strengths that they can fill in your team.",
+        "Because of the nature of Titans needing to be much more carefully coordinated & deployed in the match, it's recommended to build your primary titan for general purpose & usually as a Brawler.",
+        "Titans consume considerably more investment & time to outfit than regular robots, which is why it's better to have one fully built primary titan than two semi-built titans across your two hangers if possible.",
+        "Once you have adequately upgraded your primary titan, you can then build into a secondary titan, which will usually be something that has the Damage Dealer specialization or generally has a playstyle to play a bit further back than your ordinary brawler.",
+        "Blue indicates that it is the primary role for the titan. Green indicates the titan is very good at filling that role. Yellow means the titan can fill the role only partially. Definitions for roles can be found below."
+      ],
+      "definitions": [
+        {
+          "role": "Support",
+          "description": "Titan that utilizes healing, status effects, and buffs/debuffs which augment their teammates and cripple their opponents."
+        },
+        {
+          "role": "Sniper",
+          "description": "Titan that utilizes range to pick off vulnerable targets and assist from across the map, creating a numbers advantage."
+        },
+        {
+          "role": "Midrange",
+          "description": "Titan that uses flexible weapons, maintaining distance against brawlers and opportunists while out-damaging snipers as well."
+        },
+        {
+          "role": "Brawler",
+          "description": "Titan that can draw attention & firepower away from teammates while staying alive and dishing damage back in closer quarters."
+        },
+        {
+          "role": "Beacon Runner",
+          "description": "Titan that utilizes evasion, bulk, and mobility to move from beacon to beacon to make progress and distract enemies, considerably more than most other titan playstyles."
+        },
+        {
+          "role": "Assassin",
+          "description": "Titan that targets damage dealers, using mobility to prevent retreats and deny enemies value from range advantage."
+        }
+      ]
+    }
   }
 }

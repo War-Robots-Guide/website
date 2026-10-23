@@ -86,3 +86,10 @@ describe('TitanSlot', () => {
     });
   });
 });
+
+it('shows the Titan main role above subroles', () => {
+  const { container } = render(<TitanSlot item={{ name: 'Test', value_rating: 30, roles: [
+    { role: 'Support', type: 'secondary' }, { role: 'Brawler', type: 'main' },
+  ] }} onOpenSelector={() => {}} onClearSlot={() => {}} />);
+  expect(container.querySelector('.slot-role-badge')).toHaveTextContent('Brawler');
+});

@@ -20,6 +20,7 @@ describe('Weapon comparison', () => {
     expect(within(lightGraph).getByText('200 DPS')).toBeInTheDocument();
     expect(heavyGraph.querySelector('rect')).toHaveAttribute('width', '140');
     expect(lightGraph.querySelector('rect')).toHaveAttribute('width', '280');
+    expect(screen.queryAllByText('0')).toHaveLength(0);
     fireEvent.click(screen.getByRole('button', { name: 'Remove Test Heavy from comparison' }));
     expect(screen.queryByRole('img', { name: /Test Heavy: Burst/ })).not.toBeInTheDocument();
   });

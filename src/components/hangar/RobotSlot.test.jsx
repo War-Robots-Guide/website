@@ -130,3 +130,10 @@ describe('RobotSlot Filled State', () => {
     expect(screen.getByText('No specific roles')).toBeInTheDocument();
   });
 });
+
+it('shows the main role first even when it follows subroles in source data', () => {
+  const { container } = render(<RobotSlot item={{ name: 'Test', value_rating: 30, roles: [
+    { role: 'Support', type: 'secondary' }, { role: 'Brawler', type: 'main' },
+  ] }} index={0} onOpenSelector={() => {}} onClearSlot={() => {}} />);
+  expect(container.querySelector('.slot-role-badge')).toHaveTextContent('Brawler');
+});

@@ -9,12 +9,24 @@ import {
   getWeaponImage,
 } from '../../utils/imageUtils';
 
-function parseCommaOrNewlineItems(text) {
+function parseWeaponFamilies(text) {
   if (!text || text === 'N/A') return [];
-  return text
-    .split(/\n|\/|,|\+/)
-    .map(s => s.trim())
-    .filter(s => s.length > 0 && !s.toLowerCase().startsWith('not recommended'));
+  return text.replace(/\+\s*\r?\n\s*/g, '+').replace(/\r?\n\s*\+/g, '+')
+    .split(/\r?\n/).map(line => line.trim())
+    .filter(line => line && !/^not recommended/i.test(line))
+    .map(line => line.split(/[+,/]/).map(name => name.trim()).filter(Boolean));
+}
+
+function WeaponFamilies({ families, label }) {
+  return <div className="weapon-family-list" role="list" aria-label={label}>
+    {families.map((family, index) => <div className="weapon-family-row" role="listitem" key={index}>
+      {family.map((weapon, memberIndex) => <span className="weapon-family-member" key={`${weapon}-${memberIndex}`}>
+        {memberIndex > 0 && <span aria-hidden="true">+</span>}
+        <img src={getWeaponImage(weapon) || '/icons/weapon_gold.png'} alt="" className="icon-26" />
+        <span>{weapon}</span>
+      </span>)}
+    </div>)}
+  </div>;
 }
 
 export function BuildDetailModal({ build, onClose }) {
@@ -58,12 +70,12 @@ export function BuildDetailModal({ build, onClose }) {
 
   const f2pWeaponList = useMemo(() => {
     if (!build?.f2p_weapons) return [];
-    return parseCommaOrNewlineItems(build.f2p_weapons);
+    return parseWeaponFamilies(build.f2p_weapons);
   }, [build]);
 
   const metaWeaponList = useMemo(() => {
     if (!build?.best_weapons) return [];
-    return parseCommaOrNewlineItems(build.best_weapons);
+    return parseWeaponFamilies(build.best_weapons);
   }, [build]);
 
   if (!build) return null;
@@ -270,34 +282,7 @@ export function BuildDetailModal({ build, onClose }) {
                   {build.f2p_weapons}
                 </div>
               ) : (
-                <div className="equipment-tags">
-                  {f2pWeaponList.map((w, idx) => {
-                    const wImg = getWeaponImage(w);
-                    return (
-                      <div
-                        key={idx}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '8px',
-                          background: 'rgba(255, 255, 255, 0.04)',
-                          border: '1px solid var(--border-light)',
-                          borderRadius: '8px',
-                          padding: '6px 10px',
-                        }}
-                      >
-                        {wImg ? (
-                          <img src={wImg} alt={w} className="icon-26" />
-                        ) : (
-                          <img src="/icons/weapon_gold.png" alt="" className="icon-20" />
-                        )}
-                        <span style={{ fontSize: '12px', fontWeight: 600, color: '#fff' }}>
-                          {w}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
+                <WeaponFamilies families={f2pWeaponList} label="F2P weapon families" />
               )}
             </div>
 
@@ -312,34 +297,7 @@ export function BuildDetailModal({ build, onClose }) {
                 </span>
               </div>
 
-              <div className="equipment-tags">
-                {metaWeaponList.map((w, idx) => {
-                  const wImg = getWeaponImage(w);
-                  return (
-                    <div
-                      key={idx}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        background: 'rgba(251, 191, 36, 0.05)',
-                        border: '1px solid rgba(251, 191, 36, 0.25)',
-                        borderRadius: '8px',
-                        padding: '6px 10px',
-                      }}
-                    >
-                      {wImg ? (
-                        <img src={wImg} alt={w} className="icon-26" />
-                      ) : (
-                        <img src="/icons/weapon_gold.png" alt="" className="icon-20" />
-                      )}
-                      <span style={{ fontSize: '12px', fontWeight: 600, color: '#fbbf24' }}>
-                        {w}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
+              <WeaponFamilies families={metaWeaponList} label="Meta weapon families" />
             </div>
 
           </div>

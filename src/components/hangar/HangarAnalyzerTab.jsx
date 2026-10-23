@@ -1,3 +1,4 @@
+import { getRoleWeight } from '../../utils/roles';
 import { PageHero } from '../common/PageHero';
 import { useState, useMemo } from 'react';
 import { HangarSelectorModal } from './HangarSelectorModal';
@@ -37,11 +38,7 @@ export function HangarAnalyzerTab() {
           robot.roles.forEach(roleObj => {
             const rName = roleObj.role;
             if (scores[rName] !== undefined) {
-              if (roleObj.type === 'main' || roleObj.type === 'primary') {
-                scores[rName] += 1.0;
-              } else if (roleObj.type === 'secondary') {
-                scores[rName] += 0.5;
-              }
+              scores[rName] += getRoleWeight(roleObj.type);
             }
           });
         }
@@ -53,11 +50,7 @@ export function HangarAnalyzerTab() {
       hangarTitan.roles.forEach(roleObj => {
         const rName = roleObj.role;
         if (scores[rName] !== undefined) {
-          if (roleObj.type === 'main' || roleObj.type === 'primary') {
-            scores[rName] += 1.0;
-          } else if (roleObj.type === 'secondary') {
-            scores[rName] += 0.5;
-          }
+          scores[rName] += getRoleWeight(roleObj.type);
         }
       });
     }

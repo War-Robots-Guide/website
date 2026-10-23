@@ -73,7 +73,7 @@ export const specTree = {
                     question: "Select your niche:",
                     options: [
                       {
-                        label: "Survivalist or DoT Converter",
+                        label: "Grey repair spammer, high grey damage resistance tank, or DoT converter.",
                         value: "survivalist_dot",
                         result: {
                           specialization: "Brawler / Tank",

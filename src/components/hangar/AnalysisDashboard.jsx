@@ -1,3 +1,4 @@
+import { formatRoleScore } from '../../utils/roles';
 import { ScoreMeter } from '../common/ScoreMeter';
 
 export function AnalysisDashboard({
@@ -10,7 +11,7 @@ export function AnalysisDashboard({
 }) {
   const formatRatio = (current, target) => {
     const hasDecimal = current % 1 !== 0;
-    const cStr = hasDecimal ? current.toFixed(1) : current.toString();
+    const cStr = hasDecimal ? formatRoleScore(current) : current.toString();
     const tStr = hasDecimal ? target.toFixed(1) : target.toString();
     return `${cStr} / ${tStr}`;
   };
@@ -39,7 +40,7 @@ export function AnalysisDashboard({
                     padding: '2px 8px',
                     borderRadius: '4px'
                   }}>
-                    {score.toFixed(1)}
+                    {Number.isInteger(score) ? score.toFixed(1) : formatRoleScore(score)}
                   </span>
                 </div>
                 <div style={{ height: '8px', background: 'rgba(0,0,0,0.2)', borderRadius: '4px', overflow: 'hidden' }}>

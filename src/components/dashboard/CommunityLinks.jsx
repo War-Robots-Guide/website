@@ -4,11 +4,9 @@ export function CommunityLinks() {
       <h3 style={{ fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
         <img src="/icons/clan_hangar_gold.png" alt="" className="icon-26" /> Join our Official Communities
       </h3>
-      <p style={{ color: 'var(--text-secondary)', fontSize: '13px', lineHeight: 1.5, marginBottom: '16px' }}>
-        Meet fellow commanders, discuss guides, and get detailed hangar feedback from veterans.
-      </p>
       <div className="stack-12">
         <a
+          aria-label="Reddit"
           href="https://www.reddit.com/r/WarRobotsGuide/"
           target="_blank"
           rel="noopener noreferrer"
@@ -19,12 +17,13 @@ export function CommunityLinks() {
               <img src="/icons/reddit_logo.png" alt="Reddit" className="community-avatar" />
             </div>
             <div>
-              <div className="text-semibold">Check out our subreddit!</div>
+              <div className="text-semibold">Reddit</div>
             </div>
           </div>
         </a>
 
         <a
+          aria-label="Discord"
           href="https://discord.gg/wT7WFzBCTS"
           target="_blank"
           rel="noopener noreferrer"
@@ -35,7 +34,7 @@ export function CommunityLinks() {
               <img src="/icons/discord_logo.png" alt="Discord" className="community-avatar" />
             </div>
             <div>
-              <div className="text-semibold">Join our Discord!</div>
+              <div className="text-semibold">Discord</div>
             </div>
           </div>
         </a>

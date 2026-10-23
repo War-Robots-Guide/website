@@ -9,4 +9,32 @@ describe('Equipment rarity colors', () => {
     expect(getEquipmentAppearance('UE Raven', 'Robots').tier).toBe('ultimate');
     expect(getEquipmentAppearance('Pathfinder', 'Robots').color).toBe('#eab308');
   });
+
+  it.each([
+    ['Punisher', 'Robot Weapons', 1, '#94a3b8'],
+    ['Trebuchet', 'Robot Weapons', 2, '#3b82f6'],
+    ['Calamity, Scourge, Spark', 'Robot Weapons', 3, '#a855f7'],
+    ['Iaraghi L, Iaraghi M, Iaraghi H', 'Robot Weapons', 4, '#eab308'],
+    ['UE Toxin, UE Venom', 'Robot Weapons', 'ultimate', '#f59e0b'],
+    ['Retaliator, Vengeance', 'Titan Weapons', 1, '#94a3b8'],
+    ['Rupture, Tsar', 'Titan Weapons', 2, '#3b82f6'],
+    ['Cataclysm, Cyclone', 'Titan Weapons', 3, '#a855f7'],
+    ['Barq-a. Barq-b', 'Titan Weapons', 4, '#eab308'],
+    ['Defender', 'Drones', 1, '#94a3b8'],
+    ['Discus', 'Drones', 2, '#3b82f6'],
+    ['Whiteout', 'Drones', 3, '#a855f7'],
+    ['Prena', 'Drones', 4, '#eab308'],
+    ['Dreadnought A42', 'Motherships', 1, '#94a3b8'],
+    ['Mantis', 'Motherships', 2, '#3b82f6'],
+    ['Monarch', 'Motherships', 3, '#a855f7'],
+    ['Avalon', 'Motherships', 4, '#eab308'],
+    ['Target Ray Cannon', 'Mothership Turrets', 1, '#94a3b8'],
+    ['Lifesaver', 'Mothership Turrets', 4, '#eab308'],
+  ])('colors %s by equipment rarity', (name, category, tier, color) => {
+    expect(getEquipmentAppearance(name, category)).toMatchObject({ tier, color });
+  });
+
+  it('keeps unknown equipment neutral', () => {
+    expect(getEquipmentAppearance('Unknown item', 'Drones').tier).toBeNull();
+  });
 });

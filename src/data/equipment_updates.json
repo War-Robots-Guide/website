@@ -1,0 +1,62 @@
+[
+  {
+    "date": "2025-04-23",
+    "source": "https://warrobots.com/en/posts/395",
+    "items": {
+      "Mothership Turrets": [
+        "Defender System"
+      ]
+    }
+  },
+  {
+    "date": "2026-05-26",
+    "source": "https://warrobots.com/en/posts/416",
+    "items": {
+      "Motherships": [
+        "R’lyeh"
+      ]
+    }
+  },
+  {
+    "date": "2026-08-11",
+    "source": "https://warrobots.com/en/posts/418",
+    "items": {
+      "Titans": [
+        "Sirocco"
+      ],
+      "Titan Weapons": [
+        "Barq-a",
+        "Barq-b"
+      ],
+      "Robot Weapons": [
+        "Harmattan L",
+        "Harmattan M",
+        "Harmattan H",
+        "UE Atomizer"
+      ],
+      "Drones": [
+        "Scourveil"
+      ]
+    }
+  },
+  {
+    "date": "2026-09-22",
+    "source": "https://warrobots.com/en/posts/422",
+    "items": {
+      "Robots": [
+        "Dedopali",
+        "UE Shell"
+      ],
+      "Robot Weapons": [
+        "Iaraghi L",
+        "Iaraghi M",
+        "Iaraghi H",
+        "UE Rime",
+        "UE Glacier"
+      ],
+      "Drones": [
+        "Prena"
+      ]
+    }
+  }
+]

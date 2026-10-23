@@ -1,3 +1,4 @@
+import { sortRoles } from '../../utils/roles';
 import { useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
@@ -185,7 +186,7 @@ export function HangarSelectorModal({ activeSlot, selectorSearchQuery, setSelect
                   })()}
                   {robot.roles && robot.roles.length > 0 && (
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
-                      {robot.roles.map(role => {
+                      {sortRoles(robot.roles).map(role => {
                         const roleIcon = role.type === 'main' ? getRoleIcon(role.role) : null;
                         return (
                           <span 

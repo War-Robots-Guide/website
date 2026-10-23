@@ -27,7 +27,7 @@ export function WeaponComparison({ weapons }) {
         <rect x="0" y="32" width={280 * weapon.burstNum / maximum} height="28" rx="4" fill="#22d3ee" />
         <text x="0" y="88" fill="currentColor" fontSize="13">Cycle DPS: {weapon.cycleNum ? Math.round(weapon.cycleNum).toLocaleString() : weapon.cycle_dps}</text>
         <rect x="0" y="98" width={280 * weapon.cycleNum / maximum} height="28" rx="4" fill="#a78bfa" />
-        <text x="0" y="150" fill="currentColor" fontSize="11">0</text><text x="280" y="150" textAnchor="end" fill="currentColor" fontSize="11">{Math.round(maximum).toLocaleString()} DPS</text>
+        <text x="280" y="150" textAnchor="end" fill="currentColor" fontSize="11">{Math.round(maximum).toLocaleString()} DPS</text>
       </svg>
       <p>Range: {weapon.range || '—'} · Unload: {weapon.unload || '—'} · Reload: {weapon.reload || '—'}</p>
     </figure>)}</div>

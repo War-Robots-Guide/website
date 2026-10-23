@@ -126,4 +126,11 @@ describe('AnalysisDashboard', () => {
     // Tank-buster Current: 0 / 2 (TANK_BUSTER_TARGET + 1)
     expect(screen.getByText((content) => content.includes('Current: 0 / 2'))).toBeInTheDocument();
   });
+  it('displays quarter-point totals without rounding them to tenths', () => {
+    render(<AnalysisDashboard {...defaultProps} hangarAnalysis={{ ...defaultProps.hangarAnalysis, scores: { Support: 0.25, Brawler: 0.75 } }} />);
+    expect(screen.getAllByText('0.25').length).toBeGreaterThan(0);
+    expect(screen.getByText('0.25 / 2.0')).toBeInTheDocument();
+    expect(screen.getByText('0.75 / 1.0')).toBeInTheDocument();
+  });
+
 });

@@ -1,4 +1,5 @@
 import { PageHero } from '../common/PageHero';
+import { RoleGuide } from '../common/RoleGuide';
 import { useState, useMemo } from 'react';
 import tiersData from '../../data/tiers.json';
 import robotGuideData from '../../data/robot_guide.json';
@@ -167,6 +168,7 @@ export function TierListTab({ onItemClick }) {
               <span className="tier-tag-icon">👁️</span>
               <span><strong>[👁️] Meta Definer:</strong> Items so powerful that the meta is being bent around them. [⬆️] and [⬇️] tags are based on these.</span>
             </div>
+            <RoleGuide category={selectedCategory} />
           </div>
         )}
       </div>
@@ -230,7 +232,7 @@ export function TierListTab({ onItemClick }) {
                   const { _searchName, _searchDesc, ...publicItem } = item;
                   const { cleanName, tags } = extractTierTags(item.name);
                   const imageUrl = getItemImage(item.name, selectedCategory);
-                  const isNew = isNewTierItem(item.name);
+                  const isNew = isNewTierItem(item.name, selectedCategory);
                   const mainRole = robotRolesMap[getUnitKey(cleanName)] || '';
                   const roleIconUrl = getRoleIcon(mainRole);
                   const appearance = getEquipmentAppearance(cleanName, selectedCategory);

@@ -46,7 +46,8 @@ vi.mock('../data/image_manifest.json', () => ({
       beaconrunner: '/images/icons/Beacon Runner.png',
       assassin: '/images/icons/Assassin.png',
     },
-    new_tier_items: ['Dedopali'],
+    new_tier_items: ['Dedopali', 'Prena', 'Iaraghi L', 'Iaraghi M', 'Iaraghi H'],
+    new_tier_items_by_category: { Robots: ['Dedopali'], Drones: ['Prena'], 'Robot Weapons': ['Iaraghi L', 'Iaraghi M', 'Iaraghi H'] },
   },
 }));
 
@@ -137,4 +138,11 @@ describe('imageUtils', () => {
     expect(getRoleIcon('Beacon Runner')).toBe('/images/icons/Beacon Runner.png');
     expect(getRoleIcon('Assassin')).toBe('/images/icons/Assassin.png');
   });
+});
+
+it('marks new equipment families in their own category, including tagged names', () => {
+  expect(isNewTierItem('👁️Iaraghi L, 👁️Iaraghi M, 👁️Iaraghi H', 'Robot Weapons')).toBe(true);
+  expect(isNewTierItem('Prena', 'Drones')).toBe(true);
+  expect(isNewTierItem('Prena', 'Robots')).toBe(false);
+  expect(isNewTierItem('Harmattan L, Harmattan M, Harmattan H', 'Robot Weapons')).toBe(false);
 });
