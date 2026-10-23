@@ -1,4 +1,55 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+
+// Deployment regenerates this manifest from Drive. Keep lookup tests independent
+// of additions, removals, and renames in that external image library.
+vi.mock('../data/image_manifest.json', () => ({
+  default: {
+    items: {
+      pathfinder: '/images/items/Pathfinder.png',
+      ammit: '/images/items/Ammit.png',
+      curie: '/images/items/Curie.png',
+      swordunit: '/images/items/SWORD Unit.png',
+      bulgasari: '/images/items/Bulgasari.png',
+      uebulgasari: '/images/items/Ultimate Bulgasari.png',
+      // Deliberately incorrect aliases exercise the Ultimate artwork guard.
+      haechi: '/images/items/Ultimate Haechi.png',
+    },
+    all_files: {
+      cossack: '/images/items/Cossack.png',
+      fuijin: '/images/items/Fuijin.png',
+      ultimatefujin: '/images/items/Ultimate Fujin.png',
+      ultimateraven: '/images/items/Ultimate Raven.png',
+      spectre: '/images/items/Ultimate Spectre.png',
+    },
+    weapons: {
+      harmattanh: '/images/items/HarmattanH.png',
+      harmattanm: '/images/items/HarmattanM.png',
+      harmattanl: '/images/items/HarmattanL.png',
+      lumenl: '/images/items/LumenL.png',
+      iaraghil: '/images/items/IaraghL.png',
+      barqa: '/images/items/BarqA.png',
+    },
+    pilots: {
+      johnorsted: '/images/items/pilot_legend_john_orsted_mini.png',
+    },
+    drones: { freezo: '/images/items/Drone Freezo.png' },
+    modules: {
+      nuclearamplifier: '/images/items/Module_Passive Nuclear Amplifier.png',
+      phaseshift: '/images/items/Module_Active Phase Shift.png',
+    },
+    icons: {
+      support: '/images/icons/Support.png',
+      tankbuster: '/images/icons/Tank Buster.png',
+      sniper: '/images/icons/Sniper.png',
+      midranger: '/images/icons/Midranger.png',
+      brawler: '/images/icons/Brawler.png',
+      beaconrunner: '/images/icons/Beacon Runner.png',
+      assassin: '/images/icons/Assassin.png',
+    },
+    new_tier_items: ['Dedopali'],
+  },
+}));
+
 import {
   cleanKey,
   extractTierTags,
@@ -31,15 +82,23 @@ describe('imageUtils', () => {
     expect(extractTierTags('Pathfinder')).toEqual({ cleanName: 'Pathfinder', tags: [] });
   });
 
-  it('maps robot images to their exact files and prevents non-ultimates from using ultimate artwork', () => {
+  it('maps standard and Ultimate robots to their own artwork when both exist', () => {
     expect(getRobotImage('Pathfinder')).toBe('/images/items/Pathfinder.png');
     expect(getRobotImage('Ammit')).toBe('/images/items/Ammit.png');
     expect(getRobotImage('Curie')).toBe('/images/items/Curie.png');
     expect(getRobotImage('UE Raven')).toBe('/images/items/Ultimate Raven.png');
     expect(getRobotImage('SWORD Unit')).toBe('/images/items/SWORD Unit.png');
     expect(getRobotImage('UE Bulgasari')).toBe('/images/items/Ultimate Bulgasari.png');
-    // Non-ultimate Bulgasari has no non-ultimate image in ALL ITEMS, must NEVER use Ultimate Bulgasari!
-    expect(getRobotImage('Bulgasari')).toBeNull();
+    expect(getRobotImage('Bulgasari')).toBe('/images/items/Bulgasari.png');
+  });
+
+  it('returns null for a standard robot when only its Ultimate artwork exists', () => {
+    expect(getRobotImage('UE Raven')).toBe('/images/items/Ultimate Raven.png');
+    expect(getRobotImage('Raven')).toBeNull();
+  });
+
+  it.each(['Haechi', 'Spectre'])('rejects Ultimate artwork indexed under the standard %s name', (name) => {
+    expect(getRobotImage(name)).toBeNull();
   });
 
   it('identifies newest tier items', () => {
