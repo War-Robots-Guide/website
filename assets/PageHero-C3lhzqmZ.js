@@ -1,0 +1,1 @@
+import{o as e}from"./vendor-react-bkz0umA2.js";var t=e();function n({title:e,children:n}){return(0,t.jsxs)(`div`,{className:`hero-banner page-hero`,children:[(0,t.jsx)(`h2`,{children:e}),(0,t.jsx)(`p`,{children:n})]})}export{n as t};
