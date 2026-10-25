@@ -168,3 +168,22 @@ npm run lint
 npm run validate:data
 npm run build
 ```
+
+Browser regression tests open tier-list details in Chromium at desktop and mobile
+sizes. They verify that the title and rationale keep their visible text contrast
+when the decorative artwork is shown, and that the close button works. The tests
+compare rendered text with and without the background layer, so changing guide
+content does not require updating screenshot baselines.
+
+```bash
+npx playwright install chromium --only-shell
+npm run test:browser
+```
+
+On Linux, use `npx playwright install --with-deps chromium --only-shell` if browser
+system libraries are missing. `test:browser` builds the production site and starts
+its own preview server on port 4173. CI runs these checks on pull requests and
+pushes to master. Contrast failures include actual/reference text images; browser
+failures also save a page screenshot and trace in the
+`browser-test-diagnostics` artifact. Run
+`npx playwright show-report` to inspect a local failure.
