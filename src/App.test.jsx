@@ -38,7 +38,7 @@ vi.mock('./components/dashboard/DashboardTab', () => ({
 }));
 
 vi.mock('./components/tiers/TierListTab', () => ({
-  TierListTab: () => <div data-testid="tier-list-tab">Tier List</div>
+  TierListTab: ({ isEasterEggActive }) => <div data-testid="tier-list-tab">Tier List{isEasterEggActive && <span>Pilot rankings unlocked</span>}</div>
 }));
 
 vi.mock('./components/robots/RobotsGuideTab', () => ({
@@ -218,6 +218,8 @@ describe('App Component', () => {
 
     expect(screen.getByTestId('easter-egg-status')).toHaveTextContent('Active');
     expect(document.body.style.background).toBe('rgb(7, 8, 12)'); // '#07080c' converts to rgb in jsdom
+    await user.click(screen.getByText('Go to Tiers'));
+    expect(await screen.findByText('Pilot rankings unlocked')).toBeInTheDocument();
   });
 
   it('activates Adazahi easter egg when Adazahi name click is triggered 8 times', async () => {

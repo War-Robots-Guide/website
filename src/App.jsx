@@ -107,9 +107,11 @@ function App() {
   const ActiveTabComponent = TAB_COMPONENTS[activeTab] || TAB_COMPONENTS[DEFAULT_ROUTE_ID];
   const activeTabProps = activeTab === 'dashboard'
     ? { onTabChange: handleTabChange, onItemClick: openItemDetails }
-    : ['tiers', 'robots', 'specializations'].includes(activeTab)
-      ? { onItemClick: openItemDetails }
-      : {};
+    : activeTab === 'tiers'
+      ? { onItemClick: openItemDetails, isEasterEggActive }
+      : ['robots', 'specializations'].includes(activeTab)
+        ? { onItemClick: openItemDetails }
+        : {};
 
   return (
     <div className="app-container">

@@ -3,6 +3,8 @@ import { PageHero } from '../common/PageHero';
 import { RoleGuide } from '../common/RoleGuide';
 import { useState, useMemo } from 'react';
 import tiersData from '../../data/tiers.json';
+import pilotTiersData from '../../data/pilot_tiers.json';
+import { PilotTierList } from './PilotTierList';
 import robotGuideData from '../../data/robot_guide.json';
 import { getEquipmentAppearance } from '../../utils/equipmentTiers';
 import { SearchInput } from '../common/SearchInput';
@@ -28,8 +30,9 @@ if (optimizedTiersData) {
   });
 }
 
-export function TierListTab({ onItemClick }) {
-  const [selectedCategory, setSelectedCategory] = useState('Robots');
+export function TierListTab({ onItemClick, isEasterEggActive = false }) {
+  const [categorySelection, setSelectedCategory] = useState('Robots');
+  const selectedCategory = categorySelection === 'Pilots' && !isEasterEggActive ? 'Robots' : categorySelection;
   const [searchQuery, setSearchQuery] = useState('');
 
   const robotRolesMap = useMemo(() => {
@@ -77,7 +80,7 @@ export function TierListTab({ onItemClick }) {
   return (
     <div className="animate-fade-in text-left">
       <PageHero title="Tier Lists">
-        A power based tier list ranking every unit and item in the game. Click any card to inspect roles and rationales.
+        {selectedCategory === 'Pilots' ? 'CrimsonHawk’s pilot tier list.' : 'A power based tier list ranking every unit and item in the game. Click any card to inspect roles and rationales.'}
       </PageHero>
 
       {/* Category Select Tab Pills */}
@@ -89,7 +92,8 @@ export function TierListTab({ onItemClick }) {
           { label: 'Motherships', value: 'Motherships' },
           { label: 'Mothership Turrets', value: 'Mothership Turrets' },
           { label: 'Robot Weapons', value: 'Robot Weapons' },
-          { label: 'Titan Weapons', value: 'Titan Weapons' }
+          { label: 'Titan Weapons', value: 'Titan Weapons' },
+          ...(isEasterEggActive ? [{ label: 'Pilots', value: 'Pilots' }] : [])
         ]}
         activeTab={selectedCategory}
         onChange={(val) => { setSelectedCategory(val); setSearchQuery(''); }}
@@ -104,6 +108,10 @@ export function TierListTab({ onItemClick }) {
         />
       </div>
 
+      {selectedCategory === 'Pilots' ? (
+        <PilotTierList data={pilotTiersData} searchQuery={searchQuery} />
+      ) : (
+        <>
       <GuideDisclosure title="Tier Tag Guide">
           <div className="tier-marker-legend" aria-label="Tier list marker meanings">
             <div className="tier-tag-row">
@@ -382,6 +390,8 @@ export function TierListTab({ onItemClick }) {
           );
         })}
       </div>
+        </>
+      )}
     </div>
   );
 }

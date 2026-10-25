@@ -182,3 +182,45 @@ describe('TierListTab', () => {
     expect(screen.getByText('SuperBot')).toBeInTheDocument();
   });
 });
+
+vi.mock('../../data/pilot_tiers.json', () => ({ default: {
+  sourceUrl: 'https://docs.google.com/spreadsheets/d/example/edit',
+  tiers: [{ label: 'Hot', items: [{ name: 'Erika Storm' }, { name: 'Sophie Kovač' }] }],
+} }));
+
+describe('CrimsonHawk pilot category', () => {
+  it('stays hidden until activation and preserves the current equipment category', () => {
+    const { rerender } = render(<TierListTab onItemClick={vi.fn()} />);
+    expect(screen.queryByRole('button', { name: 'Pilots', exact: true })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Titans', exact: true }));
+    rerender(<TierListTab onItemClick={vi.fn()} isEasterEggActive />);
+    expect(screen.getByText('TitanPrime')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Pilots', exact: true })).toBeVisible();
+  });
+  it('shows pilot search and copy, then restores equipment details and legend', () => {
+    const onItemClick = vi.fn();
+    render(<TierListTab onItemClick={onItemClick} isEasterEggActive />);
+    fireEvent.change(screen.getByPlaceholderText('Search robots in tier lists...'), { target: { value: 'super' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Pilots', exact: true }));
+    const search = screen.getByPlaceholderText('Search pilots in tier lists...');
+    expect(search).toHaveValue('');
+    expect(screen.getByText(/personal pilot rankings/)).toBeInTheDocument();
+    expect(screen.queryByText('Tier Tag Guide')).not.toBeInTheDocument();
+    expect(screen.queryByText(/power based tier list/)).not.toBeInTheDocument();
+    fireEvent.change(search, { target: { value: 'sophie' } });
+    expect(screen.queryByText('Erika Storm')).not.toBeInTheDocument();
+    expect(screen.getByText('Sophie Kovač')).toBeVisible();
+    fireEvent.click(screen.getByRole('button', { name: 'Robots', exact: true }));
+    expect(screen.getByPlaceholderText('Search robots in tier lists...')).toHaveValue('');
+    expect(screen.getByText('Tier Tag Guide')).toBeVisible();
+    fireEvent.click(screen.getByRole('button', { name: 'View details for SuperBot' }));
+    expect(onItemClick).toHaveBeenCalledWith('SuperBot', 'Robots', expect.any(Object));
+  });
+  it('does not leave hidden pilot content selected when activation is removed', () => {
+    const { rerender } = render(<TierListTab onItemClick={vi.fn()} isEasterEggActive />);
+    fireEvent.click(screen.getByRole('button', { name: 'Pilots', exact: true }));
+    rerender(<TierListTab onItemClick={vi.fn()} isEasterEggActive={false} />);
+    expect(screen.queryByText('Erika Storm')).not.toBeInTheDocument();
+    expect(screen.getByText('SuperBot')).toBeVisible();
+  });
+});
