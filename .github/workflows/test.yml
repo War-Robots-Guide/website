@@ -18,10 +18,10 @@ jobs:
       with:
         python-version: '3.12'
 
-    - name: Install image sync test dependencies
-      run: pip install google-api-python-client==2.197.0 Pillow
+    - name: Install Python dependencies
+      run: python -m pip install -r requirements.txt
 
-    - name: Test Drive image sync
+    - name: Run Python regression tests
       run: python -m unittest discover -s scripts/tests -v
 
     - name: Use Node.js 22.x
