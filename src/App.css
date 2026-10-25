@@ -447,6 +447,13 @@
   }
 }
 
+/* Keep modal content above the decorative artwork and its gradient. */
+.modal-header,
+.modal-body {
+  position: relative;
+  z-index: 1;
+}
+
 .modal-header {
   display: flex;
   align-items: center;
