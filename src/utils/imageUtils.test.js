@@ -11,6 +11,7 @@ vi.mock('../data/image_manifest.json', () => ({
       swordunit: '/images/items/SWORD Unit.png',
       bulgasari: '/images/items/Bulgasari.png',
       uebulgasari: '/images/items/Ultimate Bulgasari.png',
+      uesword: '/images/items/Ultimate SWORD.png',
       // Deliberately incorrect aliases exercise the Ultimate artwork guard.
       haechi: '/images/items/Ultimate Haechi.png',
     },
@@ -36,6 +37,9 @@ vi.mock('../data/image_manifest.json', () => ({
     modules: {
       nuclearamplifier: '/images/items/Module_Passive Nuclear Amplifier.png',
       phaseshift: '/images/items/Module_Active Phase Shift.png',
+      titanoverdriveunit: '/images/items/Titan Overdrive Unit.png',
+      armorkit: '/images/items/Module_Passive Armor Kit.png',
+      rangefinderunit: '/images/items/Module_Passive Rangefinder Unit.png',
     },
     icons: {
       support: '/images/icons/Support.png',
@@ -50,6 +54,10 @@ vi.mock('../data/image_manifest.json', () => ({
     new_tier_items_by_category: { Robots: ['Dedopali'], Drones: ['Prena'], 'Robot Weapons': ['Iaraghi L', 'Iaraghi M', 'Iaraghi H'] },
   },
 }));
+
+vi.mock('../data/equipment_newness.json', () => ({ default: {
+  version: '12.4', new_by_category: { Robots: ['Dedopali'], Drones: ['Prena'], 'Robot Weapons': ['Iaraghi L', 'Iaraghi M', 'Iaraghi H'] },
+} }));
 
 import {
   cleanKey,
@@ -116,6 +124,21 @@ describe('imageUtils', () => {
   it('maps modules', () => {
     expect(getModuleImage('Nuclear Amplifier')).toBe('/images/items/Module_Passive Nuclear Amplifier.png');
     expect(getModuleImage('Phase Shift')).toBe('/images/items/Module_Active Phase Shift.png');
+  });
+
+  it('uses exact module aliases and never substitutes Titan artwork for a robot', () => {
+    expect(getModuleImage('Heavy Armor Kit')).toBe('/module-images/heavy-armor-kit.png');
+    expect(getModuleImage('Rangefinder')).toContain('Rangefinder Unit.png');
+    expect(getModuleImage('Titan Overdrive Unit')).toContain('Titan Overdrive Unit.png');
+    expect(getModuleImage('Overdrive Unit')).not.toBe('/images/items/Titan Overdrive Unit.png');
+    expect(getModuleImage('Unrelated Module')).toBeNull();
+  });
+
+  it('uses one Ultimate Sword image for all Sword name variants', () => {
+    for (const name of ['UE Sword', 'UE Sword Unit', 'Ultimate Sword Unit']) {
+      expect(getRobotImage(name)).toBe('/images/items/Ultimate SWORD.png');
+    }
+    expect(getRobotImage('Sword Unit')).toBe('/images/items/SWORD Unit.png');
   });
 
   it('maps weapons and resolves multi-weapon family entries', () => {

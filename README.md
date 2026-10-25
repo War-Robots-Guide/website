@@ -151,3 +151,20 @@ Go to your GitHub Repository -> Settings -> Secrets and Variables -> Actions, an
 - **`GDRIVE_CREDENTIALS_JSON`**: The entire content of the downloaded Service Account JSON key file.
 
 Once added, the GitHub Actions runner will connect to Google Drive, pull the latest guides, parse them, compile, and deploy the new build to GitHub Pages automatically every day at midnight, on push to `master`, or when manually triggered via the **Run workflow** button.
+
+## Content metadata and regression checks
+
+The Value Ratings methodology is imported from `Methodology text.docx`.
+The weapon DPS workbook Intro marker controls the current game version and
+version-scoped NEW badges. Equipment history is restored from the last successful
+deployment and published with the next successful site build. See
+[Equipment metadata](docs/equipment-metadata.md) for rollover and bootstrap rules,
+and [Module artwork](docs/module-artwork.md) for supplemental asset sources.
+
+```bash
+python -m unittest discover -s scripts/tests -v
+npm test
+npm run lint
+npm run validate:data
+npm run build
+```

@@ -246,6 +246,28 @@ function validatePilots(data) {
   }
 }
 
+function validateEquipmentHistory(state, version, tiers) {
+  if (!state || !version || !tiers) return;
+  if (!/^\d+\.\d+(?:\.\d+)?$/.test(version.version) || state.version !== version.version) {
+    addError('equipment_newness.version', 'must match the DPS workbook game_version');
+  }
+  const history = expectObject(state.first_seen, 'equipment_newness.first_seen');
+  for (const [category, names] of Object.entries(history)) {
+    for (const [name, introduced] of Object.entries(expectObject(names, `equipment_newness.first_seen.${category}`))) {
+      if (introduced !== null && !/^\d+\.\d+(?:\.\d+)?$/.test(introduced)) {
+        addError(`equipment_newness.first_seen.${category}.${name}`, 'expected a version or baseline null');
+      }
+    }
+  }
+  const normalize = name => name.replace(/⬆|⬇|👁|👥|‼|\uFE0F|\*/gu, '').trim();
+  for (const [category, names] of Object.entries(expectObject(state.new_by_category, 'equipment_newness.new_by_category'))) {
+    const catalog = new Set(Object.values(tiers[category] || {}).flatMap(rank => rank.items.flatMap(item => item.name.split(/[,/.]/).map(normalize))));
+    expectArray(names, `equipment_newness.new_by_category.${category}`).forEach(name => {
+      if (!catalog.has(name)) addError(`equipment_newness.new_by_category.${category}`, `unlisted item: ${name}`);
+    });
+  }
+}
+
 // Helper to strip tier list emoji tags and trailing asterisks
 function cleanUnitName(name) {
   if (!name) return '';
@@ -338,6 +360,7 @@ validateRobotGuide(robotGuide);
 validateWeapons(weapons);
 validateSpecializations(specializations);
 validatePilots(pilots);
+validateEquipmentHistory(readJson('equipment_newness.json'), readJson('game_version.json'), tiers);
 
 // Run cross-file verification warning checks
 runCrossFileChecks();

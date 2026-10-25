@@ -159,8 +159,8 @@ export const specTree = {
             result: {
               specialization: "Ultimate",
               slots: [
-                { name: "Slot 1: anything works" },
-                { name: "Slot 2: anything but Grand Balanced Reactor" }
+                { name: "Slot 1", modules: ["Ultimate Titan Grand Balanced Reactor", "Ultimate Plated Armor Kit", "Ultimate Antimatter Reactor"] },
+                { name: "Slot 2", modules: ["Ultimate Titan Nuclear Amplifier", "Ultimate Titan Repair Amplifier"] }
               ]
             }
           },

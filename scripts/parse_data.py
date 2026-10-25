@@ -6,6 +6,7 @@ import pandas as pd
 import openpyxl
 from docx import Document
 from role_guide import extract_role_guide
+from content_metadata import read_game_version, read_methodology, advance_equipment_state
 
 # Paths
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -107,7 +108,7 @@ def find_file_case_insensitive(filename):
 # Graceful check for GitHub runner where secrets are not yet configured
 if not os.path.exists(sample_dir) or not os.listdir(sample_dir):
     print("Warning: No raw spreadsheets or Word documents found in 'sample data/' directory.")
-    required_files = ["tiers.json", "robot_guide.json", "weapons_dps.json", "specializations.json", "pilots.json"]
+    required_files = ["tiers.json", "robot_guide.json", "weapons_dps.json", "specializations.json", "pilots.json", "game_version.json", "equipment_newness.json"]
     all_exist = all(os.path.exists(os.path.join(data_out_dir, f)) for f in required_files)
     if all_exist:
         print("Pre-compiled JSON database files exist in 'src/data/'. Skipping parsing and using existing JSON database.")
@@ -305,6 +306,11 @@ def parse_specializations():
 def parse_weapons_dps():
     filepath = find_file_case_insensitive("Adazahi r_WarRobotsGuide weapon DPS spreadsheet.xlsx")
     xl = pd.ExcelFile(filepath)
+    workbook = openpyxl.load_workbook(filepath, read_only=True, data_only=True)
+    version = read_game_version(workbook)
+    workbook.close()
+    with open(os.path.join(data_out_dir, 'game_version.json'), 'w', encoding='utf-8') as source:
+        json.dump({'version': version}, source, indent=2)
     
     weapons_data = {}
     
@@ -1054,11 +1060,7 @@ def parse_robot_guide():
 
     rating_colors = extract_rating_colors(wb)
 
-    intro_sections = []
-    for row in wb["Intro"].iter_rows():
-        values = [str(cell.value).strip() for cell in row[6:] if cell.value is not None]
-        if values:
-            intro_sections.append("\n".join(values))
+    intro_sections = read_methodology(find_file_case_insensitive('Methodology text.docx'))
 
     # Output unified guide JSON
     guide_json = {
@@ -1092,6 +1094,20 @@ if __name__ == "__main__":
     parse_weapons_dps()
     parse_tiers()
     parse_robot_guide()
+    with open(os.path.join(data_out_dir, 'game_version.json'), encoding='utf-8') as source:
+        game_version = json.load(source)['version']
+    with open(os.path.join(data_out_dir, 'tiers.json'), encoding='utf-8') as source:
+        tiers = json.load(source)
+    state_path = os.path.join(data_out_dir, 'equipment_newness.json')
+    previous = None
+    if os.path.exists(state_path):
+        with open(state_path, encoding='utf-8') as source:
+            previous = json.load(source)
+    with open(os.path.join(data_out_dir, 'equipment_updates.json'), encoding='utf-8') as source:
+        releases = json.load(source)
+    state = advance_equipment_state(game_version, tiers, previous, releases)
+    with open(state_path, 'w', encoding='utf-8') as output:
+        json.dump(state, output, indent=2)
     print("All parsing completed successfully. Output JSONs saved to src/data/")
     from sync_images import sync_images
     sync_images()

@@ -13,7 +13,7 @@
     "source": "https://warrobots.com/en/posts/416",
     "items": {
       "Motherships": [
-        "R’lyeh"
+        "R\u2019lyeh"
       ]
     }
   },
@@ -36,8 +36,13 @@
       ],
       "Drones": [
         "Scourveil"
+      ],
+      "Robots": [
+        "Fang",
+        "UE Raven"
       ]
-    }
+    },
+    "version": "12.3"
   },
   {
     "date": "2026-09-22",
@@ -57,6 +62,7 @@
       "Drones": [
         "Prena"
       ]
-    }
+    },
+    "version": "12.4"
   }
 ]

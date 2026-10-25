@@ -7,7 +7,7 @@
       "range": "800m",
       "unload": "1s",
       "reload": "12s",
-      "notes": "VERY IMPORTANT: While Tonans beats Vendicatoire in terms of burst vs Titans at base, the Titan damage boost is additive with boosts from nuclear amplifier, etc\nTLDR: Vendicatoire does ~15% more damage than Tonans when both have a fully stacked NA on a damage dealer titan."
+      "notes": "The titan damage boost that Tonans and Fulger have is additive with other damage boosts (ie nuclear amplifier)"
     },
     {
       "name": "UE Bulava",
@@ -37,7 +37,7 @@
       "notes": "100% grey damage. DAMAGE AT RANGE TESTED AGAINST A TITAN."
     },
     {
-      "name": "Vendicatore",
+      "name": "Vendicatoire",
       "burst_dps": 91008.0,
       "cycle_dps": 5688.0,
       "range": "1,100m",
@@ -91,7 +91,7 @@
       "notes": "This is the damage dealt by a single furnace shooting at a target that can accumulate heat. CURRENTLY INFLATED BY INTEL."
     },
     {
-      "name": "Veniere",
+      "name": "Venire",
       "burst_dps": 53719.0,
       "cycle_dps": 31810.0,
       "range": "600m",
@@ -288,7 +288,7 @@
       "range": "800m",
       "unload": "1s",
       "reload": "12s",
-      "notes": "VERY IMPORTANT: While titan Zeus weapons show good performance vs Titans at base, the Titan damage boost is additive with boosts from nuclear amplifier, etc. \nTLDR: Vendicatoire does ~15% more damage than Tonans when both have a fully stacked NA on a damage dealer titan."
+      "notes": "The titan damage boost that Tonans and Fulger have is additive with other damage boosts (ie nuclear amplifier)"
     },
     {
       "name": "Evora (25m)",
@@ -336,7 +336,7 @@
       "notes": "100% grey damage DAMAGE AT RANGE TESTED AGAINST A TITAN."
     },
     {
-      "name": "Vencere",
+      "name": "Vincere",
       "burst_dps": 45929.745,
       "cycle_dps": 27197.55,
       "range": "600m",

@@ -56,7 +56,8 @@ describe('SpecializationsTab', () => {
       {
         description: 'Robot damage dealer description',
         slots: [
-          { name: 'First slot', content: 'Slot content with Nuclear Amplifier' }
+          { name: 'First slot', content: 'Slot content with Nuclear Amplifier', recommendations: [{ name: 'Nuclear Amplifier', note: '' }] },
+          expect.objectContaining({ name: 'Second module slot' }),
         ],
         isTitan: false
       }

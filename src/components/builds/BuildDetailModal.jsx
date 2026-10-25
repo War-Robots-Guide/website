@@ -2,6 +2,8 @@ import { useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import { getTierForName } from '../../utils/tierLookup';
+import { parseEquipmentOptions, parseBuildSpecialization } from '../../utils/buildEquipment';
+import { ModuleList } from '../common/ModuleList';
 import {
   getRobotImage,
   getPilotImage,
@@ -26,6 +28,21 @@ function WeaponFamilies({ families, label }) {
         <span>{weapon}</span>
       </span>)}
     </div>)}
+  </div>;
+}
+
+function EquipmentOptions({ options, kind }) {
+  const getImage = kind === 'pilot' ? getPilotImage : getDroneImage;
+  return <div className="stack-10" role="list" aria-label={kind === 'pilot' ? 'Pilot options' : 'Drone options'}>
+    {options.map(({ name, note }, index) => {
+      const image = getImage(name);
+      return <div className="build-option" role="listitem" key={index}>
+        {name && <div className="build-equipment-image">
+          <img src={image || `/icons/${kind}_gold.png`} alt={name} className="equipment-image-fit" />
+        </div>}
+        <div className="shrinkable"><strong>{name}</strong>{note && <p className="equipment-note">{note}</p>}</div>
+      </div>;
+    })}
   </div>;
 }
 
@@ -55,18 +72,9 @@ export function BuildDetailModal({ build, onClose }) {
     return getTierForName(build.robot, build.is_titan ? 'Titans' : 'Robots');
   }, [build]);
 
-  const pilotImage = useMemo(() => {
-    if (!build) return null;
-    return getPilotImage(build.pilot);
-  }, [build]);
-
-  const droneList = useMemo(() => {
-    if (!build?.drone_options || build.drone_options === 'N/A') return [];
-    return build.drone_options
-      .split('\n')
-      .map(line => line.trim())
-      .filter(Boolean);
-  }, [build]);
+  const pilotOptions = useMemo(() => parseEquipmentOptions(build?.pilot || build?.parsed_pilot || '', 'pilot'), [build]);
+  const droneOptions = useMemo(() => parseEquipmentOptions(build?.drone_options || '', 'drone'), [build]);
+  const specialization = useMemo(() => parseBuildSpecialization(build?.specialization || '', build?.is_titan), [build]);
 
   const f2pWeaponList = useMemo(() => {
     if (!build?.f2p_weapons) return [];
@@ -190,20 +198,7 @@ export function BuildDetailModal({ build, onClose }) {
                 <img src="/icons/pilot_gold.png" alt="" className="icon-18" />
                 Pilot Option
               </span>
-              <div className="row-center-14">
-                <div className="build-equipment-image">
-                  {pilotImage ? (
-                    <img src={pilotImage} alt={build.parsed_pilot} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  ) : (
-                    <img src="/icons/pilot_gold.png" alt="" className="icon-36" />
-                  )}
-                </div>
-                <div className="shrinkable">
-                  <div style={{ fontSize: '14px', fontWeight: 700, color: '#fff', lineHeight: 1.3 }}>
-                    {build.parsed_pilot || 'Standard / Any'}
-                  </div>
-                </div>
-              </div>
+              {pilotOptions.length ? <EquipmentOptions options={pilotOptions} kind="pilot" /> : <span>Standard / Any</span>}
             </div>
 
             {/* Drone Card */}
@@ -214,45 +209,23 @@ export function BuildDetailModal({ build, onClose }) {
                 <img src="/icons/drone_gold.png" alt="" className="icon-18" />
                 Drone Options
               </span>
-              {droneList.length > 0 ? (
-                <div className="stack-10">
-                  {droneList.map((dLine, idx) => {
-                    const droneImg = getDroneImage(dLine);
-                    return (
-                      <div key={idx} className="row-center-14">
-                        <div className="build-equipment-image">
-                          {droneImg ? (
-                            <img src={droneImg} alt={dLine} className="equipment-image-fit" />
-                          ) : (
-                            <img src="/icons/drone_gold.png" alt="" className="icon-36" />
-                          )}
-                        </div>
-                        <span style={{ fontSize: '13.5px', color: '#fff', fontWeight: 700 }}>
-                          {dLine}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-              ) : (
-                <span style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>N/A</span>
-              )}
+              {droneOptions.length ? <EquipmentOptions options={droneOptions} kind="drone" /> : <span>N/A</span>}
             </div>}
 
           </div>
 
-          {/* Specializations & Modules Section */}
-          <div
-            className="build-detail-panel"
-          >
-            <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-              <img src="/icons/module_old_gold.png" alt="" className="icon-18" />
-              Specialization & Recommended Modules
-            </span>
-
-            <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5, whiteSpace: 'pre-line' }}>
-              {build.specialization}
-            </div>
+          <div className="build-equipment-grid">
+            <section className="build-detail-panel" aria-label="Passive Specialization">
+              <h3 className="build-equipment-heading">Passive Specialization</h3>
+              {specialization.passive.map((option, index) => <div className="passive-option" key={index}>
+                <h4>{option.name}</h4>
+                <ModuleList modules={option.modules} />
+              </div>)}
+            </section>
+            <section className="build-detail-panel" aria-label="Active Module">
+              <h3 className="build-equipment-heading">Active Module</h3>
+              {specialization.active.length ? <ModuleList modules={specialization.active} /> : <p className="equipment-note">{build.is_titan ? 'Not applicable to Titans.' : 'No active module specified.'}</p>}
+            </section>
           </div>
 
           {/* Weapon Options (F2P and Meta Setups) */}

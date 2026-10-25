@@ -73,6 +73,20 @@ jobs:
           key: ${{ runner.os }}-drive-images-v1-${{ hashFiles('sample images/.drive-image-manifest.json') }}
 
       # 5. Parse raw spreadsheets and word guides into structured JSON
+      - name: Restore equipment history from the last successful deployment
+        run: |
+          # The published JSON advances atomically with the successful site deploy.
+          # Missing branch/file is expected only for the initial migration.
+          git ls-remote --heads origin gh-pages > /tmp/published-branch
+          if [ -s /tmp/published-branch ]; then
+            git fetch --no-tags --depth=1 origin gh-pages
+            if git cat-file -e FETCH_HEAD:src/data/equipment_newness.json; then
+              git show FETCH_HEAD:src/data/equipment_newness.json > /tmp/equipment_newness.json
+              python -m json.tool /tmp/equipment_newness.json > /dev/null
+              cp /tmp/equipment_newness.json src/data/equipment_newness.json
+            fi
+          fi
+
       - name: Parse Data Files
         run: |
           python scripts/parse_data.py

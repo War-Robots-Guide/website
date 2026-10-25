@@ -1,3 +1,4 @@
+import { ModuleList } from './ModuleList';
 import { sortRoles } from '../../utils/roles';
 import { useEffect } from 'react';
 import { X } from 'lucide-react';
@@ -458,6 +459,7 @@ export function DetailModal({ selectedItem, onClose }) {
                       <img src="/icons/module_old_gold.png" alt="" className="icon-18" />
                       {slot.name}
                     </div>
+                    <ModuleList modules={slot.recommendations || []} />
                     <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: '4px 0 0 0', whiteSpace: 'pre-line' }}>
                       {slot.content}
                     </p>

@@ -77,6 +77,10 @@
           "description": "While Lance has a lot of sustain through its grey healing, the nerf it got to its HP was very significant and made it susceptible to being bursted down. Still, it is an incredibly strong tank nonetheless."
         },
         {
+          "name": "UE Shell",
+          "description": "Mostly a sidegrade to UE Lancelot, having the same issue of charging nuclear amplifiers but is otherwise still quite a functional and powerful beacon contester. The blastwave\u2019s knockback is extremely strong against enemy new gen robots."
+        },
+        {
           "name": "UE Haechi",
           "description": "Functional as both a solid opener and a mid to late game Titan slayer. Oppressively annoying to beat without shieldbreaker, but relatively easy to beat with it."
         },
@@ -280,6 +284,10 @@
           "description": "The inferior 70% reflector (as compared to Siren\u2019s 80%) has left this robot a full tier below since it can be easily shot down right through its protection. \u2b07\ufe0fHarpy\u2019s reflector is completely ignored by Iaraghi."
         },
         {
+          "name": "Curie",
+          "description": "Extra armorplates durability is meh, leaving it average durability in ability and extremely frail out of ability. Turret range is pretty short and damage is unimpressive by modern standards. Armorplates makes it resistant to chip damage though, which is nice."
+        },
+        {
           "name": "UE Destrier",
           "description": "Technically has decent damage potential, but far below most UEs. The extra speed isn\u2019t really worth it, and the shield isn\u2019t anything special."
         },
@@ -298,7 +306,7 @@
       "items": [
         {
           "name": "Fury",
-          "description": "Has no ability and low speed. The shield breaker pilot is the only reason it's this high."
+          "description": "Has no ability and low speed. The permanent shield breaker pilot is the only reason it's this high."
         },
         {
           "name": "Behemoth",
@@ -335,10 +343,6 @@
         {
           "name": "Angler",
           "description": "Angler has aged very poorly as a tank and it's far too slow to reasonably blind anyone unless you spawn right on them in beacon rush."
-        },
-        {
-          "name": "Curie",
-          "description": "Extra armorplates durability is not enough, leaving it frail in ability and extremely frail out of ability. Turret range is pretty short and damage is unimpressive by modern standards."
         },
         {
           "name": "Ares",
@@ -772,8 +776,8 @@
       "casual_name": "Really strong but only on a few robots",
       "items": [
         {
-          "name": "Lar",
-          "description": "The best option on regular edition Vulcan. Omen Vulcan should equip Webby instead. This drone is much more universal than some of the others released recently, as its last ability works on all bots and its other abilities individually work on a wide variety of bots, but only Vulcan can use both at once (and most bots that can use 2 of the abilities have better options)."
+          "name": "\u203c\ufe0fLar",
+          "description": "The best option on regular edition Vulcan. Omen Vulcan should equip Webby instead. This drone is much more universal than some of the others released recently, as its last ability works on all bots and its other abilities individually work on a wide variety of bots, but only Vulcan can use both at once (and most bots that can use 2 of the abilities have better options). \u203c\ufe0fWhen equipped on 5+ slot robots with Boom/Bash/Pow, Lar\u2019s deathmark can make them surprisingly deadly."
         },
         {
           "name": "Kestrel",
@@ -1212,19 +1216,19 @@
       "items": [
         {
           "name": "\ud83d\udc41\ufe0fIaraghi L, \ud83d\udc41\ufe0fIaraghi M, \ud83d\udc41\ufe0fIaraghi H",
-          "description": "I\u2019m not sure what we as the playerbase did to deserve weapons this broken being added to the game, but here we are I guess. You may as well not even run brawlers, unless you have extremely good reason to, such as having some way to avoid or dodge this weapon\u2019s damage. You can\u2019t tank it, you can only hope to not get targeted by it. Let it hit you and you\u2019re already dead. \ud83d\udc41\ufe0fThese weapons are so absurdly overpowered that the meta is being bent around their existence. The vast majority of [\u2b06\ufe0f] and [\u2b07\ufe0f] tags are based on the performance of bots/titans against these weapons."
+          "description": "I\u2019m not sure what we as the playerbase did to deserve weapons this broken being added to the game, but here we are I guess. You can\u2019t tank it, it ignores all resistance-based defense systems including last stand, you can only hope to not get targeted by it, hide with stealth, dodge it, or block it with a shield. Let it hit you and you\u2019re either crippled or dead. \ud83d\udc41\ufe0fThese weapons are so absurdly overpowered that the meta is being bent around their existence. The vast majority of [\u2b06\ufe0f] and [\u2b07\ufe0f] tags are based on the performance of bots/titans against these weapons."
         },
         {
           "name": "Lumen L, Lumen M, Lumen H",
           "description": "Incredibly broken new laser type weapons that bend around corners and have essentially no downtime. Due to their incredible sustain, they are viable on both midrange damage dealers as well as brawlers."
         },
         {
-          "name": "Velos, Machiana, Basileus",
-          "description": "These are currently the best 500m weapons in the game, dominating the midrange niche and also being the best support weapons in the game thanks to their powerful debuffs."
+          "name": "Velos, Machiara, Basileus",
+          "description": "Among the best 500m weapons in the game, dealing solid damage at midrange and also being the best support weapons in the game thanks to their powerful debuffs."
         },
         {
-          "name": "Kelvin, Farenheit, Celsius",
-          "description": "The closest thing to a weapon family that can contest crocodile guns in the close range niche, almost entirely thanks to their ability to curve around corners and pretty much never miss whatsoever."
+          "name": "Kelvin, Fahrenheit, Celsius",
+          "description": "Close range flamethrowers with solid damage and the ability to curve around walls."
         },
         {
           "name": "Voonith, Urhag, Shantak",
@@ -1233,10 +1237,6 @@
         {
           "name": "Harmattan L, Harmattan M, Harmattan H",
           "description": "Welcome to hell. Percentage damage shotguns. Imagine if ARM and BSGs had a possessed demonic child that killed anything it touched."
-        },
-        {
-          "name": "UE Toxin, UE Venom",
-          "description": "On builds that abuse rust (ie Webby Imugi) or have high shieldbreaker uptime (ie Hawkeye Vector) these weapons can pose a serious threat to titans and well defended (ie Reflector) bots, able to ignore their defenses. Unfortunately, the total lack of base damage means these weapons do fully repairable DoT damage and struggle to get through aegis shields (which is why they are really only recommended with Webby or Hawkeye)."
         },
         {
           "name": "UE Storm",
@@ -1252,7 +1252,7 @@
         },
         {
           "name": "UE Shredder",
-          "description": "A light weapon that deals DPS on par with many heavy weapons and locks down while at that."
+          "description": "A light weapon that deals DPS comparable to many heavy weapons and locks down as well. Its only real limit is the terrible accuracy, but it\u2019s great when used at close range."
         },
         {
           "name": "UE Taran",
@@ -1270,6 +1270,14 @@
         {
           "name": "Piercer",
           "description": "A fairly strong sniper that was the best in the game up until it was powercrept and nerfed."
+        },
+        {
+          "name": "\u203c\ufe0fLiodari, \u203c\ufe0fKroko, \u203c\ufe0fHippo",
+          "description": "Possess extremely high burst damage, but not so much so that they own the entire meta quite like they did before the rebalance. \u203c\ufe0fThese weapons charge titans incredibly quickly, making them often worth using over higher tier weapons despite the damage difference simply because they enable you to drop your titan early."
+        },
+        {
+          "name": "UE Toxin, UE Venom",
+          "description": "These weapons deal insane amounts of DoT damage, which ignores all defense systems. However, due to their awful direct damage and the nature of DoT dealing fully repairable damage, they pretty much require high uptime shieldbreaker and/or Webby\u2019s rust effect in order to function properly, which limits their build options."
         },
         {
           "name": "UE Punisher T",
@@ -1296,18 +1304,14 @@
           "description": "Downgraded UE Storms. Do almost the same damage with a fraction of the effectiveness at range."
         },
         {
-          "name": "UE Cryo",
-          "description": "The nerf to their fire rate and damage has left UE Cryos much less bursty than they once were, but they are still fairly strong weapons, notable for their use on Pathfinder alongside the freezo drone."
+          "name": "UE Cryo, UE Glacier, UE Rime",
+          "description": "The nerf to the UE Cryo\u2019s fire rate and damage has left it much less bursty than they once were, but they are still fairly strong weapons, notable for their use on Pathfinder alongside the freezo drone. UE Glacier and Rime are scaled pretty similarly to Cryo, so they fit alongside it in S tier."
         }
       ]
     },
     "A": {
       "casual_name": "solid (A)",
       "items": [
-        {
-          "name": "Liodari, Kroko, Hippo",
-          "description": "Possess extremely high burst damage, but not so much so that they own the entire meta quite like they did before the rebalance."
-        },
         {
           "name": "ArmM, ArmL",
           "description": "Downgrades to their UE variants that still hold up pretty well."
@@ -1396,10 +1400,6 @@
         {
           "name": "Splinter, Shatter, Brisant",
           "description": "These weapons are something like Cudgel/Hammer/Mace but more specialized to be used at range. Which is weird, because they are shotguns. Not really bad, but their only use case is specifically around 200m range, where they are the best shotguns. At further or closer ranges, they are outperformed."
-        },
-        {
-          "name": "Shifang, Fengbao, Leiming",
-          "description": "These weapons basically serve to just charge your titan. They have the benefits of locking down, ignoring stealth, and hitting multiple enemies at once, but their damage and range is awful."
         },
         {
           "name": "Glacier, Cryo, Rime",
@@ -1532,8 +1532,12 @@
           "description": "Surprisingly, this weapon performs comparably to Marquess."
         },
         {
-          "name": "Needle, Spike, Stake",
-          "description": "Their best use case is unironically just their paper thin shield that can block a single big shot, their damage is awful, never use these weapons for their damage. One could potentially justify using Needle on a light slot if they had no other choice, but the heavier counterparts can only really be justified on weapons that are constantly stowed (ie Spike on Fafnir top slots)."
+          "name": "\u2b06\ufe0fNeedle, \u2b06\ufe0fSpike, \u2b06\ufe0fStake",
+          "description": "Their best use case is unironically just their paper thin shield that can block a single big shot, their damage is awful, never use these weapons for their damage. One could potentially justify using Needle on a light slot if they had no other choice, but the heavier counterparts can only really be justified on weapons that are constantly stowed (ie Spike on Fafnir top slots). \u2b06\ufe0fNeedle, Spike, and Stake provide an energy shield that can absorb an Iaraghi shot."
+        },
+        {
+          "name": "\u203c\ufe0fShifang, \u203c\ufe0fFengbao, \u203c\ufe0fLeiming",
+          "description": "These weapons have the benefits of locking down, ignoring stealth, and hitting multiple enemies at once, but their damage and range is awful. \u203c\ufe0fThese weapons charge titans incredibly quickly, making them often worth using over higher tier weapons despite the damage difference simply because they enable you to drop your titan early."
         },
         {
           "name": "Flux",
@@ -1542,6 +1546,10 @@
         {
           "name": "Smite, Discipline",
           "description": "Good luck hitting anything with these. Aside from having poor damage, they can\u2019t actually hit their target most of the time."
+        },
+        {
+          "name": "Storm, Gust",
+          "description": "Outdated shotguns that aged slightly better than Thunder. Technically usable burst DPS but with awful range, no utility, and an incredibly long reload."
         },
         {
           "name": "UE Dragoon, UE Hussar",
@@ -1573,8 +1581,8 @@
           "description": "These weapons weren't even good in the first place, but then they got nerfed anyways. Artillery just kinda doesn't work in WR, it's either OP or useless."
         },
         {
-          "name": "GAS",
-          "description": "Not worth trading a medium weapon for a shield."
+          "name": "\u2b06\ufe0fGAS",
+          "description": "In the vast majority of circumstances, it is not worth trading a medium weapon for a shield. \u2b06\ufe0fGAS can absorb an Iaraghi shot for you every so often, which is nice."
         },
         {
           "name": "Thermite, Vortex",
@@ -1597,8 +1605,8 @@
           "description": "Outdated ancient plasma guns. Notably worse than Redeemer."
         },
         {
-          "name": "Thunder, Storm, Gust",
-          "description": "Outdated ancient shotguns. Even at point blank range, Thunder loses to Avenger. That being said, Avenger costs gold and Thunder can be had for free, so you should use Thunder in the early game over Avenger."
+          "name": "Thunder",
+          "description": "Outdated ancient shotgun. Even at point blank range, Thunder loses to Avenger. That being said, Avenger costs gold and Thunder can be had for free, so you should use Thunder in the early game over Avenger."
         },
         {
           "name": "Ballista, Arbalest",
@@ -1654,8 +1662,8 @@
           "description": "The prime midrange option for early game. It isn\u2019t good, but it does the job for silver."
         },
         {
-          "name": "Ancile, Ecu",
-          "description": "Replacing a weapon slot with an outdated shield is not a good idea."
+          "name": "Ancile",
+          "description": "Replacing a heavy weapon slot with an outdated bubble shield with poor durability and no usefulness against energy weapons is not a good idea."
         },
         {
           "name": "Zeus",
@@ -1668,7 +1676,11 @@
       "items": [
         {
           "name": "Trickster, Deceiver",
-          "description": "Genuinely nothingburger base damage with weak DoT means all these weapons do is charge enemy amplifiers for free."
+          "description": "Awful base damage with weak DoT means all these weapons do is charge enemy repair amplifiers for free."
+        },
+        {
+          "name": "Ecu",
+          "description": "Doesn\u2019t do damage, provides incredibly unreliable protection, takes a weapon slot, and gives enemies free nuclear amplifier charge."
         }
       ]
     }
@@ -1686,8 +1698,12 @@
           "description": "Trades the cracked sustained DPS of Venire family for an extra 200m of range. Does pretty much the same burst DPS though."
         },
         {
-          "name": "Barq-a. Barq-b",
+          "name": "Barq-a, Barq-b",
           "description": "Titan teslas with AoE damage that can ignore stealth and 200m range. Are you surprised to find them in X tier?"
+        },
+        {
+          "name": "UE Bulava, UE Kisten",
+          "description": "Very lethal rocket platforms that are leaps and bounds stronger than their normal counterparts. Putting aside its obviously stronger stats for a moment, the UE variant of these weapons have their ancient aiming flaw almost entirely fixed, which makes them extremely versatile at chipping down & bursting down targets, and combining them with the Explosive Expert titan pilot skills makes them practically undodgeable. Even the mothership charge on these weapons is powerful. The only real downside of these weapons is that some awkward terrain of certain maps can make them harder to use, but otherwise a very small issue for the power delivered."
         }
       ]
     },
@@ -1696,15 +1712,15 @@
       "items": [
         {
           "name": "UE Cyclone",
-          "description": "Strong weapon with its dedicated pilot, but honestly... even if you're willing to invest the like, 80k platinum that it costs for a set of these, they're worse than Vincere except at very close range."
+          "description": "Strong weapon with its dedicated pilot, but honestly... even if you're willing to invest the like, 80k platinum that it costs for a set of these, they're worse than meta weapons except at very close range."
         },
         {
-          "name": "Vendicatoire",
-          "description": "Strong for niche setups, such as Hybrid UE Ming and Eiffel (putting it as summoned weapons in flight so it reloads while you're on the ground). Technically viable for getting cheeky princeps onetaps with a full set on Bersagliere or UE Ming, but honestly not worth sacrificing your titan to be a one trick wonder like that. Also worth noting that it sometimes whiffs against fast enemies due to slow projectiles, and with a 15 second reload, that SUCKS."
+          "name": "Evora, Veyron",
+          "description": "The f2p standard brawling weapon, dealing incredibly high DPS and it's all grey damage. Their main limitation is that their damage is bad outside of point blank range."
         },
         {
-          "name": "UE Bulava, UE Kisten",
-          "description": "Very lethal rocket platforms that are leaps and bounds stronger than their normal counterparts. Putting aside its obviously stronger stats for a moment, the UE variant of these weapons have their ancient aiming flaw almost entirely fixed, which makes them extremely versatile at chipping down & bursting down targets, and combining them with the Explosive Expert titan pilot skills makes them practically undodgeable. Even the mothership charge on these weapons is powerful. The only real downside of these weapons is that some awkward terrain of certain maps can make them harder to use, but otherwise a very small issue for the power delivered."
+          "name": "Chasm, Void",
+          "description": "Trades much of the damage and the grey damage of Evora family for better range and accuracy. Especially better at killing robots due to their smaller hitboxes."
         }
       ]
     },
@@ -1712,20 +1728,16 @@
       "casual_name": "solid (A)",
       "items": [
         {
-          "name": "Evora, Veyron",
-          "description": "The f2p standard brawling weapon, dealing incredibly high DPS and it's all grey damage. Their main limitation is that their damage is bad outside of point blank range."
-        },
-        {
-          "name": "Chasm, Void",
-          "description": "Trades much of the damage and the grey damage of Evora family for better range."
-        },
-        {
           "name": "Arbiter, Equalizer",
           "description": "Nerfed down f2p version of Venire family."
         },
         {
-          "name": "UE Gendarme",
-          "description": "Niche 800m weapon that is largely not worth investing in. Not bad or anything, but powercrept directly by the Furnace family."
+          "name": "\u203c\ufe0fVendicatore",
+          "description": "Most titans cannot justify using these weapons due to their insane 15 second downtime and unreliable projectile that's prone to missing fast moving enemies. Despite that, their burst damage is so high that they outrank many titan weapons anyways. \u203c\ufe0fFor Eiffel and UE Ao Ming, Vendicatores in the summoned slots are often one of the best options, especially on ranged maps."
+        },
+        {
+          "name": "\u203c\ufe0fUE Gendarme",
+          "description": "Niche 800m weapon that is largely not worth investing in. Not bad or anything, but powercrept directly by the Furnace family. \u203c\ufe0fSpecifically for builds running 4 or more Furnace/Torch family weapons, UE Gendarmes can often be comparable to adding more Furnaces due to the diminishing returns of the thermal breach effect."
         }
       ]
     },
@@ -1745,6 +1757,14 @@
           "description": "Point blank burst shotguns; essentially worse Evora/Veyron."
         },
         {
+          "name": "Fulger, Tonans",
+          "description": "Technically viable for triggering deft on or even 100-to-0-ing glass cannon titans, but you will be bullied by normal robots if you equip them. On hybrid builds, Tonans is a worse Vendicatore for the most part."
+        },
+        {
+          "name": "Argon, Oxy",
+          "description": "Rockets with decent effectiveness at a distance compared to most other close range titan weapons, but of course the sacrifice for that range is made in damage."
+        },
+        {
           "name": "UE Grom",
           "description": "Overnerfed point blank shotguns; essentially worse Evora/Veyron. Poor burst but insane sustain."
         }
@@ -1762,12 +1782,12 @@
           "description": "Focused damage into the last shot allows you to open up with a ton of burst damage. Surprisingly strong in practice when compared to how they sheet thanks to this feature, but they are still pretty dated and generally weaker versions of Arbiter/Equalizer."
         },
         {
-          "name": "Fulger, Tonans",
-          "description": "Technically viable for triggering deft on or even 100-to-0-ing glass cannon titans, but you will be bullied by normal robots if you equip them. On hybrid builds, Tonans is a worse Vendicatoire for the most part."
-        },
-        {
           "name": "Basilisk, Krait",
           "description": "Downgraded Arbiter/Equalizer."
+        },
+        {
+          "name": "Inferno, Pyro",
+          "description": "Outdated flamethrowers with unremarkable damage but a flexible overheat system and decent splash."
         }
       ]
     },
@@ -1783,20 +1803,12 @@
           "description": "Only usable in PvE. They literally get outdamaged by their drone counterpart. No, they aren't really viable as anti-Anaksor, Myia can typically outheal their damage. It's basically just anti-seeker Anaksor, I guess."
         },
         {
-          "name": "Argon, Oxy",
-          "description": "Outdated rocket launchers with poor burst."
-        },
-        {
           "name": "Cataclysm, Cyclone",
           "description": "Outdated jack of all trades weapons with clunky lock on mechanics"
         },
         {
           "name": "Grom, Squall",
           "description": "Point blank burst shotguns; essentially worse Evora/Veyron."
-        },
-        {
-          "name": "Inferno, Pyro",
-          "description": "Outdated and overnerfed flamethrowers with awful damage"
         },
         {
           "name": "UE Squall",

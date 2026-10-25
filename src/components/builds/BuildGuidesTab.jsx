@@ -3,7 +3,7 @@ import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { sortBySearchQuery } from '../../utils/sortUtils';
 import { getTierForName } from '../../utils/tierLookup';
-import { getRobotImage, cleanKey } from '../../utils/imageUtils';
+import { getRobotImage, getUnitKey } from '../../utils/imageUtils';
 import { SlidingTabPills } from '../common/SlidingTabPills';
 import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
@@ -45,12 +45,12 @@ export function BuildGuidesTab() {
     const map = {};
     if (robotGuideData?.robots) {
       robotGuideData.robots.forEach(r => {
-        map[cleanKey(r.name)] = r.value_rating;
+        map[getUnitKey(r.name)] = r.value_rating;
       });
     }
     if (robotGuideData?.titans) {
       robotGuideData.titans.forEach(t => {
-        map[cleanKey(t.name)] = t.value_rating;
+        map[getUnitKey(t.name)] = t.value_rating;
       });
     }
     return map;
@@ -96,7 +96,7 @@ export function BuildGuidesTab() {
   return (
     <div className="animate-fade-in text-left">
       <PageHero title="Mini Build Guides">
-        Explore optimal weapons, specializations, pilots, and drones for robots and titans. Click any build to view detailed visual setups.
+        Recommended weapons, pilots, drones, and modules for robots and titans.
       </PageHero>
 
       {/* UE Weapon Index Reference Legend */}
@@ -141,7 +141,7 @@ export function BuildGuidesTab() {
         {visibleBuilds.map((build, index) => {
           const tier = getTierForName(build.robot, build.is_titan ? 'Titans' : 'Robots');
           const imageUrl = getRobotImage(build.robot);
-          const valueRating = robotValueMap[cleanKey(build.robot)] ?? 0;
+          const valueRating = robotValueMap[getUnitKey(build.robot)] ?? 0;
           const tierKey = tier ? tier.toLowerCase() : 'z';
 
           return (

@@ -1,10 +1,11 @@
-import { extractModules } from '../../utils/moduleUtils';
+import { resolveModuleName } from '../../utils/moduleCatalog';
+import { getSpecializationSlots } from './recommendations';
+import { ModuleList } from '../common/ModuleList';
 import { PageHero } from '../common/PageHero';
 import { useState, useMemo } from 'react';
 import specializationsData from '../../data/specializations.json';
 import { specTree } from './specTree';
 import { SlidingTabPills } from '../common/SlidingTabPills';
-import { getModuleImage } from '../../utils/imageUtils';
 
 export function SpecializationsTab({ onItemClick }) {
   const [activeSubTab, setActiveSubTab] = useState('picker');
@@ -99,32 +100,13 @@ export function SpecializationsTab({ onItemClick }) {
                 </div>
                 
                 <div className="spec-result-slots" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px' }}>
-                  {currentSpecNode.result.slots.map((slot, sIdx) => {
-                    const modImg = getModuleImage(extractModules(slot.name, specPath[0]?.value === 'titan')[0] || slot.name);
-                    return (
-                      <div className="spec-result-slot-box" key={sIdx} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 14px' }}>
-                        <div style={{
-                          width: '42px',
-                          height: '42px',
-                          borderRadius: '8px',
-                          background: 'rgba(255, 255, 255, 0.05)',
-                          border: '1px solid var(--border-light)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0
-                        }}>
-                          {modImg ? (
-                            <img src={modImg} alt="" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
-                          ) : (
-                            <img src="/icons/module_old_gold.png" alt="" className="icon-22" />
-                          )}
-                        </div>
-                        <div className={`spec-result-slot-title ${specPath[0]?.value === 'titan' ? 'titan-result' : ''}`} style={{ margin: 0, fontSize: '13px' }}>
-                          {slot.name}
-                        </div>
-                      </div>
-                    );
+                  {currentSpecNode.result.slots.map((slot, index) => {
+                    const isTitan = specPath[0]?.value === 'titan';
+                    const modules = slot.modules || [resolveModuleName(slot.name.replace(/^Slot \d+:\s*/i, ''), isTitan)];
+                    return <div className="spec-result-slot-box" key={index}>
+                      <h4>Slot {index + 1}</h4>
+                      <ModuleList modules={modules} />
+                    </div>;
                   })}
                 </div>
 
@@ -180,7 +162,8 @@ export function SpecializationsTab({ onItemClick }) {
           <div className="spec-grid">
             {specializationsData.sections.map((sec, sidx) => {
               const cleanTitle = sec.title.replace(' (Robot)', '').replace(' (Titan)', '');
-              const isTitan = !sec.title.includes('(Robot)');
+              const isTitan = sec.title.includes('(Titan)');
+              const slots = getSpecializationSlots(sec.title, sec.slots);
 
               return (
                 <div 
@@ -189,7 +172,7 @@ export function SpecializationsTab({ onItemClick }) {
                   onClick={() => {
                     onItemClick?.(cleanTitle, 'Specialization', { 
                       description: sec.description, 
-                      slots: sec.slots, 
+                      slots,
                       isTitan 
                     });
                   }}
@@ -198,7 +181,7 @@ export function SpecializationsTab({ onItemClick }) {
                       e.preventDefault();
                       onItemClick?.(cleanTitle, 'Specialization', { 
                         description: sec.description, 
-                        slots: sec.slots, 
+                        slots,
                         isTitan 
                       });
                     }
@@ -223,8 +206,7 @@ export function SpecializationsTab({ onItemClick }) {
                   </p>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: 'auto' }}>
-                    {sec.slots.map((slot, slidx) => {
-                      const mentionedModules = extractModules(slot.content, isTitan);
+                    {slots.map((slot, slidx) => {
 
                       return (
                         <div className="spec-slot-box" key={slidx} style={{ padding: '12px' }}>
@@ -233,35 +215,7 @@ export function SpecializationsTab({ onItemClick }) {
                             <span>{slot.name}</span>
                           </div>
 
-                          {/* Module Image Thumbnails where mentioned */}
-                          {mentionedModules.length > 0 && (
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '8px' }}>
-                              {mentionedModules.map((mName, mIdx) => {
-                                const mImg = getModuleImage(mName);
-                                return (
-                                  <div
-                                    key={mIdx}
-                                    style={{
-                                      display: 'flex',
-                                      alignItems: 'center',
-                                      gap: '6px',
-                                      background: 'rgba(255, 255, 255, 0.05)',
-                                      border: '1px solid var(--border-light)',
-                                      borderRadius: '6px',
-                                      padding: '3px 8px',
-                                    }}
-                                  >
-                                    {mImg && (
-                                      <img src={mImg} alt="" className="icon-18" />
-                                    )}
-                                    <span style={{ fontSize: '11px', fontWeight: 600, color: '#fff' }}>
-                                      {mName}
-                                    </span>
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          )}
+                          <ModuleList modules={slot.recommendations} />
 
                           <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0, whiteSpace: 'pre-line' }}>
                             {slot.content}

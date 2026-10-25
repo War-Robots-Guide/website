@@ -1,4 +1,8 @@
 import imageManifest from '../data/image_manifest.json';
+import equipmentNewness from '../data/equipment_newness.json';
+import equipmentAliases from '../data/equipment_aliases.json';
+import { getEquipmentKey } from './equipmentNames';
+import { MODULE_IMAGE_KEYS, moduleKey, resolveModuleName } from './moduleCatalog';
 
 export function cleanKey(str) {
   if (!str) return '';
@@ -31,8 +35,7 @@ export function extractTierTags(name) {
 }
 
 export function getUnitKey(name) {
-  return cleanKey(extractTierTags(name).cleanName)
-    .replace(/^ultimate/, 'ue').replace('fuijin', 'fujin').replace(/swordunit$/, 'sword');
+  return getEquipmentKey(extractTierTags(name).cleanName);
 }
 
 export function getRobotImage(name) {
@@ -41,7 +44,7 @@ export function getRobotImage(name) {
   const isUe = cleanName.toLowerCase().startsWith('ue ') || cleanName.toLowerCase().startsWith('ultimate ');
   const baseName = isUe ? cleanName.replace(/^ue\s+/i, '').replace(/^ultimate\s+/i, '').trim() : cleanName;
   const k = cleanKey(cleanName);
-  const baseK = cleanKey(baseName).replace('fuijin', 'fujin');
+  const baseK = cleanKey(baseName).replace('fuijin', 'fujin').replace(/swordunit$/, 'sword');
 
   if (isUe) {
     if (imageManifest.items?.[`ultimate${baseK}`]) {
@@ -57,7 +60,8 @@ export function getRobotImage(name) {
   }
 
   // Non-Ultimate Robot: MUST NOT return an Ultimate image!
-  const img = imageManifest.items?.[k] || imageManifest.all_files?.[k] || imageManifest.all_files?.[k.replace('fujin', 'fuijin')];
+  const standardKey = k === 'sword' ? 'swordunit' : k;
+  const img = imageManifest.items?.[standardKey] || imageManifest.all_files?.[standardKey] || imageManifest.all_files?.[k.replace('fujin', 'fuijin')];
   if (img) {
     const filename = img.split('/').pop().toLowerCase();
     if (filename.startsWith('ultimate')) {
@@ -81,7 +85,7 @@ export function getWeaponImage(name, weightClass = '') {
     const isUe = part.toLowerCase().startsWith('ue ') || part.toLowerCase().startsWith('ultimate ');
     const baseName = isUe ? part.replace(/^ue\s+/i, '').replace(/^ultimate\s+/i, '').replace(/\s*\(.*?\)/g, '').trim() : part.replace(/\s*\(.*?\)/g, '').trim();
     const pk = cleanKey(part);
-    const bk = cleanKey(baseName);
+    const bk = getEquipmentKey(baseName);
 
     let suffix = '';
     if (weightClass.includes('Heavy')) suffix = 'h';
@@ -113,6 +117,7 @@ export function getWeaponImage(name, weightClass = '') {
       candidates.push(`${bk}b`);
     }
 
+    candidates.push(...Object.keys(equipmentAliases).filter(alias => equipmentAliases[alias] === bk).map(alias => isUe ? `ultimate${alias}` : alias));
     for (const c of candidates) {
       const match = imageManifest.weapons?.[c] || imageManifest.all_files?.[c];
       if (match) {
@@ -161,16 +166,16 @@ export function getDroneImage(name) {
 export function getModuleImage(name) {
   if (!name) return null;
   const clean = name.replace(/slot \d+:\s*/i, '').replace(/\(.*?\)/g, '').trim();
-  const k = cleanKey(clean);
-  if (imageManifest.modules?.[k] || imageManifest.all_files?.[k]) {
-    return imageManifest.modules?.[k] || imageManifest.all_files[k];
-  }
-  for (const [mk, path] of Object.entries(imageManifest.modules || {})) {
-    if (k.includes(mk) || mk.includes(k)) {
-      return path;
-    }
-  }
-  return null;
+  const canonicalKey = moduleKey(resolveModuleName(clean));
+  const key = MODULE_IMAGE_KEYS[canonicalKey] || canonicalKey;
+  const overrides = {
+    overdriveunit: '/module-images/overdrive-unit.png',
+    heavyarmorkit: '/module-images/heavy-armor-kit.png',
+    damagecontroller: '/module-images/damage-controller.png',
+    ultimateplatedarmorkit: '/module-images/ultimate-plated-armor-kit.png',
+    ultimateantimatterreactor: '/module-images/ultimate-antimatter-reactor.png',
+  };
+  return imageManifest.modules?.[canonicalKey] || imageManifest.all_files?.[canonicalKey] || overrides[canonicalKey] || imageManifest.modules?.[key] || imageManifest.all_files?.[key] || null;
 }
 
 export function getItemImage(name, category = '') {
@@ -214,10 +219,9 @@ export function getRoleIcon(roleName) {
 
 export function isNewTierItem(name, category) {
   if (!name) return false;
-  const newest = category && imageManifest.new_tier_items_by_category
-    ? imageManifest.new_tier_items_by_category[category] || []
-    : imageManifest.new_tier_items || [];
+  const byCategory = equipmentNewness.new_by_category;
+  const newest = category ? byCategory[category] || [] : Object.values(byCategory).flat();
   const { cleanName } = extractTierTags(name);
-  const keys = cleanName.split(/[,/.]/).map(cleanKey);
-  return newest.some(item => keys.includes(cleanKey(item)));
+  const keys = cleanName.split(/[,/.]/).map(getEquipmentKey);
+  return newest.some(item => keys.includes(getEquipmentKey(item)));
 }

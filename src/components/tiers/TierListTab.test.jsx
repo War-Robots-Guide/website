@@ -21,6 +21,8 @@ vi.mock('../../data/tiers.json', () => ({
         ]
       }
     },
+    'Robot Weapons': { X: { casual_name: 'Top', items: [{ name: 'Lumen L, Lumen M, Lumen H', description: 'Family rationale' }] } },
+    'Titan Weapons': { X: { casual_name: 'Top', items: [{ name: 'Barq-a. Barq-b', description: 'Titan family rationale' }] } },
     Titans: {
       X: {
         casual_name: "God Tier",
@@ -33,6 +35,13 @@ vi.mock('../../data/tiers.json', () => ({
 }));
 
 describe('TierListTab', () => {
+  it('renders every member of robot and Titan weapon families', () => {
+    render(<TierListTab onItemClick={vi.fn()} />);
+    fireEvent.click(screen.getByText('Robot Weapons'));
+    for (const name of ['Lumen L', 'Lumen M', 'Lumen H']) expect(screen.getByRole('button', { name: `View details for ${name}` })).toBeInTheDocument();
+    fireEvent.click(screen.getByText('Titan Weapons'));
+    for (const name of ['Barq-a', 'Barq-b']) expect(screen.getByRole('button', { name: `View details for ${name}` })).toBeInTheDocument();
+  });
   beforeEach(() => {
     vi.clearAllMocks();
   });

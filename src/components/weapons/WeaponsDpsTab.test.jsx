@@ -60,7 +60,7 @@ describe('WeaponsDpsTab', () => {
   it('renders initial state correctly with Heavy Weapons image cards', () => {
     render(<WeaponsDpsTab />);
 
-    expect(screen.getByText('Weapon DPS Visualizer')).toBeInTheDocument();
+    expect(screen.getByText('Weapon DPS')).toBeInTheDocument();
 
     // Check if Heavy Weapons is active
     const heavyPill = screen.getByText('Heavy');

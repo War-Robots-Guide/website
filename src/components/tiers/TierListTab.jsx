@@ -1,3 +1,4 @@
+import { GuideDisclosure } from '../common/GuideDisclosure';
 import { PageHero } from '../common/PageHero';
 import { RoleGuide } from '../common/RoleGuide';
 import { useState, useMemo } from 'react';
@@ -14,8 +15,13 @@ if (optimizedTiersData) {
   Object.keys(optimizedTiersData).forEach(cat => {
     if (cat === 'disclaimers') return;
     Object.keys(optimizedTiersData[cat]).forEach(tierLetter => {
+      if (cat.includes('Weapons')) {
+        optimizedTiersData[cat][tierLetter].items = optimizedTiersData[cat][tierLetter].items.flatMap(item =>
+          item.name.split(/[,/.]/).map(name => name.trim()).filter(Boolean).map(name => ({ ...item, name, family_name: item.name }))
+        );
+      }
       optimizedTiersData[cat][tierLetter].items.forEach(item => {
-        item._searchName = item.name.toLowerCase();
+        item._searchName = (item.family_name || item.name).toLowerCase();
         item._searchDesc = item.description.toLowerCase();
       });
     });
@@ -25,7 +31,6 @@ if (optimizedTiersData) {
 export function TierListTab({ onItemClick }) {
   const [selectedCategory, setSelectedCategory] = useState('Robots');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isTagLegendOpen, setIsTagLegendOpen] = useState(false);
 
   const robotRolesMap = useMemo(() => {
     const map = {};
@@ -99,55 +104,8 @@ export function TierListTab({ onItemClick }) {
         />
       </div>
 
-      {/* Collapsible Tag Descriptions View Above Tier List */}
-      <div className="space-below-16">
-        <button
-          type="button"
-          onClick={() => setIsTagLegendOpen(prev => !prev)}
-          style={{
-            background: 'rgba(13, 20, 33, 0.6)',
-            border: '1px solid var(--border-light)',
-            borderRadius: isTagLegendOpen ? '10px 10px 0 0' : '10px',
-            padding: '10px 16px',
-            color: 'var(--text-secondary)',
-            fontSize: '13px',
-            fontWeight: 600,
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            width: '100%',
-            transition: 'all 0.2s ease',
-          }}
-          aria-expanded={isTagLegendOpen}
-        >
-          <span style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)' }}>
-            <span style={{ fontSize: '15px' }}>ℹ️</span>
-            <span>Tier Tag Guide</span>
-
-          </span>
-          <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-            {isTagLegendOpen ? '▲ Hide' : '▼ Show'}
-          </span>
-        </button>
-
-        {isTagLegendOpen && (
-          <div
-            className="tier-marker-legend animate-fade-in"
-            aria-label="Tier list marker meanings"
-            style={{
-              background: 'rgba(10, 15, 26, 0.9)',
-              border: '1px solid var(--border-light)',
-              borderTop: 'none',
-              borderRadius: '0 0 10px 10px',
-              padding: '16px 20px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '10px',
-              fontSize: '13px',
-              lineHeight: 1.5,
-            }}
-          >
+      <GuideDisclosure title="Tier Tag Guide">
+          <div className="tier-marker-legend" aria-label="Tier list marker meanings">
             <div className="tier-tag-row">
               <span className="tier-tag-icon">👥</span>
               <span><strong>[👥] Squad Play:</strong> Items that are being ranked due to their potential in squad play. For solo matches, they go down one.</span>
@@ -170,8 +128,7 @@ export function TierListTab({ onItemClick }) {
             </div>
             <RoleGuide category={selectedCategory} />
           </div>
-        )}
-      </div>
+      </GuideDisclosure>
 
       {/* Prydwen Style Tier List Rows */}
       <div className="prydwen-tierlist-container" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>

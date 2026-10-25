@@ -25,7 +25,7 @@ describe('Header Component', () => {
       'Home',
       'Tier Lists',
       'Value Ratings',
-      'Build Guides',
+      'Mini Build Guides',
       'Specializations',
       'Pilot Skills',
       'Weapon DPS',

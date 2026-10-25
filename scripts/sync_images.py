@@ -5,7 +5,6 @@ import shutil
 import re
 import tempfile
 from pathlib import Path
-from equipment_metadata import newest_tier_items
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 workspace_dir = os.path.dirname(script_dir)
@@ -347,18 +346,11 @@ def sync_images():
         if target in manifest["pilots"]:
             manifest["pilots"][clean_key(alias)] = manifest["pilots"][target]
 
-    # Track latest additions separately for each category, including equipment
-    # releases not recorded in the robot guide's editorial changelog.
-    tier_data = {}
-    if os.path.exists(tiers_path):
-        with open(tiers_path, encoding='utf-8') as source:
-            tier_data = json.load(source)
-    updates_path = os.path.join(workspace_dir, 'src', 'data', 'equipment_updates.json')
-    releases = []
-    if os.path.exists(updates_path):
-        with open(updates_path, encoding='utf-8') as source:
-            releases = json.load(source)
-    by_category = newest_tier_items(robot_guide.get('changelog', []), tier_data, releases)
+    # Badges are content metadata, independent of artwork or per-category dates.
+    state_path = Path(manifest_path).with_name('equipment_newness.json')
+    by_category = {}
+    if state_path.exists():
+        by_category = json.loads(state_path.read_text(encoding='utf-8'))['new_by_category']
     manifest['new_tier_items_by_category'] = by_category
     manifest['new_tier_items'] = sorted({name for names in by_category.values() for name in names})
     print(f"Identified newest tier list items: {manifest['new_tier_items']}")

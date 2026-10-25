@@ -10,7 +10,7 @@ import {
 
 describe('route manifest', () => {
   it('uses the requested browser titles for initial loads and client navigation', () => {
-    const labels = ['Homepage', 'Tier Lists', 'Value Ratings', 'Build Guides', 'Specializations', 'Pilot Skills', 'Weapon DPS', 'Hangar Analyzer'];
+    const labels = ['Homepage', 'Tier Lists', 'Value Ratings', 'Mini Build Guides', 'Specializations', 'Pilot Skills', 'Weapon DPS', 'Hangar Analyzer'];
     ROUTES.forEach((route, index) => {
       expect(route.title).toBe(`WarRobotsGuide | ${labels[index]}`);
       expect(route.clientTitle).toBe(route.title);

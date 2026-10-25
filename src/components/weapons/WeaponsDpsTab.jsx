@@ -297,8 +297,8 @@ export function WeaponsDpsTab() {
 
   return (
     <div className="animate-fade-in text-left">
-      <PageHero title="Weapon DPS Visualizer">
-        Explore damage output and engagement stats for weapons across all weight classes. Click any weapon card to view DPS analytics and notes.
+      <PageHero title="Weapon DPS">
+        Compare weapon damage, range, and reload stats. Select up to four weapons to compare DPS.
       </PageHero>
 
       <div className="weapons-tab-container">

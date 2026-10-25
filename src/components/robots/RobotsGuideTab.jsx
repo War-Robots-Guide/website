@@ -1,3 +1,4 @@
+import { GuideDisclosure } from '../common/GuideDisclosure';
 import { getUnitType } from '../../utils/equipmentTiers';
 import { useMemo, useState } from 'react';
 import { PageHero } from '../common/PageHero';
@@ -31,12 +32,6 @@ export function RobotsGuideTab({ onItemClick }) {
 
   return <div className="animate-fade-in text-left">
     <PageHero title="Value Ratings">Value rating represents F2P friendliness and return on investment.</PageHero>
-    <details className="guide-dropdown">
-      <summary>Methodology</summary>
-      <div className="guide-dropdown-content">
-        {(guide.methodology || []).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-      </div>
-    </details>
     <SlidingTabPills tabs={[{ label: 'Robots', value: 'robots' }, { label: 'Titans', value: 'titans' }]} activeTab={category}
       onChange={value => { setCategory(value); setQuery(''); setRoleFilter('All'); setTypeFilter('All'); setValueFilter('All'); }} />
     <div className="search-container">
@@ -54,6 +49,10 @@ export function RobotsGuideTab({ onItemClick }) {
         {roles.map(role => <option key={role}>{role}</option>)}
       </select>
     </div>
+    <GuideDisclosure title="Methodology">
+      {(guide.methodology || []).map((paragraph, index) => /^(?:What is |Value Rating Score Definitions)/.test(paragraph)
+        ? <h3 key={index}>{paragraph}</h3> : <p key={index}>{paragraph}</p>)}
+    </GuideDisclosure>
     <div className="rating-tier-list">
       {bands.map(band => {
         const items = units.filter(unit => getRatingTierIndex(unit.value_rating) === band.index);

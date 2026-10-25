@@ -1,27 +1,109 @@
 {
+  "role_guide": {
+    "robots": {
+      "notes": [
+        "This page is a table with all bots that have at some point given either a positive rating on the spreadsheet and their most common roles that they can fill.",
+        "It is suggested that your main hangar fufills the following 6 roles with 5 bots (since some bots can cover multiple roles):",
+        "2x Support",
+        "1x Beacon Runner",
+        "2x Midrange",
+        "1x Tank Buster",
+        "Once you have upgraded ALL of your main hangar's bots and weapons to MK2.1, you will have enough economy that I suggest building bots dedicated",
+        "to filling the following additional roles as silver bullets/tech options:",
+        "1x Assassin",
+        "1x Brawler",
+        "1x Sniper",
+        "Additional 1x Support",
+        "Additional 1x Tank Buster",
+        "Blue indicates that it is a primary role for the bot. Green indicates the bot is very good at filling that role. Yellow means the bot can fill the role only partially. Definitions for roles can be found below."
+      ],
+      "definitions": [
+        {
+          "role": "Support",
+          "description": "Bot that utilizes status effects and buffs/debuffs which augment their teammates and cripple their opponents."
+        },
+        {
+          "role": "Tank-buster",
+          "description": "Bot that can bypass defenses and output extreme damage capable of killing brawlers while staying safe from them."
+        },
+        {
+          "role": "Sniper",
+          "description": "Bot that utilizes range to pick off vulnerable targets and assist from across the map, creating a numbers advantage."
+        },
+        {
+          "role": "Midrange",
+          "description": "Bot that uses flexible weapons, maintaining distance against brawlers and assassins while out-damaging snipers."
+        },
+        {
+          "role": "Brawler",
+          "description": "Bot that can draw firepower away from teammates while staying alive and dishing damage back in close quarters."
+        },
+        {
+          "role": "Beacon Runner",
+          "description": "Bot that utilizes evasion, bulk, and mobility to move from beacon to beacon to make progress and distract enemies."
+        },
+        {
+          "role": "Assassin",
+          "description": "Bot that targets damage dealers, using mobility to prevent retreats and deny enemies value from range advantage."
+        }
+      ]
+    },
+    "titans": {
+      "notes": [
+        "This page is a table with all T3+ titans on the spreadsheet and their most common roles or strengths that they can fill in your team.",
+        "Because of the nature of Titans needing to be much more carefully coordinated & deployed in the match, it's recommended to build your primary titan for general purpose & usually as a Brawler.",
+        "Titans consume considerably more investment & time to outfit than regular robots, which is why it's better to have one fully built primary titan than two semi-built titans across your two hangers if possible.",
+        "Once you have adequately upgraded your primary titan, you can then build into a secondary titan, which will usually be something that has the Damage Dealer specialization or generally has a playstyle to play a bit further back than your ordinary brawler.",
+        "Blue indicates that it is the primary role for the titan. Green indicates the titan is very good at filling that role. Yellow means the titan can fill the role only partially. Definitions for roles can be found below."
+      ],
+      "definitions": [
+        {
+          "role": "Support",
+          "description": "Titan that utilizes healing, status effects, and buffs/debuffs which augment their teammates and cripple their opponents."
+        },
+        {
+          "role": "Sniper",
+          "description": "Titan that utilizes range to pick off vulnerable targets and assist from across the map, creating a numbers advantage."
+        },
+        {
+          "role": "Midrange",
+          "description": "Titan that uses flexible weapons, maintaining distance against brawlers and opportunists while out-damaging snipers as well."
+        },
+        {
+          "role": "Brawler",
+          "description": "Titan that can draw attention & firepower away from teammates while staying alive and dishing damage back in closer quarters."
+        },
+        {
+          "role": "Beacon Runner",
+          "description": "Titan that utilizes evasion, bulk, and mobility to move from beacon to beacon to make progress and distract enemies, considerably more than most other titan playstyles."
+        },
+        {
+          "role": "Assassin",
+          "description": "Titan that targets damage dealers, using mobility to prevent retreats and deny enemies value from range advantage."
+        }
+      ]
+    }
+  },
   "methodology": [
-    "READ ME",
-    "The chart on the left is a list of all bots and titans in the game, ordered by their Value Rating. UE bots and titans are included, though their rating is limited by poor accessibility",
-    "The Value Rating is calculated by factoring in each robot's Longevity, Lethality, Mobility, Utility, and Accessibility. The Value Rating is NOT an assessment of the robots performance at max investment.",
+    "What is a Value Rating?",
+    "Value Ratings are calculated by factoring in each robot's Longevity, Lethality, Mobility, Utility, and Accessibility. The Value Rating is NOT an assessment of the robots performance at max investment. Defer to the tier list for purely power based rankings.",
     "Robots with higher Value Ratings are more likely to be useful for F2P players; they are likely to hit notable power spikes while using far fewer resources to do so than bots with lower Value Ratings.",
-    "Bots with lower Value Ratings are not recommended for F2P players; they are likely to require lots of investment to be useful and/or lack the ability to compete as a player progresses.",
-    "After deciding on what bots you'll invest in, check out the Roles section to build a balanced hangar.",
-    "To decide what gear you should equip to your bots/titans, check out the Mini Build Guides document. Note: Only bots/titans with a favorable value rating have build guides.",
-    "METHODOLOGY",
+    "Robots with lower Value Ratings are not recommended for F2P players; they are likely to require lots of investment to be useful and/or lack the ability to compete as a player progresses.",
+    "Put together, the Value Rating is an indicator of the expected return on investment for a bot. Note that this guide is most applicable to beacon modes, as these modes are relatively friendly to F2Ps.",
+    "What is Longevity, Lethality, Mobility, Utility, and Accessibility?",
     "Longevity is a measure of how well a robot is able to survive on the battlefield. This includes not only durability, defense points, and shielding, but also methods of avoiding damage such as stealth.",
     "Lethality is a measure of how much damage a robot can output. This is most heavily impacted by a robot's hardpoints, but abilities may also provide raw damage or damage amplification.",
-    "Mobility is a measure how of how quickly a robot can maneuver. A robot's speed and access to dashes, jumps, or other methods of transport are considered.",
+    "Mobility is a measure of how quickly a robot can maneuver. A robot's speed and access to dashes, jumps, or other methods of transport are considered.",
     "Utility is a measure of how well a robot can support its teammates via methods other than direct damage. Some examples include crowd control (ex:lockdown), healing, and damage boosts.",
     "Accessibility is a measure of the time and resources required to use a bot. Bots rated well on accessibility are easy to get, don't rely on difficult-to-obtain equipment, and don't need many upgrades.",
     "A robot is scored on each factor with a value from 0 to 10. A low score indicates that the bot performs poorly on that measure, and a high score indicates the opposite.",
-    "Put together, the Value Rating is an indicator of the expected return on investment for a bot. Note that this guide is most applicable to beacon modes, as these modes are relatively friendly to F2Ps.",
-    "Value Rating Scores",
-    "35+\nAlmost always worth attempting to obtain. Almost always worth investing in. Almost always worth using as a final bot.",
-    "31-34\nUsually worth attempting to obtain. Usually worth investing in. Usually worth using as a temporary bot. Sometimes worth using as a final bot.",
-    "26-30\nSometimes worth attempting to obtain. Sometimes worth investing in. Usually worth using as a temporary bot. Occasionally worth using as a final bot.",
-    "21-25\nNot worth attempting to obtain. Rarely worth investing in. Sometimes worth using as a temporary bot. Generally not worth using as a final bot.",
-    "0-20\nNot worth attempting to obtain. Not worth investing in. Rarely worth using as a temporary bot. Not worth using as a final bot.",
-    "Contact Mistermath314, Adazahi, or Tropical on discord for any questions or to report any problems!"
+    "Value Rating Score Definitions",
+    "35+ Almost always worth attempting to obtain. Almost always worth investing in. Almost always worth using as a final bot.",
+    "31-34 Usually worth attempting to obtain. Usually worth investing in. Usually worth using as a temporary bot. Sometimes worth using as a final bot.",
+    "26-30 Sometimes worth attempting to obtain. Sometimes worth investing in. Usually worth using as a temporary bot. Occasionally worth using as a final bot.",
+    "21-25 Not worth attempting to obtain. Rarely worth investing in. Sometimes worth using as a temporary bot. Generally not worth using as a final bot.",
+    "0-20 Not worth attempting to obtain. Not worth investing in. Rarely worth using as a temporary bot. Not worth using as a final bot.",
+    "Contact Mistermath314, Adazahi, or Tropical on Discord for any questions or to report any problems!"
   ],
   "changelog": [
     {
@@ -459,7 +541,7 @@
       "robot": "Pathfinder",
       "f2p_weapons": "Hazard\nAtomizer\nDamper\nPulsar",
       "best_weapons": "Midrange UE setups\nMachiara\nUE Vortex\nUrhag\nLumenM",
-      "drone_options": "Freezo\nFtaghn",
+      "drone_options": "Freezo\nFhtagn",
       "pilot": "John Orsted",
       "specialization": "Support (Accelerator +\nLast Stand)\nPhase Shift",
       "explanation": "A more versatile support build that's a lot more accessible for f2p players. Can't defend itself\nfrom rushing brawlers, requiring friendlies to protect it, but is able to pick off enemies at range.",
@@ -1445,7 +1527,7 @@
       "best_weapons": "Harmattans+UE Shredder\nHarmattanM+HarmattanL\nClose range UE setups\nMurix+UE Shredder\nMurix+HarmattanM\nUE Cryo+UE Shredder\nUE Cryo+HarmattanM",
       "drone_options": "Seeker\nHiruko\nBull",
       "pilot": "Weapon Pilot\nMicheal Dupoint",
-      "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or Adv. Repair",
+      "specialization": "Tank (Heavy Armor Kit +\nRepair Amp)\nPhase Shift or Adv. Repair",
       "explanation": "UE Rhino prefers to have high burst, long reload weapons in its medium slots, with strong sustained damage weapons\nin the light slots. This allows it to maximize its firepower as its light slots are always active but its medium slots can\nonly be used for about 4 seconds every 10 or so seconds.",
       "is_titan": false,
       "is_ultimate": true
@@ -1579,6 +1661,18 @@
       "pilot": "Lisel and\nB4R0N3T\nBernadette\nWolff",
       "specialization": "Brawler (Repair Amp +\nImmune Amp)\nPhase Shift or Adv. Repair",
       "explanation": "UE Fenrir is an incredibly annoying to kill tank that can abuse Showdown's healing due to its grey resistance. It is\nunfortunately hard countered by rust and percentage damage, which can cripple it incredibly quickly.",
+      "is_titan": false,
+      "is_ultimate": true
+    },
+    {
+      "build_name": "Ultimate",
+      "robot": "UE Shell",
+      "f2p_weapons": "Not recommended for F2P",
+      "best_weapons": "Any UE setups\nHarmattanH+HarmattanL\nBasileus+Velos\nLumenH+LumenL\nKelvin+Celsius",
+      "drone_options": "Seeker\nShowdown\nUE Glider",
+      "pilot": "Andor Mihar",
+      "specialization": "Brawler (Repair Amp +\nLast Stand)\nPhase Shift or Adv. Repair",
+      "explanation": "UE Shell is a crazy amplifier charger with its high durability regenerating shields, however, against enemies who don't\ndeal splash damage, it can be exceptionally annoying to deal with.",
       "is_titan": false,
       "is_ultimate": true
     },
@@ -4569,6 +4663,37 @@
         }
       ],
       "comments": "UE Typhon's blackout and firepower make it insanely dangerous, though it is fairly frail and its long cooldown leaves it open to be punished if it makes a mistake."
+    },
+    {
+      "name": "UE Shell",
+      "sheet": "Ultimate Robots",
+      "value_rating": 23,
+      "scores": {
+        "longevity": 9.0,
+        "lethality": 4.0,
+        "mobility": 8.0,
+        "utility": 2.0,
+        "accessibility": 0.0,
+        "overall": 23.0
+      },
+      "roles": [
+        {
+          "role": "Brawler",
+          "type": "primary",
+          "footnote": ""
+        },
+        {
+          "role": "Beacon Runner",
+          "type": "main",
+          "footnote": ""
+        },
+        {
+          "role": "Assassin",
+          "type": "primary",
+          "footnote": ""
+        }
+      ],
+      "comments": "UE Shell is pretty fast and tanky, but has some of the same issues as the original, namely that it charges up enemy nuclear amplifiers. However, it makes up for the utility hit by having really strong crowd control on its blast."
     }
   ],
   "titans": [
@@ -5430,8 +5555,8 @@
   "ue_weapon_index": {
     "Midrange": "Pulsar, Ion, ArmM, ArmL, Molot, Tempest, Shocktrain, Wasp, Incinerator, Scald",
     "Burst": "Storm, Glory, Corona, Halo, Glacier, Cryo, Rime, Incinerator, Scald, ArmM, ArmL (some midrange weapons are also burst weapons)",
-    "Close Range": "\"UE Burst Setups\", Calmity/Scourge, Orkan, Punisher/Avenger, Blaze/Igniter, Shredder, Redeemer/Taran, Venom/Toxin (only use with Shieldbreak or Webby)",
-    "Any": "Anything goes. Exceptions: Hussar, Dragoon, Scatter, Havoc, and Devastator are not recommended because their performance is far below other UE's. Vortex is niche and only recommended on pathfinder and UE Typhon."
+    "Close Range": "\"UE Burst Setups\", Punisher/Avenger, Shredder, Redeemer/Taran, Venom/Toxin (only use with Shieldbreak or Webby)",
+    "Any": "Anything goes."
   },
   "rating_colors": {
     "<= -2": "#ff0000",
@@ -5440,90 +5565,5 @@
     "+1": "#80ff00",
     "+2": "#00ff00",
     ">= +3": "#00ffff"
-  },
-  "role_guide": {
-    "robots": {
-      "notes": [
-        "This page is a table with all bots that have at some point given either a positive rating on the spreadsheet and their most common roles that they can fill.",
-        "It is suggested that your main hangar fufills the following 6 roles with 5 bots (since some bots can cover multiple roles):",
-        "2x Support",
-        "1x Beacon Runner",
-        "2x Midrange",
-        "1x Tank Buster",
-        "Once you have upgraded ALL of your main hangar's bots and weapons to MK2.1, you will have enough economy that I suggest building bots dedicated",
-        "to filling the following additional roles as silver bullets/tech options:",
-        "1x Assassin",
-        "1x Brawler",
-        "1x Sniper",
-        "Additional 1x Support",
-        "Additional 1x Tank Buster",
-        "Blue indicates that it is a primary role for the bot. Green indicates the bot is very good at filling that role. Yellow means the bot can fill the role only partially. Definitions for roles can be found below."
-      ],
-      "definitions": [
-        {
-          "role": "Support",
-          "description": "Bot that utilizes status effects and buffs/debuffs which augment their teammates and cripple their opponents."
-        },
-        {
-          "role": "Tank-buster",
-          "description": "Bot that can bypass defenses and output extreme damage capable of killing brawlers while staying safe from them."
-        },
-        {
-          "role": "Sniper",
-          "description": "Bot that utilizes range to pick off vulnerable targets and assist from across the map, creating a numbers advantage."
-        },
-        {
-          "role": "Midrange",
-          "description": "Bot that uses flexible weapons, maintaining distance against brawlers and assassins while out-damaging snipers."
-        },
-        {
-          "role": "Brawler",
-          "description": "Bot that can draw firepower away from teammates while staying alive and dishing damage back in close quarters."
-        },
-        {
-          "role": "Beacon Runner",
-          "description": "Bot that utilizes evasion, bulk, and mobility to move from beacon to beacon to make progress and distract enemies."
-        },
-        {
-          "role": "Assassin",
-          "description": "Bot that targets damage dealers, using mobility to prevent retreats and deny enemies value from range advantage."
-        }
-      ]
-    },
-    "titans": {
-      "notes": [
-        "This page is a table with all T3+ titans on the spreadsheet and their most common roles or strengths that they can fill in your team.",
-        "Because of the nature of Titans needing to be much more carefully coordinated & deployed in the match, it's recommended to build your primary titan for general purpose & usually as a Brawler.",
-        "Titans consume considerably more investment & time to outfit than regular robots, which is why it's better to have one fully built primary titan than two semi-built titans across your two hangers if possible.",
-        "Once you have adequately upgraded your primary titan, you can then build into a secondary titan, which will usually be something that has the Damage Dealer specialization or generally has a playstyle to play a bit further back than your ordinary brawler.",
-        "Blue indicates that it is the primary role for the titan. Green indicates the titan is very good at filling that role. Yellow means the titan can fill the role only partially. Definitions for roles can be found below."
-      ],
-      "definitions": [
-        {
-          "role": "Support",
-          "description": "Titan that utilizes healing, status effects, and buffs/debuffs which augment their teammates and cripple their opponents."
-        },
-        {
-          "role": "Sniper",
-          "description": "Titan that utilizes range to pick off vulnerable targets and assist from across the map, creating a numbers advantage."
-        },
-        {
-          "role": "Midrange",
-          "description": "Titan that uses flexible weapons, maintaining distance against brawlers and opportunists while out-damaging snipers as well."
-        },
-        {
-          "role": "Brawler",
-          "description": "Titan that can draw attention & firepower away from teammates while staying alive and dishing damage back in closer quarters."
-        },
-        {
-          "role": "Beacon Runner",
-          "description": "Titan that utilizes evasion, bulk, and mobility to move from beacon to beacon to make progress and distract enemies, considerably more than most other titan playstyles."
-        },
-        {
-          "role": "Assassin",
-          "description": "Titan that targets damage dealers, using mobility to prevent retreats and deny enemies value from range advantage."
-        }
-      ]
-    }
   }
 }
