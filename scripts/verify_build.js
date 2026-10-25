@@ -105,7 +105,7 @@ if (fs.existsSync(sitemapPath)) {
   }
 }
 
-for (const filename of ['tiers.json', 'robot_guide.json', 'weapons_dps.json', 'specializations.json', 'pilots.json']) {
+for (const filename of ['tiers.json', 'robot_guide.json', 'weapons_dps.json', 'specializations.json', 'pilots.json', 'pilot_tiers.json']) {
   expectFile(path.join(DIST_DIR, 'src/data', filename), 'public JSON database');
 }
 

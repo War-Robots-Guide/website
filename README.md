@@ -187,3 +187,39 @@ pushes to master. Contrast failures include actual/reference text images; browse
 failures also save a page screenshot and trace in the
 `browser-test-diagnostics` artifact. Run
 `npx playwright show-report` to inspect a local failure.
+
+## CrimsonHawk pilot tier Easter egg
+
+Click the CrimsonHawk footer credit four times to unlock **Pilots** in **Tier Lists**.
+Activation lasts while navigating the site and resets on reload. The rankings are
+CrimsonHawk's personal list, separate from the Pilot Skills guide.
+
+Deployment downloads the [source spreadsheet](https://docs.google.com/spreadsheets/d/1RBLXWZDD-PmFxW4ChUOLNrzin8Gzxjp8tfw2gSeol8Y/edit#gid=0)
+using its public Excel export, then refreshes `src/data/pilot_tiers.json` atomically.
+No extra credentials or dependencies are needed. The parser finds the unique
+**Pilots** heading in column A across worksheets, reads tier labels from A and
+comma-separated names from B, and stops at a Maps or Gamemodes section. Worksheet
+renaming and row movement are supported. Names and tier order are preserved;
+duplicate names produce warnings, including conflicting rankings across tiers.
+
+A fresh validated download takes precedence over the last validated successful
+deployment, then the tracked seed snapshot. Expected download or format failures
+retain the existing valid snapshot and its fetch timestamp with a workflow warning.
+If neither source nor fallback is valid, the refresh fails. Other core guide-sync
+failures retain their existing behavior. Normal builds and PR tests work offline;
+only deployment or this explicit local command downloads the sheet:
+
+```bash
+python scripts/pilot_tiers.py --refresh
+```
+
+To validate a snapshot without downloading anything:
+
+```bash
+python scripts/pilot_tiers.py --validate src/data/pilot_tiers.json
+```
+
+Pilot portraits use exact normalized names and verified aliases from the existing
+image manifest. Missing or ambiguous artwork uses a placeholder; cards do not open
+a detail modal because the spreadsheet has no pilot rationales. The JSON is
+intentionally available at `/src/data/pilot_tiers.json` in the deployed site.

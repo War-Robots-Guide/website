@@ -85,7 +85,20 @@ jobs:
               python -m json.tool /tmp/equipment_newness.json > /dev/null
               cp /tmp/equipment_newness.json src/data/equipment_newness.json
             fi
+            pilot_snapshot=$(mktemp)
+            if git cat-file -e FETCH_HEAD:src/data/pilot_tiers.json 2>/dev/null; then
+              git show FETCH_HEAD:src/data/pilot_tiers.json > "$pilot_snapshot"
+              if python scripts/pilot_tiers.py --validate "$pilot_snapshot"; then
+                cp "$pilot_snapshot" src/data/pilot_tiers.json
+              else
+                echo "::warning::Published pilot snapshot is invalid; retaining checked-in fallback."
+              fi
+            fi
+            rm -f "$pilot_snapshot"
           fi
+
+      - name: Refresh optional CrimsonHawk pilot tiers
+        run: python scripts/pilot_tiers.py --refresh
 
       - name: Parse Data Files
         run: |
