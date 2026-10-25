@@ -42,5 +42,19 @@ jobs:
     - name: Run tests
       run: npm test
 
-    - name: Build and verify production artifact
-      run: npm run build
+    - name: Install Chromium for browser tests
+      run: npx playwright install --with-deps chromium --only-shell
+
+    - name: Build and run browser regression tests
+      run: npm run test:browser
+
+    - name: Upload browser failure diagnostics
+      if: failure()
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: browser-test-diagnostics
+        path: |
+          playwright-report/
+          test-results/
+        if-no-files-found: ignore
+        retention-days: 7
