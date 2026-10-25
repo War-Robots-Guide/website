@@ -1,6 +1,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import process from 'node:process';
+import { validatePilotTiers } from '../src/utils/pilotTiers.js';
 import { fileURLToPath } from 'node:url';
 
 const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -354,6 +355,8 @@ const robotGuide = readJson('robot_guide.json');
 const weapons = readJson('weapons_dps.json');
 const specializations = readJson('specializations.json');
 const pilots = readJson('pilots.json');
+
+for (const error of validatePilotTiers(readJson('pilot_tiers.json'))) addError('pilot_tiers', error);
 
 validateTiers(tiers);
 validateRobotGuide(robotGuide);
