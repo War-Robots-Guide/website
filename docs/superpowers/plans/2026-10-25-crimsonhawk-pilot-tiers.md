@@ -181,9 +181,41 @@ Leave `scripts/fetch_gdrive.py`, `scripts/parse_data.py`, existing equipment ima
 
 ## Implementation verification
 
-- Parser and refresh: 9 offline tests; deployment restore: one test exercising four local Git fixtures (valid, malformed, absent, and initial deployment).
+- Parser and refresh: 11 offline tests; deployment restore: one test exercising four local Git fixtures (valid, malformed, absent, and initial deployment).
 - Frontend: 286 tests pass across 48 files; lint and data validation pass (63 pre-existing equipment catalog warnings).
 - Production build and all 22 desktop/mobile browser tests pass, including the existing equipment detail checks.
 - Inspected desktop and 390px screenshots; darkened pilot surfaces for text contrast over the activated background.
 - Fresh public spreadsheet export generated the checked-in seed. Expected source duplicates are preserved; exact pilot variant portrait matching uses placeholders where unverified.
 - GitHub-runner deployment itself has not been dispatched. Work remains on the local feature branch for review.
+
+## Final review and decisions
+
+An independent reviewer identified one important recovery-boundary gap: an invalid
+Excel style index and an interrupted HTTP response bypassed fallback handling.
+Both reproductions failed first, then passed after scoped handling was added at
+the workbook decode and HTTP download boundaries. All 41 Python and 286 frontend
+tests, lint, and data validation pass after the fix. The 22 browser tests and
+production build passed for the final frontend. No deferred minor findings.
+
+Execution decisions and tradeoffs:
+
+- Native implementation uses a feature branch in the current checkout, preserving
+  installed dependencies. Tradeoff: this checkout stays on the feature branch.
+- Recovery tests execute the workflow's actual shell block against temporary Git
+  repositories. Tradeoff: renaming that step requires updating test extraction.
+- Pilot rows and intro use darker surfaces for readability over the activated
+  background. Tradeoff: their surface opacity differs from equipment rows.
+- Deployed JSON remains public as accepted. Portrait gaps use placeholders and
+  conflicting duplicate rankings remain visible with ingestion warnings.
+- Ranking substance remains the source author's editorial choice. No rankings
+  were changed to resolve conflicts or inferred from game performance.
+- Live GitHub-runner deployment was not dispatched; external runner behavior is
+  unverified beyond the local workflow fixtures. No merge or publication occurred.
+
+## Requested copy amendment
+
+After the local merge, the user requested removal of the pilot introduction
+sentence and its View source spreadsheet link. The entire paragraph and its
+unused styles were removed, with the affected test expectations updated. This
+supersedes the earlier UI-copy/source-link requirements; source metadata remains
+in the ingestion dataset.

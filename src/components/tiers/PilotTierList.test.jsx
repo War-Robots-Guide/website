@@ -17,7 +17,6 @@ describe('PilotTierList', () => {
     expect(screen.getByText('Sophie Kovač')).toBeInTheDocument();
     expect(screen.getByText('Yang Lee (Harpy / Siren)')).toBeInTheDocument();
     expect(screen.queryByRole('button')).not.toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'View source spreadsheet' })).toHaveAttribute('href', data.sourceUrl);
   });
   it('filters names case insensitively, omitting empty tiers', () => {
     render(<PilotTierList data={data} searchQuery="SOPHIE" />);

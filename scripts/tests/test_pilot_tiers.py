@@ -1,6 +1,7 @@
 """Offline pilot-ranking ingestion and recovery contracts."""
 import contextlib
 import io
+from http.client import IncompleteRead
 import json
 import sys
 import unittest
@@ -9,6 +10,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 from urllib.error import HTTPError, URLError
+from zipfile import ZipFile
 
 import openpyxl
 
@@ -111,6 +113,40 @@ class PilotTierTests(unittest.TestCase):
                     self.assertFalse(refresh_pilot_tiers(output, fetch=fetch))
                 self.assertEqual(output.read_bytes(), original)
                 self.assertIn('::warning::', messages.getvalue())
+
+    def test_invalid_workbook_style_index_keeps_valid_fallback(self):
+        # A readable ZIP/XML archive can still be structurally invalid Excel.
+        out = io.BytesIO()
+        with ZipFile(io.BytesIO(payload())) as source, ZipFile(out, 'w') as target:
+            for name in source.namelist():
+                content = source.read(name)
+                if name == 'xl/worksheets/sheet1.xml':
+                    content = content.replace(b'<c r="A41"', b'<c s="99999" r="A41"')
+                target.writestr(name, content)
+        with TemporaryDirectory() as folder:
+            output = Path(folder) / 'tiers.json'
+            original = json.dumps(snapshot()).encode(); output.write_bytes(original)
+            with contextlib.redirect_stdout(io.StringIO()) as messages:
+                self.assertFalse(refresh_pilot_tiers(output, fetch=out.getvalue))
+                with patch('pilot_tiers.download_workbook', return_value=out.getvalue()):
+                    self.assertEqual(main(['--refresh', '--output', str(output)]), 0)
+            self.assertIn('::warning::', messages.getvalue())
+            self.assertEqual(output.read_bytes(), original)
+
+    def test_interrupted_http_body_retries_and_preserves_fallback_on_exhaustion(self):
+        class InterruptedResponse(io.BytesIO):
+            def read(self, size=-1):
+                raise IncompleteRead(b'partial', 100)
+        with patch('pilot_tiers.urlopen', side_effect=[InterruptedResponse(), io.BytesIO(payload())]), patch('pilot_tiers.time.sleep'):
+            self.assertTrue(download_workbook().startswith(b'PK'))
+        with TemporaryDirectory() as folder:
+            output = Path(folder) / 'tiers.json'
+            original = json.dumps(snapshot()).encode(); output.write_bytes(original)
+            with patch('pilot_tiers.urlopen', side_effect=lambda *args, **kwargs: InterruptedResponse()) as request, patch('pilot_tiers.time.sleep'), contextlib.redirect_stdout(io.StringIO()) as messages:
+                self.assertFalse(refresh_pilot_tiers(output))
+                self.assertEqual(request.call_count, 3)
+            self.assertIn('::warning::', messages.getvalue())
+            self.assertEqual(output.read_bytes(), original)
 
     def test_no_usable_fallback_and_output_write_failures_are_fatal(self):
         with TemporaryDirectory() as folder:

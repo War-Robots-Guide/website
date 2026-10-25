@@ -27,7 +27,6 @@ test('four CrimsonHawk clicks reveal pilots until reload, with searchable source
   await expect(pilotTab(page)).toBeVisible();
   await pilotTab(page).click();
   await expect(page.locator('.pilot-tier-label')).toHaveText(snapshot.tiers.map(tier => tier.label));
-  await expect(page.getByRole('link', { name: 'View source spreadsheet' })).toHaveAttribute('href', snapshot.sourceUrl);
   await expect(page.getByText('Tier Tag Guide', { exact: true })).toHaveCount(0);
   const name = snapshot.tiers[0].items[0].name;
   await page.getByPlaceholder('Search pilots in tier lists...').fill(name.toUpperCase());

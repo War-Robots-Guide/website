@@ -26,10 +26,6 @@ export function PilotTierList({ data, searchQuery }) {
 
   return (
     <div className="pilot-tier-list">
-      <p className="pilot-tier-intro">
-        CrimsonHawk&apos;s personal pilot rankings, just for fun.{' '}
-        <a href={data.sourceUrl} target="_blank" rel="noopener noreferrer">View source spreadsheet</a>
-      </p>
       {rows.length === 0 && <p role="status">No pilots match your search.</p>}
       {rows.map(tier => {
         const color = palette[Math.min(tier.index, palette.length - 1)];

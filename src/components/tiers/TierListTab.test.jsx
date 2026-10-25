@@ -204,7 +204,6 @@ describe('CrimsonHawk pilot category', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Pilots', exact: true }));
     const search = screen.getByPlaceholderText('Search pilots in tier lists...');
     expect(search).toHaveValue('');
-    expect(screen.getByText(/personal pilot rankings/)).toBeInTheDocument();
     expect(screen.queryByText('Tier Tag Guide')).not.toBeInTheDocument();
     expect(screen.queryByText(/power based tier list/)).not.toBeInTheDocument();
     fireEvent.change(search, { target: { value: 'sophie' } });

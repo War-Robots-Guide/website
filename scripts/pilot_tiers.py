@@ -2,6 +2,7 @@
 import argparse
 from datetime import datetime, timezone
 import io
+from http.client import IncompleteRead
 import json
 import os
 from pathlib import Path
@@ -112,7 +113,7 @@ def download_workbook() -> bytes:
             error.close()
             if error.code not in (429, 500, 502, 503, 504) or attempt == 2:
                 raise
-        except (URLError, TimeoutError, ConnectionError):
+        except (URLError, TimeoutError, ConnectionError, IncompleteRead):
             if attempt == 2:
                 raise
         time.sleep(2 ** attempt)
@@ -122,8 +123,8 @@ def download_workbook() -> bytes:
 def _parse_bytes(content):
     try:
         workbook = openpyxl.load_workbook(io.BytesIO(content), data_only=False)
-    except KeyError as error:
-        raise ValueError('Incomplete pilot workbook archive') from error
+    except (KeyError, IndexError) as error:
+        raise ValueError('Invalid pilot workbook structure') from error
     try:
         return parse_pilot_tiers(workbook, fetched_at=datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))
     finally:
@@ -155,7 +156,7 @@ def refresh_pilot_tiers(output: Path, *, fetch=download_workbook) -> bool:
     output = Path(output)
     try:
         data = _parse_bytes(fetch())
-    except (OSError, ValueError, BadZipFile, InvalidFileException, ParseError, XMLSyntaxError, DefusedXmlException) as error:
+    except (OSError, ValueError, BadZipFile, InvalidFileException, ParseError, XMLSyntaxError, DefusedXmlException, IncompleteRead) as error:
         try:
             _read_valid_snapshot(output)
         except (OSError, ValueError) as fallback_error:
