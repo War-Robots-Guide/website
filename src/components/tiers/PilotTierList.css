@@ -1,0 +1,118 @@
+.pilot-tier-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.pilot-tier-intro {
+  margin: 0 0 8px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.pilot-tier-intro a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pilot-tier-row {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: rgba(13, 20, 33, 0.45);
+}
+
+.pilot-tier-label {
+  display: flex;
+  flex: 0 0 140px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 16px 10px;
+  border-right: 2px solid var(--pilot-tier-color);
+  background: var(--pilot-tier-bg);
+  color: var(--pilot-tier-color);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.5;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.pilot-tier-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  flex: 1;
+  align-items: start;
+  gap: 14px 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 14px;
+  list-style: none;
+}
+
+.pilot-tier-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.pilot-portrait {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #33415566, #33415522);
+}
+
+.pilot-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pilot-portrait-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-muted);
+}
+
+.pilot-tier-name {
+  max-width: 110px;
+  margin-top: 6px;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .pilot-tier-label {
+    flex-basis: 90px;
+    padding: 12px 6px;
+    font-size: 13px;
+  }
+
+  .pilot-tier-items {
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+    gap: 12px 8px;
+    padding: 10px;
+  }
+
+  .pilot-portrait {
+    width: 76px;
+    height: 76px;
+  }
+}
