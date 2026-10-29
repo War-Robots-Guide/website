@@ -120,6 +120,7 @@ test('the entrance starts before the first visible frame without flashing or res
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 6 });
   await page.addInitScript(() => {
     window.dpsFrames = [];
+    window.dpsFramesComplete = false;
     let started;
     function sample() {
       const hero = document.querySelector('.page-hero');
@@ -129,20 +130,26 @@ test('the entrance starts before the first visible frame without flashing or res
           opacity: Number(getComputedStyle(hero).opacity),
           animations: hero.getAnimations().length,
         });
-        if (performance.now() - started > 600) return;
+        if (performance.now() - started > 600) {
+          window.dpsFramesComplete = true;
+          return;
+        }
       }
       requestAnimationFrame(sample);
     }
     requestAnimationFrame(sample);
   });
   await page.goto('/weapons');
-  await expect.poll(() => page.evaluate(() => window.dpsFrames.length)).toBeGreaterThan(3);
+  // A throttled runner can finish this window with only two frames. Wait for
+  // the sampler to finish instead of assuming a minimum rendering frame rate.
+  await expect.poll(() => page.evaluate(() => window.dpsFramesComplete)).toBe(true);
   const frames = await page.evaluate(() => window.dpsFrames);
   expect(frames[0].animations).toBe(1);
   expect(frames[0].opacity).toBeLessThan(1);
   for (let index = 1; index < frames.length; index++) {
     expect(frames[index].opacity).toBeGreaterThanOrEqual(frames[index - 1].opacity);
   }
+  expect(frames.at(-1)).toEqual({ opacity: 1, animations: 0 });
 });
 
 test('returning from a scrolled route animates the viewport after the route scroll reset', async ({ page }) => {
