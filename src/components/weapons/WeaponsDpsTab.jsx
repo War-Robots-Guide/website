@@ -1,6 +1,6 @@
 import { WeaponComparison } from './WeaponComparison';
 import { PageHero } from '../common/PageHero';
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useLayoutEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import weaponsDpsData from '../../data/weapons_dps.json';
@@ -248,11 +248,46 @@ function WeaponModal({ weapon, weaponClass, maxStats, onClose }) {
 }
 
 export function WeaponsDpsTab() {
+  const entranceRef = useRef(null);
   const [selectedWeaponClass, setSelectedWeaponClass] = useState('Heavy Weapons');
   const [searchInput, setSearchInput] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('burst_dps');
   const [selectedWeapon, setSelectedWeapon] = useState(null);
+
+  useLayoutEffect(() => {
+    const root = entranceRef.current;
+    if (typeof root?.animate !== 'function' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Match App's route scroll reset before selecting the initial viewport,
+    // including cached navigation from a page that was scrolled down.
+    window.scrollTo(0, 0);
+
+    // Set up before the first paint so content cannot flash at full opacity
+    // and then reset to the start of its entrance on a later frame.
+    // Off-screen cards never animate, and the full list stays untransformed.
+    const visibleElements = [...root.querySelectorAll(
+      '.page-hero, .weapons-tab-container > .tab-pills, .weapons-tab-container > .search-container, .weapon-comparison, .weapon-card'
+    )].filter(element => {
+      const rect = element.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < window.innerHeight
+        && rect.right > 0 && rect.left < window.innerWidth;
+    });
+
+    const animations = visibleElements.map(element => element.animate([
+      { opacity: 0, transform: 'translateY(8px)' },
+      { opacity: 1, transform: 'none' },
+    ], {
+      duration: 300,
+      easing: 'ease-out',
+      // No forwards fill or will-change: release the effects after entering.
+      fill: 'none',
+    }));
+
+    return () => {
+      animations.forEach(animation => animation.cancel());
+    };
+  }, []);
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -296,7 +331,7 @@ export function WeaponsDpsTab() {
   }, [selectedWeaponClass, searchQuery, sortBy]);
 
   return (
-    <div className="animate-fade-in text-left">
+    <div className="text-left" ref={entranceRef}>
       <PageHero title="Weapon DPS">
         Compare weapon damage, range, and reload stats. Select up to four weapons to compare DPS.
       </PageHero>
@@ -448,8 +483,7 @@ export function WeaponsDpsTab() {
                   style={{
                     position: 'relative',
                     zIndex: 2,
-                    background: 'rgba(10, 14, 23, 0.75)',
-                    backdropFilter: 'blur(6px)',
+                    background: 'rgba(10, 14, 23, 0.92)',
                     padding: '8px 10px',
                     borderRadius: '8px',
                     border: '1px solid rgba(255, 255, 255, 0.08)',

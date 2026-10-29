@@ -198,6 +198,14 @@
   color: #fff;
 }
 
+/* Repeated DPS cards already paint their own artwork, gradient and stat scrim.
+ * Avoid an extra animated, GPU-promoted backdrop for every card: the default
+ * class contains 81 cards and can exhaust older iOS WebContent processes.
+ */
+.glass-panel.weapon-card::before {
+  content: none;
+}
+
 .weapon-card-stat-label {
   font-size: 8.5px;
   color: var(--text-muted);
