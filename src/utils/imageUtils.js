@@ -217,10 +217,10 @@ export function getRoleIcon(roleName) {
   return imageManifest.icons?.[targetKey] || imageManifest.icons?.[k] || null;
 }
 
-// Release dates determine NEW badges independently of the workbook's update cadence.
-// Select one global update so categories without new equipment lose their old badges.
-const latestEquipmentUpdate = equipmentUpdates.reduce((latest, update) => (
-  !latest || update.date > latest.date ? update : latest
+// Official release metadata refreshes independently of the workbook. Compare
+// versions so republishing older notes cannot restore old NEW badges.
+export const latestEquipmentUpdate = equipmentUpdates.filter(update => update.version).reduce((latest, update) => (
+  !latest || update.version.localeCompare(latest.version, 'en', { numeric: true }) > 0 ? update : latest
 ), null);
 
 export function isNewTierItem(name, category) {

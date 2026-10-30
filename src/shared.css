@@ -658,11 +658,6 @@
   font-weight: 600;
 }
 
-.guide-dropdown { margin: 16px 0; border: 1px solid var(--border-light); border-radius: 10px; background: rgba(13,20,33,.7); }
-.guide-dropdown summary { padding: 14px 18px; cursor: pointer; font-weight: 600; }
-.guide-dropdown-content { padding: 0 18px 18px; line-height: 1.6; white-space: pre-line; }
-.guide-dropdown-content p { margin: 12px 0; }
-
 .guide-disclosure { margin: 0 0 24px; }
 .guide-disclosure-toggle {
   width: 100%; height: 42px; display: flex; align-items: center;
@@ -682,6 +677,7 @@
 .guide-disclosure-content h3 { margin: 16px 0 8px; font-size: 16px; color: var(--text-primary); }
 .guide-disclosure-content p { margin: 0 0 12px; white-space: pre-line; }
 .tier-marker-legend { display: flex; flex-direction: column; gap: 12px; }
+.tier-new-tag { flex-shrink: 0; background: #dc2626; color: #fff; border-radius: 4px; padding: 2px 5px; font-size: 10px; font-weight: 900; }
 .build-option { display: flex; align-items: center; gap: 14px; font-size: 14px; overflow-wrap: anywhere; }
 .equipment-note { margin: 4px 0 0; color: var(--text-secondary); font-size: 12px; line-height: 1.5; }
 .module-list { display: flex; flex-direction: column; gap: 10px; }
@@ -739,7 +735,8 @@
 .weapon-family-member { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; }
 .role-guide { margin-top: 8px; border-top: 1px solid var(--border-light); padding-top: 16px; }
 .role-guide dl { display: grid; grid-template-columns: minmax(100px, auto) 1fr; gap: 8px 16px; margin-bottom: 0; }
-.role-guide dt { font-weight: 700; }
+.role-guide dt { font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.role-guide dt img { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
 .role-guide dd { margin: 0; color: var(--text-secondary); }
 .role-guide-colors { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
 @media (max-width: 480px) {

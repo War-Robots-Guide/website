@@ -1,4 +1,5 @@
 import { PageHero } from '../common/PageHero';
+import { GuideDisclosure } from '../common/GuideDisclosure';
 import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import robotGuideData from '../../data/robot_guide.json';
 import { sortBySearchQuery } from '../../utils/sortUtils';
@@ -101,11 +102,7 @@ export function BuildGuidesTab() {
 
       {/* UE Weapon Index Reference Legend */}
       {robotGuideData?.ue_weapon_index && Object.keys(robotGuideData.ue_weapon_index).length > 0 && (
-        <details className="guide-dropdown">
-          <summary>
-            UE (Ultimate Edition) Weapon Index
-          </summary>
-          <div className="guide-dropdown-content">
+        <GuideDisclosure title="UE (Ultimate Edition) Weapon Index">
           <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', margin: '0 0 14px 0', lineHeight: 1.4 }}>
             When build guides specify <em>&quot;UE Setups&quot;</em>, <em>&quot;Midrange UE setups&quot;</em>, or <em>&quot;Close range UE setups&quot;</em>, refer to these weapon categories:
           </p>
@@ -121,8 +118,7 @@ export function BuildGuidesTab() {
               </div>
             ))}
           </div>
-          </div>
-        </details>
+        </GuideDisclosure>
       )}
 
       <SlidingTabPills tabs={[{ label: 'Robots', value: 'robots' }, { label: 'Titans', value: 'titans' }]} activeTab={category} onChange={value => { setCategory(value); setSearchQuery(''); setVisibleCount(12); }} />

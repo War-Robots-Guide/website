@@ -21,16 +21,28 @@ names across every tier-list category in `equipment_newness.json`. Each item
 retains its first-seen version, including items removed and later reintroduced.
 Tags, rankings, image changes and known spelling/name aliases do not reset it.
 
-NEW badges include only catalog items first seen in the current workbook
-version. When the marker advances, old badges clear globally, even in categories
-with no recent additions. Later additions during that same version accumulate;
-repeat syncs retain them. A version rollback fails instead of rewriting history.
+The workbook marker tracks source coverage; it does not determine NEW badges.
+`equipment_updates.py` refreshes `equipment_updates.json` from the publisher's
+[official Steam news feed](https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=767560&count=50&maxlength=0&feeds=steam_community_announcements).
+It selects the highest released update version, reads new-equipment overview
+bullets, expands weapon weight families, and resolves Ultimate/special editions
+against their base equipment. Balance changes and pilot mentions do not count.
+The deploy workflow refreshes this metadata after parsing, on every deploy and
+daily scheduled run. A failed news refresh fails the deployment instead of
+silently publishing stale badges. Refresh locally with
+`venv/bin/python scripts/equipment_updates.py`.
+
+The frontend shows NEW only for equipment introduced in the latest recorded
+game update, across every category. Categories without new equipment have no
+badges. Republished older notes cannot roll the version back. The tag dropdown
+displays the badge's update version. Items not yet in the guide appear only when
+the source tier lists add them; this refresh never inserts or ranks equipment.
 
 Existing catalog items start as an unbadged baseline. Version-labelled records
 in `equipment_updates.json` seed known release cohorts, with source links. The
 12.3/12.4 records were checked against official patch notes. Records without a
-version never imply newness. New catalog additions are automatic after bootstrap;
-the release records are only needed for migration or explicit corrections.
+version never imply newness. The latest cohort is refreshed automatically;
+historical records remain available to seed discovery history.
 
 The deploy workflow restores history from the last successful `gh-pages`
 deployment before parsing. `prerender.js` already publishes data JSON, so history
@@ -41,7 +53,7 @@ history. Keep this file when refreshing local inputs.
 
 Artwork is independent of badges. `sync_images.py` also copies the current
 badge lists into the image manifest for compatibility with older consumers.
-The frontend reads `equipment_newness.json` directly.
+The frontend reads `equipment_updates.json` directly.
 
 Methodology comes from `Methodology text.docx`, not workbook layout instructions.
 Build equipment choices preserve wrapped names and parenthetical notes.

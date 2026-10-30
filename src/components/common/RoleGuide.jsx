@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import guide from '../../data/robot_guide.json';
+import { getRoleIcon } from '../../utils/imageUtils';
 
 export function RoleGuide({ category }) {
   const roleGuide = guide.role_guide?.[category === 'Titans' ? 'titans' : 'robots'];
@@ -13,7 +14,7 @@ export function RoleGuide({ category }) {
     </div>
     {category === 'Titans' && roleGuide.notes.filter(note => !/^blue indicates/i.test(note)).map((note, index) => <p key={index}>{note}</p>)}
     <dl>{roleGuide.definitions.map(({ role, description }) => <Fragment key={role}>
-      <dt>{role}</dt><dd>{description}</dd>
+      <dt>{getRoleIcon(role) && <img src={getRoleIcon(role)} alt={`${role} role`} />}<span>{role}</span></dt><dd>{description}</dd>
     </Fragment>)}</dl>
   </section>;
 }

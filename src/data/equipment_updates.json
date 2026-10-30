@@ -64,5 +64,31 @@
       ]
     },
     "version": "12.4"
+  },
+  {
+    "date": "2026-10-26",
+    "source": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114045144",
+    "version": "12.5",
+    "items": {
+      "Robots": [
+        "Nekton",
+        "Martian Nekton",
+        "Ultimate Loki"
+      ],
+      "Robot Weapons": [
+        "Mesmer L",
+        "Mesmer M",
+        "Mesmer H",
+        "Martian Mesmer L",
+        "Martian Mesmer H",
+        "Ultimate Gust"
+      ],
+      "Drones": [
+        "Object"
+      ],
+      "Motherships": [
+        "Roswell"
+      ]
+    }
   }
 ]

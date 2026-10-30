@@ -9,7 +9,7 @@ import robotGuideData from '../../data/robot_guide.json';
 import { getEquipmentAppearance } from '../../utils/equipmentTiers';
 import { SearchInput } from '../common/SearchInput';
 import { SlidingTabPills } from '../common/SlidingTabPills';
-import { getItemImage, extractTierTags, isNewTierItem, getRoleIcon, getUnitKey } from '../../utils/imageUtils';
+import { getItemImage, extractTierTags, isNewTierItem, getRoleIcon, getUnitKey, latestEquipmentUpdate } from '../../utils/imageUtils';
 
 // Pre-compute lowercased names and descriptions once outside the component
 const optimizedTiersData = tiersData ? JSON.parse(JSON.stringify(tiersData)) : {};
@@ -114,6 +114,10 @@ export function TierListTab({ onItemClick, isEasterEggActive = false }) {
         <>
       <GuideDisclosure title="Tier Tag Guide">
           <div className="tier-marker-legend" aria-label="Tier list marker meanings">
+            {latestEquipmentUpdate && <div className="tier-tag-row">
+              <span className="tier-new-tag">NEW</span>
+              <span><strong>New in {latestEquipmentUpdate.version}:</strong> Equipment introduced in the latest game update. Older equipment loses this badge when a new update arrives.</span>
+            </div>}
             <div className="tier-tag-row">
               <span className="tier-tag-icon">👥</span>
               <span><strong>[👥] Squad Play:</strong> Items that are being ranked due to their potential in squad play. For solo matches, they go down one.</span>
@@ -337,6 +341,7 @@ export function TierListTab({ onItemClick, isEasterEggActive = false }) {
                         {/* Bottom-Right Corner: Flush directly at the edge (like C0 badge in reference) */}
                         {isNew && (
                           <div
+                            title={`Introduced in War Robots ${latestEquipmentUpdate.version}`}
                             style={{
                               position: 'absolute',
                               bottom: 0,

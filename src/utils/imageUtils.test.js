@@ -61,7 +61,7 @@ vi.mock('../data/equipment_newness.json', () => ({ default: {
 
 vi.mock('../data/equipment_updates.json', () => ({ default: [
   { date: '2026-09-22', version: '12.4', items: { Robots: ['Dedopali'], Drones: ['Prena'], 'Robot Weapons': ['Iaraghi L', 'Iaraghi M', 'Iaraghi H'] } },
-  { date: '2026-08-11', version: '12.3', items: { Robots: ['Fang'], Titans: ['Sirocco'], 'Robot Weapons': ['Harmattan L', 'Harmattan M', 'Harmattan H'] } },
+  { date: '2026-10-29', version: '12.3', items: { Robots: ['Fang'], Titans: ['Sirocco'], 'Robot Weapons': ['Harmattan L', 'Harmattan M', 'Harmattan H'] } },
 ] }));
 
 import {

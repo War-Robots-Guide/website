@@ -144,8 +144,14 @@ describe('BuildGuidesTab Search and Duplication Fix', () => {
 
   it('renders the UE Weapon Index reference legend', () => {
     render(<BuildGuidesTab />);
-    expect(screen.getByText('UE (Ultimate Edition) Weapon Index')).toBeInTheDocument();
+    const toggle = screen.getByRole('button', { name: 'UE (Ultimate Edition) Weapon Index' });
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.queryByText(/Pulsar, Ion, Arms/i)).not.toBeInTheDocument();
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute('aria-expanded', 'true');
     expect(screen.getByText(/Pulsar, Ion, Arms/i)).toBeInTheDocument();
     expect(screen.getByText(/Storm, Glory/i)).toBeInTheDocument();
+    fireEvent.click(toggle);
+    expect(screen.queryByText(/Pulsar, Ion, Arms/i)).not.toBeInTheDocument();
   });
 });
