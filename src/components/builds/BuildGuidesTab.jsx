@@ -9,6 +9,7 @@ import { SlidingTabPills } from '../common/SlidingTabPills';
 import { RatingBar } from '../common/RatingBar';
 import { SearchInput } from '../common/SearchInput';
 import { BuildDetailModal } from './BuildDetailModal';
+import { UEWeaponIndex } from './UEWeaponIndex';
 
 // Precompute static data at module level to optimize render loop
 const precomputedBuilds = (robotGuideData?.builds || []).map(build => {
@@ -100,27 +101,6 @@ export function BuildGuidesTab() {
         Recommended weapons, pilots, drones, and modules for robots and titans.
       </PageHero>
 
-      {/* UE Weapon Index Reference Legend */}
-      {robotGuideData?.ue_weapon_index && Object.keys(robotGuideData.ue_weapon_index).length > 0 && (
-        <GuideDisclosure title="UE (Ultimate Edition) Weapon Index">
-          <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', margin: '0 0 14px 0', lineHeight: 1.4 }}>
-            When build guides specify <em>&quot;UE Setups&quot;</em>, <em>&quot;Midrange UE setups&quot;</em>, or <em>&quot;Close range UE setups&quot;</em>, refer to these weapon categories:
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
-            {Object.entries(robotGuideData.ue_weapon_index).map(([category, weapons]) => (
-              <div key={category} style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
-                <strong style={{ color: '#fbbf24', fontSize: '12.5px', display: 'block', marginBottom: '3px' }}>
-                  {category} Setups
-                </strong>
-                <div style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
-                  {weapons}
-                </div>
-              </div>
-            ))}
-          </div>
-        </GuideDisclosure>
-      )}
-
       <SlidingTabPills tabs={[{ label: 'Robots', value: 'robots' }, { label: 'Titans', value: 'titans' }]} activeTab={category} onChange={value => { setCategory(value); setSearchQuery(''); setVisibleCount(12); }} />
 
       {/* Search builds */}
@@ -131,6 +111,13 @@ export function BuildGuidesTab() {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
+
+      {/* UE Weapon Index Reference Legend */}
+      {robotGuideData?.ue_weapon_index && Object.keys(robotGuideData.ue_weapon_index).length > 0 && (
+        <GuideDisclosure title="UE (Ultimate Edition) Weapon Index">
+          <UEWeaponIndex index={robotGuideData.ue_weapon_index} />
+        </GuideDisclosure>
+      )}
 
       {/* Builds Grid */}
       <div className="dashboard-grid">

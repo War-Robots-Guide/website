@@ -676,6 +676,21 @@
 }
 .guide-disclosure-content h3 { margin: 16px 0 8px; font-size: 16px; color: var(--text-primary); }
 .guide-disclosure-content p { margin: 0 0 12px; white-space: pre-line; }
+.ue-weapon-index { padding: 16px; border: 1px solid var(--border-light); border-radius: 12px; background: rgba(13, 30, 43, .96); }
+.ue-index-toolbar { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+.ue-index-toolbar p { flex: 1; margin: 0; font-size: 12.5px; line-height: 1.5; }
+.ue-preview-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; flex-shrink: 0; min-height: 36px; padding: 6px 10px; border: 1px solid var(--border-light); border-radius: 8px; background: var(--bg-surface); color: var(--text-primary); font: inherit; font-size: 12px; cursor: pointer; }
+.ue-preview-toggle:hover { border-color: var(--border-hover); }
+.ue-index-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; align-items: start; }
+.ue-weapon-category { min-width: 0; padding: 14px; border: 1px solid var(--border-light); border-radius: 10px; background: var(--bg-surface); }
+.ue-weapon-category h3 { margin: 0 0 12px; color: #fbbf24; font-size: 13px; }
+.ue-weapon-preview { margin: 0 0 12px; padding: 8px; border-radius: 8px; background: rgba(0, 0, 0, .18); text-align: center; }
+.ue-weapon-preview img { display: block; width: 100%; height: 104px; object-fit: contain; animation: ue-weapon-appear .24s ease-out; }
+.ue-weapon-preview figcaption { margin-top: 6px; min-height: 18px; font-size: 12px; color: var(--text-primary); }
+.ue-weapon-category .ue-weapon-list { margin: 0; font-size: 12px; line-height: 1.5; }
+@keyframes ue-weapon-appear { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .ue-weapon-preview img { animation: none; } }
+@media (max-width: 480px) { .ue-index-toolbar { flex-direction: column; gap: 12px; } }
 .tier-marker-legend { display: flex; flex-direction: column; gap: 12px; }
 .tier-new-tag { flex-shrink: 0; background: #dc2626; color: #fff; border-radius: 4px; padding: 2px 5px; font-size: 10px; font-weight: 900; }
 .build-option { display: flex; align-items: center; gap: 14px; font-size: 14px; overflow-wrap: anywhere; }
