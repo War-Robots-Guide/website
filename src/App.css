@@ -703,15 +703,22 @@
 
 /* Specializations layout */
 .spec-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-  gap: 24px;
+  columns: 2 420px;
+  column-gap: 24px;
 }
 
 .spec-card {
   display: flex;
   flex-direction: column;
+  break-inside: avoid;
+  margin-bottom: 24px;
   cursor: pointer;
+}
+
+.spec-card-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .spec-title-bar {
@@ -739,7 +746,6 @@
   border: 1px solid var(--border-light);
   border-radius: 8px;
   padding: 14px;
-  margin-top: 12px;
 }
 
 .spec-slot-title {
@@ -1006,7 +1012,7 @@
   }
   
   .spec-grid {
-    grid-template-columns: 1fr;
+    columns: 1;
   }
   
   .tier-row {

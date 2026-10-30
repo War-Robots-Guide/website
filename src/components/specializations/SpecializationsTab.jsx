@@ -205,7 +205,7 @@ export function SpecializationsTab({ onItemClick }) {
                     {sec.description}
                   </p>
 
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: 'auto' }}>
+                  <div className="spec-card-slots">
                     {slots.map((slot, slidx) => {
 
                       return (

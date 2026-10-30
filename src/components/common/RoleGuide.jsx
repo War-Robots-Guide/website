@@ -11,7 +11,7 @@ export function RoleGuide({ category }) {
       <span className="role-badge primary">Green: very good at this role</span>
       <span className="role-badge secondary">Yellow: partially fills this role</span>
     </div>
-    {roleGuide.notes.filter(note => !/^blue indicates/i.test(note)).map((note, index) => <p key={index}>{note}</p>)}
+    {category === 'Titans' && roleGuide.notes.filter(note => !/^blue indicates/i.test(note)).map((note, index) => <p key={index}>{note}</p>)}
     <dl>{roleGuide.definitions.map(({ role, description }) => <Fragment key={role}>
       <dt>{role}</dt><dd>{description}</dd>
     </Fragment>)}</dl>

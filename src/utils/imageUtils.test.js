@@ -56,8 +56,13 @@ vi.mock('../data/image_manifest.json', () => ({
 }));
 
 vi.mock('../data/equipment_newness.json', () => ({ default: {
-  version: '12.4', new_by_category: { Robots: ['Dedopali'], Drones: ['Prena'], 'Robot Weapons': ['Iaraghi L', 'Iaraghi M', 'Iaraghi H'] },
+  version: '12.3', new_by_category: { Robots: ['Fang'], Titans: ['Sirocco'] },
 } }));
+
+vi.mock('../data/equipment_updates.json', () => ({ default: [
+  { date: '2026-09-22', version: '12.4', items: { Robots: ['Dedopali'], Drones: ['Prena'], 'Robot Weapons': ['Iaraghi L', 'Iaraghi M', 'Iaraghi H'] } },
+  { date: '2026-08-11', version: '12.3', items: { Robots: ['Fang'], Titans: ['Sirocco'], 'Robot Weapons': ['Harmattan L', 'Harmattan M', 'Harmattan H'] } },
+] }));
 
 import {
   cleanKey,
@@ -168,4 +173,23 @@ it('marks new equipment families in their own category, including tagged names',
   expect(isNewTierItem('Prena', 'Drones')).toBe(true);
   expect(isNewTierItem('Prena', 'Robots')).toBe(false);
   expect(isNewTierItem('Harmattan L, Harmattan M, Harmattan H', 'Robot Weapons')).toBe(false);
+  expect(isNewTierItem('Fang', 'Robots')).toBe(false);
+  expect(isNewTierItem('Sirocco', 'Titans')).toBe(false);
+});
+
+it('clears old badges when the latest update introduces no equipment', async () => {
+  vi.resetModules();
+  vi.doMock('../data/equipment_updates.json', () => ({ default: [
+    { date: '2026-09-22', version: '12.4', items: { Robots: ['Dedopali'] } },
+    { date: '2026-10-22', version: '12.5', items: {} },
+  ] }));
+  try {
+    const { isNewTierItem: isNewAfterUpdate } = await import('./imageUtils');
+    expect(isNewAfterUpdate('Dedopali', 'Robots')).toBe(false);
+    expect(isNewAfterUpdate('Dedopali')).toBe(false);
+    expect(isNewAfterUpdate('Fang', 'Robots')).toBe(false);
+  } finally {
+    vi.doUnmock('../data/equipment_updates.json');
+    vi.resetModules();
+  }
 });

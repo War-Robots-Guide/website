@@ -1,5 +1,5 @@
 import imageManifest from '../data/image_manifest.json';
-import equipmentNewness from '../data/equipment_newness.json';
+import equipmentUpdates from '../data/equipment_updates.json';
 import equipmentAliases from '../data/equipment_aliases.json';
 import { getEquipmentKey } from './equipmentNames';
 import { MODULE_IMAGE_KEYS, moduleKey, resolveModuleName } from './moduleCatalog';
@@ -217,9 +217,15 @@ export function getRoleIcon(roleName) {
   return imageManifest.icons?.[targetKey] || imageManifest.icons?.[k] || null;
 }
 
+// Release dates determine NEW badges independently of the workbook's update cadence.
+// Select one global update so categories without new equipment lose their old badges.
+const latestEquipmentUpdate = equipmentUpdates.reduce((latest, update) => (
+  !latest || update.date > latest.date ? update : latest
+), null);
+
 export function isNewTierItem(name, category) {
   if (!name) return false;
-  const byCategory = equipmentNewness.new_by_category;
+  const byCategory = latestEquipmentUpdate?.items || {};
   const newest = category ? byCategory[category] || [] : Object.values(byCategory).flat();
   const { cleanName } = extractTierTags(name);
   const keys = cleanName.split(/[,/.]/).map(getEquipmentKey);
