@@ -121,16 +121,15 @@ test('the entrance starts before the first visible frame without flashing or res
   await page.addInitScript(() => {
     window.dpsFrames = [];
     window.dpsFramesComplete = false;
-    let started;
     function sample() {
       const hero = document.querySelector('.page-hero');
       if (hero) {
-        started ??= performance.now();
-        window.dpsFrames.push({
+        const frame = {
           opacity: Number(getComputedStyle(hero).opacity),
           animations: hero.getAnimations().length,
-        });
-        if (performance.now() - started > 600) {
+        };
+        window.dpsFrames.push(frame);
+        if (frame.opacity === 1 && frame.animations === 0) {
           window.dpsFramesComplete = true;
           return;
         }
@@ -140,9 +139,9 @@ test('the entrance starts before the first visible frame without flashing or res
     requestAnimationFrame(sample);
   });
   await page.goto('/weapons');
-  // A throttled runner can finish this window with only two frames. Wait for
-  // the sampler to finish instead of assuming a minimum rendering frame rate.
-  await expect.poll(() => page.evaluate(() => window.dpsFramesComplete)).toBe(true);
+  // Wall-clock time can advance before a busy browser starts its animation
+  // timeline. Sample through completion, with a timeout for a stuck entrance.
+  await expect.poll(() => page.evaluate(() => window.dpsFramesComplete), { timeout: 10_000 }).toBe(true);
   const frames = await page.evaluate(() => window.dpsFrames);
   expect(frames[0].animations).toBe(1);
   expect(frames[0].opacity).toBeLessThan(1);
