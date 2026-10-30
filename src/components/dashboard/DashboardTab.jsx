@@ -16,27 +16,25 @@ export function DashboardTab({ onTabChange, onItemClick }) {
   const featuredRobots = useMemo(() => {
     if (!robotGuideData?.robots) return [];
 
-    // 1. Get F2P friendly robots (value_rating >= 31)
+    // 1. Feature the highest-value accessible robots.
     const f2p = robotGuideData.robots
-      .filter(r => r.value_rating >= 31)
+      .filter(r => r.scores?.accessibility >= 4)
       .sort((a, b) => b.value_rating - a.value_rating)
-      .slice(0, 6)
-      .map(r => ({ ...r, isMeta: false }));
+      .slice(0, 6);
 
-    // 2. Get Meta robots (Tier X from tiersData, and value_rating < 31)
+    // 2. Feature the strongest X-tier robots with low accessibility.
     const tierXNames = new Set(
-      tiersData?.Robots?.X?.items?.map(item => item.name.toLowerCase()) || []
+      tiersData?.Robots?.X?.items?.map(item => stripTagsAndAsterisks(item.name).toLowerCase()) || []
     );
 
     const meta = robotGuideData.robots
-      .filter(r => r.value_rating < 31 && tierXNames.has(r.name.toLowerCase()))
+      .filter(r => r.scores?.accessibility <= 3 && tierXNames.has(stripTagsAndAsterisks(r.name).toLowerCase()))
       .sort((a, b) => {
         const overallDiff = b.scores.overall - a.scores.overall;
         if (overallDiff !== 0) return overallDiff;
         return b.value_rating - a.value_rating;
       })
-      .slice(0, 2)
-      .map(r => ({ ...r, isMeta: true }));
+      .slice(0, 2);
 
     return [...f2p, ...meta];
   }, []);

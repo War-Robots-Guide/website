@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { DashboardTab } from './DashboardTab';
 
@@ -14,8 +14,19 @@ vi.mock('../../data/robot_guide.json', () => ({
       {
         name: 'Destrier',
         value_rating: 34,
+        scores: { accessibility: 4, overall: 34 },
         comments: 'Classic starter robot with decent speed.',
         roles: [{ role: 'Beacon Runner', type: 'primary' }]
+      },
+      {
+        name: 'HighValueMeta', value_rating: 45,
+        scores: { accessibility: 3, overall: 45 },
+        comments: 'High value does not make this robot accessible.', roles: [],
+      },
+      {
+        name: 'AccessibleRobot', value_rating: 30,
+        scores: { accessibility: 4, overall: 30 },
+        comments: 'Accessible despite a lower total value rating.', roles: [],
       }
     ],
     titans: [],
@@ -32,6 +43,7 @@ vi.mock('../../data/weapons_dps.json', () => ({
 vi.mock('../../data/tiers.json', () => ({
   default: {
     Robots: {
+      X: { items: [{ name: '⬆️HighValueMeta', description: 'Meta rationale' }] },
       A: {
         items: [
           { name: 'Destrier', description: 'Destrier description from tiers data' }
@@ -68,6 +80,18 @@ describe('DashboardTab Changelog Sorting', () => {
 });
 
 describe('DashboardTab Interactivity', () => {
+  it('selects and labels featured robots by accessibility rather than total value', () => {
+    render(<DashboardTab />);
+    const meta = within(screen.getByRole('button', { name: 'View details for HighValueMeta in tier list' }));
+    expect(meta.getByText('Meta')).toBeVisible();
+    expect(meta.queryByText('F2P')).not.toBeInTheDocument();
+    for (const name of ['Destrier', 'AccessibleRobot']) {
+      const card = within(screen.getByRole('button', { name: `View details for ${name} in tier list` }));
+      expect(card.getByText('F2P')).toBeVisible();
+      expect(card.queryByText('Meta')).not.toBeInTheDocument();
+    }
+  });
+
   it('calls onTabChange and onItemClick with target route when a robot card is clicked', () => {
     const mockOnTabChange = vi.fn();
     const mockOnItemClick = vi.fn();

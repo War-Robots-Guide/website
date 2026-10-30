@@ -17,6 +17,7 @@ export function FeaturedRobots({ featuredRobots, handleCardClick }) {
           const tier = getTierForName(robot.name, 'Robots');
           const imageUrl = getRobotImage(robot.name);
           const tierKey = tier ? tier.toLowerCase() : 'z';
+          const isMeta = robot.scores.accessibility <= 3;
 
           return (
             <div
@@ -122,9 +123,9 @@ export function FeaturedRobots({ featuredRobots, handleCardClick }) {
                       style={{
                         fontSize: '10px',
                         padding: '2px 7px',
-                        background: robot.isMeta ? 'rgba(251, 191, 36, 0.2)' : 'rgba(34, 197, 94, 0.2)',
-                        color: robot.isMeta ? '#fbbf24' : '#22c55e',
-                        borderColor: robot.isMeta ? 'rgba(251, 191, 36, 0.4)' : 'rgba(34, 197, 94, 0.4)',
+                        background: isMeta ? 'rgba(251, 191, 36, 0.2)' : 'rgba(34, 197, 94, 0.2)',
+                        color: isMeta ? '#fbbf24' : '#22c55e',
+                        borderColor: isMeta ? 'rgba(251, 191, 36, 0.4)' : 'rgba(34, 197, 94, 0.4)',
                         textTransform: 'uppercase',
                         fontWeight: 800,
                         borderRadius: '4px',
@@ -132,7 +133,7 @@ export function FeaturedRobots({ featuredRobots, handleCardClick }) {
                         lineHeight: 1,
                       }}
                     >
-                      {robot.isMeta ? 'Meta' : 'F2P'}
+                      {isMeta ? 'Meta' : 'F2P'}
                     </span>
                   </div>
                 </div>
