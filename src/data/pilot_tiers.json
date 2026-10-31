@@ -1,0 +1,541 @@
+{
+  "schemaVersion": 1,
+  "sourceUrl": "https://docs.google.com/spreadsheets/d/1RBLXWZDD-PmFxW4ChUOLNrzin8Gzxjp8tfw2gSeol8Y/edit#gid=0",
+  "fetchedAt": "2026-10-31T03:19:36Z",
+  "tiers": [
+    {
+      "label": "Hot",
+      "items": [
+        {
+          "name": "Erika Storm"
+        },
+        {
+          "name": "Marie Aldrich"
+        },
+        {
+          "name": "Kai Ruo"
+        },
+        {
+          "name": "Single Malt"
+        },
+        {
+          "name": "Nova Light"
+        }
+      ]
+    },
+    {
+      "label": "Less hot but hot",
+      "items": [
+        {
+          "name": "Ines Diaz"
+        },
+        {
+          "name": "Nike Schum"
+        },
+        {
+          "name": "Mei Lan"
+        },
+        {
+          "name": "Valerie Morgan"
+        },
+        {
+          "name": "Shani_Kyne"
+        },
+        {
+          "name": "Miharu Sharpe"
+        },
+        {
+          "name": "Oona Glow"
+        },
+        {
+          "name": "Zoe Billotte"
+        },
+        {
+          "name": "Misaki and Ponchy"
+        },
+        {
+          "name": "[REDACTED] Twins"
+        }
+      ]
+    },
+    {
+      "label": "Medium hot",
+      "items": [
+        {
+          "name": "Gloria Putnam"
+        },
+        {
+          "name": "Sigrid Solmer"
+        },
+        {
+          "name": "Bast Neferu"
+        },
+        {
+          "name": "Bai Xing"
+        },
+        {
+          "name": "Liu Zhetai"
+        },
+        {
+          "name": "Sati \"Cat\" Felidae"
+        },
+        {
+          "name": "Monique Lenorman"
+        },
+        {
+          "name": "Vasilisa Maximova"
+        },
+        {
+          "name": "River Chase"
+        },
+        {
+          "name": "Amalia Itegumo"
+        },
+        {
+          "name": "Alika Renner"
+        },
+        {
+          "name": "Kate O'Donnell"
+        },
+        {
+          "name": "Marie Leclair"
+        },
+        {
+          "name": "Mide Anerium"
+        }
+      ]
+    },
+    {
+      "label": "Likeable",
+      "items": [
+        {
+          "name": "Desa Oraye"
+        },
+        {
+          "name": "Sergius Hayward"
+        },
+        {
+          "name": "Willa Owe"
+        },
+        {
+          "name": "Livia Borgia"
+        },
+        {
+          "name": "Gloria Earhart"
+        },
+        {
+          "name": "Liesel And B4R-0N-N3T"
+        },
+        {
+          "name": "Jude Pryce"
+        },
+        {
+          "name": "Levi Hickok"
+        },
+        {
+          "name": "Mao Ling"
+        },
+        {
+          "name": "Yang Lee (Harpy / Siren)"
+        },
+        {
+          "name": "Linda Cano (Shell)"
+        },
+        {
+          "name": "Victoria B"
+        },
+        {
+          "name": "Johanna Flynn"
+        },
+        {
+          "name": "Iskra"
+        },
+        {
+          "name": "Virginia Walker"
+        },
+        {
+          "name": "Isabella Porter"
+        },
+        {
+          "name": "Olga Minina"
+        },
+        {
+          "name": "Yang Lee"
+        },
+        {
+          "name": "Ariadne Shaw"
+        },
+        {
+          "name": "Yang Lee Titan"
+        },
+        {
+          "name": "Sophie Kovač"
+        }
+      ]
+    },
+    {
+      "label": "I can work with that",
+      "items": [
+        {
+          "name": "Renard Aurel"
+        },
+        {
+          "name": "Baek Taejun"
+        },
+        {
+          "name": "Ridge Hollow"
+        },
+        {
+          "name": "Liam Crag"
+        },
+        {
+          "name": "Cliff Debusse"
+        },
+        {
+          "name": "James Velocci"
+        },
+        {
+          "name": "Reana Medaro"
+        },
+        {
+          "name": "Hugo Booker"
+        },
+        {
+          "name": "Ibreez Baqir"
+        },
+        {
+          "name": "Elizabeth Green"
+        },
+        {
+          "name": "Nessa Riggs"
+        },
+        {
+          "name": "Jad Parkes (Erebus)"
+        },
+        {
+          "name": "Rose Lin"
+        },
+        {
+          "name": "Louis Duncan"
+        },
+        {
+          "name": "Kyle Rogers (Hawk)"
+        },
+        {
+          "name": "Maya Patel"
+        },
+        {
+          "name": "Bernadette Wolff"
+        },
+        {
+          "name": "Linda Cano"
+        },
+        {
+          "name": "Minji Novak"
+        },
+        {
+          "name": "Warren Ozu"
+        },
+        {
+          "name": "Cormac De Vos"
+        },
+        {
+          "name": "Nessa Riggs (Raven)"
+        },
+        {
+          "name": "Kyle Rogers"
+        },
+        {
+          "name": "Michelle Dubois"
+        },
+        {
+          "name": "Johan Cooper"
+        },
+        {
+          "name": "Basil Lapate"
+        },
+        {
+          "name": "Raphael Petit"
+        },
+        {
+          "name": "Trixie Hope"
+        },
+        {
+          "name": "Dew Tompkins"
+        }
+      ]
+    },
+    {
+      "label": "No",
+      "items": [
+        {
+          "name": "Lucius Palma"
+        },
+        {
+          "name": "Leonid Kennedy"
+        },
+        {
+          "name": "A5H Sk4R5"
+        },
+        {
+          "name": "Nina Kessler"
+        },
+        {
+          "name": "Gina Bertini"
+        },
+        {
+          "name": "Stefan Benson"
+        },
+        {
+          "name": "Gintare Kairyte"
+        },
+        {
+          "name": "Roberto Baros"
+        },
+        {
+          "name": "Ricardo Gonzales"
+        },
+        {
+          "name": "Jerry Fortune"
+        },
+        {
+          "name": "Sam Stone"
+        },
+        {
+          "name": "Alex Werner"
+        },
+        {
+          "name": "Ash Skarsgard"
+        },
+        {
+          "name": "Alexander Frost"
+        },
+        {
+          "name": "Andrey Kvasov"
+        },
+        {
+          "name": "Sigrun Valka"
+        },
+        {
+          "name": "Aisha Ortega"
+        },
+        {
+          "name": "Clive Vicious"
+        },
+        {
+          "name": "Barbara Steinmann"
+        },
+        {
+          "name": "Megorus Gafidos"
+        },
+        {
+          "name": "Otto Schreyer"
+        }
+      ]
+    },
+    {
+      "label": "Pls no",
+      "items": [
+        {
+          "name": "Donnie Woo"
+        },
+        {
+          "name": "Lian Xinbai"
+        },
+        {
+          "name": "Kevin O'Reilly"
+        },
+        {
+          "name": "Iji Rime"
+        },
+        {
+          "name": "Kevin_O_Reilly"
+        },
+        {
+          "name": "Walter Trommel"
+        },
+        {
+          "name": "Sim Yo Han"
+        },
+        {
+          "name": "Toshiro Kurosawa"
+        },
+        {
+          "name": "Captain Clyde"
+        },
+        {
+          "name": "Anna Basarab"
+        },
+        {
+          "name": "Jill Summers"
+        },
+        {
+          "name": "Peregrin Raine"
+        },
+        {
+          "name": "Boris Crow"
+        },
+        {
+          "name": "Kang Strong"
+        },
+        {
+          "name": "Soren De Vos"
+        },
+        {
+          "name": "Lilian Statera"
+        },
+        {
+          "name": "Stanislav Chen"
+        },
+        {
+          "name": "Tobias Mwangi"
+        },
+        {
+          "name": "Jad Parkes"
+        },
+        {
+          "name": "Oliver Song"
+        },
+        {
+          "name": "Michael Dupont"
+        },
+        {
+          "name": "Eddie Noll"
+        },
+        {
+          "name": "Harold Han"
+        }
+      ]
+    },
+    {
+      "label": "Get out",
+      "items": [
+        {
+          "name": "Andor Miharr"
+        },
+        {
+          "name": "Ethan Caldwell"
+        },
+        {
+          "name": "Vorren Kaal"
+        },
+        {
+          "name": "Alex Tav"
+        },
+        {
+          "name": "Chef Broil"
+        },
+        {
+          "name": "Dexter Crowe"
+        },
+        {
+          "name": "Ishikawa Saizou"
+        },
+        {
+          "name": "Kirk Sider"
+        },
+        {
+          "name": "Jimmy Hermes"
+        },
+        {
+          "name": "Vepkho Lovidze"
+        },
+        {
+          "name": "Seven"
+        },
+        {
+          "name": "3V3R3Tt"
+        },
+        {
+          "name": "Sylvia Thorn"
+        },
+        {
+          "name": "Theseus"
+        },
+        {
+          "name": "Nian"
+        },
+        {
+          "name": "Svyatogor Belov"
+        },
+        {
+          "name": "Noa Minax"
+        },
+        {
+          "name": "Ghost"
+        },
+        {
+          "name": "Mbrijit"
+        },
+        {
+          "name": "Damned Johnny"
+        },
+        {
+          "name": "Nicolas Wodanson"
+        },
+        {
+          "name": "Daniel Kavanagh"
+        },
+        {
+          "name": "Jack Moore"
+        },
+        {
+          "name": "Tal Mokri"
+        },
+        {
+          "name": "Vit Rage"
+        },
+        {
+          "name": "Adam O'Leary"
+        },
+        {
+          "name": "Rita Po"
+        },
+        {
+          "name": "Veteran"
+        }
+      ]
+    },
+    {
+      "label": "Eldritch horrors",
+      "items": [
+        {
+          "name": "Ryder Mourn"
+        },
+        {
+          "name": "Einarr Stalsson"
+        },
+        {
+          "name": "John Orsted"
+        },
+        {
+          "name": "Nathan Fleming"
+        },
+        {
+          "name": "Rolf Garcia"
+        },
+        {
+          "name": "Markus"
+        },
+        {
+          "name": "Samael Johansen"
+        },
+        {
+          "name": "APPM-3TR"
+        },
+        {
+          "name": "Arnav Poe"
+        },
+        {
+          "name": "Thomas Mindread"
+        },
+        {
+          "name": "Manni"
+        },
+        {
+          "name": "Adrian Chong"
+        }
+      ]
+    }
+  ]
+}
