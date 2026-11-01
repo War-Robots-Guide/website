@@ -19,15 +19,15 @@ export function WeaponComparison({ weapons }) {
       {!matches.length && <li>No matching weapons.</li>}
     </ul>}
     {!selected.length && <p>Search and select weapons to compare burst and cycle DPS on the same scale.</p>}
+    {selected.length > 0 && <p>Shared scale: 0–{Math.round(maximum).toLocaleString()} DPS</p>}
     <div className="comparison-graphs">{selected.map(weapon => <figure key={weapon.id}>
       <figcaption><strong>{weapon.name}</strong><span>{weapon.weaponClass}</span><button aria-label={`Remove ${weapon.name} from comparison`} onClick={() => setSelected(items => items.filter(item => item.id !== weapon.id))}>Remove</button></figcaption>
-      <svg viewBox="0 0 300 160" role="img" aria-labelledby={`${id}-${weapon.id}`}>
+      <svg viewBox="0 0 300 132" role="img" aria-labelledby={`${id}-${weapon.id}`}>
         <title id={`${id}-${weapon.id}`}>{weapon.name}: Burst DPS {weapon.burst_dps}, Cycle DPS {weapon.cycle_dps}</title>
         <text x="0" y="22" fill="currentColor" fontSize="13">Burst DPS: {weapon.burstNum ? Math.round(weapon.burstNum).toLocaleString() : weapon.burst_dps}</text>
         <rect x="0" y="32" width={280 * weapon.burstNum / maximum} height="28" rx="4" fill="#22d3ee" />
         <text x="0" y="88" fill="currentColor" fontSize="13">Cycle DPS: {weapon.cycleNum ? Math.round(weapon.cycleNum).toLocaleString() : weapon.cycle_dps}</text>
         <rect x="0" y="98" width={280 * weapon.cycleNum / maximum} height="28" rx="4" fill="#a78bfa" />
-        <text x="280" y="150" textAnchor="end" fill="currentColor" fontSize="11">{Math.round(maximum).toLocaleString()} DPS</text>
       </svg>
       <p>Range: {weapon.range || '—'} · Unload: {weapon.unload || '—'} · Reload: {weapon.reload || '—'}</p>
     </figure>)}</div>
