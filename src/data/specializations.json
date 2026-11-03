@@ -63,11 +63,11 @@
       "slots": [
         {
           "name": "First module slot",
-          "content": "For attack, you can take whichever you like. Piercer units are better if you're fighting enemies with defense points, thermonukes are better otherwise. I prefer thermonukes for consistency.\nFor defense, you should probably just take anticontrol, even if you have a shield that benefits from fortifier."
+          "content": "For attack, you can take whichever you like. Piercer units are better if you're fighting enemies with defense points, thermonukes are better otherwise. I prefer thermonukes for consistency.\nFor defense, take anticontrol if you need it."
         },
         {
           "name": "Second module slot",
-          "content": "For attack, same as first slot.\nFor defense, you take heavy armor kit. Fortifier is probably okay if you have a really strong shield, but I can't think of many Sabotuers with a really strong shield that wouldn't prefer more HP instead."
+          "content": "For attack, same as first slot.\nFor defense, you take heavy armor kit. If you have a really good shield, fortifier is an okay option in one or both slots, depending on whether you need anticontrol."
         }
       ]
     },
