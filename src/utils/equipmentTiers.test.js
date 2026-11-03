@@ -34,7 +34,24 @@ describe('Equipment rarity colors', () => {
     expect(getEquipmentAppearance(name, category)).toMatchObject({ tier, color });
   });
 
-  it('keeps unknown equipment neutral', () => {
-    expect(getEquipmentAppearance('Unknown item', 'Drones').tier).toBeNull();
+  it.each([
+    ['New Robot', 'Robots'],
+    ['⬆️New Weapon L, New Weapon M, New Weapon H', 'Robot Weapons'],
+    ['New Weapon M', 'Robot Weapons'],
+    ['New Titan Weapon', 'Titan Weapons'],
+    ['New Drone', 'Drones'],
+    ['New Mothership', 'Motherships'],
+    ['New Turret', 'Mothership Turrets'],
+  ])('defaults uncatalogued %s to T4 without a release-list entry', (name, category) => {
+    expect(getEquipmentAppearance(name, category)).toEqual({
+      tier: 4,
+      color: '#f59e0b',
+      background: 'linear-gradient(135deg, #f59e0b66, #f59e0b22)',
+    });
+  });
+
+  it.each(['UE New Weapon L', 'Ultimate New Weapon L'])('recognizes uncatalogued %s as Ultimate by name', name => {
+    expect(getEquipmentAppearance(name, 'Robot Weapons'))
+      .toMatchObject({ tier: 'ultimate', color: '#eab308' });
   });
 });

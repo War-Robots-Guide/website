@@ -25,9 +25,11 @@ export function getEquipmentAppearance(name, category) {
   const ultimate = /^(ue|ultimate)\s/i.test(cleanName);
   // Family portraits use the first member, matching getWeaponImage's lookup.
   const firstMemberKey = getEquipmentKey(cleanName.split(/[,/.]/)[0]);
-  const tier = ultimate ? 'ultimate' : category === 'Robots' ? (rarities[key] ?? null)
+  // New equipment is T4 unless its name marks it as Ultimate. Keep recorded
+  // lower tiers authoritative, without depending on an up-to-date release list.
+  const tier = ultimate ? 'ultimate' : category === 'Robots' ? (rarities[key] ?? 4)
     : category === 'Titans' ? (titanRarities[key] || 4)
-    : (equipmentTiers[category]?.[firstMemberKey] ?? null);
+    : (equipmentTiers[category]?.[firstMemberKey] ?? 4);
   const color = colors[tier] || '#64748b';
   return { tier, color, background: `linear-gradient(135deg, ${color}66, ${color}22)` };
 }

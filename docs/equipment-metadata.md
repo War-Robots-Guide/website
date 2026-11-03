@@ -3,9 +3,12 @@
 Power rankings (X–Z) and equipment rarity (T1–T4/Ultimate) are separate.
 `src/data/equipment_rarities.json` records rarity by category and item name.
 Family portraits use the first member's rarity, matching the artwork lookup.
-Unknown items stay neutral until their rarity is recorded. Robots use the
-source guide's sheet classifications; legacy robots and titans retain their
-existing explicit mappings in `equipmentTiers.js`.
+Uncatalogued items default to T4; names prefixed with `UE` or `Ultimate` use
+Ultimate colors. Explicit rarity entries preserve lower-tier equipment colors.
+This fallback does not depend on release metadata or NEW badges, so new items
+receive a colored background even before either metadata list is updated.
+Robots use the source guide's sheet classifications; legacy robots and titans
+retain their existing explicit mappings in `equipmentTiers.js`.
 
 The palette uses orange for T4 and gold for Ultimate, alongside gray, blue and
 purple for T1–T3. These represent equipment rarity, independently of power ranks.
