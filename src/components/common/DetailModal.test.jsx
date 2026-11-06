@@ -169,6 +169,26 @@ describe('DetailModal Component', () => {
     expect(screen.getByText('Suffers in modern brawling due to low durability.')).toBeInTheDocument();
   });
 
+  it('keeps bracketed inline tag references inside the tag note text instead of splitting on them', () => {
+    const selectedItem = {
+      type: 'Robot Weapons',
+      name: 'Iaraghi L',
+      data: {
+        description:
+          'You cannot tank it. 👁️These weapons are so absurdly overpowered that the meta is being bent around their existence. The vast majority of [⬆️] and [⬇️] tags are based on the performance of bots/titans against these weapons.'
+      }
+    };
+    render(<DetailModal selectedItem={selectedItem} onClose={mockOnClose} />);
+
+    expect(screen.getByText('You cannot tank it.')).toBeInTheDocument();
+    expect(screen.getByText('👁️')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'These weapons are so absurdly overpowered that the meta is being bent around their existence. The vast majority of [⬆️] and [⬇️] tags are based on the performance of bots/titans against these weapons.'
+      )
+    ).toBeInTheDocument();
+  });
+
   it('calls onClose when close button is clicked', () => {
     const selectedItem = { type: 'Robots', name: 'Destrier', data: { description: 'test' } };
     render(<DetailModal selectedItem={selectedItem} onClose={mockOnClose} />);

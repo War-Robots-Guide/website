@@ -35,29 +35,21 @@ const precomputedTitans = robotGuideData?.titans ? robotGuideData.titans.map(t =
   };
 }) : [];
 
-const TAG_EMOJIS = ['👥', '‼️', '⬆️', '⬇️', '👁️', '⬆', '⬇', '👁'];
-const TAG_REGEX = /(👥|‼️|⬆️|⬇️|👁️|⬆|⬇|👁)\s*([\s\S]*?)(?=(?:👥|‼️|⬆️|⬇️|👁️|⬆|⬇|👁|$))/gu;
+const TAG_START_SOURCE = '(?<!\\[)(?:👥|‼️|(?:⬆|⬇|👁)\\uFE0F?)(?!\\uFE0F?\\])';
+const FIRST_TAG_REGEX = new RegExp(TAG_START_SOURCE, 'u');
+const TAG_REGEX = new RegExp(`(${TAG_START_SOURCE})\\s*([\\s\\S]*?)(?=(?:${TAG_START_SOURCE}|$))`, 'gu');
 
 function parseRationaleAndTags(rawDescription) {
   if (!rawDescription) {
     return { mainRationale: '', tagNotes: [] };
   }
 
-  // Find the first index where any of the tag emojis appear
-  let firstTagIndex = -1;
-  for (let i = 0; i < rawDescription.length; i++) {
-    for (const tag of TAG_EMOJIS) {
-      if (rawDescription.startsWith(tag, i)) {
-        firstTagIndex = i;
-        break;
-      }
-    }
-    if (firstTagIndex !== -1) break;
-  }
-
-  if (firstTagIndex === -1) {
+  // Find the first index where an unbracketed tag emoji starts a note
+  const firstMatch = FIRST_TAG_REGEX.exec(rawDescription);
+  if (!firstMatch) {
     return { mainRationale: rawDescription.trim(), tagNotes: [] };
   }
+  const firstTagIndex = firstMatch.index;
 
   const mainRationale = rawDescription.slice(0, firstTagIndex).trim();
   const tagsSegment = rawDescription.slice(firstTagIndex);
