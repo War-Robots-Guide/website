@@ -60,3 +60,25 @@ for (const category of categories) {
     await expect(dialog).not.toBeVisible();
   });
 }
+
+test('Robot detail background continues covering the popup when scrolled down', async ({ page }) => {
+  await page.route('https://fonts.googleapis.com/**', route => route.abort());
+  await page.setViewportSize({ width: 1280, height: 520 });
+  await page.goto('/tiers');
+  await page.getByRole('button', { name: 'Robots', exact: true }).click();
+  await page.getByRole('button', { name: /^View details for / }).first().click();
+
+  const dialog = page.getByRole('dialog');
+  const modalContent = dialog.locator('.modal-content');
+  const fadedBg = dialog.locator('.modal-faded-bg');
+  await expect(modalContent).toBeVisible();
+  await expect(fadedBg).toBeVisible();
+
+  await dialog.locator('.detail-role-list').scrollIntoViewIfNeeded();
+
+  const modalBox = await modalContent.boundingBox();
+  const bgBox = await fadedBg.boundingBox();
+  expect(bgBox.y).toBeLessThanOrEqual(modalBox.y + 2);
+  expect(bgBox.y + bgBox.height).toBeGreaterThanOrEqual(modalBox.y + modalBox.height - 2);
+});
+
