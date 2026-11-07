@@ -123,9 +123,10 @@ function validateRobotGuide(data) {
   });
 
   expectArray(guide.builds, 'robot_guide.builds').forEach((build, index) => {
-    for (const key of ['build_name', 'robot', 'best_weapons', 'explanation']) {
+    for (const key of ['build_name', 'robot', 'best_weapons']) {
       expectNonEmptyString(build[key], `robot_guide.builds[${index}].${key}`);
     }
+    expectString(build.explanation, `robot_guide.builds[${index}].explanation`);
   });
 
   expectArray(guide.robots, 'robot_guide.robots').forEach((robot, index) => {

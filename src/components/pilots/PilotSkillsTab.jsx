@@ -1,10 +1,11 @@
 import { PageHero } from '../common/PageHero';
 import { useState } from 'react';
 import pilotsData from '../../data/pilots.json';
+import { getPilotSkillIcons } from './pilotSkillIcons';
 
 import { SlidingTabPills } from '../common/SlidingTabPills';
 
-function PilotSkillCategory({ cat, skills }) {
+function PilotSkillCategory({ cat, skills, section }) {
   const getCategoryIcon = (cat) => {
     const iconName = cat === 'Must Use'
       ? 'pilot_green.png'
@@ -35,9 +36,14 @@ function PilotSkillCategory({ cat, skills }) {
       <div className="stack-12">
         {skills.map((skill, sidx) => (
           <div key={skill.name || sidx} style={{ background: 'rgba(0,0,0,0.15)', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--border-light)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            {getPilotSkillIcons(skill.name, section).map(file => (
+              <img key={file} src={`/pilot-skills/${encodeURIComponent(file)}`} alt="" style={{ width: 36, height: 36, objectFit: 'contain', flexShrink: 0 }} />
+            ))}
             <span style={{ fontWeight: 700, color: '#fff', fontSize: '14px', display: 'inline-block', marginBottom: '4px' }}>
               {skill.name}
             </span>
+            </div>
             <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
               {skill.description}
             </p>
@@ -73,7 +79,7 @@ export function PilotSkillsTab() {
           const skills = pilotsData[pilotSubTab]?.[cat] || [];
           if (skills.length === 0) return null;
           
-          return <PilotSkillCategory key={cat} cat={cat} skills={skills} />;
+          return <PilotSkillCategory key={cat} cat={cat} skills={skills} section={pilotSubTab} />;
         })}
       </div>
     </div>

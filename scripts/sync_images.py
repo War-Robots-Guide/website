@@ -58,7 +58,7 @@ def rebuild_image_directories(source_dir, output_dir):
             if not path.is_file() or path.suffix.lower() not in (".png", ".webp", ".jpg", ".jpeg"):
                 continue
             parts = path.relative_to(source).parts[:-1]
-            if any("higher quality" in part.lower() for part in parts):
+            if any("higher quality" in part.lower() or part.lower() == "pilot skill icons" for part in parts):
                 continue
             is_icon = any(part.lower() == "icons" for part in parts)
             target = "icons" if is_icon else "items"
@@ -103,6 +103,14 @@ def sync_images():
     if not os.path.isdir(sample_images_dir):
         print("No sample images directory; keeping existing generated images.")
         return True
+    # Keep the checked-in fallback icons current when Drive supplies new artwork.
+    skill_icons = Path(sample_images_dir) / "Pilot Skill Icons"
+    if skill_icons.is_dir():
+        destination = Path(workspace_dir) / "public" / "pilot-skills"
+        destination.mkdir(parents=True, exist_ok=True)
+        for icon in skill_icons.iterdir():
+            if icon.is_file() and icon.suffix.lower() in (".png", ".webp", ".jpg", ".jpeg"):
+                copy_image(icon, destination / icon.name)
     hq_lookup, copied_count = rebuild_image_directories(sample_images_dir, public_images_dir)
     items_dest = os.path.join(public_images_dir, "items")
     icons_dest = os.path.join(public_images_dir, "icons")
