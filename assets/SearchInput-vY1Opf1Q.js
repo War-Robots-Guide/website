@@ -1,0 +1,1 @@
+import{r as e,u as t}from"./vendor-react-B-7_VHmA.js";var n=t();function r({value:t,onChange:r,placeholder:i,...a}){return(0,n.jsxs)(`div`,{className:`search-input-wrapper`,children:[(0,n.jsx)(e,{size:18,className:`search-input-icon`}),(0,n.jsx)(`input`,{type:`text`,className:`search-input`,placeholder:i,value:t,onChange:r,...a})]})}export{r as t};
