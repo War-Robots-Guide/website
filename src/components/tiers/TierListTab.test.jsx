@@ -5,7 +5,7 @@ import { TierListTab } from './TierListTab';
 // Mock the JSON data
 vi.mock('../../data/tiers.json', () => ({
   default: {
-    disclaimers: ["Important disclaimer text"],
+    disclaimers: ["Important disclaimer text", "[👥] Squad source explanation.", "[‼️] Build source explanation.", "[⬆️] Up source explanation.", "[⬇️] Down source explanation.", "[👁️] Meta source explanation.", "A note mentioning [⬆️] is not a tag definition."],
     Robots: {
       S: {
         casual_name: "Top Tier",
@@ -52,15 +52,15 @@ describe('TierListTab', () => {
 
     // Tag legend is collapsed by default
     expect(screen.getByText(/Tier Tag Guide/i)).toBeInTheDocument();
-    expect(screen.queryByText(/potential in squad play/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Squad source explanation./)).not.toBeInTheDocument();
 
     // Click to expand
     fireEvent.click(screen.getByText(/Tier Tag Guide/i));
-    expect(screen.getByText(/potential in squad play/)).toBeInTheDocument();
-    expect(screen.getByText(/require an incredibly specific build/)).toBeInTheDocument();
-    expect(screen.getByText(/potential to perform at a much higher tier/)).toBeInTheDocument();
-    expect(screen.getByText(/perform worse than usual at the moment/)).toBeInTheDocument();
-    expect(screen.getByText(/meta is being bent around them/)).toBeInTheDocument();
+    expect(screen.getByText(/Squad source explanation./)).toBeInTheDocument();
+    expect(screen.getByText(/Build source explanation./)).toBeInTheDocument();
+    expect(screen.getByText(/Up source explanation./)).toBeInTheDocument();
+    expect(screen.getByText(/Down source explanation./)).toBeInTheDocument();
+    expect(screen.getByText(/Meta source explanation./)).toBeInTheDocument();
   });
 
   it('renders the default category (Robots) and its items', () => {

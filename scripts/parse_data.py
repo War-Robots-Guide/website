@@ -435,24 +435,8 @@ def parse_tiers():
         if current_category is None:
             if text in ["Tab 1", "Intro"]:
                 continue
-            # Filter out legacy asterisk disclaimers and normalize tag explanations
-            if re.search(r'marked with (?:an asterisk|two asterisks|three asterisks|\*+)', text, re.IGNORECASE):
-                continue
-            if text.startswith("[👥]") or text.startswith("👥") or "👥" in text[:5]:
-                disclaimers.append("Items marked with a [👥] are items that are being ranked due to their potential in squad play. For solo matches, they go down one.")
-                continue
-            if text.startswith("[‼️]") or text.startswith("‼️") or "‼️" in text[:5]:
-                disclaimers.append("Items marked with [‼️] are items that require an incredibly specific build in order to perform at the tier they are ranked at. Read the rationale for these items to learn what build is high tier. Generally, these items are much lower tier than shown if not used with that specific build.")
-                continue
-            if text.startswith("[⬆️]") or text.startswith("⬆️") or "⬆" in text[:5]:
-                disclaimers.append("Items marked with a [⬆️] are items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances. Read the rationale for these items for more info.")
-                continue
-            if text.startswith("[⬇️]") or text.startswith("⬇️") or "⬇" in text[:5]:
-                disclaimers.append("Items marked with a [⬇️] are items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances. Read the rationale for these items for more info.")
-                continue
-            if text.startswith("[👁️]") or text.startswith("👁️") or "👁" in text[:5]:
-                disclaimers.append("Items marked with an [👁️] are items so powerful that the meta is being bent around them. [⬆️] and [⬇️] tags are based on these.")
-                continue
+            # Keep the source's tag definitions, including changes to their meaning.
+            text = text.lstrip('\u2060\u200b').strip()
             disclaimers.append(text)
             continue
             
@@ -513,19 +497,6 @@ def parse_tiers():
                         "name": "Note",
                         "description": text
                     })
-
-    # Ensure all 5 tag explanations are in disclaimers if not already present
-    tag_explanations = [
-        "Items marked with a [👥] are items that are being ranked due to their potential in squad play. For solo matches, they go down one.",
-        "Items marked with [‼️] are items that require an incredibly specific build in order to perform at the tier they are ranked at. Read the rationale for these items to learn what build is high tier. Generally, these items are much lower tier than shown if not used with that specific build.",
-        "Items marked with a [⬆️] are items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances. Read the rationale for these items for more info.",
-        "Items marked with a [⬇️] are items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances. Read the rationale for these items for more info.",
-        "Items marked with an [👁️] are items so powerful that the meta is being bent around them. [⬆️] and [⬇️] tags are based on these."
-    ]
-    for exp in tag_explanations:
-        tag_key = exp.split("]")[0] + "]"
-        if not any(tag_key in d for d in disclaimers):
-            disclaimers.append(exp)
 
     # Now parse casual tier names from WR tier lists.xlsx
     wb = openpyxl.load_workbook(xlsx_path, data_only=True)

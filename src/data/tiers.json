@@ -1865,10 +1865,10 @@
     "Ultimate gear is denoted by a special color",
     "Tag Explanations",
     "Certain items have emoji tags to provide more insight on their performance in certain circumstances. See below for an explanation of what the tags all mean.",
-    "Items marked with a [\ud83d\udc65] are items that are being ranked due to their potential in squad play. For solo matches, they go down one.",
-    "Items marked with [\u203c\ufe0f] are items that require an incredibly specific build in order to perform at the tier they are ranked at. Read the rationale for these items to learn what build is high tier. Generally, these items are much lower tier than shown if not used with that specific build.",
-    "Items marked with a [\u2b06\ufe0f] are items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances. Read the rationale for these items for more info.",
-    "Items marked with a [\u2b07\ufe0f] are items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances. Read the rationale for these items for more info.",
-    "Items marked with an [\ud83d\udc41\ufe0f] are items so powerful that the meta is being bent around them. [\u2b06\ufe0f] and [\u2b07\ufe0f] tags are based on these."
+    "[\ud83d\udc65] Items that go up one tier in squad matches.",
+    "[\u203c\ufe0f] Items that can perform notably better when equipped with a specific build and go up on the tier list only when used that way.",
+    "[\u2b06\ufe0f] Items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances.",
+    "[\u2b07\ufe0f] Items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances.",
+    "[\ud83d\udc41\ufe0f] Items so powerful that the meta is being bent around them. [\u2b06\ufe0f] and [\u2b07\ufe0f] tags are based on these."
   ]
 }

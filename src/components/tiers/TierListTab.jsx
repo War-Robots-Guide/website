@@ -118,26 +118,16 @@ export function TierListTab({ onItemClick, isEasterEggActive = false }) {
               <span className="tier-new-tag">NEW</span>
               <span><strong>New in {latestEquipmentUpdate.version}:</strong> Equipment introduced in the latest game update. Older equipment loses this badge when a new update arrives.</span>
             </div>}
-            <div className="tier-tag-row">
-              <span className="tier-tag-icon">👥</span>
-              <span><strong>[👥] Squad Play:</strong> Items that are being ranked due to their potential in squad play. For solo matches, they go down one.</span>
-            </div>
-            <div className="tier-tag-row">
-              <span className="tier-tag-icon">‼️</span>
-              <span><strong>[‼️] Specific Build:</strong> Items that require an incredibly specific build in order to perform at the tier they are ranked at. Read the rationale for these items to learn what build is high tier. Generally, these items are much lower tier than shown if not used with that specific build.</span>
-            </div>
-            <div className="tier-tag-row">
-              <span className="tier-tag-icon">⬆️</span>
-              <span><strong>[⬆️] Meta Overperformer:</strong> Items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances. Read the rationale for these items for more info.</span>
-            </div>
-            <div className="tier-tag-row">
-              <span className="tier-tag-icon">⬇️</span>
-              <span><strong>[⬇️] Meta Underperformer:</strong> Items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances. Read the rationale for these items for more info.</span>
-            </div>
-            <div className="tier-tag-row">
-              <span className="tier-tag-icon">👁️</span>
-              <span><strong>[👁️] Meta Definer:</strong> Items so powerful that the meta is being bent around them. [⬆️] and [⬇️] tags are based on these.</span>
-            </div>
+            {(tiersData.disclaimers || []).map(text => {
+              const match = text.match(/^\[(👥|‼️?|⬆️?|⬇️?|👁️?)\]\s*(.+)$/u);
+              if (!match) return null;
+              return (
+                <div className="tier-tag-row" key={match[1]}>
+                  <span className="tier-tag-icon">{match[1]}</span>
+                  <span>{match[2]}</span>
+                </div>
+              );
+            })}
             <RoleGuide category={selectedCategory} />
           </div>
       </GuideDisclosure>
