@@ -116,7 +116,7 @@ export function TierListTab({ onItemClick, isEasterEggActive = false }) {
           <div className="tier-marker-legend" aria-label="Tier list marker meanings">
             {latestEquipmentUpdate && <div className="tier-tag-row">
               <span className="tier-new-tag">NEW</span>
-              <span><strong>New in {latestEquipmentUpdate.version}:</strong> Equipment introduced in the latest game update. Older equipment loses this badge when a new update arrives.</span>
+              <span>Equipment introduced in the latest game update. Older equipment loses this badge when a new update arrives.</span>
             </div>}
             {(tiersData.disclaimers || []).map(text => {
               const match = text.match(/^\[(👥|‼️?|⬆️?|⬇️?|👁️?)\]\s*(.+)$/u);
