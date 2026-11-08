@@ -1,6 +1,6 @@
 // The source artwork groups several skills into a single icon file.
 const groups = [
-  ['Mechanic, Wonderworker, Adamant Mechanic, Raider Mechanic, True Ace.png', ['Mechanic', 'Wonderworker', 'True Ace', 'Adamant Mechanic, Adamant Gunsmith', 'Raider Mechanic, Ninja']],
+  ['Mechanic, Wonderworker, Adamant Mechanic, Raider Mechanic, True Ace.png', ['Mechanic', 'Wonderworker', 'True Ace']],
   ['Armor Expert, Cautious Pilot, Tough Guy, Traditionalist, Customization Adept.png', ['Armor Expert', 'Cautious Pilot', 'Tough Guy', 'Tough Guy and Customization Adept', 'Cautious Pilot and Customization Adept']],
   ['Road Hog, Spy, Scout, Stubborn Speedster (ROBOTS AND TITANS) Engine Expert (ONLY TITANS).png', ['Road Hog', 'Spy and Scout', 'Stubborn Speedster', 'Adamant Road Hog']],
   ['Modules Expert, Powerman, Dodger, Clever Survivor, Deft Survivor, Foolhardy Quartermaster.png', ['Modules Expert', 'Powerman', 'Dodger', 'Deft/Clever Survivor', 'Foolhardy Quartermaster']],

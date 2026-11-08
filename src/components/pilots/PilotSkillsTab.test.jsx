@@ -15,7 +15,9 @@ vi.mock('../../data/pilots.json', () => ({
       ],
       "Sometimes Use": [],
       "Don't Use": [
-        { name: "Ghost", description: "Robot ghost description." }
+        { name: "Ghost", description: "Robot ghost description." },
+        { name: "Adamant Mechanic, Adamant Gunsmith", description: "Adamant description." },
+        { name: "Raider Mechanic, Ninja", description: "Raider description." }
       ]
     },
     titans: {
@@ -64,6 +66,15 @@ describe('PilotSkillsTab', () => {
     // Ensure titan skills are not rendered yet
     expect(screen.queryByText('Titan Mechanic')).not.toBeInTheDocument();
   });
+
+  it.each(['Adamant Mechanic, Adamant Gunsmith', 'Raider Mechanic, Ninja'])(
+    'shows only the beacon icon for %s', (name) => {
+      render(<PilotSkillsTab />);
+      const icons = screen.getByText(name).parentElement.querySelectorAll('img');
+      expect(icons).toHaveLength(1);
+      expect(decodeURIComponent(icons[0].getAttribute('src'))).toBe('/pilot-skills/Adamant skiks, Ninja, Raider skills.png');
+    }
+  );
 
   it('switches to Titan Pilots tab when clicked', () => {
     render(<PilotSkillsTab />);
