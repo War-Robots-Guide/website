@@ -165,6 +165,10 @@ def parse_pilots():
                 current_section = "intro"
             continue
             
+        if current_section == "intro":
+            intro_paragraphs.append(text)
+            continue
+
         # Check categories within sections
         text_clean = text.lower().replace(" ", "")
         matched_cat = None
@@ -178,8 +182,6 @@ def parse_pilots():
             matched_cat = "Don't Use"
             
         if matched_cat:
-            if current_section == "intro":
-                current_section = "robots"
             current_category = matched_cat
             continue
                 

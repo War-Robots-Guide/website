@@ -23,7 +23,7 @@ vi.mock('../../data/robot_guide.json', () => ({
       {
         name: 'Destrier',
         value_rating: 3,
-        roles: [{ type: 'beacon', role: 'Beacon Runner' }],
+        roles: [{ type: 'main', role: 'Support' }, { type: 'beacon', role: 'Beacon Runner' }],
         scores: {
           longevity: 2,
           lethality: 3,
@@ -38,7 +38,7 @@ vi.mock('../../data/robot_guide.json', () => ({
       {
         name: 'Arthur',
         value_rating: 2,
-        roles: [{ type: 'brawler', role: 'Brawler' }],
+        roles: [{ type: 'main', role: 'Tank' }, { type: 'brawler', role: 'Brawler' }],
         scores: {
           longevity: 4,
           lethality: 3,
@@ -241,3 +241,15 @@ it('keeps value and attribute ratings out of a tier-list modal', () => {
   expect(screen.queryByText('Value rating')).not.toBeInTheDocument();
   expect(screen.queryByText('Attribute ratings')).not.toBeInTheDocument();
 });
+
+
+it.each([['Robots', 'Destrier', 'Support', 'Beacon Runner'], ['Titans', 'Arthur', 'Tank', 'Brawler']])(
+  'separates the main role from subroles in the %s value rating modal',
+  (type, name, mainRole, subrole) => {
+    render(<DetailModal selectedItem={{ name, type, data: {} }} onClose={() => {}} />);
+    expect(screen.getByText('Value rating')).toBeInTheDocument();
+    expect(screen.getByText('Main role').parentElement).toHaveTextContent(mainRole);
+    expect(screen.getByText('Subroles').parentElement).toHaveTextContent(subrole);
+    expect(screen.getByText('Subroles').parentElement).not.toHaveTextContent(mainRole);
+  }
+);

@@ -5,6 +5,7 @@ import { PilotSkillsTab } from './PilotSkillsTab';
 // Mock pilots data
 vi.mock('../../data/pilots.json', () => ({
   default: {
+    intro: 'Pilot priorities differ for robots and titans.',
     robots: {
       "Must Use": [
         { name: "Mechanic", description: "Robot mechanic description." }
@@ -36,6 +37,7 @@ describe('PilotSkillsTab', () => {
 
     // Hero banner text
     expect(screen.getByText('Pilot Skills Directory')).toBeInTheDocument();
+    expect(screen.getByText('Pilot priorities differ for robots and titans.')).toBeInTheDocument();
 
     // Check if tabs are present
     const robotTab = screen.getByText('Robot Pilots');
