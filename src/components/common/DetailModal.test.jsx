@@ -249,6 +249,7 @@ it.each([['Robots', 'Destrier', 'Support', 'Beacon Runner'], ['Titans', 'Arthur'
     render(<DetailModal selectedItem={{ name, type, data: {} }} onClose={() => {}} />);
     expect(screen.getByText('Value rating')).toBeInTheDocument();
     expect(screen.getByText('Main role').parentElement).toHaveTextContent(mainRole);
+    expect(screen.getByText('Main role').parentElement.nextElementSibling).toContainElement(screen.getByText('Value rating'));
     expect(screen.getByText('Subroles').parentElement).toHaveTextContent(subrole);
     expect(screen.getByText('Subroles').parentElement).not.toHaveTextContent(mainRole);
   }

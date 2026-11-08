@@ -275,13 +275,13 @@ export function DetailModal({ selectedItem, onClose }) {
                 <>
                   <div className="detail-summary-row">
                     <div>
-                      <span className="detail-field-label">{isTierList ? 'Main role' : 'Value rating'}</span>
-                      {isTierList ? <span className="role-badge main">{rob.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span> : <RatingBar rating={rob.value_rating} unitType="robot" />}
+                      <span className="detail-field-label">Main role</span>
+                      <span className="role-badge main">{rob.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span>
                     </div>
                     {!isTierList && (
                       <div>
-                        <span className="detail-field-label">Main role</span>
-                        <span className="role-badge main">{rob.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span>
+                        <span className="detail-field-label">Value rating</span>
+                        <RatingBar rating={rob.value_rating} unitType="robot" />
                       </div>
                     )}
                     {tier && isTierList && (
@@ -366,13 +366,13 @@ export function DetailModal({ selectedItem, onClose }) {
                 <>
                   <div className="detail-summary-row">
                     <div>
-                      <span className="detail-field-label">{isTierList ? 'Main role' : 'Value rating'}</span>
-                      {isTierList ? <span className="role-badge main">{titan.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span> : <RatingBar rating={titan.value_rating} unitType="titan" />}
+                      <span className="detail-field-label">Main role</span>
+                      <span className="role-badge main">{titan.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span>
                     </div>
                     {!isTierList && (
                       <div>
-                        <span className="detail-field-label">Main role</span>
-                        <span className="role-badge main">{titan.roles?.find(role => role.type === 'main')?.role || 'Unassigned'}</span>
+                        <span className="detail-field-label">Value rating</span>
+                        <RatingBar rating={titan.value_rating} unitType="titan" />
                       </div>
                     )}
                     {tier && isTierList && (
