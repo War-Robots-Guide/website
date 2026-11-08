@@ -105,18 +105,6 @@ def find_file_case_insensitive(filename):
 
 
 
-# Graceful check for GitHub runner where secrets are not yet configured
-if not os.path.exists(sample_dir) or not os.listdir(sample_dir):
-    print("Warning: No raw spreadsheets or Word documents found in 'sample data/' directory.")
-    required_files = ["tiers.json", "robot_guide.json", "weapons_dps.json", "specializations.json", "pilots.json", "game_version.json", "equipment_newness.json"]
-    all_exist = all(os.path.exists(os.path.join(data_out_dir, f)) for f in required_files)
-    if all_exist:
-        print("Pre-compiled JSON database files exist in 'src/data/'. Skipping parsing and using existing JSON database.")
-        sys.exit(0)
-    else:
-        print("Error: No raw documents found in 'sample data/' and pre-compiled JSON database is missing in 'src/data/'. Cannot build.", file=sys.stderr)
-        sys.exit(1)
-
 # ----------------------------------------------------
 # 1. PARSE pilot skill guide.docx
 # ----------------------------------------------------
@@ -1090,6 +1078,18 @@ def parse_robot_guide():
 # MAIN EXECUTION
 # ----------------------------------------------------
 if __name__ == "__main__":
+    # Graceful check for GitHub runner where secrets are not yet configured
+    if not os.path.exists(sample_dir) or not os.listdir(sample_dir):
+        print("Warning: No raw spreadsheets or Word documents found in 'sample data/' directory.")
+        required_files = ["tiers.json", "robot_guide.json", "weapons_dps.json", "specializations.json", "pilots.json", "game_version.json", "equipment_newness.json"]
+        all_exist = all(os.path.exists(os.path.join(data_out_dir, f)) for f in required_files)
+        if all_exist:
+            print("Pre-compiled JSON database files exist in 'src/data/'. Skipping parsing and using existing JSON database.")
+            sys.exit(0)
+        else:
+            print("Error: No raw documents found in 'sample data/' and pre-compiled JSON database is missing in 'src/data/'. Cannot build.", file=sys.stderr)
+            sys.exit(1)
+
     print("Starting processing of Google Drive / sample data content...")
     parse_pilots()
     parse_specializations()
