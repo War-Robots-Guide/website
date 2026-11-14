@@ -63,12 +63,6 @@ export function PilotSkillsTab() {
         Learn what pilot skills are the strongest and which skills should be avoided.
       </PageHero>
 
-      {pilotsData.intro && (
-        <div className="glass-panel" style={{ whiteSpace: 'pre-line', color: 'var(--text-secondary)', marginBottom: '20px' }}>
-          {pilotsData.intro}
-        </div>
-      )}
-
       {/* Sub Tabs: Robots vs Titans */}
       <SlidingTabPills
         tabs={[

@@ -39,7 +39,7 @@ describe('PilotSkillsTab', () => {
 
     // Hero banner text
     expect(screen.getByText('Pilot Skills Directory')).toBeInTheDocument();
-    expect(screen.getByText('Pilot priorities differ for robots and titans.')).toBeInTheDocument();
+    expect(screen.queryByText('Pilot priorities differ for robots and titans.')).not.toBeInTheDocument();
 
     // Check if tabs are present
     const robotTab = screen.getByText('Robot Pilots');

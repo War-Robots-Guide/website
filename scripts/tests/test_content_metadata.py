@@ -25,6 +25,15 @@ class ContentMetadataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'version'):
             read_game_version(wb)
 
+    def test_reads_version_label_and_rejects_conflicting_versions(self):
+        wb = openpyxl.Workbook()
+        wb.active.title = 'Intro'
+        wb.active['B1'] = 'Version: 12.5'
+        self.assertEqual(read_game_version(wb), '12.5')
+        wb.active['A3'] = 'Updated for 12.4'
+        with self.assertRaisesRegex(ValueError, 'version'):
+            read_game_version(wb)
+
     def test_methodology_uses_document_paragraphs_not_workbook_directions(self):
         with TemporaryDirectory() as folder:
             path = Path(folder) / 'Methodology text.docx'

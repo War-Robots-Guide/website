@@ -13,11 +13,11 @@ def read_game_version(workbook):
     versions = set()
     for row in workbook['Intro'].iter_rows():
         for cell in row:
-            match = re.search(r'updated\s+for\s+(?:War\s+Robots\s+)?v?(\d+\.\d+(?:\.\d+)?)', str(cell.value or ''), re.I)
+            match = re.search(r'(?:updated\s+for\s+(?:War\s+Robots\s+)?v?|\bversion\s*:\s*v?)(\d+\.\d+(?:\.\d+)?)', str(cell.value or ''), re.I)
             if match:
                 versions.add(match[1])
     if len(versions) != 1:
-        raise ValueError('DPS Intro must contain one unambiguous updated-for version')
+        raise ValueError('DPS Intro must contain one unambiguous version')
     return versions.pop()
 
 

@@ -416,6 +416,7 @@ def parse_tiers():
     
     current_category = None
     current_tier = None
+    seen_category = False
     
     for p in doc.paragraphs:
         text = p.text.strip()
@@ -429,8 +430,18 @@ def parse_tiers():
         if text_lower in category_mapping:
             current_category = category_mapping[text_lower]
             current_tier = None
+            seen_category = True
             continue
             
+        # A new top-level section ends the previous category, even if unsupported.
+        if seen_category and style == 'Heading 1':
+            current_category = None
+            current_tier = None
+            continue
+
+        if seen_category and current_category is None:
+            continue
+
         # Save disclaimers before first category
         if current_category is None:
             if text in ["Tab 1", "Intro"]:
