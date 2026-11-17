@@ -668,7 +668,7 @@
       "range": "25m",
       "unload": "3s",
       "reload": "7s",
-      "notes": "Percentage damage is widely variable since it's based on current health. Harmattans are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 Hamattans can easily do upward of 90% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes \nso low on HP that the percentage damage is irrelevant (or when shooting shields). CURRENTLY INFLATED BY INTEL."
+      "notes": "Percentage damage is widely variable since it's based on current health. Harmattans are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 Hamattans can easily do upward of 90% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP that the percentage damage is irrelevant (or when shooting shields). CURRENTLY INFLATED BY INTEL."
     },
     {
       "name": "UE Devastator (100m)",
@@ -1390,7 +1390,7 @@
       "range": "25m",
       "unload": "3s",
       "reload": "7s",
-      "notes": "Percentage damage is widely variable since it's based on current health. Harmattans are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 Hamattans can easily do upward of 90% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes \nso low on HP that the percentage damage is irrelevant (or when shooting shields). CURRENTLY INFLATED BY INTEL."
+      "notes": "Percentage damage is widely variable since it's based on current health. Harmattans are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 Hamattans can easily do upward of 90% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP that the percentage damage is irrelevant (or when shooting shields). CURRENTLY INFLATED BY INTEL."
     },
     {
       "name": "UE Havoc (25m)",
@@ -1579,7 +1579,7 @@
       "range": "500m",
       "unload": "4.36s",
       "reload": "7s",
-      "notes": "Percentage damage is widely variable since it's based on current health. Arms are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 arms can easily do ~75% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP\nthat the percentage damage is irrelevant (or when shooting shields)."
+      "notes": "Percentage damage is widely variable since it's based on current health. Arms are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 arms can easily do ~75% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP that the percentage damage is irrelevant (or when shooting shields)."
     },
     {
       "name": "Lumen-M (Heat x2)",
@@ -2029,7 +2029,7 @@
       "range": "500m",
       "unload": "5.6s",
       "reload": "7s",
-      "notes": "Percentage damage is widely variable since it's based on current health. Arms are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 arms can easily do 75% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP\nthat the percentage damage is irrelevant (or when shooting shields)."
+      "notes": "Percentage damage is widely variable since it's based on current health. Arms are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 arms can easily do 75% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP that the percentage damage is irrelevant (or when shooting shields)."
     },
     {
       "name": "UE Scourge (500m)",
@@ -2229,7 +2229,7 @@
       "range": "25m",
       "unload": "3s",
       "reload": "7s",
-      "notes": "Percentage damage is widely variable since it's based on current health. Harmattans are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 Hamattans can easily do upward of 90% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes \nso low on HP that the percentage damage is irrelevant (or when shooting shields)."
+      "notes": "Percentage damage is widely variable since it's based on current health. Harmattans are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 Hamattans can easily do upward of 90% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP that the percentage damage is irrelevant (or when shooting shields)."
     },
     {
       "name": "UE Scatter (100m)",
@@ -2355,7 +2355,7 @@
       "range": "500m",
       "unload": "4.36s",
       "reload": "7s",
-      "notes": "Percentage damage is widely variable since it's based on current health. Arms are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 arms can easily do 75% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP\nthat the percentage damage is irrelevant (or when shooting shields). CURRENTLY INFLATED BY INTEL."
+      "notes": "Percentage damage is widely variable since it's based on current health. Arms are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 arms can easily do 75% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP that the percentage damage is irrelevant (or when shooting shields). CURRENTLY INFLATED BY INTEL."
     },
     {
       "name": "Voonith (600m)",
@@ -2670,7 +2670,7 @@
       "range": "500m",
       "unload": "5.6s",
       "reload": "7s",
-      "notes": "Percentage damage is widely variable since it's based on current health. Arms are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 arms can easily do 75% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP\nthat the percentage damage is irrelevant (or when shooting shields)."
+      "notes": "Percentage damage is widely variable since it's based on current health. Arms are MUCH better than they are shown here, but accurately estimating the percentage damage they deal is difficult.\nJust keep in mind that a mag of 4 arms can easily do 75% of an enemy's HP, no matter how well defended they are. The base DPS becomes relevant only when the enemy becomes so low on HP that the percentage damage is irrelevant (or when shooting shields)."
     },
     {
       "name": "Morana (No Freeze)",

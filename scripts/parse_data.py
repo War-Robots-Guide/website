@@ -302,6 +302,11 @@ def parse_specializations():
 # ----------------------------------------------------
 # 3. PARSE Adazahi r_WarRobotsGuide weapon DPS spreadsheet.xlsx
 # ----------------------------------------------------
+def clean_weapon_notes(notes):
+    # The source spreadsheet has accidental line breaks in these sentences.
+    return re.sub(r"(enemy becomes|so low on HP)[ \t]*\r?\n[ \t]*(?=so low on HP|that the percentage damage)", r"\1 ", notes.strip())
+
+
 def parse_weapons_dps():
     filepath = find_file_case_insensitive("Adazahi r_WarRobotsGuide weapon DPS spreadsheet.xlsx")
     xl = pd.ExcelFile(filepath)
@@ -332,7 +337,7 @@ def parse_weapons_dps():
                 "range": str(row["Range"]).strip() if "Range" in row and pd.notna(row["Range"]) else "",
                 "unload": str(row["Unload"]).strip() if "Unload" in row and pd.notna(row["Unload"]) else "",
                 "reload": str(row["Reload"]).strip() if "Reload" in row and pd.notna(row["Reload"]) else "",
-                "notes": str(row["Notes"]).strip()
+                "notes": clean_weapon_notes(str(row["Notes"]))
             })
             
         weapons_data[sheet] = weapons_list
