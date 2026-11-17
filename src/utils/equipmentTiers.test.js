@@ -6,6 +6,8 @@ describe('Equipment rarity colors', () => {
     expect(getEquipmentAppearance('⬇️Fenrir', 'Robots').tier).toBe(3);
     expect(getEquipmentAppearance('Pathfinder', 'Robots').tier).toBe(4);
     expect(getEquipmentAppearance('Destrier', 'Robots').tier).toBe(1);
+    expect(getEquipmentAppearance('Leo', 'Robots')).toMatchObject({ tier: 2, color: '#3b82f6' });
+    expect(getEquipmentAppearance('Natasha', 'Robots')).toMatchObject({ tier: 2, color: '#3b82f6' });
     expect(getEquipmentAppearance('UE Raven', 'Robots').tier).toBe('ultimate');
     expect(getEquipmentAppearance('Pathfinder', 'Robots').color).toBe('#f59e0b');
   });
@@ -35,10 +37,21 @@ describe('Equipment rarity colors', () => {
   });
 
   it.each([
+    ['Glacier', 'Cryo', 'Rime', 'Incinerator', 'Scorcher', 'Scald', 'Redeemer',
+      'Gauss', 'Volt', 'Weber', 'Puncher', 'Corona', 'Halo', 'Glory', 'Viper',
+      'Hel', 'Skadi', 'Snaer', 'Fainter'].map(name => [name, 'Robot Weapons']),
+    ['Kisten', 'Bulava', 'Cinder', 'Basilisk', 'Krait', 'Striker']
+      .map(name => [name, 'Titan Weapons']),
+  ].flat())('uses T3 for %s', (name, category) => {
+    expect(getEquipmentAppearance(name, category)).toMatchObject({ tier: 3, color: '#a855f7' });
+  });
+
+  it('uses T2 for Pinata', () => {
+    expect(getEquipmentAppearance('Pinata', 'Robot Weapons').tier).toBe(2);
+  });
+
+  it.each([
     ['New Robot', 'Robots'],
-    ['⬆️New Weapon L, New Weapon M, New Weapon H', 'Robot Weapons'],
-    ['New Weapon M', 'Robot Weapons'],
-    ['New Titan Weapon', 'Titan Weapons'],
     ['New Drone', 'Drones'],
     ['New Mothership', 'Motherships'],
     ['New Turret', 'Mothership Turrets'],
@@ -48,6 +61,10 @@ describe('Equipment rarity colors', () => {
       color: '#f59e0b',
       background: 'linear-gradient(135deg, #f59e0b66, #f59e0b22)',
     });
+  });
+
+  it.each(['Robot Weapons', 'Titan Weapons'])('uses a neutral color for unverified %s', category => {
+    expect(getEquipmentAppearance('New Weapon', category)).toMatchObject({ tier: null, color: '#64748b' });
   });
 
   it.each(['UE New Weapon L', 'Ultimate New Weapon L'])('recognizes uncatalogued %s as Ultimate by name', name => {

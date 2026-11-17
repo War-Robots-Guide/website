@@ -7,8 +7,8 @@ import { getEquipmentKey } from './equipmentNames';
 const rarities = Object.fromEntries(guide.robots.map(robot => [cleanKey(robot.name),
   robot.sheet.includes('Ultimate') ? 'ultimate' : robot.sheet.includes('Tier 3') ? 3 : 4]));
 const legacyRobots = {
-  1: 'Destrier,Cossack,Schutze,Gepard,GI Patton,Vityaz,Golem,Boa,Leo,Natasha',
-  2: 'Griffin,Rogatka,Rhino,Stalker,Carnage,Fuijin,Fujin,Raijin,Gareth,Galahad,Lancelot,Jesse,Doc,Butch,Bolt,Kumiho,Hover,Ao Qin',
+  1: 'Destrier,Cossack,Schutze,Gepard,GI Patton,Vityaz,Golem,Boa',
+  2: 'Griffin,Rogatka,Rhino,Stalker,Carnage,Fuijin,Fujin,Raijin,Gareth,Galahad,Lancelot,Leo,Natasha,Jesse,Doc,Butch,Bolt,Kumiho,Hover,Ao Qin',
 };
 for (const [tier, names] of Object.entries(legacyRobots)) {
   for (const name of names.split(',')) rarities[cleanKey(name)] = Number(tier);
@@ -25,11 +25,10 @@ export function getEquipmentAppearance(name, category) {
   const ultimate = /^(ue|ultimate)\s/i.test(cleanName);
   // Family portraits use the first member, matching getWeaponImage's lookup.
   const firstMemberKey = getEquipmentKey(cleanName.split(/[,/.]/)[0]);
-  // New equipment is T4 unless its name marks it as Ultimate. Keep recorded
-  // lower tiers authoritative, without depending on an up-to-date release list.
+  // Unknown weapons use a neutral color until their rarity is verified.
   const tier = ultimate ? 'ultimate' : category === 'Robots' ? (rarities[key] ?? 4)
     : category === 'Titans' ? (titanRarities[key] || 4)
-    : (equipmentTiers[category]?.[firstMemberKey] ?? 4);
+    : (equipmentTiers[category]?.[firstMemberKey] ?? (category.includes('Weapons') ? null : 4));
   const color = colors[tier] || '#64748b';
   return { tier, color, background: `linear-gradient(135deg, ${color}66, ${color}22)` };
 }
