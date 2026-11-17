@@ -283,6 +283,15 @@ def parse_specializations():
                 else:
                     current_section["description"] = (current_section["description"] + "\n" + text).strip()
                     
+    # Keep these corrections when the upstream guide is refreshed.
+    for section in specs_data["sections"]:
+        if section["title"] == "Attack/Defense (Robot)":
+            for slot in section["slots"]:
+                if slot["name"].lower() == "first module slot":
+                    slot["content"] = re.sub(r"For defense,[^\n]*", "For defense, always take Anticontrol first, even on Fang.", slot["content"])
+                elif slot["name"].lower() == "second module slot":
+                    slot["content"] = re.sub(r"For defense,[^\n]*", "For defense, generally take heavy armor kit, but on saboteurs that rely on shields, fortifier can be taken instead.", slot["content"])
+
     specs_data["intro"] = "\n".join(intro_paragraphs)
     specs_data["conclusion"] = "\n".join(conclusion_paragraphs)
     
@@ -396,7 +405,7 @@ def parse_tiers():
     # Parse standard tiers and descriptions from docx
     doc = Document(docx_path)
     
-    categories = ["Robots", "Titans", "Drones", "Motherships", "Mothership Turrets", "Robot Weapons", "Titan Weapons"]
+    categories = ["Robots", "Titans", "Drones", "Motherships", "Mothership Turrets", "Robot Weapons", "Titan Weapons", "Active Modules"]
     tiers_list = ["X", "S", "A", "B", "C", "D", "E", "F", "Z"]
     
     # Normalize category names in docx
@@ -408,7 +417,8 @@ def parse_tiers():
         "motherships": "Motherships",
         "mothership turrets": "Mothership Turrets",
         "robot weapons": "Robot Weapons",
-        "titan weapons": "Titan Weapons"
+        "titan weapons": "Titan Weapons",
+        "active modules": "Active Modules"
     }
     
     tiers_data = {cat: {t: {"casual_name": "", "items": []} for t in tiers_list} for cat in categories}
@@ -521,7 +531,8 @@ def parse_tiers():
         "drones": "Drones",
         "motherships": "Motherships",
         "weapons": "Robot Weapons",
-        "mothership turrets": "Mothership Turrets"
+        "mothership turrets": "Mothership Turrets",
+        "active modules": "Active Modules"
     }
     
     excel_current_category = None

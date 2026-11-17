@@ -93,6 +93,7 @@ export function TierListTab({ onItemClick, isEasterEggActive = false }) {
           { label: 'Mothership Turrets', value: 'Mothership Turrets' },
           { label: 'Robot Weapons', value: 'Robot Weapons' },
           { label: 'Titan Weapons', value: 'Titan Weapons' },
+          { label: 'Active Modules', value: 'Active Modules' },
           ...(isEasterEggActive ? [{ label: 'Pilots', value: 'Pilots' }] : [])
         ]}
         activeTab={selectedCategory}
@@ -190,7 +191,7 @@ export function TierListTab({ onItemClick, isEasterEggActive = false }) {
                   // eslint-disable-next-line no-unused-vars
                   const { _searchName, _searchDesc, ...publicItem } = item;
                   const { cleanName, tags } = extractTierTags(item.name);
-                  const imageUrl = getItemImage(item.name, selectedCategory);
+                  const imageUrl = getItemImage(cleanName, selectedCategory);
                   const isNew = isNewTierItem(item.name, selectedCategory);
                   const mainRole = robotRolesMap[getUnitKey(cleanName)] || '';
                   const roleIconUrl = getRoleIcon(mainRole);

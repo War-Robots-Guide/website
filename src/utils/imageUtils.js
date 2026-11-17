@@ -181,6 +181,7 @@ export function getModuleImage(name) {
 export function getItemImage(name, category = '') {
   if (!name) return null;
   const catLower = category.toLowerCase();
+  if (catLower.includes('module')) return getModuleImage(name);
   if (catLower.includes('weapon')) {
     return getWeaponImage(name, category);
   }

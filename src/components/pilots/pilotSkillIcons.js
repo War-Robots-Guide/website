@@ -8,7 +8,7 @@ const groups = [
   ['Defense Expert, Ferocious Guardian, Engine Expert (ROBOTS) Traditionalist, Daredevil, Ghost (TITANS).png', ['Engine Expert, Defense Expert, Ferocious Guardian', 'Traditionalist, Daredevil, Ghost']],
   ['Energy Shield Expert, Crazy Electrician.png', ['Energy Shield Expert/Crazy Electrician']],
   ['Knight Errant, Physical Shield Expert, Hoplite.png', ['Knight Errant', 'Physical Shield Expert', 'Hoplite']],
-  ['Master Gunsmith, Gunsmith, Berserker.png', ['Master Gunsmith', 'Gunsmith (Weapon Specific)', 'Berserker']],
+  ['Master Gunsmith, Gunsmith, Berserker.png', ['Master Gunsmith', 'Gunsmith (Weapon Specific)', 'Berserker', 'Survivor and Thrill Seeker']],
   ['Opportunist skills, Bounty hunter.png', ['"Opportunist" skills, Bounty hunter', 'Bounty Hunter', 'Wise Opportunist', 'Cunning Opportunist']],
   ['Adamant skiks, Ninja, Raider skills.png', ['Invulnerable Raider', 'Raider Mechanic, Ninja', '"Adamant" skills', '"Raider" skills, Ninja', 'Adamant Mechanic, Adamant Gunsmith']],
   ['Generalist, Heavyweight Battler, Rationalist, Hothead.png', ['Generalist, Heavyweight Battler, Rationalist, Hothead']],

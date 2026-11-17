@@ -1870,5 +1870,88 @@
     "[\u2b06\ufe0f] Items that are normally low tier but have the potential to perform at a much higher tier than listed due to current meta circumstances.",
     "[\u2b07\ufe0f] Items that are normally high tier but will likely perform worse than usual at the moment due to current meta circumstances.",
     "[\ud83d\udc41\ufe0f] Items so powerful that the meta is being bent around them. [\u2b06\ufe0f] and [\u2b07\ufe0f] tags are based on these."
-  ]
+  ],
+  "Active Modules": {
+    "X": {
+      "casual_name": "insane (X)",
+      "items": [
+        {
+          "name": "Phase Shift",
+          "description": "The most incredibly broken module ever conceptualized. Phase shift is a \u201cget out of jail free\u201d card that is used on virtually every damage dealer, saboteur, or support type bot, as it cleanses all debuffs and makes you completely invulnerable (but also unable to shoot) for 3 seconds, which allows you to escape otherwise fatal situations. Few bots can justify not taking Phase Shift (aside from brawlers of course, who often take healing modules)."
+        }
+      ]
+    },
+    "S": {
+      "casual_name": "cracked (S)",
+      "items": [
+        {
+          "name": "\u2b07\ufe0fUnstable Conduit",
+          "description": "This module changes its effect every few updates, and it sometimes performs on par with Phase Shift when the effect is really strong, but it\u2019s usually just an upgraded Advanced Repair Unit that costs more powercells but also gives a nice additional effect on top of healing you. \u2b07\ufe0f As of War Robots v12.5, Unstable Conduit gives 35% extra durability and 20% extra speed on activation, but it doesn\u2019t heal at all. It\u2019s literally just Curie\u2019s ability stuffed into a module, and kind of a sidegrade to Advanced Repair in this meta. In some sense, it\u2019s even a bit of a downgrade as Advanced Repair heals 40%."
+        }
+      ]
+    },
+    "A": {
+      "casual_name": "solid (A)",
+      "items": [
+        {
+          "name": "Advanced Repair Unit",
+          "description": "The generic option for brawlers, giving a 40% repair over 4 seconds with a 20 second cooldown. When health low, press button, very simple."
+        }
+      ]
+    },
+    "B": {
+      "casual_name": "decent (B)",
+      "items": [
+        {
+          "name": "Jump Unit",
+          "description": "A nice module that some brawlers can justify equipping as it provides them with some desirable mobility. Certain bots can even \u201csuper jump\u201d by using their own jump ability with this module at the same time, allowing them to cross incredible distances. Often, you\u2019ll want to cover for your lack of healing with something like the Showdown drone if you equip this."
+        }
+      ]
+    },
+    "C": {
+      "casual_name": "niche (C)",
+      "items": [
+        {
+          "name": "\u2b07\ufe0fShieldbreaker",
+          "description": "This module enables your robot to ignore shields for a short while, which is pretty valuable because there aren\u2019t all too many avenues to do this if your robot doesn\u2019t have shieldbreaker built in (ie, legendary pilot skill or access to a reflector so you can use Hawkeye). Unfortunately, it has to compete with Phase Shift. \u2b07\ufe0fDue to a bug, Shieldbreaker is currently not even available to use as it has been temporarily disabled."
+        }
+      ]
+    },
+    "D": {
+      "casual_name": "very niche (D)",
+      "items": [
+        {
+          "name": "Lock-Down Ammo",
+          "description": "This module enables your weapons to instantly lock down any enemies they hit, which is noteworthy because it allows you to lock down many enemies at once if you shoot multiple people or use AoE damage (ie, Siren/Harpy ability). Unfortunately, it has to compete with Phase Shift."
+        }
+      ]
+    },
+    "E": {
+      "casual_name": "bad (E)",
+      "items": [
+        {
+          "name": "Quantum Radar",
+          "description": "Unlike Shieldbreaker, this module is completely trolling to equip because half the bots in the game can easily justify using their drone slot to gain antistealth without giving up Phase Shift by simply equipping Seeker."
+        }
+      ]
+    },
+    "F": {
+      "casual_name": "budget repair (F)",
+      "items": [
+        {
+          "name": "Repair Unit",
+          "description": "This is a downgrade to Advanced Repair Unit, which is usually a downgrade to Unstable Conduit. There is nothing this module does better than Advanced Repair Unit other than being cheaper. It just heals less. Since this list is power based, this module ranks low."
+        }
+      ]
+    },
+    "Z": {
+      "casual_name": "awful (Z)",
+      "items": [
+        {
+          "name": "Death Mark",
+          "description": "Extra damage sounds tempting, but you won\u2019t take more damage over Phase Shift for damage dealers, and you won\u2019t take more damage over more healing for brawlers. There just isn\u2019t any bot in the game that cares about this module."
+        }
+      ]
+    }
+  }
 }

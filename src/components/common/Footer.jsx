@@ -19,7 +19,7 @@ export function Footer({ onDeveloperClick, onAdazahiClick }) {
         >
           Adazahi
         </span>
-        , Spiritings, Tropical, Mistermath314, and Running Riot. Developed by{' '}
+        , Spiritings, Tropical, Mistermath314, Running Riot, and Gagaolala. Developed by{' '}
         <span 
           onClick={onDeveloperClick} 
           className="footer-credit-link"

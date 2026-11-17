@@ -63,11 +63,11 @@
       "slots": [
         {
           "name": "First module slot",
-          "content": "For attack, you can take whichever you like. Piercer units are better if you're fighting enemies with defense points, thermonukes are better otherwise. I prefer thermonukes for consistency.\nFor defense, take anticontrol if you need it."
+          "content": "For attack, you can take whichever you like. Piercer units are better if you're fighting enemies with defense points, thermonukes are better otherwise. I prefer thermonukes for consistency.\nFor defense, always take Anticontrol first, even on Fang."
         },
         {
           "name": "Second module slot",
-          "content": "For attack, same as first slot.\nFor defense, you take heavy armor kit. If you have a really good shield, fortifier is an okay option in one or both slots, depending on whether you need anticontrol."
+          "content": "For attack, same as first slot.\nFor defense, generally take heavy armor kit, but on saboteurs that rely on shields, fortifier can be taken instead."
         }
       ]
     },

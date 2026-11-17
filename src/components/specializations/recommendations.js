@@ -15,7 +15,7 @@ const recommendations = {
   'Saboteur (Robot)': [[choice('Beacon Operator')], [choice('Robot Accelerator')]],
   'Attack/Defense (Robot)': [
     [choice('Piercer Unit', 'Attack: against defense points'), choice('Thermonuclear Reactor', 'Attack: general use'), choice('Anticontrol', 'Defense')],
-    [choice('Piercer Unit', 'Attack: against defense points'), choice('Thermonuclear Reactor', 'Attack: general use'), choice('Heavy Armor Kit', 'Defense')],
+    [choice('Piercer Unit', 'Attack: against defense points'), choice('Thermonuclear Reactor', 'Attack: general use'), choice('Heavy Armor Kit', 'Defense: general use'), choice('Fortifier', 'Defense: shield-reliant Saboteurs')],
   ],
   'Damage Dealer (Titan)': [[choice('Titan Nuclear Amplifier')],
     [choice('Titan Overdrive Unit', 'General use'), choice('Cannibal Reactor', 'Long-range sniper builds')]],
