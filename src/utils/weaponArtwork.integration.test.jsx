@@ -69,14 +69,14 @@ it('keeps newly listed weapons usable with placeholders until artwork is availab
   }
 });
 
-it('uses a neutral color for weapons until their rarity is known', () => {
+it('uses T4 colors for weapons not yet in the rarity catalog', () => {
   render(<TierListTab onItemClick={vi.fn()} />);
   fireEvent.click(screen.getByRole('button', { name: 'Robot Weapons', exact: true }));
 
   for (const name of ['Mesmer L', 'Mesmer M', 'Mesmer H']) {
     const card = screen.getByRole('button', { name: `View details for ${name}` });
     expect(card.querySelector('.prydwen-portrait-container'))
-      .toHaveStyle({ borderBottomColor: '#64748b' });
+      .toHaveStyle({ borderBottomColor: '#f59e0b' });
   }
   const ultimateCard = screen.getByRole('button', { name: 'View details for UE Gust' });
   expect(ultimateCard.querySelector('.prydwen-portrait-container'))

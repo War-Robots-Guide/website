@@ -63,8 +63,8 @@ describe('Equipment rarity colors', () => {
     });
   });
 
-  it.each(['Robot Weapons', 'Titan Weapons'])('uses a neutral color for unverified %s', category => {
-    expect(getEquipmentAppearance('New Weapon', category)).toMatchObject({ tier: null, color: '#64748b' });
+  it.each(['Robot Weapons', 'Titan Weapons'])('defaults unlisted %s to T4', category => {
+    expect(getEquipmentAppearance('New Weapon', category)).toMatchObject({ tier: 4, color: '#f59e0b' });
   });
 
   it.each(['UE New Weapon L', 'Ultimate New Weapon L'])('recognizes uncatalogued %s as Ultimate by name', name => {

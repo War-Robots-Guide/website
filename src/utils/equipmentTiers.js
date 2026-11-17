@@ -25,10 +25,10 @@ export function getEquipmentAppearance(name, category) {
   const ultimate = /^(ue|ultimate)\s/i.test(cleanName);
   // Family portraits use the first member, matching getWeaponImage's lookup.
   const firstMemberKey = getEquipmentKey(cleanName.split(/[,/.]/)[0]);
-  // Unknown weapons use a neutral color until their rarity is verified.
+  // Uncatalogued equipment defaults to T4; explicit rarity entries take precedence.
   const tier = ultimate ? 'ultimate' : category === 'Robots' ? (rarities[key] ?? 4)
     : category === 'Titans' ? (titanRarities[key] || 4)
-    : (equipmentTiers[category]?.[firstMemberKey] ?? (category.includes('Weapons') ? null : 4));
+    : (equipmentTiers[category]?.[firstMemberKey] ?? 4);
   const color = colors[tier] || '#64748b';
   return { tier, color, background: `linear-gradient(135deg, ${color}66, ${color}22)` };
 }
