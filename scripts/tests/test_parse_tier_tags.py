@@ -35,6 +35,9 @@ class TierTagTests(unittest.TestCase):
             doc.add_heading('Titan Weapons', level=1)
             doc.add_heading('S tier', level=2)
             doc.add_paragraph('Vengeance: A weapon.')
+            doc.add_heading('Unsupported Category', level=1)
+            doc.add_heading('S tier', level=2)
+            doc.add_paragraph('Unlisted: An unsupported item.')
             doc.add_heading('Active Modules', level=1)
             doc.add_heading('S tier', level=2)
             doc.add_paragraph('Phase Shift: A module.')
@@ -49,5 +52,9 @@ class TierTagTests(unittest.TestCase):
                 tiers = json.load(file)
         self.assertEqual([item['name'] for item in tiers['Titan Weapons']['S']['items']], ['Vengeance'])
         self.assertEqual([item['name'] for item in tiers['Robots']['S']['items']], ['Raven'])
-        self.assertNotIn('Active Modules', tiers)
+        self.assertNotIn('Unsupported Category', tiers)
+        self.assertEqual(tiers['Active Modules']['S']['items'], [
+            {'name': 'Phase Shift', 'description': 'A module.'}
+        ])
+        self.assertNotIn('Unlisted: An unsupported item.', tiers['disclaimers'])
         self.assertNotIn('Phase Shift: A module.', tiers['disclaimers'])
