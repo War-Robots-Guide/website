@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { TierListTab } from './TierListTab';
 
@@ -10,7 +10,7 @@ vi.mock('../../data/tiers.json', () => ({
       S: {
         casual_name: "Top Tier",
         items: [
-          { name: "SuperBot", description: "The best robot ever" },
+          { name: "SuperBot", description: "The best robot ever 👥Better in squads. See [⬆️] for context." },
           { name: "MegaBot", description: "Also very good" }
         ]
       },
@@ -46,6 +46,13 @@ describe('TierListTab', () => {
     vi.clearAllMocks();
   });
 
+  it('shows rationale tags on cards without treating bracketed references as tags', () => {
+    render(<TierListTab onItemClick={vi.fn()} />);
+    const card = screen.getByRole('button', { name: 'View details for SuperBot' });
+    expect(within(card).getByText('👥')).toBeInTheDocument();
+    expect(within(card).queryByText('⬆️')).not.toBeInTheDocument();
+  });
+
   it('renders the heading and description and toggles tag legend', () => {
     render(<TierListTab onItemClick={vi.fn()} />);
     expect(screen.getByText('Tier Lists')).toBeInTheDocument();
@@ -72,7 +79,7 @@ describe('TierListTab', () => {
 
     // Check if items from the default "Robots" category are rendered
     expect(screen.getByText('SuperBot')).toBeInTheDocument();
-    expect(screen.getByText('The best robot ever')).toBeInTheDocument();
+    expect(screen.getByText(/The best robot ever/)).toBeInTheDocument();
     expect(screen.getByText('MegaBot')).toBeInTheDocument();
     expect(screen.getByText('GoodBot')).toBeInTheDocument();
 
@@ -155,7 +162,7 @@ describe('TierListTab', () => {
     expect(mockOnItemClick).toHaveBeenCalledTimes(1);
     expect(mockOnItemClick).toHaveBeenCalledWith('SuperBot', 'Robots', {
       name: 'SuperBot',
-      description: 'The best robot ever'
+      description: 'The best robot ever 👥Better in squads. See [⬆️] for context.'
     });
   });
 

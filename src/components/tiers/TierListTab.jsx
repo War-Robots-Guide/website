@@ -1,3 +1,4 @@
+import { parseRationaleAndTags } from '../../utils/rationaleTags';
 import { GuideDisclosure } from '../common/GuideDisclosure';
 import { PageHero } from '../common/PageHero';
 import { RoleGuide } from '../common/RoleGuide';
@@ -190,7 +191,10 @@ export function TierListTab({ onItemClick, isEasterEggActive = false }) {
                 {tierInfo.items.map(item => {
                   // eslint-disable-next-line no-unused-vars
                   const { _searchName, _searchDesc, ...publicItem } = item;
-                  const { cleanName, tags } = extractTierTags(item.name);
+                  const { cleanName, tags: nameTags } = extractTierTags(item.name);
+                  const rationaleTags = parseRationaleAndTags(item.description).tagNotes.map(({ tag }) =>
+                    ['⬆', '⬇', '👁', '‼'].includes(tag) ? `${tag}️` : tag);
+                  const tags = [...new Set([...nameTags, ...rationaleTags])];
                   const imageUrl = getItemImage(cleanName, selectedCategory);
                   const isNew = isNewTierItem(item.name, selectedCategory);
                   const mainRole = robotRolesMap[getUnitKey(cleanName)] || '';
