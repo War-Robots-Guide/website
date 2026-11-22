@@ -333,7 +333,7 @@ export function WeaponsDpsTab() {
   return (
     <div className="text-left" ref={entranceRef}>
       <PageHero title="Weapon DPS">
-        Compare weapon damage, range, and reload stats. Select up to four weapons to compare DPS.
+        Compare weapon damage, range, and reload stats.
       </PageHero>
 
       <div className="weapons-tab-container">
