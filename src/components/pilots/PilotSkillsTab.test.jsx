@@ -72,7 +72,7 @@ describe('PilotSkillsTab', () => {
       render(<PilotSkillsTab />);
       const icons = screen.getByText(name).parentElement.querySelectorAll('img');
       expect(icons).toHaveLength(1);
-      expect(decodeURIComponent(icons[0].getAttribute('src'))).toBe('/pilot-skills/Adamant skiks, Ninja, Raider skills.png');
+      expect(decodeURIComponent(icons[0].getAttribute('src'))).toBe('/pilot-skills/Adamant Road Hog, Adamant Gunsmith, Adamant Mechanic, Raider Mechanic, Invulnerable Raider, Ninja.png');
     }
   );
 

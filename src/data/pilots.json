@@ -117,7 +117,7 @@
         "description": "These skills are hard to justify slotting in over more reliable and unconditional stat boosts."
       },
       {
-        "name": "\"Opportunist\" skills, Bounty hunter",
+        "name": "Cunning Opportunist, Wise Opportunist, Bounty hunter",
         "description": "These skills are OP in PvE but useless in normal modes."
       },
       {
@@ -259,11 +259,11 @@
         "description": "These kind of suck for titans, since they don't want to trade off their durability or damage for speed"
       },
       {
-        "name": "\"Adamant\" skills",
+        "name": "Adamant Road Hog, Adamant Gunsmith, Adamant Mechanic",
         "description": "On titans, these skills don't even give enough stats to be worth picking at all."
       },
       {
-        "name": "\"Raider\" skills, Ninja",
+        "name": "Raider Mechanic, Invulnerable Raider, Ninja",
         "description": "On titans, these skills don't even give enough stats to be worth picking at all."
       },
       {
